@@ -231,5 +231,8 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
         "paragraphs_without_quotes": sum(1 for x in paragraphs if x.text.strip() and not any(q.strip() for q in x.quotes)),
         "process_note": raw.process_note.strip(),
     }
+    # Every paragraph must come with a quote that is found in a paper it cites: the same
+    # rule the evidence-graph strategy enforces through its findings.
     return draft_to_entry(seed, papers, raw, llm, strategy="agent", gene_facts=gene_facts,
-                          check_quotes=True, meta={"agent": agent_meta})
+                          check_quotes=True, require_quotes=True, model_stage="agent",
+                          meta={"agent": agent_meta})

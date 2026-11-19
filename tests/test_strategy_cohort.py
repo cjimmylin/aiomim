@@ -47,7 +47,7 @@ class _Hit:
 
 
 class FakeHPO:
-    terms = {"HP:0001332": "Dystonia", "HP:0000648": "Optic atrophy", "HP:0001250": "Seizure"}
+    terms = {"HP:0001332": "Dystonia", "HP:0000648": "Optic atrophy", "HP:0001250": "Seizure", "HP:0001251": "Ataxia"}
 
     def exact(self, text):
         return next((i for i, label in self.terms.items() if label.lower() == text.lower()), None)
@@ -89,9 +89,9 @@ def stub_services(monkeypatch):
     monkeypatch.setitem(sys.modules, "aiomim.sources.hgnc", hgnc_module)
 
 
-def _ph(text, label, present=True, n_with=None, n_assessed=None, some_only=False):
+def _ph(text, label, present=True, n_with=None, n_assessed=None, some_only=False, other_cause=False):
     return cohort.XCasePhenotype(text=text, hpo_label=label, present=present, n_with=n_with,
-                                 n_assessed=n_assessed, some_only=some_only)
+                                 n_assessed=n_assessed, some_only=some_only, other_cause=other_cause)
 
 
 def _var(as_reported, cdna="", protein="", zygosity="homozygous", origin="inherited", gene="GENEX",
@@ -141,6 +141,7 @@ class ScriptedLLM:
         return cohort.XCases(relevance="supporting", relevance_reason="further case", records=[
             _rec("Patient", "individual", 1,
                  [_ph("dystonia", "Dystonia"), _ph("seizures", "Seizure"),
+                  _ph("ataxia from drug toxicity", "Ataxia", other_cause=True),   # not counted
                   _ph("optic atrophy", "Optic atrophy", present=False)],
                  [_var("R34W")], "A 9-year-old girl presented with dystonia and seizures.", sex="female"),
         ], notes=[cohort.XNote(section="pathogenesis", inheritance="UNKNOWN",
@@ -191,7 +192,7 @@ def test_record_with_invented_quote_is_set_aside(run):
     assert entry.meta["cohort"]["records_dropped_ungrounded"] == 1
     prompt = next(p for stage, p in llm.calls if stage == "synthesize")
     assert "[R:111:1]" in prompt and "[N:222:1]" in prompt
-    assert "R:111:2" not in prompt and "ataxia" not in prompt.lower()
+    assert "R:111:2" not in prompt and "cerebellar ataxia" not in prompt.lower()
     assert "seventh" not in entry.plain_text()
 
 
@@ -202,6 +203,7 @@ def test_counts_pool_across_papers(run):
     assert (ph["HP:0001332"]["present"], ph["HP:0001332"]["absent"], ph["HP:0001332"]["assessed"]) == (4, 0, 4)
     # "2 of 3" in paper A (the third sib is assessed, not explicitly without it), explicitly absent in paper B.
     assert (ph["HP:0000648"]["present"], ph["HP:0000648"]["absent"], ph["HP:0000648"]["assessed"]) == (2, 1, 4)
+    assert not any(r["label"] == "Ataxia" for r in ph.values())     # attributed to another cause
     # Absent in all 3 sibs, present in the girl.
     assert (ph["HP:0001250"]["present"], ph["HP:0001250"]["absent"]) == (1, 3)
 
@@ -285,3 +287,21 @@ def test_group_feature_counts():
     assert cohort._tally_feature(some, 6) == (1, 0, 6)       # "some": a lower bound, never the whole group
     assert cohort._tally_feature(counted, 6) == (2, 0, 5)
     assert cohort._tally_feature(absent, 6) == (0, 6, 6)
+
+
+def test_follow_up_records_are_not_counted_twice():
+    def rec(rid, label, hpo_ids, previously=""):
+        return cohort.CaseRecord(id=rid, pmid=rid.split(":")[1], label=label, kind="family", n_affected=3,
+                                 previously_reported=previously,
+                                 phenotypes=[cohort.CasePhenotype(text=h, hpo_id=h, hpo_label=h) for h in hpo_ids])
+    cases = [
+        cohort.PaperCases(pmid="111", relevance="primary", records=[rec("R:111:1", "Family 1", ["HP:0001332"])]),
+        cohort.PaperCases(pmid="222", relevance="primary", records=[
+            rec("R:222:1", "Family 1", ["HP:0001332", "HP:0001250"], previously="Kaya et al., 2001")]),
+    ]
+    table = cohort.CaseTable(SEED, {"111": PAPER_A, "222": PAPER_B}, cases, normalize_gene=str.upper)
+    assert table.records["R:222:1"].followup_of == "111"
+    assert table.totals()["individuals"] == 3 and table.totals()["follow_up_records"] == 1
+    ph = table.phenotype_table()
+    assert ph["HP:0001332"]["present"] == 3 and ph["HP:0001332"]["pmids"] == ["111", "222"]
+    assert ph["HP:0001250"]["present"] == 3 and ph["HP:0001250"].get("from_follow_up")   # only the follow-up has it

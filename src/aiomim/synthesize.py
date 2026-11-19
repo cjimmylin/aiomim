@@ -607,6 +607,8 @@ def draft_to_entry(
     gene_facts: dict[str, dict[str, str]] | None = None,
     keep_uncited: bool = False,
     check_quotes: bool = False,
+    require_quotes: bool = False,
+    model_stage: str = "synthesize",
     meta: dict | None = None,
 ) -> GeneratedEntry:
     """Turn a model-written draft into a `GeneratedEntry`, applying the same guards for every strategy.
@@ -623,7 +625,8 @@ def draft_to_entry(
       `keep_uncited` (used for the memory-only control, whose point is to see what
       the model writes without sources);
     * with `check_quotes`, a paragraph that offers verbatim `quotes` must have at
-      least one of them found in a paper it cites, or it is dropped;
+      least one of them found in a paper it cites, or it is dropped; with
+      `require_quotes` as well, a paragraph that offers none is dropped too;
     * OMIM cross-reference numbers the evidence cannot have supplied are stripped;
     * gene symbols are normalised, and synopsis phrases are mapped to HPO terms by
       ontology search, never by recall.
@@ -647,8 +650,10 @@ def draft_to_entry(
 
     def quotes_hold(x, pmids: list[str]) -> bool:
         quotes = [squash(q) for q in (getattr(x, "quotes", None) or []) if squash(q)]
-        if not check_quotes or not quotes:
+        if not check_quotes:
             return True
+        if not quotes:
+            return not require_quotes
         quote_stats["paragraphs_with_quotes"] += 1
         quote_stats["quotes"] += len(quotes)
         found = 0
@@ -730,7 +735,7 @@ def draft_to_entry(
     entry.references = _references(entry, by_pmid)
     entry.meta = {
         "strategy": strategy, "generated": date.today().isoformat(),
-        "model": llm.settings.model_for("synthesize"),
+        "model": llm.settings.model_for(model_stage),
         "dropped_ungrounded": dropped, "unknown_citations": sorted(set(unknown_citations)),
         "removed_cross_references": removed_mims, "hpo_resolution": hpo_stats,
         **({"quote_check": quote_stats} if check_quotes else {}),

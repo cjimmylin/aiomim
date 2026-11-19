@@ -28,6 +28,8 @@ Counting rules (see `_tally_feature` and `pool`):
   as 1 present (a lower bound) and the record's size as assessed. A feature the
   paper says was absent counts the same way on the absent side.
 * The same term reported twice in one record is counted once (the larger tally).
+* A feature the paper attributes to another cause (a second condition, an
+  infection, a treatment) is shown to the writer but not counted.
 * A group whose members carry different variants the paper does not assign
   ("mixed genotypes") counts towards features and totals, but adds no carriers
   to any one variant row.
@@ -116,11 +118,13 @@ class XCasePhenotype(BaseModel):
                                                "paper gives a number; else null")
     some_only: bool = Field(description='True when the paper says only some members had it ("some", "several", '
                                         '"most") without giving a number')
+    other_cause: bool = Field(description="True when the paper attributes this feature to something other than this "
+                                          "entry's disorder (another variant or condition, an infection, a treatment)")
 
 
 class XCaseVariant(XVariant):
     authors_conclusion: Literal["causal", "uncertain", "not_causal"] = Field(
-        description="What the paper concludes about this variant as the cause of these patients' disorder")
+        description="What the paper concludes about this variant as the cause of the disorder this entry is about")
 
 
 class XRecord(BaseModel):
@@ -138,8 +142,8 @@ class XRecord(BaseModel):
     variants: list[XCaseVariant]
     segregation: str = Field(description='How the variant segregated in the family, as stated; else ""')
     inheritance: InheritanceCode = Field(description="Mode the family shows or the authors state for it; else UNKNOWN")
-    previously_reported: str = Field(description='If the paper says these patients were reported before, the citation '
-                                                 'it gives (e.g. "Smith et al. 1998"); else ""')
+    previously_reported: str = Field(description='If the paper says these patients were reported before, that earlier '
+                                                 'report as first author and year (e.g. "Smith et al. 1998"); else ""')
     mixed_genotypes: bool = Field(description="True for a group whose members carry different variants that the "
                                               "paper does not assign to particular members")
     quotes: list[str]
@@ -189,7 +193,8 @@ earlier literature without new data are not records.
 `n_affected` and `n_families`: how many affected individuals and families the record covers (1 and 1 \
 for an individual), or null if not stated. Fill `sex`, `ancestry`, `consanguinity`, `onset`, `age_last` \
 only from what is stated. `previously_reported`: if the paper says these patients were described \
-before, the citation it gives.
+before (also by the same authors), that earlier report as first author and year; when the paper cites \
+it by number, look the number up in the paper's reference list.
 
 `phenotypes`: each clinical, imaging, laboratory or pathology feature reported for the record, as a \
 short noun phrase, with `hpo_label` set to the Human Phenotype Ontology term name you believe matches \
@@ -197,15 +202,18 @@ best. Set `present` to false only for features the paper explicitly says were ab
 are added up across papers, so be exact: for a group, if the paper gives a number ("2 of 5 had \
 seizures"), set `n_with` 2 and `n_assessed` 5; if it says the whole group had it, leave both null; if \
 it says only "some", "several" or "most" had it without a number, set `some_only` true and leave the \
-numbers null. Never count a feature as present in the whole group when the paper says only some had it.
+numbers null. Never count a feature as present in the whole group when the paper says only some had it. \
+Set `other_cause` true for a feature the paper attributes to something other than this entry's disorder \
+(a second genetic condition the patients also have, an infection, a treatment).
 
 `variants`: the variants found in the record's affected members, one item each, with the fields filled \
 only from what the paper states (leave a field empty rather than deriving it); zygosity as found in the \
 patient, and compound_heterozygous only when the paper says the two variants are compound heterozygous \
 or in trans (two variants with phase not stated are each heterozygous); `origin` de_novo only if the \
 paper says so; `authors_conclusion`: causal if the authors \
-conclude this variant causes the patients' disorder, not_causal if they consider it incidental, a \
-benign polymorphism or the cause of something else, uncertain otherwise. `segregation`: how the variant segregated in the \
+conclude this variant causes the disorder of the patients that this entry is about, not_causal if they \
+consider it incidental, a benign polymorphism, or the cause of a different condition the patients also \
+have, uncertain otherwise. `segregation`: how the variant segregated in the \
 family, in a few words, as stated. `inheritance`: the mode the family's pedigree shows or the authors \
 state for it, otherwise UNKNOWN.
 
@@ -248,6 +256,7 @@ class CasePhenotype(BaseModel):
     n_with: int | None = None
     n_assessed: int | None = None
     some_only: bool = False
+    other_cause: bool = False
 
 
 class CaseRecord(BaseModel):
@@ -332,7 +341,7 @@ def _to_cases(paper: Paper, source: str, raw: XCases) -> PaperCases:
             phenotypes=[CasePhenotype(text=squash(p.text), hpo_label=squash(p.hpo_label), present=p.present,
                                       n_with=p.n_with if p.n_with is not None and p.n_with >= 0 else None,
                                       n_assessed=p.n_assessed if (p.n_assessed or 0) > 0 else None,
-                                      some_only=p.some_only)
+                                      some_only=p.some_only, other_cause=p.other_cause)
                         for p in x.phenotypes if squash(p.text)],
             variants=[VariantMention(**v.model_dump(exclude={"authors_conclusion"})) for v in x.variants],
             variant_roles=[v.authors_conclusion for v in x.variants],
@@ -675,7 +684,7 @@ class CaseTable:
             for rec in records:
                 per_term: dict[str, tuple[tuple[int, int, int], CasePhenotype]] = {}
                 for p in rec.phenotypes:
-                    if not p.hpo_id:
+                    if not p.hpo_id or p.other_cause:
                         continue
                     t = _tally_feature(p, rec.size)
                     if p.hpo_id not in per_term or t > per_term[p.hpo_id][0]:
@@ -876,7 +885,7 @@ def _record_line(rec: CaseRecord, table: CaseTable) -> str:
         count = (f" {p.n_with}/{p.n_assessed}" if p.n_with is not None and p.n_assessed else
                  f" {p.n_with}" if p.n_with is not None else " (some)" if p.some_only else "")
         feats.append(f"{p.text}{' [' + p.hpo_label + ']' if p.hpo_label else ''}"
-                     f"{'' if p.present else ' ABSENT'}{count}")
+                     f"{'' if p.present else ' ABSENT'}{count}{' (attributed to another cause)' if p.other_cause else ''}")
     if feats:
         lines.append("  features: " + "; ".join(feats))
     if rec.variants:
