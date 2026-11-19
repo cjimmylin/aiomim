@@ -80,8 +80,8 @@ STICKLER SYNDROME, TYPE VI	has_phenotype	Flat acetabular roof	30450842
 STICKLER SYNDROME, TYPE VI	has_phenotype	Irregular distal femoral epiphysis	30450842
 STICKLER SYNDROME, TYPE VI	has_phenotype	Irregular vertebral endplates	30450842
 STICKLER SYNDROME, TYPE VI	has_phenotype	Primary hypothyroidism	30450842
+High myopia	is_a	Myopia	
+Rhegmatogenous retinal detachment	is_a	Retinal detachment	
 Progressive sensorineural hearing impairment	is_a	Sensorineural hearing impairment	
 Vitreoretinopathy	is_a	Abnormal vitreous humor morphology	
-Rhegmatogenous retinal detachment	is_a	Retinal detachment	
-High myopia	is_a	Myopia	
 Severe sensorineural hearing impairment	is_a	Sensorineural hearing impairment	

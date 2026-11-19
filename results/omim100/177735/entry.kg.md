@@ -18,59 +18,61 @@ A number sign (#) is used with this entry because of evidence that autosomal dom
 
 ### Description
 
-Pseudohypoaldosteronism type I (PHA1) is a primary form of mineralocorticoid resistance. In the newborn it presents with renal salt wasting, dehydration, hypotension, hyperkalemia, metabolic acidosis and failure to thrive, even though plasma aldosterone and plasma renin activity are elevated (Geller et al., 1998; Tajima et al., 2000; Pujo et al., 2007). Compared with the severe, multiorgan autosomal recessive form, which persists into adulthood and is caused by loss-of-function mutations in the epithelial sodium channel (ENaC), the autosomal dominant or sporadic form is milder and improves gradually with age (Geller et al., 1998; Tajima et al., 2000). Inactivating mutations in the mineralocorticoid receptor gene (MR; NR3C2) cause the autosomal dominant form and some sporadic cases (Pujo et al., 2007). ⚠︎
+Pseudohypoaldosteronism type I (PHA1) is a primary form of mineralocorticoid resistance. It presents in the newborn with renal salt wasting, dehydration, hypotension, hyperkalemia, metabolic acidosis and failure to thrive, despite elevated plasma aldosterone and plasma renin activity (Geller et al., 1998; Tajima et al., 2000; Pujo et al., 2007). The autosomal dominant or sporadic form, caused by inactivating mutations in the mineralocorticoid receptor gene, has milder salt wasting that improves with age. The autosomal recessive form is severe, affects multiple organs, and persists into adulthood (Geller et al., 1998; Tajima et al., 2000; Pujo et al., 2007). ⚠︎
 
 ### Clinical Features
 
 Cheek and Perry (1958) reported a salt-wasting syndrome in infancy.
 
-Donnell et al. (1959) described pseudohypo-adrenalocorticism, a condition with renal sodium loss, hyponatremia and hyperkalemia. They attributed it to insensitivity of the renal tubules to mineralocorticoids.
+Donnell et al. (1959) described pseudohypo-adrenalocorticism, a condition with renal sodium loss, hyponatremia, and hyperkalemia. They attributed it to insensitivity of the renal tubules to mineralocorticoids.
 
 Raine and Roy (1962) described a salt-losing syndrome in infancy, which they called pseudo-hypoadrenocorticalism.
 
-Armanini et al. (1985) studied 3 patients with pseudohypoaldosteronism from 2 families. One was a 28-year-old index case from Melbourne. The other 2 were sibs from Munich, aged 8 and 2 years, whose parents were first cousins. The younger sib, a boy, was less severely affected than his sister. The authors described the syndrome as salt wasting and failure to thrive, usually presenting in infancy with high urinary sodium despite hyponatremia, together with hyperkalemia, hyperreninemia and elevated aldosterone levels.
+Armanini et al. (1985) studied 3 patients with pseudohypoaldosteronism. One was a 28-year-old index case from Melbourne. The other 2 were sibs from Munich, aged 8 and 2 years, whose parents were first cousins. The younger sib, a boy, was less severely affected than his sister. The authors described the syndrome as salt wasting and failure to thrive, usually presenting in infancy. Urinary sodium was high despite hyponatremia, and patients had hyperkalemia, hyperreninemia, and elevated aldosterone levels.
 
-Hanukoglu (1991) described a kindred (kindred I) with renal type I pseudohypoaldosteronism. The propositus presented in infancy with renal salt wasting, including vomiting, failure to thrive, short stature, hyponatremia and hyperkalemia. He responded dramatically to a high-salt diet (2.5 g/day), and sodium supplementation was stopped at age 2 years. In 7 additional family members from 3 generations, clinical expression ranged from asymptomatic to moderate.
+Hanukoglu (1991) described a kindred (kindred I) with type I pseudohypoaldosteronism. The propositus presented in infancy with renal salt wasting, vomiting, failure to thrive, short stature, hyponatremia, and hyperkalemia. She responded dramatically to a high-salt diet (2.5 g/day), and sodium supplementation was stopped at age 2 years. Seven additional family members from 3 generations were affected, with clinical expression ranging from asymptomatic to moderate. ⚠︎
 
 ### Biochemical Features
 
-Armanini et al. (1985) found that Percoll-separated monocytes from controls bound [3H]aldosterone with high affinity (Kd about 3 nM) and limited capacity (150 to 600 sites per cell). On repeated testing, monocytes from 2 of their 3 patients showed no [3H]aldosterone binding. The third, less severely affected patient had 62 sites per cell, more than 2 SD below the control level. The parents of the Munich sibs had normal levels. The authors concluded that pseudohypoaldosteronism is caused by a defect, complete or partial, in the type I (mineralocorticoid) receptor.
+Armanini et al. (1985) found that Percoll-separated monocytes from controls bound [3H]aldosterone with high affinity (Kd about 3 nM) and limited capacity (150 to 600 sites per cell). On repeated testing, monocytes from patients 1 and 2 showed no [3H]aldosterone binding. Patient 3, who was less severely affected, had 62 sites per cell, more than 2 SD below the control level. The parents of the Munich sibs had normal levels. The authors concluded that pseudohypoaldosteronism is caused by a type I (mineralocorticoid) receptor defect, which may be complete or partial.
 
-In 4 affected members of kindred I (the propositus, his mother and 2 brothers), Hanukoglu (1991) found that hyperaldosteronism persisted over 13 years while plasma renin activity fell gradually to near-normal values. This was interpreted as the development of tertiary hyperaldosteronism due to an autonomously functioning zona glomerulosa.
+In 4 affected members of kindred I (the propositus, her mother, and 2 brothers), Hanukoglu (1991) found that hyperaldosteronism persisted over 13 years, while plasma renin activity fell gradually to near-normal values. This was interpreted as tertiary hyperaldosteronism caused by an autonomously functioning zona glomerulosa. ⚠︎
 
 ### Inheritance
 
-Armanini et al. (1985) suggested that pseudohypoaldosteronism may be transmitted as an autosomal recessive trait. Their basis was a Munich family in which the parents of 2 affected sibs were first cousins and had normal monocyte aldosterone-receptor levels. ⚠︎
+Hanukoglu et al. (1978) reported on the inheritance of pseudohypoaldosteronism.
 
-Hanukoglu (1991) concluded that the pedigree of a kindred with renal PHA I was consistent with autosomal dominant transmission with variable expression.
+In the Munich family, the parents were first cousins and had normal monocyte aldosterone-receptor levels. On this basis, Armanini et al. (1985) suggested that pseudohypoaldosteronism may be transmitted as an autosomal recessive trait. ⚠︎
 
-Geller et al. (1998) found heterozygous mineralocorticoid receptor mutations segregating with PHA1 in dominant kindreds, as well as 1 de novo mutation. Autosomal dominant inheritance was also reported by Tajima et al. (2000), Sartorato et al. (2003), Riepe et al. (2006) and Pujo et al. (2007).
+Hanukoglu (1991) concluded that the pedigree of kindred I, which had renal PHA I, was consistent with autosomal dominant transmission with variable expression.
+
+Autosomal dominant transmission was supported by the finding of heterozygous mineralocorticoid receptor mutations that segregated with PHA1 in dominant kindreds (Geller et al., 1998).
 
 ### Heterogeneity
 
-Hanukoglu (1991) described a second kindred in which the propositus, the child of a consanguineous marriage, developed severe renal salt losing at age 9 days. She also had increased salivary and sweat electrolytes, which indicated unresponsiveness to mineralocorticoids in multiple target organs. Life-threatening salt wasting recurred after age 2, and at 5 years she needed 14 g/day of salt. A sister died at 9 days with PHA symptoms, and the pedigree was consistent with autosomal recessive inheritance. From these kindreds and the literature, the author concluded that type I PHA comprises 2 clinically and genetically distinct entities, one with renal defects and one with defects in multiple target organs.
+Hanukoglu (1991) described a second kindred in which the propositus was the child of a consanguineous marriage. She developed severe renal salt losing at age 9 days, with raised salivary and sweat electrolytes, indicating that multiple target organs did not respond to mineralocorticoids. Life-threatening salt wasting recurred after age 2 years, and at 5 years she needed 14 g/day of salt. A sister died at 9 days with PHA symptoms. The pedigree was consistent with autosomal recessive inheritance. From these kindreds and the literature, Hanukoglu (1991) concluded that type I PHA consists of 2 clinically and genetically distinct entities, one with a renal defect and one with defects in multiple target organs.
 
-Geller et al. (1998) found no ENaC gene mutations in 6 dominant and 7 sporadic PHA1 kindreds. This pointed to mutations in other genes as the cause of the dominant form.
+Geller et al. (1998) found no mutations in the ENaC genes in 6 dominant and 7 sporadic PHA1 kindreds, which pointed to mutations in other genes in the dominant form.
 
-Viemann et al. (2001) found no mutation in the mineralocorticoid receptor gene in 5 affected patients from 2 families with autosomal dominant PHA I. They concluded that autosomal dominant or sporadic PHA1 is genetically heterogeneous and involves other, as yet unidentified, genes.
+Viemann et al. (2001) found no mutation in the mineralocorticoid receptor gene in 5 affected patients from 2 families with autosomal dominant PHA I. They concluded that autosomal dominant or sporadic PHA1 is genetically heterogeneous and involves other genes that remain to be identified.
 
-Sartorato et al. (2003) did not find mineralocorticoid receptor mutations in some of their PHA1 families. They noted that this calls for extensive investigation of the receptor gene and of other genes that may be involved in the disease.
+Sartorato et al. (2003) found no mineralocorticoid receptor mutations in some families with PHA1. They noted that this called for more extensive study of the receptor gene and of other genes that might be involved in the disease.
 
-Pujo et al. (2007) suggested that a genocopy may exist in 3 PHA1 kindreds without an MR mutation. They proposed that other patients without MR mutations might have different diseases that resemble PHA1 in the neonatal period.
+Pujo et al. (2007) found no MR mutation in 3 PHA1 kindreds and suggested that a genocopy may exist. They proposed that other patients without MR mutations might have different diseases that resemble PHA1 in the neonatal period. ⚠︎
 
 ### Molecular Genetics
 
-Geller et al. (1998) screened the mineralocorticoid receptor gene in 13 dominant or sporadic PHA1 kindreds. They found heterozygous mutations in 1 sporadic and 4 dominant kindreds: 2 frameshift mutations (1 of them de novo), 2 premature termination codons and 1 splice donor mutation. The mutations segregated with PHA1 and were absent from unaffected subjects. The authors concluded that heterozygous mutations in the mineralocorticoid receptor gene cause PHA1.
+Geller et al. (1998) screened the mineralocorticoid receptor gene (MLR; NR3C2) in 13 dominant or sporadic PHA1 kindreds. They found heterozygous mutations in 1 sporadic and 4 dominant kindreds: 2 frameshift mutations (1 of them de novo), 2 premature termination codons, and 1 splice donor mutation. The mutations segregated with PHA1 and were absent in unaffected subjects. The authors concluded that heterozygous MLR mutations cause PHA1.
 
-In affected members of a Japanese family with a renal form of PHA1, Tajima et al. (2000) used PCR and direct sequencing to identify a heterozygous missense mutation in the NR3C2 gene (L924P). In transfected COS-1 cells, the mutant receptor did not respond to aldosterone. The authors described it as the first missense MR mutation reported in renal PHA1.
+Tajima et al. (2000) studied a Japanese family with a renal form of PHA1. Using PCR and direct sequencing, they identified a heterozygous missense mutation in the MR gene (L924P) in affected members. In transfected COS-1 cells, the mutant receptor did not respond to aldosterone. This was the first missense MR mutation reported in renal PHA1.
 
-In a patient with sporadic PHA I, Viemann et al. (2001) identified a frameshift mutation (ins2871C) in exon 9 of the mineralocorticoid receptor gene. The mutation was not found in the patient's asymptomatic family members.
+Viemann et al. (2001) identified a frameshift mutation (Ins2871C) in exon 9 of the mineralocorticoid receptor gene in a patient with sporadic PHA I. The mutation was absent in the patient's asymptomatic family members.
 
-Sartorato et al. (2003) analyzed the mineralocorticoid receptor gene in 14 families with autosomal dominant or sporadic PHA1 and found 6 different heterozygous mutations. Three of them, 2 frameshifts and 1 nonsense mutation, were predicted to produce truncated proteins. The other 3 were missense mutations, which were studied functionally. Because mutations were present in 70% of their familial cases, the authors concluded that MR mutations are a common feature of autosomal dominant PHA1.
+Sartorato et al. (2003) analyzed the mineralocorticoid receptor gene in 14 families with autosomal dominant or sporadic PHA1 and found 6 different heterozygous mutations. Three were truncating: 2 frameshifts in exon 2 (insT1354 and del8bp537) and a nonsense mutation in exon 4 (C645X). Three were missense mutations (G633R, Q776R, and L979P). Mutations were found in 70% of their familial cases, and the authors concluded that receptor mutations are a common feature of autosomal dominant PHA1.
 
-Riepe et al. (2006) identified 6 different heterozygous NR3C2 mutations in 6 patients with PHA1: a previously reported frameshift mutation (c.1131dupT), a second frameshift (c.2871dupC), 2 novel nonsense mutations generating a truncated receptor protein, and 2 missense mutations (S818L and E972G). Functional and structural studies showed that the c.2871dupC, S818L and E972G mutants lost or had markedly reduced aldosterone binding and transactivation. The authors concluded that their data extended the spectrum of PHA1-causing NR3C2 mutations.
+Riepe et al. (2006) identified 6 different heterozygous NR3C2 mutations in 6 patients with PHA1. These comprised a previously reported frameshift (c.1131dupT), a second frameshift (c.2871dupC), 2 novel nonsense mutations producing a truncated receptor, and 2 missense mutations (S818L and E972G). Functional studies showed that the c.2871dupC, S818L, and E972G mutants had absent or markedly reduced aldosterone binding and transactivation. The authors concluded that their data extended the spectrum of PHA1-causing NR3C2 mutations.
 
-Pujo et al. (2007) carried out a comprehensive screen of the NR3C2 gene in patients with PHA1. They searched coding regions, intron-exon junctions and untranslated exons for nucleotide substitutions, and also looked for large deletions. They found 22 MR gene abnormalities in 33 patients. The authors concluded that MR mutations are extremely frequent in PHA1 patients classified according to aldosterone and potassium levels.
+Pujo et al. (2007) carried out a comprehensive screen of the MR gene in patients with PHA1. They searched the coding regions, intron-exon junctions, and untranslated exons for nucleotide substitutions, and also looked for large deletions. They found 22 MR gene abnormalities in 33 patients. The authors concluded that MR mutations are extremely frequent in PHA1 patients classified according to aldosterone and potassium levels.
 
 ### Clinical Synopsis
 
@@ -108,37 +110,37 @@ Pujo et al. (2007) carried out a comprehensive screen of the NR3C2 gene in patie
 **.0001 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, LEU924PRO [p.L924P]
 
-In affected members of a Japanese family with a renal form of PHA1A, Tajima et al. (2000) used PCR and direct sequencing to identify a heterozygous mutation in the NR3C2 gene. The mutation changed codon 924 from CTG to CCG, resulting in a leu924-to-pro (L924P) substitution. In COS-1 cells transfected with a GRE-tk-CAT reporter, aldosterone increased CAT activity with wildtype receptor but had no effect with the L924P mutant. The authors attributed the mineralocorticoid resistance in this family to the mutation.
+In affected members of a Japanese family with a renal form of PHA1, Tajima et al. (2000) used PCR and direct sequencing to identify a heterozygous mutation in the NR3C2 gene. The mutation changed codon 924 from CTG to CCG, resulting in a leu924-to-pro (L924P) substitution. COS-1 cells were transfected with a GRE-tk-CAT reporter. Aldosterone increased CAT activity with the wildtype receptor but had no effect with the L924P mutant. The authors suggested that this missense mutation caused the mineralocorticoid resistance in the family.
 
 **.0002 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
-NR3C2, 1-BP INS, 2871C [c.ins2871c]
+NR3C2, 1-BP INS, 2871C
 
-In a patient with sporadic PHA I, Viemann et al. (2001) identified a frameshift mutation, an insertion of C at position 2871 (ins2871C), in exon 9 of the mineralocorticoid receptor gene. The mutation was not found in the patient's asymptomatic family members. It was the first mutation described in exon 9 and affects the last 27 amino acids of the hormone-binding domain.
+In a patient with sporadic PHA I, Viemann et al. (2001) identified a frameshift mutation, an insertion of C at nucleotide 2871 (Ins2871C), in exon 9 of the NR3C2 gene. The mutation was absent in the patient's asymptomatic family members. It was the first mutation described in exon 9 and affects the last 27 amino acids of the hormone-binding domain.
 
 **.0003 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
-NR3C2, 1-BP INS, 1354T [c.inst1354]
+NR3C2, 1-BP INS, 1354T
 
-In PHA1 families, Sartorato et al. (2003) found a heterozygous frameshift mutation, an insertion of T at position 1354 (insT1354), in exon 2 of the NR3C2 gene. It is predicted to cause a premature stop codon and a truncated protein.
+In families with PHA1, Sartorato et al. (2003) found a heterozygous frameshift mutation (insT1354) in exon 2 of the NR3C2 gene. It is predicted to create a premature stop codon and produce a truncated protein.
 
 **.0004 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
-NR3C2, 8-BP DEL, NT537 [c.del8bp537]
+NR3C2, 8-BP DEL, NT537
 
-In PHA1 families, Sartorato et al. (2003) found a heterozygous 8-bp deletion at position 537 (del8bp537) in exon 2 of the NR3C2 gene. The deletion causes a frameshift and is predicted to produce a truncated protein because of a premature stop codon.
+In families with PHA1, Sartorato et al. (2003) found a heterozygous 8-bp deletion (del8bp537) in exon 2 of the NR3C2 gene. The deletion causes a frameshift and is predicted to create a premature stop codon and produce a truncated protein.
 
 **.0005 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, CYS645TER [c.2157C>A; p.C645*]
 
-In PHA1 families, Sartorato et al. (2003) found a heterozygous 2157C-A transversion in exon 4 of the NR3C2 gene, resulting in a cys645-to-ter (C645X) substitution. The mutation is predicted to produce a truncated protein.
+In families with PHA1, Sartorato et al. (2003) found a heterozygous C-to-A change at nucleotide 2157 (C2157A) in exon 4 of the NR3C2 gene, resulting in a cys645-to-ter (C645X) substitution. It is predicted to produce a truncated protein.
 
 **.0006 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, GLY633ARG [p.G633R]
 
-In PHA1, Sartorato et al. (2003) found a heterozygous gly633-to-arg (G633R) mutation in the DNA-binding domain of the NR3C2 gene. Maximal transactivation by the R633 mutant was reduced, but its binding characteristics and its ED50 of transactivation were comparable to wildtype receptor. The authors suggested that the mutation probably causes haploinsufficiency.
+In PHA1, Sartorato et al. (2003) found a heterozygous gly633-to-arg (G633R) mutation in the DNA-binding domain of the NR3C2 gene. The R633 mutant had reduced maximal transactivation, but its binding characteristics and ED50 of transactivation were similar to wildtype. The authors suggested that the mutation probably causes haploinsufficiency.
 
 **.0007 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, GLN776ARG [p.Q776R]
 
-In PHA1, Sartorato et al. (2003) found a heterozygous gln776-to-arg (Q776R) mutation in the ligand-binding domain of the NR3C2 gene. The R776 mutant showed reduced aldosterone binding and reduced ligand-dependent transactivation. The authors suggested that the mutation probably causes haploinsufficiency.
+In PHA1, Sartorato et al. (2003) found a heterozygous gln776-to-arg (Q776R) mutation in the ligand-binding domain of the NR3C2 gene. The R776 mutant had reduced aldosterone binding and reduced ligand-dependent transactivation. The authors suggested that the mutation probably causes haploinsufficiency.
 
 **.0008 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, LEU979PRO [p.L979P]
@@ -148,22 +150,22 @@ In PHA1, Sartorato et al. (2003) found a heterozygous leu979-to-pro (L979P) muta
 **.0009 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, 1-BP DUP, 1131T [c.1131dupt]
 
-Riepe et al. (2006) identified a heterozygous frameshift mutation, c.1131dupT, in the NR3C2 gene in a patient with PHA1. They described it as previously reported.
+Riepe et al. (2006) identified a previously reported heterozygous frameshift mutation, c.1131dupT, in the NR3C2 gene in a patient with PHA1.
 
 **.0010 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, 1-BP DUP, 2871C [c.2871dupc]
 
-In a patient with PHA1, Riepe et al. (2006) identified a heterozygous frameshift mutation, c.2871dupC, in the NR3C2 gene. Because of a major change in receptor conformation, the mutant receptor showed no aldosterone binding and no transactivation.
+Riepe et al. (2006) identified a heterozygous frameshift mutation, c.2871dupC, in the NR3C2 gene in a patient with PHA1. The mutant receptor showed no aldosterone binding and no transactivation because of a major change in receptor conformation.
 
 **.0011 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, SER818LEU [p.S818L]
 
-In a patient with PHA1, Riepe et al. (2006) identified a heterozygous ser818-to-leu (S818L) mutation in the NR3C2 gene. The mutant did not bind aldosterone, activate transcription or translocate into the nucleus. Three-dimensional modeling showed a major displacement of several residues involved in aldosterone binding. ⚠︎
+Riepe et al. (2006) identified a heterozygous ser818-to-leu (S818L) mutation in the NR3C2 gene in a patient with PHA1. The mutant did not bind aldosterone, activate transcription, or translocate into the nucleus. Three-dimensional modeling showed a major displacement of several residues involved in aldosterone binding.
 
 **.0012 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT**  
 NR3C2, GLU972GLY [p.E972G]
 
-In a patient with PHA1, Riepe et al. (2006) identified a novel heterozygous glu972-to-gly (E972G) mutation in the NR3C2 gene. Because of major changes in receptor conformation, the mutant had significantly lower ligand-binding affinity and only 9% of wildtype transcriptional activity.
+Riepe et al. (2006) identified a novel heterozygous glu972-to-gly (E972G) mutation in the NR3C2 gene in a patient with PHA1. Because of major changes in receptor conformation, the mutant had significantly lower ligand-binding affinity and only 9% of wildtype transcriptional activity.
 
 ### REFERENCES
 
@@ -177,17 +179,19 @@ In a patient with PHA1, Riepe et al. (2006) identified a novel heterozygous glu9
 
 5. Hanukoglu A. Type I pseudohypoaldosteronism includes two clinically and genetically distinct entities with either renal or multiple target organ defects. J Clin Endocrinol Metab 73: 936-44, 1991. [PubMed: 1939532]
 
-6. Pujo L, Fagart J, Gary F, Papadimitriou DT, Claës A, Jeunemaître X, Zennaro MC. Mineralocorticoid receptor mutations are the principal cause of renal type 1 pseudohypoaldosteronism. Hum Mutat 28: 33-40, 2007. [PubMed: 16972228]
+6. Hanukoglu A, Fried D, Gotlieb A. Inheritance of pseudohypoaldosteronism. Lancet 1: 1359, 1978. [PubMed: 78119]
 
-7. RAINE DN, ROY J. A salt-losing syndrome in infancy. Pseudo-hypoadrenocorticalism. Arch Dis Child 37: 548-56, 1962. [PubMed: 13990509]
+7. Pujo L, Fagart J, Gary F, Papadimitriou DT, Claës A, Jeunemaître X, Zennaro MC. Mineralocorticoid receptor mutations are the principal cause of renal type 1 pseudohypoaldosteronism. Hum Mutat 28: 33-40, 2007. [PubMed: 16972228]
 
-8. Riepe FG, Finkeldei J, de Sanctis L, Einaudi S, Testa A, Karges B, Peter M, Viemann M, Grötzinger J, Sippell WG, and others. Elucidating the underlying molecular pathogenesis of NR3C2 mutants causing autosomal dominant pseudohypoaldosteronism type 1. J Clin Endocrinol Metab 91: 4552-61, 2006. [PubMed: 16954160]
+8. RAINE DN, ROY J. A salt-losing syndrome in infancy. Pseudo-hypoadrenocorticalism. Arch Dis Child 37: 548-56, 1962. [PubMed: 13990509]
 
-9. Sartorato P, Lapeyraque AL, Armanini D, Kuhnle U, Khaldi Y, Salomon R, Abadie V, Di Battista E, Naselli A, Racine A, and others. Different inactivating mutations of the mineralocorticoid receptor in fourteen families affected by type I pseudohypoaldosteronism. J Clin Endocrinol Metab 88: 2508-17, 2003. [PubMed: 12788847]
+9. Riepe FG, Finkeldei J, de Sanctis L, Einaudi S, Testa A, Karges B, Peter M, Viemann M, Grötzinger J, Sippell WG, and others. Elucidating the underlying molecular pathogenesis of NR3C2 mutants causing autosomal dominant pseudohypoaldosteronism type 1. J Clin Endocrinol Metab 91: 4552-61, 2006. [PubMed: 16954160]
 
-10. Tajima T, Kitagawa H, Yokoya S, Tachibana K, Adachi M, Nakae J, Suwa S, Katoh S, Fujieda K. A novel missense mutation of mineralocorticoid receptor gene in one Japanese family with a renal form of pseudohypoaldosteronism type 1. J Clin Endocrinol Metab 85: 4690-4, 2000. [PubMed: 11134129]
+10. Sartorato P, Lapeyraque AL, Armanini D, Kuhnle U, Khaldi Y, Salomon R, Abadie V, Di Battista E, Naselli A, Racine A, and others. Different inactivating mutations of the mineralocorticoid receptor in fourteen families affected by type I pseudohypoaldosteronism. J Clin Endocrinol Metab 88: 2508-17, 2003. [PubMed: 12788847]
 
-11. Viemann M, Peter M, López-Siguero JP, Simic-Schleicher G, Sippell WG. Evidence for genetic heterogeneity of pseudohypoaldosteronism type 1: identification of a novel mutation in the human mineralocorticoid receptor in one sporadic case and no mutations in two autosomal dominant kindreds. J Clin Endocrinol Metab 86: 2056-9, 2001. [PubMed: 11344206]
+11. Tajima T, Kitagawa H, Yokoya S, Tachibana K, Adachi M, Nakae J, Suwa S, Katoh S, Fujieda K. A novel missense mutation of mineralocorticoid receptor gene in one Japanese family with a renal form of pseudohypoaldosteronism type 1. J Clin Endocrinol Metab 85: 4690-4, 2000. [PubMed: 11134129]
+
+12. Viemann M, Peter M, López-Siguero JP, Simic-Schleicher G, Sippell WG. Evidence for genetic heterogeneity of pseudohypoaldosteronism type 1: identification of a novel mutation in the human mineralocorticoid receptor in one sporadic case and no mutations in two autosomal dominant kindreds. J Clin Endocrinol Metab 86: 2056-9, 2001. [PubMed: 11344206]
 
 ---
 *Generated automatically from the cited literature. ⚠︎ marks a paragraph with a claim the audit found only partly supported by its source; ✗ marks one with an unsupported or contradicted claim. Not reviewed by a curator.*

@@ -27,9 +27,9 @@ OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormal heart morphology	37384395
 OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormal brain morphology	37384395
 OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormality of the skeletal system	37384395
 OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormality of the anus	37384395
-Preaxial polydactyly	is_a	Polydactyly	
 Postaxial polydactyly	is_a	Polydactyly	
-Polydactyly	is_a	Abnormality of the skeletal system	
 Cleft palate	is_a	Orofacial cleft	
-Micrognathia	is_a	Abnormality of the skeletal system	
+Polydactyly	is_a	Abnormality of the skeletal system	
 Micromelia	is_a	Abnormality of the skeletal system	
+Preaxial polydactyly	is_a	Polydactyly	
+Micrognathia	is_a	Abnormality of the skeletal system	

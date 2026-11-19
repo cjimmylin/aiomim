@@ -53,24 +53,24 @@ CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	2-3 finger cutaneou
 CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Supernumerary nipple	2167611
 CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the ear	2167611
 CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Variable expressivity	1776626
-Hypodontia	is_a	Abnormality of the dentition	
-Protruding ear	is_a	Abnormality of the ear	
-Abnormality of the skin	is_a	Abnormality of the integument	
-Sparse scalp hair	is_a	Sparse hair	
-Sparse scalp hair	is_a	Abnormality of the integument	
-Pili torti	is_a	Abnormality of the integument	
-Cleft palate	is_a	Orofacial cleft	
-Toe syndactyly	is_a	Syndactyly	
-Palmoplantar hyperkeratosis	is_a	Abnormality of the skin	
-Hypohidrosis	is_a	Abnormality of the integument	
-Nail dysplasia	is_a	Abnormality of the integument	
-Ectodermal dysplasia	is_a	Abnormality of the skin	
-Sparse hair	is_a	Abnormality of the integument	
-Dry hair	is_a	Abnormality of the integument	
 2-3 finger cutaneous syndactyly	is_a	Finger syndactyly	
 2-3 finger cutaneous syndactyly	is_a	Syndactyly	
+Palmoplantar hyperkeratosis	is_a	Abnormality of the skin	
 Brittle scalp hair	is_a	Abnormality of the integument	
-Pili canaliculi	is_a	Abnormality of the integument	
+Nail dysplasia	is_a	Abnormality of the integument	
+Cleft palate	is_a	Orofacial cleft	
 Finger syndactyly	is_a	Syndactyly	
-Cleft upper lip	is_a	Cleft lip	
+Hypodontia	is_a	Abnormality of the dentition	
+Ectodermal dysplasia	is_a	Abnormality of the skin	
+Abnormality of the skin	is_a	Abnormality of the integument	
+Toe syndactyly	is_a	Syndactyly	
+Dry hair	is_a	Abnormality of the integument	
+Sparse scalp hair	is_a	Sparse hair	
+Sparse scalp hair	is_a	Abnormality of the integument	
+Sparse hair	is_a	Abnormality of the integument	
+Pili torti	is_a	Abnormality of the integument	
 Mild intellectual disability	is_a	Intellectual disability	
+Pili canaliculi	is_a	Abnormality of the integument	
+Hypohidrosis	is_a	Abnormality of the integument	
+Protruding ear	is_a	Abnormality of the ear	
+Cleft upper lip	is_a	Cleft lip	

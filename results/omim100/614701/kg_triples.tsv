@@ -17,7 +17,7 @@ Boyle et al. (2017)	reports	Boyle et al. (2017) described a family with intrafam
 Boyle et al. (2017)	reports	Boyle et al. (2017) suggested that, based on their study and previous reports, RAD21 variants are associated with incomplete penetrance and that carriers may therefore be underdiagnosed. They noted that RAD21 variants had previously been described in only 5 patients with cohesinopathies.	
 Gudmundsson et al. (2019)	reports	Gudmundsson et al. (2019) reported a 15-month-old boy with Cornelia de Lange syndrome type 4 who had developmental delay, distinct CdLS-like facial features, gastrointestinal reflux in early infancy, testis retention, prominent digit pads, and diaphragmatic hernia. The authors stated that the patient expanded the clinical description of CdLS4.	
 Gudmundsson et al. (2019)	reports	In a boy with CdLS4, Gudmundsson et al. (2019) used exome sequencing to identify a de novo heterozygous 3-bp deletion in the RAD21 gene (c.1774_1776del), resulting in an in-frame deletion of glutamine-592 (p.Gln592del). The variant was absent from both healthy parents and was predicted to be disease-causing by bioinformatic analysis. In silico structural modeling predicted that the deletion disrupts contact between RAD21 lys591 and SMC1A residues glu1191 and glu1192, changing the RAD21-SMC1A interface.	
-RAD21 c.1774_1776del / c.gln592del / p.Q592del	in_gene	RAD21	
+RAD21 c.1774_1776del / p.Q592del	in_gene	RAD21	
 Kruszka et al. (2019)	reports	Kruszka et al. (2019) reported holoprosencephaly in 4 individuals with variants in the non-X-linked cohesin complex genes SMC3 and RAD21. They also reported holoprosencephaly in 11 individuals with variants in the X-linked cohesin genes STAG2 and SMC1A: 10 had loss-of-function variants and 1 had a missense variant.	
 Kruszka et al. (2019)	reports	Kruszka et al. (2019) concluded that the cohesin complex is an important regulator of median forebrain development. In human neural stem cells, shRNA knockdown of STAG2 and SMC1A caused aberrant expression of the holoprosencephaly-associated genes ZIC2, GLI2, SMAD3, and FGFR1.	
 Dorval et al. (2020)	reports	Dorval et al. (2020) reported a boy with a mild presentation of Cornelia de Lange syndrome and a molecularly confirmed novel RAD21 mutation. They compared his clinical features with those of previously reported patients who carried other RAD21 intragenic mutations. The authors noted that RAD21 is associated with a milder phenotype and that very few RAD21 intragenic mutations had been identified.	
@@ -33,7 +33,7 @@ Krab et al. (2020)	reports	Krab et al. (2020) found the recurrent heterozygous R
 RAD21 c.1756C>T / p.R586*	in_gene	RAD21	
 Krab et al. (2020)	reports	In a multigenerational family previously reported by Boyle et al. (2017), Krab et al. (2020) updated the data on 5 members who carried the heterozygous RAD21 frameshift variant c.704delG (p.Ser235Ilefs*19). Facial morphology varied within the family.	
 Krab et al. (2020)	reports	Krab et al. (2020) reported a patient with a de novo RAD21 in-frame deletion, c.1774_1776del (p.Gln592del), and an unrelated patient with c.1800_1802del (p.Phe600del). Molecular dynamics modeling predicted that Gln592del moves Lys605 and so disturbs the positioning of SMC1A Asn35 at ATPase site 1. Phe600del did not affect RAD21 structure in the model, but the authors considered it likely pathogenic because the patient had classic CdLS and no variants in other known CdLS genes.	
-RAD21 c.1800_1802del / c.phe600del / p.F600del	in_gene	RAD21	
+RAD21 c.1800_1802del / p.F600del	in_gene	RAD21	
 Krab et al. (2020)	reports	Krab et al. (2020) reported a patient with a de novo RAD21 missense variant, c.1808T>C (p.Leu603Pro). Modeling predicted that Pro603 changes the bending angle of the alpha helix and moves Lys605 away from ATPase site 1.	
 RAD21 c.1808T>C / p.L603P	in_gene	RAD21	
 Krab et al. (2020)	reports	Krab et al. (2020) reported a patient with a de novo RAD21 missense variant in the STAG-binding domain, c.1033T>C (p.Ser345Pro). Modeling predicted that it impairs the RAD21–STAG1/2 interaction by inducing a new curved alpha-helix segment that pulls away from the STAG2 surface. In a previously reported patient, the de novo variant c.1127C>G (p.Pro376Arg) was predicted to form a new salt bridge with STAG2, over-stabilizing the interaction between the two proteins.	
@@ -46,7 +46,7 @@ RAD21 c.194G>A / p.R65Q	in_gene	RAD21
 RAD21 c.16T>G / p.F6V	in_gene	RAD21	
 RAD21 c.1382C>T / p.T461I	in_gene	RAD21	
 Krab et al. (2020)	reports	Krab et al. (2020) reported a mother and child (family F11) carrying a 665-bp in-frame deletion in RAD21, c.1621-388_1704+193del (p.Asp541_Gln568del), which removes all of exon 13. The child inherited the deletion from the mother.	
-RAD21 c.1621-388_1704 / c.1621-388_1704+193del / c.193del / c.asp541_gln568del / p.D541	in_gene	RAD21	
+RAD21 c.1621-388_1704+193del / c.193del / p.D541	in_gene	RAD21	
 Krab et al. (2020)	reports	Krab et al. (2020) identified 7 deletions that included RAD21. Six also removed neighboring genes; one was a 27-kb deletion confined to RAD21 exons 1–9 (8q24.11). Patients with microdeletions tended to have higher CdLS scores and more frequent growth impairment than those with intragenic variants, but the frequency of major malformations and of cognitive and behavioral problems did not differ. Exostoses related to EXT1 haploinsufficiency likely caused upper limb anomalies in some patients with deletions.	
 Krab et al. (2020)	reports	Krab et al. (2020) found no difference in CdLS scores or growth parameters between patients with truncating and those with non-truncating RAD21 sequence variants. In 12 of 15 patients with intragenic variants and major malformations or health problems, the variant lay in a protein-binding domain, but the authors noted that it was uncertain whether this was a true association. Variability within and between families was striking, especially for cognition and behavior, and could not be explained by mosaicism in most families.	
 Krab et al. (2020)	reports	Krab et al. (2020) suggested that the relatively mild phenotype indicates that RAD21 is not highly intolerant to loss of function, unlike other CdLS genes. They speculated that RAD21 haploinsufficiency may be compensated more effectively than that of other cohesin genes. However, patients with microdeletions or truncating variants did not differ markedly from those with missense variants. Modeling suggested that pathogenic variants in the SMC1A-binding domain disturb the ATPase reaction that is pivotal to opening of the cohesin ring.	
@@ -57,12 +57,12 @@ CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	caused_by	RAD
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1033T>C / p.S345P	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1127C>G / p.P376R	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1382C>T / p.T461I	32193685
-CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1621-388_1704 / c.1621-388_1704+193del / c.193del / c.asp541_gln568del / p.D541	32193685
+CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1621-388_1704+193del / c.193del / p.D541	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.16T>G / p.F6V	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1753T>C / p.C585R	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1756C>T / p.R586*	32193685
-CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1774_1776del / c.gln592del / p.Q592del	30125677,32193685
-CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1800_1802del / c.phe600del / p.F600del	32193685
+CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1774_1776del / p.Q592del	30125677,32193685
+CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1800_1802del / p.F600del	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1808T>C / p.L603P	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.1864G>A / p.A622T	32193685
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_variant	RAD21 c.194G>A / p.R65Q	32193685
@@ -120,26 +120,26 @@ CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_phenotype
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_phenotype	Melanoma	24378232
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_phenotype	Growth delay	22633399
 CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS	has_phenotype	Abnormality of the skeletal system	22633399
+Limb undergrowth	is_a	Abnormality of the skeletal system	
+Severe intellectual disability	is_a	Intellectual disability	
 Small hand	is_a	Abnormality of the hand	
 Small hand	is_a	Abnormality of the skeletal system	
-Multiple exostoses	is_a	Abnormality of the skeletal system	
-Hemivertebrae	is_a	Abnormality of the skeletal system	
-Limb undergrowth	is_a	Abnormality of the skeletal system	
-Plantar pits	is_a	Abnormal foot morphology	
 Synophrys	is_a	Hypertrichosis	
+Limited elbow extension	is_a	Abnormality of the skeletal system	
 Short stature	is_a	Growth delay	
-Microcephaly	is_a	Abnormal brain morphology	
-Microcephaly	is_a	Abnormality of the skeletal system	
-Severe intellectual disability	is_a	Intellectual disability	
-Holoprosencephaly	is_a	Abnormal brain morphology	
-Short 5th finger	is_a	Abnormality of the hand	
-Short 5th finger	is_a	Abnormality of the skeletal system	
-Postnatal growth retardation	is_a	Growth delay	
-Moderate intellectual disability	is_a	Intellectual disability	
+Plantar pits	is_a	Abnormal foot morphology	
 Prominent fingertip pads	is_a	Prominent digit pad	
 Prominent fingertip pads	is_a	Abnormality of the hand	
 Prominent fingertip pads	is_a	Abnormality of the skeletal system	
 Clinodactyly of the 5th finger	is_a	Abnormality of the hand	
 Clinodactyly of the 5th finger	is_a	Abnormality of the skeletal system	
-Limited elbow extension	is_a	Abnormality of the skeletal system	
 Mild intellectual disability	is_a	Intellectual disability	
+Hemivertebrae	is_a	Abnormality of the skeletal system	
+Holoprosencephaly	is_a	Abnormal brain morphology	
+Postnatal growth retardation	is_a	Growth delay	
+Moderate intellectual disability	is_a	Intellectual disability	
+Multiple exostoses	is_a	Abnormality of the skeletal system	
+Microcephaly	is_a	Abnormal brain morphology	
+Microcephaly	is_a	Abnormality of the skeletal system	
+Short 5th finger	is_a	Abnormality of the hand	
+Short 5th finger	is_a	Abnormality of the skeletal system	

@@ -40,19 +40,19 @@ OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormal facial shape	10457851
 OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormal digit morphology	10457851
 OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Urinary incontinence	10457851
 OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Reduced circulating growth hormone concentration	10457851
-Agenesis of incisor	is_a	Abnormal oral morphology	
-Preaxial foot polydactyly	is_a	Abnormal digit morphology	
-Short middle phalanx of finger	is_a	Abnormal digit morphology	
-Postaxial polydactyly	is_a	Abnormal digit morphology	
+Narrow chest	is_a	Abnormal thorax morphology	
+Short ribs	is_a	Abnormal thorax morphology	
+Cervical ribs	is_a	Abnormal thorax morphology	
 Square face	is_a	Abnormal facial shape	
 Brachydactyly	is_a	Abnormal digit morphology	
-Narrow chest	is_a	Abnormal thorax morphology	
+Postaxial polydactyly	is_a	Abnormal digit morphology	
+Short middle phalanx of finger	is_a	Abnormal digit morphology	
 Short philtrum	is_a	Abnormal oral morphology	
-Platyspondyly	is_a	Abnormality of the vertebral column	
-Cervical ribs	is_a	Abnormal thorax morphology	
-Accessory oral frenulum	is_a	Abnormal oral morphology	
 Partial duplication of the distal phalanges of the hand	is_a	Abnormal digit morphology	
-Short ribs	is_a	Abnormal thorax morphology	
+Platyspondyly	is_a	Abnormality of the vertebral column	
 Median cleft upper lip	is_a	Abnormal oral morphology	
 Postaxial hand polydactyly	is_a	Postaxial polydactyly	
 Postaxial hand polydactyly	is_a	Abnormal digit morphology	
+Agenesis of incisor	is_a	Abnormal oral morphology	
+Preaxial foot polydactyly	is_a	Abnormal digit morphology	
+Accessory oral frenulum	is_a	Abnormal oral morphology	

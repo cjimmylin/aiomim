@@ -82,24 +82,24 @@ CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Failure to thrive	22371254
 CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Blue sclerae	22371254
 CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Joint hypermobility	22371254
 CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Recurrent lower respiratory tract infections	22371254
+Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
+Generalized amyotrophy	is_a	Abnormal skeletal muscle morphology	
+Axial hypotonia	is_a	Hypotonia	
 EMG: myopathic abnormalities	is_a	Abnormal skeletal muscle morphology	
 Mildly elevated creatine kinase	is_a	Elevated circulating creatine kinase activity	
-Axial hypotonia	is_a	Hypotonia	
-Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Type 1 muscle fiber predominance	is_a	Abnormal muscle fiber morphology	
 Achilles tendon contracture	is_a	Abnormal skeletal muscle morphology	
+Increased endomysial connective tissue	is_a	Abnormal muscle fiber morphology	
 Centrally nucleated skeletal muscle fibers	is_a	Abnormal muscle fiber morphology	
-Generalized amyotrophy	is_a	Abnormal skeletal muscle morphology	
-Neck joint contracture	is_a	Abnormal skeletal muscle morphology	
-Nemaline bodies	is_a	Abnormal muscle fiber morphology	
-Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
-Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
 Minicore myopathy	is_a	Abnormal skeletal muscle morphology	
-Knee flexion contracture	is_a	Abnormal skeletal muscle morphology	
-Facial palsy	is_a	Abnormal skeletal muscle morphology	
-Increased variability in muscle fiber diameter	is_a	Abnormal muscle fiber morphology	
-Rimmed vacuoles	is_a	Abnormal muscle fiber morphology	
-Respiratory failure	is_a	Respiratory insufficiency	
 Type 1 and type 2 muscle fiber minicore regions	is_a	Minicore myopathy	
 Ankle flexion contracture	is_a	Abnormal skeletal muscle morphology	
-Type 1 muscle fiber predominance	is_a	Abnormal muscle fiber morphology	
-Increased endomysial connective tissue	is_a	Abnormal muscle fiber morphology	
+Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
+Respiratory failure	is_a	Respiratory insufficiency	
+Nemaline bodies	is_a	Abnormal muscle fiber morphology	
+Knee flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Neck joint contracture	is_a	Abnormal skeletal muscle morphology	
+Rimmed vacuoles	is_a	Abnormal muscle fiber morphology	
+Increased variability in muscle fiber diameter	is_a	Abnormal muscle fiber morphology	
+Facial palsy	is_a	Abnormal skeletal muscle morphology	

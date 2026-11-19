@@ -14,7 +14,7 @@ INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Atypic
 INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Borderline intellectual disability	23390136
 INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Autism	23390136
 INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Sleep disturbance	23390136
-Attention deficit hyperactivity disorder	is_a	Atypical behavior	
-Borderline intellectual disability	is_a	Intellectual disability	
 Moderate intellectual disability	is_a	Intellectual disability	
+Borderline intellectual disability	is_a	Intellectual disability	
 Autism	is_a	Atypical behavior	
+Attention deficit hyperactivity disorder	is_a	Atypical behavior	

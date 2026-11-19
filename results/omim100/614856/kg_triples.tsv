@@ -70,18 +70,18 @@ OSTEOGENESIS IMPERFECTA, TYPE XIII	has_phenotype	Thickened cortex of long bones	
 OSTEOGENESIS IMPERFECTA, TYPE XIII	has_phenotype	Abnormal bone structure	15542026
 OSTEOGENESIS IMPERFECTA, TYPE XIII	has_phenotype	Osteomalacia	15542026
 OSTEOGENESIS IMPERFECTA, TYPE XIII	has_phenotype	Abnormality of bone mineral density	15542026
-Rickets	is_a	Reduced bone mineral density	
-Reduced bone mineral density	is_a	Abnormality of bone mineral density	
-Osteoporosis	is_a	Reduced bone mineral density	
-Elevated circulating alkaline phosphatase concentration	is_a	Abnormality of metabolism/homeostasis	
-Osteomalacia	is_a	Reduced bone mineral density	
-Radial bowing	is_a	Bowing of the long bones	
-Ulnar bowing	is_a	Bowing of the long bones	
-Abnormality of bone mineral density	is_a	Abnormal bone structure	
 Increased bone mineral density	is_a	Abnormality of bone mineral density	
-Kyphoscoliosis	is_a	Scoliosis	
-Recurrent fractures	is_a	Increased susceptibility to fractures	
+Osteomalacia	is_a	Reduced bone mineral density	
+Reduced bone mineral density	is_a	Abnormality of bone mineral density	
+Rickets	is_a	Reduced bone mineral density	
+Radial bowing	is_a	Bowing of the long bones	
 Abnormal trabecular bone morphology	is_a	Abnormal bone structure	
 Multiple prenatal fractures	is_a	Increased susceptibility to fractures	
-Thickened cortex of long bones	is_a	Abnormal bone structure	
 Conductive hearing impairment	is_a	Hearing impairment	
+Elevated circulating alkaline phosphatase concentration	is_a	Abnormality of metabolism/homeostasis	
+Kyphoscoliosis	is_a	Scoliosis	
+Osteoporosis	is_a	Reduced bone mineral density	
+Thickened cortex of long bones	is_a	Abnormal bone structure	
+Recurrent fractures	is_a	Increased susceptibility to fractures	
+Abnormality of bone mineral density	is_a	Abnormal bone structure	
+Ulnar bowing	is_a	Bowing of the long bones	

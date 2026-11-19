@@ -60,5 +60,5 @@ INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 43	has_phenotype	Mild i
 INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 43	has_phenotype	Short stature	31953988
 INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 43	has_phenotype	Microcephaly	31953988
 Macrocephaly	is_a	Abnormality of the skeletal system	
-Microcephaly	is_a	Abnormality of the skeletal system	
 Mild intellectual disability	is_a	Intellectual disability	
+Microcephaly	is_a	Abnormality of the skeletal system	

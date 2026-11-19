@@ -27,9 +27,9 @@ PALLISTER-HALL-LIKE SYNDROME	has_phenotype	Skeletal dysplasia	1308364
 PALLISTER-HALL-LIKE SYNDROME	has_phenotype	Abnormality of the face	1308364
 PALLISTER-HALL-LIKE SYNDROME	has_phenotype	Abnormality of the skeletal system	1308364
 PALLISTER-HALL-LIKE SYNDROME	has_phenotype	Neonatal death	1308364
+Narrow chest	is_a	Abnormality of the skeletal system	
 Postaxial polydactyly	is_a	Polydactyly	
 Polydactyly	is_a	Abnormality of the skeletal system	
-Microcephaly	is_a	Abnormality of the skeletal system	
 Skeletal dysplasia	is_a	Abnormality of the skeletal system	
+Microcephaly	is_a	Abnormality of the skeletal system	
 Micromelia	is_a	Abnormality of the skeletal system	
-Narrow chest	is_a	Abnormality of the skeletal system	

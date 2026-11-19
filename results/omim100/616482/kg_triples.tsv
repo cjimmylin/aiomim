@@ -29,14 +29,14 @@ ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_ph
 ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Severe global developmental delay	10377013
 ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormality of the skeletal system	10053006
 ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Neurodevelopmental delay	10053006
+Abnormal cartilage morphology	is_a	Abnormality of the skeletal system	
+Craniosynostosis	is_a	Abnormality of the skeletal system	
 Bowing of the legs	is_a	Abnormal long bone morphology	
 Bowing of the legs	is_a	Abnormality of the skeletal system	
-Abnormal long bone morphology	is_a	Abnormality of the skeletal system	
-Abnormal cartilage morphology	is_a	Abnormality of the skeletal system	
+Severe global developmental delay	is_a	Neurodevelopmental delay	
+Skeletal dysplasia	is_a	Abnormality of the skeletal system	
+Cloverleaf skull	is_a	Abnormality of the skeletal system	
 Tibial bowing	is_a	Bowing of the legs	
 Tibial bowing	is_a	Abnormality of the skeletal system	
-Skeletal dysplasia	is_a	Abnormality of the skeletal system	
-Craniosynostosis	is_a	Abnormality of the skeletal system	
+Abnormal long bone morphology	is_a	Abnormality of the skeletal system	
 Abnormal clavicle morphology	is_a	Abnormality of the skeletal system	
-Severe global developmental delay	is_a	Neurodevelopmental delay	
-Cloverleaf skull	is_a	Abnormality of the skeletal system	

@@ -10,47 +10,47 @@
 
 ### TEXT
 
-A number sign (#) is used with this entry because of evidence that neurodevelopmental disorder with hypotonia, language delay, and skeletal defects with or without seizures (NEDHLSS) is caused by heterozygous mutation in the CACNA1C gene (114205) on chromosome 12p13.33.
+A number sign (#) is used with this entry because of evidence that neurodevelopmental disorder with hypotonia, language delay, and skeletal defects with or without seizures (NEDHLSS) is caused by heterozygous mutation in the CACNA1C gene (114205) on chromosome 12p13. ⚠︎
 
 ### Description
 
-NEDHLSS is a mainly neurological disorder. Its features vary and include developmental delay, intellectual disability, autism, hypotonia, epilepsy, and ataxia. Affected individuals do not have significant cardiac manifestations or other features of Timothy syndrome. The phenotype differs broadly between individuals with truncating and nontruncating CACNA1C mutations (Rodan et al., 2021).
+Rodan et al. (2021) reported 25 individuals from 22 families with heterozygous CACNA1C variants. Their phenotype was mainly neurological and variably included developmental delay, intellectual disability, autism, hypotonia, epilepsy, and ataxia. They did not have significant cardiac manifestations or other features of Timothy syndrome. The phenotype differed broadly between individuals with truncating variants and those with nontruncating variants.
 
 ### Clinical Features
 
-Kosaki et al. (2018) reported a 5-year-old girl with cutaneous syndactyly, developmental delay, and pulmonary hypertension. Her QT interval was not prolonged. The authors described her condition as Timothy syndrome-like.
+Kosaki et al. (2018) reported a 5-year-old girl with cutaneous syndactyly, developmental delay, and pulmonary hypertension. She did not have prolongation of the QT interval. The authors described her condition as Timothy syndrome-like.
 
-Bozarth et al. (2018) described a girl (patient 1) of English/Ukrainian ancestry, born to nonconsanguineous parents, with neonatal-onset epileptic encephalopathy. Tonic and tonic-myoclonic seizures began within hours of birth and evolved into epileptic tonic spasms at 3 months. Multiple antiepileptic drugs failed to control the seizures, although clobazam reduced them. She had profound axial and appendicular hypotonia, no developmental progress at 18 months, inability to fixate or track visually, and severe sleep-wake disturbance. Other features were laryngomalacia, bilateral clubfeet, 3-4 finger and 2-3 toe syndactyly, camptodactyly, micrognathia, downturned corners of the mouth, frontal bossing, scant hair, inverted nipples, mild optic nerve hypoplasia, anal stenosis, and dysphagia that required a gastrostomy tube. EEG showed distinctive diffuse excessive fast activity. Brain MRI, echocardiogram, and Holter monitoring were normal.
+Bozarth et al. (2018) described a girl (patient 1) of English/Ukrainian ancestry, born to nonconsanguineous parents, who had neonatal-onset epileptic encephalopathy. Tonic and tonic-myoclonic seizures began within hours of birth and evolved into epileptic tonic spasms at 3 months of age. The seizures did not respond to multiple antiepileptic drugs, although clobazam reduced them. She had profound axial and appendicular hypotonia. At 18 months she had made no developmental progress, could not fixate or track visually, and had severe sleep-wake disturbance. Other features were laryngomalacia, bilateral clubfeet, 3-4 finger and 2-3 toe syndactyly, camptodactyly, micrognathia, downturned corners of the mouth, frontal bossing, scant hair, inverted nipples, mild optic nerve hypoplasia, anal stenosis, and dysphagia requiring a gastrostomy tube. EEG showed distinctive diffuse excessive fast activity. Brain MRI, echocardiogram, and Holter monitoring were normal.
 
-Bozarth et al. (2018) also described a family of Irish and German descent. The proband (patient 2), a girl, had tetralogy of Fallot, which was repaired at 2 months. At 4 months she developed severe biventricular failure with left ventricular noncompaction. She had mild dysmorphic features, including flat nasal bridge, low-set cupped ears, deep-set eyes, thin upper lip, and round face. She also had mild 2-3-4 toe syndactyly, mild developmental delay, and mild hypotonia. Her father (patient 3) had a congenital ventricular septal defect, aortic valve stenosis, learning disabilities, and ADHD. He developed focal-to-generalized tonic-clonic seizures at age 18 years, and his craniofacial features were similar to his daughter's. Bozarth et al. (2018) noted that only 3 individuals with seizures and CACNA1C-related disorders had been reported before their series. They concluded that their findings extended the phenotype to neonatal-onset epileptic encephalopathy and late-onset epilepsy, and that this family showed variable expressivity. They suggested that CACNA1C be included on epilepsy gene panels.
+Bozarth et al. (2018) also described a family of Irish and German descent. The proband (patient 2), a girl, had tetralogy of Fallot, which was repaired at 2 months of age. At 4 months she developed severe biventricular failure with left ventricular noncompaction. She had mild dysmorphic features, including flat nasal bridge, low-set cupped ears, deep-set eyes, thin upper lip, and round face. She also had mild 2-3-4 toe syndactyly, mild developmental delay, and mild hypotonia. Her father (patient 3) had a congenital ventricular septal defect and aortic valve stenosis, learning disabilities, and ADHD. He developed focal-to-generalized tonic-clonic seizures at age 18 years, and his craniofacial features were similar to his daughter's. Bozarth et al. (2018) noted that only 3 individuals with seizures had been reported in CACNA1C-related disorders before their series. They concluded that their findings extended the phenotype to neonatal-onset epileptic encephalopathy and late-onset epilepsy and that the family showed variable expressivity. They suggested including CACNA1C on epilepsy gene panels.
 
-Rodan et al. (2021) reported 25 individuals from 22 families with heterozygous CACNA1C mutations. Fourteen individuals had de novo nontruncating mutations, and all 14 had developmental delay or intellectual disability. At last follow-up, 9 were nonverbal and 6 were nonambulatory. One had a formal diagnosis of autism and 6 others had autistic features. Twelve were hypotonic and 4 had ataxia. Prenatal findings were reduced fetal movement (3 of 14), bilateral clubfoot (2 of 14), and oligohydramnios (2 of 14). The course was consistent with a static neurodevelopmental disorder. Brain MRI was normal apart from an incidental arachnoid cyst in 1 individual and prominent cerebellar folia in another. Ten of the 14 had epilepsy, with onset between 2 months and 8 years. Both generalized and focal epilepsies occurred, including West syndrome/infantile spasms, myoclonic seizures, and Lennox-Gastaut syndrome. Seizures were fever-sensitive in 3 individuals and medically refractory in 4, and EEG findings varied across the cohort. Twelve of the 14 had orthopedic abnormalities. Two had bilateral clubfoot with congenital finger contractures, and 2 others had persistently adducted thumbs. Other orthopedic findings were kyphosis or scoliosis (2 of 14), congenital hip dysplasia (3 of 14), syndactyly (2 of 14), and joint hypermobility (3 of 14). ECGs were obtained in 11 of these individuals, and 9 were normal. One individual (P13) had prolonged QT with T-wave alternans on Holter monitoring, and another had a possible ventricular conduction delay. Echocardiograms showed only minor findings, and no individual had the physical features of Timothy syndrome.
+Rodan et al. (2021) described 14 individuals with de novo nontruncating CACNA1C variants. All had developmental delay or intellectual disability. At last follow-up, 9 were nonverbal and 6 were nonambulatory. One had a formal diagnosis of autism and 6 others had autistic features. Twelve were hypotonic and 4 had ataxia. Prenatal findings included reduced fetal movement (3 of 14), bilateral clubfoot (2 of 14), and oligohydramnios (2 of 14). The course was consistent with a static neurodevelopmental disorder. Brain MRI was normal apart from an incidental arachnoid cyst in 1 individual and prominent cerebellar folia in another. Ten of the 14 had epilepsy, with onset ranging from 2 months to 8 years. Both generalized and focal epilepsies occurred, including West syndrome/infantile spasms, myoclonic seizures, and Lennox-Gastaut syndrome. Seizures were fever-sensitive in 3 individuals and medically refractory in 4, and EEG findings were not consistent across the group. Twelve of the 14 had orthopedic abnormalities. Two had bilateral clubfoot with congenital finger contractures and 2 others had persistently adducted thumbs. Other orthopedic findings were kyphosis or scoliosis (2 of 14), congenital hip dysplasia (3 of 14), syndactyly (2 of 14), and joint hypermobility (3 of 14). ECGs were performed in 11 of these individuals and 9 were normal. One individual (P13, with a val1411-to-leu variant) had a prolonged QT interval with T-wave alternans on Holter monitoring, and another had a possible ventricular conduction delay. Echocardiograms showed only minor findings, and no individual had the physical features of Timothy syndrome.
 
-Rodan et al. (2021) also described 11 individuals from 8 families with truncating CACNA1C mutations. Most had essentially normal early motor development and walked independently. Ten of the 11 had delayed expressive language. Five had autism, and 3 of these 5 were nonverbal. Only 1 had seizures and only 3 had hypotonia. Four had poor balance or coordination, 2 had tremor, and 4 had recurrent infections. All 5 ECGs that were performed were normal.
+Rodan et al. (2021) also described 11 individuals from 8 families with truncating CACNA1C variants. Most had essentially normal early motor development and walked independently. Ten of the 11 had delayed expressive language. Five had autism, and 3 of these were nonverbal. Only 1 had seizures and only 3 had hypotonia. Four had poor balance or coordination and 2 had tremor. Recurrent infections were reported in 4 individuals. All 5 ECGs performed were normal.
 
 ### Inheritance
 
-The heterozygous CACNA1C mutations in NEDHLSS occurred de novo in many patients (Kosaki et al., 2018; Bozarth et al., 2018; Rodan et al., 2021). Bozarth et al. (2018) found a splice site variant that was inherited from an affected father. Rodan et al. (2021) found that 3 truncating mutations were paternally inherited and segregated with neurodevelopmental abnormalities in the families. Penetrance and expressivity appeared variable among family members carrying truncating mutations.
+The transmission pattern of NEDHLSS is autosomal dominant. Most reported variants occurred de novo (Kosaki et al., 2018; Bozarth et al., 2018; Rodan et al., 2021). In the family reported by Bozarth et al. (2018), a CACNA1C splice site variant was transmitted from an affected father to his affected daughter. Rodan et al. (2021) found 3 truncating variants that were paternally inherited and segregated with neurodevelopmental abnormalities in the families. Penetrance and expressivity appeared variable among family members carrying truncating variants. ⚠︎
 
 ### Molecular Genetics
 
-Kosaki et al. (2018) used exome analysis in a 5-year-old girl with syndactyly, developmental delay, and pulmonary hypertension without QT prolongation. They identified a novel de novo heterozygous mutation in the CACNA1C gene, an arg1024-to-gly (R1024G) substitution.
+Kosaki et al. (2018) used exome analysis in a 5-year-old girl with syndactyly, developmental delay, and pulmonary hypertension but no QT prolongation. They identified a de novo heterozygous arg1024-to-gly (R1024G) mutation in the CACNA1C gene, which had not been described before.
 
-Bozarth et al. (2018) used trio exome sequencing in a girl with neonatal-onset epileptic encephalopathy (patient 1). They identified a de novo heterozygous c.4087G-A transition (NM_000719.6) in the CACNA1C gene, predicted to cause a val1363-to-met (V1363M) substitution. The variant was absent from the gnomAD, ExAC, and 1000 Genomes databases. It affected a highly conserved residue in the fifth transmembrane helix of domain IV. Structural modeling suggested that this residue faces the pore-forming sixth helix, and the authors concluded that the substitution likely disrupts channel gating. The patient also carried a de novo deletion of exons 11 through 16 of the MSH2 gene. ⚠︎
+In a girl (patient 1) with neonatal-onset epileptic encephalopathy, Bozarth et al. (2018) used trio exome sequencing to identify a de novo heterozygous c.4087G-A transition (NM_000719.6) in the CACNA1C gene, predicting a val1363-to-met (V1363M) substitution. The variant was absent from the gnomAD, ExAC, and 1000 Genomes databases. It affected a highly conserved residue in the fifth transmembrane helix of domain IV. Structural modeling suggested that the residue faces the pore-forming sixth helix, and the authors concluded that the substitution likely disrupts channel gating. The patient also carried a de novo deletion of exons 11-16 of the MSH2 gene. ⚠︎
 
-Bozarth et al. (2018) used a 120-gene cardiomyopathy panel in a girl (patient 2) and identified a heterozygous splice site variant in the CACNA1C gene, c.3717+1_3717+2insA (NM_000719.6). She had inherited the variant from her affected father (patient 3). It was absent from population databases and was predicted to destroy the canonical splice donor site of intron 28. Because no mRNA studies were done, the variant was classified as a variant of uncertain significance, although the authors proposed that haploinsufficiency could explain the phenotype. The proband also carried a heterozygous splice variant in the ALPK3 gene and a p.I130T variant in the TPM1 gene. Her father did not carry the TPM1 variant.
+In a girl (patient 2) of Irish and German descent, Bozarth et al. (2018) used a 120-gene cardiomyopathy panel to identify a heterozygous splice site variant in the CACNA1C gene, c.3717+1_3717+2insA (NM_000719.6). She had inherited the variant from her affected father (patient 3). The variant was absent from population databases and was predicted to destroy the canonical splice donor site of intron 28. Because no mRNA studies had been done, it was classified as a variant of uncertain significance, although the authors proposed that haploinsufficiency could explain the phenotype. The proband also carried a heterozygous splice variant in the ALPK3 gene and an ile130-to-thr (I130T) variant in the TPM1 gene. Her father did not carry the TPM1 variant.
 
-Rodan et al. (2021) studied 25 individuals from 22 families, ascertained through GeneMatcher and ClinVar. They identified heterozygous CACNA1C mutations by exome sequencing or an intellectual disability gene panel. Thirteen unrelated individuals had missense mutations, 1 had an in-frame deletion, and 11 individuals from 8 families had predicted truncating mutations. All nontruncating mutations and all but 3 truncating mutations occurred de novo. None of the variants was present in gnomAD, 1000 Genomes, or the Exome Variant Server. All missense mutations affected highly conserved positions and were predicted to be damaging. The missense mutations clustered in a linker segment of domain II (exon 13) and in domain IV (exon 35). Of the truncating mutations, all except R1989X, which lies in the last exon, were predicted to undergo nonsense-mediated decay. ⚠︎
+Rodan et al. (2021) ascertained 25 individuals from 22 families through GeneMatcher and ClinVar and identified heterozygous CACNA1C variants by exome sequencing or an intellectual disability gene panel. Thirteen unrelated individuals had missense variants and 1 had an in-frame deletion. Eleven individuals from 8 families had predicted truncating variants. All nontruncating variants occurred de novo, as did all but 3 of the truncating variants. None of the variants were present in gnomAD, 1000 Genomes, or the Exome Variant Server. All missense variants affected highly conserved positions and were predicted to be damaging. Missense variants clustered in a linker segment of domain II (exon 13) and in domain IV (exon 35). Three truncating variants (R161X, W528X, and R1989X) were paternally inherited. In 1 of the 2 relatives carrying R161X, however, the variant had arisen de novo. All truncating variants except 1 located in the last exon (exon 45) were predicted to undergo nonsense-mediated decay.
 
-Rodan et al. (2021) performed patch clamp studies on several missense mutations. In HEK293 cells, the L1408V mutation reduced current density to about 30% of control without changing protein expression, consistent with loss of function. The L657F mutation significantly increased calcium current, shifted activation in the hyperpolarizing direction, and raised protein levels about 2-fold, consistent with gain of function. The L614P mutation caused modest current increases with a hyperpolarizing shift in activation, but the increase was not statistically significant. The authors described L614P as gain of function in the Results and as having a neutral effect in the Discussion. The L614R mutation, studied with CACNB2, caused no statistically significant change in current or gating.
+Rodan et al. (2021) performed patch clamp studies on 4 of the missense variants. L1408V reduced current density to about 30% of control without changing protein expression, consistent with loss of function. L657F significantly increased calcium current, shifted activation in the hyperpolarizing direction, and increased protein levels about 2-fold, consistent with gain of function. L614P produced modest current increases with a hyperpolarizing shift in activation, but the increase was not statistically significant. The authors described this variant as gain of function in their Results and as having a neutral effect in their Discussion. In studies with CACNB2, L614R produced no statistically significant change in current or gating. ⚠︎
 
 ### Genotype/Phenotype Correlations
 
-Rodan et al. (2021) observed that individuals with nontruncating CACNA1C mutations had more severe global developmental delay or intellectual disability and more motor impairment than those with truncating mutations. Epilepsy was also much more common in the nontruncating group, affecting more than two-thirds. Individuals with truncating mutations had more selective expressive language deficits, and autism was more common among them.
+Rodan et al. (2021) observed that individuals with nontruncating CACNA1C variants had more severe global developmental delay or intellectual disability and more motor impairment than those with truncating variants. Epilepsy was also much more common in the nontruncating group, affecting more than two-thirds. Individuals with truncating variants had more selective expressive language deficits, and autism was more common among them.
 
 ### Pathogenesis
 
-Rodan et al. (2021) concluded that both gain and loss of CACNA1C function can cause a neurological phenotype. They noted that gnomAD constraint metrics were consistent with haploinsufficiency (pLI 1.0). Loss-of-function missense mutations caused a more severe phenotype than whole-gene or exonic deletions, which in their view favored a dominant-negative effect. They cautioned that their functional studies used only the canonical transcript and that the choice of accessory subunit may have affected the results.
+Rodan et al. (2021) concluded that both gain and loss of CACNA1C function can cause a neurological phenotype. They noted that gnomAD constraint metrics were consistent with haploinsufficiency (pLI 1.0). Phenotypes were more severe with loss-of-function missense variants than with whole-gene or exonic deletions, which the authors suggested favors a dominant-negative effect. They cautioned that their functional studies used only the canonical transcript and that the choice of accessory subunit may have affected the results.
 
 ### Clinical Synopsis
 
@@ -152,122 +152,122 @@ Rodan et al. (2021) concluded that both gain and loss of CACNA1C function can ca
 **.0001 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, ARG1024GLY [p.R1024G]
 
-Kosaki et al. (2018) used exome analysis in a 5-year-old girl with cutaneous syndactyly, developmental delay, and pulmonary hypertension without QT prolongation (NEDHLSS). They identified a novel de novo heterozygous arg1024-to-gly (R1024G) mutation in the CACNA1C gene. ⚠︎
+In a 5-year-old girl with cutaneous syndactyly, developmental delay, and pulmonary hypertension but no QT prolongation, Kosaki et al. (2018) used exome analysis to identify a de novo heterozygous arg1024-to-gly (R1024G) mutation in the CACNA1C gene. The variant had not been described before.
 
 **.0002 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, VAL1363MET [c.4087G>A; p.V1363M]
 
-Bozarth et al. (2018) used trio exome sequencing in a girl of English/Ukrainian ancestry with neonatal-onset epileptic encephalopathy, profound hypotonia, clubfeet, and syndactyly (NEDHLSS). They identified a de novo heterozygous c.4087G-A transition (NM_000719.6) in the CACNA1C gene, predicted to cause a val1363-to-met (V1363M) substitution. The mutation was absent from gnomAD, ExAC, and 1000 Genomes. It affected a highly conserved residue in the fifth transmembrane helix of domain IV, which structural modeling suggested faces the pore-forming sixth helix, and the authors concluded that it likely disrupts channel gating. ⚠︎
+In a girl of English/Ukrainian ancestry with neonatal-onset epileptic encephalopathy, profound hypotonia, clubfeet, and syndactyly, Bozarth et al. (2018) used trio exome sequencing to identify a de novo heterozygous c.4087G-A transition (NM_000719.6) in the CACNA1C gene, predicting a val1363-to-met (V1363M) substitution. The variant was absent from gnomAD, ExAC, and 1000 Genomes. It affected a highly conserved residue in the fifth transmembrane helix of domain IV that, by structural modeling, faces the pore-forming sixth helix. The authors concluded that the substitution likely disrupts channel gating. ⚠︎
 
 **.0003 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 1-BP INS, 3717+1A [c.3717+1_3717+2insa]
+CACNA1C, 1-BP INS, 3717+1_3717+2A [c.3717+1_3717+2insa]
 
-Bozarth et al. (2018) studied a girl of Irish and German descent with tetralogy of Fallot, left ventricular noncompaction, toe syndactyly, mild developmental delay, and mild hypotonia (NEDHLSS). Using a cardiomyopathy gene panel, they identified a heterozygous c.3717+1_3717+2insA splice site variant (NM_000719.6) in the CACNA1C gene. She had inherited the variant from her father, who had congenital heart defects, learning disabilities, ADHD, and seizures that began at age 18 years. The variant was absent from population databases and was predicted to destroy the canonical splice donor site of intron 28. Because no mRNA studies were done, it was classified as a variant of uncertain significance, although the authors proposed that haploinsufficiency could explain the phenotype.
+In a girl with tetralogy of Fallot, left ventricular noncompaction, toe syndactyly, mild developmental delay, and mild hypotonia, Bozarth et al. (2018) used a cardiomyopathy gene panel to identify a heterozygous c.3717+1_3717+2insA splice site variant (NM_000719.6) in the CACNA1C gene. She had inherited it from her affected father, who had congenital heart defects, learning disabilities, and seizures beginning at age 18 years. The variant was absent from population databases and was predicted to destroy the canonical splice donor site of intron 28. Because no mRNA studies had been done, it was classified as a variant of uncertain significance. The authors proposed that haploinsufficiency could explain the phenotype.
 
 **.0004 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LEU1408VAL [c.4222C>G; p.L1408V]
 
-Rodan et al. (2021) studied a patient (P12) with severe intellectual disability, myoclonic seizures beginning at 6 months, and kyphoscoliosis (NEDHLSS). They identified a de novo heterozygous c.4222C-G transversion in the CACNA1C gene, resulting in a leu1408-to-val (L1408V) substitution. In patch clamp studies in HEK293 cells, current density was reduced to about 30% of control while protein expression was unchanged, consistent with loss of function.
+In a patient (P12) with severe intellectual disability, myoclonic seizures beginning at 6 months of age, and kyphoscoliosis, Rodan et al. (2021) identified a de novo heterozygous c.4222C-G transversion in the CACNA1C gene, resulting in a leu1408-to-val (L1408V) substitution. In patch clamp studies in HEK293 cells, current density was reduced to about 30% of control while protein expression was unchanged, consistent with loss of function.
 
 **.0005 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LEU657PHE [c.1969C>T; p.L657F]
 
-Rodan et al. (2021) studied a female patient (P9) with moderate to severe intellectual disability and seizures beginning at 6 years (NEDHLSS). They identified a de novo heterozygous c.1969C-T transition in the CACNA1C gene, resulting in a leu657-to-phe (L657F) substitution. In patch clamp studies, the mutation significantly increased calcium current, shifted activation in the hyperpolarizing direction, and raised protein levels about 2-fold, consistent with gain of function.
+In a female patient (P9) with moderate to severe intellectual disability and seizures beginning at 6 years of age, Rodan et al. (2021) identified a de novo heterozygous c.1969C-T transition in the CACNA1C gene, resulting in a leu657-to-phe (L657F) substitution. In patch clamp studies, the variant significantly increased calcium current, shifted activation in the hyperpolarizing direction, and produced about 2-fold higher protein levels, consistent with gain of function.
 
 **.0006 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LEU614PRO [c.1841T>C; p.L614P]
 
-Rodan et al. (2021) studied a male patient (P8) with intellectual disability, autism, fever-sensitive generalized epilepsy, and kyphosis (NEDHLSS). They identified a de novo heterozygous c.1841T-C transition in the CACNA1C gene, resulting in a leu614-to-pro (L614P) substitution. Patch clamp studies showed modest current increases with a hyperpolarizing shift in activation, but the increase was not statistically significant. The authors described the mutation as gain of function in the Results and as having a neutral effect in the Discussion.
+In a male patient (P8) with intellectual disability, autism, fever-sensitive generalized epilepsy, and kyphosis, Rodan et al. (2021) identified a de novo heterozygous c.1841T-C transition in the CACNA1C gene, resulting in a leu614-to-pro (L614P) substitution. Patch clamp studies showed modest current increases with a hyperpolarizing shift in activation, but the increase was not statistically significant. The authors described the variant as gain of function in their Results and as having a neutral effect in their Discussion. ⚠︎
 
 **.0007 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LEU614ARG [c.1841T>G; p.L614R]
 
-Rodan et al. (2021) studied a male patient (P7) with severe developmental delay, myoclonic and generalized tonic-clonic seizures, bilateral clubfoot, and adducted thumbs (NEDHLSS). They identified a de novo heterozygous c.1841T-G transversion in the CACNA1C gene, resulting in a leu614-to-arg (L614R) substitution. Patch clamp studies with CACNB2 showed no statistically significant change in current or gating.
+In a male patient (P7) with severe developmental delay, myoclonic and generalized tonic-clonic seizures, bilateral clubfoot, and adducted thumbs, Rodan et al. (2021) identified a de novo heterozygous c.1841T-G transversion in the CACNA1C gene, resulting in a leu614-to-arg (L614R) substitution. Patch clamp studies with CACNB2 showed no statistically significant change in current or gating.
 
 **.0008 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, VAL1411LEU [c.4231G>C; c.4231G>T; p.V1411L]
 
-Rodan et al. (2021) identified de novo heterozygous mutations at codon val1411 of the CACNA1C gene in 2 unrelated patients with NEDHLSS. Patient P13 had severe intellectual disability, infantile spasms that evolved to Lennox-Gastaut syndrome, and prolonged QT with T-wave alternans on Holter monitoring. P13 carried a c.4231G-C transversion, resulting in a val1411-to-leu (V1411L) substitution. Patient P14 was an infant with severe global developmental delay, generalized epilepsy beginning at 2 months, hip dysplasia, syndactyly, and adducted thumbs. P14 carried a c.4231G-T transversion, which also results in V1411L.
+Rodan et al. (2021) identified de novo heterozygous variants at codon val1411 of the CACNA1C gene in 2 unrelated patients, each resulting in a val1411-to-leu (V1411L) substitution. P13 carried a c.4231G-C transversion and had severe intellectual disability, infantile spasms evolving to Lennox-Gastaut syndrome, and a prolonged QT interval with T-wave alternans on Holter monitoring. P14 carried a c.4231G-T transversion. P14 was an infant with severe global developmental delay, generalized epilepsy beginning at 2 months of age, hip dysplasia, syndactyly, and adducted thumbs.
 
 **.0009 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, PHE166LEU [c.496T>C; p.F166L]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.496T-C transition in the CACNA1C gene, resulting in a phe166-to-leu (F166L) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.496T-C transition in the CACNA1C gene, resulting in a phe166-to-leu (F166L) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0010 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LYS177ARG [c.530A>G; p.K177R]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.530A-G transition in the CACNA1C gene, resulting in a lys177-to-arg (K177R) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.530A-G transition in the CACNA1C gene, resulting in a lys177-to-arg (K177R) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0011 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, ARG324TRP [c.970C>T; p.R324W]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.970C-T transition in the CACNA1C gene, resulting in an arg324-to-trp (R324W) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.970C-T transition in the CACNA1C gene, resulting in an arg324-to-trp (R324W) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0012 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, VAL403MET [c.1207G>A; p.V403M]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.1207G-A transition in the CACNA1C gene, resulting in a val403-to-met (V403M) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.1207G-A transition in the CACNA1C gene, resulting in a val403-to-met (V403M) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0013 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, LEU601ARG [c.1802T>G; p.L601R]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.1802T-G transversion in the CACNA1C gene, resulting in a leu601-to-arg (L601R) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.1802T-G transversion in the CACNA1C gene, resulting in a leu601-to-arg (L601R) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0014 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, MET611THR [c.1832T>C; p.M611T]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.1832T-C transition in the CACNA1C gene, resulting in a met611-to-thr (M611T) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.1832T-C transition in the CACNA1C gene, resulting in a met611-to-thr (M611T) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0015 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 3-BP DEL, 2227ATC [c.2227_2229delatc; c.p.ile743del; p.I743del]
+CACNA1C, 3-BP DEL, 2227ATC [c.2227_2229delatc; p.I743del]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous 3-bp deletion (c.2227_2229delATC) in the CACNA1C gene, resulting in an in-frame deletion of ile743 (Ile743del). The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.
+In an individual in their neurodevelopmental cohort, Rodan et al. (2021) identified a de novo heterozygous in-frame 3-bp deletion (c.2227_2229delATC) in the CACNA1C gene, resulting in deletion of ile743 (I743del). The variant was absent from population databases.
 
 **.0016 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, VAL1187ALA [c.3560T>C; p.V1187A]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous c.3560T-C transition in the CACNA1C gene, resulting in a val1187-to-ala (V1187A) substitution. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server. It affected a highly conserved position and was predicted to be damaging.
+In their cohort of individuals with neurodevelopmental disorders, Rodan et al. (2021) identified a de novo heterozygous c.3560T-C transition in the CACNA1C gene, resulting in a val1187-to-ala (V1187A) substitution. The variant was absent from population databases, affected a highly conserved position, and was predicted to be damaging.
 
 **.0017 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, 6-BP DEL/10-BP INS, NT239 [c.239_244delagcggainsttgcagctcc; p.Q80L]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous deletion/insertion (c.239_244delAGCGGAinsTTGCAGCTCC) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Gln80LeufsTer49) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.
+In an individual with a predominantly neurodevelopmental phenotype, Rodan et al. (2021) identified a de novo heterozygous deletion-insertion (c.239_244delAGCGGAinsTTGCAGCTCC) in the CACNA1C gene, resulting in a frameshift (Gln80LeufsTer49). The variant was predicted to undergo nonsense-mediated decay.
 
 **.0018 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 1-BP DEL, 2926G [c.2926delg; p.V996W]
-
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous 1-bp deletion (c.2926delG) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Val996TrpfsTer19) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.
-
-**.0019 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 1-BP DUP, NT4129 [c.4129dup; p.R1377P]
-
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous 1-bp duplication (c.4129dup) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Arg1377ProfsTer61) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.
-
-**.0020 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 1-BP DEL, NT4553 [c.4553del; p.L1518P]
-
-In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous 1-bp deletion (c.4553del) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Leu1518ProfsTer3) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.
-
-**.0021 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, ARG161TER [c.481C>T; p.R161*]
 
-In a family with NEDHLSS, Rodan et al. (2021) identified a heterozygous c.481C-T transition in the CACNA1C gene, resulting in an arg161-to-ter (R161X) substitution. The authors listed it among the paternally inherited truncating mutations, although in 1 of 2 relatives the mutation was described as de novo. The paternally inherited truncating mutations segregated with neurodevelopmental abnormalities in the families, with variable penetrance and expressivity. The R161X mutation was predicted to undergo nonsense-mediated decay.
+Rodan et al. (2021) identified a heterozygous c.481C-T transition in the CACNA1C gene, resulting in an arg161-to-ter (R161X) substitution, in 2 related individuals. The variant was paternally inherited, but in 1 of the 2 relatives it had arisen de novo. It was predicted to undergo nonsense-mediated decay. ⚠︎
 
-**.0022 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
+**.0019 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
 CACNA1C, TRP528TER [c.1584G>A; p.W528*]
 
-In a family with NEDHLSS, Rodan et al. (2021) identified a paternally inherited heterozygous c.1584G-A transition in the CACNA1C gene, resulting in a trp528-to-ter (W528X) substitution. The paternally inherited truncating mutations segregated with neurodevelopmental abnormalities in the families, with variable penetrance and expressivity. The W528X mutation was predicted to undergo nonsense-mediated decay.
+Rodan et al. (2021) identified a paternally inherited heterozygous c.1584G-A transition in the CACNA1C gene, resulting in a trp528-to-ter (W528X) substitution. The variant segregated with neurodevelopmental abnormalities in the family and was predicted to undergo nonsense-mediated decay.
+
+**.0020 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
+CACNA1C, IVS, G-C, +1 (2663+1G-C) [c.2663+1G>C]
+
+Rodan et al. (2021) identified a heterozygous c.2663+1G-C splice site variant in the CACNA1C gene in an individual from their cohort with truncating variants. The variant was not paternal in origin and was predicted to undergo nonsense-mediated decay.
+
+**.0021 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
+CACNA1C, 1-BP DEL, 2926G [c.2926delg; p.V996W]
+
+Rodan et al. (2021) identified a de novo heterozygous 1-bp deletion (c.2926delG) in the CACNA1C gene, resulting in a frameshift (Val996TrpfsTer19), in an individual from their cohort. The variant was predicted to undergo nonsense-mediated decay.
+
+**.0022 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
+CACNA1C, 1-BP DUP, NT4129 [c.4129dup; p.R1377P]
+
+Rodan et al. (2021) identified a de novo heterozygous 1-bp duplication (c.4129dup) in the CACNA1C gene, resulting in a frameshift (Arg1377ProfsTer61), in an individual from their cohort. The variant was predicted to undergo nonsense-mediated decay.
 
 **.0023 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, ARG1989TER [c.5860C>T; p.R1989*]
+CACNA1C, 1-BP DEL, NT4553 [c.4553del; p.L1518P]
 
-In a family with NEDHLSS, Rodan et al. (2021) identified a paternally inherited heterozygous c.5860C-T transition in the CACNA1C gene, resulting in an arg1989-to-ter (R1989X) substitution. The paternally inherited truncating mutations segregated with neurodevelopmental abnormalities in the families, with variable penetrance and expressivity. Because R1989X lies in the last exon, it was the only truncating mutation in the cohort not predicted to undergo nonsense-mediated decay. ⚠︎
+Rodan et al. (2021) identified a de novo heterozygous 1-bp deletion (c.4553del) in the CACNA1C gene, resulting in a frameshift (Leu1518ProfsTer3), in an individual from their cohort. The variant was predicted to undergo nonsense-mediated decay.
 
 **.0024 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES**  
-CACNA1C, 2663+1G-C [c.2663+1G>C]
+CACNA1C, ARG1989TER [c.5860C>T; p.R1989*]
 
-In an individual with NEDHLSS, Rodan et al. (2021) identified a heterozygous splice site mutation (c.2663+1G-C) in the CACNA1C gene that was not paternally inherited. The mutation was absent from gnomAD, 1000 Genomes, and the Exome Variant Server, and it was predicted to undergo nonsense-mediated decay.
+Rodan et al. (2021) identified a paternally inherited heterozygous c.5860C-T transition in the CACNA1C gene, resulting in an arg1989-to-ter (R1989X) substitution. The variant segregated with neurodevelopmental abnormalities in the family. Because it lies in the last exon, it was the only truncating variant in the cohort that was not predicted to undergo nonsense-mediated decay. ⚠︎
 
 ### REFERENCES
 

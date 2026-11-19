@@ -80,25 +80,25 @@ B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS	has
 B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS	has_phenotype	Postnatal growth retardation	11152140
 B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS	has_phenotype	Recurrent sinopulmonary infections	11152140
 B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS	has_phenotype	Bacteremia	11152140
-Triphalangeal thumb	is_a	Abnormality of the hand	
-Triphalangeal thumb	is_a	Abnormality of limbs	
 Progressive microcephaly	is_a	Microcephaly	
-4-5 toe syndactyly	is_a	Abnormal foot morphology	
-4-5 toe syndactyly	is_a	Abnormality of limbs	
-Small thenar eminence	is_a	Abnormality of the hand	
-Small thenar eminence	is_a	Abnormality of limbs	
-Short first metatarsal	is_a	Abnormal foot morphology	
-Short first metatarsal	is_a	Abnormality of limbs	
-Abnormal foot morphology	is_a	Abnormality of limbs	
-Abnormality of the hand	is_a	Abnormality of limbs	
-Abnormality of the genital system	is_a	Abnormality of the genitourinary system	
-Decreased circulating immunoglobulin concentration	is_a	Abnormal circulating immunoglobulin concentration	
-Recurrent sinopulmonary infections	is_a	Recurrent infections	
-Abnormal hallux morphology	is_a	Abnormal foot morphology	
-Abnormal hallux morphology	is_a	Abnormality of limbs	
-Absent circulating B cells	is_a	Abnormal total B cell count	
-Recurrent bacterial infections	is_a	Recurrent infections	
-Hypoplastic labia minora	is_a	Abnormality of the genital system	
 Decreased circulating total IgG concentration	is_a	Decreased circulating immunoglobulin concentration	
 Decreased circulating total IgG concentration	is_a	Abnormal circulating immunoglobulin concentration	
+Decreased circulating immunoglobulin concentration	is_a	Abnormal circulating immunoglobulin concentration	
+Small thenar eminence	is_a	Abnormality of the hand	
+Small thenar eminence	is_a	Abnormality of limbs	
+Hypoplastic labia minora	is_a	Abnormality of the genital system	
+Recurrent sinopulmonary infections	is_a	Recurrent infections	
+Abnormal foot morphology	is_a	Abnormality of limbs	
+Short first metatarsal	is_a	Abnormal foot morphology	
+Short first metatarsal	is_a	Abnormality of limbs	
 Decreased total B cell count	is_a	Abnormal total B cell count	
+Abnormal hallux morphology	is_a	Abnormal foot morphology	
+Abnormal hallux morphology	is_a	Abnormality of limbs	
+Abnormality of the genital system	is_a	Abnormality of the genitourinary system	
+Triphalangeal thumb	is_a	Abnormality of the hand	
+Triphalangeal thumb	is_a	Abnormality of limbs	
+Abnormality of the hand	is_a	Abnormality of limbs	
+4-5 toe syndactyly	is_a	Abnormal foot morphology	
+4-5 toe syndactyly	is_a	Abnormality of limbs	
+Recurrent bacterial infections	is_a	Recurrent infections	
+Absent circulating B cells	is_a	Abnormal total B cell count	

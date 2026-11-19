@@ -88,18 +88,18 @@ MITCHELL-RILEY SYNDROME	has_phenotype	Esophageal atresia	10528254,9677074
 MITCHELL-RILEY SYNDROME	has_phenotype	Anorectal anomaly	10528254
 MITCHELL-RILEY SYNDROME	has_phenotype	Hypospadias	10528254,1488984
 MITCHELL-RILEY SYNDROME	has_phenotype	Tracheoesophageal fistula	1488984
-Hypoplasia of the gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Annular pancreas	is_a	Abnormality of the pancreas	
 Aplasia/Hypoplasia of the gallbladder	is_a	Abnormality of the biliary system	
-Biliary atresia	is_a	Abnormality of the biliary system	
-Duodenal atresia	is_a	Intestinal atresia	
-Absent gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Diabetic ketoacidosis	is_a	Diabetes mellitus	
+Abnormality of the pancreatic islet cells	is_a	Abnormality of the pancreas	
 Neonatal insulin-dependent diabetes mellitus	is_a	Diabetes mellitus	
+Hypoplasia of the gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Jejunal atresia	is_a	Intestinal atresia	
+Intrahepatic cholestasis	is_a	Abnormality of the biliary system	
+Exocrine pancreatic insufficiency	is_a	Abnormality of the pancreas	
+Absent gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Duodenal atresia	is_a	Intestinal atresia	
 Extrahepatic biliary duct atresia	is_a	Biliary atresia	
 Extrahepatic biliary duct atresia	is_a	Abnormality of the biliary system	
-Jejunal atresia	is_a	Intestinal atresia	
-Exocrine pancreatic insufficiency	is_a	Abnormality of the pancreas	
-Annular pancreas	is_a	Abnormality of the pancreas	
-Diabetic ketoacidosis	is_a	Diabetes mellitus	
-Intrahepatic cholestasis	is_a	Abnormality of the biliary system	
+Biliary atresia	is_a	Abnormality of the biliary system	
 Pancreatic hypoplasia	is_a	Abnormality of the pancreas	
-Abnormality of the pancreatic islet cells	is_a	Abnormality of the pancreas	

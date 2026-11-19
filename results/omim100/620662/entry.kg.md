@@ -14,41 +14,35 @@ A number sign (#) is used with this entry because of evidence that Hoxha-Aliu sy
 
 ### Description
 
-Hoxha-Aliu syndrome is an autosomal recessive disorder characterized by mild intellectual disability or developmental delay and distal limb anomalies. The limb anomalies include brachydactyly, clinodactyly, short or dysplastic nails, short metacarpals, and toe syndactyly (Hoxha and Aliu, 2023; Guo et al., 2023). Some patients have also had short stature, dysmorphic facial features, and cardiac malformations (Choucair et al., 2017; Szot et al., 2021).
+Hoxha-Aliu syndrome is an autosomal recessive disorder. Its main features are developmental delay or mild intellectual disability and distal limb abnormalities of the hands and feet (Hoxha and Aliu, 2023). Guo et al. (2023) found that individuals with biallelic null variants in ERI1 had mild intellectual disability and digital anomalies. They did not have the severe spondyloepimetaphyseal dysplasia (SEMD) seen in individuals with biallelic ERI1 missense variants.
 
 ### Clinical Features
 
 Choucair et al. (2017) reported a male child born to consanguineous parents. He had intellectual disability, short stature, dysmorphic facial features, synpolydactyly, and cardiac malformations.
 
-Szot et al. (2021) described a girl (F5.II.1) with reduction defects of the hands and feet. On the right hand she had a transverse terminal limb reduction with a rudimentary fifth digit. Several digits had hypoplastic or absent nails. Toes 2 to 4 of the right foot and toes 3 to 5 of the left foot were absent, and she had syndactyly. She also had a perimembranous ventricular septal defect, pulmonary vein stenosis, microcephaly, global developmental delay, and autism. Dysmorphic features included brachycephaly with a flat occiput and bitemporal narrowing, a small nose, and cupped prominent ears. She had bilateral inguinal hernias. No vertebral or renal defects were recorded.
+Szot et al. (2021) described a girl (F5.II.1) with reduction defects of the hands and feet. On the right hand she had a transverse terminal limb reduction with a rudimentary fifth digit. Several digits had hypoplastic or absent nails. Toes 2 to 4 of the right foot and toes 3 to 5 of the left foot were absent, and there was syndactyly. She also had a perimembranous ventricular septal defect, pulmonary vein stenosis, microcephaly, global developmental delay, and autism. Her other features were brachycephaly with a flat occiput, bitemporal narrowing, a small nose, cupped prominent ears, and bilateral inguinal hernias. No vertebral or renal defects were recorded.
 
-Hoxha and Aliu (2023) reported a female patient with mild intellectual disability, eyelid ptosis, and hand and foot anomalies. The hand and foot anomalies were brachydactyly, clinodactyly, dysplastic or short nails of the halluces, brachytelephalangy, short metacarpals, and toe syndactyly.
+Hoxha and Aliu (2023) reported a female patient with mild intellectual disability, eyelid ptosis, and hand and foot anomalies. The anomalies were brachydactyly, clinodactyly, dysplastic or short nails of the halluces, brachytelephalangy, short metacarpals, and toe syndactyly.
 
-Guo et al. (2023) reported 8 affected individuals from 7 unrelated families with biallelic ERI1 variants and described a phenotypic dichotomy. Individuals with biallelic null variants had mild intellectual disability and digital anomalies. They did not have the severe spondyloepimetaphyseal dysplasia (SEMD) seen in the 5 individuals with missense variants.
+Guo et al. (2023) reported 8 affected individuals from 7 unrelated families with biallelic ERI1 variants and described a phenotypic dichotomy. Individuals with biallelic null variants had mild intellectual disability and digital anomalies. They did not have the severe SEMD seen in the 5 individuals with missense variants.
 
 ### Inheritance
 
-The transmission pattern of Hoxha-Aliu syndrome is autosomal recessive. Choucair et al. (2017) found a homozygous deletion including ERI1 in a child of consanguineous parents. Homozygous nonsense mutations in ERI1 were reported by Szot et al. (2021) and by Hoxha and Aliu (2023), and Guo et al. (2023) found biallelic null variants in affected individuals.
+Hoxha-Aliu syndrome shows autosomal recessive inheritance. Homozygous ERI1 variants were found in affected individuals by Choucair et al. (2017), in a child of consanguineous parents; by Szot et al. (2021); and by Hoxha and Aliu (2023). Guo et al. (2023) reported biallelic ERI1 variants in affected individuals from 7 families. ⚠︎
 
 ### Molecular Genetics
 
-Choucair et al. (2017) performed chromosomal microarray analysis in a male child born to consanguineous parents and found a homozygous deletion at 8p23.1. The deletion contained the microRNA miR-4660 and the ERI1 and MFHAS1 genes. The authors noted that ERI1 is a ribonuclease involved in RNA metabolism and that it is required for correct skeletal patterning by defining HOXC8 expression. They discussed how the deleted genes might contribute to the patient's features.
+Choucair et al. (2017) studied a male child born to consanguineous parents. Using chromosomal microarray analysis, they found a homozygous deletion at 8p23.1 that contained the microRNA miR-4660 and the ERI1 and MFHAS1 genes. The authors noted that ERI1 is a ribonuclease involved in RNA metabolism and is required for correct skeletal patterning by defining HOXC8 expression. They discussed how the deleted genes might contribute to the patient's features.
 
-Szot et al. (2021) reported patient F5.II.1, a girl with limb reduction defects, cardiac defects, microcephaly, global developmental delay, and autism. She carried a homozygous loss-of-function variant in the ERI1 gene (c.514C-T, NM_153332.4; gln172-to-ter, Q172X). She was also homozygous for a missense variant in the KYNU gene (605197) (c.616G-A; glu206-to-lys, E206K). The authors noted that ERI1 had previously been found in a homozygous microdeletion, together with MFHAS1, in a patient whose limb and cardiac abnormalities resembled hers. They suggested that the ERI1 variant may help explain her phenotype but said that the functional link between ERI1 mutation and these defects remained to be assessed.
+Szot et al. (2021) studied a girl (F5.II.1) with limb reduction defects, cardiac defects, microcephaly, global developmental delay, and autism. She carried a homozygous loss-of-function variant in the ERI1 gene (c.514C-T, Q172X). She was also homozygous for a missense variant in the KYNU gene (605197) (c.616G-A, E206K). The authors noted that ERI1 had previously been found, together with MFHAS1, in a homozygous microdeletion in a patient whose limb and cardiac abnormalities resembled hers. They suggested that the ERI1 variant may help explain her phenotype. However, they stated that the functional link between ERI1 mutation and these defects remained to be assessed.
 
-Hoxha and Aliu (2023) identified a homozygous nonsense mutation in the ERI1 gene in a female patient with developmental delay and distal limb abnormalities. They described this as the first reported human case associated with ERI1 variants.
+Hoxha and Aliu (2023) identified a homozygous nonsense mutation in the ERI1 gene in a female patient with developmental delay and distal limb abnormalities. They described this as the first reported human case associated with ERI1 variants. They described ERI1 as an evolutionarily conserved 3-prime-to-5-prime exonuclease with an important function in multiple RNA processing pathways.
 
-Guo et al. (2023) identified biallelic null variants in the ERI1 gene in individuals with mild intellectual disability and digital anomalies. They found biallelic missense variants in 5 individuals with severe SEMD.
+Guo et al. (2023) identified biallelic null variants in the ERI1 gene in individuals with mild intellectual disability and digital anomalies. In 5 individuals with severe SEMD, they found biallelic missense variants instead. The missense variants abolished exoribonuclease activity. This caused defective trimming of the 3-prime end of 5.8S rRNA and reduced degradation of replication-dependent histone mRNAs. Induced pluripotent stem cells (iPSCs) derived from affected individuals showed impaired chondrogenesis in vitro, with downregulation of genes that regulate skeletal patterning.
 
 ### Genotype/Phenotype Correlations
 
-Guo et al. (2023) studied 8 affected individuals from 7 families. They proposed a model in which, among recessive ERI1 genotypes, missense alleles have a more severe effect than null alleles. Missense alleles caused severe SEMD. Null alleles caused a milder phenotype of mild intellectual disability and digital anomalies.
-
-### Pathogenesis
-
-Hoxha and Aliu (2023) described ERI1 as an evolutionarily conserved 3-prime-to-5-prime exonuclease with an important function in multiple RNA processing pathways.
-
-Guo et al. (2023) found that the ERI1 missense variants abolished exoribonuclease activity. This caused defective trimming of the 3-prime end of 5.8S rRNA and reduced degradation of replication-dependent histone mRNAs. Induced pluripotent stem cells (iPSCs) derived from affected individuals showed impaired chondrogenesis in vitro, with downregulation of genes that regulate skeletal patterning.
+Guo et al. (2023) studied 8 affected individuals from 7 families. They proposed a model in which, among recessive ERI1 genotypes, missense alleles have a more severe effect than null alleles. Missense alleles caused severe SEMD, whereas null alleles caused a milder phenotype of mild intellectual disability and digital anomalies.
 
 ### Clinical Synopsis
 
@@ -104,19 +98,19 @@ Guo et al. (2023) found that the ERI1 missense variants abolished exoribonucleas
 ### ALLELIC VARIANTS
 
 **.0001 HOXHA-ALIU SYNDROME**  
-ERI1, DEL
+ERI1, 8p23.1 DEL (INCLUDES MIR4660, ERI1, AND MFHAS1)
 
-Choucair et al. (2017) studied a male child of consanguineous parents who had intellectual disability, short stature, dysmorphic facial features, synpolydactyly, and cardiac malformations. Chromosomal microarray analysis showed a homozygous deletion at 8p23.1 containing miR-4660, ERI1, and MFHAS1.
+Choucair et al. (2017) studied a male child born to consanguineous parents who had intellectual disability, short stature, dysmorphic facial features, synpolydactyly, and cardiac malformations. Using chromosomal microarray analysis, they found a homozygous deletion at 8p23.1 that contained the microRNA miR-4660 and the ERI1 and MFHAS1 genes.
 
 **.0002 HOXHA-ALIU SYNDROME**  
-ERI1, GLN172TER [c.514C>T; c.nm_153332.4; p.Q172*]
+ERI1, GLN172TER [c.514C>T; p.Q172*]
 
-Szot et al. (2021) reported a girl (F5.II.1) with limb reduction defects, cardiac defects, microcephaly, global developmental delay, and autism. She was homozygous for a c.514C-T transition (NM_153332.4) in the ERI1 gene, resulting in a gln172-to-ter (Q172X) substitution and predicted loss of function. She was also homozygous for a KYNU missense variant (E206K). The authors stated that the functional link between ERI1 mutation and her defects remained to be assessed.
+Szot et al. (2021) studied a girl (F5.II.1) with limb reduction defects, cardiac defects, microcephaly, global developmental delay, and autism. She carried a homozygous c.514C-T transition in the ERI1 gene (NM_153332.4), resulting in a gln172-to-ter (Q172X) substitution. She was also homozygous for a missense variant in the KYNU gene (E206K). The authors stated that the functional link between ERI1 mutation and her defects remained to be assessed.
 
 **.0003 HOXHA-ALIU SYNDROME**  
-ERI1, NONSENSE
+ERI1, NONSENSE MUTATION
 
-Hoxha and Aliu (2023) identified a homozygous nonsense mutation in the ERI1 gene in a female patient. She had mild intellectual disability and eyelid ptosis. Her hand and foot anomalies included brachydactyly, clinodactyly, brachytelephalangy, short metacarpals, toe syndactyly, and dysplastic or short nails of the halluces.
+Hoxha and Aliu (2023) identified a homozygous nonsense mutation in the ERI1 gene in a female patient. She had developmental delay or mild intellectual disability, eyelid ptosis, and distal limb abnormalities including brachydactyly, clinodactyly, brachytelephalangy, short metacarpals, and toe syndactyly.
 
 ### REFERENCES
 

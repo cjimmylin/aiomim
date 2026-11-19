@@ -18,7 +18,7 @@ Miyake et al. (2012)	reports	Miyake et al. (2012) described 6 patients with auto
 Miyake et al. (2012)	reports	In 3 affected members of a Turkish family with autosomal recessive brachyolmia, Miyake et al. (2012) used exon capture followed by next-generation sequencing and identified a homozygous loss-of-function mutation in the PAPSS2 gene, c.337_338insG (p.A113GfsX18).	
 PAPSS2 c.337_338insg / p.A113G	in_gene	PAPSS2	
 Miyake et al. (2012)	reports	Miyake et al. (2012) identified homozygosity for a PAPSS2 splice mutation, IVS3+2delT, in 1 of 3 additional patients (2 Japanese and 1 Korean) with a similar brachyolmia phenotype.	
-PAPSS2 c.ivs3+2delt	in_gene	PAPSS2	
+PAPSS2 IVS3+2delT	in_gene	PAPSS2	
 Miyake et al. (2012)	reports	Miyake et al. (2012) identified compound heterozygous loss-of-function mutations in PAPSS2, c.616-634del19 (p.V206SfsX9) and c.1309-1310delAG (p.R437GfsX19), in a patient with brachyolmia (one of 2 Japanese and 1 Korean patients studied).	
 PAPSS2 c.616-634del19 / p.V206S	in_gene	PAPSS2	
 PAPSS2 c.1309-1310delag / p.R437G	in_gene	PAPSS2	
@@ -33,7 +33,7 @@ BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPS
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 c.480_481inscgta / p.K161R	22791835
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 c.616-634del19 / p.V206S	22791835
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 c.661dela / p.I221S	22791835
-BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 c.ivs3+2delt	22791835
+BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 IVS3+2delT	22791835
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_variant	PAPSS2 nonsense mutation in ATPSK2	9771708
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	inheritance	Autosomal recessive	19474428,22791835,9714015,9771708
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_phenotype	Disproportionate short-trunk short stature	22791835
@@ -57,8 +57,8 @@ BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_phenotype	Os
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_phenotype	Delayed epiphyseal ossification	9714015
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_phenotype	Platyspondyly	9714015
 BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES	has_phenotype	Abnormal metaphysis morphology	9714015
-Bowing of the legs	is_a	Abnormal long bone morphology	
-Disproportionate short-trunk short stature	is_a	Short stature	
 Abnormal metaphysis morphology	is_a	Abnormal long bone morphology	
 Delayed epiphyseal ossification	is_a	Abnormal long bone morphology	
 Short metacarpal	is_a	Abnormal long bone morphology	
+Disproportionate short-trunk short stature	is_a	Short stature	
+Bowing of the legs	is_a	Abnormal long bone morphology	

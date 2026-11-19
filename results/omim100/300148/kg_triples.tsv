@@ -44,7 +44,7 @@ Gregory et al. (2019)	reports	Gregory et al. (2019) described 3 affected males f
 Gregory et al. (2019)	reports	Gregory et al. (2019) reported that patient III3 presented with poor feeding and hypoglycemia 18 hours after birth, had total anomalous pulmonary venous return, severe gastroesophageal reflux requiring Nissen fundoplication, GH deficiency, global developmental delay needing 1:1 support, behavioral problems, and mild hepatomegaly. MRI also showed hypoplasia of the corpus callosum and ventricular asymmetry. An OGTT at 8 years showed symptomatic hypoglycemia at 3 hours with inappropriate insulin, suggesting hyperinsulinemic hypoglycemia.	
 Gregory et al. (2019)	reports	Gregory et al. (2019) reported that the monozygotic twins (III4, III5) had intestinal lymphonodular hyperplasia, hypoglycemic seizures and GH deficiency at 2 years, central hypothyroidism at 2 years, and microphallus that enlarged on GH therapy; III4 had transient undescended testes. They had delayed speech with mild conductive hearing loss and behavioral and mild learning difficulties. At 10 years they had impaired glucose tolerance with fluctuation between hypoglycemia and hyperglycemia, elevated HbA1c, and persisting hyperinsulinemic hypoglycemia at 13.6 years; they progressed through puberty spontaneously.	
 Gregory et al. (2019)	reports	In 3 affected males of a family with hypopituitarism and glucose dysregulation, Gregory et al. (2019) identified by X-exome sequencing a hemizygous c.1294C-T transition in the EIF2S3 gene, resulting in a pro432-to-ser (P432S) substitution at a highly conserved residue in the C-terminal domain of eIF2-gamma. The variant was inherited from heterozygous mothers (sisters), originating from the heterozygous maternal grandmother, and segregated in an X-linked recessive manner over 3 generations. It was absent from ExAC and gnomAD and predicted deleterious.	
-EIF2S3 c.1294C>T / c.chrx_24091319c/t / p.P432S	in_gene	EIF2S3	
+EIF2S3 c.1294C>T / p.P432S	in_gene	EIF2S3	
 Gregory et al. (2019)	reports	Gregory et al. (2019) noted that the mother of the twins had secondary amenorrhea with osteoporosis, menarche at 13 years and cessation of periods at 16 years, and a normal brain MRI; the mother of III3 also presented with secondary amenorrhea.	
 Gregory et al. (2019)	reports	Gregory et al. (2019) screened 103 patients with congenital hypopituitarism (isolated GHD, septooptic dysplasia, hypogonadotropic hypogonadism/Kallmann syndrome, multiple pituitary hormone deficiencies) and identified no further EIF2S3 variants; none had glucose dysregulation similar to the index family.	
 Gregory et al. (2019)	reports	Gregory et al. (2019) found by in situ hybridization that EIF2S3 was expressed in the human embryonic ventral hypothalamus, Rathke's pouch, anterior and posterior pituitary, nasal epithelium progenitors and retina at Carnegie stages 20 and 23, and in the islets of Langerhans of a 13-week fetal pancreas. In a human pancreatic beta-cell line (1.1B4), shRNA knockdown of EIF2S3 by 82% caused significantly increased basal and cytokine-stimulated caspase activity, suggesting increased apoptosis.	
@@ -52,7 +52,7 @@ Gregory et al. (2019)	reports	Gregory et al. (2019) introduced the yeast equival
 Gregory et al. (2019)	reports	Gregory et al. (2019) noted that their patients lacked the microcephaly, epilepsy and obesity that are prominent in previously reported MEHMO patients and had a much milder neurodevelopmental phenotype. They proposed that the milder loss of function of P432S produces a phenotype distinct from classic MEHMO syndrome, and suggested that untreated hypoketotic hypoglycemia may have contributed to the more severe neurodevelopmental impairment and seizures in previously reported cases.	
 Gregory et al. (2019)	reports	Gregory et al. (2019) treated the patients with recombinant human GH, thyroxine, and diazoxide with chlorothiazide; diazoxide and chlorothiazide were stopped when hyperinsulinism resolved at 7 years, but the twins later had postprandial hyperglycemia and variable fasting hypoglycemia. The boys grew well on GH. The authors suggested that early molecular diagnosis may prevent significant morbidity and neurodevelopmental delay.	
 MEHMO SYNDROME	caused_by	EIF2S3	23063529,27333055,28055140,30878599
-MEHMO SYNDROME	has_variant	EIF2S3 c.1294C>T / c.chrx_24091319c/t / p.P432S	30878599
+MEHMO SYNDROME	has_variant	EIF2S3 c.1294C>T / p.P432S	30878599
 MEHMO SYNDROME	has_variant	EIF2S3 c.1394_1397del / c.1394_1397deltcaa / p.I465S	27333055,28055140
 MEHMO SYNDROME	has_variant	EIF2S3 c.324T>A / p.S108R	28055140
 MEHMO SYNDROME	has_variant	EIF2S3 c.451G>C / p.V151L	23063529
@@ -144,23 +144,23 @@ MEHMO SYNDROME	has_phenotype	Nystagmus	2635712
 MEHMO SYNDROME	has_phenotype	Irritability	2635712
 MEHMO SYNDROME	has_phenotype	Constipation	2635712
 MEHMO SYNDROME	has_phenotype	Death in childhood	2635712
-Truncal obesity	is_a	Obesity	
 Micropenis	is_a	External genital hypoplasia	
 Micropenis	is_a	Abnormality of the genital system	
-Secondary amenorrhea	is_a	Abnormality of the genital system	
 Profound global developmental delay	is_a	Global developmental delay	
-Short stature	is_a	Growth delay	
-Hypogonadism	is_a	Abnormality of the genital system	
-Focal impaired awareness seizure	is_a	Seizure	
-Severe global developmental delay	is_a	Global developmental delay	
-Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
-Type I diabetes mellitus	is_a	Diabetes mellitus	
-Hypoglycemic seizures	is_a	Seizure	
-Severe intellectual disability	is_a	Intellectual disability	
 External genital hypoplasia	is_a	Abnormality of the genital system	
-Cryptorchidism	is_a	Abnormality of the genital system	
+Generalized-onset seizure	is_a	Seizure	
+Type I diabetes mellitus	is_a	Diabetes mellitus	
+Severe global developmental delay	is_a	Global developmental delay	
+Spasticity	is_a	Hypertonia	
+Hypogonadism	is_a	Abnormality of the genital system	
+Hypoglycemic seizures	is_a	Seizure	
+Secondary amenorrhea	is_a	Abnormality of the genital system	
 Postnatal growth retardation	is_a	Growth delay	
 Moderate intellectual disability	is_a	Intellectual disability	
+Severe intellectual disability	is_a	Intellectual disability	
+Cryptorchidism	is_a	Abnormality of the genital system	
+Short stature	is_a	Growth delay	
+Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
+Focal impaired awareness seizure	is_a	Seizure	
+Truncal obesity	is_a	Obesity	
 Hypospadias	is_a	Abnormality of the genital system	
-Spasticity	is_a	Hypertonia	
-Generalized-onset seizure	is_a	Seizure	

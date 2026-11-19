@@ -14,7 +14,7 @@ A number sign (#) is used with this entry because of evidence that autosomal dom
 
 ### Description
 
-Autosomal dominant autoinflammation, panniculitis, and dermatosis syndrome (AIPDSA) is a severe autoinflammatory disorder that begins in infancy. Features include fever, raised inflammatory markers with neutrophilic leukocytosis, panniculitis or erythema nodosum, sterile pustular lesions at sites of trauma, and necrotizing or nonhealing skin and abdominal wall wounds. Some patients have episodes of acute respiratory distress. The disorder responds to corticosteroids and to TNF blockade. It is caused by de novo heterozygous OTULIN mutations that act in a dominant-negative manner. Clinically it resembles the OTULIN-related autoinflammatory syndrome (ORAS) caused by biallelic OTULIN loss-of-function mutations (Davidson et al., 2024; Takeda et al., 2024).
+Autosomal dominant autoinflammation, panniculitis, and dermatosis syndrome (AIPDSA) is a severe autoinflammatory disorder that begins in infancy. Features include fever, raised inflammatory markers with neutrophilic leukocytosis, panniculitis or erythema nodosum, sterile pustular lesions at sites of trauma, and necrotizing or nonhealing skin and abdominal wall wounds. Some patients have episodes of acute respiratory distress and growth failure. The disorder responds to corticosteroids and to TNF blockade. It is caused by de novo heterozygous OTULIN mutations that act in a dominant-negative manner. Clinically it resembles the OTULIN-related autoinflammatory syndrome (ORAS) caused by biallelic OTULIN loss-of-function mutations (Davidson et al., 2024; Takeda et al., 2024).
 
 ### Clinical Features
 
@@ -26,7 +26,7 @@ Takeda et al. (2024) reported a 9-year-old Japanese girl born to nonconsanguineo
 
 ### Inheritance
 
-The heterozygous OTULIN mutations in the 2 patients reported by Davidson et al. (2024) and in the patient reported by Takeda et al. (2024) occurred de novo. Both groups concluded that the mutations act in a dominant-negative manner, consistent with autosomal dominant inheritance. The patient of Takeda et al. (2024) also carried a maternally inherited OTULIN variant, P152L. Her healthy mother and healthy sister also carried this variant, and it showed wildtype activity. ⚠︎
+The heterozygous OTULIN mutations in the 2 patients reported by Davidson et al. (2024) and in the patient reported by Takeda et al. (2024) occurred de novo. Both groups concluded that the mutations act in a dominant-negative manner, consistent with autosomal dominant inheritance. The patient of Takeda et al. (2024) also carried a maternally inherited OTULIN variant, P152L. Her healthy mother and healthy sister also carried this variant, and it showed wildtype activity.
 
 ### Molecular Genetics
 

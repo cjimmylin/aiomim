@@ -94,27 +94,27 @@ NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZ
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES	has_phenotype	Bilateral tonic-clonic seizure	22279524
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES	has_phenotype	Aortic valve stenosis	22279524
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES	has_phenotype	Hydrocele testis	22279524
-Ventriculomegaly	is_a	Abnormal brain morphology	
-Focal-onset seizure	is_a	Seizure	
-Bicuspid aortic valve	is_a	Abnormal heart morphology	
-Macroglossia	is_a	Abnormality of the tongue	
-Neonatal hypotonia	is_a	Hypotonia	
-Myoclonic seizure	is_a	Seizure	
 Craniosynostosis	is_a	Abnormal skull morphology	
-Hydrocephalus	is_a	Abnormal brain morphology	
-Severe global developmental delay	is_a	Global developmental delay	
-Cloverleaf skull	is_a	Abnormal skull morphology	
-Left ventricular noncompaction cardiomyopathy	is_a	Cardiomyopathy	
-Micrognathia	is_a	Abnormal skull morphology	
-Abnormality of skull size	is_a	Abnormal skull morphology	
 Bilateral tonic-clonic seizure	is_a	Seizure	
-Hypoplastic left ventricle	is_a	Abnormal heart morphology	
+Left ventricular noncompaction cardiomyopathy	is_a	Cardiomyopathy	
+Hydrocephalus	is_a	Abnormal brain morphology	
+Ventriculomegaly	is_a	Abnormal brain morphology	
 Autism	is_a	Atypical behavior	
-Septo-optic dysplasia	is_a	Abnormal brain morphology	
-Thin corpus callosum	is_a	Abnormal brain morphology	
-Cardiomyopathy	is_a	Abnormal heart morphology	
 Atonic seizure	is_a	Seizure	
-Broad jaw	is_a	Abnormal skull morphology	
-Chiari malformation	is_a	Abnormal brain morphology	
-Conductive hearing impairment	is_a	Hearing impairment	
 Generalized non-motor (absence) seizure	is_a	Seizure	
+Macroglossia	is_a	Abnormality of the tongue	
+Hypoplastic left ventricle	is_a	Abnormal heart morphology	
+Conductive hearing impairment	is_a	Hearing impairment	
+Cloverleaf skull	is_a	Abnormal skull morphology	
+Broad jaw	is_a	Abnormal skull morphology	
+Septo-optic dysplasia	is_a	Abnormal brain morphology	
+Focal-onset seizure	is_a	Seizure	
+Cardiomyopathy	is_a	Abnormal heart morphology	
+Abnormality of skull size	is_a	Abnormal skull morphology	
+Myoclonic seizure	is_a	Seizure	
+Micrognathia	is_a	Abnormal skull morphology	
+Bicuspid aortic valve	is_a	Abnormal heart morphology	
+Chiari malformation	is_a	Abnormal brain morphology	
+Severe global developmental delay	is_a	Global developmental delay	
+Thin corpus callosum	is_a	Abnormal brain morphology	
+Neonatal hypotonia	is_a	Hypotonia	

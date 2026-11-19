@@ -50,12 +50,12 @@ COLE-CARPENTER SYNDROME 2	has_phenotype	Multiple prenatal fractures	25683121
 COLE-CARPENTER SYNDROME 2	has_phenotype	Short stature	25683121
 COLE-CARPENTER SYNDROME 2	has_phenotype	Macrocephaly	25683121
 COLE-CARPENTER SYNDROME 2	has_phenotype	Downslanted palpebral fissures	25683121
-Wide cranial sutures	is_a	Abnormal skull morphology	
 Abnormality of skull ossification	is_a	Abnormal skull morphology	
-Macrocephaly	is_a	Abnormal skull morphology	
-Wormian bones	is_a	Abnormal skull morphology	
-Persistent open anterior fontanelle	is_a	Abnormal skull morphology	
-Micrognathia	is_a	Abnormal skull morphology	
-Basilar impression	is_a	Abnormal skull morphology	
-Disproportionate short-trunk short stature	is_a	Short stature	
 Frontal bossing	is_a	Abnormal skull morphology	
+Basilar impression	is_a	Abnormal skull morphology	
+Persistent open anterior fontanelle	is_a	Abnormal skull morphology	
+Wormian bones	is_a	Abnormal skull morphology	
+Macrocephaly	is_a	Abnormal skull morphology	
+Disproportionate short-trunk short stature	is_a	Short stature	
+Wide cranial sutures	is_a	Abnormal skull morphology	
+Micrognathia	is_a	Abnormal skull morphology	

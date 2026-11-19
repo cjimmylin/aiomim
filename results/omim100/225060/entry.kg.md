@@ -14,53 +14,55 @@ OROFACIAL CLEFT 7, INCLUDED; OFC7, INCLUDED
 
 ### TEXT
 
-A number sign (#) is used with this entry because of evidence that cleft lip/palate-ectodermal dysplasia syndrome (CLPED1) is caused by homozygous mutation in the NECTIN1 gene (PVRL1; 600644) on chromosome 11q23.3. Heterozygosity for a NECTIN1 nonsense mutation has been associated with sporadic, nonsyndromic cleft lip with or without cleft palate (orofacial cleft 7; OFC7), which is included here.
+A number sign (#) is used with this entry because of evidence that cleft lip/palate-ectodermal dysplasia syndrome (CLPED1) is caused by homozygous mutation in the NECTIN1 gene (600644) on chromosome 11q23.3. Heterozygosity for a nonsense mutation in the NECTIN1 gene has been associated with sporadic, nonsyndromic cleft lip with or without cleft palate (OFC7) in northern Venezuela.
 
 ### Description
 
-Cleft lip/palate-ectodermal dysplasia syndrome is an autosomal recessive disorder. Suzuki et al. (1998) listed its features as unusual facies, dental anomalies, hypotrichosis, palmoplantar hyperkeratosis, onychodysplasia, syndactyly, and cleft lip/cleft palate. Some patients also have mental retardation (Zlotogora et al., 1987; Rodini and Richieri-Costa, 1990; Yoshida et al., 2015).
+Cleft lip/palate-ectodermal dysplasia syndrome is an autosomal recessive disorder. Suzuki et al. (1998) listed its features as unusual facies, dental anomalies, hypotrichosis, palmoplantar hyperkeratosis, onychodysplasia, syndactyly, and cleft lip/cleft palate. Some reported patients have also had mental retardation (Zlotogora et al., 1987; Rodini and Richieri-Costa, 1990).
 
 ### Nomenclature
 
-Rodini and Richieri-Costa (1990) referred to the association of ectodermal dysplasia, cleft lip/palate, mental retardation, and syndactyly as Zlotogora-Ogur syndrome. Suzuki et al. (1998) called the disorder found on Margarita Island Margarita Island ectodermal dysplasia (ED4). Suzuki et al. (2000) named the autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome CLPED1, replacing the earlier designation ED4.
+Rodini and Richieri-Costa (1990) used the name Zlotogora-Ogur syndrome for the association of ectodermal dysplasia, cleft lip/palate, mental retardation, and syndactyly. The disorder has also been called Margarita Island ectodermal dysplasia (ED4) (Suzuki et al., 1998). Suzuki et al. (2000) gave the autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome the designation CLPED1, replacing ED4.
 
 ### Clinical Features
 
 Zlotogora et al. (1987) reported 2 sibs with cleft lip and palate, sparse scalp hair, malformed protruding ears, and partial syndactyly of the fingers and toes. The older child also had mental retardation and pili torti.
 
-Oğur and Yüksel (1988) reported 2 Turkish brothers whose parents were second cousins. Both had tetramelic syndactyly, ectodermal dysplasia, cleft lip and palate, renal anomalies, and mental retardation. Zlotogora and Ogur (1988) also reported syndactyly occurring with ectodermal dysplasia and cleft lip and palate.
+Oğur and Yüksel (1988) reported 2 Turkish brothers whose parents were second cousins. Both brothers had syndactyly of all four limbs, ectodermal dysplasia, cleft lip and palate, renal anomalies, and mental retardation.
+
+Zlotogora and Ogur (1988) reported the association of syndactyly with ectodermal dysplasia and cleft lip and palate.
 
 Rodini and Richieri-Costa (1990) reported 3 Brazilian brothers born to normal consanguineous parents (F = 1/16). The brothers had ectodermal dysplasia, cleft lip/palate, mental retardation, syndactyly of fingers 2-3, accessory nipples, and ear anomalies. The authors discussed how closely these brothers resembled previously reported cases of Zlotogora-Ogur syndrome.
 
-Bustos et al. (1991) described 27 individuals from 7 families that were probably related to each other. The families came from a relatively isolated, inbred population on Margarita Island (Nueva Esparta State) in northeastern Venezuela. All affected individuals had ectodermal dysplasia along with other anomalies. Females were affected as severely as males, and expressivity varied. The authors concluded that the clinical picture did not fit any known ectodermal dysplasia.
+Bustos et al. (1991) described 27 individuals from 7 families, who were probably related to each other, from a relatively isolated, inbred population on Margarita Island (Nueva Esparta State) in northeastern Venezuela. All had ectodermal dysplasia along with other anomalies. Females were affected as severely as males, and expressivity varied. The authors concluded that the clinical picture did not fit any known ectodermal dysplasia.
 
 Zlotogora (1994) reported on the association of syndactyly, ectodermal dysplasia, and cleft lip/palate.
 
 Suzuki et al. (1998) described Margarita Island ectodermal dysplasia (ED4) as an autosomal recessive disorder. Its features were unusual facies, dental anomalies, hypotrichosis, palmoplantar hyperkeratosis, onychodysplasia, syndactyly, and cleft lip/cleft palate.
 
-Yoshida et al. (2015) reported a 7-year-old Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome. He was the first child of a consanguineous marriage. He had hypohidrotic ectodermal dysplasia with sparse, brittle, fine, dry hair and hypodontia. He also had a distinctive facial appearance with cleft lip/palate, cutaneous syndactyly of the fingers, and mild mental retardation. On scanning electron microscopy, his hair showed pili torti and pili trianguli et canaliculi.
+Yoshida et al. (2015) reported a 7-year-old Japanese boy, the first child of a consanguineous marriage, with cleft lip/palate-ectodermal dysplasia syndrome. He had hypohidrotic ectodermal dysplasia with hypodontia and sparse, brittle, fine, dry hair. He also had a distinctive facial appearance with cleft lip/palate, cutaneous syndactyly of the fingers, and mild mental retardation. Scanning electron microscopy of the hair showed pili torti and pili trianguli et canaliculi.
 
 ### Inheritance
 
-Zlotogora et al. (1987) concluded that the syndrome in their 2 affected sibs was most probably inherited as an autosomal recessive trait. Oğur and Yüksel (1988) reported 2 affected brothers born to parents who were second cousins and discussed the mode of transmission. Rodini and Richieri-Costa (1990) cited the occurrence of the disorder in 3 brothers born to normal consanguineous parents (F = 1/16) when discussing autosomal recessive inheritance. ⚠︎
+Zlotogora et al. (1987) concluded that the syndrome in their 2 affected sibs was most probably inherited as an autosomal recessive disorder. Oğur and Yüksel (1988) reported 2 affected brothers born to parents who were second cousins and discussed the mode of transmission. Rodini and Richieri-Costa (1990) considered autosomal recessive inheritance on the basis of 3 affected brothers born to normal consanguineous parents (F = 1/16).
 
-In an inbred population on Margarita Island, Bustos et al. (1991) found that all parents of affected individuals were normal and that both sexes were equally affected. They concluded that the condition was a newly recognized autosomal recessive dysplasia/malformation syndrome. Suzuki et al. (1998, 2000) also described the disorder as autosomal recessive.
+In an inbred population on Margarita Island, Bustos et al. (1991) found that all parents of affected individuals were normal and that both sexes were equally affected. They concluded that the condition was a newly recognized autosomal recessive dysplasia/malformation syndrome. Suzuki et al. (1998) also described the disorder as autosomal recessive.
 
 ### Mapping
 
-Suzuki et al. (1998) used an affected-only DNA-pooling strategy for linkage disequilibrium mapping and placed the ED4 gene at chromosome 11q23. Haplotype analysis of 4 complex Margarita Island ED4 families narrowed the location to an interval of about 1 to 2 Mb, spanned by just 2 YACs.
+Suzuki et al. (1998) used linkage disequilibrium mapping with an affected-only DNA-pooling strategy and placed the ED4 gene at 11q23. Haplotype analysis of 4 complex ED4 families from Margarita Island narrowed the location to an interval of about 1 to 2 Mb, spanned by only 2 YACs.
 
 ### Molecular Genetics
 
-By positional cloning, Suzuki et al. (2000) identified PVRL1 as the gene responsible for autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome. PVRL1 encodes nectin-1, an immunoglobulin-related transmembrane cell-cell adhesion molecule of the NAP cell adhesion system.
+Using positional cloning, Suzuki et al. (2000) identified PVRL1 (NECTIN1) as the gene responsible for autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome (CLPED1). PVRL1 encodes nectin-1, an immunoglobulin-related transmembrane cell-cell adhesion molecule of the NAP cell adhesion system.
 
-Homozygosity for the PVRL1 nonsense mutation W185X causes CLPED1 on Margarita Island. Sozen et al. (2001) found a highly significant association between heterozygosity for the same mutation and sporadic, nonsyndromic cleft lip with or without cleft palate (CL/P) in northern Venezuela.
+Sözen et al. (2001) found a highly significant association between heterozygosity for the PVRL1 nonsense mutation W185X and sporadic, nonsyndromic cleft lip with or without cleft palate (CL/P) in northern Venezuela. Homozygosity for the same mutation causes CLPED1 on Margarita Island.
 
-In a 7-year-old Japanese boy with CLPED1 born to consanguineous parents, Yoshida et al. (2015) analyzed exon 2 of the PVRL1 gene and found a novel homozygous nonsense mutation, c.400C-T (R134X). Both parents were heterozygous for the mutation. The authors noted that all 4 PVRL1 mutations reported in this syndrome so far, including this one, produce truncated proteins that lack the transmembrane and intracellular domains of nectin-1. These domains are needed to start the cell-cell adhesion process.
+Yoshida et al. (2015) analyzed exon 2 of the PVRL1 gene in a Japanese boy with CLPED1 born to consanguineous parents. They found a novel homozygous nonsense mutation, c.400C-T (R134X), for which both parents were heterozygous. The authors noted that all 4 PVRL1 mutations reported in this syndrome so far, including this one, produce truncated proteins that lack the transmembrane and intracellular domains of nectin-1, which are needed to start the cell-cell adhesion process.
 
 ### Population Genetics
 
-Suzuki et al. (2000) noted a high frequency of CLPED1 on Margarita Island in the Caribbean Sea. Because nectin-1 is the principal cell surface receptor for alpha-herpesviruses (HveC), they suggested that this high frequency might reflect resistance of heterozygotes to infection by these viruses.
+Suzuki et al. (2000) noted a high frequency of CLPED1 on Margarita Island in the Caribbean Sea. They suggested that it might result from resistance of heterozygotes to infection by alpha-herpesviruses, because nectin-1 is the principal cell surface receptor for these viruses (HveC).
 
 ### Clinical Synopsis
 
@@ -118,12 +120,12 @@ Suzuki et al. (2000) noted a high frequency of CLPED1 on Margarita Island in the
 **.0001 CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME; OROFACIAL CLEFT 7**  
 NECTIN1, TRP185TER [p.W185*]
 
-Homozygosity for the PVRL1 nonsense mutation trp185-to-ter (W185X) causes the autosomal recessive syndrome CLPED1 on Margarita Island. Sozen et al. (2001) found a highly significant association between heterozygosity for W185X and sporadic, nonsyndromic cleft lip with or without cleft palate in northern Venezuela.
+Sözen et al. (2001) stated that homozygosity for a trp185-to-ter (W185X) nonsense mutation in the PVRL1 (NECTIN1) gene causes the autosomal recessive CL/P syndrome CLPED1 on Margarita Island. In northern Venezuela, they found a highly significant association between heterozygosity for W185X and sporadic, nonsyndromic cleft lip with or without cleft palate.
 
 **.0002 CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME**  
 NECTIN1, ARG134TER [c.400C>T; p.R134*]
 
-Yoshida et al. (2015) studied a 7-year-old Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome, the child of a consanguineous marriage. He had a novel homozygous c.400C-T transition in exon 2 of the PVRL1 gene, resulting in an arg134-to-ter (R134X) substitution. Both parents were heterozygous for the mutation. The predicted truncated protein lacks the transmembrane and intracellular domains of nectin-1, which are needed to start cell-cell adhesion.
+In a 7-year-old Japanese boy with CLPED1, the first child of a consanguineous marriage, Yoshida et al. (2015) found a homozygous c.400C-T transition in exon 2 of the PVRL1 (NECTIN1) gene. The mutation causes an arg134-to-ter (R134X) substitution. Both parents were heterozygous for the mutation. The predicted truncated protein lacks the transmembrane and intracellular domains of nectin-1, which are needed to start the cell-cell adhesion process.
 
 ### REFERENCES
 

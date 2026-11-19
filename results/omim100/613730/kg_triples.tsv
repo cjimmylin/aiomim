@@ -54,9 +54,9 @@ HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	
 HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Death in infancy	23255084
 HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Severe global developmental delay	23255084
 HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Intracranial hemorrhage	21109224
-Intraventricular hemorrhage	is_a	Intracranial hemorrhage	
+Periventricular cysts	is_a	Abnormal cerebral white matter morphology	
+Tonic seizure	is_a	Seizure	
 Status epilepticus	is_a	Seizure	
+Intraventricular hemorrhage	is_a	Intracranial hemorrhage	
 Cerebral hemorrhage	is_a	Intracranial hemorrhage	
 Thin corpus callosum	is_a	Abnormal cerebral white matter morphology	
-Tonic seizure	is_a	Seizure	
-Periventricular cysts	is_a	Abnormal cerebral white matter morphology	

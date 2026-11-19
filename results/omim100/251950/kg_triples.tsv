@@ -152,23 +152,23 @@ MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Increased muscle lipid
 MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Myopathy	4725145
 MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Growth delay	4725145
 MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Sensorineural hearing impairment	4725145
-Focal-onset seizure	is_a	Seizure	
+Gowers sign	is_a	Proximal muscle weakness	
+Epilepsia partialis continua	is_a	Seizure	
+Dysmetria	is_a	Ataxia	
+Oromandibular dystonia	is_a	Dystonia	
 Areflexia of lower limbs	is_a	Areflexia	
 Spastic tetraparesis	is_a	Tetraparesis	
 Spastic tetraparesis	is_a	Spasticity	
-Focal impaired awareness seizure	is_a	Focal-onset seizure	
-Focal impaired awareness seizure	is_a	Seizure	
-Gowers sign	is_a	Proximal muscle weakness	
-Epilepsia partialis continua	is_a	Seizure	
 Severe global developmental delay	is_a	Global developmental delay	
-Hypertrophic cardiomyopathy	is_a	Cardiomyopathy	
-Cerebral cortical atrophy	is_a	Cerebral atrophy	
-Clonic seizure	is_a	Seizure	
-Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
 Achilles tendon contracture	is_a	Abnormal foot morphology	
 Achilles tendon contracture	is_a	Joint contracture	
-Oromandibular dystonia	is_a	Dystonia	
 Sensorineural hearing impairment	is_a	Hearing impairment	
-EMG: myopathic abnormalities	is_a	Myopathy	
-Dysmetria	is_a	Ataxia	
 High-output congestive heart failure	is_a	Congestive heart failure	
+Cerebral cortical atrophy	is_a	Cerebral atrophy	
+Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
+Focal impaired awareness seizure	is_a	Focal-onset seizure	
+Focal impaired awareness seizure	is_a	Seizure	
+EMG: myopathic abnormalities	is_a	Myopathy	
+Focal-onset seizure	is_a	Seizure	
+Clonic seizure	is_a	Seizure	
+Hypertrophic cardiomyopathy	is_a	Cardiomyopathy	

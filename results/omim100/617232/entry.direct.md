@@ -22,7 +22,7 @@ Autosomal recessive limb-girdle muscular dystrophy-21 (LGMDR21) causes proximal 
 
 ### Nomenclature
 
-Servian-Morilla et al. (2020) referred to the POGLUT1-related disorder as LGMD2Z or LGMD R21.
+Servian-Morilla et al. (2020) referred to the POGLUT1-related disorder as LGMD2Z or LGMD R21. A revised nomenclature and classification of the limb-girdle muscular dystrophies was the subject of the 229th ENMC international workshop (Straub et al., 2018).
 
 ### Clinical Features
 
@@ -34,7 +34,7 @@ Servian-Morilla et al. (2020) studied muscle biopsies from 9 patients in 6 famil
 
 ### Inheritance
 
-Servian-Morilla et al. (2016) found autosomal recessive inheritance in a consanguineous family in which 4 affected sibs were homozygous for a POGLUT1 mutation. Servian-Morilla et al. (2020) confirmed this pattern in further families: affected individuals carried homozygous or compound heterozygous mutations, and the mutations segregated with the disease.
+Servian-Morilla et al. (2016) found autosomal recessive inheritance in a consanguineous family in which 4 affected sibs were homozygous for a POGLUT1 mutation. Servian-Morilla et al. (2020) confirmed this pattern in further families: affected individuals carried homozygous or compound heterozygous mutations, and the mutations segregated with the disease. ⚠︎
 
 ### Mapping
 
@@ -136,7 +136,7 @@ In a man with adult-onset LGMDR21 (family 7), Servian-Morilla et al. (2020) iden
 **.0008 MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21**  
 POGLUT1, TYR156ASN [p.Y156N; p.Tyr156Asn]
 
-In 2 brothers with adult-onset LGMDR21 (family 8), Servian-Morilla et al. (2020) identified compound heterozygous mutations in the POGLUT1 gene: a tyr156-to-asn (Y156N) substitution and a c.552G-A transition resulting in a trp184-to-ter (W184X) substitution. Y156N was found in the heterozygous state in 2 individuals in ExAC. No functional assays of Y156N were reported. The authors considered the variants pathogenic because W184X was predicted to remove the substrate-binding site and because the patients had the characteristic muscle MRI pattern. ⚠︎
+In 2 brothers with adult-onset LGMDR21 (family 8), Servian-Morilla et al. (2020) identified compound heterozygous mutations in the POGLUT1 gene: a tyr156-to-asn (Y156N) substitution and a c.552G-A transition resulting in a trp184-to-ter (W184X) substitution. Y156N was found in the heterozygous state in 2 individuals in ExAC. No functional assays of Y156N were reported. The authors considered the variants pathogenic because W184X was predicted to remove the substrate-binding site and because the patients had the characteristic muscle MRI pattern.
 
 **.0009 MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21**  
 POGLUT1, TRP184TER [c.552G>A; p.W184*; p.Trp184Ter]
@@ -153,6 +153,8 @@ In a young man with infantile-onset LGMDR21 (family 9), Servian-Morilla et al. (
 1. Servián-Morilla E, Takeuchi H, Lee TV, Clarimon J, Mavillard F, Area-Gómez E, Rivas E, Nieto-González JL, Rivero MC, Cabrera-Serrano M, and others. A POGLUT1 mutation causes a muscular dystrophy with reduced Notch signaling and satellite cell loss. EMBO Mol Med 8: 1289-1309, 2016. [PubMed: 27807076]
 
 2. Servián-Morilla E, Cabrera-Serrano M, Johnson K, Pandey A, Ito A, Rivas E, Chamova T, Muelas N, Mongini T, Nafissi S, and others. POGLUT1 biallelic mutations cause myopathy with reduced satellite cells, α-dystroglycan hypoglycosylation and a distinctive radiological pattern. Acta Neuropathol 139: 565-582, 2020. [PubMed: 31897643]
+
+3. Straub V, Murphy A, Udd B, LGMD workshop study group. 229th ENMC international workshop: Limb girdle muscular dystrophies - Nomenclature and reformed classification Naarden, the Netherlands, 17-19 March 2017. Neuromuscul Disord 28: 702-710, 2018. [PubMed: 30055862]
 
 ---
 *Generated automatically from the cited literature. ⚠︎ marks a paragraph with a claim the audit found only partly supported by its source; ✗ marks one with an unsupported or contradicted claim. Not reviewed by a curator.*

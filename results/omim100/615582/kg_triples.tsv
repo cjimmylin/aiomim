@@ -13,7 +13,7 @@ TGFB3 De novo mutation of the latency-associated peptide domain of TGFB3	in_gene
 Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) studied a large Dutch family (family 1) with an autosomal dominant disorder whose features overlapped with Marfan and Loeys-Dietz syndromes. Seven members aged 40 to 68 years had aneurysms and dissections, mainly of the descending thoracic and abdominal aorta. Three died of aortic dissection and rupture, and 4 had mitral valve abnormalities ranging from mild prolapse to severe regurgitation. Other features were subtle craniofacial changes (long face, high-arched palate, retrognathia), pectus deformity, scoliosis, velvety skin, varices, hiatal hernia, and autoimmune features including HLA-B27-positive spondyloarthritis, Graves disease, and celiac disease.	
 Bertoli-Avella et al. (2015)	reports	In the Dutch family 1, in which all known TAAD genes had been excluded by sequencing, Bertoli-Avella et al. (2015) carried out SNP-based linkage analysis in 6 patients. All affected patients shared 2 large genomic regions on chromosomes 14 and 15, and the TGFB3 gene on 14q24 was the leading candidate in these regions.	
 Bertoli-Avella et al. (2015)	reports	In affected members of the Dutch family 1, Bertoli-Avella et al. (2015) found a heterozygous TGFB3 splice donor variant in intron 4 (c.754+2T>C). It was absent from variant databases and segregated with the phenotype. Analysis of cDNA from 2 patients showed skipping of exon 4, giving an in-frame deletion of 108 nucleotides and a predicted loss of 36 amino acids (p.Glu216_Lys251del). The variant was also present in a 17-year-old without documented cardiovascular features who had mild systemic findings.	
-TGFB3 c.754+2T>C / c.p.glu216_lys251del / p.E216	in_gene	TGFB3	
+TGFB3 c.754+2T>C / p.E216	in_gene	TGFB3	
 Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) screened 470 additional probands with syndromic or nonsyndromic TAAD for TGFB3 mutations (350 by Sanger sequencing, 120 by exome sequencing). They found heterozygous TGFB3 mutations in 10 more probands: 4 different missense mutations, 1 nonsense mutation, and 2 single-base deletions causing frameshifts. None of the mutations was found in controls in EVS, 1000 Genomes, or Genome of the Netherlands.	
 Bertoli-Avella et al. (2015)	reports	In family 3, Bertoli-Avella et al. (2015) identified a heterozygous TGFB3 missense mutation, p.Asp263His, in exon 5. It changes a highly conserved residue of the latency-associated peptide (LAP) domain and disrupts the RGD motif needed for integrin binding. In a homology model, Asp263 lies in a surface loop that is accessible to integrins. Aortic tissue from a patient carrying this mutation showed elastic fiber fragmentation and paradoxically increased TGF-beta signaling.	
 TGFB3 p.D263H	in_gene	TGFB3	
@@ -44,7 +44,7 @@ LOEYS-DIETZ SYNDROME 5	caused_by	SMAD3	25835445
 LOEYS-DIETZ SYNDROME 5	has_variant	SMAD3 p.A250T	25835445
 LOEYS-DIETZ SYNDROME 5	caused_by	TGFB3	23824657,24798638,25835445,26184463
 LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.1226G>A / p.C409Y	23824657
-LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.754+2T>C / c.p.glu216_lys251del / p.E216	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.754+2T>C / p.E216	25835445
 LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.898C>G / p.R300G	26184463
 LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.D263H	25835445
 LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.I322T	25835445
@@ -108,22 +108,22 @@ LOEYS-DIETZ SYNDROME 5	has_phenotype	Gowers sign	23824657
 LOEYS-DIETZ SYNDROME 5	has_phenotype	Coxa valga	23824657
 LOEYS-DIETZ SYNDROME 5	has_phenotype	Growth delay	23824657
 LOEYS-DIETZ SYNDROME 5	has_phenotype	Type 1 muscle fiber predominance	23824657
+Aortic dissection	is_a	Abnormality of the cardiovascular system	
 Aortic root aneurysm	is_a	Aortic aneurysm	
-Blue sclerae	is_a	Abnormality of the eye	
+Hypertelorism	is_a	Abnormality of the eye	
+Mitral regurgitation	is_a	Abnormality of the cardiovascular system	
 Arterial tortuosity	is_a	Abnormality of the cardiovascular system	
+Ectopia lentis	is_a	Abnormality of the eye	
+Atrial septal defect	is_a	Abnormality of the cardiovascular system	
+Blue sclerae	is_a	Abnormality of the eye	
+Arterial dissection	is_a	Abnormality of the cardiovascular system	
+Pectus excavatum	is_a	Abnormal sternum morphology	
+Short stature	is_a	Growth delay	
+Kyphoscoliosis	is_a	Scoliosis	
+Mitral valve prolapse	is_a	Abnormality of the cardiovascular system	
+Proptosis	is_a	Abnormality of the eye	
+Cystic medial necrosis	is_a	Abnormality of the cardiovascular system	
 Bruising susceptibility	is_a	Abnormality of the cardiovascular system	
 Aortic aneurysm	is_a	Abnormality of the cardiovascular system	
-Hypertelorism	is_a	Abnormality of the eye	
-Kyphoscoliosis	is_a	Scoliosis	
-Short stature	is_a	Growth delay	
-Proptosis	is_a	Abnormality of the eye	
-Aortic dissection	is_a	Abnormality of the cardiovascular system	
-Atrial septal defect	is_a	Abnormality of the cardiovascular system	
 Overgrowth	is_a	Tall stature	
-Mitral valve prolapse	is_a	Abnormality of the cardiovascular system	
-Mitral regurgitation	is_a	Abnormality of the cardiovascular system	
-Ectopia lentis	is_a	Abnormality of the eye	
-Pectus excavatum	is_a	Abnormal sternum morphology	
 Varicose veins	is_a	Abnormality of the cardiovascular system	
-Arterial dissection	is_a	Abnormality of the cardiovascular system	
-Cystic medial necrosis	is_a	Abnormality of the cardiovascular system	

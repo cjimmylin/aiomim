@@ -57,10 +57,10 @@ CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hepatitis	22508010
 CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Cytochrome C oxidase-negative muscle fibers	22508010
 CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Multiple mitochondrial DNA deletions	22508010
 CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Abnormal mitochondria in muscle tissue	22508010
-Impaired vibration sensation at ankles	is_a	Impaired vibratory sensation	
-Hepatic steatosis	is_a	Abnormality of the liver	
-Hepatitis	is_a	Abnormality of the liver	
 Hepatic fibrosis	is_a	Abnormality of the liver	
-Distal lower limb muscle weakness	is_a	Distal muscle weakness	
-Hepatomegaly	is_a	Abnormality of the liver	
 Leukoencephalopathy	is_a	Abnormal brain morphology	
+Hepatomegaly	is_a	Abnormality of the liver	
+Hepatitis	is_a	Abnormality of the liver	
+Impaired vibration sensation at ankles	is_a	Impaired vibratory sensation	
+Distal lower limb muscle weakness	is_a	Distal muscle weakness	
+Hepatic steatosis	is_a	Abnormality of the liver	

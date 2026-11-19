@@ -35,5 +35,5 @@ SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS	has_pheno
 SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS	has_phenotype	CNS demyelination	32100099
 SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS	has_phenotype	Axonal spheroids	32100099
 SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS	has_phenotype	Motor delay	28459434
-Reduced cerebral white matter volume	is_a	Abnormal cerebral white matter morphology	
 Cerebral calcification	is_a	Intracranial calcification	
+Reduced cerebral white matter volume	is_a	Abnormal cerebral white matter morphology	

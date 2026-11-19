@@ -59,9 +59,9 @@ CATARACT 2, MULTIPLE TYPES	has_phenotype	Developmental cataract	12011157
 CATARACT 2, MULTIPLE TYPES	has_phenotype	Zonular cataract	10914683,8190472
 CATARACT 2, MULTIPLE TYPES	has_phenotype	Cataract	10521291,8004095,8190472
 CATARACT 2, MULTIPLE TYPES	has_phenotype	Pulverulent cataract	8190472
+Zonular cataract	is_a	Cataract	
+Amblyopia	is_a	Reduced visual acuity	
+Nuclear cataract	is_a	Zonular cataract	
 Developmental cataract	is_a	Cataract	
 Pulverulent cataract	is_a	Zonular cataract	
 Lamellar cataract	is_a	Zonular cataract	
-Zonular cataract	is_a	Cataract	
-Nuclear cataract	is_a	Zonular cataract	
-Amblyopia	is_a	Reduced visual acuity	

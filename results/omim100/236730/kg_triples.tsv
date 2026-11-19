@@ -59,19 +59,19 @@ UROFACIAL SYNDROME 1	has_phenotype	Hydroureter	474623
 UROFACIAL SYNDROME 1	has_phenotype	Ureteral stenosis	474623
 UROFACIAL SYNDROME 1	has_phenotype	Congenital posterior urethral valve	474623
 UROFACIAL SYNDROME 1	has_phenotype	Bladder diverticulum	474623
+Hydroureter	is_a	Abnormality of the urinary system	
+Abnormality of facial musculature	is_a	Abnormality of the face	
 Vesicoureteral reflux	is_a	Abnormality of the bladder	
 Vesicoureteral reflux	is_a	Abnormality of the urinary system	
-Abnormal facial shape	is_a	Abnormality of the face	
-Stage 5 chronic kidney disease	is_a	Renal insufficiency	
-Bladder diverticulum	is_a	Abnormality of the bladder	
-Abnormality of facial musculature	is_a	Abnormality of the face	
 Congenital posterior urethral valve	is_a	Abnormality of the urinary system	
+Stage 5 chronic kidney disease	is_a	Renal insufficiency	
 Abnormality of the bladder	is_a	Abnormality of the urinary system	
+Recurrent urinary tract infections	is_a	Abnormality of the urinary system	
+Bladder diverticulum	is_a	Abnormality of the bladder	
 Hydronephrosis	is_a	Abnormality of the urinary system	
-Ureteral stenosis	is_a	Abnormality of the urinary system	
+Neurogenic bladder	is_a	Abnormality of the bladder	
 Abnormal facial expression	is_a	Abnormality of the face	
 Enuresis	is_a	Abnormality of the bladder	
-Hydroureter	is_a	Abnormality of the urinary system	
-Recurrent urinary tract infections	is_a	Abnormality of the urinary system	
 Renal insufficiency	is_a	Abnormality of the urinary system	
-Neurogenic bladder	is_a	Abnormality of the bladder	
+Abnormal facial shape	is_a	Abnormality of the face	
+Ureteral stenosis	is_a	Abnormality of the urinary system	

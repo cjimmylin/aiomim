@@ -22,9 +22,9 @@ WNT10B 4-bp duplication resulting in a premature termination codon	in_gene	WNT10
 Blattner et al. (2010)	reports	Blattner et al. (2010) concluded that sporadic SHFM is not always a dominant trait and may be inherited in an autosomal recessive manner. In that case the recurrence risk is 25% for sibs and very low for the offspring of patients unless there is consanguinity. They recommended testing patients with sporadic SHFM for WNT10B mutations to determine the recurrence risk.	
 Kantaputra et al. (2018)	reports	Kantaputra et al. (2018) reported an Indian girl with split-hand/foot malformation (SHFM), sparse hair, and interrupted eyebrows. The patient and all family members had normal bone density and were not obese, unlike some patients with WNT10B variants. The authors suggested that sparse hair and interrupted eyebrows may be associated findings of SHFM6.	
 Kantaputra et al. (2018)	reports	In an Indian girl with SHFM6, Kantaputra et al. (2018) identified a novel homozygous 3-bp deletion in the WNT10B gene (c.695_697delACA), predicted to cause an in-frame deletion of asparagine-232 (p.Asn232del). Protein modeling suggested that this deletion at a critical position likely severely affects protein structure and function, likely decreasing protein lifetime and preventing binding to its receptors and other ligands.	
-WNT10B c.695_697delaca / c.p.asn232del / p.N232del	in_gene	WNT10B	
+WNT10B c.695_697delaca / p.N232del	in_gene	WNT10B	
 SPLIT-HAND/FOOT MALFORMATION 6	caused_by	WNT10B	18515319,20635353,29427788
-SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B c.695_697delaca / c.p.asn232del / p.N232del	29427788
+SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B c.695_697delaca / p.N232del	29427788
 SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B p.R332W	18515319
 SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B 4-bp duplication resulting in a premature termination codon	20635353
 SPLIT-HAND/FOOT MALFORMATION 6	inheritance	Autosomal recessive	12072797,1248167,18515319,20635353,2918544,29427788,3585937,5094721

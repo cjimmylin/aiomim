@@ -17,7 +17,7 @@ GNAL c.591-592insa / p.R198fs	in_gene	GNAL
 Fuchs et al. (2013)	reports	In 3 affected members of family T with primary torsion dystonia, Fuchs et al. (2013) identified a heterozygous c.61C>T nonsense mutation in the GNAL gene, resulting in an arg21-to-ter (R21X) substitution, which they predicted to be degraded by nonsense-mediated decay and produce no protein.	
 GNAL c.61C>T / p.R21*	in_gene	GNAL	
 Fuchs et al. (2013)	reports	In the proband of family N with primary torsion dystonia, Fuchs et al. (2013) identified a heterozygous 9-bp deletion (c.304-312delCCTCCAGTT) in the GNAL gene, resulting in an in-frame deletion of 3 amino acids (P102-V104del).	
-GNAL c.304-312delcctccagtt / c.p.p102-v104del / p.P102	in_gene	GNAL	
+GNAL c.304-312delcctccagtt / p.P102	in_gene	GNAL	
 Fuchs et al. (2013)	reports	In 2 affected members of family B with primary torsion dystonia, Fuchs et al. (2013) identified a heterozygous possible splice site mutation (c.274-5T>C; chr18:11,753,820, hg19) upstream of exon 4 of the GNAL gene. Bioinformatic analysis suggested the wildtype sequence was 10 times more likely than the mutant to be found near an acceptor splice site, but the effect could not be proven because GNAL expression was undetectable in patient lymphoblasts.	
 GNAL c.274-5T>C	in_gene	GNAL	
 Fuchs et al. (2013)	reports	Using a cell-based BRET assay in HEK293 cells in which Galpha-olf function is assessed by its interaction with Gbeta-gamma subunits during the D1 dopamine receptor-initiated cycle, Fuchs et al. (2013) found that the S293X mutant failed to support any D1R-driven responses, E155K and V137M showed intermediate impairment, and the control variant V16F behaved like wildtype. They concluded that the functional assay was suggestive of loss of function, and that GNAL mutations point to primary abnormalities of D1R and/or A2AR transmission in striatal neurons as possibly leading to dystonia.	
@@ -27,7 +27,7 @@ Fuchs et al. (2013)	reports	Fuchs et al. (2013) noted that GNAL is located on ch
 DYSTONIA 25	caused_by	GNAL	23222958
 DYSTONIA 25	has_variant	GNAL c.274-5T>C	23222958
 DYSTONIA 25	has_variant	GNAL c.283-284inst / p.S95fs	23222958
-DYSTONIA 25	has_variant	GNAL c.304-312delcctccagtt / c.p.p102-v104del / p.P102	23222958
+DYSTONIA 25	has_variant	GNAL c.304-312delcctccagtt / p.P102	23222958
 DYSTONIA 25	has_variant	GNAL c.409G>A / p.V137M	23222958
 DYSTONIA 25	has_variant	GNAL c.463G>A / p.E155K	23222958
 DYSTONIA 25	has_variant	GNAL c.591-592insa / p.R198fs	23222958
@@ -42,9 +42,9 @@ DYSTONIA 25	has_phenotype	Arm dystonia	23222958
 DYSTONIA 25	has_phenotype	Generalized dystonia	23222958
 DYSTONIA 25	has_phenotype	Craniofacial dystonia	23222958
 DYSTONIA 25	has_phenotype	Laryngeal dystonia	23222958
+Oromandibular dystonia	is_a	Craniofacial dystonia	
+Craniofacial dystonia	is_a	Dystonia	
 Arm dystonia	is_a	Dystonia	
 Generalized dystonia	is_a	Dystonia	
 Torticollis	is_a	Craniofacial dystonia	
-Oromandibular dystonia	is_a	Craniofacial dystonia	
 Laryngeal dystonia	is_a	Dystonia	
-Craniofacial dystonia	is_a	Dystonia	

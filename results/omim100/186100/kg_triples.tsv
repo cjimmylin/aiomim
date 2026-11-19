@@ -33,14 +33,14 @@ SYNDACTYLY, TYPE III	has_phenotype	Microdontia	8110413
 SYNDACTYLY, TYPE III	has_phenotype	Enamel hypoplasia	8110413
 SYNDACTYLY, TYPE III	has_phenotype	Short middle phalanx of the 5th finger	8031535
 SYNDACTYLY, TYPE III	has_phenotype	Abnormality of the face	2157843
-Enamel hypoplasia	is_a	Abnormality of the dentition	
-Enamel hypoplasia	is_a	Abnormality of the face	
-Narrow nose	is_a	Abnormality of the face	
-3-5 finger cutaneous syndactyly	is_a	Finger syndactyly	
-Abnormal facial shape	is_a	Abnormality of the face	
 Microdontia	is_a	Abnormality of the dentition	
 Microdontia	is_a	Abnormality of the face	
-Finger syndactyly	is_a	Syndactyly	
-Abnormality of the dentition	is_a	Abnormality of the face	
 4-5 finger cutaneous syndactyly	is_a	Finger syndactyly	
 4-5 finger cutaneous syndactyly	is_a	Syndactyly	
+Abnormality of the dentition	is_a	Abnormality of the face	
+Narrow nose	is_a	Abnormality of the face	
+3-5 finger cutaneous syndactyly	is_a	Finger syndactyly	
+Enamel hypoplasia	is_a	Abnormality of the dentition	
+Enamel hypoplasia	is_a	Abnormality of the face	
+Abnormal facial shape	is_a	Abnormality of the face	
+Finger syndactyly	is_a	Syndactyly	

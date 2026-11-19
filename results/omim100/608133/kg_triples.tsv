@@ -65,17 +65,17 @@ RETINITIS PIGMENTOSA 7	has_phenotype	Abnormal fundus morphology	8240110
 RETINITIS PIGMENTOSA 7	has_phenotype	Macular degeneration	8240110
 RETINITIS PIGMENTOSA 7	has_phenotype	Pericentral scotoma	8240110
 RETINITIS PIGMENTOSA 7	has_phenotype	Bull's eye maculopathy	8020945
-Macular dystrophy	is_a	Abnormal fundus morphology	
+Macular atrophy	is_a	Macular degeneration	
+Macular atrophy	is_a	Abnormal fundus morphology	
 Rod-cone dystrophy	is_a	Abnormal fundus morphology	
 Vitelliform macular lesion	is_a	Yellow/white retinal lesion	
 Vitelliform macular lesion	is_a	Abnormal fundus morphology	
-Optic disc pallor	is_a	Abnormal fundus morphology	
-Yellow/white retinal lesion	is_a	Abnormal fundus morphology	
-Constriction of peripheral visual field	is_a	Visual impairment	
-Macular atrophy	is_a	Macular degeneration	
-Macular atrophy	is_a	Abnormal fundus morphology	
-Macular degeneration	is_a	Abnormal fundus morphology	
-Pericentral scotoma	is_a	Visual impairment	
 Bull's eye maculopathy	is_a	Abnormal fundus morphology	
 Attenuation of retinal blood vessels	is_a	Abnormal fundus morphology	
+Macular degeneration	is_a	Abnormal fundus morphology	
+Optic disc pallor	is_a	Abnormal fundus morphology	
 Pericentral retinitis pigmentosa	is_a	Rod-cone dystrophy	
+Macular dystrophy	is_a	Abnormal fundus morphology	
+Pericentral scotoma	is_a	Visual impairment	
+Constriction of peripheral visual field	is_a	Visual impairment	
+Yellow/white retinal lesion	is_a	Abnormal fundus morphology	

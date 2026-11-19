@@ -2,6 +2,7 @@ subject	predicate	object	pmids
 CHEEK and PERRY (1958)	reports	CHEEK and PERRY (1958) reported a salt-wasting syndrome in infancy.	
 DONNELL et al. (1959)	reports	DONNELL et al. (1959) described pseudohypo-adrenalocorticism, a condition marked by renal sodium loss, hyponatremia, and hyperkalemia. They attributed it to insensitivity of the renal tubules to mineralocorticoids.	
 RAINE and ROY (1962)	reports	RAINE and ROY (1962) described a salt-losing syndrome in infancy, which they called pseudo-hypoadrenocorticalism.	
+Hanukoglu et al. (1978)	reports	Hanukoglu et al. (1978) reported on the inheritance of pseudohypoaldosteronism.	
 Armanini et al. (1985)	reports	Armanini et al. (1985) studied 3 patients with pseudohypoaldosteronism. These were a 28-year-old index case from Melbourne and 2 siblings from Munich, aged 8 and 2 years, whose parents were first cousins. The younger sibling, a boy, was less severely affected than his sister. The authors described the syndrome as salt wasting and failure to thrive, usually presenting in infancy with high urinary sodium despite hyponatremia, together with hyperkalemia, hyperreninemia, and elevated aldosterone levels.	
 Armanini et al. (1985)	reports	Armanini et al. (1985) found that Percoll-separated monocytes from controls bound [3H]aldosterone with high affinity (Kd about 3 nM) and limited capacity (150 to 600 sites per cell). On repeated testing, no [3H]aldosterone binding was found in monocytes from patients 1 and 2. Patient 3, who was less severely affected, had 62 sites per cell, more than 2 SD below the control level. The parents of the Munich siblings had normal levels. The authors concluded that pseudohypoaldosteronism is caused by a Type I (mineralocorticoid) receptor defect that may be complete or partial.	
 Armanini et al. (1985)	reports	In the Munich family, the parents were first cousins and had normal monocyte aldosterone-receptor levels. Armanini et al. (1985) suggested that transmission of pseudohypoaldosteronism may be autosomal recessive.	
@@ -16,13 +17,13 @@ Tajima et al. (2000)	reports	In affected members of a Japanese family with a ren
 NR3C2 p.L924P	in_gene	NR3C2	
 Tajima et al. (2000)	reports	Tajima et al. (2000) noted that PHA1 is characterized by neonatal salt loss with dehydration, hypotension, hyperkalemia, and metabolic acidosis despite elevated plasma aldosterone and PRA; the autosomal dominant form manifests milder salt wasting that gradually improves with age, in contrast to the severe multiorgan autosomal recessive form.	
 Viemann et al. (2001)	reports	In a patient with sporadic pseudohypoaldosteronism type I, Viemann et al. (2001) identified a frameshift mutation, Ins2871C, in exon 9 of the mineralocorticoid receptor gene (hMR). The mutation was not found in the patient's asymptomatic family members. It was the first mutation described in exon 9 and affects the last 27 amino acids of the hormone-binding domain.	
-NR4A1 c.ins2871c	in_gene	NR4A1	
+NR4A1 Ins2871C	in_gene	NR4A1	
 Viemann et al. (2001)	reports	Viemann et al. (2001) found no mutation in the hMR gene in 5 affected patients from 2 families with autosomal dominant PHA I. They concluded that autosomal dominant or sporadic PHA1 is genetically heterogeneous and involves other, as yet unidentified, genes.	
 Sartorato et al. (2003)	reports	Sartorato et al. (2003) analyzed the mineralocorticoid receptor (hMR) gene in 14 families with autosomal dominant or sporadic PHA1, which is characterized by neonatal renal salt wasting and failure to thrive, and found 6 different heterozygous mutations. The authors concluded that hMR mutations are a common feature of autosomal dominant PHA1, since they were found in 70% of their familial cases.	
 Sartorato et al. (2003)	reports	In PHA1 families, Sartorato et al. (2003) found a heterozygous frameshift mutation in exon 2 of the hMR gene (insT1354). It is predicted to produce a truncated protein because of a premature stop codon.	
-NR3C2 c.inst1354	in_gene	NR3C2	
+NR3C2 insT1354	in_gene	NR3C2	
 Sartorato et al. (2003)	reports	In PHA1 families, Sartorato et al. (2003) found a heterozygous 8-bp deletion in exon 2 of the hMR gene (del8bp537). It causes a frameshift and is predicted to produce a truncated protein because of a premature stop codon.	
-NR3C2 c.del8bp537	in_gene	NR3C2	
+NR3C2 del8bp537	in_gene	NR3C2	
 Sartorato et al. (2003)	reports	In PHA1 families, Sartorato et al. (2003) found a heterozygous nonsense mutation in exon 4 of the hMR gene, C2157A, which changes cys645 to a stop codon (Cys645stop). It is predicted to produce a truncated protein.	
 NR3C2 c.2157C>A / p.C645*	in_gene	NR3C2	
 Sartorato et al. (2003)	reports	In PHA1, Sartorato et al. (2003) found a heterozygous G633R missense mutation in the DNA-binding domain of hMR. The R633 mutant had reduced maximal transactivation, but its binding characteristics and ED50 of transactivation were comparable to wildtype hMR. The authors suggested that the mutation probably causes haploinsufficiency.	
@@ -47,16 +48,16 @@ PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	caused_by	NR3C2	11134129,127
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 c.1131dupt	16954160
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 c.2157C>A / p.C645*	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 c.2871dupc	16954160
-PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 c.del8bp537	12788847
-PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 c.inst1354	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.E972G	16954160
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.G633R	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.L924P	11134129
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.L979P	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.Q776R	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 p.S818L	16954160
+PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 del8bp537	12788847
+PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR3C2 insT1354	12788847
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	caused_by	NR4A1	11344206
-PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR4A1 c.ins2871c	11344206
+PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_variant	NR4A1 Ins2871C	11344206
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	inheritance	Autosomal dominant	11134129,11344206,12788847,16954160,16972228,1939532,9662404
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	inheritance	Autosomal recessive	1939532,2932642
 PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT	has_phenotype	Renal salt wasting	11134129,11344206,12788847,13545877,13649114,13990509,16954160,16972228,1939532,2932642,9662404

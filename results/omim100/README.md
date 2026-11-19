@@ -1,106 +1,108 @@
 # Generated entries
 
-Machine-drafted and unreviewed. Each folder holds the draft from the evidence graph (`entry.kg.md`), the direct baseline (`entry.direct.md`), the evidence behind them (`extractions.json`, `kg.json`) and the scores (`eval.*.json`).
+Machine-drafted and unreviewed. Each folder holds one draft per generation strategy (`entry.<strategy>.md` and `.json`, the latter with the audit's verdict on every claim), the evidence behind them (`extractions.json`, `kg.json`, `cohort.json` where the strategy produces them) and the scores against OMIM (`eval.<strategy>.json`).
 
-| Entry | Title | Evidence-graph draft | Direct draft |
-|---|---|---|---|
-| 108770 | Atrial Standstill 1 | [entry.kg.md](108770/entry.kg.md) | [entry.direct.md](108770/entry.direct.md) |
-| 118210 | Charcot-Marie-Tooth Disease, Axonal, Type 2A1 | [entry.kg.md](118210/entry.kg.md) | [entry.direct.md](118210/entry.direct.md) |
-| 166780 | Otofaciocervical Syndrome 1 | [entry.kg.md](166780/entry.kg.md) | [entry.direct.md](166780/entry.direct.md) |
-| 167400 | Paroxysmal Extreme Pain Disorder | [entry.kg.md](167400/entry.kg.md) | [entry.direct.md](167400/entry.direct.md) |
-| 177735 | Pseudohypoaldosteronism, Type I, Autosomal Dominant | [entry.kg.md](177735/entry.kg.md) | [entry.direct.md](177735/entry.direct.md) |
-| 186100 | Syndactyly, Type Iii | [entry.kg.md](186100/entry.kg.md) | [entry.direct.md](186100/entry.direct.md) |
-| 205950 | Anemia, Sideroblastic, 2, Pyridoxine-Refractory | [entry.kg.md](205950/entry.kg.md) | [entry.direct.md](205950/entry.direct.md) |
-| 219900 | Cystinosis, Late-Onset Juvenile Or Adolescent Nephropathic Type | [entry.kg.md](219900/entry.kg.md) | [entry.direct.md](219900/entry.direct.md) |
-| 225060 | Cleft Lip/Palate-Ectodermal Dysplasia Syndrome | [entry.kg.md](225060/entry.kg.md) | [entry.direct.md](225060/entry.direct.md) |
-| 225300 | Split-Hand/Foot Malformation 6 | [entry.kg.md](225300/entry.kg.md) | [entry.direct.md](225300/entry.direct.md) |
-| 236730 | Urofacial Syndrome 1 | [entry.kg.md](236730/entry.kg.md) | [entry.direct.md](236730/entry.direct.md) |
-| 241800 | Pallister-Hall-Like Syndrome | [entry.kg.md](241800/entry.kg.md) | [entry.direct.md](241800/entry.direct.md) |
-| 248360 | Malonyl-Coa Decarboxylase Deficiency | [entry.kg.md](248360/entry.kg.md) | [entry.direct.md](248360/entry.direct.md) |
-| 250220 | Spondylometaphyseal Dysplasia, Sedaghatian Type | [entry.kg.md](250220/entry.kg.md) | [entry.direct.md](250220/entry.direct.md) |
-| 251950 | Mitochondrial Myopathy With Lactic Acidosis | [entry.kg.md](251950/entry.kg.md) | [entry.direct.md](251950/entry.direct.md) |
-| 278750 | Xeroderma Pigmentosum, Variant Type | [entry.kg.md](278750/entry.kg.md) | [entry.direct.md](278750/entry.direct.md) |
-| 300148 | Mehmo Syndrome | [entry.kg.md](300148/entry.kg.md) | [entry.direct.md](300148/entry.direct.md) |
-| 301059 | Spermatogenic Failure, X-Linked, 3 | [entry.kg.md](301059/entry.kg.md) | [entry.direct.md](301059/entry.direct.md) |
-| 302905 | Abruzzo-Erickson Syndrome | [entry.kg.md](302905/entry.kg.md) | [entry.direct.md](302905/entry.direct.md) |
-| 500001 | Leber Optic Atrophy And Dystonia | [entry.kg.md](500001/entry.kg.md) | [entry.direct.md](500001/entry.direct.md) |
-| 600204 | Epiphyseal Dysplasia, Multiple, 2 | [entry.kg.md](600204/entry.kg.md) | [entry.direct.md](600204/entry.direct.md) |
-| 600251 | Facial Clefting, Oblique, 1 | [entry.kg.md](600251/entry.kg.md) | [entry.direct.md](600251/entry.direct.md) |
-| 600501 | Abcd Syndrome | [entry.kg.md](600501/entry.kg.md) | [entry.direct.md](600501/entry.direct.md) |
-| 600740 | Hypocalciuric Hypercalcemia, Familial, Type Iii | [entry.kg.md](600740/entry.kg.md) | [entry.direct.md](600740/entry.direct.md) |
-| 603552 | Hemophagocytic Lymphohistiocytosis, Familial, 4 | [entry.kg.md](603552/entry.kg.md) | [entry.direct.md](603552/entry.direct.md) |
-| 603689 | Myopathy, Myofibrillar, 9, With Early Respiratory Failure | [entry.kg.md](603689/entry.kg.md) | [entry.direct.md](603689/entry.direct.md) |
-| 604307 | Cataract 2, Multiple Types | [entry.kg.md](604307/entry.kg.md) | [entry.direct.md](604307/entry.direct.md) |
-| 604928 | Wolfram Syndrome 2 | [entry.kg.md](604928/entry.kg.md) | [entry.direct.md](604928/entry.direct.md) |
-| 606763 | Ciliary Dyskinesia, Primary, 2 | [entry.kg.md](606763/entry.kg.md) | [entry.direct.md](606763/entry.direct.md) |
-| 606824 | Glucose/Galactose Malabsorption | [entry.kg.md](606824/entry.kg.md) | [entry.direct.md](606824/entry.direct.md) |
-| 607602 | Ichthyosis, Annular Epidermolytic, 1 | [entry.kg.md](607602/entry.kg.md) | [entry.direct.md](607602/entry.direct.md) |
-| 607641 | Neuronopathy, Distal Hereditary Motor, Autosomal Dominant 14 | [entry.kg.md](607641/entry.kg.md) | [entry.direct.md](607641/entry.direct.md) |
-| 607721 | Noonan Syndrome-Like Disorder With Loose Anagen Hair 1 | [entry.kg.md](607721/entry.kg.md) | [entry.direct.md](607721/entry.direct.md) |
-| 607734 | Charcot-Marie-Tooth Disease, Demyelinating, Type 1F | [entry.kg.md](607734/entry.kg.md) | [entry.direct.md](607734/entry.direct.md) |
-| 607876 | Epilepsy, Familial Adult Myoclonic, 2 | [entry.kg.md](607876/entry.kg.md) | [entry.direct.md](607876/entry.direct.md) |
-| 608133 | Retinitis Pigmentosa 7 | [entry.kg.md](608133/entry.kg.md) | [entry.direct.md](608133/entry.direct.md) |
-| 608885 | Stomatin-Deficient Cryohydrocytosis With Neurologic Defects | [entry.kg.md](608885/entry.kg.md) | [entry.direct.md](608885/entry.direct.md) |
-| 609057 | Epidermolysis Bullosa Simplex 7, With Nephropathy And Deafness | [entry.kg.md](609057/entry.kg.md) | [entry.direct.md](609057/entry.direct.md) |
-| 609220 | Bruck Syndrome 2 | [entry.kg.md](609220/entry.kg.md) | [entry.direct.md](609220/entry.direct.md) |
-| 609296 | B-Cell Immunodeficiency, Distal Limb Anomalies, And Urogenital Malformations | [entry.kg.md](609296/entry.kg.md) | [entry.direct.md](609296/entry.direct.md) |
-| 611521 | Immunodeficiency 35 | [entry.kg.md](611521/entry.kg.md) | [entry.direct.md](611521/entry.direct.md) |
-| 611880 | Cardiomyopathy, Dilated, 2A | [entry.kg.md](611880/entry.kg.md) | [entry.direct.md](611880/entry.direct.md) |
-| 612847 | Brachyolmia Type 4 With Mild Epiphyseal And Metaphyseal Changes | [entry.kg.md](612847/entry.kg.md) | [entry.direct.md](612847/entry.direct.md) |
-| 613581 | Retinitis Pigmentosa 56 | [entry.kg.md](613581/entry.kg.md) | [entry.direct.md](613581/entry.direct.md) |
-| 613730 | Hemorrhagic Destruction Of The Brain, Subependymal Calcification, And Cataracts | [entry.kg.md](613730/entry.kg.md) | [entry.direct.md](613730/entry.direct.md) |
-| 613744 | Spastic Paraplegia 51, Autosomal Recessive | [entry.kg.md](613744/entry.kg.md) | [entry.direct.md](613744/entry.direct.md) |
-| 613848 | Osteogenesis Imperfecta, Type X | [entry.kg.md](613848/entry.kg.md) | [entry.direct.md](613848/entry.direct.md) |
-| 614501 | Neurodevelopmental Disorder With Hypotonia, Craniofacial Abnormalities, And Seizures | [entry.kg.md](614501/entry.kg.md) | [entry.direct.md](614501/entry.direct.md) |
-| 614651 | Coenzyme Q10 Deficiency, Primary, 2 | [entry.kg.md](614651/entry.kg.md) | [entry.direct.md](614651/entry.direct.md) |
-| 614701 | Cornelia De Lange Syndrome 4 With Or Without Midline Brain Defects | [entry.kg.md](614701/entry.kg.md) | [entry.direct.md](614701/entry.direct.md) |
-| 614856 | Osteogenesis Imperfecta, Type Xiii | [entry.kg.md](614856/entry.kg.md) | [entry.direct.md](614856/entry.direct.md) |
-| 615073 | Dystonia 25 | [entry.kg.md](615073/entry.kg.md) | [entry.direct.md](615073/entry.direct.md) |
-| 615268 | Cerebellar Ataxia, Impaired Intellectual Development, And Dysequilibrium Syndrome 4 | [entry.kg.md](615268/entry.kg.md) | [entry.direct.md](615268/entry.direct.md) |
-| 615425 | Epidermolysis Bullosa Simplex 3, Localized Or Generalized Intermediate, With Bp230 Deficiency | [entry.kg.md](615425/entry.kg.md) | [entry.direct.md](615425/entry.direct.md) |
-| 615493 | Intellectual Developmental Disorder, Autosomal Recessive 37 | [entry.kg.md](615493/entry.kg.md) | [entry.direct.md](615493/entry.direct.md) |
-| 615582 | Loeys-Dietz Syndrome 5 | [entry.kg.md](615582/entry.kg.md) | [entry.direct.md](615582/entry.direct.md) |
-| 615631 | Anemia, Congenital Dyserythropoietic, Type Ib | [entry.kg.md](615631/entry.kg.md) | [entry.direct.md](615631/entry.direct.md) |
-| 615710 | Mitchell-Riley Syndrome | [entry.kg.md](615710/entry.kg.md) | [entry.direct.md](615710/entry.direct.md) |
-| 615817 | Intellectual Developmental Disorder, Autosomal Recessive 43 | [entry.kg.md](615817/entry.kg.md) | [entry.direct.md](615817/entry.direct.md) |
-| 615972 | Nanophthalmos 4 | [entry.kg.md](615972/entry.kg.md) | [entry.direct.md](615972/entry.direct.md) |
-| 616151 | Macular Dystrophy, Vitelliform, 4 | [entry.kg.md](616151/entry.kg.md) | [entry.direct.md](616151/entry.direct.md) |
-| 616294 | Cole-Carpenter Syndrome 2 | [entry.kg.md](616294/entry.kg.md) | [entry.direct.md](616294/entry.direct.md) |
-| 616326 | Myasthenic Syndrome, Congenital, 11, Associated With Acetylcholine Receptor Deficiency | [entry.kg.md](616326/entry.kg.md) | [entry.direct.md](616326/entry.direct.md) |
-| 616482 | Achondroplasia, Severe, With Developmental Delay And Acanthosis Nigricans | [entry.kg.md](616482/entry.kg.md) | [entry.direct.md](616482/entry.direct.md) |
-| 616867 | Spinal Muscular Atrophy With Congenital Bone Fractures 2 | [entry.kg.md](616867/entry.kg.md) | [entry.direct.md](616867/entry.direct.md) |
-| 617153 | Developmental And Epileptic Encephalopathy 45 | [entry.kg.md](617153/entry.kg.md) | [entry.direct.md](617153/entry.direct.md) |
-| 617162 | Developmental And Epileptic Encephalopathy 46 | [entry.kg.md](617162/entry.kg.md) | [entry.direct.md](617162/entry.direct.md) |
-| 617232 | Muscular Dystrophy, Limb-Girdle, Autosomal Recessive 21 | [entry.kg.md](617232/entry.kg.md) | [entry.direct.md](617232/entry.direct.md) |
-| 617927 | Orofaciodigital Syndrome Xviii | [entry.kg.md](617927/entry.kg.md) | [entry.direct.md](617927/entry.direct.md) |
-| 618184 | Neuropathy, Congenital Hypomyelinating, 2 | [entry.kg.md](618184/entry.kg.md) | [entry.direct.md](618184/entry.direct.md) |
-| 618229 | Mitochondrial Complex I Deficiency, Nuclear Type 7 | [entry.kg.md](618229/entry.kg.md) | [entry.direct.md](618229/entry.direct.md) |
-| 618343 | Polymicrogyria With Or Without Vascular-Type Ehlers-Danlos Syndrome | [entry.kg.md](618343/entry.kg.md) | [entry.direct.md](618343/entry.direct.md) |
-| 618400 | Charcot-Marie-Tooth Disease, Axonal, Type 2Ee | [entry.kg.md](618400/entry.kg.md) | [entry.direct.md](618400/entry.direct.md) |
-| 618458 | Knobloch Syndrome 2 | [entry.kg.md](618458/entry.kg.md) | [entry.direct.md](618458/entry.direct.md) |
-| 618808 | Intellectual Developmental Disorder With Poor Growth And With Or Without Seizures Or Ataxia | [entry.kg.md](618808/entry.kg.md) | [entry.direct.md](618808/entry.direct.md) |
-| 618875 | Seizures, Early-Onset, With Neurodegeneration And Brain Calcifications | [entry.kg.md](618875/entry.kg.md) | [entry.direct.md](618875/entry.direct.md) |
-| 619124 | Developmental And Epileptic Encephalopathy 89 | [entry.kg.md](619124/entry.kg.md) | [entry.direct.md](619124/entry.direct.md) |
-| 619201 | Nephrotic Syndrome, Type 23 | [entry.kg.md](619201/entry.kg.md) | [entry.direct.md](619201/entry.direct.md) |
-| 619681 | Dystonia, Early-Onset, And/Or Spastic Paraplegia | [entry.kg.md](619681/entry.kg.md) | [entry.direct.md](619681/entry.direct.md) |
-| 619816 | Epidermolysis Bullosa, Junctional 5A, Intermediate | [entry.kg.md](619816/entry.kg.md) | [entry.direct.md](619816/entry.direct.md) |
-| 620022 | Stickler Syndrome, Type Vi | [entry.kg.md](620022/entry.kg.md) | [entry.direct.md](620022/entry.direct.md) |
-| 620029 | Neurodevelopmental Disorder With Hypotonia, Language Delay, And Skeletal Defects With Or Without Seizures | [entry.kg.md](620029/entry.kg.md) | [entry.direct.md](620029/entry.direct.md) |
-| 620098 | Developmental Delay With Variable Intellectual Disability And Dysmorphic Facies | [entry.kg.md](620098/entry.kg.md) | [entry.direct.md](620098/entry.direct.md) |
-| 620249 | Congenital Myopathy 10B, Mild Variant | [entry.kg.md](620249/entry.kg.md) | [entry.direct.md](620249/entry.direct.md) |
-| 620402 | Neuronopathy, Distal Hereditary Motor, Autosomal Recessive 9 | [entry.kg.md](620402/entry.kg.md) | [entry.direct.md](620402/entry.direct.md) |
-| 620457 | Auriculocondylar Syndrome 4 | [entry.kg.md](620457/entry.kg.md) | [entry.direct.md](620457/entry.direct.md) |
-| 620481 | Amegakaryocytic Thrombocytopenia, Congenital, 2 | [entry.kg.md](620481/entry.kg.md) | [entry.direct.md](620481/entry.direct.md) |
-| 620507 | Ichthyosis With Erythrokeratoderma | [entry.kg.md](620507/entry.kg.md) | [entry.direct.md](620507/entry.direct.md) |
-| 620528 | Neuronopathy, Distal Hereditary Motor, Autosomal Dominant 11 | [entry.kg.md](620528/entry.kg.md) | [entry.direct.md](620528/entry.direct.md) |
-| 620609 | Long-Olsen-Distelmaier Syndrome | [entry.kg.md](620609/entry.kg.md) | [entry.direct.md](620609/entry.direct.md) |
-| 620662 | Hoxha-Aliu Syndrome | [entry.kg.md](620662/entry.kg.md) | [entry.direct.md](620662/entry.direct.md) |
-| 620670 | Immunodeficiency, Common Variable, 15 | [entry.kg.md](620670/entry.kg.md) | [entry.direct.md](620670/entry.direct.md) |
-| 620718 | Orofaciodigital Syndrome Xx | [entry.kg.md](620718/entry.kg.md) | [entry.direct.md](620718/entry.direct.md) |
-| 620851 | Renu Syndrome | [entry.kg.md](620851/entry.kg.md) | [entry.direct.md](620851/entry.direct.md) |
-| 621030 | Autoinflammation, Panniculitis, And Dermatosis Syndrome, Autosomal Dominant | [entry.kg.md](621030/entry.kg.md) | [entry.direct.md](621030/entry.direct.md) |
-| 621068 | Neurodevelopmental Disorder With Hypotonia, Poor Growth, Dysmorphic Facies, And Agammaglobulinemia | [entry.kg.md](621068/entry.kg.md) | [entry.direct.md](621068/entry.direct.md) |
-| 621169 | Monilethrix 2 | [entry.kg.md](621169/entry.kg.md) | [entry.direct.md](621169/entry.direct.md) |
-| 621214 | Leukodystrophy, Adult-Onset, Autosomal Dominant, Without Amyloid Angiopathy | [entry.kg.md](621214/entry.kg.md) | [entry.direct.md](621214/entry.direct.md) |
-| 621224 | Ectodermal Dysplasia 17 With Or Without Limb Malformations | [entry.kg.md](621224/entry.kg.md) | [entry.direct.md](621224/entry.direct.md) |
-| 621313 | Brain Small Vessel Disease 4 | [entry.kg.md](621313/entry.kg.md) | [entry.direct.md](621313/entry.direct.md) |
+Strategies: `kg` = Evidence graph; `direct` = Direct reading; `agent` = Agentic curator; `closedbook` = Memory only (control); `recall` = Recall, then verify; `cohort` = Case table first.
+
+| Entry | Title | Drafts |
+|---|---|---|
+| 108770 | Atrial Standstill 1 | [kg](108770/entry.kg.md) · [direct](108770/entry.direct.md) · [agent](108770/entry.agent.md) · [closedbook](108770/entry.closedbook.md) · [recall](108770/entry.recall.md) · [cohort](108770/entry.cohort.md) |
+| 118210 | Charcot-Marie-Tooth Disease, Axonal, Type 2A1 | [kg](118210/entry.kg.md) · [direct](118210/entry.direct.md) · [agent](118210/entry.agent.md) · [closedbook](118210/entry.closedbook.md) · [recall](118210/entry.recall.md) · [cohort](118210/entry.cohort.md) |
+| 166780 | Otofaciocervical Syndrome 1 | [kg](166780/entry.kg.md) · [direct](166780/entry.direct.md) · [agent](166780/entry.agent.md) · [closedbook](166780/entry.closedbook.md) · [recall](166780/entry.recall.md) · [cohort](166780/entry.cohort.md) |
+| 167400 | Paroxysmal Extreme Pain Disorder | [kg](167400/entry.kg.md) · [direct](167400/entry.direct.md) · [agent](167400/entry.agent.md) · [closedbook](167400/entry.closedbook.md) · [recall](167400/entry.recall.md) · [cohort](167400/entry.cohort.md) |
+| 177735 | Pseudohypoaldosteronism, Type I, Autosomal Dominant | [kg](177735/entry.kg.md) · [direct](177735/entry.direct.md) · [agent](177735/entry.agent.md) · [closedbook](177735/entry.closedbook.md) · [recall](177735/entry.recall.md) · [cohort](177735/entry.cohort.md) |
+| 186100 | Syndactyly, Type Iii | [kg](186100/entry.kg.md) · [direct](186100/entry.direct.md) · [agent](186100/entry.agent.md) · [closedbook](186100/entry.closedbook.md) · [recall](186100/entry.recall.md) · [cohort](186100/entry.cohort.md) |
+| 205950 | Anemia, Sideroblastic, 2, Pyridoxine-Refractory | [kg](205950/entry.kg.md) · [direct](205950/entry.direct.md) · [agent](205950/entry.agent.md) · [closedbook](205950/entry.closedbook.md) · [recall](205950/entry.recall.md) · [cohort](205950/entry.cohort.md) |
+| 219900 | Cystinosis, Late-Onset Juvenile Or Adolescent Nephropathic Type | [kg](219900/entry.kg.md) · [direct](219900/entry.direct.md) · [agent](219900/entry.agent.md) · [closedbook](219900/entry.closedbook.md) · [recall](219900/entry.recall.md) · [cohort](219900/entry.cohort.md) |
+| 225060 | Cleft Lip/Palate-Ectodermal Dysplasia Syndrome | [kg](225060/entry.kg.md) · [direct](225060/entry.direct.md) · [agent](225060/entry.agent.md) · [closedbook](225060/entry.closedbook.md) · [recall](225060/entry.recall.md) · [cohort](225060/entry.cohort.md) |
+| 225300 | Split-Hand/Foot Malformation 6 | [kg](225300/entry.kg.md) · [direct](225300/entry.direct.md) · [agent](225300/entry.agent.md) · [closedbook](225300/entry.closedbook.md) · [recall](225300/entry.recall.md) · [cohort](225300/entry.cohort.md) |
+| 236730 | Urofacial Syndrome 1 | [kg](236730/entry.kg.md) · [direct](236730/entry.direct.md) · [agent](236730/entry.agent.md) · [closedbook](236730/entry.closedbook.md) · [recall](236730/entry.recall.md) · [cohort](236730/entry.cohort.md) |
+| 241800 | Pallister-Hall-Like Syndrome | [kg](241800/entry.kg.md) · [direct](241800/entry.direct.md) · [agent](241800/entry.agent.md) · [closedbook](241800/entry.closedbook.md) · [recall](241800/entry.recall.md) · [cohort](241800/entry.cohort.md) |
+| 248360 | Malonyl-Coa Decarboxylase Deficiency | [kg](248360/entry.kg.md) · [direct](248360/entry.direct.md) · [agent](248360/entry.agent.md) · [closedbook](248360/entry.closedbook.md) · [recall](248360/entry.recall.md) · [cohort](248360/entry.cohort.md) |
+| 250220 | Spondylometaphyseal Dysplasia, Sedaghatian Type | [kg](250220/entry.kg.md) · [direct](250220/entry.direct.md) · [agent](250220/entry.agent.md) · [closedbook](250220/entry.closedbook.md) · [recall](250220/entry.recall.md) · [cohort](250220/entry.cohort.md) |
+| 251950 | Mitochondrial Myopathy With Lactic Acidosis | [kg](251950/entry.kg.md) · [direct](251950/entry.direct.md) · [agent](251950/entry.agent.md) · [closedbook](251950/entry.closedbook.md) · [recall](251950/entry.recall.md) · [cohort](251950/entry.cohort.md) |
+| 278750 | Xeroderma Pigmentosum, Variant Type | [kg](278750/entry.kg.md) · [direct](278750/entry.direct.md) · [agent](278750/entry.agent.md) · [closedbook](278750/entry.closedbook.md) · [recall](278750/entry.recall.md) · [cohort](278750/entry.cohort.md) |
+| 300148 | Mehmo Syndrome | [kg](300148/entry.kg.md) · [direct](300148/entry.direct.md) · [agent](300148/entry.agent.md) · [closedbook](300148/entry.closedbook.md) · [recall](300148/entry.recall.md) · [cohort](300148/entry.cohort.md) |
+| 301059 | Spermatogenic Failure, X-Linked, 3 | [kg](301059/entry.kg.md) · [direct](301059/entry.direct.md) · [agent](301059/entry.agent.md) · [closedbook](301059/entry.closedbook.md) · [recall](301059/entry.recall.md) · [cohort](301059/entry.cohort.md) |
+| 302905 | Abruzzo-Erickson Syndrome | [kg](302905/entry.kg.md) · [direct](302905/entry.direct.md) · [agent](302905/entry.agent.md) · [closedbook](302905/entry.closedbook.md) · [recall](302905/entry.recall.md) · [cohort](302905/entry.cohort.md) |
+| 500001 | Leber Optic Atrophy And Dystonia | [kg](500001/entry.kg.md) · [direct](500001/entry.direct.md) · [agent](500001/entry.agent.md) · [closedbook](500001/entry.closedbook.md) · [recall](500001/entry.recall.md) · [cohort](500001/entry.cohort.md) |
+| 600204 | Epiphyseal Dysplasia, Multiple, 2 | [kg](600204/entry.kg.md) · [direct](600204/entry.direct.md) · [agent](600204/entry.agent.md) · [closedbook](600204/entry.closedbook.md) · [recall](600204/entry.recall.md) · [cohort](600204/entry.cohort.md) |
+| 600251 | Facial Clefting, Oblique, 1 | [kg](600251/entry.kg.md) · [direct](600251/entry.direct.md) · [agent](600251/entry.agent.md) · [closedbook](600251/entry.closedbook.md) · [recall](600251/entry.recall.md) · [cohort](600251/entry.cohort.md) |
+| 600501 | Abcd Syndrome | [kg](600501/entry.kg.md) · [direct](600501/entry.direct.md) · [agent](600501/entry.agent.md) · [closedbook](600501/entry.closedbook.md) · [recall](600501/entry.recall.md) · [cohort](600501/entry.cohort.md) |
+| 600740 | Hypocalciuric Hypercalcemia, Familial, Type Iii | [kg](600740/entry.kg.md) · [direct](600740/entry.direct.md) · [agent](600740/entry.agent.md) · [closedbook](600740/entry.closedbook.md) · [recall](600740/entry.recall.md) · [cohort](600740/entry.cohort.md) |
+| 603552 | Hemophagocytic Lymphohistiocytosis, Familial, 4 | [kg](603552/entry.kg.md) · [direct](603552/entry.direct.md) · [agent](603552/entry.agent.md) · [closedbook](603552/entry.closedbook.md) · [recall](603552/entry.recall.md) · [cohort](603552/entry.cohort.md) |
+| 603689 | Myopathy, Myofibrillar, 9, With Early Respiratory Failure | [kg](603689/entry.kg.md) · [direct](603689/entry.direct.md) · [agent](603689/entry.agent.md) · [closedbook](603689/entry.closedbook.md) · [recall](603689/entry.recall.md) · [cohort](603689/entry.cohort.md) |
+| 604307 | Cataract 2, Multiple Types | [kg](604307/entry.kg.md) · [direct](604307/entry.direct.md) · [agent](604307/entry.agent.md) · [closedbook](604307/entry.closedbook.md) · [recall](604307/entry.recall.md) · [cohort](604307/entry.cohort.md) |
+| 604928 | Wolfram Syndrome 2 | [kg](604928/entry.kg.md) · [direct](604928/entry.direct.md) · [agent](604928/entry.agent.md) · [closedbook](604928/entry.closedbook.md) · [recall](604928/entry.recall.md) · [cohort](604928/entry.cohort.md) |
+| 606763 | Ciliary Dyskinesia, Primary, 2 | [kg](606763/entry.kg.md) · [direct](606763/entry.direct.md) · [agent](606763/entry.agent.md) · [closedbook](606763/entry.closedbook.md) · [recall](606763/entry.recall.md) · [cohort](606763/entry.cohort.md) |
+| 606824 | Glucose/Galactose Malabsorption | [kg](606824/entry.kg.md) · [direct](606824/entry.direct.md) · [agent](606824/entry.agent.md) · [closedbook](606824/entry.closedbook.md) · [recall](606824/entry.recall.md) · [cohort](606824/entry.cohort.md) |
+| 607602 | Ichthyosis, Annular Epidermolytic, 1 | [kg](607602/entry.kg.md) · [direct](607602/entry.direct.md) · [agent](607602/entry.agent.md) · [closedbook](607602/entry.closedbook.md) · [recall](607602/entry.recall.md) · [cohort](607602/entry.cohort.md) |
+| 607641 | Neuronopathy, Distal Hereditary Motor, Autosomal Dominant 14 | [kg](607641/entry.kg.md) · [direct](607641/entry.direct.md) · [agent](607641/entry.agent.md) · [closedbook](607641/entry.closedbook.md) · [recall](607641/entry.recall.md) · [cohort](607641/entry.cohort.md) |
+| 607721 | Noonan Syndrome-Like Disorder With Loose Anagen Hair 1 | [kg](607721/entry.kg.md) · [direct](607721/entry.direct.md) · [agent](607721/entry.agent.md) · [closedbook](607721/entry.closedbook.md) · [recall](607721/entry.recall.md) · [cohort](607721/entry.cohort.md) |
+| 607734 | Charcot-Marie-Tooth Disease, Demyelinating, Type 1F | [kg](607734/entry.kg.md) · [direct](607734/entry.direct.md) · [agent](607734/entry.agent.md) · [closedbook](607734/entry.closedbook.md) · [recall](607734/entry.recall.md) · [cohort](607734/entry.cohort.md) |
+| 607876 | Epilepsy, Familial Adult Myoclonic, 2 | [kg](607876/entry.kg.md) · [direct](607876/entry.direct.md) · [agent](607876/entry.agent.md) · [closedbook](607876/entry.closedbook.md) · [recall](607876/entry.recall.md) · [cohort](607876/entry.cohort.md) |
+| 608133 | Retinitis Pigmentosa 7 | [kg](608133/entry.kg.md) · [direct](608133/entry.direct.md) · [agent](608133/entry.agent.md) · [closedbook](608133/entry.closedbook.md) · [recall](608133/entry.recall.md) · [cohort](608133/entry.cohort.md) |
+| 608885 | Stomatin-Deficient Cryohydrocytosis With Neurologic Defects | [kg](608885/entry.kg.md) · [direct](608885/entry.direct.md) · [agent](608885/entry.agent.md) · [closedbook](608885/entry.closedbook.md) · [recall](608885/entry.recall.md) · [cohort](608885/entry.cohort.md) |
+| 609057 | Epidermolysis Bullosa Simplex 7, With Nephropathy And Deafness | [kg](609057/entry.kg.md) · [direct](609057/entry.direct.md) · [agent](609057/entry.agent.md) · [closedbook](609057/entry.closedbook.md) · [recall](609057/entry.recall.md) · [cohort](609057/entry.cohort.md) |
+| 609220 | Bruck Syndrome 2 | [kg](609220/entry.kg.md) · [direct](609220/entry.direct.md) · [agent](609220/entry.agent.md) · [closedbook](609220/entry.closedbook.md) · [recall](609220/entry.recall.md) · [cohort](609220/entry.cohort.md) |
+| 609296 | B-Cell Immunodeficiency, Distal Limb Anomalies, And Urogenital Malformations | [kg](609296/entry.kg.md) · [direct](609296/entry.direct.md) · [agent](609296/entry.agent.md) · [closedbook](609296/entry.closedbook.md) · [recall](609296/entry.recall.md) · [cohort](609296/entry.cohort.md) |
+| 611521 | Immunodeficiency 35 | [kg](611521/entry.kg.md) · [direct](611521/entry.direct.md) · [agent](611521/entry.agent.md) · [closedbook](611521/entry.closedbook.md) · [recall](611521/entry.recall.md) · [cohort](611521/entry.cohort.md) |
+| 611880 | Cardiomyopathy, Dilated, 2A | [kg](611880/entry.kg.md) · [direct](611880/entry.direct.md) · [agent](611880/entry.agent.md) · [closedbook](611880/entry.closedbook.md) · [recall](611880/entry.recall.md) · [cohort](611880/entry.cohort.md) |
+| 612847 | Brachyolmia Type 4 With Mild Epiphyseal And Metaphyseal Changes | [kg](612847/entry.kg.md) · [direct](612847/entry.direct.md) · [agent](612847/entry.agent.md) · [closedbook](612847/entry.closedbook.md) · [recall](612847/entry.recall.md) · [cohort](612847/entry.cohort.md) |
+| 613581 | Retinitis Pigmentosa 56 | [kg](613581/entry.kg.md) · [direct](613581/entry.direct.md) · [agent](613581/entry.agent.md) · [closedbook](613581/entry.closedbook.md) · [recall](613581/entry.recall.md) · [cohort](613581/entry.cohort.md) |
+| 613730 | Hemorrhagic Destruction Of The Brain, Subependymal Calcification, And Cataracts | [kg](613730/entry.kg.md) · [direct](613730/entry.direct.md) · [agent](613730/entry.agent.md) · [closedbook](613730/entry.closedbook.md) · [recall](613730/entry.recall.md) · [cohort](613730/entry.cohort.md) |
+| 613744 | Spastic Paraplegia 51, Autosomal Recessive | [kg](613744/entry.kg.md) · [direct](613744/entry.direct.md) · [agent](613744/entry.agent.md) · [closedbook](613744/entry.closedbook.md) · [recall](613744/entry.recall.md) · [cohort](613744/entry.cohort.md) |
+| 613848 | Osteogenesis Imperfecta, Type X | [kg](613848/entry.kg.md) · [direct](613848/entry.direct.md) · [agent](613848/entry.agent.md) · [closedbook](613848/entry.closedbook.md) · [recall](613848/entry.recall.md) · [cohort](613848/entry.cohort.md) |
+| 614501 | Neurodevelopmental Disorder With Hypotonia, Craniofacial Abnormalities, And Seizures | [kg](614501/entry.kg.md) · [direct](614501/entry.direct.md) · [agent](614501/entry.agent.md) · [closedbook](614501/entry.closedbook.md) · [recall](614501/entry.recall.md) · [cohort](614501/entry.cohort.md) |
+| 614651 | Coenzyme Q10 Deficiency, Primary, 2 | [kg](614651/entry.kg.md) · [direct](614651/entry.direct.md) · [agent](614651/entry.agent.md) · [closedbook](614651/entry.closedbook.md) · [recall](614651/entry.recall.md) · [cohort](614651/entry.cohort.md) |
+| 614701 | Cornelia De Lange Syndrome 4 With Or Without Midline Brain Defects | [kg](614701/entry.kg.md) · [direct](614701/entry.direct.md) · [agent](614701/entry.agent.md) · [closedbook](614701/entry.closedbook.md) · [recall](614701/entry.recall.md) · [cohort](614701/entry.cohort.md) |
+| 614856 | Osteogenesis Imperfecta, Type Xiii | [kg](614856/entry.kg.md) · [direct](614856/entry.direct.md) · [agent](614856/entry.agent.md) · [closedbook](614856/entry.closedbook.md) · [recall](614856/entry.recall.md) · [cohort](614856/entry.cohort.md) |
+| 615073 | Dystonia 25 | [kg](615073/entry.kg.md) · [direct](615073/entry.direct.md) · [agent](615073/entry.agent.md) · [closedbook](615073/entry.closedbook.md) · [recall](615073/entry.recall.md) · [cohort](615073/entry.cohort.md) |
+| 615268 | Cerebellar Ataxia, Impaired Intellectual Development, And Dysequilibrium Syndrome 4 | [kg](615268/entry.kg.md) · [direct](615268/entry.direct.md) · [agent](615268/entry.agent.md) · [closedbook](615268/entry.closedbook.md) · [recall](615268/entry.recall.md) · [cohort](615268/entry.cohort.md) |
+| 615425 | Epidermolysis Bullosa Simplex 3, Localized Or Generalized Intermediate, With Bp230 Deficiency | [kg](615425/entry.kg.md) · [direct](615425/entry.direct.md) · [agent](615425/entry.agent.md) · [closedbook](615425/entry.closedbook.md) · [recall](615425/entry.recall.md) · [cohort](615425/entry.cohort.md) |
+| 615493 | Intellectual Developmental Disorder, Autosomal Recessive 37 | [kg](615493/entry.kg.md) · [direct](615493/entry.direct.md) · [agent](615493/entry.agent.md) · [closedbook](615493/entry.closedbook.md) · [recall](615493/entry.recall.md) · [cohort](615493/entry.cohort.md) |
+| 615582 | Loeys-Dietz Syndrome 5 | [kg](615582/entry.kg.md) · [direct](615582/entry.direct.md) · [agent](615582/entry.agent.md) · [closedbook](615582/entry.closedbook.md) · [recall](615582/entry.recall.md) · [cohort](615582/entry.cohort.md) |
+| 615631 | Anemia, Congenital Dyserythropoietic, Type Ib | [kg](615631/entry.kg.md) · [direct](615631/entry.direct.md) · [agent](615631/entry.agent.md) · [closedbook](615631/entry.closedbook.md) · [recall](615631/entry.recall.md) · [cohort](615631/entry.cohort.md) |
+| 615710 | Mitchell-Riley Syndrome | [kg](615710/entry.kg.md) · [direct](615710/entry.direct.md) · [agent](615710/entry.agent.md) · [closedbook](615710/entry.closedbook.md) · [recall](615710/entry.recall.md) · [cohort](615710/entry.cohort.md) |
+| 615817 | Intellectual Developmental Disorder, Autosomal Recessive 43 | [kg](615817/entry.kg.md) · [direct](615817/entry.direct.md) · [agent](615817/entry.agent.md) · [closedbook](615817/entry.closedbook.md) · [recall](615817/entry.recall.md) · [cohort](615817/entry.cohort.md) |
+| 615972 | Nanophthalmos 4 | [kg](615972/entry.kg.md) · [direct](615972/entry.direct.md) · [agent](615972/entry.agent.md) · [closedbook](615972/entry.closedbook.md) · [recall](615972/entry.recall.md) · [cohort](615972/entry.cohort.md) |
+| 616151 | Macular Dystrophy, Vitelliform, 4 | [kg](616151/entry.kg.md) · [direct](616151/entry.direct.md) · [agent](616151/entry.agent.md) · [closedbook](616151/entry.closedbook.md) · [recall](616151/entry.recall.md) · [cohort](616151/entry.cohort.md) |
+| 616294 | Cole-Carpenter Syndrome 2 | [kg](616294/entry.kg.md) · [direct](616294/entry.direct.md) · [agent](616294/entry.agent.md) · [closedbook](616294/entry.closedbook.md) · [recall](616294/entry.recall.md) · [cohort](616294/entry.cohort.md) |
+| 616326 | Myasthenic Syndrome, Congenital, 11, Associated With Acetylcholine Receptor Deficiency | [kg](616326/entry.kg.md) · [direct](616326/entry.direct.md) · [agent](616326/entry.agent.md) · [closedbook](616326/entry.closedbook.md) · [recall](616326/entry.recall.md) · [cohort](616326/entry.cohort.md) |
+| 616482 | Achondroplasia, Severe, With Developmental Delay And Acanthosis Nigricans | [kg](616482/entry.kg.md) · [direct](616482/entry.direct.md) · [agent](616482/entry.agent.md) · [closedbook](616482/entry.closedbook.md) · [recall](616482/entry.recall.md) · [cohort](616482/entry.cohort.md) |
+| 616867 | Spinal Muscular Atrophy With Congenital Bone Fractures 2 | [kg](616867/entry.kg.md) · [direct](616867/entry.direct.md) · [agent](616867/entry.agent.md) · [closedbook](616867/entry.closedbook.md) · [recall](616867/entry.recall.md) · [cohort](616867/entry.cohort.md) |
+| 617153 | Developmental And Epileptic Encephalopathy 45 | [kg](617153/entry.kg.md) · [direct](617153/entry.direct.md) · [agent](617153/entry.agent.md) · [closedbook](617153/entry.closedbook.md) · [recall](617153/entry.recall.md) · [cohort](617153/entry.cohort.md) |
+| 617162 | Developmental And Epileptic Encephalopathy 46 | [kg](617162/entry.kg.md) · [direct](617162/entry.direct.md) · [agent](617162/entry.agent.md) · [closedbook](617162/entry.closedbook.md) · [recall](617162/entry.recall.md) · [cohort](617162/entry.cohort.md) |
+| 617232 | Muscular Dystrophy, Limb-Girdle, Autosomal Recessive 21 | [kg](617232/entry.kg.md) · [direct](617232/entry.direct.md) · [agent](617232/entry.agent.md) · [closedbook](617232/entry.closedbook.md) · [recall](617232/entry.recall.md) · [cohort](617232/entry.cohort.md) |
+| 617927 | Orofaciodigital Syndrome Xviii | [kg](617927/entry.kg.md) · [direct](617927/entry.direct.md) · [agent](617927/entry.agent.md) · [closedbook](617927/entry.closedbook.md) · [recall](617927/entry.recall.md) · [cohort](617927/entry.cohort.md) |
+| 618184 | Neuropathy, Congenital Hypomyelinating, 2 | [kg](618184/entry.kg.md) · [direct](618184/entry.direct.md) · [agent](618184/entry.agent.md) · [closedbook](618184/entry.closedbook.md) · [recall](618184/entry.recall.md) · [cohort](618184/entry.cohort.md) |
+| 618229 | Mitochondrial Complex I Deficiency, Nuclear Type 7 | [kg](618229/entry.kg.md) · [direct](618229/entry.direct.md) · [agent](618229/entry.agent.md) · [closedbook](618229/entry.closedbook.md) · [recall](618229/entry.recall.md) · [cohort](618229/entry.cohort.md) |
+| 618343 | Polymicrogyria With Or Without Vascular-Type Ehlers-Danlos Syndrome | [kg](618343/entry.kg.md) · [direct](618343/entry.direct.md) · [agent](618343/entry.agent.md) · [closedbook](618343/entry.closedbook.md) · [recall](618343/entry.recall.md) · [cohort](618343/entry.cohort.md) |
+| 618400 | Charcot-Marie-Tooth Disease, Axonal, Type 2Ee | [kg](618400/entry.kg.md) · [direct](618400/entry.direct.md) · [agent](618400/entry.agent.md) · [closedbook](618400/entry.closedbook.md) · [recall](618400/entry.recall.md) · [cohort](618400/entry.cohort.md) |
+| 618458 | Knobloch Syndrome 2 | [kg](618458/entry.kg.md) · [direct](618458/entry.direct.md) · [agent](618458/entry.agent.md) · [closedbook](618458/entry.closedbook.md) · [recall](618458/entry.recall.md) · [cohort](618458/entry.cohort.md) |
+| 618808 | Intellectual Developmental Disorder With Poor Growth And With Or Without Seizures Or Ataxia | [kg](618808/entry.kg.md) · [direct](618808/entry.direct.md) · [agent](618808/entry.agent.md) · [closedbook](618808/entry.closedbook.md) · [recall](618808/entry.recall.md) · [cohort](618808/entry.cohort.md) |
+| 618875 | Seizures, Early-Onset, With Neurodegeneration And Brain Calcifications | [kg](618875/entry.kg.md) · [direct](618875/entry.direct.md) · [agent](618875/entry.agent.md) · [closedbook](618875/entry.closedbook.md) · [recall](618875/entry.recall.md) · [cohort](618875/entry.cohort.md) |
+| 619124 | Developmental And Epileptic Encephalopathy 89 | [kg](619124/entry.kg.md) · [direct](619124/entry.direct.md) · [agent](619124/entry.agent.md) · [closedbook](619124/entry.closedbook.md) · [recall](619124/entry.recall.md) · [cohort](619124/entry.cohort.md) |
+| 619201 | Nephrotic Syndrome, Type 23 | [kg](619201/entry.kg.md) · [direct](619201/entry.direct.md) · [agent](619201/entry.agent.md) · [closedbook](619201/entry.closedbook.md) · [recall](619201/entry.recall.md) · [cohort](619201/entry.cohort.md) |
+| 619681 | Dystonia, Early-Onset, And/Or Spastic Paraplegia | [kg](619681/entry.kg.md) · [direct](619681/entry.direct.md) · [agent](619681/entry.agent.md) · [closedbook](619681/entry.closedbook.md) · [recall](619681/entry.recall.md) · [cohort](619681/entry.cohort.md) |
+| 619816 | Epidermolysis Bullosa, Junctional 5A, Intermediate | [kg](619816/entry.kg.md) · [direct](619816/entry.direct.md) · [agent](619816/entry.agent.md) · [closedbook](619816/entry.closedbook.md) · [recall](619816/entry.recall.md) · [cohort](619816/entry.cohort.md) |
+| 620022 | Stickler Syndrome, Type Vi | [kg](620022/entry.kg.md) · [direct](620022/entry.direct.md) · [agent](620022/entry.agent.md) · [closedbook](620022/entry.closedbook.md) · [recall](620022/entry.recall.md) · [cohort](620022/entry.cohort.md) |
+| 620029 | Neurodevelopmental Disorder With Hypotonia, Language Delay, And Skeletal Defects With Or Without Seizures | [kg](620029/entry.kg.md) · [direct](620029/entry.direct.md) · [agent](620029/entry.agent.md) · [closedbook](620029/entry.closedbook.md) · [recall](620029/entry.recall.md) · [cohort](620029/entry.cohort.md) |
+| 620098 | Developmental Delay With Variable Intellectual Disability And Dysmorphic Facies | [kg](620098/entry.kg.md) · [direct](620098/entry.direct.md) · [agent](620098/entry.agent.md) · [closedbook](620098/entry.closedbook.md) · [recall](620098/entry.recall.md) · [cohort](620098/entry.cohort.md) |
+| 620249 | Congenital Myopathy 10B, Mild Variant | [kg](620249/entry.kg.md) · [direct](620249/entry.direct.md) · [agent](620249/entry.agent.md) · [closedbook](620249/entry.closedbook.md) · [recall](620249/entry.recall.md) · [cohort](620249/entry.cohort.md) |
+| 620402 | Neuronopathy, Distal Hereditary Motor, Autosomal Recessive 9 | [kg](620402/entry.kg.md) · [direct](620402/entry.direct.md) · [agent](620402/entry.agent.md) · [closedbook](620402/entry.closedbook.md) · [recall](620402/entry.recall.md) · [cohort](620402/entry.cohort.md) |
+| 620457 | Auriculocondylar Syndrome 4 | [kg](620457/entry.kg.md) · [direct](620457/entry.direct.md) · [agent](620457/entry.agent.md) · [closedbook](620457/entry.closedbook.md) · [recall](620457/entry.recall.md) · [cohort](620457/entry.cohort.md) |
+| 620481 | Amegakaryocytic Thrombocytopenia, Congenital, 2 | [kg](620481/entry.kg.md) · [direct](620481/entry.direct.md) · [agent](620481/entry.agent.md) · [closedbook](620481/entry.closedbook.md) · [recall](620481/entry.recall.md) · [cohort](620481/entry.cohort.md) |
+| 620507 | Ichthyosis With Erythrokeratoderma | [kg](620507/entry.kg.md) · [direct](620507/entry.direct.md) · [agent](620507/entry.agent.md) · [closedbook](620507/entry.closedbook.md) · [recall](620507/entry.recall.md) · [cohort](620507/entry.cohort.md) |
+| 620528 | Neuronopathy, Distal Hereditary Motor, Autosomal Dominant 11 | [kg](620528/entry.kg.md) · [direct](620528/entry.direct.md) · [agent](620528/entry.agent.md) · [closedbook](620528/entry.closedbook.md) · [recall](620528/entry.recall.md) · [cohort](620528/entry.cohort.md) |
+| 620609 | Long-Olsen-Distelmaier Syndrome | [kg](620609/entry.kg.md) · [direct](620609/entry.direct.md) · [agent](620609/entry.agent.md) · [closedbook](620609/entry.closedbook.md) · [recall](620609/entry.recall.md) · [cohort](620609/entry.cohort.md) |
+| 620662 | Hoxha-Aliu Syndrome | [kg](620662/entry.kg.md) · [direct](620662/entry.direct.md) · [agent](620662/entry.agent.md) · [closedbook](620662/entry.closedbook.md) · [recall](620662/entry.recall.md) · [cohort](620662/entry.cohort.md) |
+| 620670 | Immunodeficiency, Common Variable, 15 | [kg](620670/entry.kg.md) · [direct](620670/entry.direct.md) · [agent](620670/entry.agent.md) · [closedbook](620670/entry.closedbook.md) · [recall](620670/entry.recall.md) · [cohort](620670/entry.cohort.md) |
+| 620718 | Orofaciodigital Syndrome Xx | [kg](620718/entry.kg.md) · [direct](620718/entry.direct.md) · [agent](620718/entry.agent.md) · [closedbook](620718/entry.closedbook.md) · [recall](620718/entry.recall.md) · [cohort](620718/entry.cohort.md) |
+| 620851 | Renu Syndrome | [kg](620851/entry.kg.md) · [direct](620851/entry.direct.md) · [agent](620851/entry.agent.md) · [closedbook](620851/entry.closedbook.md) · [recall](620851/entry.recall.md) · [cohort](620851/entry.cohort.md) |
+| 621030 | Autoinflammation, Panniculitis, And Dermatosis Syndrome, Autosomal Dominant | [kg](621030/entry.kg.md) · [direct](621030/entry.direct.md) · [agent](621030/entry.agent.md) · [closedbook](621030/entry.closedbook.md) · [recall](621030/entry.recall.md) · [cohort](621030/entry.cohort.md) |
+| 621068 | Neurodevelopmental Disorder With Hypotonia, Poor Growth, Dysmorphic Facies, And Agammaglobulinemia | [kg](621068/entry.kg.md) · [direct](621068/entry.direct.md) · [agent](621068/entry.agent.md) · [closedbook](621068/entry.closedbook.md) · [recall](621068/entry.recall.md) · [cohort](621068/entry.cohort.md) |
+| 621169 | Monilethrix 2 | [kg](621169/entry.kg.md) · [direct](621169/entry.direct.md) · [agent](621169/entry.agent.md) · [closedbook](621169/entry.closedbook.md) · [recall](621169/entry.recall.md) · [cohort](621169/entry.cohort.md) |
+| 621214 | Leukodystrophy, Adult-Onset, Autosomal Dominant, Without Amyloid Angiopathy | [kg](621214/entry.kg.md) · [direct](621214/entry.direct.md) · [agent](621214/entry.agent.md) · [closedbook](621214/entry.closedbook.md) · [recall](621214/entry.recall.md) · [cohort](621214/entry.cohort.md) |
+| 621224 | Ectodermal Dysplasia 17 With Or Without Limb Malformations | [kg](621224/entry.kg.md) · [direct](621224/entry.direct.md) · [agent](621224/entry.agent.md) · [closedbook](621224/entry.closedbook.md) · [recall](621224/entry.recall.md) · [cohort](621224/entry.cohort.md) |
+| 621313 | Brain Small Vessel Disease 4 | [kg](621313/entry.kg.md) · [direct](621313/entry.direct.md) · [agent](621313/entry.agent.md) · [closedbook](621313/entry.closedbook.md) · [recall](621313/entry.recall.md) · [cohort](621313/entry.cohort.md) |

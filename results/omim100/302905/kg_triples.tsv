@@ -33,12 +33,12 @@ ABRUZZO-ERICKSON SYNDROME	has_phenotype	Short stature	2596527,3565473,839509
 ABRUZZO-ERICKSON SYNDROME	has_phenotype	Hearing impairment	2596527,3565473,839509
 ABRUZZO-ERICKSON SYNDROME	has_phenotype	Hypospadias	2596527,839509
 ABRUZZO-ERICKSON SYNDROME	has_phenotype	Radioulnar synostosis	2596527,839509
-Optic disc coloboma	is_a	Coloboma	
-Asymmetry of the ears	is_a	Abnormality of the outer ear	
-Cleft palate	is_a	Orofacial cleft	
-Short ear	is_a	Abnormality of the outer ear	
-Abnormal helix morphology	is_a	Abnormality of the outer ear	
-Short stature	is_a	Growth delay	
-Sensorineural hearing impairment	is_a	Hearing impairment	
-Abnormal antihelix morphology	is_a	Abnormality of the outer ear	
 Cupped ear	is_a	Abnormality of the outer ear	
+Abnormal helix morphology	is_a	Abnormality of the outer ear	
+Cleft palate	is_a	Orofacial cleft	
+Short stature	is_a	Growth delay	
+Short ear	is_a	Abnormality of the outer ear	
+Optic disc coloboma	is_a	Coloboma	
+Abnormal antihelix morphology	is_a	Abnormality of the outer ear	
+Asymmetry of the ears	is_a	Abnormality of the outer ear	
+Sensorineural hearing impairment	is_a	Hearing impairment	

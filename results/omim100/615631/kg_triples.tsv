@@ -28,9 +28,9 @@ ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Toe syndactyly	92201
 ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Hallux valgus	9220189
 ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormal lymphocyte morphology	9220189
 ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormality of limbs	9220189
-Abnormality of the tarsal bones	is_a	Abnormality of limbs	
-Short phalanx of finger	is_a	Abnormality of limbs	
 Madelung deformity	is_a	Abnormality of limbs	
-Hallux valgus	is_a	Abnormality of limbs	
+Short phalanx of finger	is_a	Abnormality of limbs	
 Toe syndactyly	is_a	Abnormality of limbs	
 Abnormal metatarsal morphology	is_a	Abnormality of limbs	
+Abnormality of the tarsal bones	is_a	Abnormality of limbs	
+Hallux valgus	is_a	Abnormality of limbs	

@@ -69,16 +69,16 @@ SPONDYLOMETAPHYSEAL DYSPLASIA, SEDAGHATIAN TYPE	has_phenotype	Pectus carinatum	3
 SPONDYLOMETAPHYSEAL DYSPLASIA, SEDAGHATIAN TYPE	has_phenotype	Short lower limbs	3565474
 SPONDYLOMETAPHYSEAL DYSPLASIA, SEDAGHATIAN TYPE	has_phenotype	Renal cortical necrosis	1481828
 SPONDYLOMETAPHYSEAL DYSPLASIA, SEDAGHATIAN TYPE	has_phenotype	Iliac crest serration	1481828
-Pachygyria	is_a	Abnormality of neuronal migration	
-Pachygyria	is_a	Morphological central nervous system abnormality	
-Simplified gyral pattern	is_a	Abnormality of neuronal migration	
-Simplified gyral pattern	is_a	Morphological central nervous system abnormality	
-Rhizomelic arm shortening	is_a	Rhizomelia	
-Atrioventricular block	is_a	Cardiac conduction abnormality	
-Agenesis of corpus callosum	is_a	Morphological central nervous system abnormality	
 Abnormality of neuronal migration	is_a	Morphological central nervous system abnormality	
 Metaphyseal chondrodysplasia	is_a	Metaphyseal dysplasia	
-Cerebellar hypoplasia	is_a	Morphological central nervous system abnormality	
-Hypoplasia of the corpus callosum	is_a	Morphological central nervous system abnormality	
+Rhizomelic arm shortening	is_a	Rhizomelia	
 Rhizomelia	is_a	Limb undergrowth	
+Hypoplasia of the corpus callosum	is_a	Morphological central nervous system abnormality	
+Atrioventricular block	is_a	Cardiac conduction abnormality	
 Short lower limbs	is_a	Limb undergrowth	
+Simplified gyral pattern	is_a	Abnormality of neuronal migration	
+Simplified gyral pattern	is_a	Morphological central nervous system abnormality	
+Cerebellar hypoplasia	is_a	Morphological central nervous system abnormality	
+Pachygyria	is_a	Abnormality of neuronal migration	
+Pachygyria	is_a	Morphological central nervous system abnormality	
+Agenesis of corpus callosum	is_a	Morphological central nervous system abnormality	

@@ -30,7 +30,7 @@ IMMUNODEFICIENCY, COMMON VARIABLE, 15	has_phenotype	Decreased specific antibody 
 IMMUNODEFICIENCY, COMMON VARIABLE, 15	has_phenotype	Decreased circulating immunoglobulin concentration	28782633
 IMMUNODEFICIENCY, COMMON VARIABLE, 15	has_phenotype	Recurrent upper respiratory tract infections	28782633
 IMMUNODEFICIENCY, COMMON VARIABLE, 15	has_phenotype	Decreased plasmablast proportion	28782633
-Decreased circulating IgA concentration	is_a	Decreased circulating immunoglobulin concentration	
 Decreased circulating IgM concentration	is_a	Decreased circulating immunoglobulin concentration	
+Decreased circulating IgA concentration	is_a	Decreased circulating immunoglobulin concentration	
 Decreased circulating IgG concentration	is_a	Decreased circulating immunoglobulin concentration	
 Recurrent sinusitis	is_a	Recurrent upper respiratory tract infections	

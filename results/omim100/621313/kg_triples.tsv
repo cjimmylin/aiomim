@@ -38,6 +38,6 @@ BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Coma	31705625
 BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Shock	31705625
 BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Schizophrenia	31705625
 BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Increased urinary sulfite level	31705625
-Dilation of Virchow-Robin spaces	is_a	Abnormal cerebral vascular morphology	
 Spastic tetraplegia	is_a	Abnormality of movement	
+Dilation of Virchow-Robin spaces	is_a	Abnormal cerebral vascular morphology	
 Cerebral hemorrhage	is_a	Abnormal cerebral vascular morphology	

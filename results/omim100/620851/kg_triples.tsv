@@ -8,7 +8,7 @@ RNU4-2 n.67A>G	in_gene	RNU4-2
 RNU4-2 n.68_69insa	in_gene	RNU4-2	
 RNU4-2 n.77_78inst	in_gene	RNU4-2	
 Greene et al. (2024)	reports	Greene et al. (2024) reported that the most common RNU4-2 variant, n.64_65insT, arose as a de novo mutation in 33 different families. They noted that G64 of U4 snRNA is thought to help stabilize the ACAGAGA loop of U6 snRNA. They also proposed that the insertion could disrupt the G64(U4)-A47(U6) interaction that supports the quasi-pseudoknot.	
-RNU4-2 c.:n.64_65inst / c.nr_003137.2 / n.64_65inst	in_gene	RNU4-2	
+RNU4-2 n.64_65inst	in_gene	RNU4-2	
 Greene et al. (2024)	reports	In 100,000 Genomes Project pedigree G38, Greene et al. (2024) identified the RNU4-2 n.65A>G variant in a heterozygous male proband. His mother was called homozygous for the reference allele but was likely mosaic for the variant when the aligned WGS reads were inspected.	
 RNU4-2 n.65A>G	in_gene	RNU4-2	
 Greene et al. (2024)	reports	Greene et al. (2024) replicated their findings in 3 collections: the NIHR BioResource, the 100,000 Genomes Project Pilot and the UK Genomic Medicine Service. Together these contributed 27 further probands with a rare variant in the 2 RNU4-2 regions, of whom 26 were affected and 1 was unaffected. Of the 26 affected probands, 19 had a de novo variant, 6 had unknown inheritance, and 1 inherited n.76C>T from an affected mother. This brought the total to 73 unrelated cases.	
@@ -40,9 +40,9 @@ Chen et al. (2024)	reports	Chen et al. (2024) found that exome sequencing has ve
 Chen et al. (2024)	reports	Chen et al. (2024) found that RNU4-2 and RNU4-1 are adjacent on chromosome 12, are both 141 bp long and differ at 4 nucleotides. RNU4-2 was expressed at consistently higher levels than RNU4-1 across development in human prefrontal cortex (BrainVar). Prenatal cortex ATAC-seq showed much greater chromatin accessibility at RNU4-2, supporting RNU4-2 as the main U4 transcript in the brain. Variants in RNU4-1 were not enriched in NDD.	
 Chen et al. (2024)	reports	Chen et al. (2024) examined 28 other brain-expressed snRNA genes and found no other snRNA, or constrained subregion of one, significantly enriched for de novo or biallelic variants in undiagnosed NDD probands. RNU12 showed only nominal enrichment of biallelic variants.	
 ReNU SYNDROME	caused_by	RNU4-2	38821540,38859706,38991538
-ReNU SYNDROME	has_variant	RNU4-2 c.:n.64_65inst / c.nr_003137.2 / n.64_65inst	38821540,38859706,38991538
 ReNU SYNDROME	has_variant	RNU4-2 n.63T>G	38821540
 ReNU SYNDROME	has_variant	RNU4-2 n.64_65insg	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.64_65inst	38821540,38859706,38991538
 ReNU SYNDROME	has_variant	RNU4-2 n.65A>G	38821540,38991538
 ReNU SYNDROME	has_variant	RNU4-2 n.65_66inst	38821540
 ReNU SYNDROME	has_variant	RNU4-2 n.67A>G	38821540
@@ -111,20 +111,20 @@ ReNU SYNDROME	has_phenotype	Motor delay	38821540
 ReNU SYNDROME	has_phenotype	Proportionate short stature	38821540
 ReNU SYNDROME	has_phenotype	Generalized hypotonia	38821540
 ReNU SYNDROME	has_phenotype	Abnormality of upper lip vermillion	38821540
-Ventriculomegaly	is_a	Abnormal brain morphology	
-Infantile spasms	is_a	Seizure	
-Delayed ability to walk	is_a	Delayed gross motor development	
-Neurodevelopmental delay	is_a	Neurodevelopmental abnormality	
-Delayed gross motor development	is_a	Motor delay	
-Generalized hypotonia	is_a	Hypotonia	
-Proportionate short stature	is_a	Short stature	
-Gastrostomy tube feeding in infancy	is_a	Feeding difficulties	
-Delayed fine motor development	is_a	Motor delay	
-Intellectual disability	is_a	Neurodevelopmental abnormality	
 Motor delay	is_a	Neurodevelopmental delay	
-Microcephaly	is_a	Abnormal brain morphology	
-Autism	is_a	Atypical behavior	
+Delayed gross motor development	is_a	Motor delay	
 Global developmental delay	is_a	Neurodevelopmental delay	
+Autism	is_a	Atypical behavior	
+Gastrostomy tube feeding in infancy	is_a	Feeding difficulties	
+Ventriculomegaly	is_a	Abnormal brain morphology	
+Delayed ability to walk	is_a	Delayed gross motor development	
+Infantile spasms	is_a	Seizure	
+Proportionate short stature	is_a	Short stature	
 Hypoplasia of the corpus callosum	is_a	Abnormal brain morphology	
-Reduced cerebral white matter volume	is_a	Abnormal brain morphology	
+Neurodevelopmental delay	is_a	Neurodevelopmental abnormality	
 Absent speech	is_a	Neurodevelopmental delay	
+Generalized hypotonia	is_a	Hypotonia	
+Reduced cerebral white matter volume	is_a	Abnormal brain morphology	
+Microcephaly	is_a	Abnormal brain morphology	
+Intellectual disability	is_a	Neurodevelopmental abnormality	
+Delayed fine motor development	is_a	Motor delay	

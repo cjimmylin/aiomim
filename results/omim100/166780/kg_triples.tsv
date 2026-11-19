@@ -42,14 +42,14 @@ OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormal scapula morphology	8558563
 OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Tetralogy of Fallot	8558563
 OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Sensorineural hearing impairment	8558563
 OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Cochlear malformation	8558563
-High palate	is_a	Abnormality of the face	
+Preauricular pit	is_a	Abnormality of the face	
+Lacrimal duct stenosis	is_a	Abnormality of the face	
 Scapular winging	is_a	Abnormal scapula morphology	
 Scapular winging	is_a	Abnormality of the shoulder girdle musculature	
-Abnormal facial shape	is_a	Abnormality of the face	
-Protruding ear	is_a	Abnormality of the outer ear	
-Narrow nose	is_a	Abnormality of the face	
-Preauricular skin tag	is_a	Abnormality of the face	
-Lacrimal duct stenosis	is_a	Abnormality of the face	
-Sensorineural hearing impairment	is_a	Hearing impairment	
-Preauricular pit	is_a	Abnormality of the face	
 Long face	is_a	Abnormal facial shape	
+Abnormal facial shape	is_a	Abnormality of the face	
+Preauricular skin tag	is_a	Abnormality of the face	
+Narrow nose	is_a	Abnormality of the face	
+Protruding ear	is_a	Abnormality of the outer ear	
+High palate	is_a	Abnormality of the face	
+Sensorineural hearing impairment	is_a	Hearing impairment	

@@ -19,6 +19,6 @@ LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_
 LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormal cerebral white matter morphology	38489591
 LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	CNS demyelination	38489591
 LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Astrocytosis	38489591
-Abnormal corpus callosum morphology	is_a	Abnormal cerebral white matter morphology	
 Abnormality of the internal capsule	is_a	Abnormal cerebral white matter morphology	
+Abnormal corpus callosum morphology	is_a	Abnormal cerebral white matter morphology	
 Motor deterioration	is_a	Cognitive impairment	

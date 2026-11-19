@@ -87,25 +87,25 @@ POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME	has_phenotyp
 POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME	has_phenotype	Abnormality of the vasculature	11577371
 POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME	has_phenotype	Vascular dilatation	11577371
 POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME	has_phenotype	Arterial rupture	11577371,9050868
-Bruising susceptibility	is_a	Abnormality of the vasculature	
+Abnormality of the vasculature	is_a	Abnormality of the cardiovascular system	
+Bilateral polymicrogyria	is_a	Polymicrogyria	
+Arterial stenosis	is_a	Abnormality of the vasculature	
+Arterial stenosis	is_a	Abnormality of the cardiovascular system	
+Abnormal aortic morphology	is_a	Abnormality of the vasculature	
+Abnormal aortic morphology	is_a	Abnormality of the cardiovascular system	
+Intracranial hemorrhage	is_a	Abnormality of the vasculature	
+Intracranial hemorrhage	is_a	Abnormality of the cardiovascular system	
+Arterial dissection	is_a	Abnormality of the vasculature	
+Arterial dissection	is_a	Abnormality of the cardiovascular system	
 Mucoid extracellular matrix accumulation	is_a	Abnormal aortic morphology	
 Mucoid extracellular matrix accumulation	is_a	Abnormality of the vasculature	
 Mucoid extracellular matrix accumulation	is_a	Abnormality of the cardiovascular system	
 Carotid artery dissection	is_a	Abnormality of the vasculature	
 Carotid artery dissection	is_a	Abnormality of the cardiovascular system	
-Arterial stenosis	is_a	Abnormality of the vasculature	
-Arterial stenosis	is_a	Abnormality of the cardiovascular system	
 Bilateral talipes equinovarus	is_a	Talipes equinovarus	
-Abnormality of the vasculature	is_a	Abnormality of the cardiovascular system	
-Aortic dissection	is_a	Abnormal aortic morphology	
 Vascular dilatation	is_a	Abnormality of the vasculature	
 Vascular dilatation	is_a	Abnormality of the cardiovascular system	
-Abnormal aortic morphology	is_a	Abnormality of the vasculature	
-Abnormal aortic morphology	is_a	Abnormality of the cardiovascular system	
-Bilateral polymicrogyria	is_a	Polymicrogyria	
-Arterial dissection	is_a	Abnormality of the vasculature	
-Arterial dissection	is_a	Abnormality of the cardiovascular system	
+Bruising susceptibility	is_a	Abnormality of the vasculature	
+Aortic dissection	is_a	Abnormal aortic morphology	
 Arterial rupture	is_a	Abnormality of the vasculature	
 Arterial rupture	is_a	Abnormality of the cardiovascular system	
-Intracranial hemorrhage	is_a	Abnormality of the vasculature	
-Intracranial hemorrhage	is_a	Abnormality of the cardiovascular system	

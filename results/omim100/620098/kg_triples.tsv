@@ -19,7 +19,7 @@ Verberne et al. (2022)	reports	Verberne et al. (2022) described JARID2 haploinsu
 Verberne et al. (2022)	reports	Verberne et al. (2022) summarized 8 patients with pathogenic or likely pathogenic JARID2 variants: 4 males and 4 females aged 5 to 36 years, 5 of whom had been reported previously. All 8 had developmental delay. Intellectual functioning ranged from normal (1 patient) through learning difficulties or borderline functioning to moderate ID. Other features were autistic features (4 of 8, 2 with an ASD diagnosis), behavior abnormalities (3), hypotonia (2), gait disturbance (2), and variable facial dysmorphism. Additional anomalies included submucous cleft palate with bifid uvula, cryptorchidism, an arachnoid cyst or posterior fossa cyst/mega cisterna magna, kyphoscoliosis, and cafe-au-lait macules.	
 Verberne et al. (2022)	reports	Verberne et al. (2022) reported 6 patients with deletions of at least one exon of JARID2 on chromosome 6p22.3, identified by microarray analysis or other methods. Five deletions were de novo. Patient 6 inherited her deletion from her mother (patient 7), who had learning difficulties.	
 JARID2 deletion exons 6-18	in_gene	JARID2	
-JARID2 c.15383717_15462037	in_gene	JARID2	
+JARID2 (15383717_15462037)x1	in_gene	JARID2	
 Verberne et al. (2022)	reports	Verberne et al. (2022) reported a 14-year-old boy (patient 4) with moderate ID, autism spectrum disorder, and behavior abnormalities. He carried a de novo heterozygous frameshift variant in JARID2, c.2866dupG (p.Glu956GlyfsTer72), which was classified as pathogenic.	
 JARID2 c.15511546dup / c.2866dupg / p.E956G	in_gene	JARID2	
 Verberne et al. (2022)	reports	Verberne et al. (2022) reported a 5-year-old boy (patient 5) with developmental delay, hypotonia, an arachnoid cyst, right cryptorchidism, and congenital torticollis. He carried a de novo heterozygous splice site variant in JARID2, c.2731+1G-C, which was classified as likely pathogenic.	
@@ -30,11 +30,11 @@ JARID2 c.15501555G>A / c.2363G>A / p.R788Q	in_gene	JARID2
 JARID2 c.15497386G>A / c.1930G>A / p.E644K	in_gene	JARID2	
 Verberne et al. (2022)	reports	Verberne et al. (2022) found no significant differentially methylated regions. Among the 150 episignature probes, they found 7 small regions with a consistent direction of effect. Two of these were annotated to genes previously linked to abnormal neurological development, NLGN2 and ADGRL2. Gene set enrichment did not identify consistent pathways.	
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	caused_by	JARID2	27748065,35887345
-DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 c.15383717_15462037	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 c.15497386G>A / c.1930G>A / p.E644K	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 c.15501555G>A / c.2363G>A / p.R788Q	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 c.15507648G>C / c.2731+1G>C	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 c.15511546dup / c.2866dupg / p.E956G	35887345
+DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 (15383717_15462037)x1	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 CNV involving only exon 6 of the JARID2 gene	27748065
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_variant	JARID2 deletion exons 6-18	35887345
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	inheritance	Autosomal dominant	33077894,35533077,35887345
@@ -83,29 +83,29 @@ DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_phenotype	Sandal gap	23294540
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_phenotype	Broad hallux	23294540
 DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES	has_phenotype	Abnormal facial shape	23294540
-Depressed nasal bridge	is_a	Abnormality of the face	
-Broad forehead	is_a	Abnormality of the face	
-Abnormal facial shape	is_a	Abnormality of the face	
-Delayed speech and language development	is_a	Neurodevelopmental delay	
-Borderline intellectual disability	is_a	Intellectual disability	
-Prominent supraorbital ridges	is_a	Abnormality of the face	
-Autistic behavior	is_a	Atypical behavior	
-High anterior hairline	is_a	Abnormality of the face	
-Bifid uvula	is_a	Abnormal palate morphology	
-Bulbous nose	is_a	Abnormality of the face	
-Abnormal palate morphology	is_a	Abnormality of the face	
-Short philtrum	is_a	Abnormality of the face	
-Autism	is_a	Autistic behavior	
-Atrial septal defect	is_a	Abnormal heart morphology	
-Global developmental delay	is_a	Neurodevelopmental delay	
 Exaggerated cupid's bow	is_a	Abnormality of the face	
-Hyperactivity	is_a	Atypical behavior	
-Periorbital hyperpigmentation	is_a	Abnormality of the face	
+Global developmental delay	is_a	Neurodevelopmental delay	
+Autism	is_a	Autistic behavior	
+Prominent supraorbital ridges	is_a	Abnormality of the face	
+Bulbous nose	is_a	Abnormality of the face	
+Broad forehead	is_a	Abnormality of the face	
+Borderline intellectual disability	is_a	Intellectual disability	
+Autistic behavior	is_a	Atypical behavior	
 Submucous cleft hard palate	is_a	Abnormal palate morphology	
 Submucous cleft hard palate	is_a	Abnormality of the face	
-Mandibular prognathia	is_a	Abnormality of the face	
-Thick vermilion border	is_a	Abnormality of the face	
-Midface retrusion	is_a	Abnormality of the face	
-Moderate intellectual disability	is_a	Intellectual disability	
-Mild intellectual disability	is_a	Intellectual disability	
 Broad-based gait	is_a	Gait disturbance	
+Atrial septal defect	is_a	Abnormal heart morphology	
+Short philtrum	is_a	Abnormality of the face	
+Abnormal palate morphology	is_a	Abnormality of the face	
+Depressed nasal bridge	is_a	Abnormality of the face	
+Periorbital hyperpigmentation	is_a	Abnormality of the face	
+High anterior hairline	is_a	Abnormality of the face	
+Bifid uvula	is_a	Abnormal palate morphology	
+Thick vermilion border	is_a	Abnormality of the face	
+Mild intellectual disability	is_a	Intellectual disability	
+Abnormal facial shape	is_a	Abnormality of the face	
+Moderate intellectual disability	is_a	Intellectual disability	
+Hyperactivity	is_a	Atypical behavior	
+Delayed speech and language development	is_a	Neurodevelopmental delay	
+Midface retrusion	is_a	Abnormality of the face	
+Mandibular prognathia	is_a	Abnormality of the face	

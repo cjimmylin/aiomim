@@ -113,23 +113,23 @@ IMMUNODEFICIENCY 35	has_phenotype	Sensorineural hearing impairment	22402565
 IMMUNODEFICIENCY 35	has_phenotype	Intellectual disability	22402565
 IMMUNODEFICIENCY 35	has_phenotype	Lacunar stroke	22402565
 IMMUNODEFICIENCY 35	has_phenotype	Recurrent fungal infections	17088085
-Recurrent respiratory infections	is_a	Recurrent infections	
-Recurrent otitis media	is_a	Recurrent infections	
-Bacterial meningitis	is_a	Meningitis	
-BCG-associated disease	is_a	Unusual mycobacterial infection	
-Cutaneous abscess	is_a	Abscess	
-Atopic dermatitis	is_a	Eczematoid dermatitis	
-Recurrent viral infections	is_a	Recurrent infections	
-BCGosis	is_a	BCG-associated disease	
-Microcephaly	is_a	Abnormality of the skeletal system	
-Recurrent bronchitis	is_a	Recurrent respiratory infections	
-Recurrent Salmonella infection	is_a	Recurrent bacterial infections	
-Recurrent fungal infections	is_a	Recurrent infections	
-Recurrent bacterial infections	is_a	Recurrent infections	
 Disseminated tuberculosis infection	is_a	Unusual mycobacterial infection	
+BCG-associated disease	is_a	Unusual mycobacterial infection	
+Recurrent otitis media	is_a	Recurrent infections	
 Recurrent urinary tract infections	is_a	Recurrent infections	
-Recurrent mucocutaneous candidiasis	is_a	Recurrent fungal infections	
+Recurrent viral infections	is_a	Recurrent infections	
 Recurrent staphylococcal infections	is_a	Recurrent bacterial infections	
+Recurrent Salmonella infection	is_a	Recurrent bacterial infections	
+Recurrent bronchitis	is_a	Recurrent respiratory infections	
+Recurrent respiratory infections	is_a	Recurrent infections	
+Recurrent fungal infections	is_a	Recurrent infections	
 Mild intellectual disability	is_a	Intellectual disability	
 Recurrent mycobacterial infections	is_a	Recurrent bacterial infections	
 Recurrent mycobacterial infections	is_a	Unusual mycobacterial infection	
+BCGosis	is_a	BCG-associated disease	
+Bacterial meningitis	is_a	Meningitis	
+Recurrent mucocutaneous candidiasis	is_a	Recurrent fungal infections	
+Microcephaly	is_a	Abnormality of the skeletal system	
+Recurrent bacterial infections	is_a	Recurrent infections	
+Atopic dermatitis	is_a	Eczematoid dermatitis	
+Cutaneous abscess	is_a	Abscess	

@@ -67,15 +67,15 @@ MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urinary adipic acid	
 MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Glutaric aciduria	3709568
 MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urine suberic acid level	3709568
 MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urinary 3-hydroxybutyric acid	3709568
-Elevated urine succinic acid level	is_a	Abnormality of metabolism/homeostasis	
-Metabolic acidosis	is_a	Abnormality of metabolism/homeostasis	
-Elevated urinary 3-hydroxybutyric acid	is_a	Abnormality of metabolism/homeostasis	
-Elevated urine suberic acid level	is_a	Abnormality of metabolism/homeostasis	
-Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
 Abnormal circulating enzyme concentration or activity	is_a	Abnormality of metabolism/homeostasis	
-Elevated urinary adipic acid	is_a	Abnormality of metabolism/homeostasis	
-Hypoglycemia	is_a	Abnormality of metabolism/homeostasis	
 Methylmalonic aciduria	is_a	Abnormality of metabolism/homeostasis	
+Elevated urine suberic acid level	is_a	Abnormality of metabolism/homeostasis	
+Elevated urinary 3-hydroxybutyric acid	is_a	Abnormality of metabolism/homeostasis	
+Elevated urinary adipic acid	is_a	Abnormality of metabolism/homeostasis	
 Glutaric aciduria	is_a	Abnormality of metabolism/homeostasis	
+Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
 Abnormal metabolism	is_a	Abnormality of metabolism/homeostasis	
+Elevated urine succinic acid level	is_a	Abnormality of metabolism/homeostasis	
 Elevated urine malonic acid level	is_a	Abnormality of metabolism/homeostasis	
+Metabolic acidosis	is_a	Abnormality of metabolism/homeostasis	
+Hypoglycemia	is_a	Abnormality of metabolism/homeostasis	

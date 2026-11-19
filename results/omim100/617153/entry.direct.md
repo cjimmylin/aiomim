@@ -14,33 +14,33 @@ EPILEPTIC ENCEPHALOPATHY, EARLY INFANTILE, 45
 
 ### TEXT
 
-A number sign (#) is used with this entry because of evidence that developmental and epileptic encephalopathy-45 (DEE45) is caused by heterozygous mutation in the GABRB1 gene on chromosome 4. ⚠︎
+A number sign (#) is used with this entry because of evidence that developmental and epileptic encephalopathy-45 (DEE45) is caused by heterozygous mutation in the GABRB1 gene. ⚠︎
 
 ### Description
 
-Developmental and epileptic encephalopathy-45 (DEE45) is a severe neurologic disorder in which seizures begin in infancy. Reported seizure types have included infantile spasms and migrating focal seizures. Affected children have severe to profound developmental impairment. The disorder is caused by de novo heterozygous mutations in GABRB1, which encodes the beta-1 subunit of the GABA(A) receptor (Epi4K Consortium et al., 2013; Janve et al., 2016; Burgess et al., 2019). ⚠︎
+Developmental and epileptic encephalopathy-45 (DEE45) is a severe neurologic disorder with seizure onset in infancy and developmental impairment. Reported affected children carried de novo heterozygous GABRB1 mutations. Seizure types included infantile spasms (Epi4K Consortium et al., 2013; Janve et al., 2016) and epilepsy of infancy with migrating focal seizures (Burgess et al., 2019). ⚠︎
 
 ### Clinical Features
 
-The Epi4K Consortium et al. (2013) sequenced the exomes of 264 probands with infantile spasms or Lennox-Gastaut syndrome and their parents. One patient with infantile spasms carried a de novo GABRB1 mutation. To be included in the study, patients with infantile spasms had to have hypsarrhythmia or a hypsarrhythmia variant on EEG. They also had to have shown no moderate-to-severe developmental impairment before seizures began, and brain imaging had to be normal or show only mild diffuse atrophy or focal cortical dysplasia. ⚠︎
+The Epi4K Consortium et al. (2013) performed exome sequencing on 264 probands with infantile spasms or Lennox-Gastaut syndrome and their parents. One of them carried a de novo mutation in the GABRB1 gene. To enter the study, patients with infantile spasms had to have hypsarrhythmia on EEG. Janve et al. (2016) reported that this GABRB1 mutation had been found in a patient with infantile spasms.
 
 Lien et al. (2016) reported a second patient with epileptic encephalopathy and a de novo GABRB1 mutation.
 
-Burgess et al. (2019) studied an international cohort of 135 patients with epilepsy of infancy with migrating focal seizures (EIMFS). One patient (patient 63) had a de novo GABRB1 mutation. Seizures began at age 4 months, and the seizure type at onset was focal. The patient was 2 years old at the time of study and had profound to severe developmental impairment and hypotonia. There were no epileptic spasms or microcephaly. In the authors' summary table, this patient was counted as seizure-free.
+Burgess et al. (2019) studied 135 patients with epilepsy of infancy with migrating focal seizures (EIMFS) and found a de novo GABRB1 variant in 1 of them (patient 63). This child was 2 years old at the time of study. Focal seizures began at 4 months of age. The child had profound to severe developmental impairment and hypotonia but no microcephaly, and was recorded as seizure-free. By definition, every patient in the cohort had focal seizures that migrated between hemispheres, either clinically or on EEG, beginning before 6 months of age. ⚠︎
 
 ### Inheritance
 
-In the patients reported by the Epi4K Consortium et al. (2013), Lien et al. (2016), and Burgess et al. (2019), the heterozygous GABRB1 mutations had occurred de novo. ⚠︎
+In the reported patients with DEE45, the heterozygous GABRB1 mutations arose de novo (Epi4K Consortium et al., 2013; Lien et al., 2016; Burgess et al., 2019).
 
 ### Molecular Genetics
 
-The Epi4K Consortium et al. (2013) performed exome sequencing on 264 parent-proband trios with infantile spasms or Lennox-Gastaut syndrome and confirmed candidate de novo mutations by Sanger sequencing. A patient with infantile spasms had a de novo mutation in GABRB1. This was one of 6 de novo mutations in the cohort that affected GABA(A) receptor subunits; the others were 4 in GABRB3 and 1 in GABRA1. ⚠︎
+The Epi4K Consortium et al. (2013) sequenced the exomes of 264 trios, each a proband with infantile spasms or Lennox-Gastaut syndrome plus both parents. They found a de novo GABRB1 mutation in 1 proband. Six de novo mutations in the cohort affected GABA(A) receptor subunits: 4 in GABRB3 and 1 each in GABRA1 and GABRB1.
 
-Janve et al. (2016) noted that the patient with infantile spasms reported by the Epi4K Consortium et al. (2013) was heterozygous for a de novo phe246-to-ser (F246S) mutation in GABRB1, located in transmembrane domain 1. They coexpressed the mutant beta-1 subunit with alpha-1 and gamma-2L subunits in HEK293T cells. When only mutant subunit was expressed, peak GABA-evoked current density was reduced by 25%. When wildtype and mutant subunits were expressed together (heterozygous condition), current density was unchanged. The mutation slowed current deactivation, and in the heterozygous condition it shortened the rise time. In single-channel recordings, the mutant receptor had lower opening frequency, about 3.75-fold longer mean open time, about 3.2-fold longer burst duration, and reduced conductance (about 21 pS); open probability was unchanged. The mutation also caused spontaneous channel openings, with a 4-fold increase in spontaneous open probability and higher holding currents. Surface levels of the mutant subunit were slightly but significantly reduced, whereas total levels were not. Janve et al. (2016) concluded that the mutation impairs GABA(A) receptor function and suggested GABRB1 as a candidate human epilepsy gene.
+Janve et al. (2016) identified the de novo GABRB1 mutation from the Epi4K cohort, carried by a patient with infantile spasms, as phe246-to-ser (F246S). The affected residue lies in transmembrane domain 1 and is conserved across all GABA(A) receptor subunits. In HEK293T cells, receptors carrying the mutant beta-1 subunit with alpha-1 and gamma-2L subunits showed slower current deactivation and longer single-channel mean open time and burst duration. They also showed reduced single-channel conductance, and a small reduction in peak current density when only the mutant subunit was expressed. In addition, the mutant receptors opened spontaneously, and surface levels of the mutant beta-1 subunit were slightly reduced. Janve et al. (2016) concluded that their results suggested GABRB1 as a candidate human epilepsy gene.
 
-Lien et al. (2016) reported a second patient with epileptic encephalopathy and a de novo GABRB1 mutation.
+Lien et al. (2016) reported a second patient with epileptic encephalopathy who had a de novo GABRB1 mutation.
 
-In a patient with EIMFS, Burgess et al. (2019) used whole-exome sequencing to identify a de novo heterozygous ile247-to-thr (I247T) mutation in GABRB1 (chr4:47405633T-C, GRCh37). The variant was absent from the ExAC and gnomAD databases. It was predicted to be benign by PolyPhen and deleterious by SIFT, and was classified as likely pathogenic under ACMG criteria.
+Burgess et al. (2019) found a de novo heterozygous ile247-to-thr (I247T) variant in GABRB1 by whole-exome sequencing in a patient with epilepsy of infancy with migrating focal seizures. The variant was absent from the ExAC and gnomAD databases and was classified as likely pathogenic.
 
 ### Clinical Synopsis
 
@@ -63,14 +63,14 @@ In a patient with EIMFS, Burgess et al. (2019) used whole-exome sequencing to id
 ### ALLELIC VARIANTS
 
 **.0001 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 45**  
-GABRB1, PHE246SER [p.F246S]
+GABRB1, PHE246SER [F246S; GABRB1(F246S)]
 
-The Epi4K Consortium et al. (2013) used exome sequencing of parent-proband trios to identify a de novo GABRB1 mutation in a patient with infantile spasms. Janve et al. (2016) reported that this patient was heterozygous for a phe246-to-ser (F246S) substitution in transmembrane domain 1, at a residue that is invariant across GABA(A) receptor subunits. In HEK293T cells, receptors containing the mutant subunit showed slowed deactivation, a longer mean open time and burst duration, reduced single-channel conductance, and increased spontaneous openings. Peak GABA-evoked current density was reduced by 25% when only mutant subunit was expressed but was unchanged in the heterozygous condition. ⚠︎
+The Epi4K Consortium et al. (2013) reported a de novo mutation in the GABRB1 gene in a patient with an epileptic encephalopathy, identified by exome sequencing of a proband-parent trio. Janve et al. (2016) identified this heterozygous mutation as phe246-to-ser (F246S) and stated that the patient had infantile spasms. The affected residue lies in transmembrane domain 1 and is conserved across all GABA(A) receptor subunits. In HEK293T cells, the mutation slowed current deactivation and increased single-channel mean open time and burst duration. It also reduced single-channel conductance, caused spontaneous channel openings, and slightly reduced surface levels of the beta-1 subunit.
 
 **.0002 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 45**  
 GABRB1, ILE247THR [Chr4:47405633T>C; p.I247T]
 
-In a patient (patient 63) with epilepsy of infancy with migrating focal seizures, Burgess et al. (2019) used whole-exome sequencing to identify a de novo heterozygous ile247-to-thr (I247T) mutation in GABRB1 (chr4:47405633T-C, GRCh37). Seizures began at 4 months of age, and the patient had profound to severe developmental impairment and hypotonia. The variant was absent from ExAC and gnomAD and was classified as likely pathogenic.
+Burgess et al. (2019) found a de novo heterozygous ile247-to-thr (I247T) variant in the GABRB1 gene (chr4:47405633T-C, GRCh37) by whole-exome sequencing. The patient had epilepsy of infancy with migrating focal seizures beginning at 4 months of age, profound to severe developmental impairment, and hypotonia. The variant was absent from the ExAC and gnomAD databases and was classified as likely pathogenic.
 
 ### REFERENCES
 

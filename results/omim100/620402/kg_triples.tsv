@@ -63,36 +63,36 @@ NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Gower
 NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Motor axonal neuropathy	36454683
 NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	EMG: neuropathic changes	36454683
 NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Elevated circulating creatine kinase activity	36454683
-Hyporeflexia	is_a	Abnormality of the nervous system	
-Decreased level of coenzyme Q10 in skeletal muscle	is_a	Abnormality of the musculature	
-Distal upper limb muscle weakness	is_a	Distal muscle weakness	
-Distal upper limb muscle weakness	is_a	Abnormality of the musculature	
-Peripheral neuropathy	is_a	Abnormality of the nervous system	
-Distal sensory impairment	is_a	Somatic sensory dysfunction	
-Distal muscle weakness	is_a	Abnormality of the musculature	
-Foot dorsiflexor weakness	is_a	Abnormality of the musculature	
-Peripheral demyelination	is_a	Abnormality of the nervous system	
-Cognitive impairment	is_a	Abnormality of the nervous system	
 Fatty replacement of skeletal muscle	is_a	Abnormality of the musculature	
 Somatic sensory dysfunction	is_a	Abnormality of the nervous system	
-Absent Achilles reflex	is_a	Abnormality of the nervous system	
-Lower limb muscle weakness	is_a	Abnormality of the musculature	
-EMG: chronic denervation signs	is_a	EMG: neuropathic changes	
-Distal amyotrophy	is_a	Skeletal muscle atrophy	
 Abnormal sensory nerve conduction velocity	is_a	Abnormality of the nervous system	
-Distal lower limb muscle weakness	is_a	Distal muscle weakness	
-Distal lower limb muscle weakness	is_a	Lower limb muscle weakness	
+Distal muscle weakness	is_a	Abnormality of the musculature	
+Global developmental delay	is_a	Abnormality of the nervous system	
+Cognitive impairment	is_a	Abnormality of the nervous system	
+Gowers sign	is_a	Abnormality of the musculature	
+Foot dorsiflexor weakness	is_a	Abnormality of the musculature	
+Lower limb muscle weakness	is_a	Abnormality of the musculature	
+Gait disturbance	is_a	Abnormality of the nervous system	
+Ragged-red muscle fibers	is_a	Abnormality of the musculature	
+Peripheral demyelination	is_a	Abnormality of the nervous system	
+Decreased level of coenzyme Q10 in skeletal muscle	is_a	Abnormality of the musculature	
 Babinski sign	is_a	Upper motor neuron dysfunction	
 Babinski sign	is_a	Abnormality of the nervous system	
-Global developmental delay	is_a	Abnormality of the nervous system	
 Upper motor neuron dysfunction	is_a	Abnormality of the nervous system	
+Fiber type grouping	is_a	Abnormality of the musculature	
+Distal lower limb muscle weakness	is_a	Distal muscle weakness	
+Distal lower limb muscle weakness	is_a	Lower limb muscle weakness	
+Absent Achilles reflex	is_a	Abnormality of the nervous system	
+Distal amyotrophy	is_a	Skeletal muscle atrophy	
+EMG: chronic denervation signs	is_a	EMG: neuropathic changes	
+Distal sensory impairment	is_a	Somatic sensory dysfunction	
 Hyperreflexia	is_a	Abnormality of the nervous system	
-Decreased compound muscle action potential amplitude	is_a	Abnormality of the nervous system	
-EMG: neuropathic changes	is_a	Abnormality of the musculature	
+Skeletal muscle atrophy	is_a	Abnormality of the musculature	
 Motor axonal neuropathy	is_a	Peripheral neuropathy	
 Motor axonal neuropathy	is_a	Abnormality of the nervous system	
-Fiber type grouping	is_a	Abnormality of the musculature	
-Ragged-red muscle fibers	is_a	Abnormality of the musculature	
-Skeletal muscle atrophy	is_a	Abnormality of the musculature	
-Gowers sign	is_a	Abnormality of the musculature	
-Gait disturbance	is_a	Abnormality of the nervous system	
+EMG: neuropathic changes	is_a	Abnormality of the musculature	
+Hyporeflexia	is_a	Abnormality of the nervous system	
+Peripheral neuropathy	is_a	Abnormality of the nervous system	
+Decreased compound muscle action potential amplitude	is_a	Abnormality of the nervous system	
+Distal upper limb muscle weakness	is_a	Distal muscle weakness	
+Distal upper limb muscle weakness	is_a	Abnormality of the musculature	

@@ -29,7 +29,7 @@ De Fusco et al. (2014)	reports	De Fusco et al. (2014) described autosomal domina
 De Fusco et al. (2014)	reports	De Fusco et al. (2014) described a 4-generation Tuscan family (family B) with 5 affected members. All had postural myoclonus of the hands and upper limbs, and cortical tremor was the presenting symptom, starting between ages 18 and 50 years. All but one (IV:1) had epilepsy with rare generalized tonic-clonic seizures, at times triggered by visual stimuli; 2 patients also had drug-resistant focal motor or complex partial seizures. One patient had borderline cognitive level and the others had normal intelligence. Jerk-locked back-averaged EEG, somatosensory evoked potentials, and long-loop reflex studies were consistent with cortical reflex myoclonus. Brain MRI was normal where performed.	
 De Fusco et al. (2014)	reports	De Fusco et al. (2014) found no cardiovascular disease on careful history in any of the ADCME patients. Two of the oldest ADRA2B mutation carriers developed age-related dementia.	
 De Fusco et al. (2014)	reports	In a 5-generation Tuscan family (family A) with ADCME previously mapped to chromosome 2p11.1-q12.2, De Fusco et al. (2014) used candidate gene sequencing to identify a heterozygous in-frame insertion/deletion in the ADRA2B gene (c.675_686delTGGTGGGGCTTTinsGTTTGGCAG; p.H225_L229delinsQFGR). The change replaces 5 amino acids (HGGAL) in the third intracellular loop with 4 new residues (QFGR). The indel segregated completely with the disease and was absent from 575 Tuscan controls, dbSNP, the Exome Variant Server, and 1000 Genomes. Targeted capture and next-generation sequencing of the critical region in 2 affected members found it to be the only relevant change.	
-ADRA2B c.675_686deltggtggggctttinsgtttggcag / c.p.h225_l229delinsq225_f_g_r228 / p.H225	in_gene	ADRA2B	
+ADRA2B c.675_686deltggtggggctttinsgtttggcag / p.H225	in_gene	ADRA2B	
 De Fusco et al. (2014)	reports	De Fusco et al. (2014) found the same ADRA2B indel in a second Tuscan ADCME family (family B). Family histories showed no known kinship between the 2 families, but they shared the same disease haplotype across the entire chromosome 2 critical region, suggesting a common ancestor.	
 De Fusco et al. (2014)	reports	De Fusco et al. (2014) sequenced BAFME pedigrees from southern Italy that map to the ADCME locus and found no ADRA2B mutations; Southern blot excluded large insertions or deletions. The authors suggested that ADCME and BAFME/FAME may be classified as 2 distinct clinical entities, although they could not exclude variants in regulatory or noncoding regions.	
 De Fusco et al. (2014)	reports	De Fusco et al. (2014) found that the indel lies on the common ADRA2B allele with 12 consecutive glutamic acid residues, not on the less common polymorphic short allele that is associated with cardiovascular and metabolic risk.	
@@ -50,7 +50,7 @@ Corbett et al. (2019)	reports	In patient-derived fibroblasts, Corbett et al. (20
 Corbett et al. (2019)	reports	Corbett et al. (2019) stated that the FAME2 locus is the most frequently linked region in Caucasian individuals with FAME. By contrast, chromosome 8 linkage has so far been limited to Asian individuals.	
 Corbett et al. (2019)	reports	Corbett et al. (2019) found that the ATTTC repeat primer was diagnostic for FAME, with 100% sensitivity in all families with linkage or suggestive linkage to chromosome 2. The endogenous ATTTT repeat varied in length naturally and was not suitable for screening.	
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	caused_by	ADRA2B	24114805
-EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_variant	ADRA2B c.675_686deltggtggggctttinsgtttggcag / c.p.h225_l229delinsq225_f_g_r228 / p.H225	24114805,31664034
+EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_variant	ADRA2B c.675_686deltggtggggctttinsgtttggcag / p.H225	24114805,31664034
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	caused_by	STARD7	31664034
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_variant	STARD7 (AAATG)n[N](AAAAT)n	31664034
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_variant	STARD7 ATTTC repeat expansion in intron 1	31664034
@@ -79,20 +79,20 @@ EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_phenotype	Focal impaired awareness sei
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_phenotype	Mild intellectual disability	11701600
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_phenotype	Hyperreflexia	11701600
 EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2	has_phenotype	Abnormality of visual evoked potentials	11701600
-Focal-onset seizure	is_a	Seizure	
-Postural tremor	is_a	Tremor	
+Bilateral tonic-clonic seizure	is_a	Seizure	
+Hand tremor	is_a	Tremor	
 Cortical myoclonus	is_a	Myoclonus	
+Focal-onset seizure	is_a	Seizure	
+Generalized-onset seizure	is_a	Seizure	
+Postural tremor	is_a	Tremor	
+Hyperreflexia	is_a	Abnormal reflex	
+Myoclonic seizure	is_a	Seizure	
 Photosensitive tonic-clonic seizure	is_a	Bilateral tonic-clonic seizure	
 Photosensitive tonic-clonic seizure	is_a	Seizure	
 Photosensitive tonic-clonic seizure	is_a	Generalized-onset seizure	
-Generalized-onset seizure	is_a	Seizure	
-Myoclonic seizure	is_a	Seizure	
-Hand tremor	is_a	Tremor	
-Bilateral tonic-clonic seizure	is_a	Seizure	
 Eyelid myoclonus	is_a	Myoclonus	
-Hyperreflexia	is_a	Abnormal reflex	
-Focal impaired awareness seizure	is_a	Focal-onset seizure	
-Focal impaired awareness seizure	is_a	Seizure	
 Generalized myoclonic seizure	is_a	Myoclonic seizure	
 Generalized myoclonic seizure	is_a	Generalized-onset seizure	
 Generalized myoclonic seizure	is_a	Seizure	
+Focal impaired awareness seizure	is_a	Focal-onset seizure	
+Focal impaired awareness seizure	is_a	Seizure	

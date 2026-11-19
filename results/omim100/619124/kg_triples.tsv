@@ -7,7 +7,7 @@ Chatron et al. (2020)	reports	In 2 affected sibs from a consanguineous Algerian 
 GAD1 c.1414-1G>C	in_gene	GAD1	
 Chatron et al. (2020)	reports	Chatron et al. (2020) described a sister and brother born to Egyptian first-cousin parents (Family B). Both had omphalocele, talipes equinovarus and arthrogryposis and developed epileptic spasms and eye twitches at 2 weeks of age. Both became seizure-free on vigabatrin. The girl also had cleft soft palate, jejunal atresia, multiple dysmorphic features, hypoplastic corpus callosum, cerebral atrophy and scoliosis. The girl died at 2 years and the boy at 4 years.	
 Chatron et al. (2020)	reports	In the affected sibs of Egyptian Family B, Chatron et al. (2020) identified a homozygous 3-bp deletion in exon 7 of GAD1, c.695_697delAGA, which deletes a highly conserved lysine (p.Lys232del; reported as p.Lys231del in the table). The variant was absent from public databases, and in silico tools predicted that it disrupts splicing. In a cell-free assay, the mutant protein was expressed at levels comparable to wild type. The authors noted that this assay bypasses splicing and could not formally demonstrate loss of function, but considered the variant pathogenic given the phenotype.	
-GAD1 c.695_697delaga / c.lys232del / p.K232del	in_gene	GAD1	
+GAD1 c.695_697delaga / p.K232del	in_gene	GAD1	
 Chatron et al. (2020)	reports	Chatron et al. (2020) described a sister and brother born to Turkish first-cousin parents (Family C). Both had cleft palate and refractory epilepsy that began in the neonatal period with myoclonic seizures and a suppression-burst EEG. Brain MRI was normal in both. The 12-year-old sister had profound intellectual disability, tetraparesis, talipes, conductive hearing loss and photosensitivity. The brother died of refractory seizures at 2 years of age.	
 Chatron et al. (2020)	reports	In the affected sibs of Turkish Family C, Chatron et al. (2020) used whole-genome sequencing to identify a homozygous 5-bp deletion in GAD1, c.812_816delTTAAG, which causes a frameshift (p.Val271AspfsTer9). Sanger sequencing confirmed that the variant segregated with the disease.	
 GAD1 c.812_816delttaag / p.V271D	in_gene	GAD1	
@@ -49,7 +49,7 @@ DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.1591C>T / g.171
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.1691A>G / g.171716298A>G / p.N564S	32705143
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.568delc / g.171693323delc / p.Q190S	32705143
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.670delc / g.171700586delc / p.L224S	32705143
-DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.695_697delaga / c.lys232del / p.K232del	32282878
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.695_697delaga / p.K232del	32282878
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.812_816delttaag / p.V271D	32282878
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.87C>G / g.171678601C>G / p.Y29*	32705143
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_variant	GAD1 c.971T>G / g.171702542T>G / p.F324C	32705143
@@ -109,26 +109,26 @@ DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_phenotype	Aganglionic megacolo
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_phenotype	Abnormal heart morphology	32282878
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_phenotype	Choreoathetosis	32282878
 DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89	has_phenotype	Neonatal death	9177246
-Severe muscular hypotonia	is_a	Hypotonia	
-Neonatal seizure	is_a	Seizure	
-Myoclonic seizure	is_a	Seizure	
-Focal non-motor seizure	is_a	Seizure	
+Bilateral tonic-clonic seizure	is_a	Seizure	
+Cleft soft palate	is_a	Cleft palate	
 Axial hypotonia	is_a	Hypotonia	
-Upper limb undergrowth	is_a	Abnormality of the skeletal system	
+Severe intellectual disability	is_a	Intellectual disability	
 Focal motor seizure	is_a	Seizure	
+Scoliosis	is_a	Abnormality of the skeletal system	
+Clinodactyly	is_a	Abnormality of the skeletal system	
+Arthrogryposis multiplex congenita	is_a	Joint contracture	
+Neonatal seizure	is_a	Seizure	
+Conductive hearing impairment	is_a	Hearing impairment	
+Focal non-motor seizure	is_a	Seizure	
+Congenital hip dislocation	is_a	Abnormality of the skeletal system	
+Shallow acetabular fossae	is_a	Abnormality of the skeletal system	
+Severe muscular hypotonia	is_a	Hypotonia	
+Profound intellectual disability	is_a	Intellectual disability	
+Myoclonic seizure	is_a	Seizure	
+Spastic tetraparesis	is_a	Tetraparesis	
+Epileptic spasm	is_a	Seizure	
+Moderate intellectual disability	is_a	Intellectual disability	
+Microcephaly	is_a	Abnormality of the skeletal system	
 Joint contracture	is_a	Abnormality of the skeletal system	
 Micrognathia	is_a	Abnormality of the skeletal system	
-Scoliosis	is_a	Abnormality of the skeletal system	
-Congenital hip dislocation	is_a	Abnormality of the skeletal system	
-Bilateral tonic-clonic seizure	is_a	Seizure	
-Microcephaly	is_a	Abnormality of the skeletal system	
-Spastic tetraparesis	is_a	Tetraparesis	
-Severe intellectual disability	is_a	Intellectual disability	
-Clinodactyly	is_a	Abnormality of the skeletal system	
-Cleft soft palate	is_a	Cleft palate	
-Shallow acetabular fossae	is_a	Abnormality of the skeletal system	
-Moderate intellectual disability	is_a	Intellectual disability	
-Conductive hearing impairment	is_a	Hearing impairment	
-Arthrogryposis multiplex congenita	is_a	Joint contracture	
-Profound intellectual disability	is_a	Intellectual disability	
-Epileptic spasm	is_a	Seizure	
+Upper limb undergrowth	is_a	Abnormality of the skeletal system	

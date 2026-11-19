@@ -40,13 +40,13 @@ Young et al. (2018)	reports	Young et al. (2018) showed that MRAS interacts with 
 Young et al. (2018)	reports	Young et al. (2018) showed that Noonan syndrome mutations in SHOC2, MRAS and PPP1CB always promoted formation of the complex with the other two partners, but did not necessarily promote binding to other interactors. The authors concluded that Noonan syndrome in people with SHOC2, MRAS or PPP1CB mutations is likely driven at the biochemical level by enhanced ternary complex formation.	
 Young et al. (2018)	reports	Young et al. (2018) reported that the predicted structure of SHOC2 closely resembles the A subunit of PP2A, which they suggested was a case of convergent structural evolution. They identified several regions in SHOC2 involved in complex formation, as well as residues in MRAS switch I and the interswitch region that help explain why MRAS binds specifically to SHOC2-PP1.	
 Motta et al. (2019)	reports	Motta et al. (2019) reported a third RASopathy-causing SHOC2 mutation, c.807_808delinsTT (p.Gln269_His270delinsHisTyr), which was associated with prenatal-onset hypertrophic cardiomyopathy.	
-SHOC2 c.807_808delinstt / c.p.gln269_his270delinshistyr / c.q269_h270delinshy / p.Q269	in_gene	SHOC2	
+SHOC2 c.807_808delinstt / p.Q269	in_gene	SHOC2	
 Motta et al. (2019)	reports	Structural analyses by Motta et al. (2019) indicated that the SHOC2 Q269_H270delinsHY mutation might affect the relative orientation of the two leucine-rich repeat domains. Functional studies showed enhanced binding of the mutant protein to MRAS and PPP1CB and increased signaling through the MAPK cascade, supporting an activating role; unlike SHOC2 S2G, the mutant was not constitutively targeted to the plasma membrane.	
 Motta et al. (2019)	reports	Motta et al. (2019) concluded that diverse mechanisms of SHOC2 functional dysregulation converge toward upregulation of MAPK signaling.	
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	caused_by	SHOC2	19684605,20882035,22528146,23918763,25137548,31059601
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 c.4A>G / p.S2G	19684605,20882035,22528146,23918763
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 c.519G>A / p.M173I	25137548
-NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 c.807_808delinstt / c.p.gln269_his270delinshistyr / c.q269_h270delinshy / p.Q269	31059601
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 c.807_808delinstt / p.Q269	31059601
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	inheritance	Autosomal dominant	19684605,20882035,22528146,23918763,25137548
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	inheritance	Somatic mutation	20882035
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypertrophic cardiomyopathy	22528146,23918763,31059601
@@ -125,28 +125,28 @@ NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Patchy alop
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Alopecia	9301585
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal hair morphology	1884862
 NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypopigmentation of hair	1884862
-Abnormal facial shape	is_a	Abnormality of the face	
-Abnormal cardiac septum morphology	is_a	Abnormal heart morphology	
-Sparse scalp hair	is_a	Sparse hair	
-Sparse scalp hair	is_a	Abnormal hair morphology	
-Slow-growing hair	is_a	Abnormal hair morphology	
+Abnormal mitral valve morphology	is_a	Abnormal heart morphology	
 Hypopigmentation of hair	is_a	Abnormal hair morphology	
+Chiari type I malformation	is_a	Chiari malformation	
+Sparse hair	is_a	Abnormal hair morphology	
 High palate	is_a	Abnormality of the face	
-Hypertrophic cardiomyopathy	is_a	Abnormal heart morphology	
+High forehead	is_a	Abnormality of the face	
+Loose anagen hair	is_a	Abnormal hair morphology	
 Patchy alopecia	is_a	Alopecia	
 Patchy alopecia	is_a	Abnormal hair morphology	
-Sparse hair	is_a	Abnormal hair morphology	
-Attention deficit hyperactivity disorder	is_a	Hyperactivity	
-Chiari type I malformation	is_a	Chiari malformation	
-Severe intellectual disability	is_a	Intellectual disability	
-Atrial septal defect	is_a	Abnormal heart morphology	
-Atrial septal defect	is_a	Abnormal cardiac septum morphology	
 Fine hair	is_a	Abnormal hair morphology	
+Severe intellectual disability	is_a	Intellectual disability	
+Alopecia	is_a	Abnormal hair morphology	
+Abnormal facial shape	is_a	Abnormality of the face	
 Long eyelashes	is_a	Abnormal hair morphology	
 Long eyelashes	is_a	Abnormality of the face	
-Alopecia	is_a	Abnormal hair morphology	
-Loose anagen hair	is_a	Abnormal hair morphology	
 Atopic dermatitis	is_a	Eczematoid dermatitis	
-Abnormal mitral valve morphology	is_a	Abnormal heart morphology	
-High forehead	is_a	Abnormality of the face	
+Slow-growing hair	is_a	Abnormal hair morphology	
+Atrial septal defect	is_a	Abnormal heart morphology	
+Atrial septal defect	is_a	Abnormal cardiac septum morphology	
+Sparse scalp hair	is_a	Sparse hair	
+Sparse scalp hair	is_a	Abnormal hair morphology	
+Abnormal cardiac septum morphology	is_a	Abnormal heart morphology	
 Mild intellectual disability	is_a	Intellectual disability	
+Hypertrophic cardiomyopathy	is_a	Abnormal heart morphology	
+Attention deficit hyperactivity disorder	is_a	Hyperactivity	

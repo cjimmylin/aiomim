@@ -65,14 +65,14 @@ MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Muscular d
 MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Abnormal muscle fiber morphology	31897643
 MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Hypoglycosylation of alpha-dystroglycan	31897643
 MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Abnormal skeletal muscle morphology	31897643
-Proximal lower limb muscle weakness	is_a	Abnormal skeletal muscle morphology	
-Scapular winging	is_a	Abnormal skeletal muscle morphology	
-Muscular dystrophy	is_a	Abnormal skeletal muscle morphology	
-Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
-Calf muscle hypertrophy	is_a	Abnormal skeletal muscle morphology	
-Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
-Upper limb muscle weakness	is_a	Abnormal skeletal muscle morphology	
 Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
-Facial palsy	is_a	Abnormal skeletal muscle morphology	
+Muscular dystrophy	is_a	Abnormal skeletal muscle morphology	
 Hypoglycosylation of alpha-dystroglycan	is_a	Abnormal muscle fiber morphology	
+Scapular winging	is_a	Abnormal skeletal muscle morphology	
+Upper limb muscle weakness	is_a	Abnormal skeletal muscle morphology	
 Ankle contracture	is_a	Abnormal skeletal muscle morphology	
+Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
+Calf muscle hypertrophy	is_a	Abnormal skeletal muscle morphology	
+Facial palsy	is_a	Abnormal skeletal muscle morphology	
+Proximal lower limb muscle weakness	is_a	Abnormal skeletal muscle morphology	

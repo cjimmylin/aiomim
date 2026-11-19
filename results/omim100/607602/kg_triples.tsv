@@ -27,5 +27,5 @@ ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Erythematous plaque	1517502,9
 ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Blistering by anatomical location	9856845
 ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Abnormal keratinocyte morphology	9036939
 ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Pruritus	1517502
-Palmoplantar keratoderma	is_a	Hyperkeratosis	
 Congenital bullous ichthyosiform erythroderma	is_a	Ichthyosis	
+Palmoplantar keratoderma	is_a	Hyperkeratosis	

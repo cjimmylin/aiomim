@@ -75,29 +75,29 @@ MYOPATHY, MYOFIBRILLAR, 9, WITH EARLY RESPIRATORY FAILURE	has_phenotype	Neck fle
 MYOPATHY, MYOFIBRILLAR, 9, WITH EARLY RESPIRATORY FAILURE	has_phenotype	EMG: myopathic abnormalities	2376753
 MYOPATHY, MYOFIBRILLAR, 9, WITH EARLY RESPIRATORY FAILURE	has_phenotype	Myofibrillar myopathy	2376753
 MYOPATHY, MYOFIBRILLAR, 9, WITH EARLY RESPIRATORY FAILURE	has_phenotype	Z-band streaming	2376753
-Muscle fiber cytoplasmatic inclusion bodies	is_a	Abnormal skeletal muscle morphology	
+Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
+Myopathy	is_a	Abnormal skeletal muscle morphology	
 EMG: myopathic abnormalities	is_a	Myopathy	
-Scapular winging	is_a	Abnormal appendicular muscle morphology	
+Foot dorsiflexor weakness	is_a	Abnormal appendicular muscle morphology	
+Z-band streaming	is_a	Abnormal skeletal muscle morphology	
+Lower limb muscle weakness	is_a	Abnormal appendicular muscle morphology	
+Muscle fiber splitting	is_a	Abnormal skeletal muscle morphology	
 Achilles tendon contracture	is_a	Abnormal skeletal muscle morphology	
 Abnormal muscle fiber protein expression	is_a	Abnormal skeletal muscle morphology	
-Z-band streaming	is_a	Abnormal skeletal muscle morphology	
+Muscle fiber cytoplasmatic inclusion bodies	is_a	Abnormal skeletal muscle morphology	
 Respiratory insufficiency due to muscle weakness	is_a	Respiratory insufficiency	
 Neck flexor weakness	is_a	Neck muscle weakness	
-Calf muscle hypertrophy	is_a	Abnormal appendicular muscle morphology	
-Calf muscle hypertrophy	is_a	Abnormal skeletal muscle morphology	
-Foot dorsiflexor weakness	is_a	Abnormal appendicular muscle morphology	
-Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
-Elbow contracture	is_a	Abnormal skeletal muscle morphology	
-Myopathy	is_a	Abnormal skeletal muscle morphology	
-Myofibrillar myopathy	is_a	Myopathy	
-Lower limb muscle weakness	is_a	Abnormal appendicular muscle morphology	
-Rimmed vacuoles	is_a	Abnormal skeletal muscle morphology	
-Respiratory failure	is_a	Respiratory insufficiency	
 Distal lower limb muscle weakness	is_a	Distal muscle weakness	
 Distal lower limb muscle weakness	is_a	Lower limb muscle weakness	
-Limb-girdle muscle weakness	is_a	Abnormal appendicular muscle morphology	
-Muscle fiber splitting	is_a	Abnormal skeletal muscle morphology	
+Scapular winging	is_a	Abnormal appendicular muscle morphology	
 Pelvic girdle muscle weakness	is_a	Limb-girdle muscle weakness	
+Limb-girdle muscle weakness	is_a	Abnormal appendicular muscle morphology	
+Abnormal appendicular muscle morphology	is_a	Abnormal skeletal muscle morphology	
+Respiratory failure	is_a	Respiratory insufficiency	
+Rimmed vacuoles	is_a	Abnormal skeletal muscle morphology	
+Calf muscle hypertrophy	is_a	Abnormal appendicular muscle morphology	
+Calf muscle hypertrophy	is_a	Abnormal skeletal muscle morphology	
+Elbow contracture	is_a	Abnormal skeletal muscle morphology	
 Shoulder girdle muscle weakness	is_a	Limb-girdle muscle weakness	
 Shoulder girdle muscle weakness	is_a	Abnormal appendicular muscle morphology	
-Abnormal appendicular muscle morphology	is_a	Abnormal skeletal muscle morphology	
+Myofibrillar myopathy	is_a	Myopathy	

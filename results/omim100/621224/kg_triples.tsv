@@ -23,6 +23,6 @@ ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Oligodo
 ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Sparse hair	32022899
 ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Taurodontia	32022899
 ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Abnormal alveolar ridge morphology	32022899
-Aplasia/hypoplasia involving forearm bones	is_a	Abnormality of limbs	
 Polydactyly	is_a	Abnormality of limbs	
+Aplasia/hypoplasia involving forearm bones	is_a	Abnormality of limbs	
 Split hand	is_a	Abnormality of limbs	

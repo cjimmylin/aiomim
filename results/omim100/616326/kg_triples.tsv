@@ -79,14 +79,14 @@ MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFI
 MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY	has_phenotype	Dysarthria	2245297
 MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY	has_phenotype	Nonprogressive	2245297
 MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY	has_phenotype	EMG: decremental response of compound muscle action potential to repetitive nerve stimulation	2245297
-High palate	is_a	Abnormality of the face	
 Dental malocclusion	is_a	Abnormality of the face	
-Abnormal facial shape	is_a	Abnormality of the face	
 Episodic respiratory distress	is_a	Respiratory distress	
-Fatigable weakness	is_a	Abnormal synaptic transmission at the neuromuscular junction	
-Congenital contracture	is_a	Joint contracture	
-Facial palsy	is_a	Abnormality of the face	
-Long face	is_a	Abnormal facial shape	
 Abnormality of masticatory muscle	is_a	Abnormality of the face	
-Mandibular prognathia	is_a	Abnormality of the face	
 Arthrogryposis multiplex congenita	is_a	Congenital contracture	
+Congenital contracture	is_a	Joint contracture	
+Mandibular prognathia	is_a	Abnormality of the face	
+Fatigable weakness	is_a	Abnormal synaptic transmission at the neuromuscular junction	
+Long face	is_a	Abnormal facial shape	
+Abnormal facial shape	is_a	Abnormality of the face	
+Facial palsy	is_a	Abnormality of the face	
+High palate	is_a	Abnormality of the face	

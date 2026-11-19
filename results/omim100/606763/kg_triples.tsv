@@ -39,8 +39,8 @@ CILIARY DYSKINESIA, PRIMARY, 2	has_phenotype	Absent outer dynein arms	10745040
 CILIARY DYSKINESIA, PRIMARY, 2	has_phenotype	Absent respiratory ciliary axoneme radial spokes	10745040
 CILIARY DYSKINESIA, PRIMARY, 2	has_phenotype	Abnormal respiratory motile cilium morphology	10745040
 Chronic sinusitis	is_a	Sinusitis	
-Male infertility	is_a	Decreased fertility	
-Absent outer dynein arms	is_a	Abnormal respiratory motile cilium morphology	
 Absent inner and outer dynein arms	is_a	Absent outer dynein arms	
 Absent inner and outer dynein arms	is_a	Abnormal respiratory motile cilium morphology	
+Male infertility	is_a	Decreased fertility	
+Absent outer dynein arms	is_a	Abnormal respiratory motile cilium morphology	
 Absent respiratory ciliary axoneme radial spokes	is_a	Abnormal respiratory motile cilium morphology	

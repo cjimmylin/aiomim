@@ -55,6 +55,6 @@ MACULAR DYSTROPHY, VITELLIFORM, 4	has_phenotype	Retinal detachment	28644393
 MACULAR DYSTROPHY, VITELLIFORM, 4	has_phenotype	Abnormal electrooculogram	23993198,28644393
 MACULAR DYSTROPHY, VITELLIFORM, 4	has_phenotype	Macular drusen	25085631
 MACULAR DYSTROPHY, VITELLIFORM, 4	has_phenotype	Macular atrophy	28644393
+Macular atrophy	is_a	Abnormal macular morphology	
 Vitelliform macular lesion	is_a	Abnormal macular morphology	
 Macular drusen	is_a	Abnormal macular morphology	
-Macular atrophy	is_a	Abnormal macular morphology	

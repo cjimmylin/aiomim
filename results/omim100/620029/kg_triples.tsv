@@ -33,7 +33,7 @@ CACNA1C c.970C>T / p.R324W	in_gene	CACNA1C
 CACNA1C c.1207G>A / p.V403M	in_gene	CACNA1C	
 CACNA1C c.1802T>G / p.L601R	in_gene	CACNA1C	
 CACNA1C c.1832T>C / p.M611T	in_gene	CACNA1C	
-CACNA1C c.2227_2229delatc / c.p.ile743del / p.I743del	in_gene	CACNA1C	
+CACNA1C c.2227_2229delatc / p.I743del	in_gene	CACNA1C	
 CACNA1C c.3560T>C / p.V1187A	in_gene	CACNA1C	
 Rodan et al. (2021)	reports	Rodan et al. (2021) identified de novo heterozygous variants at codon Val1411 of CACNA1C in 2 unrelated patients. P13, with severe intellectual disability, infantile spasms evolving to Lennox-Gastaut syndrome, and prolonged QT, carried c.4231G>C (p.Val1411Leu). P14, an infant with severe global developmental delay, generalized epilepsy beginning at 2 months, hip dysplasia, syndactyly, and adducted thumbs, carried c.4231G>T (p.Val1411Leu).	
 CACNA1C c.4231G>C / c.4231G>T / p.V1411L	in_gene	CACNA1C	
@@ -55,7 +55,7 @@ NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1841T>C / p.L614P	34163037
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1841T>G / p.L614R	34163037
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1969C>T / p.L657F	34163037
-NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2227_2229delatc / c.p.ile743del / p.I743del	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2227_2229delatc / p.I743del	34163037
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.239_244delagcggainsttgcagctcc / p.Q80L	34163037
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2663+1G>C	34163037
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2926delg / p.V996W	34163037
@@ -136,21 +136,21 @@ NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Bilateral tonic-clonic seizure with focal onset	30513141
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Cutaneous syndactyly	29736926
 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Pulmonary arterial hypertension	29736926
-Cutaneous syndactyly	is_a	Syndactyly	
-Infantile spasms	is_a	Epileptic spasm	
-Generalized hypotonia	is_a	Hypotonia	
-Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
-Pulmonary arterial hypertension	is_a	Abnormality of the cardiovascular system	
-Sleep apnea	is_a	Sleep disturbance	
-Left ventricular noncompaction cardiomyopathy	is_a	Abnormality of the cardiovascular system	
-Toe syndactyly	is_a	Syndactyly	
-Camptodactyly of finger	is_a	Camptodactyly	
-Prolonged QT interval	is_a	Abnormality of the cardiovascular system	
-Bilateral tonic-clonic seizure with focal onset	is_a	Seizure	
-Autism	is_a	Autistic behavior	
-Aortic valve stenosis	is_a	Abnormality of the cardiovascular system	
-Tetralogy of Fallot	is_a	Abnormality of the cardiovascular system	
-Ventricular septal defect	is_a	Abnormality of the cardiovascular system	
 Tonic seizure	is_a	Seizure	
+Tetralogy of Fallot	is_a	Abnormality of the cardiovascular system	
+Left ventricular noncompaction cardiomyopathy	is_a	Abnormality of the cardiovascular system	
+Camptodactyly of finger	is_a	Camptodactyly	
+Autism	is_a	Autistic behavior	
+Pulmonary arterial hypertension	is_a	Abnormality of the cardiovascular system	
+Bilateral tonic-clonic seizure with focal onset	is_a	Seizure	
 Finger syndactyly	is_a	Syndactyly	
+Sleep apnea	is_a	Sleep disturbance	
+Toe syndactyly	is_a	Syndactyly	
+Prolonged QT interval	is_a	Abnormality of the cardiovascular system	
+Infantile spasms	is_a	Epileptic spasm	
+Ventricular septal defect	is_a	Abnormality of the cardiovascular system	
+Cutaneous syndactyly	is_a	Syndactyly	
+Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
+Aortic valve stenosis	is_a	Abnormality of the cardiovascular system	
 Epileptic spasm	is_a	Seizure	
+Generalized hypotonia	is_a	Hypotonia	

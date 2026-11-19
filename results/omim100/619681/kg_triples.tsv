@@ -7,7 +7,7 @@ Neilson et al. (2022)	reports	Neilson et al. (2022) summarized a large, multigen
 Neilson et al. (2022)	reports	Neilson et al. (2022) reported that the Family-1 proband had unilateral upper limb dystonia onset at age 2 years that generalized to the trunk and all limbs, causing loss of ambulation. His father and grandfather had the hereditary spastic paraplegia phenotype, with progressive leg weakness and spasticity beginning after age 20 years. Metabolic studies, including blood lactate and pyruvate, serum amino acids, urine organic acids, and acylcarnitine profiles, were normal in the proband and his father.	
 Neilson et al. (2022)	reports	Neilson et al. (2022) reported that bilateral pallidal deep brain stimulation, implanted at age 9 years in the Family-1 proband, restored ambulation and limb use, and the response remained excellent at age 25 years.	
 Neilson et al. (2022)	reports	In affected members of Family-1, a family whose disorder had previously been mapped to chromosome 2q24-q31, Neilson et al. (2022) used whole-exome sequencing restricted to the linkage region to identify a heterozygous missense variant in the ATP5MC3 gene (c.318C>G, p.Asn106Lys). Sanger sequencing showed that only affected individuals carried the variant. The variant was absent from gnomAD v2.1.1 and v3.1.1, affects a highly conserved loop that contacts the F1 subunit, and was predicted damaging by all in silico tools used. The authors concluded that ATP5MC3 remains the primary candidate for the spastic paraplegia in this family.	
-ATP5MC3 c.318C>G / c.np_001680.1:p. / g.176043127G>C / p.N106K	in_gene	ATP5MC3	
+ATP5MC3 c.318C>G / g.176043127G>C / p.N106K	in_gene	ATP5MC3	
 Neilson et al. (2022)	reports	Neilson et al. (2022) described a right-handed boy (Family-2) of European descent, born to healthy unrelated parents with no family history of movement disorders. He presented at age 11 years with a 4-year history of gradually worsening upper limb dystonia. Blood, urine, and CSF studies and a dystonia gene panel were unrevealing, and brain MRI showed nonspecific mild bilateral frontoparietal white matter changes.	
 Neilson et al. (2022)	reports	Neilson et al. (2022) used parent-offspring trio whole-exome sequencing in the Family-2 proband and found the same heterozygous ATP5MC3 c.318C>G (p.Asn106Lys) variant, which had arisen de novo. GeneMatcher had identified this match. The authors stated that this result confirmed the variant's pathogenicity for dystonia.	
 Neilson et al. (2022)	reports	Neilson et al. (2022) screened 384 patients (362 with dystonia and 22 with hereditary spastic paraplegia) for variants in ATP5MC1, ATP5MC2, and ATP5MC3 and found no deleterious variants.	
@@ -26,7 +26,7 @@ Zech et al. (2022)	reports	Zech et al. (2022) found that ATP5MC3 c.236G>T, assoc
 Zech et al. (2022)	reports	Zech et al. (2022) suggested that dominant-negative effects could underlie disease caused by ATP5MC3 (and ATP5F1A) variants, supported by mild-to-moderate ATPase assembly and/or enzyme-activity defects in several patient cell lines.	
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	caused_by	ATP5MC3	34636445,34954817
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_variant	ATP5MC3 c.236G>T / p.G79V	34954817
-DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_variant	ATP5MC3 c.318C>G / c.np_001680.1:p. / g.176043127G>C / p.N106K	34636445,34954817
+DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_variant	ATP5MC3 c.318C>G / g.176043127G>C / p.N106K	34636445,34954817
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_variant	ATP5MC3 c.319C>G / p.P107A	34954817
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	inheritance	Autosomal dominant	19006192,34636445,34954817
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_phenotype	Limb dystonia	34636445,34954817
@@ -48,11 +48,11 @@ DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_phenotype	Abnormal cerebral
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_phenotype	Decreased activity of mitochondrial ATP synthase complex	34636445
 DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA	has_phenotype	Muscle weakness	19006192
 Torticollis	is_a	Focal dystonia	
-Laryngeal dystonia	is_a	Focal dystonia	
 Spastic paraplegia	is_a	Lower limb spasticity	
-Limb dystonia	is_a	Dystonia	
-Focal dystonia	is_a	Dystonia	
-Lower limb spasticity	is_a	Spasticity	
+Lower limb muscle weakness	is_a	Muscle weakness	
 Generalized dystonia	is_a	Dystonia	
 Abnormal cerebral white matter morphology	is_a	Abnormal brain morphology	
-Lower limb muscle weakness	is_a	Muscle weakness	
+Limb dystonia	is_a	Dystonia	
+Laryngeal dystonia	is_a	Focal dystonia	
+Focal dystonia	is_a	Dystonia	
+Lower limb spasticity	is_a	Spasticity	

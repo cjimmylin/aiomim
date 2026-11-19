@@ -53,9 +53,9 @@ AMEGAKARYOCYTIC THROMBOCYTOPENIA, CONGENITAL, 2	has_phenotype	Abnormal bleeding	
 AMEGAKARYOCYTIC THROMBOCYTOPENIA, CONGENITAL, 2	has_phenotype	Subcutaneous hemorrhage	29191945
 AMEGAKARYOCYTIC THROMBOCYTOPENIA, CONGENITAL, 2	has_phenotype	Abnormal circulating protein concentration	28559357
 AMEGAKARYOCYTIC THROMBOCYTOPENIA, CONGENITAL, 2	has_phenotype	Aplastic anemia	24085763
-Bruising susceptibility	is_a	Subcutaneous hemorrhage	
-Epistaxis	is_a	Abnormal bleeding	
-Hematochezia	is_a	Abnormal bleeding	
-Ecchymosis	is_a	Subcutaneous hemorrhage	
-Aplastic anemia	is_a	Pancytopenia	
 Subcutaneous hemorrhage	is_a	Abnormal bleeding	
+Aplastic anemia	is_a	Pancytopenia	
+Ecchymosis	is_a	Subcutaneous hemorrhage	
+Bruising susceptibility	is_a	Subcutaneous hemorrhage	
+Hematochezia	is_a	Abnormal bleeding	
+Epistaxis	is_a	Abnormal bleeding	

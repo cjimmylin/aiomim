@@ -32,6 +32,6 @@ PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Ocular pain	13636703,17145499,176
 PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Episodic pain	17145499,17679678
 PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Pain	13636703
 Jaw pain	is_a	Pain	
-Anal pain	is_a	Pain	
 Episodic pain	is_a	Pain	
+Anal pain	is_a	Pain	
 Ocular pain	is_a	Pain	

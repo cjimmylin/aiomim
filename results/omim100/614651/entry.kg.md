@@ -14,51 +14,51 @@ A number sign (#) is used with this entry because of evidence that primary coenz
 
 ### Description
 
-Primary coenzyme Q10 deficiency-2 is an autosomal recessive disorder of CoQ10 biosynthesis caused by defects in PDSS1. In 1 family, quinone-dependent oxidative phosphorylation activities were reduced and were restored by adding quinone (Mollet et al., 2007). Reported patients have had sensorineural deafness followed by optic atrophy, with mild intellectual disability and muscle involvement (Nardecchia et al., 2021). One infant had a severe, progressive multisystem disorder and died at 3 years of age (Bellusci et al., 2021). ⚠︎
+Primary coenzyme Q10 deficiency-2 is an autosomal recessive disorder caused by a defect in an early step of CoQ10 biosynthesis. It causes reduced quinone-dependent oxidative phosphorylation activity. Reported features include bilateral sensorineural hearing loss followed by optic atrophy, sometimes with intellectual disability, muscle weakness, and cardiac valve involvement (Nardecchia et al., 2021). Some patients have a severe infantile-onset multisystem disease ending in death in early childhood (Bellusci et al., 2021). ⚠︎
 
 ### Clinical Features
 
-Nardecchia et al. (2021) reported a 16-year-old girl born to consanguineous Egyptian parents. Severe language delay and profound bilateral sensorineural hearing loss were diagnosed at age 4 years, and she later had mild intellectual disability. She had progressive visual loss from age 11 to 14 years, with visual acuity of 1/10 bilaterally, red-green dyschromatopsia, and optic atrophy mainly in the inferior temporal sector. Visual evoked potentials showed increased P100 latency and reduced amplitude. Optical coherence tomography showed reduced retinal nerve fiber layer thickness on both sides. She also had diffuse mild muscle weakness and mild postural tremor of the upper limbs. Brain MRI was normal. Cardiac findings were a moderately dysplastic mitral valve with moderate insufficiency, tricuspid insufficiency, and a moderately dilated left atrium. ⚠︎
+Nardecchia et al. (2021) reported a 16-year-old girl born to consanguineous Egyptian parents. She had severe language delay and profound bilateral sensorineural hearing loss, diagnosed at age 4 years, and later mild intellectual disability. From age 11-14 years she had progressive visual loss, with visual acuity of 1/10 bilaterally, red-green dyschromatopsia, and optic atrophy mainly in the inferior temporal sector. Visual evoked potentials showed increased P100 latency and reduced amplitude. Optical coherence tomography showed a bilateral reduction in retinal nerve fiber layer thickness. She also had diffuse mild muscle weakness and mild postural tremor of the upper limbs, and brain MRI was normal. Cardiac findings were a moderately dysplastic mitral valve with moderate insufficiency, tricuspid insufficiency, and a moderately dilated left atrium. ⚠︎
 
-Her 6-year-old younger sister, also reported by Nardecchia et al. (2021), had bilateral sensorineural hearing loss. At age 6 years she developed decreased visual acuity with optic atrophy (bilateral temporal pallor of the optic nerve head) and divergent strabismus. She also had mild intellectual disability and muscular involvement. In both sisters sensorineural deafness came before optic atrophy. Neither sister had lactic acidosis, macrocephaly, peripheral neuropathy, or nephrotic syndrome.
+The 6-year-old younger sister of the proband reported by Nardecchia et al. (2021) had bilateral sensorineural hearing loss. At age 6 years she developed decreased visual acuity with optic atrophy (bilateral temporal pallor of the optic nerve head) and divergent strabismus. She also had mild intellectual disability and muscular involvement. In both sisters, sensorineural deafness preceded optic atrophy. Neither sister had lactic acidosis, macrocephaly, peripheral neuropathy, or nephrotic syndrome.
 
-Bellusci et al. (2021) reported a boy with primary CoQ10 deficiency. He was born prematurely after in vitro fertilization, in a pregnancy complicated by twin-twin transfusion. At 5 months of age he had failure to thrive, hypotonia, feeding difficulties, bilateral hearing impairment, pulmonary hypertension, livedo reticularis, and chronic distal phalangeal erythema. The disease progressed to a multisystem disorder with severe developmental delay, pyramidal dysfunction, seizures, tremor, optic atrophy, nystagmus, severe visual and hearing impairment, cystic white matter changes, and chronic heart failure. He died at 3 years of age. Brain MRI showed mild cerebral atrophy at 12 months. At 24 months it showed small necrotic or porencephalic cysts in the white matter around the lateral ventricles and in the commissural fibers.
+Bellusci et al. (2021) described a boy with primary CoQ10 deficiency due to biallelic PDSS1 mutations. He was born prematurely after in vitro fertilization, in a pregnancy complicated by twin-twin transfusion. At 5 months of age he had failure to thrive, hypotonia, feeding difficulties, bilateral hearing impairment, pulmonary hypertension, livedo reticularis, and chronic distal phalangeal erythema. The disease progressed to a multisystem disorder with severe developmental delay, pyramidal dysfunction, seizures, tremor, optic atrophy, nystagmus, severe visual and hearing impairment, cystic white matter changes, and chronic heart failure. He died at 3 years of age. Brain MRI showed mild cerebral atrophy at 12 months. At 24 months it showed small necrotic or porencephalic cysts in the white matter around the lateral ventricles and in the commissural fibers.
 
 ### Biochemical Features
 
-Mollet et al. (2007) studied 2 families with inborn errors of CoQ10 biosynthesis. In both families, quinone-dependent oxidative phosphorylation (OXPHOS) activities were in the range of the lowest control values, but the OXPHOS enzyme activities themselves were normal. Adding quinone restored normal OXPHOS activities, which confirmed CoQ10 deficiency.
+Mollet et al. (2007) studied 2 families with inborn errors of CoQ10 biosynthesis. In both families, quinone-dependent oxidative phosphorylation (OXPHOS) activities were in the range of the lowest control values, whereas OXPHOS enzyme activities themselves were normal. Adding quinone restored normal OXPHOS activities, which confirmed CoQ10 deficiency.
 
-In the patient reported by Bellusci et al. (2021), laboratory tests showed anemia, lactic acidosis, 3-methylglutaconic aciduria, tricarboxylic aciduria, and reduced CoQ10 levels in lymphocytes. The authors stated that this was the first reported patient with PDSS1 mutations who had 3-methylglutaconic aciduria.
+In the patient with PDSS1 mutations reported by Bellusci et al. (2021), laboratory tests showed anemia, lactic acidosis, 3-methylglutaconic aciduria, tricarboxylic aciduria, and reduced CoQ10 levels in lymphocytes. The authors stated that this was the first reported patient with PDSS1 mutations who had 3-methylglutaconic aciduria.
 
 ### Inheritance
 
-The transmission pattern of COQ10D2 is consistent with autosomal recessive inheritance. Mollet et al. (2007) found a homozygous PDSS1 mutation in an affected family. Nardecchia et al. (2021) found a homozygous PDSS1 mutation in affected sisters born to consanguineous parents; both parents were heterozygous carriers. Bellusci et al. (2021) found compound heterozygous PDSS1 mutations in their patient. ⚠︎
+The transmission pattern of COQ10D2 is consistent with autosomal recessive inheritance. Mollet et al. (2007) found a homozygous PDSS1 mutation in a family identified by homozygosity mapping. Nardecchia et al. (2021) found a homozygous mutation in 2 sisters born to consanguineous parents; both parents were heterozygous carriers. ⚠︎
 
 ### Mapping
 
-In a family with CoQ10 deficiency (family 1), Mollet et al. (2007) performed a genome-wide search for homozygosity and identified a region on chromosome 10. This region contains PDSS1, the human ortholog of yeast COQ1, which encodes a key enzyme of CoQ10 synthesis.
+Mollet et al. (2007) performed a genome-wide search for homozygosity in a family with CoQ10 deficiency (family 1) and identified a region on chromosome 10. This region contains PDSS1, the human ortholog of yeast COQ1, which encodes a key enzyme of CoQ10 synthesis.
 
 ### Heterogeneity
 
-In a second family with CoQ10 deficiency, Mollet et al. (2007) sequenced the COQ2 gene directly and found a 1-bp deletion (c.1198delT) that causes a frameshift and a premature stop codon (N401fsX415). Mutant human COQ2 did not support growth of yeast Delta-coq2 strains on respiratory medium. ⚠︎
+In a second family with CoQ10 deficiency, Mollet et al. (2007) sequenced the COQ2 gene directly and identified a 1-bp deletion (c.1198delT). This frameshift (N401fsX415) results in a premature stop codon. Mutant human COQ2 did not support growth of yeast Delta-coq2 strains on respiratory medium. These findings showed that CoQ10 deficiency is genetically heterogeneous. ⚠︎
 
 ### Molecular Genetics
 
-In family 1 with CoQ10 deficiency, Mollet et al. (2007) sequenced the PDSS1 gene in a region of homozygosity on chromosome 10. They found a homozygous nucleotide substitution that changes a conserved amino acid (D308E; ASP308GLU). Yeast Delta-coq1 strains transformed with the corresponding mutant yeast COQ1 gene grew poorly on respiratory medium. The authors concluded that the mutation causes the OXPHOS deficiency.
+Mollet et al. (2007) sequenced PDSS1 in a family with CoQ10 deficiency (family 1) and identified a homozygous nucleotide substitution that changes a conserved amino acid (D308E). Yeast Delta-coq1 strains transformed with the corresponding mutant yeast COQ1 gene grew poorly on respiratory medium. The authors concluded that the mutation causes the OXPHOS deficiency.
 
-Vasta et al. (2012) used targeted next-generation sequencing of the exons of 908 known and candidate nuclear genes in 26 patients with known or suspected mitochondrial disorders. The variants they found in known pathogenic genes included variants in PDSS1.
+Vasta et al. (2012) used targeted next-generation sequencing of the exons of 908 known and candidate nuclear genes in 26 patients with known or suspected mitochondrial disorders. Among the variants they found in known pathogenic genes were variants in PDSS1.
 
-Nardecchia et al. (2021) studied 2 Egyptian sisters, born to consanguineous parents, who had sensorineural deafness followed by optic atrophy. Whole-exome sequencing identified a homozygous c.735G-T transversion in the PDSS1 gene, resulting in a gln245-to-his (Q245H) substitution at a highly conserved residue (GLN245HIS). The variant lay within a 12-Mb region of homozygosity and was absent from the gnomAD database. It segregated with the disorder: both parents and an unaffected brother were heterozygous, and an unaffected sister was homozygous for the wildtype allele. Sanger sequencing of OPA1, OPA3, and WFS1 was negative. ⚠︎
+Nardecchia et al. (2021) studied 2 Egyptian sisters, born to consanguineous parents, who had sensorineural deafness followed by optic atrophy. Whole-exome sequencing identified a homozygous c.735G-T transversion in the PDSS1 gene, resulting in a gln245-to-his (Q245H) substitution at a highly conserved residue. The mutation lay within a 12-Mb region of homozygosity and was absent from gnomAD. It segregated with the disorder: both parents and an unaffected brother were heterozygous, and an unaffected sister was homozygous wildtype. Sanger sequencing of OPA1, OPA3, and WFS1 found no mutations. ⚠︎
 
-In a boy with primary CoQ10 deficiency, Bellusci et al. (2021) found compound heterozygous mutations in the PDSS1 gene (NM_014317.3). One was a c.716T-G transversion, resulting in a val239-to-gly (V239G) substitution. The other was a c.1183C-T transition, resulting in an arg395-to-ter (R395X) substitution.
+In a boy with primary CoQ10 deficiency, Bellusci et al. (2021) identified biallelic mutations in the PDSS1 gene (NM_014317.3): a c.716T-G transversion resulting in a val239-to-gly (V239G) substitution, and a c.1183C-T transition resulting in an arg395-to-ter (R395X) substitution.
 
 ### Genotype/Phenotype Correlations
 
-Nardecchia et al. (2021) noted that visual system involvement in CoQ10 deficiency had been reported only in defects of the earliest steps of CoQ10 synthesis, including optic atrophy in PDSS1 deficiency. Unlike OPA1 and OPA3 defects, PDSS1 deficiency appears to cause sensorineural deafness before optic atrophy. The authors suggested that PDSS1 deficiency, as a potentially treatable condition, be included in the differential diagnosis of optic atrophy with sensorineural deafness.
+Nardecchia et al. (2021) noted that visual system involvement in CoQ10 deficiency has been reported only in defects of the earliest steps of CoQ10 synthesis, with optic atrophy occurring in PDSS1 deficiency. Unlike in OPA1 and OPA3 defects, sensorineural deafness appears to precede optic atrophy in PDSS1 deficiency. The authors suggested that PDSS1 deficiency, as a potentially treatable condition, be included in the differential diagnosis of optic atrophy with sensorineural deafness.
 
 ### Pathogenesis
 
-Bellusci et al. (2021) suggested that their patient's combination of phalangeal erythema, livedo reticularis, and pulmonary hypertension pointed to microvascular dysfunction as a possible underlying mechanism.
+Bellusci et al. (2021) suggested that the combination of phalangeal erythema, livedo reticularis, and pulmonary hypertension in their patient with PDSS1 mutations pointed to microvascular dysfunction as a possible underlying mechanism.
 
 ### Clinical Management
 
@@ -131,17 +131,22 @@ Bellusci et al. (2021) started their patient on oral ubidecarenone (CoQ10) at 15
 **.0001 COENZYME Q10 DEFICIENCY, PRIMARY, 2**  
 PDSS1, ASP308GLU [p.D308E]
 
-In family 1 with CoQ10 deficiency, Mollet et al. (2007) found a homozygous nucleotide substitution in the PDSS1 gene that results in an asp308-to-glu (D308E) substitution at a conserved residue. The mutation lay in a region of homozygosity on chromosome 10. Yeast Delta-coq1 strains transformed with the corresponding mutant yeast COQ1 gene grew poorly on respiratory medium. The authors concluded that the mutation causes the OXPHOS deficiency.
+In a family with CoQ10 deficiency, identified by a genome-wide search for homozygosity, Mollet et al. (2007) found a homozygous nucleotide substitution in the PDSS1 gene that changes a conserved amino acid (D308E). Yeast Delta-coq1 strains transformed with the corresponding mutant yeast COQ1 gene grew poorly on respiratory medium. In this family, quinone-dependent OXPHOS activities were in the range of the lowest control values and were restored by adding quinone.
 
 **.0002 COENZYME Q10 DEFICIENCY, PRIMARY, 2**  
 PDSS1, GLN245HIS [c.735G>T; p.Q245H]
 
-In 2 Egyptian sisters, born to consanguineous parents, with sensorineural deafness followed by optic atrophy, Nardecchia et al. (2021) used whole-exome sequencing to identify a homozygous c.735G-T transversion in the PDSS1 gene. The change results in a gln245-to-his (Q245H) substitution at a highly conserved residue. The variant lay within a 12-Mb region of homozygosity and was absent from the gnomAD database. It segregated with the disorder: both parents and an unaffected brother were heterozygous, and an unaffected sister was homozygous for the wildtype allele. ⚠︎
+In 2 Egyptian sisters, born to consanguineous parents, with sensorineural deafness followed by optic atrophy, Nardecchia et al. (2021) identified a homozygous c.735G-T transversion in the PDSS1 gene, resulting in a gln245-to-his (Q245H) substitution at a highly conserved residue. The mutation was found by whole-exome sequencing. It lay within a 12-Mb region of homozygosity and was absent from gnomAD. Both parents and an unaffected brother were heterozygous, and an unaffected sister was homozygous wildtype. ⚠︎
 
 **.0003 COENZYME Q10 DEFICIENCY, PRIMARY, 2**  
-PDSS1, ARG395TER [c.1183C>T; c.716T>G; c.nm_014317.3:; p.R395*; p.V239G]
+PDSS1, VAL239GLY [c.716T>G; p.V239G]
 
-Bellusci et al. (2021) reported a boy with primary CoQ10 deficiency who had a multisystem disorder and died at 3 years of age. He was compound heterozygous for 2 mutations in the PDSS1 gene (NM_014317.3). One was a c.1183C-T transition, resulting in an arg395-to-ter (R395X) substitution. The other was a c.716T-G transversion, resulting in a val239-to-gly (V239G) substitution. The patient had reduced CoQ10 levels in lymphocytes.
+In a boy with severe multisystem primary CoQ10 deficiency who died at 3 years of age, Bellusci et al. (2021) identified biallelic mutations in the PDSS1 gene (NM_014317.3): a c.716T-G transversion, resulting in a val239-to-gly (V239G) substitution, and a c.1183C-T transition, resulting in an arg395-to-ter substitution (R395X). The boy had reduced CoQ10 levels in lymphocytes.
+
+**.0004 COENZYME Q10 DEFICIENCY, PRIMARY, 2**  
+PDSS1, ARG395TER [c.1183C>T; p.R395*]
+
+For discussion of the c.1183C-T transition in the PDSS1 gene, resulting in an arg395-to-ter (R395X) substitution, see the V239G mutation. Bellusci et al. (2021) found R395X together with V239G as biallelic mutations in a boy with primary CoQ10 deficiency.
 
 ### REFERENCES
 
