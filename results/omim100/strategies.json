@@ -3,6 +3,26 @@
   "baseline": "direct",
   "n_entries": 93,
   "primary_endpoint": "gold_fact_coverage",
+  "fact_list": {
+    "kg": {
+      "frozen": 93
+    },
+    "direct": {
+      "frozen": 93
+    },
+    "agent": {
+      "frozen": 93
+    },
+    "closedbook": {
+      "frozen": 93
+    },
+    "recall": {
+      "frozen": 93
+    },
+    "cohort": {
+      "frozen": 93
+    }
+  },
   "stopped": {
     "agent": [
       "609296",
@@ -747,12 +767,12 @@
       "label": "Claims supported by cited paper",
       "higher_is_better": true,
       "values": {
-        "kg": 0.965,
+        "kg": 0.9652,
         "direct": 0.961,
         "agent": 0.9641,
         "closedbook": 0.5082,
         "recall": 0.9423,
-        "cohort": 0.9471
+        "cohort": 0.9465
       },
       "n": {
         "kg": 93,
@@ -794,7 +814,7 @@
         "agent": 0.0014,
         "closedbook": 0.227,
         "recall": 0.0066,
-        "cohort": 0.0043
+        "cohort": 0.0037
       },
       "n": {
         "kg": 93,
@@ -810,12 +830,12 @@
       "label": "\u2026 unsupported, before the repair round",
       "higher_is_better": false,
       "values": {
-        "kg": 0.0021,
+        "kg": 0.0022,
         "direct": 0.0025,
         "agent": 0.0013,
         "closedbook": 0.2207,
         "recall": 0.0056,
-        "cohort": 0.004
+        "cohort": 0.0034
       },
       "n": {
         "kg": 93,
@@ -852,12 +872,12 @@
       "label": "OMIM per-paper facts conveyed",
       "higher_is_better": true,
       "values": {
-        "kg": 0.5128,
-        "direct": 0.5207,
-        "agent": 0.5134,
-        "closedbook": 0.2045,
-        "recall": 0.1823,
-        "cohort": 0.4923
+        "kg": 0.4859,
+        "direct": 0.4907,
+        "agent": 0.4843,
+        "closedbook": 0.1511,
+        "recall": 0.1456,
+        "cohort": 0.4716
       },
       "n": {
         "kg": 93,
@@ -873,12 +893,12 @@
       "label": "\u2026 fully (no partial credit)",
       "higher_is_better": true,
       "values": {
-        "kg": 0.4314,
-        "direct": 0.4358,
-        "agent": 0.4311,
-        "closedbook": 0.1217,
-        "recall": 0.1212,
-        "cohort": 0.4099
+        "kg": 0.4198,
+        "direct": 0.4236,
+        "agent": 0.4195,
+        "closedbook": 0.1025,
+        "recall": 0.1007,
+        "cohort": 0.4081
       },
       "n": {
         "kg": 93,
@@ -894,12 +914,54 @@
       "label": "OMIM per-paper facts contradicted",
       "higher_is_better": false,
       "values": {
-        "kg": 0.0065,
-        "direct": 0.0049,
-        "agent": 0.0053,
-        "closedbook": 0.008,
-        "recall": 0.0046,
-        "cohort": 0.0063
+        "kg": 0.004,
+        "direct": 0.0036,
+        "agent": 0.004,
+        "closedbook": 0.0048,
+        "recall": 0.0031,
+        "cohort": 0.0047
+      },
+      "n": {
+        "kg": 93,
+        "direct": 93,
+        "agent": 93,
+        "closedbook": 93,
+        "recall": 93,
+        "cohort": 93
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_whole",
+      "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
+      "higher_is_better": true,
+      "values": {
+        "kg": null,
+        "direct": 0.3974,
+        "agent": null,
+        "closedbook": null,
+        "recall": null,
+        "cohort": null
+      },
+      "n": {
+        "kg": 0,
+        "direct": 5,
+        "agent": 0,
+        "closedbook": 0,
+        "recall": 0,
+        "cohort": 0
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_adaptive",
+      "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+      "higher_is_better": true,
+      "values": {
+        "kg": 0.5147,
+        "direct": 0.5207,
+        "agent": 0.5134,
+        "closedbook": 0.2045,
+        "recall": 0.1823,
+        "cohort": 0.4928
       },
       "n": {
         "kg": 93,
@@ -1025,7 +1087,7 @@
         "agent": 0.6589,
         "closedbook": 0.1515,
         "recall": 0.1158,
-        "cohort": 0.6391
+        "cohort": 0.6429
       },
       "n": {
         "kg": 93,
@@ -1041,12 +1103,12 @@
       "label": "Generated variants that are OMIM variants (precision)",
       "higher_is_better": true,
       "values": {
-        "kg": 0.7778,
+        "kg": 0.7694,
         "direct": 0.8871,
         "agent": 0.8795,
         "closedbook": 0.9722,
         "recall": 1.0,
-        "cohort": 0.7217
+        "cohort": 0.729
       },
       "n": {
         "kg": 87,
@@ -1232,12 +1294,12 @@
       "label": "Claims audited per entry",
       "higher_is_better": null,
       "values": {
-        "kg": 113.5054,
+        "kg": 113.4624,
         "direct": 100.9677,
         "agent": 97.3226,
         "closedbook": 28.2151,
         "recall": 26.3226,
-        "cohort": 117.8925
+        "cohort": 117.9462
       },
       "n": {
         "kg": 93,
@@ -1295,12 +1357,12 @@
       "label": "Allelic variants per entry",
       "higher_is_better": null,
       "values": {
-        "kg": 3.871,
+        "kg": 3.9247,
         "direct": 3.172,
         "agent": 3.2258,
         "closedbook": 0.4301,
         "recall": 0.3011,
-        "cohort": 4.129
+        "cohort": 4.0968
       },
       "n": {
         "kg": 93,
@@ -1316,12 +1378,12 @@
       "label": "\u2026 of which not in OMIM",
       "higher_is_better": null,
       "values": {
-        "kg": 1.1398,
+        "kg": 1.1935,
         "direct": 0.3871,
         "agent": 0.4301,
         "closedbook": 0.0108,
         "recall": 0.0,
-        "cohort": 1.4624
+        "cohort": 1.3978
       },
       "n": {
         "kg": 93,
@@ -1382,18 +1444,18 @@
         "label": "Claims supported by cited paper",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.965,
+        "strategy": 0.9652,
         "baseline": 0.961,
-        "difference": 0.0041,
+        "difference": 0.0042,
         "ci95": [
           -0.0041,
-          0.013
+          0.0132
         ],
         "median_difference": 0.0,
-        "better": 42,
-        "worse": 44,
+        "better": 41,
+        "worse": 45,
         "ties": 7,
-        "sign_test_p": 0.9142,
+        "sign_test_p": 0.7465,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
@@ -1430,13 +1492,13 @@
         "difference": 0.0002,
         "ci95": [
           -0.0026,
-          0.0026
+          0.0025
         ],
         "median_difference": 0.0,
-        "better": 11,
-        "worse": 13,
-        "ties": 69,
-        "sign_test_p": 0.8388,
+        "better": 10,
+        "worse": 12,
+        "ties": 71,
+        "sign_test_p": 0.8318,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
@@ -1447,18 +1509,18 @@
         "label": "\u2026 unsupported, before the repair round",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0021,
+        "strategy": 0.0022,
         "baseline": 0.0025,
-        "difference": -0.0004,
+        "difference": -0.0003,
         "ci95": [
-          -0.0032,
+          -0.0031,
           0.002
         ],
         "median_difference": 0.0,
         "better": 11,
-        "worse": 10,
-        "ties": 72,
-        "sign_test_p": 1.0,
+        "worse": 9,
+        "ties": 73,
+        "sign_test_p": 0.8238,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -1473,7 +1535,7 @@
         "difference": 0.0006,
         "ci95": [
           0.0001,
-          0.0015
+          0.0012
         ],
         "median_difference": 0.0,
         "better": 0,
@@ -1489,18 +1551,18 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.5128,
-        "baseline": 0.5207,
-        "difference": -0.0079,
+        "strategy": 0.4859,
+        "baseline": 0.4907,
+        "difference": -0.0048,
         "ci95": [
-          -0.0174,
-          0.0013
+          -0.0145,
+          0.0049
         ],
         "median_difference": 0.0,
-        "better": 43,
-        "worse": 43,
-        "ties": 7,
-        "sign_test_p": 1.0,
+        "better": 33,
+        "worse": 45,
+        "ties": 15,
+        "sign_test_p": 0.2127,
         "ci_unreliable": false,
         "primary": true,
         "headline": true
@@ -1510,18 +1572,18 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.4314,
-        "baseline": 0.4358,
-        "difference": -0.0044,
+        "strategy": 0.4198,
+        "baseline": 0.4236,
+        "difference": -0.0037,
         "ci95": [
-          -0.0157,
-          0.0068
+          -0.0149,
+          0.0077
         ],
         "median_difference": 0.0,
-        "better": 46,
+        "better": 31,
         "worse": 40,
-        "ties": 7,
-        "sign_test_p": 0.59,
+        "ties": 22,
+        "sign_test_p": 0.3425,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -1531,22 +1593,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0065,
-        "baseline": 0.0049,
-        "difference": 0.0016,
+        "strategy": 0.004,
+        "baseline": 0.0036,
+        "difference": 0.0004,
         "ci95": [
-          -0.0011,
-          0.0057
+          -0.0012,
+          0.0025
         ],
         "median_difference": 0.0,
-        "better": 11,
-        "worse": 11,
-        "ties": 71,
-        "sign_test_p": 1.0,
+        "better": 8,
+        "worse": 5,
+        "ties": 80,
+        "sign_test_p": 0.5811,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
         "sign_test_p_holm": 1.0
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 93,
+        "strategy": 0.5147,
+        "baseline": 0.5207,
+        "difference": -0.006,
+        "ci95": [
+          -0.0157,
+          0.0033
+        ],
+        "median_difference": 0.0,
+        "better": 46,
+        "worse": 41,
+        "ties": 6,
+        "sign_test_p": 0.6683,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -1557,7 +1640,7 @@
         "baseline": 0.3591,
         "difference": -0.0134,
         "ci95": [
-          -0.0322,
+          -0.0325,
           0.0058
         ],
         "median_difference": 0.0,
@@ -1580,7 +1663,7 @@
         "difference": -0.0355,
         "ci95": [
           -0.0678,
-          -0.0047
+          -0.0048
         ],
         "median_difference": -0.019,
         "better": 29,
@@ -1600,8 +1683,8 @@
         "baseline": 0.3625,
         "difference": 0.0114,
         "ci95": [
-          -0.013,
-          0.0337
+          -0.0129,
+          0.0339
         ],
         "median_difference": 0.0,
         "better": 36,
@@ -1621,8 +1704,8 @@
         "baseline": 0.5614,
         "difference": -0.0141,
         "ci95": [
-          -0.0275,
-          -0.0007
+          -0.0278,
+          -0.0006
         ],
         "median_difference": 0.0,
         "better": 36,
@@ -1644,7 +1727,7 @@
         "difference": -0.013,
         "ci95": [
           -0.0238,
-          -0.0026
+          -0.0022
         ],
         "median_difference": -0.004,
         "better": 35,
@@ -1664,8 +1747,8 @@
         "baseline": 0.6647,
         "difference": -0.0053,
         "ci95": [
-          -0.0314,
-          0.0246
+          -0.0309,
+          0.0249
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -1682,18 +1765,18 @@
         "label": "Generated variants that are OMIM variants (precision)",
         "higher_is_better": true,
         "n": 82,
-        "strategy": 0.8253,
+        "strategy": 0.8163,
         "baseline": 0.8871,
-        "difference": -0.0619,
+        "difference": -0.0708,
         "ci95": [
-          -0.1023,
-          -0.0243
+          -0.1131,
+          -0.0312
         ],
         "median_difference": 0.0,
         "better": 2,
-        "worse": 18,
-        "ties": 62,
-        "sign_test_p": 0.0004,
+        "worse": 20,
+        "ties": 60,
+        "sign_test_p": 0.0001,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -1750,7 +1833,7 @@
         "baseline": 0.9355,
         "difference": -0.0108,
         "ci95": [
-          -0.043,
+          -0.0538,
           0.0215
         ],
         "median_difference": 0.0,
@@ -1773,7 +1856,7 @@
         "difference": 0.0108,
         "ci95": [
           -0.0215,
-          0.0538
+          0.043
         ],
         "median_difference": 0.0,
         "better": 1,
@@ -1856,8 +1939,8 @@
         "baseline": 0.9443,
         "difference": 0.0019,
         "ci95": [
-          -0.022,
-          0.0228
+          -0.0224,
+          0.0225
         ],
         "median_difference": 0.0,
         "better": 9,
@@ -1880,7 +1963,7 @@
         "difference": 0.0031,
         "ci95": [
           -0.0043,
-          0.01
+          0.0101
         ],
         "median_difference": 0.007,
         "better": 53,
@@ -1923,7 +2006,7 @@
         "difference": -0.0011,
         "ci95": [
           -0.0038,
-          0.0011
+          0.0012
         ],
         "median_difference": 0.0,
         "better": 11,
@@ -1982,18 +2065,18 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.5134,
-        "baseline": 0.5207,
-        "difference": -0.0073,
+        "strategy": 0.4843,
+        "baseline": 0.4907,
+        "difference": -0.0063,
         "ci95": [
-          -0.016,
-          0.0007
+          -0.0129,
+          -0.0
         ],
         "median_difference": 0.0,
-        "better": 43,
-        "worse": 46,
-        "ties": 4,
-        "sign_test_p": 0.8323,
+        "better": 31,
+        "worse": 42,
+        "ties": 20,
+        "sign_test_p": 0.2416,
         "ci_unreliable": false,
         "primary": true,
         "headline": true
@@ -2003,18 +2086,18 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.4311,
-        "baseline": 0.4358,
-        "difference": -0.0047,
+        "strategy": 0.4195,
+        "baseline": 0.4236,
+        "difference": -0.004,
         "ci95": [
-          -0.0128,
-          0.0031
+          -0.0117,
+          0.0039
         ],
-        "median_difference": -0.004,
-        "better": 42,
-        "worse": 48,
-        "ties": 3,
-        "sign_test_p": 0.5984,
+        "median_difference": 0.0,
+        "better": 30,
+        "worse": 35,
+        "ties": 28,
+        "sign_test_p": 0.6201,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -2024,22 +2107,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0053,
-        "baseline": 0.0049,
+        "strategy": 0.004,
+        "baseline": 0.0036,
         "difference": 0.0004,
         "ci95": [
-          -0.001,
-          0.002
+          -0.0007,
+          0.0017
         ],
         "median_difference": 0.0,
-        "better": 9,
-        "worse": 10,
-        "ties": 74,
-        "sign_test_p": 1.0,
+        "better": 3,
+        "worse": 5,
+        "ties": 85,
+        "sign_test_p": 0.7266,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
         "sign_test_p_holm": 1.0
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 93,
+        "strategy": 0.5134,
+        "baseline": 0.5207,
+        "difference": -0.0073,
+        "ci95": [
+          -0.0159,
+          0.0007
+        ],
+        "median_difference": 0.0,
+        "better": 43,
+        "worse": 46,
+        "ties": 4,
+        "sign_test_p": 0.8323,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -2050,8 +2154,8 @@
         "baseline": 0.3591,
         "difference": -0.0033,
         "ci95": [
-          -0.0152,
-          0.0084
+          -0.0151,
+          0.0088
         ],
         "median_difference": 0.0,
         "better": 38,
@@ -2072,8 +2176,8 @@
         "baseline": 0.4415,
         "difference": 0.0132,
         "ci95": [
-          -0.0017,
-          0.0274
+          -0.002,
+          0.0271
         ],
         "median_difference": 0.0,
         "better": 42,
@@ -2093,8 +2197,8 @@
         "baseline": 0.3625,
         "difference": -0.0204,
         "ci95": [
-          -0.0348,
-          -0.0066
+          -0.0346,
+          -0.0067
         ],
         "median_difference": 0.0,
         "better": 17,
@@ -2114,7 +2218,7 @@
         "baseline": 0.5614,
         "difference": 0.0003,
         "ci95": [
-          -0.0105,
+          -0.0104,
           0.0111
         ],
         "median_difference": 0.0,
@@ -2137,7 +2241,7 @@
         "difference": -0.0029,
         "ci95": [
           -0.0131,
-          0.0071
+          0.0073
         ],
         "median_difference": 0.0,
         "better": 32,
@@ -2157,8 +2261,8 @@
         "baseline": 0.6647,
         "difference": -0.0057,
         "ci95": [
-          -0.0212,
-          0.007
+          -0.0218,
+          0.0068
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2179,8 +2283,8 @@
         "baseline": 0.8871,
         "difference": -0.0076,
         "ci95": [
-          -0.0357,
-          0.0212
+          -0.0352,
+          0.0214
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2348,8 +2452,8 @@
         "baseline": 0.9443,
         "difference": -0.011,
         "ci95": [
-          -0.0302,
-          0.0078
+          -0.0299,
+          0.0076
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2371,8 +2475,8 @@
         "baseline": 0.961,
         "difference": -0.4528,
         "ci95": [
-          -0.5037,
-          -0.4017
+          -0.5025,
+          -0.4039
         ],
         "median_difference": -0.471,
         "better": 2,
@@ -2393,7 +2497,7 @@
         "baseline": 0.0,
         "difference": 0.227,
         "ci95": [
-          0.1864,
+          0.1871,
           0.2713
         ],
         "median_difference": 0.185,
@@ -2414,8 +2518,8 @@
         "baseline": 0.0025,
         "difference": 0.2245,
         "ci95": [
-          0.1844,
-          0.2666
+          0.1841,
+          0.2674
         ],
         "median_difference": 0.185,
         "better": 1,
@@ -2436,8 +2540,8 @@
         "baseline": 0.0025,
         "difference": 0.2182,
         "ci95": [
-          0.1785,
-          0.2617
+          0.1776,
+          0.2608
         ],
         "median_difference": 0.1667,
         "better": 1,
@@ -2458,7 +2562,7 @@
         "difference": 0.0063,
         "ci95": [
           0.0024,
-          0.0109
+          0.0111
         ],
         "median_difference": 0.0,
         "better": 0,
@@ -2474,17 +2578,17 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.2045,
-        "baseline": 0.5207,
-        "difference": -0.3162,
+        "strategy": 0.1511,
+        "baseline": 0.4907,
+        "difference": -0.3396,
         "ci95": [
-          -0.3641,
-          -0.2695
+          -0.3924,
+          -0.2878
         ],
-        "median_difference": -0.311,
+        "median_difference": -0.343,
         "better": 7,
-        "worse": 86,
-        "ties": 0,
+        "worse": 85,
+        "ties": 1,
         "sign_test_p": 0.0,
         "ci_unreliable": false,
         "primary": true,
@@ -2495,17 +2599,17 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.1217,
-        "baseline": 0.4358,
-        "difference": -0.3141,
+        "strategy": 0.1025,
+        "baseline": 0.4236,
+        "difference": -0.321,
         "ci95": [
-          -0.3646,
-          -0.2638
+          -0.3746,
+          -0.268
         ],
-        "median_difference": -0.321,
+        "median_difference": -0.286,
         "better": 9,
-        "worse": 84,
-        "ties": 0,
+        "worse": 83,
+        "ties": 1,
         "sign_test_p": 0.0,
         "ci_unreliable": false,
         "primary": false,
@@ -2516,22 +2620,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.008,
-        "baseline": 0.0049,
-        "difference": 0.0031,
+        "strategy": 0.0048,
+        "baseline": 0.0036,
+        "difference": 0.0012,
         "ci95": [
-          -0.0013,
-          0.0082
+          -0.0019,
+          0.0048
         ],
         "median_difference": 0.0,
-        "better": 16,
-        "worse": 16,
-        "ties": 61,
-        "sign_test_p": 1.0,
+        "better": 17,
+        "worse": 14,
+        "ties": 62,
+        "sign_test_p": 0.7201,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 1.0
+        "sign_test_p_holm": 0.7201
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 93,
+        "strategy": 0.2045,
+        "baseline": 0.5207,
+        "difference": -0.3162,
+        "ci95": [
+          -0.364,
+          -0.2695
+        ],
+        "median_difference": -0.311,
+        "better": 7,
+        "worse": 86,
+        "ties": 0,
+        "sign_test_p": 0.0,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -2542,8 +2667,8 @@
         "baseline": 0.3591,
         "difference": -0.0528,
         "ci95": [
-          -0.0918,
-          -0.0138
+          -0.0923,
+          -0.0144
         ],
         "median_difference": -0.029,
         "better": 41,
@@ -2564,8 +2689,8 @@
         "baseline": 0.4417,
         "difference": 0.0937,
         "ci95": [
-          0.039,
-          0.1498
+          0.0396,
+          0.1468
         ],
         "median_difference": 0.1145,
         "better": 61,
@@ -2585,8 +2710,8 @@
         "baseline": 0.3625,
         "difference": -0.1212,
         "ci95": [
-          -0.1626,
-          -0.0803
+          -0.1624,
+          -0.0807
         ],
         "median_difference": -0.1,
         "better": 18,
@@ -2606,8 +2731,8 @@
         "baseline": 0.5614,
         "difference": -0.0794,
         "ci95": [
-          -0.1241,
-          -0.036
+          -0.1237,
+          -0.0344
         ],
         "median_difference": -0.038,
         "better": 38,
@@ -2628,8 +2753,8 @@
         "baseline": 0.6632,
         "difference": -0.0431,
         "ci95": [
-          -0.0785,
-          -0.0069
+          -0.0791,
+          -0.0066
         ],
         "median_difference": -0.037,
         "better": 37,
@@ -2649,8 +2774,8 @@
         "baseline": 0.6647,
         "difference": -0.5132,
         "ci95": [
-          -0.5984,
-          -0.4242
+          -0.5987,
+          -0.4259
         ],
         "median_difference": -0.5,
         "better": 3,
@@ -2671,8 +2796,8 @@
         "baseline": 0.8793,
         "difference": 0.092,
         "ci95": [
-          -0.008,
-          0.208
+          -0.0092,
+          0.2069
         ],
         "median_difference": 0.0,
         "better": 7,
@@ -2692,7 +2817,7 @@
         "baseline": 0.9749,
         "difference": -0.1362,
         "ci95": [
-          -0.2186,
+          -0.2151,
           -0.0609
         ],
         "median_difference": 0.0,
@@ -2841,8 +2966,8 @@
         "baseline": 0.9443,
         "difference": -0.6086,
         "ci95": [
-          -0.6617,
-          -0.5526
+          -0.6638,
+          -0.5536
         ],
         "median_difference": -0.636,
         "better": 0,
@@ -2864,7 +2989,7 @@
         "baseline": 0.961,
         "difference": -0.0186,
         "ci95": [
-          -0.0344,
+          -0.0342,
           -0.0041
         ],
         "median_difference": -0.015,
@@ -2907,7 +3032,7 @@
         "baseline": 0.0025,
         "difference": 0.0041,
         "ci95": [
-          -0.0005,
+          -0.0004,
           0.0093
         ],
         "median_difference": 0.0,
@@ -2929,8 +3054,8 @@
         "baseline": 0.0025,
         "difference": 0.0032,
         "ci95": [
-          -0.0011,
-          0.0079
+          -0.001,
+          0.0082
         ],
         "median_difference": 0.0,
         "better": 12,
@@ -2967,17 +3092,17 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.1823,
-        "baseline": 0.5207,
-        "difference": -0.3385,
+        "strategy": 0.1456,
+        "baseline": 0.4907,
+        "difference": -0.345,
         "ci95": [
-          -0.3825,
-          -0.2954
+          -0.3919,
+          -0.299
         ],
-        "median_difference": -0.305,
-        "better": 3,
-        "worse": 90,
-        "ties": 0,
+        "median_difference": -0.319,
+        "better": 2,
+        "worse": 89,
+        "ties": 2,
         "sign_test_p": 0.0,
         "ci_unreliable": false,
         "primary": true,
@@ -2988,17 +3113,17 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.1212,
-        "baseline": 0.4358,
-        "difference": -0.3146,
+        "strategy": 0.1007,
+        "baseline": 0.4236,
+        "difference": -0.3229,
         "ci95": [
-          -0.3602,
-          -0.2704
+          -0.3703,
+          -0.2768
         ],
-        "median_difference": -0.297,
-        "better": 3,
-        "worse": 88,
-        "ties": 2,
+        "median_difference": -0.321,
+        "better": 2,
+        "worse": 86,
+        "ties": 5,
         "sign_test_p": 0.0,
         "ci_unreliable": false,
         "primary": false,
@@ -3009,22 +3134,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0046,
-        "baseline": 0.0049,
-        "difference": -0.0004,
+        "strategy": 0.0031,
+        "baseline": 0.0036,
+        "difference": -0.0005,
         "ci95": [
-          -0.003,
-          0.0024
+          -0.0025,
+          0.0016
         ],
         "median_difference": 0.0,
         "better": 16,
-        "worse": 10,
-        "ties": 67,
-        "sign_test_p": 0.3269,
+        "worse": 7,
+        "ties": 70,
+        "sign_test_p": 0.0931,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 0.6538
+        "sign_test_p_holm": 0.1862
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 93,
+        "strategy": 0.1823,
+        "baseline": 0.5207,
+        "difference": -0.3385,
+        "ci95": [
+          -0.3832,
+          -0.2958
+        ],
+        "median_difference": -0.305,
+        "better": 3,
+        "worse": 90,
+        "ties": 0,
+        "sign_test_p": 0.0,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -3035,7 +3181,7 @@
         "baseline": 0.3591,
         "difference": -0.1098,
         "ci95": [
-          -0.1451,
+          -0.1444,
           -0.0751
         ],
         "median_difference": -0.093,
@@ -3057,8 +3203,8 @@
         "baseline": 0.4458,
         "difference": 0.0903,
         "ci95": [
-          0.0287,
-          0.1508
+          0.0291,
+          0.1506
         ],
         "median_difference": 0.1,
         "better": 55,
@@ -3078,8 +3224,8 @@
         "baseline": 0.3625,
         "difference": -0.1787,
         "ci95": [
-          -0.215,
-          -0.1432
+          -0.2146,
+          -0.1427
         ],
         "median_difference": -0.153,
         "better": 5,
@@ -3099,8 +3245,8 @@
         "baseline": 0.5614,
         "difference": -0.1568,
         "ci95": [
-          -0.2001,
-          -0.1156
+          -0.1997,
+          -0.1147
         ],
         "median_difference": -0.115,
         "better": 21,
@@ -3121,7 +3267,7 @@
         "baseline": 0.6632,
         "difference": -0.1304,
         "ci95": [
-          -0.1701,
+          -0.1705,
           -0.0926
         ],
         "median_difference": -0.108,
@@ -3142,8 +3288,8 @@
         "baseline": 0.6647,
         "difference": -0.5489,
         "ci95": [
-          -0.6277,
-          -0.4686
+          -0.6266,
+          -0.4696
         ],
         "median_difference": -0.6,
         "better": 0,
@@ -3165,7 +3311,7 @@
         "difference": 0.0754,
         "ci95": [
           0.0087,
-          0.1681
+          0.1667
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -3185,7 +3331,7 @@
         "baseline": 0.9749,
         "difference": -0.1469,
         "ci95": [
-          -0.2222,
+          -0.2258,
           -0.0753
         ],
         "median_difference": 0.0,
@@ -3250,7 +3396,7 @@
         "baseline": 0.0215,
         "difference": 0.2151,
         "ci95": [
-          0.129,
+          0.1398,
           0.3011
         ],
         "median_difference": 0.0,
@@ -3334,8 +3480,8 @@
         "baseline": 0.9443,
         "difference": -0.2925,
         "ci95": [
-          -0.3422,
-          -0.2421
+          -0.3421,
+          -0.2412
         ],
         "median_difference": -0.25,
         "better": 2,
@@ -3353,22 +3499,22 @@
         "label": "Claims supported by cited paper",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.9471,
+        "strategy": 0.9465,
         "baseline": 0.961,
-        "difference": -0.0139,
+        "difference": -0.0144,
         "ci95": [
-          -0.0256,
-          -0.0034
+          -0.0265,
+          -0.0038
         ],
-        "median_difference": -0.008,
-        "better": 35,
-        "worse": 55,
+        "median_difference": -0.01,
+        "better": 34,
+        "worse": 56,
         "ties": 3,
-        "sign_test_p": 0.0446,
+        "sign_test_p": 0.0263,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 0.3568
+        "sign_test_p_holm": 0.2104
       },
       {
         "metric": "claim_error_rate",
@@ -3396,40 +3542,40 @@
         "label": "\u2026 same, before the repair round",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0043,
+        "strategy": 0.0037,
         "baseline": 0.0025,
-        "difference": 0.0018,
+        "difference": 0.0013,
         "ci95": [
-          -0.0014,
-          0.0048
+          -0.0018,
+          0.0041
         ],
         "median_difference": 0.0,
-        "better": 10,
-        "worse": 19,
-        "ties": 64,
-        "sign_test_p": 0.136,
+        "better": 12,
+        "worse": 18,
+        "ties": 63,
+        "sign_test_p": 0.3616,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 0.68
+        "sign_test_p_holm": 1.0
       },
       {
         "metric": "claim_unsupported_rate_before_repair",
         "label": "\u2026 unsupported, before the repair round",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.004,
+        "strategy": 0.0034,
         "baseline": 0.0025,
-        "difference": 0.0015,
+        "difference": 0.001,
         "ci95": [
-          -0.0016,
-          0.0045
+          -0.0021,
+          0.0038
         ],
         "median_difference": 0.0,
         "better": 12,
-        "worse": 16,
-        "ties": 65,
-        "sign_test_p": 0.5716,
+        "worse": 15,
+        "ties": 66,
+        "sign_test_p": 0.7011,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -3460,18 +3606,18 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.4923,
-        "baseline": 0.5207,
-        "difference": -0.0284,
+        "strategy": 0.4716,
+        "baseline": 0.4907,
+        "difference": -0.0191,
         "ci95": [
-          -0.0407,
-          -0.0166
+          -0.0309,
+          -0.0071
         ],
-        "median_difference": -0.025,
-        "better": 28,
-        "worse": 62,
-        "ties": 3,
-        "sign_test_p": 0.0004,
+        "median_difference": -0.008,
+        "better": 31,
+        "worse": 48,
+        "ties": 14,
+        "sign_test_p": 0.0712,
         "ci_unreliable": false,
         "primary": true,
         "headline": true
@@ -3481,18 +3627,18 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.4099,
-        "baseline": 0.4358,
-        "difference": -0.0259,
+        "strategy": 0.4081,
+        "baseline": 0.4236,
+        "difference": -0.0155,
         "ci95": [
-          -0.0398,
-          -0.0124
+          -0.0287,
+          -0.0023
         ],
-        "median_difference": -0.018,
+        "median_difference": 0.0,
         "better": 29,
-        "worse": 59,
-        "ties": 5,
-        "sign_test_p": 0.0018,
+        "worse": 41,
+        "ties": 23,
+        "sign_test_p": 0.1882,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -3502,22 +3648,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 93,
-        "strategy": 0.0063,
-        "baseline": 0.0049,
-        "difference": 0.0013,
+        "strategy": 0.0047,
+        "baseline": 0.0036,
+        "difference": 0.0011,
         "ci95": [
-          -0.0016,
-          0.0058
+          -0.0005,
+          0.0032
         ],
         "median_difference": 0.0,
-        "better": 10,
-        "worse": 11,
-        "ties": 72,
-        "sign_test_p": 1.0,
+        "better": 5,
+        "worse": 8,
+        "ties": 80,
+        "sign_test_p": 0.5811,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
         "sign_test_p_holm": 1.0
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 93,
+        "strategy": 0.4928,
+        "baseline": 0.5207,
+        "difference": -0.0279,
+        "ci95": [
+          -0.0404,
+          -0.0162
+        ],
+        "median_difference": -0.013,
+        "better": 27,
+        "worse": 63,
+        "ties": 3,
+        "sign_test_p": 0.0002,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -3528,8 +3695,8 @@
         "baseline": 0.3591,
         "difference": -0.0196,
         "ci95": [
-          -0.0394,
-          -0.001
+          -0.039,
+          -0.0009
         ],
         "median_difference": 0.0,
         "better": 39,
@@ -3550,8 +3717,8 @@
         "baseline": 0.4415,
         "difference": -0.0343,
         "ci95": [
-          -0.0677,
-          -0.0027
+          -0.068,
+          -0.0024
         ],
         "median_difference": -0.018,
         "better": 32,
@@ -3571,7 +3738,7 @@
         "baseline": 0.3625,
         "difference": 0.0142,
         "ci95": [
-          -0.0107,
+          -0.0116,
           0.0395
         ],
         "median_difference": 0.0,
@@ -3592,8 +3759,8 @@
         "baseline": 0.5614,
         "difference": -0.0248,
         "ci95": [
-          -0.0404,
-          -0.0096
+          -0.0402,
+          -0.0094
         ],
         "median_difference": -0.006,
         "better": 34,
@@ -3603,7 +3770,7 @@
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 0.5376
+        "sign_test_p_holm": 0.5747
       },
       {
         "metric": "hpo_semantic_f1",
@@ -3614,8 +3781,8 @@
         "baseline": 0.6632,
         "difference": -0.0185,
         "ci95": [
-          -0.0318,
-          -0.0055
+          -0.032,
+          -0.0054
         ],
         "median_difference": -0.01,
         "better": 35,
@@ -3631,39 +3798,39 @@
         "label": "OMIM allelic variants recovered",
         "higher_is_better": true,
         "n": 93,
-        "strategy": 0.6391,
+        "strategy": 0.6429,
         "baseline": 0.6647,
-        "difference": -0.0256,
+        "difference": -0.0217,
         "ci95": [
-          -0.0525,
-          -0.0015
+          -0.0485,
+          0.0031
         ],
         "median_difference": 0.0,
-        "better": 4,
-        "worse": 12,
-        "ties": 77,
-        "sign_test_p": 0.0768,
+        "better": 6,
+        "worse": 11,
+        "ties": 76,
+        "sign_test_p": 0.3323,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
-        "sign_test_p_holm": 0.5376
+        "sign_test_p_holm": 1.0
       },
       {
         "metric": "variant_precision",
         "label": "Generated variants that are OMIM variants (precision)",
         "higher_is_better": true,
         "n": 82,
-        "strategy": 0.7746,
+        "strategy": 0.7823,
         "baseline": 0.8871,
-        "difference": -0.1126,
+        "difference": -0.1048,
         "ci95": [
-          -0.1662,
-          -0.0597
+          -0.1575,
+          -0.0523
         ],
         "median_difference": 0.0,
         "better": 2,
-        "worse": 26,
-        "ties": 54,
+        "worse": 25,
+        "ties": 55,
         "sign_test_p": 0.0,
         "ci_unreliable": false,
         "primary": false,
@@ -3827,8 +3994,8 @@
         "baseline": 0.9443,
         "difference": 0.0013,
         "ci95": [
-          -0.0219,
-          0.0253
+          -0.0227,
+          0.0254
         ],
         "median_difference": 0.0,
         "better": 10,
@@ -3857,12 +4024,12 @@
         "label": "Claims supported by cited paper",
         "higher_is_better": true,
         "values": {
-          "kg": 0.9567,
+          "kg": 0.9569,
           "direct": 0.9325,
           "agent": 0.9452,
           "closedbook": 0.5147,
           "recall": 0.9442,
-          "cohort": 0.9455
+          "cohort": 0.9452
         },
         "n": {
           "kg": 100,
@@ -3883,7 +4050,7 @@
           "agent": 0.0016,
           "closedbook": 0.228,
           "recall": 0.0065,
-          "cohort": 0.0075
+          "cohort": 0.007
         },
         "n": {
           "kg": 99,
@@ -3899,12 +4066,12 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "values": {
-          "kg": 0.5097,
-          "direct": 0.5133,
-          "agent": 0.5172,
-          "closedbook": 0.2008,
-          "recall": 0.179,
-          "cohort": 0.4903
+          "kg": 0.4839,
+          "direct": 0.4855,
+          "agent": 0.4895,
+          "closedbook": 0.1485,
+          "recall": 0.1425,
+          "cohort": 0.4714
         },
         "n": {
           "kg": 100,
@@ -3920,12 +4087,12 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "values": {
-          "kg": 0.0073,
-          "direct": 0.0054,
-          "agent": 0.0057,
-          "closedbook": 0.008,
-          "recall": 0.0048,
-          "cohort": 0.0066
+          "kg": 0.005,
+          "direct": 0.0041,
+          "agent": 0.0044,
+          "closedbook": 0.0048,
+          "recall": 0.0032,
+          "cohort": 0.005
         },
         "n": {
           "kg": 99,
@@ -3983,12 +4150,12 @@
         "label": "OMIM allelic variants recovered",
         "higher_is_better": true,
         "values": {
-          "kg": 0.6562,
+          "kg": 0.6582,
           "direct": 0.6561,
           "agent": 0.6608,
           "closedbook": 0.1513,
           "recall": 0.1131,
-          "cohort": 0.6353
+          "cohort": 0.6389
         },
         "n": {
           "kg": 100,
@@ -4049,19 +4216,19 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "primary": false,
-          "strategy": 0.9567,
+          "strategy": 0.9569,
           "baseline": 0.9325,
           "n": 100,
-          "difference": 0.0242,
+          "difference": 0.0244,
           "ci95": [
             0.0009,
-            0.0562
+            0.0563
           ],
           "median_difference": 0.0,
-          "better": 47,
-          "worse": 45,
+          "better": 46,
+          "worse": 46,
           "ties": 8,
-          "sign_test_p": 0.917,
+          "sign_test_p": 1.0,
           "ci_unreliable": false
         },
         {
@@ -4072,15 +4239,15 @@
           "strategy": 0.0028,
           "baseline": 0.0035,
           "n": 97,
-          "difference": -0.0007,
+          "difference": -0.0006,
           "ci95": [
-            -0.004,
+            -0.0039,
             0.0021
           ],
           "median_difference": 0.0,
-          "better": 12,
-          "worse": 13,
-          "ties": 72,
+          "better": 11,
+          "worse": 12,
+          "ties": 74,
           "sign_test_p": 1.0,
           "ci_unreliable": false
         },
@@ -4089,19 +4256,19 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.5097,
-          "baseline": 0.5133,
+          "strategy": 0.4839,
+          "baseline": 0.4855,
           "n": 100,
-          "difference": -0.0036,
+          "difference": -0.0017,
           "ci95": [
-            -0.0319,
-            0.0271
+            -0.0303,
+            0.0297
           ],
           "median_difference": 0.0,
-          "better": 46,
-          "worse": 46,
-          "ties": 8,
-          "sign_test_p": 1.0,
+          "better": 36,
+          "worse": 48,
+          "ties": 16,
+          "sign_test_p": 0.2299,
           "ci_unreliable": false
         },
         {
@@ -4109,19 +4276,19 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0066,
-          "baseline": 0.0054,
+          "strategy": 0.0044,
+          "baseline": 0.0041,
           "n": 97,
-          "difference": 0.0011,
+          "difference": 0.0003,
           "ci95": [
-            -0.0017,
-            0.0051
+            -0.0014,
+            0.0024
           ],
           "median_difference": 0.0,
-          "better": 13,
-          "worse": 12,
-          "ties": 72,
-          "sign_test_p": 1.0,
+          "better": 9,
+          "worse": 6,
+          "ties": 82,
+          "sign_test_p": 0.6072,
           "ci_unreliable": false
         },
         {
@@ -4134,8 +4301,8 @@
           "n": 100,
           "difference": -0.0082,
           "ci95": [
-            -0.0279,
-            0.0129
+            -0.0284,
+            0.0124
           ],
           "median_difference": 0.0,
           "better": 36,
@@ -4155,7 +4322,7 @@
           "difference": -0.005,
           "ci95": [
             -0.0243,
-            0.0179
+            0.0174
           ],
           "median_difference": 0.0,
           "better": 38,
@@ -4169,19 +4336,19 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "primary": false,
-          "strategy": 0.6562,
+          "strategy": 0.6582,
           "baseline": 0.6561,
           "n": 100,
-          "difference": 0.0001,
+          "difference": 0.0021,
           "ci95": [
-            -0.042,
-            0.0462
+            -0.0411,
+            0.0485
           ],
           "median_difference": 0.0,
-          "better": 6,
+          "better": 7,
           "worse": 10,
-          "ties": 84,
-          "sign_test_p": 0.4545,
+          "ties": 83,
+          "sign_test_p": 0.6291,
           "ci_unreliable": false
         },
         {
@@ -4237,7 +4404,7 @@
           "difference": 0.0033,
           "ci95": [
             -0.0037,
-            0.01
+            0.0098
           ],
           "median_difference": 0.007,
           "better": 56,
@@ -4256,7 +4423,7 @@
           "n": 97,
           "difference": -0.0018,
           "ci95": [
-            -0.0053,
+            -0.0052,
             0.0009
           ],
           "median_difference": 0.0,
@@ -4271,19 +4438,19 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.5172,
-          "baseline": 0.5133,
+          "strategy": 0.4895,
+          "baseline": 0.4855,
           "n": 100,
-          "difference": 0.004,
+          "difference": 0.0039,
           "ci95": [
-            -0.012,
-            0.0282
+            -0.0104,
+            0.027
           ],
           "median_difference": 0.0,
-          "better": 46,
-          "worse": 48,
-          "ties": 6,
-          "sign_test_p": 0.9179,
+          "better": 34,
+          "worse": 43,
+          "ties": 23,
+          "sign_test_p": 0.362,
           "ci_unreliable": false
         },
         {
@@ -4291,18 +4458,18 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0057,
-          "baseline": 0.0054,
+          "strategy": 0.0044,
+          "baseline": 0.0041,
           "n": 97,
           "difference": 0.0003,
           "ci95": [
-            -0.001,
-            0.0019
+            -0.0008,
+            0.0015
           ],
           "median_difference": 0.0,
-          "better": 11,
-          "worse": 11,
-          "ties": 75,
+          "better": 4,
+          "worse": 5,
+          "ties": 88,
           "sign_test_p": 1.0,
           "ci_unreliable": false
         },
@@ -4316,8 +4483,8 @@
           "n": 100,
           "difference": 0.0018,
           "ci95": [
-            -0.0122,
-            0.0173
+            -0.0118,
+            0.0175
           ],
           "median_difference": 0.0,
           "better": 40,
@@ -4336,8 +4503,8 @@
           "n": 100,
           "difference": 0.0069,
           "ci95": [
-            -0.0076,
-            0.026
+            -0.008,
+            0.0255
           ],
           "median_difference": 0.0,
           "better": 44,
@@ -4356,8 +4523,8 @@
           "n": 100,
           "difference": 0.0047,
           "ci95": [
-            -0.0166,
-            0.0318
+            -0.0167,
+            0.0308
           ],
           "median_difference": 0.0,
           "better": 4,
@@ -4418,8 +4585,8 @@
           "n": 100,
           "difference": -0.4178,
           "ci95": [
-            -0.4758,
-            -0.3564
+            -0.4759,
+            -0.3584
           ],
           "median_difference": -0.445,
           "better": 4,
@@ -4438,7 +4605,7 @@
           "n": 97,
           "difference": 0.2194,
           "ci95": [
-            0.1816,
+            0.1804,
             0.2606
           ],
           "median_difference": 0.172,
@@ -4453,18 +4620,18 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.2008,
-          "baseline": 0.5133,
+          "strategy": 0.1485,
+          "baseline": 0.4855,
           "n": 100,
-          "difference": -0.3125,
+          "difference": -0.337,
           "ci95": [
-            -0.3598,
-            -0.265
+            -0.3898,
+            -0.2844
           ],
-          "median_difference": -0.32,
-          "better": 10,
-          "worse": 90,
-          "ties": 0,
+          "median_difference": -0.344,
+          "better": 9,
+          "worse": 89,
+          "ties": 2,
           "sign_test_p": 0.0,
           "ci_unreliable": false
         },
@@ -4473,19 +4640,19 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0079,
-          "baseline": 0.0054,
+          "strategy": 0.0047,
+          "baseline": 0.0041,
           "n": 97,
-          "difference": 0.0025,
+          "difference": 0.0006,
           "ci95": [
-            -0.0018,
-            0.0076
+            -0.0026,
+            0.0041
           ],
           "median_difference": 0.0,
-          "better": 18,
-          "worse": 17,
-          "ties": 62,
-          "sign_test_p": 1.0,
+          "better": 19,
+          "worse": 14,
+          "ties": 64,
+          "sign_test_p": 0.4869,
           "ci_unreliable": false
         },
         {
@@ -4498,8 +4665,8 @@
           "n": 100,
           "difference": -0.052,
           "ci95": [
-            -0.09,
-            -0.0143
+            -0.0896,
+            -0.0153
           ],
           "median_difference": -0.027,
           "better": 44,
@@ -4518,8 +4685,8 @@
           "n": 100,
           "difference": -0.0791,
           "ci95": [
-            -0.1234,
-            -0.0343
+            -0.1236,
+            -0.0352
           ],
           "median_difference": -0.05,
           "better": 40,
@@ -4538,8 +4705,8 @@
           "n": 100,
           "difference": -0.5048,
           "ci95": [
-            -0.5889,
-            -0.4198
+            -0.587,
+            -0.419
           ],
           "median_difference": -0.5,
           "better": 3,
@@ -4558,7 +4725,7 @@
           "n": 100,
           "difference": -0.1167,
           "ci95": [
-            -0.1933,
+            -0.1967,
             -0.0433
           ],
           "median_difference": 0.0,
@@ -4600,8 +4767,8 @@
           "n": 98,
           "difference": 0.0025,
           "ci95": [
-            -0.025,
-            0.0383
+            -0.0256,
+            0.0377
           ],
           "median_difference": -0.012,
           "better": 38,
@@ -4621,7 +4788,7 @@
           "difference": 0.0028,
           "ci95": [
             -0.0022,
-            0.0083
+            0.0082
           ],
           "median_difference": 0.0,
           "better": 11,
@@ -4635,18 +4802,18 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.179,
-          "baseline": 0.5133,
+          "strategy": 0.1425,
+          "baseline": 0.4855,
           "n": 100,
-          "difference": -0.3342,
+          "difference": -0.3431,
           "ci95": [
-            -0.3786,
-            -0.2896
+            -0.3912,
+            -0.2968
           ],
-          "median_difference": -0.3125,
-          "better": 5,
-          "worse": 94,
-          "ties": 1,
+          "median_difference": -0.329,
+          "better": 4,
+          "worse": 93,
+          "ties": 3,
           "sign_test_p": 0.0,
           "ci_unreliable": false
         },
@@ -4655,19 +4822,19 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0048,
-          "baseline": 0.0054,
+          "strategy": 0.0033,
+          "baseline": 0.0041,
           "n": 97,
-          "difference": -0.0007,
+          "difference": -0.0008,
           "ci95": [
-            -0.0034,
-            0.0021
+            -0.0029,
+            0.0013
           ],
           "median_difference": 0.0,
           "better": 18,
-          "worse": 11,
-          "ties": 68,
-          "sign_test_p": 0.2649,
+          "worse": 8,
+          "ties": 71,
+          "sign_test_p": 0.0755,
           "ci_unreliable": false
         },
         {
@@ -4680,8 +4847,8 @@
           "n": 100,
           "difference": -0.1064,
           "ci95": [
-            -0.1402,
-            -0.0735
+            -0.1412,
+            -0.0731
           ],
           "median_difference": -0.0855,
           "better": 27,
@@ -4700,8 +4867,8 @@
           "n": 100,
           "difference": -0.1527,
           "ci95": [
-            -0.1948,
-            -0.1114
+            -0.1952,
+            -0.111
           ],
           "median_difference": -0.1155,
           "better": 23,
@@ -4720,8 +4887,8 @@
           "n": 100,
           "difference": -0.5431,
           "ci95": [
-            -0.6207,
-            -0.4653
+            -0.6189,
+            -0.4645
           ],
           "median_difference": -0.6,
           "better": 0,
@@ -4741,7 +4908,7 @@
           "difference": -0.1267,
           "ci95": [
             -0.2033,
-            -0.0533
+            -0.0566
           ],
           "median_difference": 0.0,
           "better": 2,
@@ -4777,19 +4944,19 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "primary": false,
-          "strategy": 0.9455,
+          "strategy": 0.9452,
           "baseline": 0.9419,
           "n": 99,
-          "difference": 0.0036,
+          "difference": 0.0033,
           "ci95": [
-            -0.0218,
-            0.0365
+            -0.0221,
+            0.0368
           ],
-          "median_difference": -0.008,
-          "better": 37,
-          "worse": 59,
+          "median_difference": -0.01,
+          "better": 36,
+          "worse": 60,
           "ties": 3,
-          "sign_test_p": 0.0315,
+          "sign_test_p": 0.0184,
           "ci_unreliable": false
         },
         {
@@ -4797,19 +4964,19 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0075,
+          "strategy": 0.007,
           "baseline": 0.0035,
           "n": 97,
-          "difference": 0.0041,
+          "difference": 0.0035,
           "ci95": [
-            -0.0023,
-            0.0132
+            -0.0027,
+            0.0123
           ],
           "median_difference": 0.0,
-          "better": 11,
-          "worse": 20,
-          "ties": 66,
-          "sign_test_p": 0.1496,
+          "better": 13,
+          "worse": 19,
+          "ties": 65,
+          "sign_test_p": 0.3771,
           "ci_unreliable": false
         },
         {
@@ -4817,19 +4984,19 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.4903,
-          "baseline": 0.5133,
+          "strategy": 0.4714,
+          "baseline": 0.4855,
           "n": 100,
-          "difference": -0.023,
+          "difference": -0.0142,
           "ci95": [
-            -0.0505,
-            0.0057
+            -0.0409,
+            0.0136
           ],
-          "median_difference": -0.0235,
-          "better": 31,
-          "worse": 65,
-          "ties": 4,
-          "sign_test_p": 0.0007,
+          "median_difference": -0.007,
+          "better": 34,
+          "worse": 51,
+          "ties": 15,
+          "sign_test_p": 0.0821,
           "ci_unreliable": false
         },
         {
@@ -4837,18 +5004,18 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0062,
-          "baseline": 0.0054,
+          "strategy": 0.0046,
+          "baseline": 0.0041,
           "n": 97,
-          "difference": 0.0007,
+          "difference": 0.0005,
           "ci95": [
-            -0.0023,
-            0.0052
+            -0.0013,
+            0.0026
           ],
           "median_difference": 0.0,
-          "better": 12,
-          "worse": 12,
-          "ties": 73,
+          "better": 7,
+          "worse": 8,
+          "ties": 82,
           "sign_test_p": 1.0,
           "ci_unreliable": false
         },
@@ -4862,8 +5029,8 @@
           "n": 100,
           "difference": -0.013,
           "ci95": [
-            -0.0352,
-            0.0102
+            -0.0345,
+            0.0095
           ],
           "median_difference": 0.0,
           "better": 42,
@@ -4883,7 +5050,7 @@
           "difference": -0.0168,
           "ci95": [
             -0.0414,
-            0.0102
+            0.0099
           ],
           "median_difference": -0.0065,
           "better": 36,
@@ -4897,19 +5064,19 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "primary": false,
-          "strategy": 0.6353,
+          "strategy": 0.6389,
           "baseline": 0.6561,
           "n": 100,
-          "difference": -0.0208,
+          "difference": -0.0172,
           "ci95": [
-            -0.0634,
-            0.023
+            -0.0604,
+            0.0267
           ],
           "median_difference": 0.0,
-          "better": 6,
-          "worse": 15,
-          "ties": 79,
-          "sign_test_p": 0.0784,
+          "better": 8,
+          "worse": 14,
+          "ties": 78,
+          "sign_test_p": 0.2863,
           "ci_unreliable": false
         },
         {
@@ -4923,7 +5090,7 @@
           "difference": -0.0233,
           "ci95": [
             -0.08,
-            0.0267
+            0.03
           ],
           "median_difference": 0.0,
           "better": 3,
@@ -4958,40 +5125,40 @@
   "pooled": {
     "kg": {
       "claims": {
-        "supported": 10232,
-        "partially_supported": 324,
+        "supported": 10227,
+        "partially_supported": 325,
         "unsupported": 0,
         "contradicted": 0,
-        "n": 10556,
-        "supported_rate": 0.9693,
+        "n": 10552,
+        "supported_rate": 0.9692,
         "error_rate": 0.0
       },
       "claims_before_repair": {
-        "n_claims": 10534,
-        "supported": 10178,
-        "partially_supported": 328,
-        "unsupported": 16,
-        "contradicted": 12,
-        "unsupported_rate": 0.0015,
-        "contradicted_rate": 0.0011
+        "n_claims": 10526,
+        "supported": 10173,
+        "partially_supported": 325,
+        "unsupported": 20,
+        "contradicted": 8,
+        "unsupported_rate": 0.0019,
+        "contradicted_rate": 0.0008
       },
       "gold_facts": {
-        "n_facts": 5333,
-        "present": 2252,
-        "partial": 873,
-        "absent": 2177,
-        "contradicted": 31,
-        "coverage": 0.5041,
-        "contradiction_rate": 0.0058
+        "n_facts": 6239,
+        "present": 2562,
+        "partial": 811,
+        "absent": 2840,
+        "contradicted": 26,
+        "coverage": 0.4756,
+        "contradiction_rate": 0.0042
       },
       "variants": {
-        "generated": 360,
+        "generated": 365,
         "matched": 253,
         "matched_scoped": 253,
-        "generated_scoped": 360,
-        "not_in_omim": 106,
+        "generated_scoped": 365,
+        "not_in_omim": 111,
         "in_omim_via_other_paper": 1,
-        "precision": 0.7028
+        "precision": 0.6932
       },
       "inheritance": {
         "scored": 93,
@@ -5027,13 +5194,13 @@
         "contradicted_rate": 0.0
       },
       "gold_facts": {
-        "n_facts": 5324,
-        "present": 2296,
-        "partial": 902,
-        "absent": 2093,
-        "contradicted": 33,
-        "coverage": 0.516,
-        "contradiction_rate": 0.0062
+        "n_facts": 6239,
+        "present": 2620,
+        "partial": 820,
+        "absent": 2771,
+        "contradicted": 28,
+        "coverage": 0.4857,
+        "contradiction_rate": 0.0045
       },
       "variants": {
         "generated": 295,
@@ -5078,13 +5245,13 @@
         "contradicted_rate": 0.0002
       },
       "gold_facts": {
-        "n_facts": 5363,
-        "present": 2302,
-        "partial": 879,
-        "absent": 2150,
-        "contradicted": 32,
-        "coverage": 0.5112,
-        "contradiction_rate": 0.006
+        "n_facts": 6239,
+        "present": 2593,
+        "partial": 796,
+        "absent": 2820,
+        "contradicted": 30,
+        "coverage": 0.4794,
+        "contradiction_rate": 0.0048
       },
       "variants": {
         "generated": 300,
@@ -5129,13 +5296,13 @@
         "contradicted_rate": 0.0069
       },
       "gold_facts": {
-        "n_facts": 5272,
-        "present": 540,
-        "partial": 895,
-        "absent": 3801,
-        "contradicted": 36,
-        "coverage": 0.1873,
-        "contradiction_rate": 0.0068
+        "n_facts": 6239,
+        "present": 502,
+        "partial": 578,
+        "absent": 5133,
+        "contradicted": 26,
+        "coverage": 0.1268,
+        "contradiction_rate": 0.0042
       },
       "variants": {
         "generated": 40,
@@ -5180,13 +5347,13 @@
         "contradicted_rate": 0.0016
       },
       "gold_facts": {
-        "n_facts": 5256,
-        "present": 529,
-        "partial": 652,
-        "absent": 4053,
-        "contradicted": 22,
-        "coverage": 0.1627,
-        "contradiction_rate": 0.0042
+        "n_facts": 6239,
+        "present": 502,
+        "partial": 553,
+        "absent": 5167,
+        "contradicted": 17,
+        "coverage": 0.1248,
+        "contradiction_rate": 0.0027
       },
       "variants": {
         "generated": 28,
@@ -5213,40 +5380,40 @@
     },
     "cohort": {
       "claims": {
-        "supported": 10510,
-        "partially_supported": 454,
+        "supported": 10497,
+        "partially_supported": 472,
         "unsupported": 0,
         "contradicted": 0,
-        "n": 10964,
-        "supported_rate": 0.9586,
+        "n": 10969,
+        "supported_rate": 0.957,
         "error_rate": 0.0
       },
       "claims_before_repair": {
-        "n_claims": 10922,
-        "supported": 10451,
-        "partially_supported": 443,
-        "unsupported": 24,
+        "n_claims": 10945,
+        "supported": 10454,
+        "partially_supported": 466,
+        "unsupported": 21,
         "contradicted": 4,
-        "unsupported_rate": 0.0022,
+        "unsupported_rate": 0.0019,
         "contradicted_rate": 0.0004
       },
       "gold_facts": {
-        "n_facts": 5346,
-        "present": 2151,
-        "partial": 857,
-        "absent": 2306,
+        "n_facts": 6239,
+        "present": 2490,
+        "partial": 769,
+        "absent": 2948,
         "contradicted": 32,
-        "coverage": 0.4825,
-        "contradiction_rate": 0.006
+        "coverage": 0.4607,
+        "contradiction_rate": 0.0051
       },
       "variants": {
-        "generated": 384,
-        "matched": 247,
-        "matched_scoped": 247,
-        "generated_scoped": 384,
-        "not_in_omim": 136,
+        "generated": 381,
+        "matched": 250,
+        "matched_scoped": 250,
+        "generated_scoped": 381,
+        "not_in_omim": 130,
         "in_omim_via_other_paper": 1,
-        "precision": 0.6432
+        "precision": 0.6562
       },
       "inheritance": {
         "scored": 93,
@@ -5266,335 +5433,335 @@
   "by_content_level": {
     "abstract": {
       "kg": {
-        "n_facts": 3615,
-        "present": 1198,
-        "partial": 653,
-        "contradicted": 22,
-        "coverage": 0.4217,
-        "contradiction_rate": 0.0061
+        "n_facts": 4221,
+        "present": 1320,
+        "partial": 578,
+        "contradicted": 18,
+        "coverage": 0.3812,
+        "contradiction_rate": 0.0043
       },
       "direct": {
-        "n_facts": 3603,
-        "present": 1247,
-        "partial": 673,
-        "contradicted": 28,
-        "coverage": 0.4395,
-        "contradiction_rate": 0.0078
+        "n_facts": 4221,
+        "present": 1404,
+        "partial": 574,
+        "contradicted": 24,
+        "coverage": 0.4006,
+        "contradiction_rate": 0.0057
       },
       "agent": {
-        "n_facts": 3619,
-        "present": 1258,
-        "partial": 644,
-        "contradicted": 23,
-        "coverage": 0.4366,
-        "contradiction_rate": 0.0064
+        "n_facts": 4221,
+        "present": 1397,
+        "partial": 546,
+        "contradicted": 22,
+        "coverage": 0.3956,
+        "contradiction_rate": 0.0052
       },
       "closedbook": {
-        "n_facts": 3565,
-        "present": 387,
-        "partial": 594,
-        "contradicted": 26,
-        "coverage": 0.1919,
-        "contradiction_rate": 0.0073
+        "n_facts": 4221,
+        "present": 371,
+        "partial": 378,
+        "contradicted": 18,
+        "coverage": 0.1327,
+        "contradiction_rate": 0.0043
       },
       "recall": {
-        "n_facts": 3568,
-        "present": 367,
-        "partial": 485,
-        "contradicted": 18,
-        "coverage": 0.1708,
-        "contradiction_rate": 0.005
+        "n_facts": 4221,
+        "present": 359,
+        "partial": 372,
+        "contradicted": 14,
+        "coverage": 0.1291,
+        "contradiction_rate": 0.0033
       },
       "cohort": {
-        "n_facts": 3627,
-        "present": 1198,
-        "partial": 636,
+        "n_facts": 4221,
+        "present": 1355,
+        "partial": 557,
         "contradicted": 23,
-        "coverage": 0.418,
-        "contradiction_rate": 0.0063
+        "coverage": 0.387,
+        "contradiction_rate": 0.0054
       }
     },
     "title": {
       "kg": {
-        "n_facts": 344,
-        "present": 47,
-        "partial": 62,
-        "contradicted": 1,
-        "coverage": 0.2267,
-        "contradiction_rate": 0.0029
+        "n_facts": 379,
+        "present": 41,
+        "partial": 51,
+        "contradicted": 0,
+        "coverage": 0.1755,
+        "contradiction_rate": 0.0
       },
       "direct": {
-        "n_facts": 344,
-        "present": 50,
-        "partial": 59,
+        "n_facts": 379,
+        "present": 38,
+        "partial": 57,
         "contradicted": 0,
-        "coverage": 0.2311,
+        "coverage": 0.1755,
         "contradiction_rate": 0.0
       },
       "agent": {
-        "n_facts": 343,
-        "present": 46,
-        "partial": 59,
-        "contradicted": 1,
-        "coverage": 0.2201,
-        "contradiction_rate": 0.0029
+        "n_facts": 379,
+        "present": 40,
+        "partial": 48,
+        "contradicted": 0,
+        "coverage": 0.1689,
+        "contradiction_rate": 0.0
       },
       "closedbook": {
-        "n_facts": 334,
-        "present": 33,
-        "partial": 63,
+        "n_facts": 379,
+        "present": 23,
+        "partial": 38,
         "contradicted": 3,
-        "coverage": 0.1931,
-        "contradiction_rate": 0.009
+        "coverage": 0.1108,
+        "contradiction_rate": 0.0079
       },
       "recall": {
-        "n_facts": 337,
+        "n_facts": 379,
         "present": 10,
-        "partial": 13,
-        "contradicted": 2,
-        "coverage": 0.049,
-        "contradiction_rate": 0.0059
+        "partial": 10,
+        "contradicted": 1,
+        "coverage": 0.0396,
+        "contradiction_rate": 0.0026
       },
       "cohort": {
-        "n_facts": 339,
-        "present": 41,
-        "partial": 68,
+        "n_facts": 379,
+        "present": 37,
+        "partial": 57,
         "contradicted": 0,
-        "coverage": 0.2212,
+        "coverage": 0.1728,
         "contradiction_rate": 0.0
       }
     },
     "fulltext": {
       "kg": {
-        "n_facts": 1374,
-        "present": 1007,
-        "partial": 158,
+        "n_facts": 1639,
+        "present": 1201,
+        "partial": 182,
         "contradicted": 8,
-        "coverage": 0.7904,
-        "contradiction_rate": 0.0058
+        "coverage": 0.7883,
+        "contradiction_rate": 0.0049
       },
       "direct": {
-        "n_facts": 1377,
-        "present": 999,
-        "partial": 170,
-        "contradicted": 5,
-        "coverage": 0.7872,
-        "contradiction_rate": 0.0036
+        "n_facts": 1639,
+        "present": 1178,
+        "partial": 189,
+        "contradicted": 4,
+        "coverage": 0.7764,
+        "contradiction_rate": 0.0024
       },
       "agent": {
-        "n_facts": 1401,
-        "present": 998,
-        "partial": 176,
+        "n_facts": 1639,
+        "present": 1156,
+        "partial": 202,
         "contradicted": 8,
-        "coverage": 0.7752,
-        "contradiction_rate": 0.0057
+        "coverage": 0.7669,
+        "contradiction_rate": 0.0049
       },
       "closedbook": {
-        "n_facts": 1373,
-        "present": 120,
-        "partial": 238,
-        "contradicted": 7,
-        "coverage": 0.1741,
-        "contradiction_rate": 0.0051
+        "n_facts": 1639,
+        "present": 108,
+        "partial": 162,
+        "contradicted": 5,
+        "coverage": 0.1153,
+        "contradiction_rate": 0.0031
       },
       "recall": {
-        "n_facts": 1351,
-        "present": 152,
-        "partial": 154,
+        "n_facts": 1639,
+        "present": 133,
+        "partial": 171,
         "contradicted": 2,
-        "coverage": 0.1695,
-        "contradiction_rate": 0.0015
+        "coverage": 0.1333,
+        "contradiction_rate": 0.0012
       },
       "cohort": {
-        "n_facts": 1380,
-        "present": 912,
-        "partial": 153,
+        "n_facts": 1639,
+        "present": 1098,
+        "partial": 155,
         "contradicted": 9,
-        "coverage": 0.7163,
-        "contradiction_rate": 0.0065
+        "coverage": 0.7172,
+        "contradiction_rate": 0.0055
       }
     }
   },
   "by_content_level_vs_baseline": {
     "fulltext": {
       "direct": {
-        "coverage": 0.7872,
-        "n_facts": 1377
+        "coverage": 0.7764,
+        "n_facts": 1639
       },
       "kg": {
-        "coverage": 0.7904,
-        "n_facts": 1374,
+        "coverage": 0.7883,
+        "n_facts": 1639,
         "n_entries": 40,
-        "difference": 0.0032,
+        "difference": 0.0119,
         "ci95": [
-          -0.0222,
-          0.0249
+          -0.0173,
+          0.0384
         ],
         "ci_unreliable": false
       },
       "agent": {
-        "coverage": 0.7752,
-        "n_facts": 1401,
+        "coverage": 0.7669,
+        "n_facts": 1639,
         "n_entries": 40,
-        "difference": -0.0121,
+        "difference": -0.0095,
         "ci95": [
-          -0.0284,
-          0.0036
+          -0.0256,
+          0.0046
         ],
         "ci_unreliable": false
       },
       "closedbook": {
-        "coverage": 0.1741,
-        "n_facts": 1373,
+        "coverage": 0.1153,
+        "n_facts": 1639,
         "n_entries": 40,
-        "difference": -0.6131,
+        "difference": -0.6611,
         "ci95": [
-          -0.6826,
-          -0.5455
+          -0.7355,
+          -0.5836
         ],
         "ci_unreliable": false
       },
       "recall": {
-        "coverage": 0.1695,
-        "n_facts": 1351,
+        "coverage": 0.1333,
+        "n_facts": 1639,
         "n_entries": 40,
-        "difference": -0.6177,
+        "difference": -0.6431,
         "ci95": [
-          -0.6949,
-          -0.5409
+          -0.7226,
+          -0.5659
         ],
         "ci_unreliable": false
       },
       "cohort": {
-        "coverage": 0.7163,
-        "n_facts": 1380,
+        "coverage": 0.7172,
+        "n_facts": 1639,
         "n_entries": 40,
-        "difference": -0.0709,
+        "difference": -0.0592,
         "ci95": [
-          -0.1,
-          -0.0427
+          -0.0896,
+          -0.0291
         ],
         "ci_unreliable": false
       }
     },
     "abstract": {
       "direct": {
-        "coverage": 0.4395,
-        "n_facts": 3603
+        "coverage": 0.4006,
+        "n_facts": 4221
       },
       "kg": {
-        "coverage": 0.4217,
-        "n_facts": 3615,
+        "coverage": 0.3812,
+        "n_facts": 4221,
         "n_entries": 85,
-        "difference": -0.0178,
+        "difference": -0.0194,
         "ci95": [
-          -0.0328,
-          -0.004
+          -0.0356,
+          -0.0059
         ],
         "ci_unreliable": false
       },
       "agent": {
-        "coverage": 0.4366,
-        "n_facts": 3619,
+        "coverage": 0.3956,
+        "n_facts": 4221,
         "n_entries": 85,
-        "difference": -0.0029,
+        "difference": -0.005,
         "ci95": [
-          -0.0108,
-          0.0047
+          -0.0119,
+          0.0013
         ],
         "ci_unreliable": false
       },
       "closedbook": {
-        "coverage": 0.1919,
-        "n_facts": 3565,
+        "coverage": 0.1327,
+        "n_facts": 4221,
         "n_entries": 85,
-        "difference": -0.2476,
+        "difference": -0.2679,
         "ci95": [
-          -0.2855,
-          -0.2076
+          -0.31,
+          -0.2241
         ],
         "ci_unreliable": false
       },
       "recall": {
-        "coverage": 0.1708,
-        "n_facts": 3568,
+        "coverage": 0.1291,
+        "n_facts": 4221,
         "n_entries": 85,
-        "difference": -0.2687,
+        "difference": -0.2715,
         "ci95": [
-          -0.3037,
-          -0.2343
+          -0.311,
+          -0.2311
         ],
         "ci_unreliable": false
       },
       "cohort": {
-        "coverage": 0.418,
-        "n_facts": 3627,
+        "coverage": 0.387,
+        "n_facts": 4221,
         "n_entries": 85,
-        "difference": -0.0215,
+        "difference": -0.0136,
         "ci95": [
-          -0.034,
-          -0.0084
+          -0.0275,
+          -0.0017
         ],
         "ci_unreliable": false
       }
     },
     "title": {
       "direct": {
-        "coverage": 0.2311,
-        "n_facts": 344
+        "coverage": 0.1755,
+        "n_facts": 379
       },
       "kg": {
-        "coverage": 0.2267,
-        "n_facts": 344,
+        "coverage": 0.1755,
+        "n_facts": 379,
         "n_entries": 21,
-        "difference": -0.0044,
+        "difference": 0.0,
         "ci95": [
-          -0.03,
-          0.0153
+          -0.0211,
+          0.0204
         ],
         "ci_unreliable": false
       },
       "agent": {
-        "coverage": 0.2201,
-        "n_facts": 343,
+        "coverage": 0.1689,
+        "n_facts": 379,
         "n_entries": 21,
-        "difference": -0.011,
+        "difference": -0.0066,
         "ci95": [
-          -0.0325,
-          0.0101
+          -0.0173,
+          0.0028
         ],
         "ci_unreliable": false
       },
       "closedbook": {
-        "coverage": 0.1931,
-        "n_facts": 334,
+        "coverage": 0.1108,
+        "n_facts": 379,
         "n_entries": 21,
-        "difference": -0.038,
+        "difference": -0.0646,
         "ci95": [
-          -0.1069,
-          0.0417
+          -0.1354,
+          0.0145
         ],
         "ci_unreliable": false
       },
       "recall": {
-        "coverage": 0.049,
-        "n_facts": 337,
+        "coverage": 0.0396,
+        "n_facts": 379,
         "n_entries": 21,
-        "difference": -0.1821,
+        "difference": -0.1359,
         "ci95": [
-          -0.2243,
-          -0.1338
+          -0.178,
+          -0.0947
         ],
         "ci_unreliable": false
       },
       "cohort": {
-        "coverage": 0.2212,
-        "n_facts": 339,
+        "coverage": 0.1728,
+        "n_facts": 379,
         "n_entries": 21,
-        "difference": -0.0099,
+        "difference": -0.0026,
         "ci95": [
-          -0.0376,
-          0.0141
+          -0.0162,
+          0.0113
         ],
         "ci_unreliable": false
       }
@@ -5609,12 +5776,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9561,
+            "kg": 0.9562,
             "direct": 0.9599,
             "agent": 0.9621,
             "closedbook": 0.5242,
             "recall": 0.9321,
-            "cohort": 0.9242
+            "cohort": 0.9225
           },
           "n": {
             "kg": 19,
@@ -5635,7 +5802,7 @@
             "agent": 0.0005,
             "closedbook": 0.1993,
             "recall": 0.0037,
-            "cohort": 0.0042
+            "cohort": 0.0039
           },
           "n": {
             "kg": 19,
@@ -5651,12 +5818,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5614,
-            "direct": 0.5572,
-            "agent": 0.5541,
-            "closedbook": 0.2914,
-            "recall": 0.248,
-            "cohort": 0.5277
+            "kg": 0.5376,
+            "direct": 0.5393,
+            "agent": 0.5318,
+            "closedbook": 0.2406,
+            "recall": 0.2136,
+            "cohort": 0.5184
           },
           "n": {
             "kg": 19,
@@ -5672,12 +5839,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0044,
-            "direct": 0.0034,
-            "agent": 0.0034,
-            "closedbook": 0.0088,
-            "recall": 0.0039,
-            "cohort": 0.0027
+            "kg": 0.0037,
+            "direct": 0.0038,
+            "agent": 0.0032,
+            "closedbook": 0.0029,
+            "recall": 0.0028,
+            "cohort": 0.0046
           },
           "n": {
             "kg": 19,
@@ -5803,12 +5970,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.97,
+            "kg": 0.9707,
             "direct": 0.956,
             "agent": 0.9601,
             "closedbook": 0.535,
             "recall": 0.946,
-            "cohort": 0.9435
+            "cohort": 0.9403
           },
           "n": {
             "kg": 20,
@@ -5824,12 +5991,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0027,
+            "kg": 0.0025,
             "direct": 0.002,
             "agent": 0.0016,
             "closedbook": 0.2187,
             "recall": 0.0095,
-            "cohort": 0.0069
+            "cohort": 0.0072
           },
           "n": {
             "kg": 20,
@@ -5845,12 +6012,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.521,
-            "direct": 0.5344,
-            "agent": 0.5347,
-            "closedbook": 0.2325,
-            "recall": 0.1879,
-            "cohort": 0.5119
+            "kg": 0.503,
+            "direct": 0.5119,
+            "agent": 0.505,
+            "closedbook": 0.1754,
+            "recall": 0.1494,
+            "cohort": 0.495
           },
           "n": {
             "kg": 20,
@@ -5866,12 +6033,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0125,
-            "direct": 0.0058,
-            "agent": 0.008,
-            "closedbook": 0.0052,
-            "recall": 0.0044,
-            "cohort": 0.0128
+            "kg": 0.0074,
+            "direct": 0.0055,
+            "agent": 0.0066,
+            "closedbook": 0.0034,
+            "recall": 0.0032,
+            "cohort": 0.0074
           },
           "n": {
             "kg": 20,
@@ -5934,7 +6101,7 @@
             "agent": 0.7339,
             "closedbook": 0.1854,
             "recall": 0.1308,
-            "cohort": 0.7035
+            "cohort": 0.7143
           },
           "n": {
             "kg": 20,
@@ -5997,12 +6164,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9707,
+            "kg": 0.9744,
             "direct": 0.9675,
             "agent": 0.9698,
             "closedbook": 0.5899,
             "recall": 0.9468,
-            "cohort": 0.9547
+            "cohort": 0.9601
           },
           "n": {
             "kg": 19,
@@ -6018,12 +6185,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0036,
+            "kg": 0.0032,
             "direct": 0.0009,
             "agent": 0.0,
             "closedbook": 0.1713,
             "recall": 0.0,
-            "cohort": 0.0043
+            "cohort": 0.0019
           },
           "n": {
             "kg": 19,
@@ -6039,12 +6206,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5362,
-            "direct": 0.5395,
-            "agent": 0.5337,
-            "closedbook": 0.1789,
-            "recall": 0.1938,
-            "cohort": 0.5142
+            "kg": 0.5172,
+            "direct": 0.5145,
+            "agent": 0.5058,
+            "closedbook": 0.1256,
+            "recall": 0.153,
+            "cohort": 0.4925
           },
           "n": {
             "kg": 19,
@@ -6060,12 +6227,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0074,
-            "direct": 0.0083,
-            "agent": 0.0078,
-            "closedbook": 0.0216,
-            "recall": 0.0058,
-            "cohort": 0.0091
+            "kg": 0.0032,
+            "direct": 0.0032,
+            "agent": 0.0053,
+            "closedbook": 0.0151,
+            "recall": 0.0021,
+            "cohort": 0.0038
           },
           "n": {
             "kg": 19,
@@ -6191,12 +6358,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.963,
+            "kg": 0.9596,
             "direct": 0.9692,
             "agent": 0.9789,
             "closedbook": 0.4781,
             "recall": 0.9453,
-            "cohort": 0.9658
+            "cohort": 0.9624
           },
           "n": {
             "kg": 17,
@@ -6212,12 +6379,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0011,
+            "kg": 0.0018,
             "direct": 0.0003,
             "agent": 0.001,
             "closedbook": 0.2765,
             "recall": 0.0,
-            "cohort": 0.0008
+            "cohort": 0.0003
           },
           "n": {
             "kg": 17,
@@ -6233,12 +6400,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5311,
-            "direct": 0.5549,
-            "agent": 0.547,
-            "closedbook": 0.1077,
-            "recall": 0.0794,
-            "cohort": 0.4988
+            "kg": 0.515,
+            "direct": 0.5352,
+            "agent": 0.5237,
+            "closedbook": 0.0571,
+            "recall": 0.0559,
+            "cohort": 0.4866
           },
           "n": {
             "kg": 17,
@@ -6254,12 +6421,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0046,
-            "direct": 0.0014,
-            "agent": 0.0014,
-            "closedbook": 0.0026,
-            "recall": 0.0024,
-            "cohort": 0.0006
+            "kg": 0.0028,
+            "direct": 0.0016,
+            "agent": 0.0016,
+            "closedbook": 0.0008,
+            "recall": 0.0039,
+            "cohort": 0.0034
           },
           "n": {
             "kg": 17,
@@ -6385,12 +6552,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9648,
+            "kg": 0.9641,
             "direct": 0.9528,
             "agent": 0.9508,
             "closedbook": 0.4038,
             "recall": 0.9418,
-            "cohort": 0.9495
+            "cohort": 0.9496
           },
           "n": {
             "kg": 18,
@@ -6427,12 +6594,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.4104,
-            "direct": 0.4148,
-            "agent": 0.3938,
-            "closedbook": 0.2003,
-            "recall": 0.1916,
-            "cohort": 0.4042
+            "kg": 0.3516,
+            "direct": 0.3486,
+            "agent": 0.3514,
+            "closedbook": 0.1453,
+            "recall": 0.1466,
+            "cohort": 0.3598
           },
           "n": {
             "kg": 18,
@@ -6448,12 +6615,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0031,
-            "direct": 0.0054,
-            "agent": 0.0054,
-            "closedbook": 0.0012,
-            "recall": 0.0061,
-            "cohort": 0.0052
+            "kg": 0.0026,
+            "direct": 0.0036,
+            "agent": 0.003,
+            "closedbook": 0.0011,
+            "recall": 0.0037,
+            "cohort": 0.0039
           },
           "n": {
             "kg": 18,
@@ -6516,7 +6683,7 @@
             "agent": 0.4131,
             "closedbook": 0.0714,
             "recall": 0.0556,
-            "cohort": 0.3947
+            "cohort": 0.4026
           },
           "n": {
             "kg": 18,
@@ -6581,12 +6748,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9592,
+            "kg": 0.9598,
             "direct": 0.95,
             "agent": 0.9481,
             "closedbook": 0.4245,
             "recall": 0.9333,
-            "cohort": 0.9367
+            "cohort": 0.9373
           },
           "n": {
             "kg": 46,
@@ -6602,7 +6769,7 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0038,
+            "kg": 0.0036,
             "direct": 0.0037,
             "agent": 0.0021,
             "closedbook": 0.2426,
@@ -6623,12 +6790,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.3946,
-            "direct": 0.4012,
-            "agent": 0.3932,
-            "closedbook": 0.2223,
-            "recall": 0.2092,
-            "cohort": 0.4
+            "kg": 0.3537,
+            "direct": 0.3554,
+            "agent": 0.3539,
+            "closedbook": 0.1748,
+            "recall": 0.1639,
+            "cohort": 0.3618
           },
           "n": {
             "kg": 46,
@@ -6644,12 +6811,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0043,
-            "direct": 0.0034,
-            "agent": 0.0039,
-            "closedbook": 0.0081,
-            "recall": 0.0055,
-            "cohort": 0.0039
+            "kg": 0.0022,
+            "direct": 0.0018,
+            "agent": 0.0024,
+            "closedbook": 0.0051,
+            "recall": 0.0036,
+            "cohort": 0.0021
           },
           "n": {
             "kg": 46,
@@ -6712,7 +6879,7 @@
             "agent": 0.4807,
             "closedbook": 0.1584,
             "recall": 0.0978,
-            "cohort": 0.4777
+            "cohort": 0.4804
           },
           "n": {
             "kg": 46,
@@ -6775,12 +6942,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9715,
+            "kg": 0.9732,
             "direct": 0.9648,
             "agent": 0.9761,
             "closedbook": 0.5187,
             "recall": 0.9475,
-            "cohort": 0.9528
+            "cohort": 0.9531
           },
           "n": {
             "kg": 25,
@@ -6796,12 +6963,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0006,
+            "kg": 0.0008,
             "direct": 0.0021,
             "agent": 0.001,
             "closedbook": 0.2484,
             "recall": 0.0091,
-            "cohort": 0.0052
+            "cohort": 0.0032
           },
           "n": {
             "kg": 25,
@@ -6817,12 +6984,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5568,
-            "direct": 0.5555,
-            "agent": 0.562,
-            "closedbook": 0.1866,
-            "recall": 0.1472,
-            "cohort": 0.5066
+            "kg": 0.5359,
+            "direct": 0.5424,
+            "agent": 0.5386,
+            "closedbook": 0.1251,
+            "recall": 0.1176,
+            "cohort": 0.5022
           },
           "n": {
             "kg": 25,
@@ -6838,12 +7005,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0068,
-            "direct": 0.0085,
-            "agent": 0.0069,
-            "closedbook": 0.0112,
-            "recall": 0.0054,
-            "cohort": 0.0063
+            "kg": 0.0046,
+            "direct": 0.0069,
+            "agent": 0.0052,
+            "closedbook": 0.0055,
+            "recall": 0.0029,
+            "cohort": 0.0072
           },
           "n": {
             "kg": 25,
@@ -6906,7 +7073,7 @@
             "agent": 0.7932,
             "closedbook": 0.1524,
             "recall": 0.1346,
-            "cohort": 0.7301
+            "cohort": 0.7394
           },
           "n": {
             "kg": 25,
@@ -6969,12 +7136,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9687,
+            "kg": 0.9661,
             "direct": 0.9789,
             "agent": 0.9836,
             "closedbook": 0.6602,
             "recall": 0.9556,
-            "cohort": 0.963
+            "cohort": 0.959
           },
           "n": {
             "kg": 21,
@@ -6990,12 +7157,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0029,
+            "kg": 0.0032,
             "direct": 0.0004,
             "agent": 0.0005,
             "closedbook": 0.178,
             "recall": 0.0011,
-            "cohort": 0.0017
+            "cohort": 0.0015
           },
           "n": {
             "kg": 21,
@@ -7011,12 +7178,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.7054,
-            "direct": 0.7325,
-            "agent": 0.7121,
-            "closedbook": 0.1794,
-            "recall": 0.1605,
-            "cohort": 0.6615
+            "kg": 0.6998,
+            "direct": 0.7181,
+            "agent": 0.698,
+            "closedbook": 0.122,
+            "recall": 0.1314,
+            "cohort": 0.6572
           },
           "n": {
             "kg": 21,
@@ -7032,12 +7199,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.004,
-            "direct": 0.0043,
-            "agent": 0.0043,
-            "closedbook": 0.0045,
-            "recall": 0.0018,
-            "cohort": 0.0037
+            "kg": 0.0041,
+            "direct": 0.0039,
+            "agent": 0.0047,
+            "closedbook": 0.0034,
+            "recall": 0.0025,
+            "cohort": 0.0044
           },
           "n": {
             "kg": 21,
@@ -7205,12 +7372,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.808,
-            "direct": 0.7,
-            "agent": 0.658,
-            "closedbook": 0.361,
-            "recall": 0.278,
-            "cohort": 0.833
+            "kg": 0.821,
+            "direct": 0.643,
+            "agent": 0.643,
+            "closedbook": 0.321,
+            "recall": 0.304,
+            "cohort": 0.857
           },
           "n": {
             "kg": 1,
@@ -7226,12 +7393,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.154,
+            "kg": 0.071,
             "direct": 0.0,
-            "agent": 0.053,
+            "agent": 0.036,
             "closedbook": 0.0,
             "recall": 0.0,
-            "cohort": 0.167
+            "cohort": 0.071
           },
           "n": {
             "kg": 1,
@@ -7360,18 +7527,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.3946,
-            "baseline": 0.4012,
-            "difference": -0.0067,
+            "strategy": 0.3537,
+            "baseline": 0.3554,
+            "difference": -0.0017,
             "ci95": [
-              -0.0176,
-              0.0028
+              -0.0113,
+              0.0078
             ],
             "median_difference": 0.0,
-            "better": 21,
-            "worse": 21,
-            "ties": 4,
-            "sign_test_p": 1.0,
+            "better": 17,
+            "worse": 19,
+            "ties": 10,
+            "sign_test_p": 0.8679,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7385,8 +7552,8 @@
             "baseline": 0.4845,
             "difference": 0.0043,
             "ci95": [
-              -0.0462,
-              0.062
+              -0.0473,
+              0.0625
             ],
             "median_difference": 0.0,
             "better": 4,
@@ -7404,18 +7571,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.3932,
-            "baseline": 0.4012,
-            "difference": -0.008,
+            "strategy": 0.3539,
+            "baseline": 0.3554,
+            "difference": -0.0015,
             "ci95": [
-              -0.023,
-              0.0048
+              -0.0111,
+              0.0074
             ],
-            "median_difference": 0.003,
-            "better": 25,
-            "worse": 19,
-            "ties": 2,
-            "sign_test_p": 0.4514,
+            "median_difference": 0.0,
+            "better": 15,
+            "worse": 15,
+            "ties": 16,
+            "sign_test_p": 1.0,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7429,7 +7596,7 @@
             "baseline": 0.4845,
             "difference": -0.0038,
             "ci95": [
-              -0.0326,
+              -0.0299,
               0.0158
             ],
             "median_difference": 0.0,
@@ -7448,17 +7615,17 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.2223,
-            "baseline": 0.4012,
-            "difference": -0.1789,
+            "strategy": 0.1748,
+            "baseline": 0.3554,
+            "difference": -0.1805,
             "ci95": [
-              -0.2304,
-              -0.1277
+              -0.2386,
+              -0.1238
             ],
-            "median_difference": -0.1795,
+            "median_difference": -0.1685,
             "better": 7,
-            "worse": 39,
-            "ties": 0,
+            "worse": 38,
+            "ties": 1,
             "sign_test_p": 0.0,
             "ci_unreliable": false,
             "primary": true,
@@ -7473,8 +7640,8 @@
             "baseline": 0.4845,
             "difference": -0.3261,
             "ci95": [
-              -0.4493,
-              -0.1993
+              -0.4509,
+              -0.1978
             ],
             "median_difference": -0.25,
             "better": 3,
@@ -7492,17 +7659,17 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.2092,
-            "baseline": 0.4012,
-            "difference": -0.192,
+            "strategy": 0.1639,
+            "baseline": 0.3554,
+            "difference": -0.1915,
             "ci95": [
-              -0.2287,
-              -0.1554
+              -0.2313,
+              -0.1531
             ],
-            "median_difference": -0.184,
-            "better": 3,
-            "worse": 43,
-            "ties": 0,
+            "median_difference": -0.187,
+            "better": 2,
+            "worse": 42,
+            "ties": 2,
             "sign_test_p": 0.0,
             "ci_unreliable": false,
             "primary": true,
@@ -7517,8 +7684,8 @@
             "baseline": 0.4845,
             "difference": -0.3866,
             "ci95": [
-              -0.4986,
-              -0.277
+              -0.4964,
+              -0.2801
             ],
             "median_difference": -0.325,
             "better": 0,
@@ -7536,18 +7703,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.4,
-            "baseline": 0.4012,
-            "difference": -0.0013,
+            "strategy": 0.3618,
+            "baseline": 0.3554,
+            "difference": 0.0064,
             "ci95": [
-              -0.0135,
-              0.0101
+              -0.0034,
+              0.0162
             ],
-            "median_difference": -0.0005,
-            "better": 20,
-            "worse": 23,
-            "ties": 3,
-            "sign_test_p": 0.7608,
+            "median_difference": 0.0035,
+            "better": 23,
+            "worse": 12,
+            "ties": 11,
+            "sign_test_p": 0.0895,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7557,17 +7724,17 @@
             "label": "OMIM allelic variants recovered",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.4777,
+            "strategy": 0.4804,
             "baseline": 0.4845,
-            "difference": -0.0068,
+            "difference": -0.0041,
             "ci95": [
-              -0.0427,
-              0.0288
+              -0.0413,
+              0.0332
             ],
             "median_difference": 0.0,
-            "better": 4,
+            "better": 5,
             "worse": 4,
-            "ties": 38,
+            "ties": 37,
             "sign_test_p": 1.0,
             "ci_unreliable": false,
             "primary": false,
@@ -7585,18 +7752,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.5568,
-            "baseline": 0.5555,
-            "difference": 0.0013,
+            "strategy": 0.5359,
+            "baseline": 0.5424,
+            "difference": -0.0065,
             "ci95": [
-              -0.0183,
-              0.0219
+              -0.0264,
+              0.0127
             ],
-            "median_difference": 0.008,
-            "better": 15,
-            "worse": 9,
-            "ties": 1,
-            "sign_test_p": 0.3075,
+            "median_difference": -0.01,
+            "better": 8,
+            "worse": 14,
+            "ties": 3,
+            "sign_test_p": 0.2863,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7610,7 +7777,7 @@
             "baseline": 0.7942,
             "difference": -0.019,
             "ci95": [
-              -0.0412,
+              -0.0414,
               0.0
             ],
             "median_difference": 0.0,
@@ -7629,18 +7796,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.562,
-            "baseline": 0.5555,
-            "difference": 0.0065,
+            "strategy": 0.5386,
+            "baseline": 0.5424,
+            "difference": -0.0038,
             "ci95": [
-              -0.0053,
-              0.0188
+              -0.0152,
+              0.0076
             ],
-            "median_difference": 0.008,
-            "better": 14,
-            "worse": 10,
-            "ties": 1,
-            "sign_test_p": 0.5413,
+            "median_difference": -0.008,
+            "better": 11,
+            "worse": 14,
+            "ties": 0,
+            "sign_test_p": 0.69,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7673,14 +7840,14 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.1866,
-            "baseline": 0.5555,
-            "difference": -0.3689,
+            "strategy": 0.1251,
+            "baseline": 0.5424,
+            "difference": -0.4173,
             "ci95": [
-              -0.4396,
-              -0.3026
+              -0.4908,
+              -0.3439
             ],
-            "median_difference": -0.366,
+            "median_difference": -0.405,
             "better": 0,
             "worse": 25,
             "ties": 0,
@@ -7698,8 +7865,8 @@
             "baseline": 0.7942,
             "difference": -0.6418,
             "ci95": [
-              -0.7654,
-              -0.5127
+              -0.7645,
+              -0.5134
             ],
             "median_difference": -0.714,
             "better": 0,
@@ -7717,14 +7884,14 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.1472,
-            "baseline": 0.5555,
-            "difference": -0.4083,
+            "strategy": 0.1176,
+            "baseline": 0.5424,
+            "difference": -0.4248,
             "ci95": [
-              -0.4742,
-              -0.3466
+              -0.4956,
+              -0.3556
             ],
-            "median_difference": -0.415,
+            "median_difference": -0.441,
             "better": 0,
             "worse": 25,
             "ties": 0,
@@ -7742,8 +7909,8 @@
             "baseline": 0.7942,
             "difference": -0.6595,
             "ci95": [
-              -0.7817,
-              -0.5281
+              -0.7798,
+              -0.5263
             ],
             "median_difference": -0.727,
             "better": 0,
@@ -7761,18 +7928,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.5066,
-            "baseline": 0.5555,
-            "difference": -0.0489,
+            "strategy": 0.5022,
+            "baseline": 0.5424,
+            "difference": -0.0402,
             "ci95": [
-              -0.073,
-              -0.0259
+              -0.0622,
+              -0.0204
             ],
-            "median_difference": -0.038,
-            "better": 5,
-            "worse": 20,
-            "ties": 0,
-            "sign_test_p": 0.0041,
+            "median_difference": -0.03,
+            "better": 4,
+            "worse": 18,
+            "ties": 3,
+            "sign_test_p": 0.0043,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7782,18 +7949,18 @@
             "label": "OMIM allelic variants recovered",
             "higher_is_better": true,
             "n": 25,
-            "strategy": 0.7301,
+            "strategy": 0.7394,
             "baseline": 0.7942,
-            "difference": -0.0641,
+            "difference": -0.0547,
             "ci95": [
-              -0.1348,
-              -0.0107
+              -0.1264,
+              -0.0008
             ],
             "median_difference": 0.0,
-            "better": 0,
-            "worse": 5,
+            "better": 1,
+            "worse": 4,
             "ties": 20,
-            "sign_test_p": 0.0625,
+            "sign_test_p": 0.375,
             "ci_unreliable": false,
             "primary": false,
             "headline": true
@@ -7810,18 +7977,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 21,
-            "strategy": 0.7054,
-            "baseline": 0.7325,
-            "difference": -0.0271,
+            "strategy": 0.6998,
+            "baseline": 0.7181,
+            "difference": -0.0184,
             "ci95": [
-              -0.0501,
-              -0.0066
+              -0.0441,
+              0.0063
             ],
-            "median_difference": -0.012,
-            "better": 6,
-            "worse": 13,
+            "median_difference": -0.011,
+            "better": 7,
+            "worse": 12,
             "ties": 2,
-            "sign_test_p": 0.1671,
+            "sign_test_p": 0.3593,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7835,7 +8002,7 @@
             "baseline": 0.8893,
             "difference": -0.0103,
             "ci95": [
-              -0.0265,
+              -0.0249,
               0.0
             ],
             "median_difference": 0.0,
@@ -7854,18 +8021,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 21,
-            "strategy": 0.7121,
-            "baseline": 0.7325,
-            "difference": -0.0204,
+            "strategy": 0.698,
+            "baseline": 0.7181,
+            "difference": -0.0201,
             "ci95": [
-              -0.0322,
-              -0.0076
+              -0.034,
+              -0.0072
             ],
-            "median_difference": -0.021,
-            "better": 4,
-            "worse": 16,
-            "ties": 1,
-            "sign_test_p": 0.0118,
+            "median_difference": -0.009,
+            "better": 5,
+            "worse": 13,
+            "ties": 3,
+            "sign_test_p": 0.0963,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -7898,14 +8065,14 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 21,
-            "strategy": 0.1794,
-            "baseline": 0.7325,
-            "difference": -0.5531,
+            "strategy": 0.122,
+            "baseline": 0.7181,
+            "difference": -0.5962,
             "ci95": [
-              -0.6341,
-              -0.4773
+              -0.68,
+              -0.5106
             ],
-            "median_difference": -0.501,
+            "median_difference": -0.57,
             "better": 0,
             "worse": 21,
             "ties": 0,
@@ -7923,8 +8090,8 @@
             "baseline": 0.8893,
             "difference": -0.7945,
             "ci95": [
-              -0.9178,
-              -0.6534
+              -0.9172,
+              -0.6527
             ],
             "median_difference": -1.0,
             "better": 0,
@@ -7942,14 +8109,14 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 21,
-            "strategy": 0.1605,
-            "baseline": 0.7325,
-            "difference": -0.572,
+            "strategy": 0.1314,
+            "baseline": 0.7181,
+            "difference": -0.5868,
             "ci95": [
-              -0.6501,
-              -0.4985
+              -0.666,
+              -0.5104
             ],
-            "median_difference": -0.541,
+            "median_difference": -0.568,
             "better": 0,
             "worse": 21,
             "ties": 0,
@@ -7967,8 +8134,8 @@
             "baseline": 0.8893,
             "difference": -0.7988,
             "ci95": [
-              -0.9201,
-              -0.6577
+              -0.9215,
+              -0.6571
             ],
             "median_difference": -1.0,
             "better": 0,
@@ -7986,18 +8153,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 21,
-            "strategy": 0.6615,
-            "baseline": 0.7325,
-            "difference": -0.071,
+            "strategy": 0.6572,
+            "baseline": 0.7181,
+            "difference": -0.0609,
             "ci95": [
-              -0.0937,
-              -0.0483
+              -0.0839,
+              -0.0367
             ],
-            "median_difference": -0.07,
-            "better": 2,
-            "worse": 19,
+            "median_difference": -0.077,
+            "better": 3,
+            "worse": 18,
             "ties": 0,
-            "sign_test_p": 0.0002,
+            "sign_test_p": 0.0015,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -8035,11 +8202,11 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.808,
-            "baseline": 0.7,
-            "difference": 0.108,
+            "strategy": 0.821,
+            "baseline": 0.643,
+            "difference": 0.178,
             "ci95": null,
-            "median_difference": 0.108,
+            "median_difference": 0.178,
             "better": 1,
             "worse": 0,
             "ties": 0,
@@ -8073,15 +8240,15 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.658,
-            "baseline": 0.7,
-            "difference": -0.042,
+            "strategy": 0.643,
+            "baseline": 0.643,
+            "difference": 0.0,
             "ci95": null,
-            "median_difference": -0.042,
+            "median_difference": 0.0,
             "better": 0,
-            "worse": 1,
-            "ties": 0,
-            "sign_test_p": 1.0,
+            "worse": 0,
+            "ties": 1,
+            "sign_test_p": null,
             "ci_unreliable": true,
             "primary": true,
             "headline": true
@@ -8111,11 +8278,11 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.361,
-            "baseline": 0.7,
-            "difference": -0.339,
+            "strategy": 0.321,
+            "baseline": 0.643,
+            "difference": -0.322,
             "ci95": null,
-            "median_difference": -0.339,
+            "median_difference": -0.322,
             "better": 0,
             "worse": 1,
             "ties": 0,
@@ -8149,11 +8316,11 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.278,
-            "baseline": 0.7,
-            "difference": -0.422,
+            "strategy": 0.304,
+            "baseline": 0.643,
+            "difference": -0.339,
             "ci95": null,
-            "median_difference": -0.422,
+            "median_difference": -0.339,
             "better": 0,
             "worse": 1,
             "ties": 0,
@@ -8187,11 +8354,11 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.833,
-            "baseline": 0.7,
-            "difference": 0.133,
+            "strategy": 0.857,
+            "baseline": 0.643,
+            "difference": 0.214,
             "ci95": null,
-            "median_difference": 0.133,
+            "median_difference": 0.214,
             "better": 1,
             "worse": 0,
             "ties": 0,
@@ -8226,98 +8393,98 @@
     "direct": {
       "fulltext": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 23,
-          "conveyed": 20.5,
+          "n_facts": 22,
+          "conveyed": 19.5,
           "n_entries": 1,
-          "coverage": 0.8913
+          "coverage": 0.8864
         },
         "600000-609999": {
-          "n_facts": 192,
-          "conveyed": 155.0,
+          "n_facts": 225,
+          "conveyed": 179.5,
           "n_entries": 10,
-          "coverage": 0.8073
+          "coverage": 0.7978
         },
         "610000-615999": {
-          "n_facts": 415,
-          "conveyed": 318.5,
+          "n_facts": 526,
+          "conveyed": 389.5,
           "n_entries": 11,
-          "coverage": 0.7675
+          "coverage": 0.7405
         },
         "616000-619999": {
-          "n_facts": 398,
-          "conveyed": 288.0,
+          "n_facts": 450,
+          "conveyed": 320.5,
           "n_entries": 10,
-          "coverage": 0.7236
+          "coverage": 0.7122
         },
         "620000 onward": {
-          "n_facts": 349,
-          "conveyed": 302.0,
+          "n_facts": 416,
+          "conveyed": 363.5,
           "n_entries": 8,
-          "coverage": 0.8653
+          "coverage": 0.8738
         }
       },
       "abstract": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 884,
-          "conveyed": 354.0,
+          "n_facts": 1022,
+          "conveyed": 337.5,
           "n_entries": 18,
-          "coverage": 0.4005
+          "coverage": 0.3302
         },
         "600000-609999": {
-          "n_facts": 568,
-          "conveyed": 293.0,
+          "n_facts": 656,
+          "conveyed": 326.5,
           "n_entries": 19,
-          "coverage": 0.5158
+          "coverage": 0.4977
         },
         "610000-615999": {
-          "n_facts": 899,
-          "conveyed": 401.5,
+          "n_facts": 1055,
+          "conveyed": 443.5,
           "n_entries": 18,
-          "coverage": 0.4466
+          "coverage": 0.4204
         },
         "616000-619999": {
-          "n_facts": 728,
-          "conveyed": 318.0,
+          "n_facts": 859,
+          "conveyed": 345.0,
           "n_entries": 15,
-          "coverage": 0.4368
+          "coverage": 0.4016
         },
         "620000 onward": {
-          "n_facts": 524,
-          "conveyed": 217.0,
+          "n_facts": 629,
+          "conveyed": 238.5,
           "n_entries": 15,
-          "coverage": 0.4141
+          "coverage": 0.3792
         }
       },
       "title": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 39,
-          "conveyed": 12.0,
+          "n_facts": 41,
+          "conveyed": 9.5,
           "n_entries": 3,
-          "coverage": 0.3077
+          "coverage": 0.2317
         },
         "600000-609999": {
-          "n_facts": 55,
-          "conveyed": 12.0,
+          "n_facts": 67,
+          "conveyed": 10.0,
           "n_entries": 4,
-          "coverage": 0.2182
+          "coverage": 0.1493
         },
         "610000-615999": {
-          "n_facts": 52,
-          "conveyed": 15.5,
+          "n_facts": 57,
+          "conveyed": 13.5,
           "n_entries": 4,
-          "coverage": 0.2981
+          "coverage": 0.2368
         },
         "616000-619999": {
-          "n_facts": 73,
-          "conveyed": 15.5,
+          "n_facts": 83,
+          "conveyed": 16.5,
           "n_entries": 5,
-          "coverage": 0.2123
+          "coverage": 0.1988
         },
         "620000 onward": {
-          "n_facts": 125,
-          "conveyed": 24.5,
+          "n_facts": 131,
+          "conveyed": 17.0,
           "n_entries": 5,
-          "coverage": 0.196
+          "coverage": 0.1298
         }
       }
     },
@@ -8325,97 +8492,97 @@
       "fulltext": {
         "classic (1xxxxx-5xxxxx)": {
           "n_facts": 22,
-          "conveyed": 1.5,
+          "conveyed": 0.0,
           "n_entries": 1,
-          "coverage": 0.0682
+          "coverage": 0.0
         },
         "600000-609999": {
-          "n_facts": 189,
-          "conveyed": 36.0,
+          "n_facts": 225,
+          "conveyed": 32.0,
           "n_entries": 10,
-          "coverage": 0.1905
+          "coverage": 0.1422
         },
         "610000-615999": {
-          "n_facts": 430,
-          "conveyed": 87.0,
+          "n_facts": 526,
+          "conveyed": 77.0,
           "n_entries": 11,
-          "coverage": 0.2023
+          "coverage": 0.1464
         },
         "616000-619999": {
-          "n_facts": 391,
-          "conveyed": 67.0,
+          "n_facts": 450,
+          "conveyed": 51.0,
           "n_entries": 10,
-          "coverage": 0.1714
+          "coverage": 0.1133
         },
         "620000 onward": {
-          "n_facts": 341,
-          "conveyed": 47.5,
+          "n_facts": 416,
+          "conveyed": 29.0,
           "n_entries": 8,
-          "coverage": 0.1393
+          "coverage": 0.0697
         }
       },
       "abstract": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 875,
-          "conveyed": 164.5,
+          "n_facts": 1022,
+          "conveyed": 131.0,
           "n_entries": 18,
-          "coverage": 0.188
+          "coverage": 0.1282
         },
         "600000-609999": {
-          "n_facts": 570,
-          "conveyed": 162.0,
+          "n_facts": 656,
+          "conveyed": 150.5,
           "n_entries": 19,
-          "coverage": 0.2842
+          "coverage": 0.2294
         },
         "610000-615999": {
-          "n_facts": 884,
-          "conveyed": 180.5,
+          "n_facts": 1055,
+          "conveyed": 148.0,
           "n_entries": 18,
-          "coverage": 0.2042
+          "coverage": 0.1403
         },
         "616000-619999": {
-          "n_facts": 720,
-          "conveyed": 119.0,
+          "n_facts": 859,
+          "conveyed": 92.5,
           "n_entries": 15,
-          "coverage": 0.1653
+          "coverage": 0.1077
         },
         "620000 onward": {
-          "n_facts": 516,
-          "conveyed": 58.0,
+          "n_facts": 629,
+          "conveyed": 38.0,
           "n_entries": 15,
-          "coverage": 0.1124
+          "coverage": 0.0604
         }
       },
       "title": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 38,
-          "conveyed": 4.5,
+          "n_facts": 41,
+          "conveyed": 4.0,
           "n_entries": 3,
-          "coverage": 0.1184
+          "coverage": 0.0976
         },
         "600000-609999": {
-          "n_facts": 54,
-          "conveyed": 14.0,
+          "n_facts": 67,
+          "conveyed": 10.5,
           "n_entries": 4,
-          "coverage": 0.2593
+          "coverage": 0.1567
         },
         "610000-615999": {
-          "n_facts": 53,
-          "conveyed": 13.0,
+          "n_facts": 57,
+          "conveyed": 8.0,
           "n_entries": 4,
-          "coverage": 0.2453
+          "coverage": 0.1404
         },
         "616000-619999": {
-          "n_facts": 75,
-          "conveyed": 16.5,
+          "n_facts": 83,
+          "conveyed": 10.5,
           "n_entries": 5,
-          "coverage": 0.22
+          "coverage": 0.1265
         },
         "620000 onward": {
-          "n_facts": 114,
-          "conveyed": 16.5,
+          "n_facts": 131,
+          "conveyed": 9.0,
           "n_entries": 5,
-          "coverage": 0.1447
+          "coverage": 0.0687
         }
       }
     }
@@ -8429,12 +8596,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9633,
+            "kg": 0.9632,
             "direct": 0.9609,
             "agent": 0.9644,
             "closedbook": 0.5196,
             "recall": 0.9386,
-            "cohort": 0.9404
+            "cohort": 0.9407
           },
           "n": {
             "kg": 51,
@@ -8450,12 +8617,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0025,
+            "kg": 0.0023,
             "direct": 0.0019,
             "agent": 0.0006,
             "closedbook": 0.2334,
             "recall": 0.0029,
-            "cohort": 0.005
+            "cohort": 0.0041
           },
           "n": {
             "kg": 51,
@@ -8471,12 +8638,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5265,
-            "direct": 0.5364,
-            "agent": 0.5242,
-            "closedbook": 0.2081,
-            "recall": 0.1885,
-            "cohort": 0.5029
+            "kg": 0.5043,
+            "direct": 0.5078,
+            "agent": 0.4991,
+            "closedbook": 0.1619,
+            "recall": 0.1545,
+            "cohort": 0.4877
           },
           "n": {
             "kg": 51,
@@ -8492,12 +8659,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0079,
-            "direct": 0.0039,
-            "agent": 0.005,
-            "closedbook": 0.0121,
-            "recall": 0.0038,
-            "cohort": 0.0071
+            "kg": 0.004,
+            "direct": 0.0021,
+            "agent": 0.0036,
+            "closedbook": 0.0073,
+            "recall": 0.0024,
+            "cohort": 0.0039
           },
           "n": {
             "kg": 51,
@@ -8560,7 +8727,7 @@
             "agent": 0.6491,
             "closedbook": 0.1484,
             "recall": 0.1288,
-            "cohort": 0.6419
+            "cohort": 0.6444
           },
           "n": {
             "kg": 51,
@@ -8623,12 +8790,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9665,
+            "kg": 0.9668,
             "direct": 0.9614,
             "agent": 0.9577,
             "closedbook": 0.493,
             "recall": 0.9374,
-            "cohort": 0.9565
+            "cohort": 0.9554
           },
           "n": {
             "kg": 25,
@@ -8644,7 +8811,7 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0022,
+            "kg": 0.0026,
             "direct": 0.0036,
             "agent": 0.0007,
             "closedbook": 0.2116,
@@ -8665,12 +8832,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.4894,
-            "direct": 0.4899,
-            "agent": 0.4885,
-            "closedbook": 0.2095,
-            "recall": 0.1799,
-            "cohort": 0.4676
+            "kg": 0.4542,
+            "direct": 0.4585,
+            "agent": 0.4566,
+            "closedbook": 0.1492,
+            "recall": 0.1421,
+            "cohort": 0.4401
           },
           "n": {
             "kg": 25,
@@ -8686,12 +8853,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0042,
-            "direct": 0.0043,
-            "agent": 0.0044,
-            "closedbook": 0.0035,
-            "recall": 0.0055,
-            "cohort": 0.0036
+            "kg": 0.0031,
+            "direct": 0.004,
+            "agent": 0.0032,
+            "closedbook": 0.001,
+            "recall": 0.0031,
+            "cohort": 0.0045
           },
           "n": {
             "kg": 25,
@@ -8817,12 +8984,12 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "kg": 0.9681,
+            "kg": 0.9689,
             "direct": 0.9606,
             "agent": 0.9725,
             "closedbook": 0.4965,
             "recall": 0.9606,
-            "cohort": 0.9533
+            "cohort": 0.9511
           },
           "n": {
             "kg": 17,
@@ -8838,12 +9005,12 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0038,
+            "kg": 0.0041,
             "direct": 0.0025,
             "agent": 0.0049,
             "closedbook": 0.2303,
             "recall": 0.0139,
-            "cohort": 0.0041
+            "cohort": 0.0038
           },
           "n": {
             "kg": 17,
@@ -8859,12 +9026,12 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "kg": 0.5062,
-            "direct": 0.5191,
-            "agent": 0.518,
-            "closedbook": 0.1865,
-            "recall": 0.167,
-            "cohort": 0.4968
+            "kg": 0.4772,
+            "direct": 0.4864,
+            "agent": 0.4809,
+            "closedbook": 0.1215,
+            "recall": 0.1241,
+            "cohort": 0.4695
           },
           "n": {
             "kg": 17,
@@ -8880,12 +9047,12 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "kg": 0.0058,
-            "direct": 0.009,
-            "agent": 0.0078,
+            "kg": 0.0054,
+            "direct": 0.0076,
+            "agent": 0.0066,
             "closedbook": 0.0025,
-            "recall": 0.0055,
-            "cohort": 0.0077
+            "recall": 0.0054,
+            "cohort": 0.0075
           },
           "n": {
             "kg": 17,
@@ -8948,7 +9115,7 @@
             "agent": 0.6956,
             "closedbook": 0.131,
             "recall": 0.0755,
-            "cohort": 0.6835
+            "cohort": 0.6972
           },
           "n": {
             "kg": 17,
@@ -9009,62 +9176,62 @@
       "entries": 93,
       "generate": {
         "calls": 656,
-        "turns": 692,
-        "input_tokens": 4973790,
-        "output_tokens": 1424342,
-        "list_price_usd": 51.97,
-        "seconds": 11453.7,
+        "turns": 702,
+        "input_tokens": 4973163,
+        "output_tokens": 1424872,
+        "list_price_usd": 52.01,
+        "seconds": 11517.7,
         "per_entry": {
           "calls": 7.1,
           "list_price_usd": 0.559,
-          "input_tokens": 53482,
-          "output_tokens": 15316,
-          "seconds": 123.2
+          "input_tokens": 53475,
+          "output_tokens": 15321,
+          "seconds": 123.8
         }
       },
       "audit": {
-        "calls": 646,
-        "turns": 832,
-        "input_tokens": 4672901,
-        "output_tokens": 2068919,
-        "list_price_usd": 72.21,
-        "seconds": 16174.9,
+        "calls": 651,
+        "turns": 905,
+        "input_tokens": 4694692,
+        "output_tokens": 2071150,
+        "list_price_usd": 72.39,
+        "seconds": 16757.0,
         "per_entry": {
-          "calls": 6.9,
-          "list_price_usd": 0.776,
-          "input_tokens": 50246,
-          "output_tokens": 22246,
-          "seconds": 173.9
+          "calls": 7.0,
+          "list_price_usd": 0.778,
+          "input_tokens": 50481,
+          "output_tokens": 22270,
+          "seconds": 180.2
         }
       },
       "score": {
-        "calls": 503,
-        "turns": 656,
-        "input_tokens": 1926777,
-        "output_tokens": 341791,
-        "list_price_usd": 18.29,
-        "seconds": 3996.7,
+        "calls": 945,
+        "turns": 1611,
+        "input_tokens": 3817090,
+        "output_tokens": 628390,
+        "list_price_usd": 35.88,
+        "seconds": 10286.6,
         "per_entry": {
-          "calls": 5.4,
-          "list_price_usd": 0.197,
-          "input_tokens": 20718,
-          "output_tokens": 3675,
-          "seconds": 43.0
+          "calls": 10.2,
+          "list_price_usd": 0.386,
+          "input_tokens": 41044,
+          "output_tokens": 6757,
+          "seconds": 110.6
         }
       },
       "total": {
-        "calls": 1805,
-        "turns": 2180,
-        "input_tokens": 11573468,
-        "output_tokens": 3835052,
-        "list_price_usd": 142.48,
-        "seconds": 31625.2,
+        "calls": 2252,
+        "turns": 3218,
+        "input_tokens": 13484945,
+        "output_tokens": 4124412,
+        "list_price_usd": 160.28,
+        "seconds": 38561.3,
         "per_entry": {
-          "calls": 19.4,
-          "list_price_usd": 1.532,
-          "input_tokens": 124446,
-          "output_tokens": 41237,
-          "seconds": 340.1
+          "calls": 24.2,
+          "list_price_usd": 1.723,
+          "input_tokens": 144999,
+          "output_tokens": 44349,
+          "seconds": 414.6
         }
       }
     },
@@ -9324,62 +9491,125 @@
       "entries": 93,
       "generate": {
         "calls": 656,
-        "turns": 1321,
-        "input_tokens": 5781515,
-        "output_tokens": 1592184,
-        "list_price_usd": 56.8,
-        "seconds": 13163.3,
+        "turns": 1322,
+        "input_tokens": 5802438,
+        "output_tokens": 1595161,
+        "list_price_usd": 56.9,
+        "seconds": 13222.6,
         "per_entry": {
           "calls": 7.1,
-          "list_price_usd": 0.611,
-          "input_tokens": 62167,
-          "output_tokens": 17120,
-          "seconds": 141.5
+          "list_price_usd": 0.612,
+          "input_tokens": 62392,
+          "output_tokens": 17152,
+          "seconds": 142.2
         }
       },
       "audit": {
-        "calls": 662,
-        "turns": 1323,
-        "input_tokens": 4729431,
-        "output_tokens": 2135349,
-        "list_price_usd": 72.74,
-        "seconds": 16991.8,
+        "calls": 652,
+        "turns": 1301,
+        "input_tokens": 4627532,
+        "output_tokens": 2122930,
+        "list_price_usd": 72.0,
+        "seconds": 17287.7,
         "per_entry": {
-          "calls": 7.1,
-          "list_price_usd": 0.782,
-          "input_tokens": 50854,
-          "output_tokens": 22961,
-          "seconds": 182.7
+          "calls": 7.0,
+          "list_price_usd": 0.774,
+          "input_tokens": 49758,
+          "output_tokens": 22827,
+          "seconds": 185.9
         }
       },
       "score": {
-        "calls": 505,
-        "turns": 994,
-        "input_tokens": 1953979,
-        "output_tokens": 349704,
-        "list_price_usd": 18.66,
-        "seconds": 4382.6,
+        "calls": 944,
+        "turns": 1871,
+        "input_tokens": 3857923,
+        "output_tokens": 631426,
+        "list_price_usd": 36.27,
+        "seconds": 10941.1,
         "per_entry": {
-          "calls": 5.4,
-          "list_price_usd": 0.201,
-          "input_tokens": 21011,
-          "output_tokens": 3760,
-          "seconds": 47.1
+          "calls": 10.2,
+          "list_price_usd": 0.39,
+          "input_tokens": 41483,
+          "output_tokens": 6790,
+          "seconds": 117.6
         }
       },
       "total": {
-        "calls": 1823,
-        "turns": 3638,
-        "input_tokens": 12464925,
-        "output_tokens": 4077237,
-        "list_price_usd": 148.19,
-        "seconds": 34537.7,
+        "calls": 2252,
+        "turns": 4494,
+        "input_tokens": 14287893,
+        "output_tokens": 4349517,
+        "list_price_usd": 165.17,
+        "seconds": 41451.3,
         "per_entry": {
-          "calls": 19.6,
-          "list_price_usd": 1.593,
-          "input_tokens": 134031,
-          "output_tokens": 43841,
-          "seconds": 371.4
+          "calls": 24.2,
+          "list_price_usd": 1.776,
+          "input_tokens": 153633,
+          "output_tokens": 46769,
+          "seconds": 445.7
+        }
+      }
+    },
+    "retrieval": {
+      "entries": 83,
+      "generate": {
+        "calls": 0,
+        "turns": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "list_price_usd": 0.0,
+        "seconds": 0.0,
+        "per_entry": {
+          "calls": 0.0,
+          "list_price_usd": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "seconds": 0.0
+        }
+      },
+      "audit": {
+        "calls": 0,
+        "turns": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "list_price_usd": 0.0,
+        "seconds": 0.0,
+        "per_entry": {
+          "calls": 0.0,
+          "list_price_usd": 0.0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "seconds": 0.0
+        }
+      },
+      "score": {
+        "calls": 389,
+        "turns": 778,
+        "input_tokens": 959681,
+        "output_tokens": 148905,
+        "list_price_usd": 8.23,
+        "seconds": 4377.2,
+        "per_entry": {
+          "calls": 4.7,
+          "list_price_usd": 0.099,
+          "input_tokens": 11562,
+          "output_tokens": 1794,
+          "seconds": 52.7
+        }
+      },
+      "total": {
+        "calls": 389,
+        "turns": 778,
+        "input_tokens": 959681,
+        "output_tokens": 148905,
+        "list_price_usd": 8.23,
+        "seconds": 4377.2,
+        "per_entry": {
+          "calls": 4.7,
+          "list_price_usd": 0.099,
+          "input_tokens": 11562,
+          "output_tokens": 1794,
+          "seconds": 52.7
         }
       }
     }
@@ -9411,12 +9641,12 @@
         "f1": 0.3451
       },
       "has_variant": {
-        "in_both": 271,
-        "generated": 381,
+        "in_both": 272,
+        "generated": 387,
         "omim": 428,
-        "precision": 0.7113,
-        "recall": 0.6332,
-        "f1": 0.67
+        "precision": 0.7028,
+        "recall": 0.6355,
+        "f1": 0.6675
       }
     },
     "direct": {
@@ -9581,12 +9811,12 @@
         "f1": 0.3371
       },
       "has_variant": {
-        "in_both": 262,
-        "generated": 399,
+        "in_both": 265,
+        "generated": 396,
         "omim": 428,
-        "precision": 0.6566,
-        "recall": 0.6121,
-        "f1": 0.6336
+        "precision": 0.6692,
+        "recall": 0.6192,
+        "f1": 0.6432
       }
     }
   }

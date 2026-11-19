@@ -3,6 +3,14 @@
   "baseline": "direct",
   "n_entries": 68,
   "primary_endpoint": "gold_fact_coverage",
+  "fact_list": {
+    "direct": {
+      "frozen": 68
+    },
+    "guided": {
+      "frozen": 68
+    }
+  },
   "stopped": {
     "guided": [
       "118210",
@@ -258,8 +266,8 @@
       "label": "OMIM per-paper facts conveyed",
       "higher_is_better": true,
       "values": {
-        "direct": 0.5221,
-        "guided": 0.5187
+        "direct": 0.4932,
+        "guided": 0.5032
       },
       "n": {
         "direct": 68,
@@ -271,8 +279,8 @@
       "label": "\u2026 fully (no partial credit)",
       "higher_is_better": true,
       "values": {
-        "direct": 0.4384,
-        "guided": 0.4423
+        "direct": 0.4254,
+        "guided": 0.439
       },
       "n": {
         "direct": 68,
@@ -284,8 +292,34 @@
       "label": "OMIM per-paper facts contradicted",
       "higher_is_better": false,
       "values": {
-        "direct": 0.0052,
-        "guided": 0.0066
+        "direct": 0.0036,
+        "guided": 0.0042
+      },
+      "n": {
+        "direct": 68,
+        "guided": 68
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_whole",
+      "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
+      "higher_is_better": true,
+      "values": {
+        "direct": null,
+        "guided": null
+      },
+      "n": {
+        "direct": 0,
+        "guided": 0
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_adaptive",
+      "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.5221,
+        "guided": 0.5187
       },
       "n": {
         "direct": 68,
@@ -695,18 +729,18 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 68,
-        "strategy": 0.5187,
-        "baseline": 0.5221,
-        "difference": -0.0034,
+        "strategy": 0.5032,
+        "baseline": 0.4932,
+        "difference": 0.01,
         "ci95": [
-          -0.014,
-          0.0071
+          0.0001,
+          0.0199
         ],
-        "median_difference": -0.008,
-        "better": 32,
-        "worse": 36,
-        "ties": 0,
-        "sign_test_p": 0.7163,
+        "median_difference": 0.0,
+        "better": 30,
+        "worse": 25,
+        "ties": 13,
+        "sign_test_p": 0.5901,
         "ci_unreliable": false,
         "primary": true,
         "headline": true
@@ -716,18 +750,18 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 68,
-        "strategy": 0.4423,
-        "baseline": 0.4384,
-        "difference": 0.0039,
+        "strategy": 0.439,
+        "baseline": 0.4254,
+        "difference": 0.0136,
         "ci95": [
-          -0.0075,
-          0.0163
+          0.0023,
+          0.0253
         ],
-        "median_difference": -0.002,
-        "better": 30,
-        "worse": 35,
-        "ties": 3,
-        "sign_test_p": 0.6201,
+        "median_difference": 0.0,
+        "better": 31,
+        "worse": 19,
+        "ties": 18,
+        "sign_test_p": 0.1189,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -737,22 +771,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 68,
-        "strategy": 0.0066,
-        "baseline": 0.0052,
-        "difference": 0.0014,
+        "strategy": 0.0042,
+        "baseline": 0.0036,
+        "difference": 0.0006,
         "ci95": [
-          -0.0003,
-          0.0033
+          -0.0006,
+          0.0021
         ],
         "median_difference": 0.0,
-        "better": 6,
-        "worse": 11,
-        "ties": 51,
-        "sign_test_p": 0.3323,
+        "better": 3,
+        "worse": 3,
+        "ties": 62,
+        "sign_test_p": 1.0,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
         "sign_test_p_holm": 1.0
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 68,
+        "strategy": 0.5187,
+        "baseline": 0.5221,
+        "difference": -0.0034,
+        "ci95": [
+          -0.0138,
+          0.007
+        ],
+        "median_difference": -0.008,
+        "better": 32,
+        "worse": 36,
+        "ties": 0,
+        "sign_test_p": 0.7163,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -763,8 +818,8 @@
         "baseline": 0.3571,
         "difference": 0.008,
         "ci95": [
-          -0.0083,
-          0.0238
+          -0.0077,
+          0.0243
         ],
         "median_difference": 0.0005,
         "better": 34,
@@ -785,8 +840,8 @@
         "baseline": 0.4379,
         "difference": -0.008,
         "ci95": [
-          -0.034,
-          0.019
+          -0.0341,
+          0.0189
         ],
         "median_difference": 0.0,
         "better": 26,
@@ -807,7 +862,7 @@
         "difference": 0.0285,
         "ci95": [
           0.0095,
-          0.0473
+          0.0478
         ],
         "median_difference": 0.0,
         "better": 29,
@@ -827,8 +882,8 @@
         "baseline": 0.5535,
         "difference": 0.0005,
         "ci95": [
-          -0.0126,
-          0.0134
+          -0.0127,
+          0.0135
         ],
         "median_difference": 0.0,
         "better": 27,
@@ -849,8 +904,8 @@
         "baseline": 0.6579,
         "difference": 0.0093,
         "ci95": [
-          -0.0029,
-          0.022
+          -0.0032,
+          0.0218
         ],
         "median_difference": 0.003,
         "better": 35,
@@ -870,7 +925,7 @@
         "baseline": 0.666,
         "difference": -0.0159,
         "ci95": [
-          -0.0368,
+          -0.0367,
           0.0
         ],
         "median_difference": 0.0,
@@ -892,8 +947,8 @@
         "baseline": 0.868,
         "difference": 0.0115,
         "ci95": [
-          -0.0237,
-          0.0512
+          -0.024,
+          0.05
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -1060,7 +1115,7 @@
         "baseline": 0.9446,
         "difference": -0.0072,
         "ci95": [
-          -0.0278,
+          -0.0275,
           0.0088
         ],
         "median_difference": 0.0,
@@ -1112,8 +1167,8 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "values": {
-          "direct": 0.524,
-          "guided": 0.5039
+          "direct": 0.4962,
+          "guided": 0.4889
         },
         "n": {
           "direct": 70,
@@ -1125,8 +1180,8 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "values": {
-          "direct": 0.0057,
-          "guided": 0.0066
+          "direct": 0.004,
+          "guided": 0.0042
         },
         "n": {
           "direct": 70,
@@ -1211,8 +1266,8 @@
           "n": 70,
           "difference": -0.0279,
           "ci95": [
-            -0.0708,
-            0.0034
+            -0.0707,
+            0.004
           ],
           "median_difference": -0.002,
           "better": 29,
@@ -1231,7 +1286,7 @@
           "n": 68,
           "difference": -0.0001,
           "ci95": [
-            -0.0037,
+            -0.0038,
             0.0031
           ],
           "median_difference": 0.0,
@@ -1246,19 +1301,19 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.5039,
-          "baseline": 0.524,
+          "strategy": 0.4889,
+          "baseline": 0.4962,
           "n": 70,
-          "difference": -0.0201,
+          "difference": -0.0074,
           "ci95": [
-            -0.0476,
-            0.0019
+            -0.0357,
+            0.0143
           ],
-          "median_difference": -0.008,
-          "better": 32,
-          "worse": 38,
-          "ties": 0,
-          "sign_test_p": 0.5504,
+          "median_difference": 0.0,
+          "better": 30,
+          "worse": 27,
+          "ties": 13,
+          "sign_test_p": 0.7914,
           "ci_unreliable": false
         },
         {
@@ -1266,19 +1321,19 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0066,
-          "baseline": 0.0052,
+          "strategy": 0.0042,
+          "baseline": 0.0036,
           "n": 68,
-          "difference": 0.0014,
+          "difference": 0.0006,
           "ci95": [
-            -0.0003,
-            0.0032
+            -0.0006,
+            0.0021
           ],
           "median_difference": 0.0,
-          "better": 6,
-          "worse": 11,
-          "ties": 51,
-          "sign_test_p": 0.3323,
+          "better": 3,
+          "worse": 3,
+          "ties": 62,
+          "sign_test_p": 1.0,
           "ci_unreliable": false
         },
         {
@@ -1291,8 +1346,8 @@
           "n": 70,
           "difference": 0.0019,
           "ci95": [
-            -0.0165,
-            0.0192
+            -0.0158,
+            0.0194
           ],
           "median_difference": 0.0,
           "better": 34,
@@ -1311,7 +1366,7 @@
           "n": 70,
           "difference": -0.0147,
           "ci95": [
-            -0.0411,
+            -0.041,
             0.007
           ],
           "median_difference": 0.0,
@@ -1405,13 +1460,13 @@
         "contradicted_rate": 0.0
       },
       "gold_facts": {
-        "n_facts": 3962,
-        "present": 1773,
-        "partial": 671,
-        "absent": 1494,
-        "contradicted": 24,
-        "coverage": 0.5322,
-        "contradiction_rate": 0.0061
+        "n_facts": 4696,
+        "present": 2043,
+        "partial": 625,
+        "absent": 2008,
+        "contradicted": 20,
+        "coverage": 0.5016,
+        "contradiction_rate": 0.0043
       },
       "variants": {
         "generated": 230,
@@ -1456,13 +1511,13 @@
         "contradicted_rate": 0.0002
       },
       "gold_facts": {
-        "n_facts": 3958,
-        "present": 1787,
-        "partial": 617,
-        "absent": 1526,
-        "contradicted": 28,
-        "coverage": 0.5294,
-        "contradiction_rate": 0.0071
+        "n_facts": 4696,
+        "present": 2089,
+        "partial": 616,
+        "absent": 1971,
+        "contradicted": 20,
+        "coverage": 0.5104,
+        "contradiction_rate": 0.0043
       },
       "variants": {
         "generated": 223,
@@ -1491,107 +1546,107 @@
   "by_content_level": {
     "abstract": {
       "direct": {
-        "n_facts": 2356,
-        "present": 791,
-        "partial": 448,
-        "contradicted": 18,
-        "coverage": 0.4308,
-        "contradiction_rate": 0.0076
+        "n_facts": 2815,
+        "present": 909,
+        "partial": 388,
+        "contradicted": 14,
+        "coverage": 0.3918,
+        "contradiction_rate": 0.005
       },
       "guided": {
-        "n_facts": 2368,
-        "present": 813,
-        "partial": 400,
-        "contradicted": 19,
-        "coverage": 0.4278,
-        "contradiction_rate": 0.008
+        "n_facts": 2815,
+        "present": 939,
+        "partial": 377,
+        "contradicted": 13,
+        "coverage": 0.4005,
+        "contradiction_rate": 0.0046
       }
     },
     "title": {
       "direct": {
-        "n_facts": 296,
-        "present": 43,
-        "partial": 52,
+        "n_facts": 329,
+        "present": 29,
+        "partial": 54,
         "contradicted": 0,
-        "coverage": 0.2331,
+        "coverage": 0.1702,
         "contradiction_rate": 0.0
       },
       "guided": {
-        "n_facts": 292,
-        "present": 43,
+        "n_facts": 329,
+        "present": 30,
         "partial": 48,
         "contradicted": 0,
-        "coverage": 0.2295,
+        "coverage": 0.1641,
         "contradiction_rate": 0.0
       }
     },
     "fulltext": {
       "direct": {
-        "n_facts": 1310,
-        "present": 939,
-        "partial": 171,
+        "n_facts": 1552,
+        "present": 1105,
+        "partial": 183,
         "contradicted": 6,
-        "coverage": 0.7821,
-        "contradiction_rate": 0.0046
+        "coverage": 0.7709,
+        "contradiction_rate": 0.0039
       },
       "guided": {
-        "n_facts": 1298,
-        "present": 931,
-        "partial": 169,
-        "contradicted": 9,
-        "coverage": 0.7824,
-        "contradiction_rate": 0.0069
+        "n_facts": 1552,
+        "present": 1120,
+        "partial": 191,
+        "contradicted": 7,
+        "coverage": 0.7832,
+        "contradiction_rate": 0.0045
       }
     }
   },
   "by_content_level_vs_baseline": {
     "fulltext": {
       "direct": {
-        "coverage": 0.7821,
-        "n_facts": 1310
+        "coverage": 0.7709,
+        "n_facts": 1552
       },
       "guided": {
-        "coverage": 0.7824,
-        "n_facts": 1298,
+        "coverage": 0.7832,
+        "n_facts": 1552,
         "n_entries": 36,
-        "difference": 0.0003,
+        "difference": 0.0122,
         "ci95": [
-          -0.0166,
-          0.0206
+          -0.0086,
+          0.0368
         ],
         "ci_unreliable": false
       }
     },
     "abstract": {
       "direct": {
-        "coverage": 0.4308,
-        "n_facts": 2356
+        "coverage": 0.3918,
+        "n_facts": 2815
       },
       "guided": {
-        "coverage": 0.4278,
-        "n_facts": 2368,
+        "coverage": 0.4005,
+        "n_facts": 2815,
         "n_entries": 60,
-        "difference": -0.003,
+        "difference": 0.0087,
         "ci95": [
-          -0.0143,
-          0.0091
+          0.0003,
+          0.0169
         ],
         "ci_unreliable": false
       }
     },
     "title": {
       "direct": {
-        "coverage": 0.2331,
-        "n_facts": 296
+        "coverage": 0.1702,
+        "n_facts": 329
       },
       "guided": {
-        "coverage": 0.2295,
-        "n_facts": 292,
+        "coverage": 0.1641,
+        "n_facts": 329,
         "n_entries": 16,
-        "difference": -0.0037,
+        "difference": -0.0061,
         "ci95": [
-          -0.0239,
-          0.0132
+          -0.0128,
+          0.0
         ],
         "ci_unreliable": true
       }
@@ -1632,8 +1687,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5491,
-            "guided": 0.5336
+            "direct": 0.5168,
+            "guided": 0.5286
           },
           "n": {
             "direct": 14,
@@ -1645,8 +1700,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0029,
-            "guided": 0.0036
+            "direct": 0.0024,
+            "guided": 0.0035
           },
           "n": {
             "direct": 14,
@@ -1754,8 +1809,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5668,
-            "guided": 0.5821
+            "direct": 0.5472,
+            "guided": 0.57
           },
           "n": {
             "direct": 13,
@@ -1767,8 +1822,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0065,
-            "guided": 0.0077
+            "direct": 0.0064,
+            "guided": 0.0059
           },
           "n": {
             "direct": 13,
@@ -1876,8 +1931,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5701,
-            "guided": 0.5512
+            "direct": 0.5616,
+            "guided": 0.5595
           },
           "n": {
             "direct": 14,
@@ -1889,8 +1944,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0111,
-            "guided": 0.0139
+            "direct": 0.005,
+            "guided": 0.005
           },
           "n": {
             "direct": 14,
@@ -1998,8 +2053,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5502,
-            "guided": 0.5482
+            "direct": 0.5297,
+            "guided": 0.5295
           },
           "n": {
             "direct": 14,
@@ -2011,8 +2066,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0008,
-            "guided": 0.0032
+            "direct": 0.0012,
+            "guided": 0.0047
           },
           "n": {
             "direct": 14,
@@ -2120,8 +2175,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.3663,
-            "guided": 0.3724
+            "direct": 0.301,
+            "guided": 0.3203
           },
           "n": {
             "direct": 13,
@@ -2133,8 +2188,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0051,
-            "guided": 0.0046
+            "direct": 0.0033,
+            "guided": 0.002
           },
           "n": {
             "direct": 13,
@@ -2244,8 +2299,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.3709,
-            "guided": 0.3702
+            "direct": 0.3267,
+            "guided": 0.3362
           },
           "n": {
             "direct": 29,
@@ -2257,8 +2312,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.003,
-            "guided": 0.0044
+            "direct": 0.0011,
+            "guided": 0.0021
           },
           "n": {
             "direct": 29,
@@ -2366,8 +2421,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5446,
-            "guided": 0.5492
+            "direct": 0.5239,
+            "guided": 0.5415
           },
           "n": {
             "direct": 19,
@@ -2379,8 +2434,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0097,
-            "guided": 0.0111
+            "direct": 0.0068,
+            "guided": 0.0067
           },
           "n": {
             "direct": 19,
@@ -2488,8 +2543,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.7128,
-            "guided": 0.6962
+            "direct": 0.6956,
+            "guided": 0.6977
           },
           "n": {
             "direct": 19,
@@ -2501,8 +2556,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0045,
-            "guided": 0.0058
+            "direct": 0.0046,
+            "guided": 0.0053
           },
           "n": {
             "direct": 19,
@@ -2610,8 +2665,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.855,
-            "guided": 0.87
+            "direct": 0.897,
+            "guided": 0.926
           },
           "n": {
             "direct": 1,
@@ -2709,18 +2764,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 29,
-            "strategy": 0.3702,
-            "baseline": 0.3709,
-            "difference": -0.0007,
+            "strategy": 0.3362,
+            "baseline": 0.3267,
+            "difference": 0.0095,
             "ci95": [
-              -0.0185,
-              0.0169
+              -0.0065,
+              0.0248
             ],
-            "median_difference": 0.004,
-            "better": 16,
-            "worse": 13,
-            "ties": 0,
-            "sign_test_p": 0.7111,
+            "median_difference": 0.0,
+            "better": 11,
+            "worse": 9,
+            "ties": 9,
+            "sign_test_p": 0.8238,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -2758,18 +2813,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 19,
-            "strategy": 0.5492,
-            "baseline": 0.5446,
-            "difference": 0.0046,
+            "strategy": 0.5415,
+            "baseline": 0.5239,
+            "difference": 0.0176,
             "ci95": [
-              -0.0112,
-              0.0229
+              0.001,
+              0.0358
             ],
-            "median_difference": -0.002,
-            "better": 9,
-            "worse": 10,
-            "ties": 0,
-            "sign_test_p": 1.0,
+            "median_difference": 0.007,
+            "better": 10,
+            "worse": 7,
+            "ties": 2,
+            "sign_test_p": 0.6291,
             "ci_unreliable": true,
             "primary": true,
             "headline": true
@@ -2807,18 +2862,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 19,
-            "strategy": 0.6962,
-            "baseline": 0.7128,
-            "difference": -0.0166,
+            "strategy": 0.6977,
+            "baseline": 0.6956,
+            "difference": 0.0022,
             "ci95": [
-              -0.033,
-              0.0007
+              -0.0159,
+              0.0216
             ],
-            "median_difference": -0.022,
-            "better": 6,
-            "worse": 13,
-            "ties": 0,
-            "sign_test_p": 0.1671,
+            "median_difference": 0.0,
+            "better": 8,
+            "worse": 9,
+            "ties": 2,
+            "sign_test_p": 1.0,
             "ci_unreliable": true,
             "primary": true,
             "headline": true
@@ -2856,11 +2911,11 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 1,
-            "strategy": 0.87,
-            "baseline": 0.855,
-            "difference": 0.015,
+            "strategy": 0.926,
+            "baseline": 0.897,
+            "difference": 0.029,
             "ci95": null,
-            "median_difference": 0.015,
+            "median_difference": 0.029,
             "better": 1,
             "worse": 0,
             "ties": 0,
@@ -2895,98 +2950,98 @@
     "direct": {
       "fulltext": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 23,
-          "conveyed": 20.5,
+          "n_facts": 22,
+          "conveyed": 19.5,
           "n_entries": 1,
-          "coverage": 0.8913
+          "coverage": 0.8864
         },
         "600000-609999": {
-          "n_facts": 151,
-          "conveyed": 119.5,
+          "n_facts": 182,
+          "conveyed": 141.5,
           "n_entries": 8,
-          "coverage": 0.7914
+          "coverage": 0.7775
         },
         "610000-615999": {
-          "n_facts": 364,
-          "conveyed": 275.0,
+          "n_facts": 457,
+          "conveyed": 333.5,
           "n_entries": 9,
-          "coverage": 0.7555
+          "coverage": 0.7298
         },
         "616000-619999": {
-          "n_facts": 433,
-          "conveyed": 317.0,
+          "n_facts": 497,
+          "conveyed": 358.5,
           "n_entries": 10,
-          "coverage": 0.7321
+          "coverage": 0.7213
         },
         "620000 onward": {
-          "n_facts": 339,
-          "conveyed": 292.5,
+          "n_facts": 394,
+          "conveyed": 343.5,
           "n_entries": 8,
-          "coverage": 0.8628
+          "coverage": 0.8718
         }
       },
       "abstract": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 607,
-          "conveyed": 202.0,
+          "n_facts": 724,
+          "conveyed": 187.5,
           "n_entries": 13,
-          "coverage": 0.3328
+          "coverage": 0.259
         },
         "600000-609999": {
-          "n_facts": 420,
-          "conveyed": 220.0,
+          "n_facts": 480,
+          "conveyed": 237.5,
           "n_entries": 14,
-          "coverage": 0.5238
+          "coverage": 0.4948
         },
         "610000-615999": {
-          "n_facts": 492,
-          "conveyed": 239.5,
+          "n_facts": 591,
+          "conveyed": 273.5,
           "n_entries": 12,
-          "coverage": 0.4868
+          "coverage": 0.4628
         },
         "616000-619999": {
-          "n_facts": 447,
-          "conveyed": 198.5,
+          "n_facts": 538,
+          "conveyed": 230.5,
           "n_entries": 9,
-          "coverage": 0.4441
+          "coverage": 0.4284
         },
         "620000 onward": {
-          "n_facts": 390,
-          "conveyed": 155.0,
+          "n_facts": 482,
+          "conveyed": 174.0,
           "n_entries": 12,
-          "coverage": 0.3974
+          "coverage": 0.361
         }
       },
       "title": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 32,
-          "conveyed": 11.5,
+          "n_facts": 34,
+          "conveyed": 8.5,
           "n_entries": 2,
-          "coverage": 0.3594
+          "coverage": 0.25
         },
         "600000-609999": {
-          "n_facts": 45,
-          "conveyed": 11.5,
+          "n_facts": 55,
+          "conveyed": 9.5,
           "n_entries": 3,
-          "coverage": 0.2556
+          "coverage": 0.1727
         },
         "610000-615999": {
-          "n_facts": 42,
-          "conveyed": 13.5,
+          "n_facts": 48,
+          "conveyed": 12.5,
           "n_entries": 3,
-          "coverage": 0.3214
+          "coverage": 0.2604
         },
         "616000-619999": {
-          "n_facts": 60,
-          "conveyed": 9.0,
+          "n_facts": 68,
+          "conveyed": 8.5,
           "n_entries": 4,
-          "coverage": 0.15
+          "coverage": 0.125
         },
         "620000 onward": {
-          "n_facts": 117,
-          "conveyed": 23.5,
+          "n_facts": 124,
+          "conveyed": 17.0,
           "n_entries": 4,
-          "coverage": 0.2009
+          "coverage": 0.1371
         }
       }
     }
@@ -3026,8 +3081,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5253,
-            "guided": 0.5129
+            "direct": 0.4993,
+            "guided": 0.5074
           },
           "n": {
             "direct": 38,
@@ -3039,8 +3094,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0047,
-            "guided": 0.0069
+            "direct": 0.0027,
+            "guided": 0.0042
           },
           "n": {
             "direct": 38,
@@ -3148,8 +3203,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5001,
-            "guided": 0.5159
+            "direct": 0.4705,
+            "guided": 0.4802
           },
           "n": {
             "direct": 18,
@@ -3161,8 +3216,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0046,
-            "guided": 0.0033
+            "direct": 0.0033,
+            "guided": 0.0026
           },
           "n": {
             "direct": 18,
@@ -3270,8 +3325,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "direct": 0.5451,
-            "guided": 0.5409
+            "direct": 0.5082,
+            "guided": 0.5248
           },
           "n": {
             "direct": 12,
@@ -3283,8 +3338,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "direct": 0.0079,
-            "guided": 0.0108
+            "direct": 0.007,
+            "guided": 0.0068
           },
           "n": {
             "direct": 12,

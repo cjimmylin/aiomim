@@ -15,6 +15,8 @@ An entry is compared only when every strategy below completed it in full: its dr
 
 ## How the scores are counted
 
+- **OMIM facts conveyed** is scored against one fixed list of facts per OMIM paragraph, split without sight of any draft and shared by every strategy. The earlier scoring, which split the paragraph afresh for each draft, is shown as a secondary row.
+
 - **Empty predictions count as zero.** Where a strategy predicted nothing (no causal gene, no synopsis term, no variant) and OMIM's gold set is not empty, F1 and recall count as 0 rather than leaving the entry out of the mean; precision stays undefined. This is applied when the evaluation files are read, for genes, the clinical synopsis (exact, hierarchical, semantic) and variants. Entries affected: Direct reading: genes 1, variants 11; Learned curation guide: genes 1, variants 11.
 
 - **n.** A value rests on all 68 entries unless marked (n=k): some measures are undefined for some entries (OMIM lists no variants, no inheritance, or a draft made no auditable claim).
@@ -37,9 +39,11 @@ An entry is compared only when every strategy below completed it in full: its dr
 | … same, before the repair round ↓ | 0.2% | 0.2% |
 | … unsupported, before the repair round ↓ | 0.2% | 0.2% |
 | … contradicted, before the repair round ↓ | 0.0% | 0.0% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 52.2% | 51.9% |
-| … fully (no partial credit) ↑ | 43.8% | 44.2% |
-| OMIM per-paper facts contradicted ↓ | 0.5% | 0.7% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 49.3% | 50.3% |
+| … fully (no partial credit) ↑ | 42.5% | 43.9% |
+| OMIM per-paper facts contradicted ↓ | 0.4% | 0.4% |
+| … conveyed anywhere in the draft, not only where the paper is cited ↑ | – | – |
+| … facts split afresh for each draft (earlier scoring) ↑ | 52.2% | 51.9% |
 | Clinical synopsis HPO F1, exact ↑ | 35.7% | 36.5% |
 | … precision ↑ | 43.8% | 43.0% |
 | … recall ↑ | 37.1% | 40.0% |
@@ -76,10 +80,10 @@ Percentage points, strategy minus baseline, with a bootstrap 95% interval over e
 |---|---|
 | Claims supported by cited paper ↑ | -0.1 (-1.0 to +1.0); 29/35/4 |
 | … same, before the repair round ↓ | -0.0 (-0.4 to +0.3); 6/7/55 |
-| OMIM per-paper facts conveyed (primary) ↑ | -0.3 (-1.4 to +0.7); 32/36/0 |
-| OMIM per-paper facts contradicted ↓ | +0.1 (-0.0 to +0.3); 6/11/51 |
+| OMIM per-paper facts conveyed (primary) ↑ | +1.0 (+0.0 to +2.0); 30/25/13 |
+| OMIM per-paper facts contradicted ↓ | +0.1 (-0.1 to +0.2); 3/3/62 |
 | Clinical synopsis HPO F1, exact ↑ | +0.8 (-0.8 to +2.4); 34/22/12 |
-| Clinical synopsis HPO F1, hierarchical ↑ | +0.1 (-1.3 to +1.3); 27/31/10 |
+| Clinical synopsis HPO F1, hierarchical ↑ | +0.1 (-1.3 to +1.4); 27/31/10 |
 | OMIM allelic variants recovered ↑ | -1.6 (-3.7 to +0.0); 0/3/65 |
 | Causal gene F1 ↑ | +0.0 (+0.0 to +0.0); 0/0/68 |
 | Inheritance matches OMIM ↑ | +0.0 (+0.0 to +0.0); 0/0/68 |
@@ -92,23 +96,24 @@ Mean and median paired difference (pp), bootstrap 95% interval, entries better /
 
 | Metric | n | Strategy | Baseline | Mean diff | 95% CI | Median diff | Better / worse / tie | Sign test p | Holm p |
 |---|---|---|---|---|---|---|---|---|---|
-| OMIM per-paper facts conveyed **(primary)** ↑ | 68 | 51.9% | 52.2% | -0.3 | -1.4 to +0.7 | -0.8 | 32 / 36 / 0 | 0.716 | – |
+| OMIM per-paper facts conveyed **(primary)** ↑ | 68 | 50.3% | 49.3% | +1.0 | +0.0 to +2.0 | +0.0 | 30 / 25 / 13 | 0.590 | – |
 | Claims supported by cited paper (headline) ↑ | 68 | 96.1% | 96.2% | -0.1 | -1.0 to +1.0 | -0.1 | 29 / 35 / 4 | 0.532 | 1.000 |
 | Claims unsupported or contradicted, before the repair round (headline) ↓ | 68 | 0.2% | 0.2% | -0.0 | -0.4 to +0.3 | +0.0 | 6 / 7 / 55 | 1.000 | 1.000 |
-| OMIM per-paper facts contradicted (headline) ↓ | 68 | 0.7% | 0.5% | +0.1 | -0.0 to +0.3 | +0.0 | 6 / 11 / 51 | 0.332 | 1.000 |
+| OMIM per-paper facts contradicted (headline) ↓ | 68 | 0.4% | 0.4% | +0.1 | -0.1 to +0.2 | +0.0 | 3 / 3 / 62 | 1.000 | 1.000 |
 | Clinical synopsis HPO F1, exact (headline) ↑ | 68 | 36.5% | 35.7% | +0.8 | -0.8 to +2.4 | +0.1 | 34 / 22 / 12 | 0.141 | 0.845 |
-| Clinical synopsis HPO F1, hierarchical (headline) ↑ | 68 | 55.4% | 55.4% | +0.1 | -1.3 to +1.3 | +0.0 | 27 / 31 / 10 | 0.694 | 1.000 |
+| Clinical synopsis HPO F1, hierarchical (headline) ↑ | 68 | 55.4% | 55.4% | +0.1 | -1.3 to +1.4 | +0.0 | 27 / 31 / 10 | 0.694 | 1.000 |
 | OMIM allelic variants recovered (headline) ↑ | 68 | 65.0% | 66.6% | -1.6 | -3.7 to +0.0 | +0.0 | 0 / 3 / 65 | 0.250 | 1.000 |
 | Causal gene F1 (headline) ↑ | 68 | 98.0% | 98.0% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
 | Inheritance matches OMIM (headline) ↑ | 68 | 94.1% | 94.1% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
 | Claims unsupported or contradicted ↓ | 68 | 0.0% | 0.0% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
 | Claims unsupported, before the repair round ↓ | 68 | 0.2% | 0.2% | -0.0 | -0.4 to +0.3 | +0.0 | 6 / 7 / 55 | 1.000 | – |
 | Claims contradicted, before the repair round ↓ | 68 | 0.0% | 0.0% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 1 / 67 | 1.000 | – |
-| OMIM per-paper facts conveyed fully (no partial credit) ↑ | 68 | 44.2% | 43.8% | +0.4 | -0.8 to +1.6 | -0.2 | 30 / 35 / 3 | 0.620 | – |
+| OMIM per-paper facts conveyed fully (no partial credit) ↑ | 68 | 43.9% | 42.5% | +1.4 | +0.2 to +2.5 | +0.0 | 31 / 19 / 18 | 0.119 | – |
+| OMIM per-paper facts contradicted: facts split afresh for each draft (earlier scoring) ↑ | 68 | 51.9% | 52.2% | -0.3 | -1.4 to +0.7 | -0.8 | 32 / 36 / 0 | 0.716 | – |
 | Clinical synopsis HPO precision, exact ↑ | 68 | 43.0% | 43.8% | -0.8 | -3.4 to +1.9 | +0.0 | 26 / 29 / 13 | 0.788 | – |
-| Clinical synopsis HPO recall, exact ↑ | 68 | 40.0% | 37.1% | +2.9 | +0.9 to +4.7 | +0.0 | 29 / 7 / 32 | <0.001 | – |
+| Clinical synopsis HPO recall, exact ↑ | 68 | 40.0% | 37.1% | +2.9 | +0.9 to +4.8 | +0.0 | 29 / 7 / 32 | <0.001 | – |
 | Clinical synopsis HPO F1, semantic ↑ | 68 | 66.7% | 65.8% | +0.9 | -0.3 to +2.2 | +0.3 | 35 / 25 / 8 | 0.245 | – |
-| Generated variants that are OMIM variants (precision) ↑ | 57 | 87.9% | 86.8% | +1.1 | -2.4 to +5.1 | +0.0 | 4 / 3 / 50 | 1.000 | – |
+| Generated variants that are OMIM variants (precision) ↑ | 57 | 87.9% | 86.8% | +1.1 | -2.4 to +5.0 | +0.0 | 4 / 3 / 50 | 1.000 | – |
 | Causal gene recall ↑ | 68 | 97.8% | 97.8% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
 | Inheritance error: none stated ↓ | 68 | 2.9% | 2.9% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
 | Inheritance error: a mode missing ↓ | 68 | 0.0% | 0.0% | +0.0 | +0.0 to +0.0 | +0.0 | 0 / 0 / 68 | – | – |
@@ -124,8 +129,8 @@ All 70 entries of the run. A strategy's missing draft scores 0 on each higher-is
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.2% | 93.4% |
 | … same, before the repair round ↓ | 0.4% | 0.2% (n=68) |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 52.4% | 50.4% |
-| OMIM per-paper facts contradicted ↓ | 0.6% | 0.7% (n=68) |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 49.6% | 48.9% |
+| OMIM per-paper facts contradicted ↓ | 0.4% | 0.4% (n=68) |
 | Clinical synopsis HPO F1, exact ↑ | 35.3% | 35.5% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 55.3% | 53.8% |
 | OMIM allelic variants recovered ↑ | 67.3% | 63.1% |
@@ -136,11 +141,11 @@ Paired differences from Direct reading over all entries (mean, interval, median,
 
 | Metric | Learned curation guide |
 |---|---|
-| Claims supported by cited paper ↑ | -2.8 (-7.1 to +0.3); median -0.2; 29/37/4; p 0.389 |
+| Claims supported by cited paper ↑ | -2.8 (-7.1 to +0.4); median -0.2; 29/37/4; p 0.389 |
 | … same, before the repair round ↓ | -0.0 (-0.4 to +0.3); median +0.0; 6/7/55; p 1.000 (n=68) |
-| OMIM per-paper facts conveyed (primary) ↑ | -2.0 (-4.8 to +0.2); median -0.8; 32/38/0; p 0.550 |
-| OMIM per-paper facts contradicted ↓ | +0.1 (-0.0 to +0.3); median +0.0; 6/11/51; p 0.332 (n=68) |
-| Clinical synopsis HPO F1, exact ↑ | +0.2 (-1.7 to +1.9); median +0.0; 34/24/12; p 0.237 |
+| OMIM per-paper facts conveyed (primary) ↑ | -0.7 (-3.6 to +1.4); median +0.0; 30/27/13; p 0.791 |
+| OMIM per-paper facts contradicted ↓ | +0.1 (-0.1 to +0.2); median +0.0; 3/3/62; p 1.000 (n=68) |
+| Clinical synopsis HPO F1, exact ↑ | +0.2 (-1.6 to +1.9); median +0.0; 34/24/12; p 0.237 |
 | Clinical synopsis HPO F1, hierarchical ↑ | -1.5 (-4.1 to +0.7); median +0.0; 27/33/10; p 0.519 |
 | OMIM allelic variants recovered ↑ | -4.2 (-8.6 to -0.7); median +0.0; 0/5/65; p 0.062 |
 | Causal gene F1 ↑ | -2.9 (-7.1 to +0.0); median +0.0; 0/2/68; p 0.500 |
@@ -158,11 +163,11 @@ Paired differences from Direct reading over all entries (mean, interval, median,
 | Claims audited before repair | 7,260 | 6,537 |
 | … unsupported before repair | 11 | 15 |
 | … contradicted before repair | 0 | 1 |
-| OMIM facts scored | 3,962 | 3,958 |
-| … conveyed | 1,773 | 1,787 |
-| … partly conveyed | 671 | 617 |
-| … missing | 1,494 | 1,526 |
-| … contradicted | 24 | 28 |
+| OMIM facts scored | 4,696 | 4,696 |
+| … conveyed | 2,043 | 2,089 |
+| … partly conveyed | 625 | 616 |
+| … missing | 2,008 | 1,971 |
+| … contradicted | 20 | 20 |
 
 ## Allelic variants: precision and variants not in OMIM
 
@@ -191,9 +196,9 @@ Pooled over facts. Each cell: coverage, then the number of facts scored.
 
 | Paper readable as | Direct reading | Learned curation guide |
 |---|---|---|
-| fulltext | 78.2% (1,310) | 78.2% (1,298) |
-| abstract | 43.1% (2,356) | 42.8% (2,368) |
-| title | 23.3% (296) | 22.9% (292) |
+| fulltext | 77.1% (1,552) | 78.3% (1,552) |
+| abstract | 39.2% (2,815) | 40.1% (2,815) |
+| title | 17.0% (329) | 16.4% (329) |
 
 ### Difference from Direct reading, by how the paper was readable
 
@@ -201,9 +206,9 @@ Coverage pooled over the facts of all papers at that level, strategy minus basel
 
 | Paper readable as | Learned curation guide |
 |---|---|
-| fulltext | +0.0 (-1.7 to +2.1); n=36 |
-| abstract | -0.3 (-1.4 to +0.9); n=60 |
-| title | -0.4 (-2.4 to +1.3) †; n=16 |
+| fulltext | +1.2 (-0.9 to +3.7); n=36 |
+| abstract | +0.9 (+0.0 to +1.7); n=60 |
+| title | -0.6 (-1.3 to +0.0) †; n=16 |
 
 † fewer than 20 entries: the interval is unreliable.
 
@@ -215,10 +220,10 @@ Entries grouped by the share of their references readable as full text (as in th
 
 | Access group | Entries | Learned curation guide |
 |---|---|---|
-| no full text (abstracts only) | 29 | -0.1 (-1.8 to +1.7); n=29 |
-| under half full text | 19 | +0.5 (-1.1 to +2.3) †; n=19 |
-| half or more full text | 19 | -1.7 (-3.3 to +0.1) †; n=19 |
-| all full text | 1 | +1.5 †; n=1 |
+| no full text (abstracts only) | 29 | +0.9 (-0.7 to +2.5); n=29 |
+| under half full text | 19 | +1.8 (+0.1 to +3.6) †; n=19 |
+| half or more full text | 19 | +0.2 (-1.6 to +2.2) †; n=19 |
+| all full text | 1 | +2.9 †; n=1 |
 
 ### OMIM allelic variants recovered
 
@@ -237,9 +242,9 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 
 | Paper readable as | classic (1xxxxx-5xxxxx) | 600000-609999 | 610000-615999 | 616000-619999 | 620000 onward |
 |---|---|---|---|---|---|
-| fulltext | 89.1% (23 facts, 1 entry) | 79.1% (151 facts, 8 entries) | 75.5% (364 facts, 9 entries) | 73.2% (433 facts, 10 entries) | 86.3% (339 facts, 8 entries) |
-| abstract | 33.3% (607 facts, 13 entries) | 52.4% (420 facts, 14 entries) | 48.7% (492 facts, 12 entries) | 44.4% (447 facts, 9 entries) | 39.7% (390 facts, 12 entries) |
-| title | 35.9% (32 facts, 2 entries) | 25.6% (45 facts, 3 entries) | 32.1% (42 facts, 3 entries) | 15.0% (60 facts, 4 entries) | 20.1% (117 facts, 4 entries) |
+| fulltext | 88.6% (22 facts, 1 entry) | 77.8% (182 facts, 8 entries) | 73.0% (457 facts, 9 entries) | 72.1% (497 facts, 10 entries) | 87.2% (394 facts, 8 entries) |
+| abstract | 25.9% (724 facts, 13 entries) | 49.5% (480 facts, 14 entries) | 46.3% (591 facts, 12 entries) | 42.8% (538 facts, 9 entries) | 36.1% (482 facts, 12 entries) |
+| title | 25.0% (34 facts, 2 entries) | 17.3% (55 facts, 3 entries) | 26.0% (48 facts, 3 entries) | 12.5% (68 facts, 4 entries) | 13.7% (124 facts, 4 entries) |
 
 ## By share of the entry's references readable as full text
 
@@ -249,8 +254,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 94.8% | 95.1% |
 | … same, before the repair round ↓ | 0.4% | 0.2% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 37.1% | 37.0% |
-| OMIM per-paper facts contradicted ↓ | 0.3% | 0.4% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 32.7% | 33.6% |
+| OMIM per-paper facts contradicted ↓ | 0.1% | 0.2% |
 | Clinical synopsis HPO F1, exact ↑ | 28.1% | 28.9% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 46.3% | 46.8% |
 | OMIM allelic variants recovered ↑ | 43.9% | 41.3% |
@@ -263,8 +268,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.6% | 96.9% |
 | … same, before the repair round ↓ | 0.2% | 0.0% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 54.5% | 54.9% |
-| OMIM per-paper facts contradicted ↓ | 1.0% | 1.1% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 52.4% | 54.1% |
+| OMIM per-paper facts contradicted ↓ | 0.7% | 0.7% |
 | Clinical synopsis HPO F1, exact ↑ | 40.5% | 41.2% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 61.9% | 61.6% |
 | OMIM allelic variants recovered ↑ | 78.3% | 78.3% |
@@ -277,8 +282,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 97.9% | 96.8% |
 | … same, before the repair round ↓ | 0.1% | 0.4% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 71.3% | 69.6% |
-| OMIM per-paper facts contradicted ↓ | 0.4% | 0.6% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 69.6% | 69.8% |
+| OMIM per-paper facts contradicted ↓ | 0.5% | 0.5% |
 | Clinical synopsis HPO F1, exact ↑ | 41.7% | 42.7% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 61.5% | 61.5% |
 | OMIM allelic variants recovered ↑ | 87.8% | 86.0% |
@@ -291,7 +296,7 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 97.8% | 98.1% |
 | … same, before the repair round ↓ | 0.0% | 0.0% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 85.5% | 87.0% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 89.7% | 92.6% |
 | OMIM per-paper facts contradicted ↓ | 0.0% | 0.0% |
 | Clinical synopsis HPO F1, exact ↑ | 50.0% | 51.9% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 76.5% | 70.9% |
@@ -307,8 +312,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.5% | 96.2% |
 | … same, before the repair round ↓ | 0.2% | 0.1% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 52.5% | 51.3% |
-| OMIM per-paper facts contradicted ↓ | 0.5% | 0.7% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 49.9% | 50.7% |
+| OMIM per-paper facts contradicted ↓ | 0.3% | 0.4% |
 | Clinical synopsis HPO F1, exact ↑ | 34.7% | 34.8% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 54.0% | 54.3% |
 | OMIM allelic variants recovered ↑ | 65.1% | 62.9% |
@@ -321,8 +326,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.0% | 96.0% |
 | … same, before the repair round ↓ | 0.3% | 0.4% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 50.0% | 51.6% |
-| OMIM per-paper facts contradicted ↓ | 0.5% | 0.3% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 47.0% | 48.0% |
+| OMIM per-paper facts contradicted ↓ | 0.3% | 0.3% |
 | Clinical synopsis HPO F1, exact ↑ | 35.3% | 38.7% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 56.3% | 55.8% |
 | OMIM allelic variants recovered ↑ | 67.8% | 66.4% |
@@ -335,8 +340,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 95.7% | 95.9% |
 | … same, before the repair round ↓ | 0.2% | 0.4% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 54.5% | 54.1% |
-| OMIM per-paper facts contradicted ↓ | 0.8% | 1.1% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 50.8% | 52.5% |
+| OMIM per-paper facts contradicted ↓ | 0.7% | 0.7% |
 | Clinical synopsis HPO F1, exact ↑ | 39.5% | 38.7% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 58.1% | 58.3% |
 | OMIM allelic variants recovered ↑ | 69.6% | 69.6% |
@@ -351,8 +356,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.9% | 96.9% |
 | … same, before the repair round ↓ | 0.7% | 0.2% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 54.9% | 53.4% |
-| OMIM per-paper facts contradicted ↓ | 0.3% | 0.4% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 51.7% | 52.9% |
+| OMIM per-paper facts contradicted ↓ | 0.2% | 0.4% |
 | Clinical synopsis HPO F1, exact ↑ | 40.7% | 40.8% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 64.1% | 63.3% |
 | OMIM allelic variants recovered ↑ | 69.5% | 69.5% |
@@ -365,8 +370,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 95.2% | 96.9% |
 | … same, before the repair round ↓ | 0.2% | 0.0% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 56.7% | 58.2% |
-| OMIM per-paper facts contradicted ↓ | 0.7% | 0.8% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 54.7% | 57.0% |
+| OMIM per-paper facts contradicted ↓ | 0.6% | 0.6% |
 | Clinical synopsis HPO F1, exact ↑ | 37.2% | 35.5% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 52.0% | 51.4% |
 | OMIM allelic variants recovered ↑ | 77.7% | 77.7% |
@@ -379,8 +384,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 96.4% | 96.6% |
 | … same, before the repair round ↓ | 0.0% | 0.0% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 57.0% | 55.1% |
-| OMIM per-paper facts contradicted ↓ | 1.1% | 1.4% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 56.2% | 56.0% |
+| OMIM per-paper facts contradicted ↓ | 0.5% | 0.5% |
 | Clinical synopsis HPO F1, exact ↑ | 38.3% | 40.2% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 59.3% | 58.5% |
 | OMIM allelic variants recovered ↑ | 86.8% | 84.4% |
@@ -393,8 +398,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 97.8% | 96.6% |
 | … same, before the repair round ↓ | 0.0% | 0.6% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 55.0% | 54.8% |
-| OMIM per-paper facts contradicted ↓ | 0.1% | 0.3% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 53.0% | 52.9% |
+| OMIM per-paper facts contradicted ↓ | 0.1% | 0.5% |
 | Clinical synopsis HPO F1, exact ↑ | 34.1% | 34.8% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 51.7% | 52.7% |
 | OMIM allelic variants recovered ↑ | 65.2% | 61.6% |
@@ -407,8 +412,8 @@ Pooled over facts; each cell: coverage, then facts scored and entries contributi
 |---|---|---|
 | Claims supported by cited paper ↑ | 94.6% | 93.4% |
 | … same, before the repair round ↓ | 0.2% | 0.3% |
-| OMIM per-paper facts conveyed (primary endpoint) ↑ | 36.6% | 37.2% |
-| OMIM per-paper facts contradicted ↓ | 0.5% | 0.5% |
+| OMIM per-paper facts conveyed (primary endpoint) ↑ | 30.1% | 32.0% |
+| OMIM per-paper facts contradicted ↓ | 0.3% | 0.2% |
 | Clinical synopsis HPO F1, exact ↑ | 27.9% | 30.7% |
 | Clinical synopsis HPO F1, hierarchical ↑ | 48.9% | 50.5% |
 | OMIM allelic variants recovered ↑ | 32.2% | 30.3% |

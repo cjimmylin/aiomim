@@ -3,6 +3,14 @@
   "baseline": "cohort",
   "n_entries": 97,
   "primary_endpoint": "gold_fact_coverage",
+  "fact_list": {
+    "cohort": {
+      "frozen": 97
+    },
+    "reconciled": {
+      "frozen": 97
+    }
+  },
   "stopped": {},
   "completion": {
     "cohort": {
@@ -237,9 +245,9 @@
         ]
       },
       "incomplete_source": {
-        "300148": "entry.cohort.json (same case extraction)",
-        "617232": "entry.cohort.json (same case extraction)",
-        "621068": "entry.cohort.json (same case extraction)"
+        "300148": "entry.reconciled.json",
+        "617232": "entry.reconciled.json",
+        "621068": "entry.reconciled.json"
       },
       "no_draft": []
     }
@@ -272,8 +280,8 @@
       "label": "Claims supported by cited paper",
       "higher_is_better": true,
       "values": {
-        "cohort": 0.9471,
-        "reconciled": 0.9474
+        "cohort": 0.9465,
+        "reconciled": 0.9469
       },
       "n": {
         "cohort": 97,
@@ -298,8 +306,8 @@
       "label": "\u2026 same, before the repair round",
       "higher_is_better": false,
       "values": {
-        "cohort": 0.0042,
-        "reconciled": 0.005
+        "cohort": 0.0037,
+        "reconciled": 0.0048
       },
       "n": {
         "cohort": 97,
@@ -311,8 +319,8 @@
       "label": "\u2026 unsupported, before the repair round",
       "higher_is_better": false,
       "values": {
-        "cohort": 0.0039,
-        "reconciled": 0.0047
+        "cohort": 0.0034,
+        "reconciled": 0.0045
       },
       "n": {
         "cohort": 97,
@@ -337,8 +345,8 @@
       "label": "OMIM per-paper facts conveyed",
       "higher_is_better": true,
       "values": {
-        "cohort": 0.5013,
-        "reconciled": 0.5021
+        "cohort": 0.4818,
+        "reconciled": 0.4829
       },
       "n": {
         "cohort": 97,
@@ -350,8 +358,8 @@
       "label": "\u2026 fully (no partial credit)",
       "higher_is_better": true,
       "values": {
-        "cohort": 0.4198,
-        "reconciled": 0.4233
+        "cohort": 0.4184,
+        "reconciled": 0.4183
       },
       "n": {
         "cohort": 97,
@@ -363,8 +371,34 @@
       "label": "OMIM per-paper facts contradicted",
       "higher_is_better": false,
       "values": {
-        "cohort": 0.0066,
-        "reconciled": 0.007
+        "cohort": 0.0051,
+        "reconciled": 0.0058
+      },
+      "n": {
+        "cohort": 97,
+        "reconciled": 97
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_whole",
+      "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
+      "higher_is_better": true,
+      "values": {
+        "cohort": null,
+        "reconciled": null
+      },
+      "n": {
+        "cohort": 0,
+        "reconciled": 0
+      }
+    },
+    {
+      "metric": "gold_fact_coverage_adaptive",
+      "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.5018,
+        "reconciled": 0.5009
       },
       "n": {
         "cohort": 97,
@@ -441,8 +475,8 @@
       "label": "OMIM allelic variants recovered",
       "higher_is_better": true,
       "values": {
-        "cohort": 0.6488,
-        "reconciled": 0.6497
+        "cohort": 0.6525,
+        "reconciled": 0.6534
       },
       "n": {
         "cohort": 97,
@@ -454,8 +488,8 @@
       "label": "Generated variants that are OMIM variants (precision)",
       "higher_is_better": true,
       "values": {
-        "cohort": 0.7284,
-        "reconciled": 0.7369
+        "cohort": 0.7353,
+        "reconciled": 0.7439
       },
       "n": {
         "cohort": 92,
@@ -573,8 +607,8 @@
       "label": "Claims audited per entry",
       "higher_is_better": null,
       "values": {
-        "cohort": 117.8041,
-        "reconciled": 117.2268
+        "cohort": 117.8557,
+        "reconciled": 117.1959
       },
       "n": {
         "cohort": 97,
@@ -612,8 +646,8 @@
       "label": "Allelic variants per entry",
       "higher_is_better": null,
       "values": {
-        "cohort": 4.0825,
-        "reconciled": 4.0722
+        "cohort": 4.0515,
+        "reconciled": 4.0309
       },
       "n": {
         "cohort": 97,
@@ -625,8 +659,8 @@
       "label": "\u2026 of which not in OMIM",
       "higher_is_better": null,
       "values": {
-        "cohort": 1.4124,
-        "reconciled": 1.3918
+        "cohort": 1.3505,
+        "reconciled": 1.3196
       },
       "n": {
         "cohort": 97,
@@ -667,18 +701,18 @@
         "label": "Claims supported by cited paper",
         "higher_is_better": true,
         "n": 97,
-        "strategy": 0.9474,
-        "baseline": 0.9471,
+        "strategy": 0.9469,
+        "baseline": 0.9465,
         "difference": 0.0003,
         "ci95": [
-          -0.0039,
-          0.0043
+          -0.0038,
+          0.0044
         ],
         "median_difference": 0.0,
-        "better": 14,
+        "better": 15,
         "worse": 13,
-        "ties": 70,
-        "sign_test_p": 1.0,
+        "ties": 69,
+        "sign_test_p": 0.8506,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
@@ -710,12 +744,12 @@
         "label": "\u2026 same, before the repair round",
         "higher_is_better": false,
         "n": 97,
-        "strategy": 0.005,
-        "baseline": 0.0042,
-        "difference": 0.0008,
+        "strategy": 0.0048,
+        "baseline": 0.0037,
+        "difference": 0.0011,
         "ci95": [
-          -0.0006,
-          0.0022
+          -0.0004,
+          0.0027
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -732,18 +766,18 @@
         "label": "\u2026 unsupported, before the repair round",
         "higher_is_better": false,
         "n": 97,
-        "strategy": 0.0047,
-        "baseline": 0.0039,
-        "difference": 0.0008,
+        "strategy": 0.0045,
+        "baseline": 0.0034,
+        "difference": 0.001,
         "ci95": [
-          -0.0006,
-          0.0022
+          -0.0004,
+          0.0026
         ],
         "median_difference": 0.0,
-        "better": 3,
+        "better": 4,
         "worse": 11,
-        "ties": 83,
-        "sign_test_p": 0.0574,
+        "ties": 82,
+        "sign_test_p": 0.1185,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -774,18 +808,18 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "n": 97,
-        "strategy": 0.5021,
-        "baseline": 0.5013,
-        "difference": 0.0008,
+        "strategy": 0.4829,
+        "baseline": 0.4818,
+        "difference": 0.0011,
         "ci95": [
-          -0.0017,
-          0.0034
+          -0.0011,
+          0.0036
         ],
         "median_difference": 0.0,
-        "better": 15,
-        "worse": 9,
-        "ties": 73,
-        "sign_test_p": 0.3075,
+        "better": 12,
+        "worse": 10,
+        "ties": 75,
+        "sign_test_p": 0.8318,
         "ci_unreliable": false,
         "primary": true,
         "headline": true
@@ -795,18 +829,18 @@
         "label": "\u2026 fully (no partial credit)",
         "higher_is_better": true,
         "n": 97,
-        "strategy": 0.4233,
-        "baseline": 0.4198,
-        "difference": 0.0034,
+        "strategy": 0.4183,
+        "baseline": 0.4184,
+        "difference": -0.0001,
         "ci95": [
-          -0.0004,
-          0.0078
+          -0.0028,
+          0.0029
         ],
         "median_difference": 0.0,
-        "better": 16,
-        "worse": 6,
-        "ties": 75,
-        "sign_test_p": 0.0525,
+        "better": 9,
+        "worse": 8,
+        "ties": 80,
+        "sign_test_p": 1.0,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -816,22 +850,43 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "n": 97,
-        "strategy": 0.007,
-        "baseline": 0.0066,
-        "difference": 0.0004,
+        "strategy": 0.0058,
+        "baseline": 0.0051,
+        "difference": 0.0007,
         "ci95": [
           -0.0002,
-          0.0012
+          0.0019
         ],
         "median_difference": 0.0,
-        "better": 3,
+        "better": 2,
         "worse": 4,
-        "ties": 90,
-        "sign_test_p": 1.0,
+        "ties": 91,
+        "sign_test_p": 0.6875,
         "ci_unreliable": false,
         "primary": false,
         "headline": true,
         "sign_test_p_holm": 1.0
+      },
+      {
+        "metric": "gold_fact_coverage_adaptive",
+        "label": "\u2026 facts split afresh for each draft (earlier scoring)",
+        "higher_is_better": true,
+        "n": 97,
+        "strategy": 0.5009,
+        "baseline": 0.5018,
+        "difference": -0.0009,
+        "ci95": [
+          -0.0037,
+          0.0018
+        ],
+        "median_difference": 0.0,
+        "better": 11,
+        "worse": 15,
+        "ties": 71,
+        "sign_test_p": 0.5572,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
       },
       {
         "metric": "hpo_exact_f1",
@@ -842,8 +897,8 @@
         "baseline": 0.341,
         "difference": -0.0005,
         "ci95": [
-          -0.0037,
-          0.0028
+          -0.0038,
+          0.0029
         ],
         "median_difference": 0.0,
         "better": 6,
@@ -864,8 +919,8 @@
         "baseline": 0.4082,
         "difference": 0.0001,
         "ci95": [
-          -0.0031,
-          0.0032
+          -0.003,
+          0.0031
         ],
         "median_difference": 0.0,
         "better": 6,
@@ -886,7 +941,7 @@
         "difference": -0.0021,
         "ci95": [
           -0.0058,
-          0.0012
+          0.0013
         ],
         "median_difference": 0.0,
         "better": 1,
@@ -928,8 +983,8 @@
         "baseline": 0.647,
         "difference": 0.0004,
         "ci95": [
-          -0.001,
-          0.0022
+          -0.0009,
+          0.0023
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -945,8 +1000,8 @@
         "label": "OMIM allelic variants recovered",
         "higher_is_better": true,
         "n": 97,
-        "strategy": 0.6497,
-        "baseline": 0.6488,
+        "strategy": 0.6534,
+        "baseline": 0.6525,
         "difference": 0.0009,
         "ci95": [
           0.0,
@@ -967,18 +1022,18 @@
         "label": "Generated variants that are OMIM variants (precision)",
         "higher_is_better": true,
         "n": 92,
-        "strategy": 0.7369,
-        "baseline": 0.7284,
-        "difference": 0.0084,
+        "strategy": 0.7439,
+        "baseline": 0.7353,
+        "difference": 0.0086,
         "ci95": [
-          -0.0026,
-          0.0234
+          -0.0023,
+          0.0235
         ],
         "median_difference": 0.0,
         "better": 3,
-        "worse": 2,
-        "ties": 87,
-        "sign_test_p": 1.0,
+        "worse": 1,
+        "ties": 88,
+        "sign_test_p": 0.625,
         "ci_unreliable": false,
         "primary": false,
         "headline": false
@@ -1165,7 +1220,7 @@
         "label": "Claims supported by cited paper",
         "higher_is_better": true,
         "values": {
-          "cohort": 0.9455,
+          "cohort": 0.9452,
           "reconciled": 0.9455
         },
         "n": {
@@ -1178,8 +1233,8 @@
         "label": "\u2026 same, before the repair round",
         "higher_is_better": false,
         "values": {
-          "cohort": 0.0075,
-          "reconciled": 0.0083
+          "cohort": 0.007,
+          "reconciled": 0.0081
         },
         "n": {
           "cohort": 99,
@@ -1191,8 +1246,8 @@
         "label": "OMIM per-paper facts conveyed",
         "higher_is_better": true,
         "values": {
-          "cohort": 0.4903,
-          "reconciled": 0.4911
+          "cohort": 0.4714,
+          "reconciled": 0.4725
         },
         "n": {
           "cohort": 100,
@@ -1204,8 +1259,8 @@
         "label": "OMIM per-paper facts contradicted",
         "higher_is_better": false,
         "values": {
-          "cohort": 0.0066,
-          "reconciled": 0.007
+          "cohort": 0.005,
+          "reconciled": 0.0057
         },
         "n": {
           "cohort": 100,
@@ -1243,8 +1298,8 @@
         "label": "OMIM allelic variants recovered",
         "higher_is_better": true,
         "values": {
-          "cohort": 0.6353,
-          "reconciled": 0.6362
+          "cohort": 0.6389,
+          "reconciled": 0.6398
         },
         "n": {
           "cohort": 100,
@@ -1286,17 +1341,17 @@
           "higher_is_better": true,
           "primary": false,
           "strategy": 0.9455,
-          "baseline": 0.9455,
+          "baseline": 0.9452,
           "n": 99,
-          "difference": 0.0,
+          "difference": 0.0003,
           "ci95": [
-            -0.0039,
-            0.004
+            -0.0038,
+            0.0043
           ],
           "median_difference": 0.0,
-          "better": 14,
+          "better": 15,
           "worse": 14,
-          "ties": 71,
+          "ties": 70,
           "sign_test_p": 1.0,
           "ci_unreliable": false
         },
@@ -1305,19 +1360,19 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.0083,
-          "baseline": 0.0075,
+          "strategy": 0.0081,
+          "baseline": 0.007,
           "n": 99,
-          "difference": 0.0008,
+          "difference": 0.0011,
           "ci95": [
-            -0.0005,
-            0.0023
+            -0.0004,
+            0.0026
           ],
           "median_difference": 0.0,
           "better": 4,
-          "worse": 13,
-          "ties": 82,
-          "sign_test_p": 0.049,
+          "worse": 12,
+          "ties": 83,
+          "sign_test_p": 0.0768,
           "ci_unreliable": false
         },
         {
@@ -1325,19 +1380,19 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "primary": true,
-          "strategy": 0.4911,
-          "baseline": 0.4903,
+          "strategy": 0.4725,
+          "baseline": 0.4714,
           "n": 100,
-          "difference": 0.0008,
+          "difference": 0.0011,
           "ci95": [
-            -0.0018,
-            0.0033
+            -0.001,
+            0.0036
           ],
           "median_difference": 0.0,
-          "better": 15,
-          "worse": 9,
-          "ties": 76,
-          "sign_test_p": 0.3075,
+          "better": 13,
+          "worse": 10,
+          "ties": 77,
+          "sign_test_p": 0.6776,
           "ci_unreliable": false
         },
         {
@@ -1345,19 +1400,19 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "primary": false,
-          "strategy": 0.007,
-          "baseline": 0.0066,
+          "strategy": 0.0057,
+          "baseline": 0.005,
           "n": 100,
-          "difference": 0.0004,
+          "difference": 0.0007,
           "ci95": [
             -0.0002,
-            0.0011
+            0.0018
           ],
           "median_difference": 0.0,
-          "better": 4,
+          "better": 2,
           "worse": 4,
-          "ties": 92,
-          "sign_test_p": 1.0,
+          "ties": 94,
+          "sign_test_p": 0.6875,
           "ci_unreliable": false
         },
         {
@@ -1405,8 +1460,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "primary": false,
-          "strategy": 0.6362,
-          "baseline": 0.6353,
+          "strategy": 0.6398,
+          "baseline": 0.6389,
           "n": 100,
           "difference": 0.0009,
           "ci95": [
@@ -1466,40 +1521,40 @@
   "pooled": {
     "cohort": {
       "claims": {
-        "supported": 10953,
-        "partially_supported": 474,
+        "supported": 10940,
+        "partially_supported": 492,
         "unsupported": 0,
         "contradicted": 0,
-        "n": 11427,
-        "supported_rate": 0.9585,
+        "n": 11432,
+        "supported_rate": 0.957,
         "error_rate": 0.0
       },
       "claims_before_repair": {
-        "n_claims": 11384,
-        "supported": 10892,
-        "partially_supported": 463,
-        "unsupported": 25,
+        "n_claims": 11407,
+        "supported": 10895,
+        "partially_supported": 486,
+        "unsupported": 22,
         "contradicted": 4,
-        "unsupported_rate": 0.0022,
+        "unsupported_rate": 0.0019,
         "contradicted_rate": 0.0004
       },
       "gold_facts": {
-        "n_facts": 5514,
-        "present": 2260,
-        "partial": 876,
-        "absent": 2342,
+        "n_facts": 6429,
+        "present": 2613,
+        "partial": 793,
+        "absent": 2987,
         "contradicted": 36,
-        "coverage": 0.4893,
-        "contradiction_rate": 0.0065
+        "coverage": 0.4681,
+        "contradiction_rate": 0.0056
       },
       "variants": {
-        "generated": 396,
-        "matched": 258,
-        "matched_scoped": 258,
-        "generated_scoped": 396,
-        "not_in_omim": 137,
+        "generated": 393,
+        "matched": 261,
+        "matched_scoped": 261,
+        "generated_scoped": 393,
+        "not_in_omim": 131,
         "in_omim_via_other_paper": 1,
-        "precision": 0.6515
+        "precision": 0.6641
       },
       "inheritance": {
         "scored": 97,
@@ -1517,40 +1572,40 @@
     },
     "reconciled": {
       "claims": {
-        "supported": 10904,
-        "partially_supported": 466,
+        "supported": 10886,
+        "partially_supported": 481,
         "unsupported": 1,
         "contradicted": 0,
-        "n": 11371,
-        "supported_rate": 0.9589,
+        "n": 11368,
+        "supported_rate": 0.9576,
         "error_rate": 0.0001
       },
       "claims_before_repair": {
         "n_claims": 11340,
-        "supported": 10848,
-        "partially_supported": 456,
-        "unsupported": 32,
+        "supported": 10828,
+        "partially_supported": 475,
+        "unsupported": 33,
         "contradicted": 4,
-        "unsupported_rate": 0.0028,
+        "unsupported_rate": 0.0029,
         "contradicted_rate": 0.0004
       },
       "gold_facts": {
-        "n_facts": 5517,
-        "present": 2284,
-        "partial": 859,
-        "absent": 2337,
-        "contradicted": 37,
-        "coverage": 0.4918,
-        "contradiction_rate": 0.0067
+        "n_facts": 6429,
+        "present": 2613,
+        "partial": 815,
+        "absent": 2962,
+        "contradicted": 39,
+        "coverage": 0.4698,
+        "contradiction_rate": 0.0061
       },
       "variants": {
-        "generated": 395,
-        "matched": 259,
-        "matched_scoped": 259,
-        "generated_scoped": 395,
-        "not_in_omim": 135,
+        "generated": 391,
+        "matched": 262,
+        "matched_scoped": 262,
+        "generated_scoped": 391,
+        "not_in_omim": 128,
         "in_omim_via_other_paper": 1,
-        "precision": 0.6557
+        "precision": 0.6701
       },
       "inheritance": {
         "scored": 97,
@@ -1570,107 +1625,107 @@
   "by_content_level": {
     "abstract": {
       "cohort": {
-        "n_facts": 3713,
-        "present": 1247,
-        "partial": 649,
+        "n_facts": 4316,
+        "present": 1408,
+        "partial": 571,
         "contradicted": 26,
-        "coverage": 0.4232,
-        "contradiction_rate": 0.007
+        "coverage": 0.3924,
+        "contradiction_rate": 0.006
       },
       "reconciled": {
-        "n_facts": 3711,
-        "present": 1253,
-        "partial": 644,
-        "contradicted": 26,
-        "coverage": 0.4244,
-        "contradiction_rate": 0.007
+        "n_facts": 4316,
+        "present": 1415,
+        "partial": 580,
+        "contradicted": 28,
+        "coverage": 0.395,
+        "contradiction_rate": 0.0065
       }
     },
     "fulltext": {
       "cohort": {
-        "n_facts": 1435,
-        "present": 959,
-        "partial": 156,
+        "n_facts": 1704,
+        "present": 1153,
+        "partial": 161,
         "contradicted": 9,
-        "coverage": 0.7226,
-        "contradiction_rate": 0.0063
+        "coverage": 0.7239,
+        "contradiction_rate": 0.0053
       },
       "reconciled": {
-        "n_facts": 1444,
-        "present": 978,
-        "partial": 145,
+        "n_facts": 1704,
+        "present": 1148,
+        "partial": 172,
         "contradicted": 10,
-        "coverage": 0.7275,
-        "contradiction_rate": 0.0069
+        "coverage": 0.7242,
+        "contradiction_rate": 0.0059
       }
     },
     "title": {
       "cohort": {
-        "n_facts": 366,
-        "present": 54,
-        "partial": 71,
+        "n_facts": 409,
+        "present": 52,
+        "partial": 61,
         "contradicted": 1,
-        "coverage": 0.2445,
-        "contradiction_rate": 0.0027
+        "coverage": 0.2017,
+        "contradiction_rate": 0.0024
       },
       "reconciled": {
-        "n_facts": 362,
-        "present": 53,
-        "partial": 70,
+        "n_facts": 409,
+        "present": 50,
+        "partial": 63,
         "contradicted": 1,
-        "coverage": 0.2431,
-        "contradiction_rate": 0.0028
+        "coverage": 0.1993,
+        "contradiction_rate": 0.0024
       }
     }
   },
   "by_content_level_vs_baseline": {
     "fulltext": {
       "cohort": {
-        "coverage": 0.7226,
-        "n_facts": 1435
+        "coverage": 0.7239,
+        "n_facts": 1704
       },
       "reconciled": {
-        "coverage": 0.7275,
-        "n_facts": 1444,
+        "coverage": 0.7242,
+        "n_facts": 1704,
         "n_entries": 43,
-        "difference": 0.0048,
+        "difference": 0.0003,
         "ci95": [
-          0.0001,
-          0.01
+          -0.0038,
+          0.0047
         ],
         "ci_unreliable": false
       }
     },
     "abstract": {
       "cohort": {
-        "coverage": 0.4232,
-        "n_facts": 3713
+        "coverage": 0.3924,
+        "n_facts": 4316
       },
       "reconciled": {
-        "coverage": 0.4244,
-        "n_facts": 3711,
+        "coverage": 0.395,
+        "n_facts": 4316,
         "n_entries": 88,
-        "difference": 0.0012,
+        "difference": 0.0027,
         "ci95": [
-          -0.0027,
-          0.0052
+          -0.0009,
+          0.008
         ],
         "ci_unreliable": false
       }
     },
     "title": {
       "cohort": {
-        "coverage": 0.2445,
-        "n_facts": 366
+        "coverage": 0.2017,
+        "n_facts": 409
       },
       "reconciled": {
-        "coverage": 0.2431,
-        "n_facts": 362,
+        "coverage": 0.1993,
+        "n_facts": 409,
         "n_entries": 22,
-        "difference": -0.0014,
+        "difference": -0.0024,
         "ci95": [
-          -0.0043,
-          0.0016
+          -0.0108,
+          0.0034
         ],
         "ci_unreliable": false
       }
@@ -1685,8 +1740,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9265,
-            "reconciled": 0.9291
+            "cohort": 0.9249,
+            "reconciled": 0.927
           },
           "n": {
             "cohort": 20,
@@ -1698,8 +1753,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.004,
-            "reconciled": 0.0043
+            "cohort": 0.0037,
+            "reconciled": 0.0056
           },
           "n": {
             "cohort": 20,
@@ -1711,8 +1766,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5362,
-            "reconciled": 0.537
+            "cohort": 0.5276,
+            "reconciled": 0.5301
           },
           "n": {
             "cohort": 20,
@@ -1724,8 +1779,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0056,
-            "reconciled": 0.0075
+            "cohort": 0.0071,
+            "reconciled": 0.0078
           },
           "n": {
             "cohort": 20,
@@ -1807,8 +1862,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9435,
-            "reconciled": 0.9472
+            "cohort": 0.9403,
+            "reconciled": 0.9457
           },
           "n": {
             "cohort": 20,
@@ -1820,8 +1875,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0069,
-            "reconciled": 0.0063
+            "cohort": 0.0072,
+            "reconciled": 0.006
           },
           "n": {
             "cohort": 20,
@@ -1833,8 +1888,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5119,
-            "reconciled": 0.5173
+            "cohort": 0.495,
+            "reconciled": 0.4976
           },
           "n": {
             "cohort": 20,
@@ -1846,8 +1901,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0128,
-            "reconciled": 0.0129
+            "cohort": 0.0074,
+            "reconciled": 0.0078
           },
           "n": {
             "cohort": 20,
@@ -1885,8 +1940,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.7035,
-            "reconciled": 0.708
+            "cohort": 0.7143,
+            "reconciled": 0.7188
           },
           "n": {
             "cohort": 20,
@@ -1929,8 +1984,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9547,
-            "reconciled": 0.9546
+            "cohort": 0.9601,
+            "reconciled": 0.9588
           },
           "n": {
             "cohort": 19,
@@ -1942,8 +1997,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0043,
-            "reconciled": 0.0052
+            "cohort": 0.0019,
+            "reconciled": 0.0035
           },
           "n": {
             "cohort": 19,
@@ -1955,8 +2010,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5142,
-            "reconciled": 0.5143
+            "cohort": 0.4925,
+            "reconciled": 0.4924
           },
           "n": {
             "cohort": 19,
@@ -1968,8 +2023,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0091,
-            "reconciled": 0.009
+            "cohort": 0.0038,
+            "reconciled": 0.0061
           },
           "n": {
             "cohort": 19,
@@ -2051,8 +2106,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9651,
-            "reconciled": 0.9591
+            "cohort": 0.962,
+            "reconciled": 0.956
           },
           "n": {
             "cohort": 19,
@@ -2064,8 +2119,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0013,
-            "reconciled": 0.002
+            "cohort": 0.0008,
+            "reconciled": 0.0016
           },
           "n": {
             "cohort": 19,
@@ -2077,8 +2132,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5295,
-            "reconciled": 0.5293
+            "cohort": 0.518,
+            "reconciled": 0.5189
           },
           "n": {
             "cohort": 19,
@@ -2090,8 +2145,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0006,
-            "reconciled": 0.0006
+            "cohort": 0.0031,
+            "reconciled": 0.0031
           },
           "n": {
             "cohort": 19,
@@ -2173,8 +2228,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9469,
-            "reconciled": 0.9479
+            "cohort": 0.947,
+            "reconciled": 0.948
           },
           "n": {
             "cohort": 19,
@@ -2199,8 +2254,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4124,
-            "reconciled": 0.4099
+            "cohort": 0.3728,
+            "reconciled": 0.372
           },
           "n": {
             "cohort": 19,
@@ -2212,8 +2267,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0049,
-            "reconciled": 0.0049
+            "cohort": 0.0037,
+            "reconciled": 0.0037
           },
           "n": {
             "cohort": 19,
@@ -2251,8 +2306,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4002,
-            "reconciled": 0.4002
+            "cohort": 0.4077,
+            "reconciled": 0.4077
           },
           "n": {
             "cohort": 19,
@@ -2297,8 +2352,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9367,
-            "reconciled": 0.937
+            "cohort": 0.9373,
+            "reconciled": 0.9371
           },
           "n": {
             "cohort": 46,
@@ -2311,7 +2366,7 @@
           "higher_is_better": false,
           "values": {
             "cohort": 0.0051,
-            "reconciled": 0.0055
+            "reconciled": 0.0058
           },
           "n": {
             "cohort": 46,
@@ -2323,8 +2378,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4,
-            "reconciled": 0.3982
+            "cohort": 0.3618,
+            "reconciled": 0.361
           },
           "n": {
             "cohort": 46,
@@ -2336,8 +2391,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0039,
-            "reconciled": 0.0039
+            "cohort": 0.0021,
+            "reconciled": 0.003
           },
           "n": {
             "cohort": 46,
@@ -2375,8 +2430,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4777,
-            "reconciled": 0.4777
+            "cohort": 0.4804,
+            "reconciled": 0.4804
           },
           "n": {
             "cohort": 46,
@@ -2419,8 +2474,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9516,
-            "reconciled": 0.9504
+            "cohort": 0.9518,
+            "reconciled": 0.9509
           },
           "n": {
             "cohort": 27,
@@ -2432,8 +2487,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0048,
-            "reconciled": 0.0065
+            "cohort": 0.003,
+            "reconciled": 0.0056
           },
           "n": {
             "cohort": 27,
@@ -2445,8 +2500,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5156,
-            "reconciled": 0.5191
+            "cohort": 0.5134,
+            "reconciled": 0.5181
           },
           "n": {
             "cohort": 27,
@@ -2458,8 +2513,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0081,
-            "reconciled": 0.0096
+            "cohort": 0.0086,
+            "reconciled": 0.0095
           },
           "n": {
             "cohort": 27,
@@ -2497,8 +2552,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.7316,
-            "reconciled": 0.7316
+            "cohort": 0.7402,
+            "reconciled": 0.7402
           },
           "n": {
             "cohort": 27,
@@ -2541,8 +2596,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9632,
-            "reconciled": 0.9655
+            "cohort": 0.9594,
+            "reconciled": 0.9625
           },
           "n": {
             "cohort": 22,
@@ -2554,8 +2609,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0021,
-            "reconciled": 0.0027
+            "cohort": 0.002,
+            "reconciled": 0.0021
           },
           "n": {
             "cohort": 22,
@@ -2567,8 +2622,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.6617,
-            "reconciled": 0.6646
+            "cohort": 0.6566,
+            "reconciled": 0.6572
           },
           "n": {
             "cohort": 22,
@@ -2580,8 +2635,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0035,
-            "reconciled": 0.0035
+            "cohort": 0.0042,
+            "reconciled": 0.0042
           },
           "n": {
             "cohort": 22,
@@ -2689,8 +2744,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.8735,
-            "reconciled": 0.8735
+            "cohort": 0.8915,
+            "reconciled": 0.8915
           },
           "n": {
             "cohort": 2,
@@ -2702,8 +2757,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0835,
-            "reconciled": 0.0835
+            "cohort": 0.0355,
+            "reconciled": 0.0355
           },
           "n": {
             "cohort": 2,
@@ -2788,18 +2843,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.3982,
-            "baseline": 0.4,
-            "difference": -0.0018,
+            "strategy": 0.361,
+            "baseline": 0.3618,
+            "difference": -0.0008,
             "ci95": [
-              -0.006,
-              0.0021
+              -0.0024,
+              0.0006
             ],
             "median_difference": 0.0,
-            "better": 1,
+            "better": 2,
             "worse": 3,
-            "ties": 42,
-            "sign_test_p": 0.625,
+            "ties": 41,
+            "sign_test_p": 1.0,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -2809,8 +2864,8 @@
             "label": "OMIM allelic variants recovered",
             "higher_is_better": true,
             "n": 46,
-            "strategy": 0.4777,
-            "baseline": 0.4777,
+            "strategy": 0.4804,
+            "baseline": 0.4804,
             "difference": 0.0,
             "ci95": [
               0.0,
@@ -2837,18 +2892,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 27,
-            "strategy": 0.5191,
-            "baseline": 0.5156,
-            "difference": 0.0035,
+            "strategy": 0.5181,
+            "baseline": 0.5134,
+            "difference": 0.0047,
             "ci95": [
-              -0.0017,
-              0.0093
+              -0.0023,
+              0.0129
             ],
             "median_difference": 0.0,
-            "better": 9,
-            "worse": 5,
-            "ties": 13,
-            "sign_test_p": 0.424,
+            "better": 7,
+            "worse": 6,
+            "ties": 14,
+            "sign_test_p": 1.0,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -2858,8 +2913,8 @@
             "label": "OMIM allelic variants recovered",
             "higher_is_better": true,
             "n": 27,
-            "strategy": 0.7316,
-            "baseline": 0.7316,
+            "strategy": 0.7402,
+            "baseline": 0.7402,
             "difference": 0.0,
             "ci95": [
               0.0,
@@ -2886,18 +2941,18 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 22,
-            "strategy": 0.6646,
-            "baseline": 0.6617,
-            "difference": 0.0029,
+            "strategy": 0.6572,
+            "baseline": 0.6566,
+            "difference": 0.0006,
             "ci95": [
-              -0.0002,
-              0.0067
+              -0.0023,
+              0.0033
             ],
             "median_difference": 0.0,
-            "better": 5,
+            "better": 3,
             "worse": 1,
-            "ties": 16,
-            "sign_test_p": 0.2188,
+            "ties": 18,
+            "sign_test_p": 0.625,
             "ci_unreliable": false,
             "primary": true,
             "headline": true
@@ -2935,8 +2990,8 @@
             "label": "OMIM per-paper facts conveyed",
             "higher_is_better": true,
             "n": 2,
-            "strategy": 0.8735,
-            "baseline": 0.8735,
+            "strategy": 0.8915,
+            "baseline": 0.8915,
             "difference": 0.0,
             "ci95": null,
             "median_difference": 0.0,
@@ -2974,98 +3029,98 @@
     "cohort": {
       "fulltext": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 38,
-          "conveyed": 31.0,
+          "n_facts": 39,
+          "conveyed": 34.5,
           "n_entries": 2,
-          "coverage": 0.8158
+          "coverage": 0.8846
         },
         "600000-609999": {
-          "n_facts": 186,
-          "conveyed": 139.0,
+          "n_facts": 225,
+          "conveyed": 166.5,
           "n_entries": 10,
-          "coverage": 0.7473
+          "coverage": 0.74
         },
         "610000-615999": {
-          "n_facts": 418,
-          "conveyed": 299.0,
+          "n_facts": 526,
+          "conveyed": 375.5,
           "n_entries": 11,
-          "coverage": 0.7153
+          "coverage": 0.7139
         },
         "616000-619999": {
-          "n_facts": 406,
-          "conveyed": 271.5,
+          "n_facts": 450,
+          "conveyed": 299.5,
           "n_entries": 10,
-          "coverage": 0.6687
+          "coverage": 0.6656
         },
         "620000 onward": {
-          "n_facts": 387,
-          "conveyed": 296.5,
+          "n_facts": 464,
+          "conveyed": 357.5,
           "n_entries": 10,
-          "coverage": 0.7661
+          "coverage": 0.7705
         }
       },
       "abstract": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 900,
-          "conveyed": 353.5,
+          "n_facts": 1038,
+          "conveyed": 359.0,
           "n_entries": 19,
-          "coverage": 0.3928
+          "coverage": 0.3459
         },
         "600000-609999": {
-          "n_facts": 616,
-          "conveyed": 313.5,
+          "n_facts": 700,
+          "conveyed": 346.0,
           "n_entries": 20,
-          "coverage": 0.5089
+          "coverage": 0.4943
         },
         "610000-615999": {
-          "n_facts": 917,
-          "conveyed": 373.0,
+          "n_facts": 1055,
+          "conveyed": 406.5,
           "n_entries": 18,
-          "coverage": 0.4068
+          "coverage": 0.3853
         },
         "616000-619999": {
-          "n_facts": 731,
-          "conveyed": 315.5,
+          "n_facts": 859,
+          "conveyed": 339.5,
           "n_entries": 15,
-          "coverage": 0.4316
+          "coverage": 0.3952
         },
         "620000 onward": {
-          "n_facts": 549,
-          "conveyed": 216.0,
+          "n_facts": 664,
+          "conveyed": 242.5,
           "n_entries": 16,
-          "coverage": 0.3934
+          "coverage": 0.3652
         }
       },
       "title": {
         "classic (1xxxxx-5xxxxx)": {
-          "n_facts": 39,
-          "conveyed": 10.5,
+          "n_facts": 41,
+          "conveyed": 9.5,
           "n_entries": 3,
-          "coverage": 0.2692
+          "coverage": 0.2317
         },
         "600000-609999": {
-          "n_facts": 81,
-          "conveyed": 25.5,
+          "n_facts": 97,
+          "conveyed": 28.0,
           "n_entries": 5,
-          "coverage": 0.3148
+          "coverage": 0.2887
         },
         "610000-615999": {
-          "n_facts": 54,
-          "conveyed": 15.0,
+          "n_facts": 57,
+          "conveyed": 13.0,
           "n_entries": 4,
-          "coverage": 0.2778
+          "coverage": 0.2281
         },
         "616000-619999": {
-          "n_facts": 73,
-          "conveyed": 16.0,
+          "n_facts": 83,
+          "conveyed": 17.0,
           "n_entries": 5,
-          "coverage": 0.2192
+          "coverage": 0.2048
         },
         "620000 onward": {
-          "n_facts": 119,
-          "conveyed": 22.5,
+          "n_facts": 131,
+          "conveyed": 15.0,
           "n_entries": 5,
-          "coverage": 0.1891
+          "coverage": 0.1145
         }
       }
     }
@@ -3079,8 +3134,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9411,
-            "reconciled": 0.9426
+            "cohort": 0.9413,
+            "reconciled": 0.9425
           },
           "n": {
             "cohort": 53,
@@ -3092,8 +3147,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.005,
-            "reconciled": 0.0051
+            "cohort": 0.0042,
+            "reconciled": 0.0044
           },
           "n": {
             "cohort": 53,
@@ -3105,8 +3160,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.5138,
-            "reconciled": 0.5133
+            "cohort": 0.4989,
+            "reconciled": 0.5004
           },
           "n": {
             "cohort": 53,
@@ -3118,8 +3173,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0068,
-            "reconciled": 0.0068
+            "cohort": 0.0038,
+            "reconciled": 0.0046
           },
           "n": {
             "cohort": 53,
@@ -3157,8 +3212,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.6555,
-            "reconciled": 0.6555
+            "cohort": 0.6578,
+            "reconciled": 0.6578
           },
           "n": {
             "cohort": 53,
@@ -3201,8 +3256,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9549,
-            "reconciled": 0.952
+            "cohort": 0.9539,
+            "reconciled": 0.9516
           },
           "n": {
             "cohort": 27,
@@ -3215,7 +3270,7 @@
           "higher_is_better": false,
           "values": {
             "cohort": 0.0027,
-            "reconciled": 0.0053
+            "reconciled": 0.005
           },
           "n": {
             "cohort": 27,
@@ -3227,8 +3282,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4796,
-            "reconciled": 0.4803
+            "cohort": 0.456,
+            "reconciled": 0.4541
           },
           "n": {
             "cohort": 27,
@@ -3240,8 +3295,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0056,
-            "reconciled": 0.0056
+            "cohort": 0.0061,
+            "reconciled": 0.0057
           },
           "n": {
             "cohort": 27,
@@ -3323,8 +3378,8 @@
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.9533,
-            "reconciled": 0.9549
+            "cohort": 0.9511,
+            "reconciled": 0.9531
           },
           "n": {
             "cohort": 17,
@@ -3336,8 +3391,8 @@
           "label": "\u2026 same, before the repair round",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0041,
-            "reconciled": 0.0043
+            "cohort": 0.0038,
+            "reconciled": 0.0056
           },
           "n": {
             "cohort": 17,
@@ -3349,8 +3404,8 @@
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.4968,
-            "reconciled": 0.5018
+            "cohort": 0.4695,
+            "reconciled": 0.4738
           },
           "n": {
             "cohort": 17,
@@ -3362,8 +3417,8 @@
           "label": "OMIM per-paper facts contradicted",
           "higher_is_better": false,
           "values": {
-            "cohort": 0.0077,
-            "reconciled": 0.0101
+            "cohort": 0.0075,
+            "reconciled": 0.0096
           },
           "n": {
             "cohort": 17,
@@ -3401,8 +3456,8 @@
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
           "values": {
-            "cohort": 0.6835,
-            "reconciled": 0.6835
+            "cohort": 0.6972,
+            "reconciled": 0.6972
           },
           "n": {
             "cohort": 17,
@@ -3443,125 +3498,125 @@
       "entries": 97,
       "generate": {
         "calls": 682,
-        "turns": 1377,
-        "input_tokens": 6254668,
-        "output_tokens": 1680072,
-        "list_price_usd": 61.04,
-        "seconds": 13924.7,
+        "turns": 1378,
+        "input_tokens": 6275591,
+        "output_tokens": 1683049,
+        "list_price_usd": 61.14,
+        "seconds": 13984.0,
         "per_entry": {
           "calls": 7.0,
-          "list_price_usd": 0.629,
-          "input_tokens": 64481,
-          "output_tokens": 17320,
-          "seconds": 143.6
+          "list_price_usd": 0.63,
+          "input_tokens": 64697,
+          "output_tokens": 17351,
+          "seconds": 144.2
         }
       },
       "audit": {
-        "calls": 687,
-        "turns": 1380,
-        "input_tokens": 5293688,
-        "output_tokens": 2267555,
-        "list_price_usd": 78.68,
-        "seconds": 18066.1,
+        "calls": 677,
+        "turns": 1358,
+        "input_tokens": 5191789,
+        "output_tokens": 2255136,
+        "list_price_usd": 77.94,
+        "seconds": 18362.1,
         "per_entry": {
-          "calls": 7.1,
-          "list_price_usd": 0.811,
-          "input_tokens": 54574,
-          "output_tokens": 23377,
-          "seconds": 186.2
+          "calls": 7.0,
+          "list_price_usd": 0.804,
+          "input_tokens": 53524,
+          "output_tokens": 23249,
+          "seconds": 189.3
         }
       },
       "score": {
-        "calls": 520,
-        "turns": 1022,
-        "input_tokens": 2021818,
-        "output_tokens": 361347,
-        "list_price_usd": 19.32,
-        "seconds": 4517.0,
+        "calls": 972,
+        "turns": 1925,
+        "input_tokens": 3992892,
+        "output_tokens": 653288,
+        "list_price_usd": 37.57,
+        "seconds": 11317.6,
         "per_entry": {
-          "calls": 5.4,
-          "list_price_usd": 0.199,
-          "input_tokens": 20843,
-          "output_tokens": 3725,
-          "seconds": 46.6
+          "calls": 10.0,
+          "list_price_usd": 0.387,
+          "input_tokens": 41164,
+          "output_tokens": 6735,
+          "seconds": 116.7
         }
       },
       "total": {
-        "calls": 1889,
-        "turns": 3779,
-        "input_tokens": 13570174,
-        "output_tokens": 4308974,
-        "list_price_usd": 159.03,
-        "seconds": 36507.9,
+        "calls": 2331,
+        "turns": 4661,
+        "input_tokens": 15460272,
+        "output_tokens": 4591473,
+        "list_price_usd": 176.66,
+        "seconds": 43663.7,
         "per_entry": {
-          "calls": 19.5,
-          "list_price_usd": 1.639,
-          "input_tokens": 139899,
-          "output_tokens": 44422,
-          "seconds": 376.4
+          "calls": 24.0,
+          "list_price_usd": 1.821,
+          "input_tokens": 159384,
+          "output_tokens": 47335,
+          "seconds": 450.1
         }
       }
     },
     "reconciled": {
       "entries": 97,
       "generate": {
-        "calls": 813,
-        "turns": 1641,
-        "input_tokens": 7264090,
-        "output_tokens": 1839970,
-        "list_price_usd": 70.39,
-        "seconds": 15826.1,
+        "calls": 814,
+        "turns": 1644,
+        "input_tokens": 7288047,
+        "output_tokens": 1841511,
+        "list_price_usd": 70.49,
+        "seconds": 15882.1,
         "per_entry": {
           "calls": 8.4,
-          "list_price_usd": 0.726,
-          "input_tokens": 74888,
-          "output_tokens": 18969,
-          "seconds": 163.2
+          "list_price_usd": 0.727,
+          "input_tokens": 75135,
+          "output_tokens": 18985,
+          "seconds": 163.7
         }
       },
       "audit": {
-        "calls": 707,
-        "turns": 1418,
-        "input_tokens": 5371497,
-        "output_tokens": 2287251,
-        "list_price_usd": 80.77,
-        "seconds": 18345.0,
+        "calls": 695,
+        "turns": 1394,
+        "input_tokens": 5246118,
+        "output_tokens": 2276912,
+        "list_price_usd": 79.66,
+        "seconds": 18537.1,
         "per_entry": {
-          "calls": 7.3,
-          "list_price_usd": 0.833,
-          "input_tokens": 55376,
-          "output_tokens": 23580,
-          "seconds": 189.1
+          "calls": 7.2,
+          "list_price_usd": 0.821,
+          "input_tokens": 54084,
+          "output_tokens": 23473,
+          "seconds": 191.1
         }
       },
       "score": {
-        "calls": 521,
-        "turns": 1025,
-        "input_tokens": 2025227,
-        "output_tokens": 361697,
-        "list_price_usd": 19.35,
-        "seconds": 4551.5,
+        "calls": 972,
+        "turns": 1928,
+        "input_tokens": 4004157,
+        "output_tokens": 655800,
+        "list_price_usd": 37.67,
+        "seconds": 10779.5,
         "per_entry": {
-          "calls": 5.4,
-          "list_price_usd": 0.199,
-          "input_tokens": 20879,
-          "output_tokens": 3729,
-          "seconds": 46.9
+          "calls": 10.0,
+          "list_price_usd": 0.388,
+          "input_tokens": 41280,
+          "output_tokens": 6761,
+          "seconds": 111.1
         }
       },
       "total": {
-        "calls": 2041,
-        "turns": 4084,
-        "input_tokens": 14660814,
-        "output_tokens": 4488918,
-        "list_price_usd": 170.51,
-        "seconds": 38722.6,
+        "calls": 2481,
+        "turns": 4966,
+        "input_tokens": 16538322,
+        "output_tokens": 4774223,
+        "list_price_usd": 187.83,
+        "seconds": 45198.6,
         "per_entry": {
-          "calls": 21.0,
-          "list_price_usd": 1.758,
-          "input_tokens": 151142,
-          "output_tokens": 46278,
-          "seconds": 399.2
+          "calls": 25.6,
+          "list_price_usd": 1.936,
+          "input_tokens": 170498,
+          "output_tokens": 49219,
+          "seconds": 466.0
         }
       }
     }
@@ -3593,12 +3648,12 @@
         "f1": 0.3371
       },
       "has_variant": {
-        "in_both": 262,
-        "generated": 399,
+        "in_both": 265,
+        "generated": 396,
         "omim": 428,
-        "precision": 0.6566,
-        "recall": 0.6121,
-        "f1": 0.6336
+        "precision": 0.6692,
+        "recall": 0.6192,
+        "f1": 0.6432
       }
     },
     "reconciled": {
@@ -3627,12 +3682,12 @@
         "f1": 0.3362
       },
       "has_variant": {
-        "in_both": 263,
-        "generated": 398,
+        "in_both": 266,
+        "generated": 394,
         "omim": 428,
-        "precision": 0.6608,
-        "recall": 0.6145,
-        "f1": 0.6368
+        "precision": 0.6751,
+        "recall": 0.6215,
+        "f1": 0.6472
       }
     }
   }
