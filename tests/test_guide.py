@@ -254,16 +254,38 @@ def test_overlap_check_rejects_a_guide_that_copies_gold_wording():
                                  titles={"INVENTED DISORDER TYPE 2"})["ok"]
 
 
-def test_selection_rejects_a_guide_that_only_writes_more():
+def test_parts_are_selected_separately_and_only_kept_when_they_improve():
     base = {"gold_fact_coverage": 0.5, "synopsis_exact_f1": 0.3, "statements_per_paper": 10.0}
-    wordy = guide.objective({"gold_fact_coverage": 0.6, "synopsis_exact_f1": 0.3, "statements_per_paper": 13.0}, base)
-    modest = guide.objective({"gold_fact_coverage": 0.53, "synopsis_exact_f1": 0.32, "statements_per_paper": 11.0}, base)
-    assert wordy["grows_too_much"] and not modest["grows_too_much"] and modest["objective"] == 0.05
-    rounds = [{"round": 1, "checks": {"ok": True}, "selection": wordy},
-              {"round": 2, "checks": {"ok": True}, "selection": modest},
-              {"round": 3, "checks": {"ok": False}, "selection": {**modest, "objective": 0.2}}]
-    assert guide.choose_round(rounds)["round"] == 2
-    assert guide.choose_round(rounds[:1]) is None
+    ok = {"ok": True}
+    wordy = guide.gains({"gold_fact_coverage": 0.6, "synopsis_exact_f1": 0.28, "statements_per_paper": 13.0}, base)
+    modest = guide.gains({"gold_fact_coverage": 0.52, "synopsis_exact_f1": 0.29, "statements_per_paper": 11.0}, base)
+    better_synopsis = guide.gains({"gold_fact_coverage": 0.49, "synopsis_exact_f1": 0.35, "statements_per_paper": 9.0}, base)
+    assert wordy["grows_too_much"] and not modest["grows_too_much"] and modest["coverage_gain"] == 0.02
+    rounds = [{"round": 1, "checks": {"text": ok, "synopsis": ok}, "gains": wordy},
+              {"round": 2, "checks": {"text": ok, "synopsis": ok}, "gains": modest},
+              {"round": 3, "checks": {"text": ok, "synopsis": ok}, "gains": better_synopsis}]
+    # The wordy round has the best coverage but grows too much; the text part comes from round 2,
+    # the synopsis part from round 3.
+    assert guide.select_part(rounds, "text") == {"round": 2, "gain": 0.02, "included": True,
+                                                 "why": "round 2 has the highest coverage_gain (+0.0200)"}
+    assert guide.select_part(rounds, "synopsis")["round"] == 3
+    # A part whose best round did not improve its own measure is left out.
+    worse = [{"round": 1, "checks": {"text": ok, "synopsis": ok}, "gains": better_synopsis}]
+    assert guide.select_part(worse, "text")["included"] is False
+    failed = [{"round": 1, "checks": {"text": {"ok": False}, "synopsis": ok}, "gains": modest}]
+    assert guide.select_part(failed, "text")["round"] is None
+
+
+def test_combined_guide_and_output_rule_check():
+    text = "## My own heading\n\n- Give the zygosity of each variant."
+    combined = guide.combine(text, "- List 10 to 25 terms.")
+    assert combined.startswith(guide.TEXT_HEADING + "\n\n- Give the zygosity") and "My own heading" not in combined
+    assert combined.endswith(guide.SYNOPSIS_HEADING + "\n\n- List 10 to 25 terms.")
+    assert guide.combine(None, "- List 10 to 25 terms.").startswith(guide.SYNOPSIS_HEADING)
+    assert guide.output_rules("- Never return an empty entry.") == 1
+    assert guide.output_rules("- Always produce a draft, even from a title.") == 1
+    assert guide.output_rules("- Never write background about the disorder in a variant paragraph.") == 0
+    assert not guide.check_part("- Always write an entry.", [REFERENCE], (), ())["ok"]
 
 
 # --------------------------------------------------------------------------- #

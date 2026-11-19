@@ -17,9 +17,15 @@ runs:
    separate run folder, scored (fact coverage, synopsis; no audit), compared
    with the baseline regenerated the same way, and the model reflects again on
    what is still missed and what got worse.
-4. Selection by a rule fixed in advance (`SELECTION_RULE`), and two mechanical
-   checks before anything is saved: the guide shares no run of 8 or more words
-   with any OMIM paragraph, and names no gene of the evaluation set.
+4. The guide has two parts, selected separately by rules fixed in advance
+   (`SELECTION_RULE`): a text part (what to report about each paper) on OMIM-fact
+   coverage under a cap on statements per paper, and a synopsis part (choice of
+   clinical-synopsis terms) on synopsis exact F1. Each part comes from its best
+   round and is kept only if it improved its own measure; the final combination
+   is run once more on the training entries to confirm. Mechanical checks before
+   anything is saved: no run of 8 or more words shared with any OMIM paragraph,
+   no gene symbol or entry title of the evaluation set, no rule about whether to
+   produce output.
 
 The guide and its log go to `guides/` (tracked by git), so neither may contain
 OMIM-authored text: the log holds the guides, numbers and the rule, nothing else.
@@ -296,8 +302,11 @@ def build_feedback(run_dir: Path, strategy: str, entries: list[str], baseline_ru
 
 
 # --------------------------------------------------------------------------- #
-# Reflection
+# Reflection: a guide in two parts
 # --------------------------------------------------------------------------- #
+
+TEXT_HEADING = "## Curation guide: what to report about each paper"
+SYNOPSIS_HEADING = "## Curation guide: clinical-synopsis terms"
 
 REFLECT_SYSTEM = """\
 You are improving the instructions given to a model that drafts entries for OMIM (Online Mendelian \
@@ -315,88 +324,180 @@ Genetics) is compared against that paragraph too, so a statement "OMIM does not 
 belong in another section of the real entry; do not write rules that empty those sections merely \
 because their content is not in the comparison.
 
-Write a CURATION GUIDE: general rules that will bring the writer's choices closer to OMIM's on \
-entries it has not seen. Cover:
-- what OMIM reports about each paper: which kinds of facts it keeps, and in what order;
-- the level of detail: which numbers, ages, measurements, zygosity, segregation and functional \
-results it gives, and how precisely;
-- what OMIM leaves out;
-- how OMIM chooses clinical-synopsis terms: how many, how specific, which kinds of findings become \
-terms and which do not.
+Write a CURATION GUIDE in two separate parts, which will be selected and scored separately:
+
+text_part      what OMIM reports about each paper: which kinds of facts it keeps and in what order, \
+the level of detail (which numbers, ages, measurements, zygosity, segregation and functional results \
+it gives, and how precisely), and what it leaves out. Scored on how many of OMIM's per-paper facts \
+the drafts convey, with a cap on how much the drafts may grow.
+synopsis_part  how OMIM chooses clinical-synopsis terms: how many, how specific, which kinds of \
+findings become terms and which do not. Scored on agreement of the drafts' terms with OMIM's (F1). \
+Nothing about the synopsis goes in text_part, and nothing about the prose goes in synopsis_part.
 
 Requirements:
 - Every rule must be general and disease-independent, applicable to any Mendelian disorder. Do not \
 name any disease, gene, protein, variant, population, author or paper, and do not copy phrases from \
 the feedback; describe kinds of facts instead ("the age at onset", "residual enzyme activity as a \
 percentage of control").
+- The guide contains no rules about whether or when to produce output (nothing like "always write an \
+entry", "never return an empty draft", "write a paragraph even from a title"): only rules about what \
+an entry reports and how.
 - Never tell the writer to state anything the supplied papers do not say. The guide is about which of \
 the papers' statements to choose and how to phrase them.
 - Prefer patterns the feedback shows across several entries over ones driven by a single entry. A \
 rule that makes the writer say more must say what to drop in exchange: a draft that only grows is \
 not closer to OMIM.
-- At most 600 words: a markdown list under a few short headings, starting with the heading \
-"## Curation guide", written as instructions to the writer.
+- Each part is a markdown list, written as instructions to the writer, with no heading of its own \
+(headings are added for you); short sub-headings in bold are fine. text_part at most about 350 \
+words, synopsis_part at most about 250.
 
-If a previous guide is supplied, you are also given its scores on the training entries against the \
-writer without a guide, and feedback on the drafts written with it. Revise it: keep what helped, \
-change or drop what did not, and correct what made the scores worse. Return the complete revised \
-guide, not a list of changes.
+If previous parts are supplied, you are also given each part's scores on the training entries \
+against the writer without a guide, and feedback on the drafts written with them. Revise each part \
+in the light of its own scores: keep what helped, change or drop what did not, and correct what made \
+its score worse. Return both parts complete, not a list of changes.
 
-In `rationale` (not part of the guide), say briefly which patterns in the feedback each part of the \
-guide answers.\
+In `rationale` (not part of the guide), say briefly which patterns in the feedback each part answers.\
 """
 
 
-class XGuide(BaseModel):
-    guide: str
+class XGuideParts(BaseModel):
+    text_part: str
+    synopsis_part: str
     rationale: str
 
 
-def _scores_text(scores: dict[str, Any], baseline: dict[str, Any]) -> str:
-    rows = [("OMIM facts conveyed (coverage)", "gold_fact_coverage"),
-            ("Synopsis exact F1", "synopsis_exact_f1"), ("Synopsis exact precision", "synopsis_exact_precision"),
-            ("Synopsis exact recall", "synopsis_exact_recall"), ("Synopsis terms per entry", "synopsis_terms"),
-            ("Draft statements per paper", "statements_per_paper"),
-            ("Draft statements with an OMIM counterpart", "editorial_precision")]
+_LEADING_HEADING = re.compile(r"^\s*#{1,6}[^\n]*\n+")
+
+
+def _clean_part(body: str) -> str:
+    body = body.strip()
+    while _LEADING_HEADING.match(body + "\n"):
+        body = _LEADING_HEADING.sub("", body + "\n", count=1).strip()
+    return body
+
+
+def combine(text_part: str | None, synopsis_part: str | None) -> str:
+    """The guide as the writer sees it: each included part under its own heading."""
+    out = []
+    if text_part:
+        out.append(f"{TEXT_HEADING}\n\n{_clean_part(text_part)}")
+    if synopsis_part:
+        out.append(f"{SYNOPSIS_HEADING}\n\n{_clean_part(synopsis_part)}")
+    return "\n\n".join(out)
+
+
+_PART_SCORES = {
+    "text": [("OMIM facts conveyed (coverage)", "gold_fact_coverage"), ("Draft statements per paper", "statements_per_paper"),
+             ("Draft statements with an OMIM counterpart", "editorial_precision"),
+             ("OMIM facts contradicted", "gold_fact_contradiction_rate")],
+    "synopsis": [("Synopsis exact F1", "synopsis_exact_f1"), ("Synopsis exact precision", "synopsis_exact_precision"),
+                 ("Synopsis exact recall", "synopsis_exact_recall"), ("Synopsis terms per entry", "synopsis_terms"),
+                 ("Synopsis hierarchical F1", "synopsis_hierarchical_f1")],
+}
+
+
+def _scores_text(part: str, scores: dict[str, Any], baseline: dict[str, Any]) -> str:
     out = ["| Score | Without guide | With previous guide |", "|---|---|---|"]
-    for name, key in rows:
+    for name, key in _PART_SCORES[part]:
         a, b = baseline.get(key), scores.get(key)
         out.append(f"| {name} | {'n/a' if a is None else a} | {'n/a' if b is None else b} |")
     return "\n".join(out)
 
 
-def reflect(llm, feedback: str, previous: str | None = None, scores: dict[str, Any] | None = None,
-            baseline: dict[str, Any] | None = None, max_words: int = 700) -> XGuide:
+def reflect(llm, feedback: str, previous: dict[str, str] | None = None, scores: dict[str, Any] | None = None,
+            baseline: dict[str, Any] | None = None, max_words: int = 700) -> XGuideParts:
     parts = []
     if previous:
-        parts.append(f"<previous_guide>\n{previous}\n</previous_guide>")
-        parts.append(f"<scores on the training entries>\n{_scores_text(scores or {}, baseline or {})}\n</scores on the training entries>")
-        parts.append(f"<feedback on drafts written with the previous guide>\n{feedback}\n</feedback on drafts written with the previous guide>")
+        parts.append(f"<previous_text_part>\n{previous['text']}\n</previous_text_part>")
+        parts.append(f"<text_part scores on the training entries>\n{_scores_text('text', scores or {}, baseline or {})}\n"
+                     "</text_part scores on the training entries>")
+        parts.append(f"<previous_synopsis_part>\n{previous['synopsis']}\n</previous_synopsis_part>")
+        parts.append(f"<synopsis_part scores on the training entries>\n{_scores_text('synopsis', scores or {}, baseline or {})}\n"
+                     "</synopsis_part scores on the training entries>")
+        parts.append(f"<feedback on drafts written with the previous guide>\n{feedback}\n"
+                     "</feedback on drafts written with the previous guide>")
     else:
         parts.append(f"<feedback on drafts written without a guide>\n{feedback}\n</feedback on drafts written without a guide>")
     prompt = "\n\n".join(parts)
-    reply = llm.call("reflect", REFLECT_SYSTEM, prompt, XGuide)
-    if len(reply.guide.split()) > max_words:
-        log.warning("guide has %d words; asking for a shorter one", len(reply.guide.split()))
+    reply = llm.call("reflect", REFLECT_SYSTEM, prompt, XGuideParts)
+    words = len(combine(reply.text_part, reply.synopsis_part).split())
+    if words > max_words:
+        log.warning("guide has %d words; asking for a shorter one", words)
         reply = llm.call("reflect", REFLECT_SYSTEM,
-                         prompt + f"\n\nYour previous answer was {len(reply.guide.split())} words long. Keep the guide "
-                                  "under 600 words.", XGuide)
+                         prompt + f"\n\nYour previous answer was {words} words long. Keep the two parts together "
+                                  "under 600 words.", XGuideParts)
     return reply
 
 
 # --------------------------------------------------------------------------- #
-# Scores on the training entries
+# Scores and selection
 # --------------------------------------------------------------------------- #
 
-SELECTION_RULE = (
-    "Objective = (mean gold-fact coverage with the guide - without) + (mean clinical-synopsis exact F1 with the "
-    "guide - without), over the training entries, both scored without the audit. A round is eligible only if its "
-    "guide passes the mechanical checks (no run of 8+ words shared with any OMIM paragraph, no gene symbol or "
-    "entry title of the evaluation set) and its draft statements per paper are at most 1.25 times the baseline's "
-    "(a guide must not raise coverage by writing more). The eligible round with the highest objective is kept; "
-    "if no round has a positive objective, the best is still saved and the log says there was no gain."
-)
 MAX_GROWTH = 1.25
+SELECTION_RULE = {
+    "text": ("Text part (what to report about each paper): the round with the highest gain in mean OMIM-fact "
+             "coverage over the baseline, on the training entries where both wrote a draft, among rounds whose draft "
+             "statements per paper are at most 1.25 times the baseline's and whose part passes the checks. Included "
+             "in the final guide only if that gain is positive."),
+    "synopsis": ("Synopsis part (choice of clinical-synopsis terms): the round with the highest gain in mean "
+                 "clinical-synopsis exact F1 over the baseline, on the same entries, among rounds whose part passes "
+                 "the checks. Included only if that gain is positive."),
+    "common": ("Each round's combined guide is evaluated once (regenerated and scored without the audit). Parts may "
+               "come from different rounds. The final combination is then run once on the training entries to "
+               "confirm; that run does not change the selection. Entries without a draft on either side (the writer "
+               "was stopped) are left out of each comparison. Checks: no run of 8+ words shared with any OMIM "
+               "paragraph, no gene symbol or entry title of the evaluation set, no rule about whether to produce "
+               "output."),
+}
+
+
+def gains(scores: dict[str, Any], baseline: dict[str, Any]) -> dict[str, Any]:
+    dc = (scores["gold_fact_coverage"] or 0) - (baseline["gold_fact_coverage"] or 0)
+    df = (scores["synopsis_exact_f1"] or 0) - (baseline["synopsis_exact_f1"] or 0)
+    growth = (scores["statements_per_paper"] / baseline["statements_per_paper"]
+              if scores.get("statements_per_paper") and baseline.get("statements_per_paper") else None)
+    return {"coverage_gain": round(dc, 4), "synopsis_f1_gain": round(df, 4),
+            "statements_growth": None if growth is None else round(growth, 3),
+            "grows_too_much": growth is not None and growth > MAX_GROWTH}
+
+
+def select_part(rounds: list[dict[str, Any]], part: str) -> dict[str, Any]:
+    """The best round for one part, and whether the part goes into the final guide."""
+    key = "coverage_gain" if part == "text" else "synopsis_f1_gain"
+    eligible = [r for r in rounds if r["checks"][part]["ok"] and not (part == "text" and r["gains"]["grows_too_much"])]
+    best = max(eligible, key=lambda r: (r["gains"][key], -r["round"]), default=None)
+    if best is None:
+        return {"round": None, "gain": None, "included": False, "why": "no round eligible"}
+    gain = best["gains"][key]
+    return {"round": best["round"], "gain": gain, "included": gain > 0,
+            "why": (f"round {best['round']} has the highest {key} ({gain:+.4f})"
+                    + ("" if gain > 0 else "; not positive, so the part is left out"))}
+
+
+# --------------------------------------------------------------------------- #
+# Checks on output rules
+# --------------------------------------------------------------------------- #
+
+_OUTPUT_RULE = re.compile(
+    r"\b(always|never)\s+(produce|return|write)\s+(an?\s+)?(empty\s+)?(entry|draft|output)\b"
+    r"|\bempty\s+(entry|draft|reply|output)\b|\bproduce\s+a\s+draft\b", re.I)
+
+
+def output_rules(text: str) -> int:
+    return len(_OUTPUT_RULE.findall(text))
+
+
+def check_part(text: str, references, symbols, titles) -> dict[str, Any]:
+    result = check_guide(text, references, symbols, titles)
+    n = output_rules(text)
+    result["output_rules"] = n
+    result["ok"] = result["ok"] and n == 0
+    return result
+
+
+# --------------------------------------------------------------------------- #
+# The loop
+# --------------------------------------------------------------------------- #
 
 
 def _mean(values: list[float | None]) -> float | None:
@@ -443,26 +544,6 @@ def _get(node: Any, path: str) -> Any:
     return node
 
 
-def objective(scores: dict[str, Any], baseline: dict[str, Any]) -> dict[str, Any]:
-    dc = (scores["gold_fact_coverage"] or 0) - (baseline["gold_fact_coverage"] or 0)
-    df = (scores["synopsis_exact_f1"] or 0) - (baseline["synopsis_exact_f1"] or 0)
-    growth = (scores["statements_per_paper"] / baseline["statements_per_paper"]
-              if scores.get("statements_per_paper") and baseline.get("statements_per_paper") else None)
-    return {"coverage_gain": round(dc, 4), "synopsis_f1_gain": round(df, 4), "objective": round(dc + df, 4),
-            "statements_growth": None if growth is None else round(growth, 3),
-            "grows_too_much": growth is not None and growth > MAX_GROWTH}
-
-
-def choose_round(rounds: list[dict[str, Any]]) -> dict[str, Any] | None:
-    eligible = [r for r in rounds if r["checks"]["ok"] and not r["selection"]["grows_too_much"]]
-    return max(eligible, key=lambda r: (r["selection"]["objective"], -r["round"]), default=None)
-
-
-# --------------------------------------------------------------------------- #
-# The loop
-# --------------------------------------------------------------------------- #
-
-
 def _ensure_analyses(run_dir: Path, strategy: str, entries: list[str], jobs: int, llm, with_gaps: bool = True) -> None:
     """Gap and editorial files for the given entries, computed where missing (run-level summaries untouched)."""
     from .editorial import editorial_run
@@ -494,18 +575,48 @@ def _generate(run_name: str, strategy: str, entries: list[str], jobs: int) -> No
         log.warning("%s: %d entries failed: %s", run_name, len(summary["failures"]), summary["failures"])
 
 
+def _evaluate(work: str, work_dir: Path, name: str, guide: str, train: list[str], strategy: str, jobs: int,
+              llm) -> dict[str, Any]:
+    """Regenerate the training entries with `guide`, score them without the audit, and compare with the baseline."""
+    from .editorial import editorial_run
+
+    folder = work_dir / name
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / "guide.md"
+    if path.exists() and path.read_text(encoding="utf-8").strip() != guide.strip():
+        raise RuntimeError(f"{path} holds a different guide; remove {folder} to evaluate this one")
+    path.write_text(guide + "\n", encoding="utf-8")
+    os.environ["AIOMIM_GUIDE"] = str(path)
+    _generate(f"{work}/{name}", "guided", train, jobs)
+    # Compared only where both this guide and the baseline wrote a draft: a stopped writer is a missing
+    # entry, not a zero, on either side.
+    common = [m for m in train if has_draft(folder / m, "guided") and has_draft(work_dir / "baseline" / m, strategy)]
+    excluded = [m for m in train if m not in common]
+    if excluded:
+        log.warning("%s: %d training entries without a draft on one side, left out: %s", name, len(excluded), excluded)
+    editorial_run(folder, ("guided",), entries=common, jobs=jobs, llm=llm, write_run_files=False)
+    scores = training_scores(folder, "guided", common)
+    base_same = training_scores(work_dir / "baseline", strategy, common)
+    result = {"scores": scores, "baseline_same_entries": base_same, "gains": gains(scores, base_same),
+              "excluded_no_draft": excluded, "common": common}
+    log.info("%s: scores %s; gains %s", name, {k: v for k, v in scores.items() if k not in ("entries", "no_draft")},
+             result["gains"])
+    return result
+
+
 def learn_guide(
     run: str, train_file: Path, out: Path, rounds: int = 2, work: str | None = None, strategy: str = "direct",
     jobs: int = 3,
 ) -> dict[str, Any]:
+    """Learn a two-part guide (text, synopsis) in `rounds` reflect-and-score rounds; see `SELECTION_RULE`."""
     from .config import get_settings
-    from .gaps import read_entries_file
+    from .gaps import gaps_run, read_entries_file
     from .llm import LLM
     from .pipeline import _write
 
     settings = get_settings()
     base_dir = settings.runs / run
-    work = work or f"{run}_guide_train"
+    work = work or f"{run}_guide_v2"
     work_dir = settings.runs / work
     train = read_entries_file(train_file)
     llm = LLM(settings)
@@ -513,90 +624,88 @@ def learn_guide(
     if not references:
         raise RuntimeError(f"no gold paragraphs found under {base_dir}; the overlap check would be vacuous")
 
-    # 1. Baseline analyses on the training entries, from the main run.
+    # Baseline analyses on the training entries, from the main run (stopped entries are skipped).
     _ensure_analyses(base_dir, strategy, train, jobs, llm)
-
-    # The baseline regenerated without the audit, so that it is scored exactly as the guided drafts will be.
-    # Its generation call is the main run's, from cache.
+    # The baseline regenerated without the audit, so it is scored exactly as the guided drafts are (from cache).
     _generate(f"{work}/baseline", strategy, train, jobs)
     _ensure_analyses(work_dir / "baseline", strategy, train, jobs, llm, with_gaps=False)
     baseline = training_scores(work_dir / "baseline", strategy, train)
-    log.info("baseline on %d training entries: %s", baseline["n_entries"], baseline)
+    log.info("baseline: %d entries with a draft, %s without", baseline["n_entries"], baseline["no_draft"])
 
     history: list[dict[str, Any]] = []
-    feedback = build_feedback(base_dir, strategy, train)
-    previous: str | None = None
+    feedback = build_feedback(base_dir, strategy, train)   # entries without a draft are not in it
+    previous: dict[str, str] | None = None
     prev_scores: dict[str, Any] | None = None
+    prev_base: dict[str, Any] | None = None
     for k in range(1, rounds + 1):
         round_dir = work_dir / f"round{k}"
         round_dir.mkdir(parents=True, exist_ok=True)
-        if (round_dir / "guide.md").exists():
-            # Resuming an interrupted run: keep the guide this round already learned and tested.
-            guide = (round_dir / "guide.md").read_text(encoding="utf-8").strip()
-            log.info("round %d: reusing %s", k, round_dir / "guide.md")
+        parts_path = round_dir / "parts.json"
+        if parts_path.exists():
+            parts = json.loads(parts_path.read_text(encoding="utf-8"))     # resuming: keep this round's guide
+            log.info("round %d: reusing %s", k, parts_path)
         else:
             (round_dir / "feedback.txt").write_text(feedback, encoding="utf-8")   # git-ignored; holds OMIM facts
-            reply = reflect(llm, feedback, previous, prev_scores, baseline)
-            guide = reply.guide.strip()
-            (round_dir / "guide.md").write_text(guide + "\n", encoding="utf-8")
+            reply = reflect(llm, feedback, previous, prev_scores, prev_base)
+            parts = {"text": _clean_part(reply.text_part), "synopsis": _clean_part(reply.synopsis_part)}
+            parts_path.write_text(json.dumps(parts, indent=2, ensure_ascii=False), encoding="utf-8")
             (round_dir / "rationale.txt").write_text(reply.rationale, encoding="utf-8")
-        checks = check_guide(guide, references, symbols, titles)
-        log.info("round %d: guide of %d words, checks %s", k, checks["words"], checks)
-
-        os.environ["AIOMIM_GUIDE"] = str(round_dir / "guide.md")
-        _generate(f"{work}/round{k}", "guided", train, jobs)
-        # Compared only where both the round and the baseline wrote a draft: a stopped writer is a
-        # missing entry, not a zero, on either side.
-        common = [m for m in train if has_draft(round_dir / m, "guided")
-                  and has_draft(work_dir / "baseline" / m, strategy)]
-        excluded = [m for m in train if m not in common]
-        if excluded:
-            log.warning("round %d: %d training entries without a draft on one side, left out: %s",
-                        k, len(excluded), excluded)
-        from .editorial import editorial_run
-        editorial_run(round_dir, ("guided",), entries=common, jobs=jobs, llm=llm, write_run_files=False)
-        scores = training_scores(round_dir, "guided", common)
-        base_same = training_scores(work_dir / "baseline", strategy, common)
-        selection = objective(scores, base_same)
-        log.info("round %d scores: %s; selection %s", k, scores, selection)
-        history.append({
-            "round": k, "guide": guide, "words": checks["words"],
-            "sha256": hashlib.sha256(guide.encode("utf-8")).hexdigest(),
-            "checks": checks, "scores": scores, "baseline_same_entries": base_same, "selection": selection,
-            "excluded_no_draft": excluded,
-        })
+        guide = combine(parts["text"], parts["synopsis"])
+        checks = {"text": check_part(parts["text"], references, symbols, titles),
+                  "synopsis": check_part(parts["synopsis"], references, symbols, titles),
+                  "combined": check_part(guide, references, symbols, titles)}
+        log.info("round %d: %d words; checks %s", k, len(guide.split()), {p: c["ok"] for p, c in checks.items()})
+        evaluation = _evaluate(work, work_dir, f"round{k}", guide, train, strategy, jobs, llm)
+        history.append({"round": k, "parts": parts, "words": {p: len(t.split()) for p, t in parts.items()},
+                        "sha256": hashlib.sha256(guide.encode("utf-8")).hexdigest(), "checks": checks,
+                        **{key: evaluation[key] for key in ("scores", "baseline_same_entries", "gains",
+                                                             "excluded_no_draft")}})
         if k < rounds:
-            from .gaps import gaps_run
-            gaps_run(round_dir, "guided", entries=common, jobs=jobs, llm=llm, write_run_files=False)
-            feedback = build_feedback(round_dir, "guided", common, baseline_run=work_dir / "baseline",
+            gaps_run(round_dir, "guided", entries=evaluation["common"], jobs=jobs, llm=llm, write_run_files=False)
+            feedback = build_feedback(round_dir, "guided", evaluation["common"], baseline_run=work_dir / "baseline",
                                       baseline_strategy=strategy)
-            previous, prev_scores = guide, scores
+            previous, prev_scores, prev_base = parts, evaluation["scores"], evaluation["baseline_same_entries"]
 
-    chosen = choose_round(history)
-    if chosen is None:
-        raise GuideLeak("no round produced an eligible guide (see the checks in the run folder); nothing saved")
-    assert_clean(chosen["guide"], references, symbols, titles)   # again, right before saving
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(chosen["guide"] + "\n", encoding="utf-8")
-    record = {
+    selection = {part: select_part(history, part) for part in ("text", "synopsis")}
+    chosen = {part: (history[sel["round"] - 1]["parts"][part] if sel["included"] else None)
+              for part, sel in selection.items()}
+    final = combine(chosen["text"], chosen["synopsis"])
+    record: dict[str, Any] = {
         "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "source_run": run, "work_run": work, "train_file": str(train_file), "n_train": len(train),
+        "version": 2, "source_run": run, "work_run": work, "train_file": str(train_file), "n_train": len(train),
         "train_entries": train, "strategy": strategy, "rounds": rounds,
         "selection_rule": SELECTION_RULE, "max_statements_growth": MAX_GROWTH,
         "models": {"reflect": settings.model_for("reflect"), "synthesize": settings.model_for("synthesize"),
                    "judge": settings.model_for("judge")},
         "baseline": baseline,
-        "stopped_note": ("Entries whose writer was stopped (or, in runs made before stops were recorded, returned "
-                         "an empty entry) have no draft; they are left out of every score and of the comparison, "
-                         "per round, on both sides. See excluded_no_draft."),
-        # A guide that failed the checks may hold OMIM wording: its text stays in the git-ignored run folder.
-        "history": [{**r, "guide": r["guide"] if r["checks"]["ok"] else "(withheld: failed the checks)"}
-                    for r in history],
-        "chosen_round": chosen["round"],
-        "no_gain": chosen["selection"]["objective"] <= 0,
-        "guide_path": str(out), "guide_sha256": chosen["sha256"],
+        "stopped_note": ("Entries whose writer was stopped have no draft; they are left out of the feedback and of "
+                         "every comparison, per round, on both sides (excluded_no_draft)."),
+        # A part that failed the checks may hold OMIM wording: its text stays in the git-ignored run folder.
+        "history": [{**r, "parts": {p: (t if r["checks"][p]["ok"] else "(withheld: failed the checks)")
+                                    for p, t in r["parts"].items()}} for r in history],
+        "selection": selection,
     }
     log_path = out.with_name(out.name[:-3] + ".log.json" if out.name.endswith(".md") else out.name + ".log.json")
+    if not final:
+        record["final"] = None
+        _write(work_dir / "guide_learn.json", record)
+        raise RuntimeError("neither part improved its own measure on the training entries; no guide saved "
+                           f"(see {work_dir / 'guide_learn.json'})")
+    assert_clean(final, references, symbols, titles)   # again, right before saving
+    if output_rules(final):
+        raise GuideLeak("the final guide contains a rule about whether to produce output")
+    confirmation = _evaluate(work, work_dir, "final", final, train, strategy, jobs, llm)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(final + "\n", encoding="utf-8")
+    record.update({
+        "final": {"parts_from_round": {p: s["round"] if s["included"] else None for p, s in selection.items()},
+                  "words": len(final.split()), "sha256": hashlib.sha256(final.encode("utf-8")).hexdigest(),
+                  "same_as_round": next((r["round"] for r in history if r["sha256"] ==
+                                         hashlib.sha256(final.encode("utf-8")).hexdigest()), None)},
+        "confirmation": {key: confirmation[key] for key in ("scores", "baseline_same_entries", "gains",
+                                                             "excluded_no_draft")},
+        "guide_path": str(out),
+    })
     _write(log_path, record)
     _write(work_dir / "guide_learn.json", record)
     return record

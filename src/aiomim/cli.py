@@ -300,12 +300,14 @@ def guide_learn(run_name, train_file, out, rounds, work, strategy, jobs):
     b = record["baseline"]
     click.echo(f"baseline: coverage {b['gold_fact_coverage']}, synopsis F1 {b['synopsis_exact_f1']}, "
                f"statements/paper {b['statements_per_paper']}")
-    for r in record["history"]:
-        s, sel = r["scores"], r["selection"]
-        click.echo(f"round {r['round']}: coverage {s['gold_fact_coverage']}, synopsis F1 {s['synopsis_exact_f1']}, "
-                   f"statements/paper {s['statements_per_paper']}; objective {sel['objective']}, growth "
-                   f"{sel['statements_growth']}, checks {'ok' if r['checks']['ok'] else 'FAILED'}")
-    click.echo(f"kept round {record['chosen_round']}{' (no gain)' if record['no_gain'] else ''} -> {out}")
+    for r in [*record["history"], {"round": "final", **record["confirmation"]}]:
+        s, g = r["scores"], r["gains"]
+        click.echo(f"{r['round']}: coverage {s['gold_fact_coverage']} ({g['coverage_gain']:+}), synopsis F1 "
+                   f"{s['synopsis_exact_f1']} ({g['synopsis_f1_gain']:+}), statements/paper {s['statements_per_paper']} "
+                   f"(x{g['statements_growth']}), on {s['n_entries']} entries")
+    for part, sel in record["selection"].items():
+        click.echo(f"{part} part: {sel['why']}; {'included' if sel['included'] else 'left out'}")
+    click.echo(f"guide -> {out}")
 
 
 @main.command()
