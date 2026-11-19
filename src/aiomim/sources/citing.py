@@ -239,7 +239,7 @@ class RawPassage:
 
 
 _WORD = re.compile(r"[a-z0-9]+")
-_DASHES = "-–—‐‑−"
+_DASHES = "–—‐‑−-"  # the ASCII hyphen last, so it is literal inside [...]
 _RANGE_TEXT = re.compile(rf"^\s*(\d+)\s*[{_DASHES}]\s*(\d+)\s*$")
 _STOP = set("a an the of in on and or with for to by from at as is are was were its their this that "
             "associated due novel new case cases report patient patients study".split())
