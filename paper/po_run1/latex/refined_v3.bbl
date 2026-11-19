@@ -59,7 +59,7 @@ Akari Asai, Jacqueline He, Rulin Shao, Weijia Shi, Amanpreet Singh, Joseph~Chee
 James~P. Balhoff and Hilmar Lapp.
 \newblock Frontier {LLM}-based agents can overcome the ontology curation
   bottleneck for natural phenotypes.
-\newblock arXiv, 2026.
+\newblock arXiv preprint arXiv:2605.28965, 2026.
 
 \bibitem[Caufield et~al.(2024{\natexlab{a}})Caufield, Kroll, O'Neil, Reese,
   Joachimiak, Hegde, Harris, Krishnamurthy, McLaughlin, Smedley,
@@ -68,7 +68,7 @@ Harry Caufield, Carlo Kroll, Shawn~T O'Neil, Justin~T Reese, Marcin~P
   Joachimiak, Harshad Hegde, Nomi~L Harris, Madan Krishnamurthy, James~A
   McLaughlin, Damian Smedley, et~al.
 \newblock {CurateGPT}: A flexible language-model assisted biocuration tool.
-\newblock arXiv, 2024{\natexlab{a}}.
+\newblock arXiv preprint arXiv:2411.00046, 2024{\natexlab{a}}.
 
 \bibitem[Caufield et~al.(2024{\natexlab{b}})Caufield, Hegde, Emonet, Harris,
   Joachimiak, Matentzoglu, Kim, Moxon, Reese, Haendel, Robinson, and
@@ -101,7 +101,7 @@ K~Bretonnel Cohen, Helen~L Johnson, Karin Verspoor, Christophe Roeder, and
   Lawrence~E Hunter.
 \newblock {The structural and content aspects of abstracts versus bodies of
   full text journal articles are different}.
-\newblock \emph{BMC Bioinformatics}, 11, 2010.
+\newblock \emph{BMC Bioinformatics}, 11:\penalty0 492, 2010.
 \newblock \doi{10.1186/1471-2105-11-492}.
 
 \bibitem[Deng et~al.(2024)Deng, Zhao, Heng, Li, Cao, Tang, and
@@ -133,7 +133,7 @@ Darren Edge, Ha~Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody,
   Larson.
 \newblock From local to global: A {Graph RAG} approach to query-focused
   summarization.
-\newblock arXiv, 2024.
+\newblock arXiv preprint arXiv:2404.16130, 2024.
 
 \bibitem[Efron(1979)]{Efron1979BootstrapMethods}
 B.~Efron.
@@ -149,9 +149,9 @@ Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, and Tim
   Evolution}.
 \newblock In \emph{International Conference on Machine Learning}, 2024.
 
-\bibitem[Furlan et~al.(2025)Furlan, Moran, Salazar, Rennie, Hoang, wan,
+\bibitem[Furlan et~al.(2025)Furlan, Moran, Salazar, Rennie, Hoang, Wan,
   Mendes~de Aquino, Engchuan, Vorstman, and Scherer]{furlan2025eagleai}
-V.~Furlan, J.~Moran, N.~B. Salazar, O.~Rennie, N.~Hoang, A.~wan, M.~Mendes~de
+V.~Furlan, J.~Moran, N.~B. Salazar, O.~Rennie, N.~Hoang, A.~Wan, M.~Mendes~de
   Aquino, W.~Engchuan, J.~A.~S. Vorstman, and S.~W. Scherer.
 \newblock {EAGLE}-{AI}: A large language model workflow for automated
   extraction and scoring of literature evidence linking genes to autism
@@ -272,7 +272,7 @@ A.~Hamosh, J.~S. Amberger, C.~Bocchini, A.~F. Scott, and S.~A. Rasmussen.
 Haoyu Han, Li~Ma, Yu~Wang, Harry Shomer, Yongjia Lei, Zhisheng Qi, Kai Guo,
   Zhigang Hua, Bo~Long, Hui Liu, Charu~C. Aggarwal, and Jiliang Tang.
 \newblock {RAG} vs. {GraphRAG}: A systematic evaluation and key insights.
-\newblock arXiv, 2025.
+\newblock arXiv preprint arXiv:2502.11371, 2025.
 
 \bibitem[Holm(1979)]{holm1979simple}
 Sture Holm.
@@ -317,7 +317,7 @@ Qiao Jin, Yifan Yang, Qingyu Chen, and Zhiyong Lu.
 Harshit Joshi, Priyank Shethia, Jadelynn Dao, and Monica~S. Lam.
 \newblock {SLIDERS}: Evidence synthesis with autonomous database reconciliation
   for systematic reviews.
-\newblock arXiv, 2026.
+\newblock arXiv preprint arXiv:2604.22294, 2026.
 
 \bibitem[Khattab et~al.(2023)Khattab, Singhvi, Maheshwari, Zhang, Santhanam,
   Vardhamanan, Haq, Sharma, Joshi, Moazam, et~al.]{Khattab2023DspyCompiling}
@@ -400,8 +400,7 @@ Xiaomei Li, Alex Whan, Meredith McNeil, Samuel~C. Andrew, Xiang Dai, Madeline
   Fechner, Cécile Paris, and Rad Suchecki.
 \newblock {GeneWhisperer: Enhancing manual genome annotation with large
   language models}.
-\newblock In \emph{openRxiv}, 2025{\natexlab{c}}.
-\newblock \doi{10.1101/2025.03.30.646211}.
+\newblock bioRxiv preprint, 2025{\natexlab{c}}.
 
 \bibitem[Li et~al.(2025{\natexlab{d}})Li, Cao, Ma, and Sun]{Li2024LongContext}
 Xinze Li, Yixin Cao, Yubo Ma, and Aixin Sun.
@@ -477,8 +476,7 @@ Sewon Min, Kalpesh Krishna, Xinxi Lyu, Mike Lewis, Wen-tau Yih, Pang~Wei Koh,
 Kitty~B Murphy, Brian~M Schilder, and Nathan~G Skene.
 \newblock {Harnessing generative AI to annotate the severity of all phenotypic
   abnormalities within the Human Phenotype Ontology}.
-\newblock In \emph{openRxiv}, 2024.
-\newblock \doi{10.1101/2024.06.10.24308475}.
+\newblock medRxiv preprint, 2024.
 
 \bibitem[Nakano et~al.(2021)Nakano, Hilton, Balaji, Wu, Ouyang, Kim, Hesse,
   Jain, Kosaraju, Saunders, et~al.]{Nakano2021WebgptBrowserassisted}
@@ -599,7 +597,7 @@ Shreya Shankar, J.~D. Zamfirescu-Pereira, Bj{\"{o}}rn Hartmann, Aditya~G.
   Parameswaran, and Ian Arawjo.
 \newblock Who validates the validators? aligning {LLM}-assisted evaluation of
   {LLM} outputs with human preferences.
-\newblock arXiv, 2024.
+\newblock arXiv preprint arXiv:2404.12272, 2024.
 
 \bibitem[Shankar et~al.(2025)Shankar, Chambers, Shah, Parameswaran, and
   Wu]{shankar2025docetl}
@@ -638,7 +636,7 @@ Michael~D. Skarlinski, Sam Cox, Jon~M. Laurent, James~D. Braza, Michaela Hinks,
   Michael~J. Hammerling, Manvitha Ponnapati, Samuel~G. Rodriques, and Andrew~D.
   White.
 \newblock Language agents achieve superhuman synthesis of scientific knowledge.
-\newblock arXiv, 2024.
+\newblock arXiv preprint arXiv:2409.13740, 2024.
 
 \bibitem[Song et~al.(2024)Song, Kim, and Iyyer]{Song2024VeriscoreEvaluating}
 Yixiao Song, Yekyung Kim, and Mohit Iyyer.
@@ -756,7 +754,7 @@ Zhishang Xiang, Chuanjie Wu, Qinggang Zhang, Shengyuan Chen, Zijin Hong, Xiao
   Huang, and Jinsong Su.
 \newblock When to use graphs in {RAG}: A comprehensive analysis for graph
   retrieval-augmented generation.
-\newblock arXiv, 2025.
+\newblock arXiv preprint arXiv:2506.05690, 2025.
 
 \bibitem[Xu et~al.(2024)Xu, Guan, Greene, and Kechadi]{Xu2024BenchmarkData}
 Cheng Xu, Shuhao Guan, Derek Greene, and M-Tahar Kechadi.
