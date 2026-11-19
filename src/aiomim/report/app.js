@@ -527,7 +527,8 @@
         h('td', { class: 'entry-cell' },
           h('a', { href: href }, itemName(item)),
           !item.mim ? h('div', { class: 'small muted' }, 'New entry, no OMIM entry to compare with') : null,
-          !row.has ? h('div', { class: 'small muted' }, 'No ' + stratLabel(s).toLowerCase() + ' for this entry') : null),
+          !item.strategies.length ? h('div', { class: 'small muted' }, 'No draft yet: still being written, or drafting failed') :
+            !row.has ? h('div', { class: 'small muted' }, 'No ' + stratLabel(s).toLowerCase() + ' for this entry') : null),
         h('td', null, item.strategies.indexOf(s) >= 0 ? progressEl(item, s) : '–'),
         METRICS.map((m) => h('td', { class: 'n' }, fmt(row[m.key], m.fmt))),
         h('td', null, accessEl(row.access)));
