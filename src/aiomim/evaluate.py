@@ -328,11 +328,11 @@ def _draft_text_for(entry: GeneratedEntry, pmids: list[str]) -> str:
     chunks = []
     for section in entry.sections:
         for para in section.paragraphs:
-            if wanted & set(para.pmids):
+            if wanted & set(para.checked_pmids):
                 chunks.append(f"[{section.heading}] {para.text}")
     for av in entry.allelic_variants:
         for para in av.paragraphs:
-            if wanted & set(para.pmids):
+            if wanted & set(para.checked_pmids):
                 chunks.append(f"[Allelic variant {av.name}] {para.text}")
     return "\n\n".join(chunks)
 

@@ -94,15 +94,18 @@ def _ph(text, label, present=True, n_with=None, n_assessed=None, some_only=False
                                  n_assessed=n_assessed, some_only=some_only)
 
 
-def _var(as_reported, cdna="", protein="", zygosity="homozygous", origin="inherited"):
-    return extract.XVariant(gene="GENEX", as_reported=as_reported, cdna=cdna, protein=protein, genomic="",
-                            zygosity=zygosity, origin=origin, consequence="missense")
+def _var(as_reported, cdna="", protein="", zygosity="homozygous", origin="inherited", gene="GENEX",
+         conclusion="causal"):
+    return cohort.XCaseVariant(gene=gene, as_reported=as_reported, cdna=cdna, protein=protein, genomic="",
+                               zygosity=zygosity, origin=origin, consequence="missense",
+                               authors_conclusion=conclusion)
 
 
 def _rec(label, kind, n, phenotypes, variants, quote, inheritance="UNKNOWN", **kw):
     fields = dict(label=label, kind=kind, family="", n_affected=n, n_families=1, sex="", ancestry="",
                   consanguinity="not_stated", onset="", age_last="", phenotypes=phenotypes, variants=variants,
-                  segregation="", inheritance=inheritance, previously_reported="", quotes=[quote])
+                  segregation="", inheritance=inheritance, previously_reported="", mixed_genotypes=False,
+                  quotes=[quote])
     fields.update(kw)
     return cohort.XRecord(**fields)
 
@@ -126,7 +129,9 @@ class ScriptedLLM:
                      [_ph("generalized dystonia", "Dystonia"),
                       _ph("optic atrophy", "Optic atrophy", n_with=2, n_assessed=3),
                       _ph("seizures", "Seizure", present=False)],
-                     [_var("c.100C>T (p.Arg34Trp)", cdna="c.100C>T", protein="p.Arg34Trp")],
+                     [_var("c.100C>T (p.Arg34Trp)", cdna="c.100C>T", protein="p.Arg34Trp"),
+                      # Dismissed by the authors: must not make GENEW a causal gene.
+                      _var("c.5A>G", cdna="c.5A>G", zygosity="heterozygous", gene="GENEW", conclusion="not_causal")],
                      "three affected sibs had childhood-onset generalized dystonia",
                      consanguinity="yes", ancestry="Turkish", inheritance="AR"),
                 # Invented: not in the abstract, so this record must be set aside.
@@ -195,15 +200,15 @@ def test_counts_pool_across_papers(run):
     assert table["totals"]["individuals"] == 4 and table["totals"]["families"] == 2
     ph = table["phenotypes"]
     assert (ph["HP:0001332"]["present"], ph["HP:0001332"]["absent"], ph["HP:0001332"]["assessed"]) == (4, 0, 4)
-    # "2 of 3" in paper A, explicitly absent in paper B.
-    assert (ph["HP:0000648"]["present"], ph["HP:0000648"]["absent"], ph["HP:0000648"]["assessed"]) == (2, 2, 4)
+    # "2 of 3" in paper A (the third sib is assessed, not explicitly without it), explicitly absent in paper B.
+    assert (ph["HP:0000648"]["present"], ph["HP:0000648"]["absent"], ph["HP:0000648"]["assessed"]) == (2, 1, 4)
     # Absent in all 3 sibs, present in the girl.
     assert (ph["HP:0001250"]["present"], ph["HP:0001250"]["absent"]) == (1, 3)
 
 
 def test_same_variant_named_two_ways_is_one_row(run):
     entry, table, _ = run
-    assert len(table["variants"]) == 1
+    assert len(table["variants"]) == 2              # the GENEX change, named two ways, and the GENEW one
     row = table["variants"][0]
     assert row["id"] == "V1" and row["records"] == ["R:111:1", "R:222:1"] and row["individuals"] == 4
     assert set(row["keys"]) == {"c.100C>T", "p.R34W"}
@@ -213,6 +218,7 @@ def test_same_variant_named_two_ways_is_one_row(run):
 def test_structured_parts_come_from_the_table(run):
     entry, _, _ = run
     assert entry.inheritance == ["AR"]
+    assert [r.gene_symbol for r in entry.relationships] == ["GENEX"]     # GENEW was dismissed by its authors
     rel = entry.relationships[0]
     assert (rel.gene_symbol, rel.gene_mim, rel.inheritance, rel.pmids) == ("GENEX", "612345", ["AR"], ["111", "222"])
     synopsis = {i.hpo_id: (i.n_present, i.n_assessed, i.n_papers, i.category) for i in entry.clinical_synopsis}
@@ -236,6 +242,14 @@ def _record(variants, inheritance="UNKNOWN", n=1, kind="family", rid="R:1:1"):
                              variants=[VariantMention(**v) for v in variants], inheritance=inheritance)
 
 
+def test_transcript_ids_do_not_merge_variants():
+    a = VariantMention(gene="GENEX", as_reported="NM_001256545.2:c.2096G>C", cdna="NM_001256545.2:c.2096G>C")
+    b = VariantMention(gene="GENEX", as_reported="(NM_001256545.2): c.352T>C")
+    from aiomim.kg import variant_keys
+    assert variant_keys(cohort._without_transcript(a)) == {"c.2096G>C"}
+    assert variant_keys(cohort._without_transcript(b)) == {"c.352T>C"}
+
+
 def test_inheritance_rule():
     ar = _record([{"gene": "GENEX", "as_reported": "c.1A>G", "zygosity": "compound_heterozygous"}])
     assert cohort.record_mode(ar)[0] == "AR"
@@ -248,6 +262,10 @@ def test_inheritance_rule():
     assert cohort.record_mode(mito)[0] == "MT"
     xl = _record([{"gene": "GENEZ", "as_reported": "c.9G>A", "zygosity": "heterozygous"}])
     assert cohort.record_mode(xl, {"GENEZ"})[0] == "XL"
+    mixed = _record([{"gene": "GENEX", "key": "V1", "zygosity": "heterozygous"},
+                     {"gene": "GENEX", "key": "V2", "zygosity": "heterozygous"}])
+    mixed.mixed_genotypes = True          # two members, one variant each: not two alleles of one person
+    assert cohort.record_mode(mixed)[0] == ""
     lone_het = _record([{"gene": "GENEX", "as_reported": "c.1A>G", "zygosity": "heterozygous"}])
     assert cohort.record_mode(lone_het)[0] == ""
 
@@ -265,5 +283,5 @@ def test_group_feature_counts():
     absent = cohort.CasePhenotype(text="x", present=False)
     assert cohort._tally_feature(whole, 6) == (6, 0, 6)
     assert cohort._tally_feature(some, 6) == (1, 0, 6)       # "some": a lower bound, never the whole group
-    assert cohort._tally_feature(counted, 6) == (2, 3, 5)
+    assert cohort._tally_feature(counted, 6) == (2, 0, 5)
     assert cohort._tally_feature(absent, 6) == (0, 6, 6)

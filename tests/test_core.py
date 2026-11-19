@@ -354,3 +354,25 @@ def test_citation_matching_ignores_accents_and_flags_true_unknowns():
     _attach_text_citations(para, _labels(papers), unknown)
     assert sorted(para.pmids) == ["1", "2", "3"]
     assert unknown == ["Novotny et al. (1986)"]
+
+
+def test_parenthetical_citations_are_matched_and_unknown_ones_flagged():
+    from aiomim.synthesize import _attach_text_citations, _labels
+
+    papers = [Paper(pmid="1", authors=["Boyden SE", "A B", "C D"], year=2012),
+              Paper(pmid="2", authors=["Jun AS", "Brown MD"], year=1994)]
+    para = EntryParagraph(text="Weakness is mainly axial (Boyden et al., 2012; Jun and Brown, 1994), and minicores "
+                               "are seen on biopsy (Takayama et al., 2016).", pmids=[])
+    unknown: list[str] = []
+    _attach_text_citations(para, _labels(papers), unknown)
+    assert sorted(para.pmids) == ["1", "2"]
+    assert unknown == ["Takayama et al. (2016)"]
+
+
+def test_audit_only_papers_are_checked_but_not_cited():
+    entry = GeneratedEntry(title="X", sections=[EntrySection(name="description", paragraphs=[
+        EntryParagraph(text="From memory.", audit_pmids=["1", "2"]),
+        EntryParagraph(text="Jun et al. (1994) said so.", pmids=["2"], audit_pmids=["2"])])])
+    assert entry.cited_pmids() == ["2"]
+    assert entry.sections[0].paragraphs[0].checked_pmids == ["1", "2"]
+    assert entry.sections[0].paragraphs[1].checked_pmids == ["2"]

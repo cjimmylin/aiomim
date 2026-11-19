@@ -395,8 +395,16 @@ class EntryParagraph(BaseModel):
     id: str = ""
     text: str
     pmids: list[str] = Field(default_factory=list)
+    # Papers the audit should check this paragraph against although it does not cite
+    # them (a statement written from memory with no usable citation). They count
+    # for auditing and for finding the paragraph's facts, never as references.
+    audit_pmids: list[str] = Field(default_factory=list)
     finding_ids: list[str] = Field(default_factory=list)
     checks: list[ClaimCheck] = Field(default_factory=list)
+
+    @property
+    def checked_pmids(self) -> list[str]:
+        return list(dict.fromkeys([*self.pmids, *self.audit_pmids]))
 
     @property
     def status(self) -> str:

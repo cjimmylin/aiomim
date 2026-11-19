@@ -22,11 +22,15 @@ Counting rules (see `_tally_feature` and `pool`):
   asks for that). A record's size is its `n_affected`, or 1 when not given.
 * A feature reported for a record with no counts applies to the whole record
   (n present, n assessed). A count ("2 of 5") is taken as stated: 2 present,
-  3 absent, 5 assessed; a count without a denominator gives present = assessed =
-  that count. A feature that only "some" members had, without a number, counts
+  5 assessed; the other 3 are assessed but not counted as explicitly without it
+  (absent counts only features the paper says were absent). A count without a
+  denominator gives present = assessed = that count. A feature that only "some" members had, without a number, counts
   as 1 present (a lower bound) and the record's size as assessed. A feature the
   paper says was absent counts the same way on the absent side.
 * The same term reported twice in one record is counted once (the larger tally).
+* A group whose members carry different variants the paper does not assign
+  ("mixed genotypes") counts towards features and totals, but adds no carriers
+  to any one variant row.
 * Records are never merged across papers by guesswork. A record the paper itself
   says was reported before, in a supplied earlier paper, is a follow-up: it is
   left out of the individual and family totals and out of per-term counts,
@@ -34,8 +38,13 @@ Counting rules (see `_tally_feature` and `pool`):
   follow-ups (at most once). Records in different papers that share a label are
   kept separate and listed as possible duplicates.
 
+Causal genes: genes with patient variants in records from primary or supporting
+papers, leaving out variants the authors themselves dismiss (incidental,
+polymorphism, cause of something else); if any variant is called causal by its
+authors, only genes with such variants are kept.
+
 Inheritance rule (see `record_mode` and `choose_modes`): each pooled record
-gives at most one mode from the genotypes it carries: an mtDNA variant → MT;
+gives at most one mode from the genotypes it carries in the causal genes: an mtDNA variant → MT;
 homozygous, compound heterozygous, or two different heterozygous variants in one
 gene → AR; hemizygous, or any variant in a gene on chromosome X → XL (XLR/XLD if
 the paper says which); a heterozygous de novo variant → AD; another single
@@ -109,6 +118,11 @@ class XCasePhenotype(BaseModel):
                                         '"most") without giving a number')
 
 
+class XCaseVariant(XVariant):
+    authors_conclusion: Literal["causal", "uncertain", "not_causal"] = Field(
+        description="What the paper concludes about this variant as the cause of these patients' disorder")
+
+
 class XRecord(BaseModel):
     label: str = Field(description='The paper\'s own label, e.g. "Patient 3", "Family 2", "II-4"; else a short description')
     kind: Literal["individual", "family", "group"]
@@ -121,11 +135,13 @@ class XRecord(BaseModel):
     onset: str = Field(description='Age at onset as stated; else ""')
     age_last: str = Field(description='Age at last report, or at death (say "died at ..."), as stated; else ""')
     phenotypes: list[XCasePhenotype]
-    variants: list[XVariant]
+    variants: list[XCaseVariant]
     segregation: str = Field(description='How the variant segregated in the family, as stated; else ""')
     inheritance: InheritanceCode = Field(description="Mode the family shows or the authors state for it; else UNKNOWN")
     previously_reported: str = Field(description='If the paper says these patients were reported before, the citation '
                                                  'it gives (e.g. "Smith et al. 1998"); else ""')
+    mixed_genotypes: bool = Field(description="True for a group whose members carry different variants that the "
+                                              "paper does not assign to particular members")
     quotes: list[str]
 
 
@@ -162,7 +178,11 @@ together. Use the finest level the paper gives detail for: when it describes pat
 `family`; when it describes a family as a unit, one `family` record; when it only reports patients in \
 aggregate ("three affected sibs had X", "of 12 patients, 9 had Y"), one `group` record with those \
 numbers. Never invent per-person detail the paper does not give. Every affected individual belongs to \
-exactly one record: do not also add a summary record for patients already recorded individually, and \
+exactly one record, and the members of a record should share one genotype: patients or families \
+with different variants, or with variants in different genes, are separate records whenever the paper \
+says which features or numbers go with which of them. Only when the paper describes the features of \
+patients with different genotypes together, without saying which go with which, keep them as one \
+`group` record, list all their variants, and set `mixed_genotypes` true. Do not also add a summary record for patients already recorded individually, and \
 do not record unaffected carriers or healthy relatives as records. Patients the paper only cites from \
 earlier literature without new data are not records.
 
@@ -181,7 +201,11 @@ numbers null. Never count a feature as present in the whole group when the paper
 
 `variants`: the variants found in the record's affected members, one item each, with the fields filled \
 only from what the paper states (leave a field empty rather than deriving it); zygosity as found in the \
-patient; `origin` de_novo only if the paper says so. `segregation`: how the variant segregated in the \
+patient, and compound_heterozygous only when the paper says the two variants are compound heterozygous \
+or in trans (two variants with phase not stated are each heterozygous); `origin` de_novo only if the \
+paper says so; `authors_conclusion`: causal if the authors \
+conclude this variant causes the patients' disorder, not_causal if they consider it incidental, a \
+benign polymorphism or the cause of something else, uncertain otherwise. `segregation`: how the variant segregated in the \
 family, in a few words, as stated. `inheritance`: the mode the family's pedigree shows or the authors \
 state for it, otherwise UNKNOWN.
 
@@ -241,9 +265,11 @@ class CaseRecord(BaseModel):
     age_last: str = ""
     phenotypes: list[CasePhenotype] = Field(default_factory=list)
     variants: list[VariantMention] = Field(default_factory=list)
+    variant_roles: list[str] = Field(default_factory=list, description="authors_conclusion per variant")
     segregation: str = ""
     inheritance: str = "UNKNOWN"
     previously_reported: str = ""
+    mixed_genotypes: bool = False
     quotes: list[str] = Field(default_factory=list)
     quote_grounding: list[float] = Field(default_factory=list)
     # Filled while pooling.
@@ -308,9 +334,11 @@ def _to_cases(paper: Paper, source: str, raw: XCases) -> PaperCases:
                                       n_assessed=p.n_assessed if (p.n_assessed or 0) > 0 else None,
                                       some_only=p.some_only)
                         for p in x.phenotypes if squash(p.text)],
-            variants=[VariantMention(**v.model_dump()) for v in x.variants],
+            variants=[VariantMention(**v.model_dump(exclude={"authors_conclusion"})) for v in x.variants],
+            variant_roles=[v.authors_conclusion for v in x.variants],
             segregation=squash(x.segregation), inheritance=x.inheritance,
             previously_reported=squash(x.previously_reported), quotes=qs, quote_grounding=scores,
+            mixed_genotypes=x.mixed_genotypes and len(x.variants) > 1,
         )
         (out.records if rec.grounded else out.dropped_records).append(rec)
     for n, x in enumerate(raw.notes, 1):
@@ -366,8 +394,11 @@ def _tally_feature(p: CasePhenotype, size: int) -> tuple[int, int, int]:
     """(present, absent, assessed) individuals one record contributes for one feature."""
     n = max(size, p.n_with or 0)
     if p.n_with is not None:
+        # "2 of 5 had it": 2 counted, 5 assessed. The other 3 are not counted as
+        # explicitly without it: in a family with variable expression a paper's
+        # denominator is often everyone affected by anything, not a negative finding.
         assessed = max(p.n_assessed or p.n_with, p.n_with)
-        hit, miss = p.n_with, assessed - p.n_with
+        hit, miss = p.n_with, 0
     elif p.some_only:
         assessed = max(n, p.n_assessed or 0)
         hit, miss = min(1, assessed), 0
@@ -380,15 +411,24 @@ def _tally_feature(p: CasePhenotype, size: int) -> tuple[int, int, int]:
 _X_LIKE = ("XL", "XLR", "XLD")
 
 
+def _role(rec: "CaseRecord", i: int) -> str:
+    return rec.variant_roles[i] if i < len(rec.variant_roles) else "uncertain"
+
+
 def _is_mtdna(v: VariantMention) -> bool:
     return (is_mito_gene(v.gene) or v.zygosity in ("heteroplasmic", "homoplasmic")
             or (v.genomic or "").strip().lower().startswith("m."))
 
 
-def record_mode(rec: CaseRecord, x_genes: set[str] = frozenset()) -> tuple[str, str]:
-    """The mode of inheritance one record's genotypes show, with the reason ("" if none)."""
+def record_mode(rec: CaseRecord, x_genes: set[str] = frozenset(), genes: set[str] | None = None) -> tuple[str, str]:
+    """The mode of inheritance one record's genotypes show, with the reason ("" if none).
+
+    Only variants in `genes` (the causal genes, when given) that the authors did
+    not dismiss are considered.
+    """
     stated = rec.inheritance if rec.inheritance in INHERITANCE_HPO else ""
-    vs = [v for v in rec.variants if v.gene or v.as_reported]
+    vs = [v for i, v in enumerate(rec.variants) if (v.gene or v.as_reported)
+          and (genes is None or v.gene in genes) and _role(rec, i) != "not_causal"]
     if any(_is_mtdna(v) for v in vs):
         return "MT", "mtDNA variant"
     if any(v.zygosity in ("homozygous", "compound_heterozygous") for v in vs):
@@ -397,7 +437,7 @@ def record_mode(rec: CaseRecord, x_genes: set[str] = frozenset()) -> tuple[str, 
     for v in vs:
         if v.zygosity == "heterozygous" and v.gene:
             het_by_gene[v.gene].add(v.key or v.as_reported)
-    if any(len(keys) >= 2 for keys in het_by_gene.values()):
+    if not rec.mixed_genotypes and any(len(keys) >= 2 for keys in het_by_gene.values()):
         return "AR", "two different heterozygous variants in one gene"
     if any(v.zygosity == "hemizygous" or v.gene in x_genes for v in vs):
         return (stated if stated in _X_LIKE else "XL"), "variant in an X-chromosome gene"
@@ -440,6 +480,19 @@ def _mode_support(records: list[CaseRecord]) -> dict[str, dict[str, Any]]:
             s["pmids"].append(rec.pmid)
         s["reasons"][rec.genotype_reason] += 1
     return support
+
+
+_TRANSCRIPT = re.compile(r"\(?\b(?:N[MRCGP]|X[MR]|ENS[TG])_?\d+(?:\.\d+)?\)?\s*:?", re.I)
+
+
+def _without_transcript(v: VariantMention) -> VariantMention:
+    """Drop reference-sequence ids ("NM_001256545.2:") before deriving keys.
+
+    `kg.variant_keys` reads such a token as an indel-like change, which yields a
+    key shared by every variant on that transcript and would merge them.
+    """
+    return v.model_copy(update={f: _TRANSCRIPT.sub(" ", getattr(v, f) or "").strip()
+                                for f in ("as_reported", "cdna", "genomic")})
 
 
 def _surname_year(text: str) -> tuple[str, str]:
@@ -527,7 +580,7 @@ class CaseTable:
         mention_keys: dict[tuple[str, int], set[tuple[str, str]]] = {}
         for rec in self.records.values():
             for i, v in enumerate(rec.variants):
-                keys = {(v.gene, k) for k in variant_keys(v)} or {(v.gene, "raw:" + v.as_reported.strip().lower())}
+                keys = {(v.gene, k) for k in variant_keys(_without_transcript(v))} or {(v.gene, "raw:" + v.as_reported.strip().lower())}
                 mention_keys[(rec.id, i)] = keys
                 first = next(iter(keys))
                 for k in keys:
@@ -550,27 +603,40 @@ class CaseTable:
                         "omim_name": omim_variant_name(root[0], named) if named else
                         f"{root[0]}, {v.as_reported.upper()}".strip(", "),
                         "as_reported": [], "records": [], "pmids": [], "individuals": 0,
-                        "zygosity": Counter(), "origin": Counter(), "consequence": "",
+                        "zygosity": Counter(), "origin": Counter(), "consequence": "", "authors": Counter(),
                     }
                 v.key = row["id"]
                 if v.as_reported and v.as_reported not in row["as_reported"]:
                     row["as_reported"].append(v.as_reported)
                 if rec.id not in row["records"]:
                     row["records"].append(rec.id)
-                    if self.is_core(rec.pmid) and not rec.followup_of:
+                    # In a mixed-genotype group the carriers of each variant are unknown.
+                    if self.is_core(rec.pmid) and not rec.followup_of and not rec.mixed_genotypes:
                         row["individuals"] += rec.size
                 if rec.pmid not in row["pmids"]:
                     row["pmids"].append(rec.pmid)
                 row["zygosity"][v.zygosity or "unknown"] += 1
                 row["origin"][v.origin or "unknown"] += 1
+                row["authors"][_role(rec, i)] += 1
                 row["consequence"] = row["consequence"] or v.consequence
-        return [{**r, "zygosity": dict(r["zygosity"]), "origin": dict(r["origin"])} for r in rows.values()]
+        return [{**r, "zygosity": dict(r["zygosity"]), "origin": dict(r["origin"]), "authors": dict(r["authors"])}
+                for r in rows.values()]
 
     def _build_genes(self) -> dict[str, dict[str, Any]]:
-        """Genes with patient variants in records from core papers, with the papers and individuals."""
+        """Causal genes: genes with patient variants in records from core papers, with papers and individuals.
+
+        A variant the authors dismissed (incidental, polymorphism, cause of something
+        else) does not make its gene causal. When some gene has a variant the authors
+        call causal, only such genes are kept; otherwise genes with variants of
+        uncertain status are.
+        """
         genes: dict[str, dict[str, Any]] = {}
+        any_causal = any(r["gene"] and r["authors"].get("causal") and any(self.is_core(p) for p in r["pmids"])
+                         for r in self.variants)
         for row in self.variants:
             if not row["gene"]:
+                continue
+            if row["authors"].get("causal", 0) == 0 and (any_causal or not row["authors"].get("uncertain")):
                 continue
             core_pmids = [p for p in row["pmids"] if self.is_core(p)]
             if not core_pmids:
@@ -646,14 +712,18 @@ class CaseTable:
 
     def compute_inheritance(self) -> dict[str, Any]:
         for rec in self.records.values():
-            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes)
+            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, set(self.genes) or None)
         pooled = self.pooled()
         overall = _mode_support(pooled)
         chosen = choose_modes(overall)
         per_gene: dict[str, list[str]] = {}
         for gene in self.genes:
             recs = [r for r in pooled if any(v.gene == gene for v in r.variants)]
+            for r in recs:  # the mode as shown by this gene's variants alone
+                r.genotype_mode, r.genotype_reason = record_mode(r, self.x_genes, {gene})
             per_gene[gene] = choose_modes(_mode_support(recs)) or chosen
+        for rec in self.records.values():
+            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, set(self.genes) or None)
         fallback: dict[str, list[str]] = {}
         if not chosen:
             for r in self.records.values():
@@ -776,7 +846,8 @@ are given to you; use them in the intro.
 
 `allelic_variants`: one item per variant in the variant table that was reported as disease-causing in \
 patients, keyed by its `variant_id`, in chronological order of first report, each with paragraphs \
-citing the records that carry it. `phenotype` is the disorder the variant causes, as named in this entry.\
+citing the records that carry it. For a record marked MIXED GENOTYPES, do not attribute its \
+features or numbers to the carriers of any one of its variants. `phenotype` is the disorder the variant causes, as named in this entry.\
 """
 
 
@@ -796,6 +867,9 @@ def _record_line(rec: CaseRecord, table: CaseTable) -> str:
         bits.append("background paper")
     if rec.followup_of:
         bits.append(f"re-reports patients of {table.label(rec.followup_of)}")
+    if rec.mixed_genotypes:
+        bits.append("MIXED GENOTYPES: the paper does not say which members carry which variant, nor which "
+                    "features go with which variant")
     lines = [f"[{rec.id}] " + " | ".join(bits)]
     feats = []
     for p in rec.phenotypes:
@@ -807,8 +881,8 @@ def _record_line(rec: CaseRecord, table: CaseTable) -> str:
         lines.append("  features: " + "; ".join(feats))
     if rec.variants:
         lines.append("  variants: " + "; ".join(
-            f"{v.key} {v.gene} {v.as_reported}".strip() + f" ({', '.join(x for x in (v.zygosity, v.origin, v.consequence) if x and x != 'unknown')})"
-            for v in rec.variants))
+            f"{v.key} {v.gene} {v.as_reported}".strip() + f" ({', '.join(x for x in (v.zygosity, v.origin, v.consequence) if x and x != 'unknown')}; authors: {_role(rec, i)})"
+            for i, v in enumerate(rec.variants)))
     if rec.segregation:
         lines.append(f"  segregation: {rec.segregation}")
     if rec.inheritance in INHERITANCE_HPO:

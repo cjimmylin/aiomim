@@ -160,8 +160,11 @@ def test_closedbook_citations_are_mapped_and_uncited_paragraphs_checked_against_
     cf, mg = entry.sections
     assert cf.paragraphs[0].pmids == ["111"]               # "Jun et al. (1994)" matched a supplied paper
     assert mg.paragraphs[0].pmids == ["111"]
-    assert cf.paragraphs[1].pmids == ["111", "222"]        # cites an unsupplied paper: checked against all
-    assert entry.intro.pmids == ["111", "222"]             # cites nothing: checked against all
+    # A paragraph citing an unsupplied paper, or citing nothing, is checked against every
+    # supplied paper without being counted as citing them.
+    assert cf.paragraphs[1].pmids == [] and cf.paragraphs[1].audit_pmids == ["111", "222"]
+    assert entry.intro.pmids == [] and entry.intro.checked_pmids == ["111", "222"]
+    assert entry.cited_pmids() == ["111"]
     assert entry.meta["unknown_citations"] == ["Novotny et al. (1986)"]
     meta = entry.meta["closedbook"]
     assert meta["paragraphs"] == 4

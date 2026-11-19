@@ -82,7 +82,7 @@ def _decompose(paragraphs: list[EntryParagraph], papers: dict[str, Paper], llm: 
         batches.append(batch)
         prompts.append("\n\n".join(
             f'<paragraph id="{p.id}">\n{p.text}\n</paragraph>\nPapers cited: '
-            + "; ".join(f"{pmid} = {papers[pmid].label}" for pmid in p.pmids if pmid in papers)
+            + "; ".join(f"{pmid} = {papers[pmid].label}" for pmid in p.checked_pmids if pmid in papers)
             for p in batch
         ))
     out: dict[str, list[XAttributedClaim]] = {}
@@ -95,7 +95,7 @@ def _decompose(paragraphs: list[EntryParagraph], papers: dict[str, Paper], llm: 
             para = by_id.get(item.paragraph_id)
             if para is None:
                 continue
-            cited = [pmid for pmid in para.pmids if pmid in papers]
+            cited = [pmid for pmid in para.checked_pmids if pmid in papers]
             claims = []
             for claim in item.claims:
                 text = squash(claim.text)
@@ -181,7 +181,7 @@ def verify_entry(
     Returns verdict counts for the claims judged in this call.
     """
     targets = [p for p in entry.all_paragraphs()
-               if (only is None or p.id in only) and any(pmid in papers for pmid in p.pmids)]
+               if (only is None or p.id in only) and any(pmid in papers for pmid in p.checked_pmids)]
     for para in targets:
         para.checks = []
     if not targets:

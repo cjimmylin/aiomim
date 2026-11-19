@@ -95,7 +95,7 @@ def build(seed: Seed, papers: list[Paper], raw: DEntry, llm: LLM, *, strategy: s
     widened = 0
     for para in paragraphs:
         if not para.pmids and supplied:
-            para.pmids = list(supplied)
+            para.audit_pmids = list(supplied)
             widened += 1
 
     entry.meta["closedbook"] = {

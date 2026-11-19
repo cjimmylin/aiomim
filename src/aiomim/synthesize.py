@@ -168,6 +168,8 @@ class DEntry(BaseModel):
 # --------------------------------------------------------------------------- #
 
 _CITATION = re.compile(r"([A-Z][\w'’\-]+(?: [A-Z][\w'’\-]+)?(?: et al\.| and [A-Z][\w'’\-]+)?) \((\d{4})\)")
+# The parenthetical form: "(Boyden et al., 2012)", "(Jun and Brown, 1994; ...)".
+_CITATION_PAREN = re.compile(r"([A-Z][\w'’\-]+(?: [A-Z][\w'’\-]+)?(?: et al\.| and [A-Z][\w'’\-]+)?),? (\d{4})(?=[;,)])")
 
 
 def _header(seed: Seed) -> str:
@@ -278,15 +280,19 @@ def _attach_text_citations(para: EntryParagraph, label_to_pmids: dict[str, list[
     text = _fold(para.text)
     known = {_fold(label): pmids for label, pmids in label_to_pmids.items()}
     for label, pmids in known.items():
-        if label in text and not set(pmids) & set(para.pmids):
+        # "Jun et al. (1994)" in running text, or "(Jun et al., 1994)" in parentheses.
+        parenthetical = re.sub(r" \((\d{4}|nd)\)$", r" \1", label)
+        if (label in text or parenthetical in text) and not set(pmids) & set(para.pmids):
             # Ambiguous labels attach every candidate, so the audit checks them all.
             para.pmids.extend(pmids)
-    for match in _CITATION.finditer(para.text):
-        found = _fold(f"{match.group(1)} ({match.group(2)})")
+    cited = [(m.group(1), m.group(2)) for m in _CITATION.finditer(para.text)]
+    cited += [(m.group(1), m.group(2)) for m in _CITATION_PAREN.finditer(para.text)]
+    for name, year in cited:
+        found = _fold(f"{name} ({year})")
         # The pattern may clip a surname particle ("van der Knaap") or swallow a
         # leading capitalised word ("In Smith"); either way it overlaps a known label.
         if not any(label.endswith(found) or found.endswith(label) for label in known):
-            unknown.append(f"{match.group(1)} ({match.group(2)})")
+            unknown.append(f"{name} ({year})")
 
 
 def _references(entry: GeneratedEntry, papers: dict[str, Paper]) -> list[Reference]:

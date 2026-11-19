@@ -62,17 +62,25 @@ paper that decides it or the checker's note.
 
 Rewrite the entry so that it contains only what the papers support:
 - supported: keep the claim.
-- partially_supported: keep it, restated to say exactly what the evidence passage says and no more.
+- partially_supported: keep it, restated to say exactly what the evidence passage says and no more. \
+The checker's note says which part goes beyond the paper: remove or narrow that part, and keep the \
+paper's own scope, counts and qualifications (one family rather than families, "compatible with" or \
+"suggested" rather than a firm statement). Do not keep the draft's wording where the note faults it.
 - contradicted: correct it to what the paper says, as given by the passage and the checker's note. If \
 the note and passage do not make clear what the paper says, delete the claim.
 - unsupported or not_checkable: delete the claim.
 
 You do not have the papers, only this audit. Add nothing that is not in the draft or in the evidence \
 passages and notes: no new facts, numbers, variants, citations or interpretations, however sure you \
-are of them. Where the audit leaves a gap, leave the gap.
+are of them. Where the audit leaves a gap, leave the gap. The entry you return is the draft with its \
+unsupported parts removed and its errors corrected, not a new entry written from the passages: use \
+an evidence passage only to restate or correct the claim it was given for, and do not take further \
+details from it (other patients, numbers, findings or variants the claim did not mention), even \
+though the passage contains them. A revised entry about as long as the surviving claims is expected.
 
-Attribute every statement you keep to the paper that supported it, by its citation label in the \
-running text, and list in each paragraph's `pmids` the PMIDs of those papers. A claim supported by a \
+Attribute every statement you keep to the paper that supported it, by its citation label written \
+exactly as listed ("Jun et al. (1994) found ..."), and list in each paragraph's `pmids` the PMIDs of \
+those papers. A claim supported by a \
 paper other than the one the draft named is now attributed to the paper that supports it. Reorganise \
 as OMIM style requires (one paragraph per report in Clinical Features and Molecular Genetics, in \
 chronological order) and merge or drop paragraphs as deletions leave them; the result must still read \
