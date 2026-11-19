@@ -70,7 +70,8 @@ no curator has read any draft or judgement.
 1. **The reading strategies are close at today's open access.** Against direct reading, the agent conveys 0.6 points
    fewer OMIM facts (95% interval −1.3 to 0.0), the evidence graph 0.5 fewer (−1.5 to +0.5) and the case table 1.9
    fewer (−3.1 to −0.8). Repeating generation, audit and scoring moves a difference between two strategies by about
-   ±1.0 point over 93 entries. Structure costs about twice as much to generate and lowers variant precision.
+   ±1.0 point over 93 entries. For the case table the interval excludes zero but the sign test does not reach 0.05
+   (p = 0.071). Structure costs about twice as much to generate and lowers variant precision.
 2. **Differences grow where more full text is readable.** Among the 21 entries with half or more of their papers in
    full text, the case table is 6.1 points below direct reading (−8.3 to −3.6) and the agent 2.0 below (−3.4 to
    −0.7); among the 46 entries with no full text all are within noise. This comparison across entries is
@@ -80,13 +81,19 @@ no curator has read any draft or judgement.
    ([`results/ablation40/`](results/ablation40/)).
 3. **Access, not method, limits a replica of OMIM.** With the same papers and their full text hidden, direct reading
    conveyed 31.2% of OMIM's facts from the abstract and 77.4% from the full text (paired difference 43.9 points, 45 of
-   46 entries higher). Of all OMIM facts, 43% were conveyed, 4% were stated in the text we had and left out, 13% were
+   46 entries higher; 43.7 points when no arm goes through the repair round). When the text given to the model states
+   a fact, direct reading, the evidence graph and the agent convey 93.6–94.4% of such facts and the case table 91.0%;
+   when it does not, 5.5–6.9% ([`strategies.by_availability.md`](results/omim100/strategies.by_availability.md)). Of
+   the facts conveyed in full from papers readable only as an abstract or title, 1.7% are stated in no supplied text
+   ([`gaps.direct.conveyed.md`](results/omim100/gaps.direct.conveyed.md)). Of all OMIM facts, 43% were conveyed, 4% were stated in the text we had and left out, 13% were
    partly stated, and 40% were in no text we could read
    ([`gaps.direct.frozen.md`](results/omim100/gaps.direct.frozen.md)).
 4. **The drafts are faithful to their sources, as far as the audit can see.** About 96% of claims were judged fully
    supported by the cited paper and nearly all the rest partly; after one repair round one unsupported claim remained
    among the reading strategies' drafts. The audit flagged all 60 errors planted in paragraphs it had passed
-   ([`audit_check.json`](results/omim100/audit_check.json)). It checks fidelity to the cited text, not correctness.
+   ([`audit_check.json`](results/omim100/audit_check.json)) and none of the 361 claims in the same paragraphs when
+   they were audited again unaltered ([`audit_control.json`](results/omim100/audit_control.json)). It checks fidelity
+   to the cited text, not correctness.
 5. **The model's memory is not a source.** Written from memory, 22% of claims were unsupported by the cited papers,
    and for entries numbered 620000 onward memory conveyed 5.7% of OMIM's facts against 53.5% for reading. Checking a
    memory draft against the papers left no more than memory alone.
