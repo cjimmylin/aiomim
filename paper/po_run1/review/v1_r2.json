@@ -1,0 +1,53 @@
+{
+  "Summary": "The paper builds a controlled benchmark for writing curated genetics knowledge-base entries (OMIM phenotype entries) from exactly the papers the curators cited, with the causal gene withheld. 100 entries (2-12 references, 515 papers, 19% open-access full text) are written by a single model (Claude Opus 5.5) under shared guards (ontology candidate search, HGNC normalisation, citation requirement), a claim-level audit with one repair round, and a shared scoring pipeline. Strategies span read-and-write (direct long-context reading, an agentic curator), extract-then-write (evidence graph, case table), memory-first (recall then verify), a memory-only control and three add-ons (second-hand evidence, reconciled case database, learned curation guide). The primary endpoint is coverage of fixed, pre-split fact lists derived from OMIM allelic-variant descriptions deposited in ClinVar. Main findings: reading strategies are within about 2 points of each other (47.2-49.1%) with a replicate-noise half-width of 1.0 point; memory-first strategies reach about 15%; hiding full text of the same papers drops coverage from 77.4% to 31.2%; strategies separate somewhat where more full text is available; an asymmetric completion rule produced a spurious 2.1-point deficit; a matched ablation suggests the case table's deficit partly reflects extraction effort. All judgements are made by the same model family with no human validation.",
+  "Strengths": [
+    "Unusually careful experimental hygiene for an LLM-pipeline comparison: one model, shared guards, shared audit and scoring, fixed fact lists split once without sight of drafts, explicit completion rules with an intention-to-treat sensitivity analysis, paired bootstrap intervals, sign tests, and a replicate-based noise floor (three replicates on 30 entries) against which differences are calibrated.",
+    "The within-paper access manipulation (hiding full text of the same papers, scored on the same 2,120 facts) is a clean design that quantifies an otherwise anecdotal effect, and the missed-fact attribution (Figure 3) usefully separates 'model did not use available text' from 'information was not given'.",
+    "The measurement lessons are concrete and transferable: the asymmetric-completion artifact (2.1 points), the level shift from per-draft fact splitting, and the demonstration that single-run comparisons cannot rank strategies at this sample size are valuable cautions for the RAG/long-context comparison literature.",
+    "The matched ablation that separates intermediate representation from extraction effort is a good example of probing whether a pipeline's apparent deficit is intrinsic.",
+    "Limitations are stated candidly and repeatedly (single model family, no human validation, unmeasured false-flag rate, development on evaluation entries, asymmetric repair in the access experiment); claims are mostly appropriately hedged and scoped to the regime tested.",
+    "Contamination is addressed with a time-based memory-only control and a separate set of entries created after (likely) the training cut-off, which reproduces the ordering.",
+    "Benchmark built only from public resources, with per-entry release of drafts, verdicts and scores, which supports reuse."
+  ],
+  "Weaknesses": [
+    "No human validation anywhere: the fact splits, the present/partly/absent judgements, the audit verdicts, the missed-fact attribution and the variant matching are all produced by the same model family that wrote the drafts. Given known self-preference effects (which the paper itself cites), the headline numbers rest on an unvalidated instrument. Even a small curator-validated sample (e.g. 100-200 fact judgements and audit verdicts with agreement statistics) would substantially strengthen every claim; without it the benchmark's validity as a measure of agreement with curators is assumed rather than shown.",
+    "Single model, single model family. The central claim that 'strategy matters little relative to access' may be model-specific: a very strong long-context model may make direct reading near-optimal for inputs of this size, while weaker or shorter-context models could separate strategies. The paper acknowledges this but it limits generality and ICLR-level significance.",
+    "The headline access result is, as the paper concedes, expected in direction: drafts written from abstracts convey less of what curators wrote from full papers. The contribution is its magnitude, but this magnitude is partly confounded by the asymmetric repair round (only the full-text arm was repaired, and pre-repair full-text coverage was not scored). The 17/9,371 unsupported-claims figure is offered as context, but it does not bound how repair affects fact coverage.",
+    "The main comparison yields mostly null results within a regime (2-12 references, inputs that fit one prompt, 19% full text) chosen such that differences are small. The regime where strategies plausibly matter most (large reference lists, inputs exceeding the context) is only touched by an exploratory tier of about 10 entries. The positive finding that strategies 'separate where more full text is readable' rests on an observational stratification of 21 entries, confounded with creation date and journal.",
+    "The reference is narrow and indirect: OMIM allelic-variant paragraphs in ClinVar (variant-centred) rather than the phenotype entries' narrative text, so coverage is a lower bound and biased toward variant facts. This likely favours strategies that extract variants and makes the primary endpoint only partially aligned with 'writing a whole knowledge-base entry', the framing used in the title and abstract.",
+    "Strategies were developed on the evaluation entries with no held-out development set; the post-hoc June-November 2026 set helps but is small (20 compared entries) and heavily affected by safety-filter stops (e.g. case table lost 10 of 30).",
+    "Audit evaluation is limited: the planted-error test (60/60 detection) uses blunt single-value substitutions, has no unaltered controls, so specificity is unknown, and the 'what it cannot see' analysis on 37 contradicted facts is adjudicated by the same model that passed the claims.",
+    "Methodological novelty for ICLR is limited: the strategies are reimplementations of known ideas (long context, agentic reading, GraphRAG-style extraction, CoVe/RARR-style verify, prompt optimisation), and the contribution is an evaluation study in a specialised biomedical domain. The paper would fit a datasets-and-benchmarks or bioinformatics venue as well or better; the ICLR-relevant generalisable lessons (measurement pitfalls) are useful but modest.",
+    "Dense writing: the main text packs many numbers and hedges per sentence, and several key results (completion, ablation tables, judge variation) live only in a long appendix, making the paper hard to read. Minor wording issues, e.g. Section 4.4 reports the memory-only control's shares 'before repair' although the control is never repaired."
+  ],
+  "Originality": 2,
+  "Quality": 3,
+  "Clarity": 2,
+  "Significance": 2,
+  "Questions": [
+    "Can you provide any human validation, even small-scale, of the fact-list splits and the present/partly/absent judgements (e.g. inter-annotator agreement between a curator and the model judge on a random sample)? How sensitive are the strategy rankings to judge errors of plausible magnitude?",
+    "What is the full-text arm's coverage before the repair round in the hidden-full-text experiment, or alternatively, what is the coverage of the abstract arms after one repair round? This would remove the asymmetry in the headline access effect.",
+    "Have you run even a subset of the main comparison with a second model family (or a weaker/shorter-context model of the same family)? Does the closeness of reading strategies persist?",
+    "How does the primary endpoint correlate with the secondary measures (HPO F1, variant recall, gene F1) across entries? Is fact coverage dominated by variant facts, and does this favour particular strategies?",
+    "For the planted-error test, what is the false-flag rate on unaltered paragraphs drawn the same way, and how does detection change for subtler errors (misattribution of a finding to the wrong paper, omissions, partial distortions)?",
+    "Given that the 30-75-reference tier is exploratory with about 10 entries, can you scale it up, since this is the regime where long-context reading and extraction pipelines are most likely to differ?",
+    "How many safety-filter stops occurred per strategy overall, and is there any evidence that stops correlate with entry characteristics (e.g. disease type) in a way that biases the compared set?"
+  ],
+  "Limitations": [
+    "All judgements are by the generating model family; no human or second-family validation.",
+    "Single model; results may not transfer to other models or context lengths.",
+    "Reference restricted to variant-centred curator text and public structured fields; narrative sections not compared.",
+    "Only open-access text without supplementary material; 81% of papers abstract- or title-only.",
+    "Strategies developed on evaluation entries; held-out recent set small and depleted by stops.",
+    "Audit specificity unmeasured; access experiment repair asymmetric.",
+    "The authors discuss these limitations openly; the main missing mitigation is any human validation."
+  ],
+  "Ethical Concerns": false,
+  "Soundness": 3,
+  "Presentation": 2,
+  "Contribution": 2,
+  "Overall": 5,
+  "Confidence": 4,
+  "Decision": "Reject",
+  "Thought": "Careful, honest evaluation study with good statistical hygiene (fixed fact lists, symmetric completion, replicate noise floor, matched ablation). But at ICLR the contribution is an evaluation in a niche domain whose main findings are either null (reading strategies close in an easy regime, one model) or expected (less text conveys less), with every measurement made by the same LLM family and zero human validation. The access effect is confounded by repair asymmetry; the 'strategies separate with more full text' result is observational on 21 entries. Measurement lessons are the most ICLR-relevant part but are modest. Checked figures: Figure 2 numbers reconcile (1513+254/2 over 2120 = 77.4%; 495+331/2 = 31.2%); Figure 3 totals 6,498; Figure 4 values match text. Leaning reject but persuadable with human validation and a second model."
+}

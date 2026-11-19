@@ -1,0 +1,54 @@
+{
+  "Summary": "The paper builds a controlled benchmark for writing whole OMIM phenotype entries from exactly the papers the curators cited (100 entries with 2-12 references, causal gene withheld), in which only the generation strategy varies. One model (Claude Opus 5.5) writes, audits and judges everything. Three paradigms (direct reading / agentic curator; evidence graph / case table; recall-then-verify), a memory-only control and three add-ons (second-hand evidence, reconciled case database, learned curation guide) are scored mainly on coverage of fixed fact lists derived once from OMIM allelic-variant paragraphs deposited in ClinVar, plus HPO, variant, gene and inheritance secondary measures. Main findings: the reading strategies are within about 2 points of one another (47.2-49.1%) on 93 completed entries, comparable to a measured replicate-noise half-width of 1.0 point; hiding full text in 46 entries lowers coverage from 77.4% to 31.2%; most missed facts are absent from the text the model could read; memory-first strategies convey about 15%; the extract-then-write deficit partly reflects extraction effort; the claim-level audit caught 60/60 planted single-fact substitutions but checks fidelity, not correctness. The paper also reports measurement lessons (symmetric handling of stopped replies, fixed vs per-draft fact splitting, run-to-run noise).",
+  "Strengths": [
+    "Careful experimental control: same model, sources, guards, audit and scoring for every strategy; the comparison isolates the generation strategy on a realistic expert task (writing a curated entry from its cited papers) rather than QA against benchmark answers.",
+    "Fixed fact lists produced once without sight of any draft, shared across strategies, avoid denominator drift; the paper shows that per-draft splitting changes levels by 2-5 points.",
+    "Unusually honest statistics: paired bootstrap intervals, better/worse/tied counts, sign tests, a replicate study (3 runs on 30 entries) giving an explicit noise floor, judge variation, an intention-to-treat sensitivity analysis, and completion (safety-filter stops) treated as an outcome rather than silently excluded.",
+    "The within-paper access manipulation (hiding full text of the same papers, same 2,120 facts) and the attribution of every missed fact to read vs unread text give a clean, quantitative account of what bounds agreement with curators.",
+    "The matched ablation separating representation from extraction effort is a useful methodological contribution and a good example of how an apparent architectural deficit can come from an unrelated setting.",
+    "Contamination check by creation era, including entries created after the main study period (June-November 2026), and a candid analysis-corrections appendix (I.4).",
+    "Limitations are stated extensively and claims are generally scoped to the regime tested; the benchmark uses only public resources and promises per-entry release of drafts, verdicts and scores."
+  ],
+  "Weaknesses": [
+    "No human validation of any judgement. Fact coverage, audit verdicts, missed-fact attribution and variant-name matching are all judged by the same model family that wrote the drafts, which the paper itself notes favours its own outputs. Even a small curator-annotated sample (e.g., 200 fact judgements and 200 audit verdicts) would make the primary endpoint far more credible; without it, a 1-2 point difference between strategies cannot be distinguished from systematic judge bias that differs by draft style (e.g., extract-then-write drafts phrase things differently).",
+    "Single model family. The headline conclusion (reading strategies are close) may be a property of one strong long-context model on inputs that fit one prompt; with no second model (even a weaker open model, where intermediate representations are often thought to help most), generality to the ICLR audience is limited.",
+    "Main results are largely null or expected. The strategies are within noise, and the large effect (full text >> abstract) is acknowledged as expected in direction. The access-hiding arms are also asymmetric (only the full-text arm went through repair), so even the size of that effect is not cleanly measured; the argument that repair changes little (17 of 9,371 claims unsupported before repair) is about claims, not fact coverage.",
+    "The reference is narrow and indirect: OMIM allelic-variant paragraphs in ClinVar rather than the phenotype entries' narrative text, and drafts make about twice as many statements per paper as the reference has facts. Coverage therefore rewards variant-centred content and is only a lower bound on agreement; precision of draft content beyond the reference is checked only by a same-model audit whose false-flag rate is unmeasured.",
+    "Several strategies are weak by construction, limiting the comparison's informativeness: recall-then-verify is forbidden from adding content from the papers, so its 14.6% coverage is mostly a design consequence; the learned guide uses two reflection rounds on 27 entries; the strategies were developed on the evaluation entries with no held-out development set.",
+    "The regime tested is favourable to direct reading (2-12 references, inputs fit one prompt, 19% full text, no supplementary material). The regime where strategies would plausibly differ (large reference lists, full text with supplements) is either untested or exploratory (about ten entries in the 30-75-reference tier). The stratified analysis showing separation where more full text is readable rests on 21 entries and is confounded.",
+    "Planted-error test of the audit measures only sensitivity to blunt single-value substitutions, with no unaltered controls; the audit's specificity, and its behaviour on omissions and misattributions, are unknown.",
+    "Fit and accessibility for ICLR: the contribution is primarily an evaluation in a specialised biomedical curation setting with no new learning method; the writing is extremely dense, with many numbers per sentence, domain terms (allelic-variant descriptions, MedGen, mim2gene) and heavy reliance on the appendix (25 tables), which makes the main takeaways hard to extract. Some appendix text reads as internal notes (e.g., 'worker's report from the comparison' in Appendix F).",
+    "Reproducibility concerns: the single model is accessed via a CLI exposing no temperature or seed, replies are cached, and the training cut-off is unknown; replicating results with the same model may not be possible over time, which weakens the benchmark's long-term value unless the released drafts and judgements serve as fixed artifacts."
+  ],
+  "Originality": 3,
+  "Quality": 3,
+  "Clarity": 2,
+  "Significance": 2,
+  "Questions": [
+    "Can you provide any human (curator) validation of the fact-coverage judge and the audit, even on a small random sample, including agreement stratified by strategy to rule out style-dependent judge bias?",
+    "How do the conclusions change with a second model family as writer and/or judge, e.g., an open-weights model with a shorter context where extract-then-write might help?",
+    "What is full-text coverage before the repair round in the access-hiding experiment, or alternatively coverage of the abstract arms after one repair round, so the arms are symmetric?",
+    "How were the strategies' prompts and settings tuned, and how many design iterations used the 100 evaluation entries? Did the June-November 2026 set reproduce the absolute levels as well as the ordering?",
+    "What is the audit's false-flag rate on unaltered paragraphs that it previously passed, and how does it behave on omissions and misattributed findings?",
+    "Why was recall-then-verify not allowed to add content from the papers? A variant that may add content would test the memory-first paradigm more fairly.",
+    "How sensitive are the conclusions to the half-credit weight for partly present facts?",
+    "Will the fact lists, drafts and judgements be released in a form that lets others score new strategies without access to the same model?"
+  ],
+  "Limitations": [
+    "All judgements by the same model family, none validated by people.",
+    "One writer model; no temperature or seed control; unknown training cut-off.",
+    "Reference restricted to variant-centred paragraphs in ClinVar, HPO annotations and gene/inheritance tables; narrative OMIM text not compared.",
+    "Only open-access text without supplements; 19% of papers in full text; small reference lists only.",
+    "Strategies developed on the evaluation entries; single run for the main comparison.",
+    "Asymmetric repair in the access experiment; audit false-flag rate unmeasured.",
+    "The authors discuss these limitations openly; generated entries are framed as drafts for expert review, which is appropriate given the clinical domain."
+  ],
+  "Ethical Concerns": false,
+  "Soundness": 3,
+  "Presentation": 2,
+  "Contribution": 2,
+  "Overall": 5,
+  "Confidence": 4,
+  "Decision": "Reject",
+  "Thought": "Methodologically careful and unusually candid: fixed fact lists, symmetric completion, replicate noise floor, matched ablation. But the core endpoint rests entirely on same-family LLM judgements with no human check, at an effect resolution (1-2 points) where judge bias could dominate; only one model; the regime tested (small reference lists, mostly abstracts) all but guarantees strategies look similar, and the one big effect (full text vs abstract) is expected and measured with asymmetric repair. For ICLR this is a niche evaluation study with mostly null results and very dense presentation. A small human validation and a second model would move it toward accept; as is, borderline reject."
+}
