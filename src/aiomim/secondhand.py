@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -142,30 +143,72 @@ def audit_hidden(entry: GeneratedEntry, seen: list[Paper], truth: dict[str, Pape
             rows[(cid, pmid)][kind] = v
     for row in rows.values():
         seen_v = row.get("seen", {})
-        found_in, citing_pmid = where.locate(row["pmid"], seen_v.get("quote", ""))
-        row["evidence_in"], row["citing_pmid"] = found_in, citing_pmid
+        found_in, passage = where.locate_passage(row["pmid"], seen_v.get("quote", ""))
+        row["evidence_in"] = found_in
+        row["citing_pmid"] = passage.citing_pmid if passage else ""
+        row["passage_kind"] = passage.kind if passage else ""
+        row["passage_n_other_refs"] = passage.n_other_refs if passage else None
+        row["passage_cocited"] = sh.cocited(passage.n_other_refs) if passage else ""
     return list(rows.values())
 
 
-def _claim_counts(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    def tally(subset, key):
-        c = {v: 0 for v in VERDICTS}
-        for r in subset:
-            c[r.get(key, {}).get("verdict", "no_verdict")] += 1
-        return c
+_PRIMARY_RANK = {"supported": 4, "partially_supported": 3, "contradicted": 2, "unsupported": 1, "no_verdict": 0}
 
+
+def collapse(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """One row per distinct statement about a paper: the same claim made in two paragraphs
+    (say Molecular Genetics and an allelic variant) counts once. Where the copies were
+    judged differently, the best verdict against the full text is kept."""
+    best: dict[tuple, dict[str, Any]] = {}
+    for r in rows:
+        key = (r["pmid"], r["evidence_in"], re.sub(r"[^a-z0-9]+", " ", r["claim"].lower()).strip())
+        cur = best.get(key)
+        if cur is None or _PRIMARY_RANK[r.get("primary", {}).get("verdict", "no_verdict")] > \
+                _PRIMARY_RANK[cur.get("primary", {}).get("verdict", "no_verdict")]:
+            best[key] = r
+    return list(best.values())
+
+
+def _tally(subset, key) -> dict[str, int]:
+    c = {v: 0 for v in VERDICTS}
+    for r in subset:
+        c[r.get(key, {}).get("verdict", "no_verdict")] += 1
+    return c
+
+
+def _group(rows, field) -> dict[str, Any]:
     groups: dict[str, list] = defaultdict(list)
     for r in rows:
-        groups[r["evidence_in"]].append(r)
-    return {
+        groups[r[field]].append(r)
+    return {k: {"n": len(sub), "against_what_writer_saw": _tally(sub, "seen"),
+                "against_full_text": _tally(sub, "primary")} for k, sub in sorted(groups.items())}
+
+
+def _claim_counts(rows: list[dict[str, Any]], with_collapsed: bool = True) -> dict[str, Any]:
+    on_secondhand = [r for r in rows if r["evidence_in"] == "secondhand"]
+    out = {
         "n_claims": len(rows),
-        "against_what_writer_saw": tally(rows, "seen"),
-        "against_full_text": tally(rows, "primary"),
-        "by_evidence_location": {
-            loc: {"n": len(sub), "against_what_writer_saw": tally(sub, "seen"), "against_full_text": tally(sub, "primary")}
-            for loc, sub in sorted(groups.items())
-        },
+        "against_what_writer_saw": _tally(rows, "seen"),
+        "against_full_text": _tally(rows, "primary"),
+        "by_evidence_location": _group(rows, "evidence_in"),
+        # Claims resting on second-hand text, by the kind of passage and by how many
+        # other references the passage's paragraph or row cites.
+        "secondhand_by_passage_kind": _group(on_secondhand, "passage_kind"),
+        "secondhand_by_cocited": _group(on_secondhand, "passage_cocited"),
     }
+    if with_collapsed:
+        out["collapsed"] = _claim_counts(collapse(rows), with_collapsed=False)
+    return out
+
+
+def _add(into: dict[str, Any], other: dict[str, Any]) -> dict[str, Any]:
+    """Sum nested count dictionaries."""
+    for k, v in other.items():
+        if isinstance(v, dict):
+            _add(into.setdefault(k, {}), v)
+        elif isinstance(v, (int, float)) and not isinstance(v, bool):
+            into[k] = into.get(k, 0) + v
+    return into
 
 
 # --------------------------------------------------------------------------- #
@@ -313,19 +356,9 @@ def pool_results(results: list[dict[str, Any]]) -> dict[str, Any]:
         rows = [r["coverage"][name] for r in done if r["coverage"][name]["n_facts"]]
         coverage[name] = _pool(rows) | {"paragraphs": sum(r["paragraphs"] for r in rows)}
     same = [r["coverage_same_paragraphs"] for r in done]
-    claims: dict[str, Any] = {"n_claims": sum(r["claims"]["n_claims"] for r in done)}
-    for key in ("against_what_writer_saw", "against_full_text"):
-        claims[key] = {v: sum(r["claims"][key][v] for r in done) for v in VERDICTS}
-    locs: dict[str, Any] = {}
+    claims: dict[str, Any] = {}
     for r in done:
-        for loc, row in r["claims"]["by_evidence_location"].items():
-            cur = locs.setdefault(loc, {"n": 0, "against_what_writer_saw": dict.fromkeys(VERDICTS, 0),
-                                        "against_full_text": dict.fromkeys(VERDICTS, 0)})
-            cur["n"] += row["n"]
-            for key in ("against_what_writer_saw", "against_full_text"):
-                for v in VERDICTS:
-                    cur[key][v] += row[key][v]
-    claims["by_evidence_location"] = locs
+        _add(claims, r["claims"])
     return {"n_entries": len(done), "entries": results, "retrieval": retrieval, "coverage": coverage,
             "coverage_same_paragraphs_n": sum(s["paragraphs"] for s in same), "claims": claims}
 
@@ -366,18 +399,39 @@ def check_markdown(s: dict[str, Any]) -> str:
     lines += ["", "Facts are split from the gold paragraph separately for each condition, so the fact counts "
               "differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.",
               "", "## Claims about the hidden papers in the second-hand draft", "",
-              f"{s['claims']['n_claims']} claims, each audited against what the writer saw (abstract plus passages) "
+              f"{s['claims'].get('n_claims', 0)} claims ({s['claims'].get('collapsed', {}).get('n_claims', 0)} after "
+              "collapsing the same "
+              "statement made in two paragraphs), each audited against what the writer saw (abstract plus passages) "
               "and against the paper's full text.", "",
-              "| Evidence (audit of what the writer saw) | Claims | Full text: supported | partial | unsupported | "
-              "contradicted | no verdict |",
-              "|---|---|---|---|---|---|---|"]
-    for loc, row in sorted(s["claims"]["by_evidence_location"].items()):
-        f = row["against_full_text"]
-        lines.append(f"| {loc} | {row['n']} | {f['supported']} | {f['partially_supported']} | {f['unsupported']} | "
-                     f"{f['contradicted']} | {f['no_verdict']} |")
-    lines += ["", "`own`: the auditor's evidence quote is in the paper's title or abstract; `secondhand`: in a later "
+              "**Caveat: our full texts exclude supplementary material.** A detail a paper gives only in a "
+              "supplementary table counts as unsupported here, so \"unsupported by the primary text\" is an upper "
+              "bound on the error of second-hand claims; \"contradicted\" is not affected in the same way.", ""]
+
+    def table(title: str, groups: dict[str, Any], collapsed: dict[str, Any]) -> list[str]:
+        rows = [f"| {title} | Claims (collapsed) | Full text: supported | partial | unsupported | contradicted | "
+                "no verdict |", "|---|---|---|---|---|---|---|"]
+        for key, row in sorted(groups.items()):
+            f = row["against_full_text"]
+            n_c = collapsed.get(key, {}).get("n", 0)
+            fc = collapsed.get(key, {}).get("against_full_text", {})
+            cell = lambda v: f"{f.get(v, 0)} ({fc.get(v, 0)})"  # noqa: E731
+            rows.append(f"| {key or '-'} | {row['n']} ({n_c}) | {cell('supported')} | {cell('partially_supported')} | "
+                        f"{cell('unsupported')} | {cell('contradicted')} | {cell('no_verdict')} |")
+        return rows + [""]
+
+    cl = s["claims"]
+    co = cl.get("collapsed", {})
+    lines += table("Evidence (audit of what the writer saw)", cl.get("by_evidence_location", {}),
+                   co.get("by_evidence_location", {}))
+    lines += ["`own`: the auditor's evidence quote is in the paper's title or abstract; `secondhand`: in a later "
               "paper's passage; `unlocated`: a quote found in neither (already downgraded); `none`: no quote "
-              "(claim judged unsupported or contradicted against what the writer saw).", "",
+              "(claim judged unsupported or contradicted against what the writer saw). Figures in brackets count "
+              "a statement repeated in two paragraphs once.", "",
+              "### Claims resting on second-hand text, by passage", ""]
+    lines += table("Passage kind", cl.get("secondhand_by_passage_kind", {}), co.get("secondhand_by_passage_kind", {}))
+    lines += table(f"Other references cited by the passage (few = at most {sh.FEW_COCITED})",
+                   cl.get("secondhand_by_cocited", {}), co.get("secondhand_by_cocited", {}))
+    lines += [
               "## Per entry", "",
               "| MIM | Hidden | With passages | Gold paragraphs | Abstract | Second-hand | Full text | "
               "Claims | On second-hand | of which not supported by full text |",
@@ -394,3 +448,68 @@ def check_markdown(s: dict[str, Any]) -> str:
     if s.get("failures"):
         lines += ["", f"Failed: {s['failures']}"]
     return "\n".join(lines) + "\n"
+
+
+# --------------------------------------------------------------------------- #
+# Filling the retrieval cache without generating anything
+# --------------------------------------------------------------------------- #
+
+
+def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4,
+                  echo=print) -> dict[str, Any]:
+    """Run only the citing-paper retrieval for the papers of `mims`, so later runs hit the cache.
+
+    Targets are the papers not readable in full (what the strategy supplements), and
+    with `include_fulltext` the full-text papers too (what `secondhand-check` hides).
+    The cache key is the same as in the strategy and the check: the target's PMID and
+    the entry's own papers as exclusions.
+    """
+    import time
+
+    from .gold import build_gold
+    from .retrieve import retrieve_oracle
+    from .sources import citing
+
+    started = time.time()
+    targets: list[tuple[str, Paper, frozenset[str]]] = []
+    failures: dict[str, str] = {}
+    for i, mim in enumerate(mims, 1):
+        try:
+            papers, _ = retrieve_oracle(build_gold(mim).cited_pmids)
+        except Exception as exc:  # noqa: BLE001 - one bad entry should not stop the rest
+            failures[mim] = f"{type(exc).__name__}: {exc}"
+            echo(f"[{i}/{len(mims)}] {mim}: could not load papers: {exc}")
+            continue
+        own = frozenset(p.pmid for p in papers)
+        chosen = [p for p in papers if include_fulltext or p.content_level != "fulltext"]
+        targets.extend((mim, p, own) for p in chosen)
+        echo(f"[{i}/{len(mims)}] {mim}: {len(chosen)} target papers of {len(papers)}")
+
+    records: list[dict[str, Any]] = []
+
+    def one(item):
+        mim, paper, own = item
+        return mim, paper, citing.secondhand_for(paper, own)
+
+    with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
+        futures = [pool.submit(one, t) for t in targets]
+        for n, future in enumerate(as_completed(futures), 1):
+            mim, paper, r = future.result()
+            r = {**r, "mim": mim, "content_level": paper.content_level}
+            records.append(r)
+            echo(f"  ({n}/{len(targets)}) {mim} PMID {paper.pmid} [{paper.content_level}]: {r['n_citing']} citing, "
+                 f"{r['n_open_access']} open access, {len(r['passages'])} passages, {r['n_chars']} chars, "
+                 f"{'cached' if r.get('cached') else str(r['seconds']) + ' s'}"
+                 + (f"  ERROR {r['error']}" if r["error"] else ""))
+
+    def yield_of(rs):
+        return {"targets": len(rs), "with_citing": sum(1 for r in rs if r["n_citing"]),
+                "with_open_access_citing": sum(1 for r in rs if r["n_open_access"]),
+                "with_passages": sum(1 for r in rs if r["passages"]),
+                "passages": sum(len(r["passages"]) for r in rs), "chars": sum(r["n_chars"] for r in rs),
+                "lookup_failed": sum(1 for r in rs if r["error"])}
+
+    levels = sorted({r["content_level"] for r in records})
+    return {"entries": len(mims), "failures": failures, "seconds": round(time.time() - started, 1),
+            "total": yield_of(records),
+            "by_content_level": {lv: yield_of([r for r in records if r["content_level"] == lv]) for lv in levels}}

@@ -342,13 +342,26 @@ def test_strategy_end_to_end(tmp_path, stub_services, offline_citing):
     assert any("SECOND-HAND DESCRIPTIONS" in p for p in audits if f"PMID {TARGET.pmid}" in p)
 
     para = entry.sections[0].paragraphs[0]
-    assert [c.verdict for c in para.checks] == ["supported", "supported"]
+    # Support found only in a later paper's description is not support by the cited paper.
+    assert [c.verdict for c in para.checks] == ["not_checkable", "supported"]
+    second = para.checks[0]
+    assert "Lee (2018) (PMID 43)" in second.explanation and "not checked against PMID 90000003" in second.explanation
+    assert "Verdict on the later paper's description: supported." in second.explanation
     assert para.secondhand_pmids == ["43"]
     assert entry.sections[0].paragraphs[1].secondhand_pmids == [] and entry.intro.secondhand_pmids == []
     meta = entry.meta["secondhand"]
     assert meta["claims"] == 4 and meta["claims_on_secondhand"] == 1 and meta["claims_on_own_text"] == 3
     assert meta["secondhand_verdicts"] == {"supported": 1}
+    assert meta["secondhand_verdicts_by_passage_kind"] == {"paragraph": {"supported": 1}}
+    assert meta["secondhand_verdicts_by_cocited"] == {"few": {"supported": 1}}
     assert meta["papers_supplemented"] == 1 and meta["papers_with_passages"] == 1
+    assert meta["named_citing_papers"] == []
+    # The audit tally and the faithfulness score leave the second-hand claim out.
+    from aiomim.evaluate import eval_faithfulness
+    assert entry.meta["audit"] == {"supported": 3, "not_checkable": 1}
+    faith = eval_faithfulness(entry)
+    assert (faith["n_claims"], faith["not_checkable"], faith["supported_rate"]) == (3, 1, 1.0)
+    assert "Never name the later papers" in system
     # Citing papers are never references of the entry.
     assert entry.meta["strategy"] == "secondhand"
     assert {r.pmid for r in entry.references} == {TARGET.pmid, OWN_FULL.pmid}
@@ -385,5 +398,45 @@ def test_double_audit_of_claims_about_a_hidden_paper(tmp_path, stub_services, of
     assert sibs["seen"]["verdict"] == "supported"
     assert sibs["primary"]["verdict"] == "partially_supported"      # its quote is not in the full text
     assert by_claim["clinical_features.1#2"]["evidence_in"] == "own"
+    assert (sibs["passage_kind"], sibs["passage_n_other_refs"], sibs["passage_cocited"]) == ("paragraph", 0, "few")
     counts = _claim_counts(rows)
     assert counts["by_evidence_location"]["secondhand"]["against_full_text"]["partially_supported"] == 1
+    assert counts["secondhand_by_passage_kind"]["paragraph"]["n"] == 1
+    assert counts["secondhand_by_cocited"]["few"]["against_full_text"]["partially_supported"] == 1
+    assert counts["collapsed"]["n_claims"] == 3
+
+
+def test_repeated_claims_collapse_and_counts_pool():
+    from aiomim.secondhand import _add, _claim_counts, check_markdown, collapse, pool_results
+
+    def row(cid, claim, primary, kind="table", co="many"):
+        return {"claim_id": cid, "pmid": "1", "claim": claim, "evidence_in": "secondhand", "citing_pmid": "9",
+                "passage_kind": kind, "passage_cocited": co, "passage_n_other_refs": 5,
+                "seen": {"verdict": "supported"}, "primary": {"verdict": primary}}
+    rows = [row("molecular_genetics.3#2", "The patient had an annular pancreas.", "unsupported"),
+            row("av0001.1#3", "The patient had an annular  pancreas", "partially_supported"),
+            row("molecular_genetics.3#1", "Mutations were found in 6 infants.", "contradicted", "paragraph", "few")]
+    assert len(collapse(rows)) == 2
+    counts = _claim_counts(rows)
+    assert counts["secondhand_by_passage_kind"]["table"]["against_full_text"]["unsupported"] == 1
+    assert counts["collapsed"]["secondhand_by_passage_kind"]["table"]["against_full_text"] == \
+        {"supported": 0, "partially_supported": 1, "unsupported": 0, "contradicted": 0, "no_verdict": 0}
+    assert _add({"a": {"b": 1}, "n": 2}, {"a": {"b": 2, "c": 1}, "n": 1, "s": "x"}) == {"a": {"b": 3, "c": 1}, "n": 3}
+    entry = {"mim": "1", "title": "T", "hidden_papers": ["1"], "gold_paragraphs": 0,
+             "retrieval": {"hidden_with_passages": 1}, "claims": counts,
+             "coverage": {k: {"paragraphs": 0, "n_facts": 0, "present": 0, "partial": 0, "absent": 0,
+                              "contradicted": 0, "coverage": None} for k in ("abstract", "secondhand", "fulltext")},
+             "coverage_same_paragraphs": {"paragraphs": 0}}
+    summary = pool_results([entry, entry])
+    assert summary["claims"]["n_claims"] == 6 and summary["claims"]["collapsed"]["n_claims"] == 4
+    md = check_markdown({**summary, "source": "x", "run": "y", "failures": {}})
+    assert "exclude supplementary material" in md and "upper bound" in md
+    assert "| table | 4 (2) |" in md and "| few | 2 (2) |" in md
+
+
+def test_naming_a_citing_paper_in_the_text_is_recorded():
+    from aiomim.models import GeneratedEntry
+
+    entry = GeneratedEntry(title="X", meta={"unknown_citations": ["Lee (2018)", "Nobody et al. (1990)"]})
+    papers = [TARGET.model_copy(update={"secondhand": [PASSAGE.model_copy(update={"citing_label": "Lee (2018)"})]})]
+    assert sh.named_citing_papers(entry, papers) == ["Lee (2018)"]

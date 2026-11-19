@@ -316,8 +316,8 @@ def gaps_markdown(summary: dict[str, Any], run: str, strategy: str) -> str:
     o = summary["overall"]["of_gold"]
     lines.append(f"Of all OMIM facts: {pct(o['present'])} conveyed, {pct(o['missed_in_text'])} omitted though stated in "
                  f"the available text, {pct(o['missed_partly_in_text'])} omitted and partly stated, "
-                 f"{pct(o['missed_not_in_text'])} not in the available text (the rest were partly conveyed "
-                 f"facts judged as above, or contradicted).")
+                 f"{pct(o['missed_not_in_text'])} not in the available text; the remainder were contradicted. "
+                 f"(Facts the draft conveyed partly are counted with the missed ones.)")
     return "\n\n".join(lines[:3]) + "\n\n" + "\n".join(lines[3:]) + "\n"
 
 

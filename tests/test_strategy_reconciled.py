@@ -316,8 +316,12 @@ def test_export(run):
 
 def test_planted_rereport_copies_records():
     case = cohort.PaperCases(pmid="111", relevance="primary", records=[
-        cohort.CaseRecord(id="R:111:1", pmid="111", label="Family 1", kind="family", n_affected=3)])
+        cohort.CaseRecord(id="R:111:1", pmid="111", label="P1", kind="individual", family="Twin kindred"),
+        cohort.CaseRecord(id="R:111:2", pmid="111", label="P2", kind="individual", family="Twin kindred"),
+        cohort.CaseRecord(id="R:111:3", pmid="111", label="P3", kind="individual", family="Other family")])
     fake, copied, pairs = casebase.plant_rereport([PAPER_A, PAPER_B], [case], "111")
     assert fake.year == 2007 and "previously described by Kaya et al. (2001)" in fake.abstract
-    assert pairs == [("R:111:1", f"R:{fake.pmid}:1")]
-    assert copied.records[0].label == "Case A" and case.records[0].label == "Family 1"
+    assert pairs == [(f"R:111:{n}", f"R:{fake.pmid}:{n}") for n in (1, 2, 3)]
+    assert copied.records[0].label == "Case A" and case.records[0].label == "P1"
+    # Relatives stay relatives under their new family label.
+    assert [r.family for r in copied.records] == ["Kindred 1", "Kindred 1", "Kindred 2"]

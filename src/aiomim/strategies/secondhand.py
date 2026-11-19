@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
@@ -22,7 +23,7 @@ from pathlib import Path
 from typing import Any
 
 from ..grounding import GROUNDED, SourceIndex
-from ..models import GeneratedEntry, Paper, Seed
+from ..models import GeneratedEntry, Paper, SecondhandPassage, Seed
 from ..sources import citing
 from ..synthesize import synthesize_direct
 
@@ -40,6 +41,10 @@ that paper (the [*] stands at the statement). Where the passage cites several pa
 what it plainly attributes to this one.
 - Cite the original paper (its PMID and label), never the later paper, unless the later paper is itself \
 one of the supplied papers.
+- Never name the later papers or their authors in the entry text: no "according to Smith et al. (2015)", \
+"as later summarised by ...", "(Smith et al., 2015)" or similar. Write the statement as the original \
+paper's finding, attributed to the original paper's label, exactly as for its own text. The entry marks \
+paragraphs that rest on these descriptions separately.
 - Where the paper's own title or abstract and a second-hand passage disagree, follow the paper's own words.
 - Do not attribute to the original paper the later authors' own patients, data, interpretations or \
 conclusions; only what they say the original paper reported.\
@@ -131,8 +136,20 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
     log.info("[%s] secondhand: %d of %d papers supplemented got passages (%d passages, %d chars) in %.0f s",
              seed.mim or seed.title, t["with_passages"], t["papers_supplemented"], t["passages"], t["chars"],
              summary["seconds"])
-    return synthesize_direct(seed, augmented, llm, extra_rules=RULES, strategy="secondhand",
-                             meta={"secondhand_retrieval": t})
+    entry = synthesize_direct(seed, augmented, llm, extra_rules=RULES, strategy="secondhand",
+                              meta={"secondhand_retrieval": t})
+    entry.meta["named_citing_papers"] = named_citing_papers(entry, augmented)
+    return entry
+
+
+def named_citing_papers(entry: GeneratedEntry, papers: list[Paper]) -> list[str]:
+    """Author-year citations in the text that name a citing paper (the rules forbid it)."""
+    from ..synthesize import _fold
+
+    labels = {_fold(re.sub(r" \((\d{4}|n\.d\.)\)$", "", s.citing_label)) for p in papers for s in p.secondhand
+              if s.citing_label}
+    return [c for c in entry.meta.get("unknown_citations", [])
+            if _fold(re.sub(r" \((\d{4})\)$", "", c)) in labels]
 
 
 def audit_papers(papers: list[Paper], out_dir: Path) -> list[Paper]:
@@ -143,6 +160,13 @@ def audit_papers(papers: list[Paper], out_dir: Path) -> list[Paper]:
 # Where each audited claim's evidence lies
 # --------------------------------------------------------------------------- #
 
+# A passage whose paragraph or row cites at most this many other references "cites few".
+FEW_COCITED = 2
+
+
+def cocited(n_other_refs: int) -> str:
+    return "few" if n_other_refs <= FEW_COCITED else "many"
+
 
 class Attributor:
     """Places an evidence quote in a paper's own text or in one of its second-hand passages."""
@@ -150,62 +174,82 @@ class Attributor:
     def __init__(self, papers: list[Paper]):
         self.papers = {p.pmid: p for p in papers}
         self._own: dict[str, SourceIndex] = {}
-        self._passages: dict[str, list[tuple[str, SourceIndex]]] = {}
+        self._passages: dict[str, list[tuple[SecondhandPassage, SourceIndex]]] = {}
         self._block: dict[str, SourceIndex] = {}
 
     def _indexes(self, pmid: str):
         if pmid not in self._own:
             paper = self.papers[pmid]
             self._own[pmid] = SourceIndex(paper.model_copy(update={"secondhand": []}).source_text())
-            self._passages[pmid] = [(s.citing_pmid, SourceIndex(s.text)) for s in paper.secondhand]
+            self._passages[pmid] = [(s, SourceIndex(s.text)) for s in paper.secondhand]
             self._block[pmid] = SourceIndex(paper.secondhand_block())
         return self._own[pmid], self._passages[pmid], self._block[pmid]
 
-    def locate(self, pmid: str, quote: str) -> tuple[str, str]:
-        """("own" | "secondhand" | "unlocated" | "none", citing PMID or "").
+    def locate_passage(self, pmid: str, quote: str) -> tuple[str, SecondhandPassage | None]:
+        """("own" | "secondhand" | "unlocated" | "none", the passage the quote lies in).
 
         A quote found in the paper's own text counts as own even if a passage repeats it.
         """
         if not quote or pmid not in self.papers:
-            return ("none", "")
+            return ("none", None)
         own, passages, block = self._indexes(pmid)
         if own.score(quote) >= GROUNDED:
-            return ("own", "")
+            return ("own", None)
         if passages:
-            scores = [(idx.score(quote), citing_pmid) for citing_pmid, idx in passages]
-            best, who = max(scores)
-            if best >= GROUNDED:
-                return ("secondhand", who)
-            if block.score(quote) >= GROUNDED:   # spans a passage header, say
-                return ("secondhand", who)
-        return ("unlocated", "")
+            best, i = max((idx.score(quote), -n) for n, (_, idx) in enumerate(passages))
+            passage = passages[-i][0]
+            if best >= GROUNDED or block.score(quote) >= GROUNDED:   # the latter: spans a passage header
+                return ("secondhand", passage)
+        return ("unlocated", None)
+
+    def locate(self, pmid: str, quote: str) -> tuple[str, str]:
+        """("own" | "secondhand" | "unlocated" | "none", citing PMID or "")."""
+        kind, passage = self.locate_passage(pmid, quote)
+        return (kind, passage.citing_pmid if passage else "")
 
 
 def after_audit(entry: GeneratedEntry, papers: list[Paper], out_dir: Path) -> None:
+    """Mark claims that rest on second-hand text, and take them out of the audit's verdicts.
+
+    A later paper's description of a paper is not that paper: a claim whose
+    evidence is found only in a second-hand passage becomes `not_checkable`, which
+    the faithfulness score leaves out of its denominator. Its original verdict is
+    kept in `entry.meta["secondhand"]`. A claim found in the paper's own text keeps
+    its verdict.
+    """
     where = Attributor(papers)
     supplemented = {p.pmid for p in papers if p.secondhand}
     counts: dict[str, int] = defaultdict(int)
     verdicts_secondhand: dict[str, int] = defaultdict(int)
-    labels: dict[str, str] = {}
-    for p in papers:
-        for s in p.secondhand:
-            labels[s.citing_pmid] = s.citing_label
+    by_kind: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    by_cocited: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for para in entry.all_paragraphs():
         used: list[str] = []
         for check in para.checks:
             if check.verdict == "not_checkable":
                 continue
             counts["claims"] += 1
-            kind, who = where.locate(check.pmid, check.evidence_quote)
+            kind, passage = where.locate_passage(check.pmid, check.evidence_quote)
             counts[kind] += 1
-            if kind == "secondhand":
-                verdicts_secondhand[check.verdict] += 1
-                used.append(who)
+            if kind != "secondhand":
+                continue
+            verdicts_secondhand[check.verdict] += 1
+            by_kind[passage.kind][check.verdict] += 1
+            by_cocited[cocited(passage.n_other_refs)][check.verdict] += 1
+            used.append(passage.citing_pmid)
+            row = "table row" if passage.kind == "table" else "paragraph"
+            check.explanation = (
+                f"Second-hand: the evidence is a {row} of {passage.citing_label or 'a later paper'} "
+                f"(PMID {passage.citing_pmid}) describing PMID {check.pmid}, not the paper's own text; the claim "
+                f"was not checked against PMID {check.pmid} itself. Verdict on the later paper's description: "
+                f"{check.verdict}." + (f" {check.explanation}" if check.explanation else ""))
+            check.verdict = "not_checkable"
         para.secondhand_pmids = list(dict.fromkeys(used))
     record_path = Path(out_dir) / RECORD
     retrieval = {}
     if record_path.exists():
         retrieval = json.loads(record_path.read_text(encoding="utf-8")).get("totals", {})
+    labels = {s.citing_pmid: s.citing_label for p in papers for s in p.secondhand}
     entry.meta["secondhand"] = {
         "papers_supplemented": retrieval.get("papers_supplemented", 0),
         "papers_with_passages": len(supplemented),
@@ -216,7 +260,13 @@ def after_audit(entry: GeneratedEntry, papers: list[Paper], out_dir: Path) -> No
         "claims_on_secondhand": counts["secondhand"],
         "claims_quote_not_located": counts["unlocated"],
         "claims_without_quote": counts["none"],
+        # The audit's verdicts on claims resting on second-hand text, before they were
+        # set to not_checkable: how well the writer followed the later descriptions.
         "secondhand_verdicts": dict(verdicts_secondhand),
+        "secondhand_verdicts_by_passage_kind": {k: dict(v) for k, v in by_kind.items()},
+        "secondhand_verdicts_by_cocited": {k: dict(v) for k, v in by_cocited.items()},
+        "few_cocited_means_at_most": FEW_COCITED,
         "paragraphs_on_secondhand": sum(1 for p in entry.all_paragraphs() if p.secondhand_pmids),
+        "named_citing_papers": entry.meta.get("named_citing_papers", []),
         "citing_labels": {pmid: labels.get(pmid, "") for p in entry.all_paragraphs() for pmid in p.secondhand_pmids},
     }

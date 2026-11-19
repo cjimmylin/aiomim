@@ -236,12 +236,14 @@ def plant_rereport(papers: list, cases: list, source_pmid: str):
     copied = src_cases.model_copy(deep=True)
     copied.pmid = fake.pmid
     pairs = []
+    kindreds: dict[str, str] = {}   # one new label per original family label, so relatives stay together
     for n, rec in enumerate(copied.records, 1):
         orig = rec.id
         rec.id = f"R:{fake.pmid}:{n}"
         rec.pmid = fake.pmid
         rec.label = f"Case {chr(64 + n) if n <= 26 else n}"
-        rec.family = f"Kindred {n}" if rec.family else ""
+        if rec.family:
+            rec.family = kindreds.setdefault(rec.family.lower(), f"Kindred {len(kindreds) + 1}")
         rec.previously_reported = ""
         pairs.append((orig, rec.id))
     copied.notes, copied.dropped_records, copied.dropped_notes = [], [], []

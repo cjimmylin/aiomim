@@ -441,6 +441,33 @@ def secondhand_check(mims, from_file, source, run_name, limit, jobs):
         click.echo(f"Failed entries: {result['failures']}")
 
 
+@main.command(name="secondhand-fetch")
+@click.argument("mims", nargs=-1)
+@click.option("--from-file", type=click.Path(exists=True), help="Read MIM numbers from a file (first column).")
+@click.option("--include-fulltext", is_flag=True,
+              help="Also fetch for papers readable in full (what secondhand-check hides).")
+@click.option("--jobs", default=4, show_default=True, help="Target papers looked up in parallel.")
+def secondhand_fetch(mims, from_file, include_fulltext, jobs):
+    """Fill the second-hand evidence cache (citing papers and passages) without generating anything."""
+    from .secondhand import fetch_entries
+
+    mims = list(mims) + (_read_mims(from_file) if from_file else [])
+    if not mims:
+        raise click.UsageError("give MIM numbers or --from-file")
+    result = fetch_entries(mims, include_fulltext=include_fulltext, jobs=jobs, echo=click.echo)
+    t = result["total"]
+    click.echo(f"\n{result['entries']} entries, {t['targets']} target papers in {result['seconds']} s: "
+               f"{t['with_citing']} with citing papers, {t['with_open_access_citing']} with open-access citing papers, "
+               f"{t['with_passages']} with at least one passage; {t['passages']} passages, {t['chars']:,} characters; "
+               f"{t['lookup_failed']} lookups failed (not cached; rerun to retry).")
+    for level, y in result["by_content_level"].items():
+        click.echo(f"  {level:9s} {y['targets']} targets, {y['with_citing']} with citing, "
+                   f"{y['with_open_access_citing']} open-access citing, {y['with_passages']} with passages, "
+                   f"{y['passages']} passages, {y['chars']:,} chars")
+    if result["failures"]:
+        click.echo(f"Entries that could not be loaded: {result['failures']}")
+
+
 def _fmt(value) -> str:
     if value is None:
         return "  -  "
