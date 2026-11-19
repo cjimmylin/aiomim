@@ -1,0 +1,44 @@
+subject	predicate	object	pmids
+El-Shanti et al. (2000)	reports	El-Shanti et al. (2000) studied 16 patients from 4 families with the Wolfram syndrome phenotype who also had features not previously reported. None of the affected family members had diabetes insipidus, and several patients had profound upper gastrointestinal ulceration and bleeding.	
+El-Shanti et al. (2000)	reports	Using 3 microsatellite markers (D4S432, D4S3023, and D4S2366) linked to the chromosome 4p16.1 Wolfram syndrome locus, El-Shanti et al. (2000) significantly excluded linkage to that locus in 3 of the 4 families. In the other family, the 2 affected individuals were homozygous for all 3 markers from the 4p16.1 region. Homozygosity mapping in the 3 unlinked families showed linkage to chromosome 4q22-24.	
+El-Shanti et al. (2000)	reports	El-Shanti et al. (2000) reported further evidence of genetic heterogeneity in Wolfram syndrome: 1 family was consistent with the 4p16.1 locus and 3 families linked to 4q22-24. The authors stated that they had identified a new locus that plays a role in the etiology of insulin-dependent diabetes mellitus.	
+Amr et al. (2007)	reports	In 3 consanguineous Jordanian families with Wolfram syndrome that had previously been shown not to have WFS1 mutations and that mapped to the WFS2 locus on 4q22-q25, Amr et al. (2007) identified a homozygous G-to-C transversion at nucleotide 109 of the ZCD2 gene, predicting a glu37-to-gln (E37Q) substitution at a conserved residue. The mutation disrupted mRNA splicing by eliminating exon 2, resulting in a premature stop codon; the authors concluded that the aberrant splicing, rather than the amino acid change, was the basis of pathogenesis.	
+CISD2 c.109G>C / p.E37Q	in_gene	CISD2	
+Amr et al. (2007)	reports	Amr et al. (2007) noted that the 3 consanguineous Jordanian families with Wolfram syndrome lacked WFS1 mutations and had been mapped to the WFS2 locus at chromosome 4q22-q25.	
+Amr et al. (2007)	reports	Because WFS1 mutations also cause nonsyndromic low-frequency and progressive hearing loss and optic atrophy with hearing loss, Amr et al. (2007) screened 377 probands with hearing loss for mutations in the WFS2 gene and found none.	
+Amr et al. (2007)	reports	Amr et al. (2007) showed that the ZCD2-encoded protein, ERIS (endoplasmic reticulum intermembrane small protein), localizes to the endoplasmic reticulum, like wolframin, but does not interact directly with wolframin.	
+Amr et al. (2007)	reports	Amr et al. (2007) found that lymphoblastoid cells from affected individuals with Wolfram syndrome 2 showed a significantly greater rise in intracellular calcium upon thapsigargin stimulation compared with controls, although resting intracellular calcium concentrations did not differ.	
+Chen et al. (2009)	reports	Chen et al. (2009) found that Cisd2 deficiency in mice caused mitochondrial breakdown and dysfunction accompanied by autophagic cell death. These events preceded the two earliest signs, nerve and muscle degeneration, and together led to a set of features suggestive of premature aging. Mitochondrial degeneration worsened with age, and autophagy increased alongside the premature aging phenotype.	
+Chen et al. (2009)	reports	Chen et al. (2009) showed that Cisd2 is located mainly in the mitochondria and is involved in controlling mammalian life span.	
+Chen et al. (2009)	reports	Chen et al. (2009) concluded that their Cisd2 knockout mouse findings strongly support the hypothesis that Wolfram syndrome is partly a mitochondria-mediated disorder. They proposed that CISD2 mutation causes the mitochondria-mediated disorder WFS2 in humans.	
+Mozzillo et al. (2014)	reports	Mozzillo et al. (2014) reported a 17-year-old Caucasian (Italian) girl born to parents who said they were not consanguineous. She had recurrent bleeding upper intestinal ulcers from age 5 years. At age 14 she was diagnosed with malrotation and partial duodenal intussusception, which required duodenal resection. At 16 she developed reduced visual acuity and dyschromatopsia with optic disc pallor, and at 17 she developed non-autoimmune diabetes requiring insulin. She also had bilateral high-frequency sensorineural hearing loss and slow intestinal transit with entero-gastric bile reflux.	
+Mozzillo et al. (2014)	reports	In the patient reported by Mozzillo et al. (2014), the eye examination showed slight optic disc pallor with preserved pupillary light reflexes. Pattern VEPs were normal, and brain MRI showed normal optic nerve caliber. Visual field, ERG, microperimetry and OCT testing showed moderate bilateral optic nerve involvement compatible with optic neuropathy, not optic atrophy, and the findings were unchanged after 5 years of follow-up. At age 22 she had optic neuropathy with preserved visual acuity and no optic atrophy. The authors suggested that the ocular disease in the Jordanian WFS2 patients was probably also optic neuropathy, and that WFS2 might not be a true WFS subtype.	
+Mozzillo et al. (2014)	reports	Mozzillo et al. (2014) found that their patient had reduced, reversible platelet aggregation in response to ADP at concentrations up to 10 micromolar, with no platelet secretion in response to ADP. Aggregation in response to collagen, epinephrine and ristocetin was normal, and the other main coagulation tests were normal. Her heterozygous parents and brother also showed reversible ADP-induced aggregation defects without clinical signs. The authors suggested that differences in experimental conditions or between patients could explain why the Jordanian patients had a collagen aggregation defect instead.	
+Mozzillo et al. (2014)	reports	In their patient, Mozzillo et al. (2014) found a novel homozygous deletion of all of CISD2 exon 2, detected because exon 2 failed to amplify by PCR and confirmed by cDNA sequencing. SNP array analysis restricted the deletion to at most 2,050 bp, extending from intron 2 to intron 3. Her parents and brother were heterozygous for the deletion. The deleted region includes the codons for amino acids 102 to 106 within the 2Fe-2S domain, and the authors suggested this would result in a nonfunctional protein. Runs-of-homozygosity analysis showed no parental relationship, but microsatellite analysis supported a common ancestor; the grandparents came from the same small Italian island.	
+CISD2 homozygous deletion affecting the whole exon 2 of CISD2	in_gene	CISD2	
+Rondinelli et al. (2015)	reports	Rondinelli et al. (2015) identified a novel CISD2 mutation in Italian siblings with Wolfram syndrome 2.	
+WOLFRAM SYNDROME 2	caused_by	CISD2	17846994,25056293
+WOLFRAM SYNDROME 2	has_variant	CISD2 c.109G>C / p.E37Q	17846994
+WOLFRAM SYNDROME 2	has_variant	CISD2 homozygous deletion affecting the whole exon 2 of CISD2	25056293
+WOLFRAM SYNDROME 2	inheritance	Autosomal recessive	10739754,17846994,25056293
+WOLFRAM SYNDROME 2	has_phenotype	Peptic ulcer	10739754,25056293
+WOLFRAM SYNDROME 2	has_phenotype	Intestinal malrotation	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Intussusception	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Reduced visual acuity	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Dyschromatopsia	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Diabetes mellitus	25056293
+WOLFRAM SYNDROME 2	has_phenotype	High-frequency sensorineural hearing impairment	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Increased intestinal transit time	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Gastroesophageal reflux	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Optic neuropathy	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Optic disc pallor	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Optic atrophy	10739754
+WOLFRAM SYNDROME 2	has_phenotype	Tinnitus	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Abnormal platelet aggregation	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Impaired platelet aggregation	25056293
+WOLFRAM SYNDROME 2	has_phenotype	Neurodegeneration	19451219
+WOLFRAM SYNDROME 2	has_phenotype	Muscle fiber necrosis	19451219
+WOLFRAM SYNDROME 2	has_phenotype	Type I diabetes mellitus	10739754
+WOLFRAM SYNDROME 2	has_phenotype	Gastrointestinal hemorrhage	10739754
+Type I diabetes mellitus	is_a	Diabetes mellitus	
+Impaired platelet aggregation	is_a	Abnormal platelet aggregation	

@@ -1,0 +1,105 @@
+subject	predicate	object	pmids
+Holterman et al. (2007)	reports	Holterman et al. (2007) identified mouse Megf10, the homolog of human MEGF10 (more than 94% amino acid identity), as a marker of quiescent satellite cells. In resting adult muscle, it was expressed only in Pax7-positive satellite cells (about 80% of Syn4- or M-cadherin-positive satellite cells). It was found in virtually all activated satellite cells and was upregulated more than 100-fold on activation. It was downregulated when myoblasts differentiated into myotubes.	
+Holterman et al. (2007)	reports	Holterman et al. (2007) found that retroviral overexpression of Megf10 in C2C12 myoblasts increased proliferation and strongly inhibited differentiation and fusion. Overexpressing cells entered a reversible quiescent state, downregulated MyoD and Pax7, and upregulated Myf5.	
+Holterman et al. (2007)	reports	Holterman et al. (2007) reported that siRNA knockdown of Megf10 in activated satellite cells on isolated mouse muscle fibers lowered the number of activated satellite cells by 30%. It also caused precocious differentiation, with a 3.15-fold increase in myogenin-expressing cells, and a 62% loss of self-renewing Pax7+/MyoD- cells. In MyoD-null myoblasts, Megf10 knockdown downregulated Notch1, Notch2, Notch3, and Hes1. The authors concluded that Megf10 acts on Notch signaling to balance proliferation and differentiation of satellite cells.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) described a non-consanguineous Caucasian family of mixed European ancestry (family 1030) in which 3 of 4 sibs had an autosomal recessive myopathy that resembled multiminicore disease in some respects. Weakness began by 12 months of age, first in the neck. It was mainly axial and proximal, included facial weakness, and stabilized in adolescence. Patients had neck contractures in infancy and elbow, knee, and heel cord contractures by adulthood, mildly elevated serum CK, childhood-onset scoliosis treated with spinal fusion, and respiratory problems from age 10 to 11 years that were treated with nocturnal BiPAP. All 3 had hypernasal speech. One had a cleft palate and another had a midline palatal ridge.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) found that muscle biopsies from affected members of family 1030 showed dystrophic features: myofibers replaced by fat, increased perimysial and endomysial connective tissue, and isolated regenerating fibers. The biopsies also showed moth-eaten fibers and minicores, which suggested a congenital myopathy. Rimmed vacuoles, inclusions, central cores, nemaline rods, and ragged red fibers were absent. There was a slight predominance of type I fibers.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) described a girl (subject 105-1), a Caucasian with distant Portuguese ancestry, who had been diagnosed with multiminicore disease and had no affected relatives. At several weeks of age she had hypotonia with a weak neck, a markedly high-arched palate, failure to thrive from poor feeding, blue sclerae, and hyperflexible joints. As a child she had frequent pulmonary infections but no chronic breathing problems. Her serum CK was 302 U/L at age 10, and she had scoliosis that progressed to 20 degrees by age 12. Muscle biopsy showed minicores, which electron microscopy confirmed.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) performed a genomewide linkage scan in family 1030 and found positive LOD scores at 16 loci. MEGF10 lay in a linkage peak on chromosome 5 that reached the maximum possible LOD score of 1.329. SEPN1, RYR1, ACTA1, and TPM3 were excluded.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) used linkage-filtered whole genome sequencing to identify compound heterozygous missense mutations in MEGF10 in the 3 affected sibs of family 1030. One mutation was c.976T>C (p.C326R), in exon 10, which affects the fourth cysteine of EGF-like domain 6; the residue is conserved in 43 of 43 species. Sanger sequencing confirmed that the mutations were in trans and segregated with the disease. The mutation was absent from dbSNP, 1000 Genomes, the Exome Sequencing Project, and 715 genotyped controls.	
+MEGF10 c.976T>C / p.C326R	in_gene	MEGF10	
+Boyden et al. (2012)	reports	Boyden et al. (2012) found that the second MEGF10 mutation in the affected sibs of family 1030 was c.2320T>C (p.C774R), in exon 19, which affects the sixth cysteine of EGF-like domain 16. It was absent from public databases and from 645 genotyped controls. The authors noted that the same mutation had been reported in compound heterozygous state with a frameshift mutation in a family with the more severe congenital myopathy with areflexia, respiratory distress, and dysphagia.	
+MEGF10 c.2320T>C / p.C774R	in_gene	MEGF10	
+Boyden et al. (2012)	reports	Boyden et al. (2012) sequenced MEGF10 in 190 patients with unexplained myopathies. They found 1 patient (subject 105-1) who was heterozygous for a c.211C>T (p.R71W) mutation in the emilin domain, which was inherited from an unaffected parent and absent from 699 controls. No second mutation was found by cDNA sequencing, and the patient had no SEPN1 or RYR1 mutations. The authors suggested that she may carry a second MEGF10 mutation that they were unable to detect.	
+MEGF10 c.211C>T / p.R71W	in_gene	MEGF10	
+Boyden et al. (2012)	reports	Boyden et al. (2012) noted that patients with MEGF10 missense mutations had a phenotype similar to, but milder than, that of patients with null mutations who have a severe congenital myopathy. They attributed this to possible residual MEGF10 function. Minicores were a prominent feature in their patients with missense mutations but had not been noted in families with null mutations.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) knocked down megf10 in zebrafish using 4 splice-blocking morpholinos. The morphants had curved tails, unhatched eggs, impaired motility, reduced birefringence, disorganized somites with gaps between myofibers, and myofibrillar disorganization on electron microscopy. The authors concluded that these findings supported the pathogenicity of the human mutations and pointed to a myopathic process.	
+Boyden et al. (2012)	reports	Boyden et al. (2012) hypothesized that the loss-of-function MEGF10 missense mutations could cause excessive differentiation of satellite cells. This would deplete the population of self-renewing cells that regenerate muscle and could explain the dystrophic features. They suggested that satellite cell dysfunction is a pathogenic mechanism shared with SEPN1-related multiminicore disease.	
+Takayama et al. (2016)	reports	Takayama et al. (2016) reported a Japanese patient with the milder MEGF10 myopathy phenotype who carried compound heterozygous MEGF10 mutations: a splice site mutation (c.2981-2A>G) and a novel missense mutation (p.Cys810Tyr).	
+MEGF10 c.2981-2A>G	in_gene	MEGF10	
+MEGF10 p.C810Y	in_gene	MEGF10	
+Takayama et al. (2016)	reports	Takayama et al. (2016) described 2 Japanese patients with MEGF10 myopathy, one with the severe EMARDD phenotype and a homozygous frameshift mutation (c.131_132del) and one with the milder phenotype and compound heterozygous mutations including a cysteine missense mutation (p.Cys810Tyr). They noted that cysteine mutations in the extracellular EGF-like domain may be responsible for the milder phenotype and concluded that their findings indicated a genotype-phenotype correlation in MEGF10 myopathy.	
+MEGF10 c.131_132del	in_gene	MEGF10	
+Takayama et al. (2016)	reports	Takayama et al. (2016) noted that MEGF10 mutations cause early-onset myopathy with areflexia, respiratory distress, and dysphagia (EMARDD) as well as a milder phenotype of minicore myopathy, with 6 EMARDD families and 1 family with the milder disorder previously reported.	
+Harris et al. (2018)	reports	Harris et al. (2018) reported a 66-year-old man with a 20-year history of progressive proximal and distal weakness of the upper and lower limbs, facial weakness, and dysphagia. In his 50s, while still ambulant, he developed respiratory failure that required ventilation. Muscle biopsy showed myopathic changes with aggregation of myofibrillar proteins.	
+Harris et al. (2018)	reports	In a 66-year-old man with adult-onset myopathy and respiratory failure, Harris et al. (2018) used exome sequencing to identify compound heterozygous mutations in the MEGF10 gene. One was a novel essential splice site mutation (c.1426+1G>T) and the other a novel missense variant (c.352T>C, p.Cys118Arg).	
+MEGF10 c.1426+1G>T	in_gene	MEGF10	
+MEGF10 c.352T>C / p.C118R	in_gene	MEGF10	
+Harris et al. (2018)	reports	Harris et al. (2018) reviewed all 20 reported MEGF10 cases and confirmed a genotype-phenotype correlation. In patients with at least 1 null mutation, respiratory dysfunction began in the first year of life. In patients with 2 missense mutations, it began at age 10 years or much later. The authors stated that their findings expanded the MEGF10 phenotype to include onset in the fifth decade.	
+Croci et al. (2022)	reports	Croci et al. (2022) reported a 22-year-old Italian man, born to healthy consanguineous parents, who was born at 33 weeks' gestation, needed resuscitation for asphyxia at birth, had a weak suck, and had elbow contractures and scoliosis from the first months of life. He had no motor developmental delay or intellectual disability. He then developed slowly progressive muscle weakness with impaired walking, rhinolalia, dysphagia, and respiratory involvement, and needed nocturnal noninvasive ventilation from age 16 years. On examination he had axial hypotonia, generalized muscle hypotrophy and weakness, preserved facial expression, cleft palate, global areflexia, bilateral elbow and ankle contractures, equinovarus foot stance, and hyperlordosis. Serum CK, brain and spine MRI, ECG, and echocardiogram were normal; from age 17 he had swallowing difficulties and recurrent aspiration pneumonia.	
+Croci et al. (2022)	reports	In the patient described by Croci et al. (2022), a first quadriceps muscle biopsy at age 5 years showed nonspecific changes: variation in fiber size, internal nuclei, and fibrosis. A second biopsy taken later showed myofibrillar changes, including whorled fibers, cytoplasmic inclusions, and minicores. Electrophysiology showed normal conduction apart from reduced muscle evoked potential amplitudes. The authors proposed that the minicores seen in the late-onset group may result from a long-standing myofibrillar process that begins in infancy.	
+Croci et al. (2022)	reports	Croci et al. (2022) used exome sequencing to find a homozygous c.2096G-C transversion (NM_001256545.2) in the MEGF10 gene, predicted to cause a cys699-to-ser (C699S) substitution, in an Italian man with a progressive form of mild-variant EMARDD. Sanger sequencing confirmed the variant, and both healthy consanguineous parents were heterozygous carriers. The variant was absent from ClinVar and gnomAD, affects a conserved residue in an EGF-like domain, and was predicted to be damaging by in silico tools. It was classified as likely pathogenic under ACMG criteria. No functional studies were done.	
+MEGF10 c.2096G>C / p.C699S	in_gene	MEGF10	
+Croci et al. (2022)	reports	Croci et al. (2022) noted that missense variants affecting cysteines in the EGF-like domains of MEGF10 have previously been linked to the milder, later-onset form (mvEMARDD), and null variants to severe EMARDD. Their patient, however, carried a missense variant yet had an early-onset, progressive myopathy. The authors proposed that MEGF10-related phenotypes form a continuum rather than two separate forms.	
+CONGENITAL MYOPATHY 10B, MILD VARIANT	caused_by	MEGF10	22371254,27460346,29128256,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.131_132del	27460346
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.1426+1G>T	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.2096G>C / p.C699S	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.211C>T / p.R71W	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.2320T>C / p.C774R	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.2981-2A>G	27460346
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.352T>C / p.C118R	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 c.976T>C / p.C326R	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_variant	MEGF10 p.C810Y	27460346
+CONGENITAL MYOPATHY 10B, MILD VARIANT	inheritance	Autosomal recessive	22371254,27460346,29128256,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Elbow flexion contracture	22371254,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Scoliosis	22371254,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Poor suck	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Progressive muscle weakness	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Hypernasal speech	22371254,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Dysphagia	29128256,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Respiratory insufficiency	22371254,29128256,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Axial hypotonia	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Generalized amyotrophy	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Cleft palate	22371254,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Areflexia	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Ankle flexion contracture	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Hyperlordosis	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Aspiration pneumonia	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Elevated circulating creatine kinase activity	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Increased variability in muscle fiber diameter	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Centrally nucleated skeletal muscle fibers	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Increased endomysial connective tissue	22371254,36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Type 1 and type 2 muscle fiber minicore regions	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Abnormal muscle fiber morphology	36349186
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Proximal muscle weakness	22371254,29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Distal muscle weakness	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Facial palsy	22371254,29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Respiratory failure	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	EMG: myopathic abnormalities	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Abnormal skeletal muscle morphology	29128256
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Minicore myopathy	22371254,27460346
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Neck muscle weakness	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Neck joint contracture	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Knee flexion contracture	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Achilles tendon contracture	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Mildly elevated creatine kinase	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Fatty replacement of skeletal muscle	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Type 1 muscle fiber predominance	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Hypotonia	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	High palate	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Failure to thrive	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Blue sclerae	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Joint hypermobility	22371254
+CONGENITAL MYOPATHY 10B, MILD VARIANT	has_phenotype	Recurrent lower respiratory tract infections	22371254
+Respiratory failure	is_a	Respiratory insufficiency	
+Achilles tendon contracture	is_a	Abnormal skeletal muscle morphology	
+Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Type 1 muscle fiber predominance	is_a	Abnormal muscle fiber morphology	
+EMG: myopathic abnormalities	is_a	Abnormal skeletal muscle morphology	
+Facial palsy	is_a	Abnormal skeletal muscle morphology	
+Mildly elevated creatine kinase	is_a	Elevated circulating creatine kinase activity	
+Type 1 and type 2 muscle fiber minicore regions	is_a	Minicore myopathy	
+Increased variability in muscle fiber diameter	is_a	Abnormal muscle fiber morphology	
+Centrally nucleated skeletal muscle fibers	is_a	Abnormal muscle fiber morphology	
+Axial hypotonia	is_a	Hypotonia	
+Knee flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Nemaline bodies	is_a	Abnormal muscle fiber morphology	
+Minicore myopathy	is_a	Abnormal skeletal muscle morphology	
+Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
+Generalized amyotrophy	is_a	Abnormal skeletal muscle morphology	
+Neck joint contracture	is_a	Abnormal skeletal muscle morphology	
+Increased endomysial connective tissue	is_a	Abnormal muscle fiber morphology	
+Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
+Ankle flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Rimmed vacuoles	is_a	Abnormal muscle fiber morphology	

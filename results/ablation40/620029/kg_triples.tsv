@@ -1,0 +1,156 @@
+subject	predicate	object	pmids
+Kosaki et al. (2018)	reports	Kosaki et al. (2018) reported a 5-year-old girl with cutaneous syndactyly, developmental delay, and pulmonary hypertension. She did not have prolongation of the QT interval. The authors described her condition as Timothy syndrome-like.	
+Kosaki et al. (2018)	reports	In a 5-year-old girl with syndactyly, developmental delay, and pulmonary hypertension but no QT prolongation, Kosaki et al. (2018) used exome analysis to identify a de novo heterozygous variant in the CACNA1C gene, p.Arg1024Gly, which had not been described before.	
+CACNA1C p.R1024G	in_gene	CACNA1C	
+Bozarth et al. (2018)	reports	Bozarth et al. (2018) described a girl (Patient 1) of English/Ukrainian ancestry, born to nonconsanguineous parents, who had neonatal-onset epileptic encephalopathy. Tonic and tonic-myoclonic seizures began within hours of birth and evolved into epileptic tonic spasms at 3 months. The seizures did not respond to multiple antiepileptic drugs, although clobazam reduced them. She had profound axial and appendicular hypotonia, no developmental progress at 18 months, inability to fixate or track visually, and severe sleep-wake disturbance. She also had laryngomalacia, bilateral clubfeet, 3-4 finger and 2-3 toe syndactyly, camptodactyly, micrognathia, downturned corners of the mouth, frontal bossing, scant hair, inverted nipples, mild optic nerve hypoplasia, anal stenosis, and dysphagia requiring a gastrostomy tube. EEG showed distinctive diffuse excessive fast activity, brain MRI was normal, and echocardiogram and Holter monitoring were normal.	
+Bozarth et al. (2018)	reports	In Patient 1, who had neonatal-onset epileptic encephalopathy, Bozarth et al. (2018) used trio exome sequencing to identify a de novo heterozygous missense variant in the CACNA1C gene: c.4087G>A (NM_000719.6), predicting p.V1363M. The variant was absent from gnomAD, ExAC, and 1000 Genomes, and it affected a highly conserved residue in the fifth transmembrane helix of domain IV. Structural modeling suggested that the residue faces the pore-forming sixth helix, and the authors concluded that the substitution likely disrupts channel gating. The patient also carried a de novo deletion of MSH2 exons 11-16.	
+CACNA1C c.4087G>A / p.V1363M	in_gene	CACNA1C	
+Bozarth et al. (2018)	reports	Bozarth et al. (2018) described a family of Irish and German descent. The proband (Patient 2), a girl, had tetralogy of Fallot, which was repaired at 2 months, and developed severe biventricular failure with left ventricular noncompaction at 4 months. She also had mild dysmorphic features, including flat nasal bridge, low-set cupped ears, deep-set eyes, thin upper lip, and round face, along with mild 2-3-4 toe syndactyly, mild developmental delay, and mild hypotonia. Her father (Patient 3) had a congenital ventricular septal defect and aortic valve stenosis, learning disabilities, and ADHD. He developed focal-to-generalized tonic-clonic seizures at age 18 years and had craniofacial features similar to his daughter's.	
+Bozarth et al. (2018)	reports	In Patient 2, Bozarth et al. (2018) used a 120-gene cardiomyopathy panel to identify a heterozygous splice site variant in the CACNA1C gene: c.3717+1_3717+2insA (NM_000719.6). The variant was inherited from her affected father (Patient 3), was absent from population databases, and was predicted to destroy the canonical splice donor site of intron 28. In the absence of mRNA studies it was classified as a VUS, although the authors proposed that haploinsufficiency could explain the phenotype. The proband also carried a heterozygous ALPK3 splice variant and a TPM1 p.I130T variant; the TPM1 variant was absent in her father.	
+CACNA1C c.3717+1_3717+2insa	in_gene	CACNA1C	
+Bozarth et al. (2018)	reports	Bozarth et al. (2018) noted that seizures had rarely been reported in CACNA1C-related disorders, with only 3 individuals reported before their series. They concluded that their findings extend the phenotype to neonatal-onset epileptic encephalopathy and late-onset epilepsy, and that Family 2 shows variable expressivity. They suggested including CACNA1C on epilepsy gene panels.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) reported 25 individuals from 22 families with heterozygous CACNA1C variants. Their phenotype was mainly neurological and variably included developmental delay, intellectual disability, autism, hypotonia, epilepsy, and ataxia. They did not have significant cardiac manifestations or other features of Timothy syndrome. The authors noted broad phenotypic differences between individuals with truncating and nontruncating variants.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) found the CACNA1C variants by exome sequencing or an intellectual disability gene panel, in cases ascertained through GeneMatcher and ClinVar. Thirteen unrelated individuals had missense variants, 1 had an in-frame deletion, and 11 individuals from 8 families had predicted truncating variants. All nontruncating variants and all but 3 truncating variants occurred de novo. None of the variants were present in gnomAD, 1000 Genomes, or the Exome Variant Server. All missense variants were at highly conserved positions and were predicted to be damaging.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) described 14 individuals with de novo nontruncating CACNA1C variants. All had developmental delay or intellectual disability. Nine were nonverbal and 6 were nonambulatory at last follow-up. One had a formal diagnosis of autism and 6 others had autistic features. Twelve were hypotonic and 4 had ataxia. Prenatal findings included reduced fetal movement (3 of 14), bilateral clubfoot (2 of 14), and oligohydramnios (2 of 14). The course was consistent with a static neurodevelopmental disorder. Brain MRI was normal apart from an incidental arachnoid cyst in 1 individual and prominent cerebellar folia in another.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) found epilepsy in 10 of 14 individuals with nontruncating CACNA1C variants. Onset ranged from 2 months to 8 years. Both generalized and focal epilepsies occurred, including West syndrome/infantile spasms, myoclonic seizures, and Lennox-Gastaut syndrome. Seizures were fever-sensitive in 3 individuals and medically refractory in 4. EEG findings were not consistent across the cohort.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) found orthopedic abnormalities in 12 of 14 individuals with nontruncating CACNA1C variants. Two had bilateral clubfoot with congenital finger contractures and 2 others had persistently adducted thumbs. Other findings were kyphosis or scoliosis (2 of 14), congenital hip dysplasia (3 of 14), syndactyly (2 of 14), and joint hypermobility (3 of 14).	
+Rodan et al. (2021)	reports	Rodan et al. (2021) reported ECGs in 11 individuals with nontruncating variants. Nine were normal. One individual (P13, p.Val1411Leu) had prolonged QT with T-wave alternans on Holter monitoring, and another had a possible ventricular conduction delay. Echocardiograms showed only minor findings. No individual had the physical features of Timothy syndrome.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) described 11 individuals from 8 families with truncating CACNA1C variants. Most had essentially normal early motor development and walked independently. Ten of 11 had delayed expressive language. Five had autism, 3 of whom were nonverbal. Only 1 had seizures and only 3 had hypotonia. Four had poor balance or coordination and 2 had tremor. Recurrent infections were reported in 4 individuals. All 5 ECGs performed were normal.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) found that 3 truncating variants were paternally inherited and segregated with neurodevelopmental abnormalities in the families. Penetrance and expressivity appeared variable among family members with truncating variants.	
+Rodan et al. (2021)	reports	Rodan et al. (2021) observed that individuals with nontruncating variants had more severe global developmental delay or intellectual disability and more motor impairment. Epilepsy was also much more common in this group, affecting more than two-thirds. Individuals with truncating variants had more selective expressive language deficits and autism was more common among them.	
+Rodan et al. (2021)	reports	In a patient (P12) with severe intellectual disability, myoclonic seizures beginning at 6 months, and kyphoscoliosis, Rodan et al. (2021) identified a de novo heterozygous c.4222C>G (p.Leu1408Val) variant in CACNA1C. In patch clamp studies in HEK293 cells, current density was reduced to about 30% of control while protein expression was unchanged, consistent with loss of function.	
+CACNA1C c.4222C>G / p.L1408V	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	In a female patient (P9) with moderate to severe intellectual disability and seizures beginning at 6 years, Rodan et al. (2021) identified a de novo heterozygous c.1969C>T (p.Leu657Phe) variant in CACNA1C. In patch clamp studies, the variant significantly increased calcium current, with a hyperpolarizing shift in activation and about 2-fold higher protein levels, consistent with gain of function.	
+CACNA1C c.1969C>T / p.L657F	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	In a male patient (P8) with intellectual disability, autism, fever-sensitive generalized epilepsy, and kyphosis, Rodan et al. (2021) identified a de novo heterozygous c.1841T>C (p.Leu614Pro) variant in CACNA1C. Patch clamp studies showed modest current increases with a hyperpolarizing shift in activation, but the increase was not statistically significant. The Results described the variant as gain of function and the Discussion as a neutral effect.	
+CACNA1C c.1841T>C / p.L614P	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	In a male patient (P7) with severe developmental delay, myoclonic and generalized tonic-clonic seizures, bilateral clubfoot, and adducted thumbs, Rodan et al. (2021) identified a de novo heterozygous c.1841T>G (p.Leu614Arg) variant in CACNA1C. Patch clamp studies with CACNB2 showed no statistically significant change in current or gating.	
+CACNA1C c.1841T>G / p.L614R	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	Rodan et al. (2021) identified other de novo heterozygous nontruncating CACNA1C variants in their cohort: p.Phe166Leu (c.496T>C), p.Lys177Arg (c.530A>G), p.Arg324Trp (c.970C>T), p.Val403Met (c.1207G>A), p.Leu601Arg (c.1802T>G), p.Met611Thr (c.1832T>C), p.Ile743del (c.2227_2229delATC), and p.Val1187Ala (c.3560T>C). Missense variants clustered in a linker segment of domain II (exon 13) and in domain IV (exon 35).	
+CACNA1C c.496T>C / p.F166L	in_gene	CACNA1C	
+CACNA1C c.530A>G / p.K177R	in_gene	CACNA1C	
+CACNA1C c.970C>T / p.R324W	in_gene	CACNA1C	
+CACNA1C c.1207G>A / p.V403M	in_gene	CACNA1C	
+CACNA1C c.1802T>G / p.L601R	in_gene	CACNA1C	
+CACNA1C c.1832T>C / p.M611T	in_gene	CACNA1C	
+CACNA1C c.2227_2229delatc / p.I743del	in_gene	CACNA1C	
+CACNA1C c.3560T>C / p.V1187A	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	Rodan et al. (2021) identified de novo heterozygous variants at codon Val1411 of CACNA1C in 2 unrelated patients. P13, with severe intellectual disability, infantile spasms evolving to Lennox-Gastaut syndrome, and prolonged QT, carried c.4231G>C (p.Val1411Leu). P14, an infant with severe global developmental delay, generalized epilepsy beginning at 2 months, hip dysplasia, syndactyly, and adducted thumbs, carried c.4231G>T (p.Val1411Leu).	
+CACNA1C c.4231G>C / c.4231G>T / p.V1411L	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	Rodan et al. (2021) identified heterozygous truncating CACNA1C variants in 11 individuals from 8 families. De novo variants were p.Gln80Leufs*49 (c.239_244delAGCGGAinsTTGCAGCTCC), p.Val996Trpfs*19 (c.2926delG), p.Arg1377Profs*61 (c.4129dup), and p.Leu1518Profs*3 (c.4553del). Paternally inherited variants were p.Arg161* (c.481C>T; in 1 of 2 relatives the variant was de novo), p.Trp528* (c.1584G>A), and p.Arg1989* (c.5860C>T). A splice variant, c.2663+1G>C, was not paternal. All truncating variants except p.Arg1989*, which lies in the last exon, were predicted to undergo nonsense-mediated decay.	
+CACNA1C c.239_244delagcggainsttgcagctcc / p.Q80Lfs / p.Q80fs	in_gene	CACNA1C	
+CACNA1C c.481C>T / p.R161*	in_gene	CACNA1C	
+CACNA1C c.1584G>A / p.W528*	in_gene	CACNA1C	
+CACNA1C c.2663+1G>C	in_gene	CACNA1C	
+CACNA1C c.2926delg / p.V996Wfs / p.V996fs	in_gene	CACNA1C	
+CACNA1C c.4129dup / p.R1377Pfs / p.R1377fs	in_gene	CACNA1C	
+CACNA1C c.4553del / p.L1518Pfs / p.L1518fs	in_gene	CACNA1C	
+CACNA1C c.5860C>T / p.R1989*	in_gene	CACNA1C	
+Rodan et al. (2021)	reports	Rodan et al. (2021) concluded that both gain and loss of CACNA1C function can cause a neurological phenotype. They noted gnomAD constraint metrics consistent with haploinsufficiency (pLI 1.0). They suggested that the more severe phenotype with loss-of-function missense variants than with whole-gene or exonic deletions favors a dominant-negative effect. They also cautioned that their functional studies used only the canonical transcript and that the choice of accessory subunit may have affected the results.	
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	caused_by	CACNA1C	29736926,30513141,34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1207G>A / p.V403M	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1584G>A / p.W528*	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1802T>G / p.L601R	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1832T>C / p.M611T	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1841T>C / p.L614P	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1841T>G / p.L614R	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.1969C>T / p.L657F	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2227_2229delatc / p.I743del	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.239_244delagcggainsttgcagctcc / p.Q80Lfs / p.Q80fs	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2663+1G>C	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.2926delg / p.V996Wfs / p.V996fs	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.3560T>C / p.V1187A	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.3717+1_3717+2insa	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.4087G>A / p.V1363M	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.4129dup / p.R1377Pfs / p.R1377fs	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.4222C>G / p.L1408V	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.4231G>C / c.4231G>T / p.V1411L	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.4553del / p.L1518Pfs / p.L1518fs	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.481C>T / p.R161*	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.496T>C / p.F166L	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.530A>G / p.K177R	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.5860C>T / p.R1989*	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C c.970C>T / p.R324W	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_variant	CACNA1C p.R1024G	29736926
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	inheritance	Autosomal dominant	29736926,30513141,34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Global developmental delay	29736926,30513141,34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Intellectual disability	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Autism	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Hypotonia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Seizure	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Ataxia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Absent speech	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Inability to walk	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Autistic behavior	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Decreased fetal movement	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Oligohydramnios	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Vestibular areflexia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Strabismus	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Hypermetropia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Microcephaly	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Short stature	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Infantile spasms	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Febrile seizure (within the age range of 3 months to 6 years)	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Talipes equinovarus	30513141,34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Camptodactyly of finger	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Adducted thumb	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Kyphoscoliosis	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Hip dysplasia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Syndactyly	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Joint hypermobility	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Prolonged QT interval	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Expressive language delay	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Incoordination	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Tremor	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Recurrent infections	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Paroxysmal dyskinesia	34163037
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Epileptic encephalopathy	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Tonic seizure	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Epileptic spasm	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Generalized hypotonia	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Laryngomalacia	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Finger syndactyly	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Toe syndactyly	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Camptodactyly	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Micrognathia	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Downturned corners of mouth	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Frontal bossing	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Sparse scalp hair	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Inverted nipples	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Optic nerve hypoplasia	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Anal stenosis	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Dysphagia	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Sleep disturbance	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Sleep apnea	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	EEG abnormality	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Tetralogy of Fallot	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Left ventricular noncompaction cardiomyopathy	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Depressed nasal bridge	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Low-set ears	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Thin upper lip vermilion	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Round face	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Ventricular septal defect	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Aortic valve stenosis	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Specific learning disability	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Attention deficit hyperactivity disorder	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Bilateral tonic-clonic seizure with focal onset	30513141
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Cutaneous syndactyly	29736926
+NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES	has_phenotype	Pulmonary arterial hypertension	29736926
+Tetralogy of Fallot	is_a	Abnormality of the cardiovascular system	
+Cutaneous syndactyly	is_a	Syndactyly	
+Tonic seizure	is_a	Seizure	
+Infantile spasms	is_a	Epileptic spasm	
+Pulmonary arterial hypertension	is_a	Abnormality of the cardiovascular system	
+Autism	is_a	Autistic behavior	
+Generalized hypotonia	is_a	Hypotonia	
+Toe syndactyly	is_a	Syndactyly	
+Bilateral tonic-clonic seizure with focal onset	is_a	Seizure	
+Aortic valve stenosis	is_a	Abnormality of the cardiovascular system	
+Finger syndactyly	is_a	Syndactyly	
+Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
+Prolonged QT interval	is_a	Abnormality of the cardiovascular system	
+Epileptic spasm	is_a	Seizure	
+Left ventricular noncompaction cardiomyopathy	is_a	Abnormality of the cardiovascular system	
+Camptodactyly of finger	is_a	Camptodactyly	
+Ventricular septal defect	is_a	Abnormality of the cardiovascular system	
+Sleep apnea	is_a	Sleep disturbance	

@@ -1,0 +1,62 @@
+subject	predicate	object	pmids
+Mochida et al. (2010)	reports	Mochida et al. (2010) described members of a large consanguineous family from the United Arab Emirates who had a rare autosomal recessive syndrome. Its features were severe hemorrhagic destruction of the brain, subependymal calcification, and congenital cataracts. The presentation overlapped with some reported cases of pseudo-TORCH syndrome and with patients who have occludin mutations, but massive intracranial hemorrhage set these patients apart.	
+Mochida et al. (2010)	reports	Mochida et al. (2010) used homozygosity mapping in the consanguineous UAE family to map the disease locus to chromosome 11q25. The maximum multipoint lod score was 6.15.	
+Mochida et al. (2010)	reports	Mochida et al. (2010) sequenced genes in the 11q25 candidate interval and found a homozygous mutation in the JAM3 gene in affected members of the consanguineous UAE family. The mutation affects the canonical splice-donor site of intron 5. RT-PCR analysis of a patient lymphoblast cell line confirmed abnormal splicing, which leads to a frameshift with early termination.	
+JAM3 mutation in the canonical splice-donor site of intron 5 of JAM3	in_gene	JAM3	
+Mochida et al. (2010)	reports	Mochida et al. (2010) noted that JAM3, a tight-junction protein, is known to be present in vascular endothelium. They suggested that JAM3 is essential for maintaining the integrity of the cerebrovascular endothelium and for normal lens development in humans.	
+Akawi et al. (2013)	reports	Akawi et al. (2013) described a Turkish girl whose parents were second cousins. She was born at term weighing 2480 g (below the 10th centile). On day 5 she was admitted with tonic seizures that did not respond to treatment. Examination showed a 30-cm head circumference, a sloping forehead, a bulging anterior fontanel, bitemporal grooving, and bilateral nuclear cataracts. Brain CT showed subependymal calcification and multifocal intraparenchymal hemorrhage. Infection serologies and platelet levels were normal. She developed posthemorrhagic hydrocephalus and died at 2 months of age; an older preterm sister had intracranial bleeding and died in the neonatal period.	
+Akawi et al. (2013)	reports	Akawi et al. (2013) described 2 affected brothers born to healthy, nonconsanguineous parents of Afghani origin. The first had bilateral cataracts and feeding problems from birth. At 2 weeks he presented with vomiting, irritability, and a high-pitched cry. MRI at 15 days showed grade IV intraventricular hemorrhage, severe ventricular dilatation, white matter abnormalities, and multiple subependymal cysts, and renal ultrasound showed horseshoe kidneys. Extensive metabolic, genetic, and coagulation investigations were normal, and he died at 2 weeks. The second brother had bilateral cataracts at birth. He deteriorated on day 5 with a fall in hemoglobin, bilateral epileptiform activity on EEG, and extensive bilateral intracerebral hemorrhage, and died on the fifth day of life; he also had pelvicalyceal dilatation of the right kidney.	
+Akawi et al. (2013)	reports	Akawi et al. (2013) described a girl whose parents were Moroccan first cousins. She had central and nuclear bilateral cataracts at birth. On day 2 she presented with irritability and a bulging fontanel. CT and MRI showed multifocal intraparenchymal and intraventricular hemorrhages, subependymal calcification, diffuse brain edema, cystic changes, dilated ventricles, and a thin corpus callosum. EEG showed electrical status epilepticus without clinical seizures, and she had severe anemia. Her head circumference reached 41 cm (+4 SD), and she died at 39 days. One sib died at 10 days with cerebral hemorrhage and hydrocephalus, and another was stillborn with hydrocephalus and necrotic cerebral tissue.	
+Akawi et al. (2013)	reports	Akawi et al. (2013) summarized the shared phenotype across these families. All affected children had bilateral cataracts and progressive neurologic impairment, with seizures in some. Neuroimaging in all patients showed intraparenchymal hemorrhage with brain destruction and subependymal, basal ganglia, and white matter calcification. Renal anomalies and liver enlargement were more variable. Counting the original family, the disorder was lethal in 7 of 10 cases within the first weeks of life, and the 3 survivors were severely retarded with severe spasticity and seizures.	
+Akawi et al. (2013)	reports	In the affected Turkish girl from family 1, Akawi et al. (2013) found a homozygous c.656G>A transition in exon 6 of the JAM3 gene by sequencing, resulting in a cys219-to-tyr (C219Y) substitution in the Ig-like C2-type domain. The mutation segregated with the disorder, was absent from dbSNP and the 1000 Genomes Project, and affected a conserved residue. In transfected HeLa cells, the C219Y mutant was retained mostly in the endoplasmic reticulum rather than reaching the plasma membrane. The authors suggested that loss of a disulfide bond causes misfolding and a trafficking defect.	
+JAM3 c.656G>A / p.C219Y	in_gene	JAM3	
+Akawi et al. (2013)	reports	In the 2 affected Afghani brothers from family 2, Akawi et al. (2013) found a homozygous c.346G>A transition in exon 4 of JAM3, resulting in a glu116-to-lys (E116K) substitution in the Ig-like V-type domain. The mutation segregated with the disorder and was absent from dbSNP and the 1000 Genomes Project. The E116K mutant reached the plasma membrane normally in HeLa cells. The authors suggested that it may disrupt dimerization or interaction with partner proteins.	
+JAM3 c.346G>A / p.E116K	in_gene	JAM3	
+Akawi et al. (2013)	reports	In the Moroccan family (family 3), Akawi et al. (2013) found a homozygous c.2T>G transversion in JAM3 that changes the initiator methionine to arginine (M1R). The mutation segregated with the disorder and was absent from dbSNP and the 1000 Genomes Project. The authors predicted that it impairs protein synthesis.	
+JAM3 c.2T>G / p.M1R	in_gene	JAM3	
+Akawi et al. (2013)	reports	Akawi et al. (2013) found that in all 3 families the mutations segregated with the disorder in a pattern consistent with autosomal recessive inheritance. Parents were heterozygous carriers, and unaffected sibs were either homozygous wildtype or heterozygous.	
+Akawi et al. (2013)	reports	Akawi et al. (2013) noted that the missense mutations affected different domains of JAM3, yet the affected children had similar phenotypes. They suggested this clinical homogeneity is likely due to total loss of protein function.	
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	caused_by	JAM3	21109224,23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_variant	JAM3 c.2T>G / p.M1R	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_variant	JAM3 c.346G>A / p.E116K	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_variant	JAM3 c.656G>A / p.C219Y	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_variant	JAM3 mutation in the canonical splice-donor site of intron 5 of JAM3	21109224
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	inheritance	Autosomal recessive	21109224,23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Tonic seizure	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Nuclear cataract	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Intracerebral periventricular calcifications	21109224,23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Bulging fontanelle	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Sloping forehead	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Narrow forehead	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Hydrocephalus	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Small for gestational age	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Developmental cataract	21109224,23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Intraventricular hemorrhage	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Ventriculomegaly	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Subependymal cysts	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Abnormal cerebral white matter morphology	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Horseshoe kidney	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Cerebral hemorrhage	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	EEG with generalized epileptiform discharges	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Hydronephrosis	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Feeding difficulties	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	High-pitched cry	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Thin corpus callosum	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Cerebral edema	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Status epilepticus	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Macrocephaly	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Anemia	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Periventricular cysts	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Prominent scalp veins	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Seizure	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Basal ganglia calcification	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Spasticity	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Death in infancy	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Severe global developmental delay	23255084
+HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS	has_phenotype	Intracranial hemorrhage	21109224
+Tonic seizure	is_a	Seizure	
+Cerebral hemorrhage	is_a	Intracranial hemorrhage	
+Intraventricular hemorrhage	is_a	Intracranial hemorrhage	
+Status epilepticus	is_a	Seizure	
+Thin corpus callosum	is_a	Abnormal cerebral white matter morphology	
+Periventricular cysts	is_a	Abnormal cerebral white matter morphology	

@@ -1,0 +1,35 @@
+subject	predicate	object	pmids
+Ray (1970)	reports	Ray (1970) reported split-foot malformation in 2 sibs.	
+Freire-Maia (1971)	reports	Freire-Maia (1971) described a recessive form of ectrodactyly and discussed what it means for genetic counseling.	
+Verma et al. (1976)	reports	Verma et al. (1976) described an intermarried consanguineous family in which split-hand and split-foot deformity occurred in 2 sibships. Both sibships came from first-cousin marriages.	
+Verma et al. (1976)	reports	Verma et al. (1976) concluded that their family, together with those reported by Ray (1960) and Freire-Maia (1971), further showed that split-hand and split-foot deformity can be inherited as an autosomal recessive trait. Their evidence was the occurrence of the deformity in 2 sibships born to first-cousin parents.	
+Mufti and Wood (1987)	reports	Mufti and Wood (1987) described an extended family in which 4 sisters and half sisters had ectrodactyly. Two of the sisters also had agenesis of the tibiae.	
+Mufti and Wood (1987)	reports	Based on the occurrence of ectrodactyly in sisters and half sisters of an extended family, Mufti and Wood (1987) concluded that autosomal recessive inheritance seemed likely.	
+Hennekam and Lommen (1988)	reports	Hennekam and Lommen (1988) reported ectrodactyly in sisters and half sisters.	
+Zlotogora and Nubani (1989)	reports	Zlotogora and Nubani (1989) described a family in which 4 individuals in 2 sibships had typical split hand/foot malformation.	
+Zlotogora and Nubani (1989)	reports	Zlotogora and Nubani (1989) discussed whether a rare autosomal recessive form of split hand/foot malformation exists. As an alternative, they proposed a two-locus model: a dominant split hand/foot mutation would be controlled by a gene at another locus, and a dominant mutation at that controlling locus would cause nonpenetrance of the split hand/foot mutation.	
+Gül and Oktenli (2002)	reports	Gül and Oktenli (2002) reported 9 individuals with split-hand/split-foot malformation (SHFM) in an inbred kindred. The malformation pattern varied within the family.	
+Gül and Oktenli (2002)	reports	Gül and Oktenli (2002) noted that most familial SHFM is autosomal dominant. In their inbred kindred with 9 affected members, they discussed autosomal recessive inheritance as well as a two-locus model.	
+Elliott and Evans (2006)	reports	Elliott and Evans (2006) noted that split-hand/foot malformation is genetically heterogeneous, with at least five loci identified. Using descriptive epidemiology, chi-square and discriminant function analyses, they identified phenotypic patterns associated with the mapped SHFM loci, which they suggested could help with classification and with directing mapping efforts and targeted genetic testing.	
+Ugur and Tolun (2008)	reports	Ugur and Tolun (2008) studied a large consanguineous kindred with autosomal recessive split-hand/foot malformation. Twelve affected members had central reductions of the feet, with or without hand involvement. One more affected member had the mildest phenotype, which was atypical SHFM.	
+Ugur and Tolun (2008)	reports	In a large consanguineous kindred with autosomal recessive SHFM, Ugur and Tolun (2008) used homozygosity mapping to identify a novel SHFM locus at 12q13.11-q13. The maximum multipoint lod score was 5.47. Linkage to 4 of the 5 known SHFM loci was excluded.	
+Ugur and Tolun (2008)	reports	Using a candidate gene approach in the consanguineous SHFM kindred, Ugur and Tolun (2008) identified a homozygous missense mutation in WNT10B, p.R332W. It was found in all affected individuals except the atypical case, and also in an asymptomatic female. The authors proposed that either a second locus contributes to manifestation of the SHFM phenotype or a suppressor locus prevented manifestation in the nonpenetrant female.	
+WNT10B p.R332W	in_gene	WNT10B	
+Ugur and Tolun (2008)	reports	In most affected members of the kindred, Ugur and Tolun (2008) detected a rare insertion variant in TP63 (rs34201045). It lies at the alternate promoter used to transcribe the N-terminal-truncated p63 isotype. The authors suggested complex inheritance.	
+TP63 rs34201045	in_gene	TP63	
+Blattner et al. (2010)	reports	In a patient with sporadic split-hand/foot malformation, Blattner et al. (2010) sequenced WNT10B and found a homozygous 4-bp duplication that results in a premature termination codon. Nine relatives who were heterozygous for the duplication showed no sign of SHFM.	
+WNT10B 4-bp duplication resulting in a premature termination codon	in_gene	WNT10B	
+Blattner et al. (2010)	reports	Blattner et al. (2010) concluded that sporadic SHFM is not always a dominant trait and may be inherited in an autosomal recessive manner. In that case the recurrence risk is 25% for sibs and very low for the offspring of patients unless there is consanguinity. They recommended testing patients with sporadic SHFM for WNT10B mutations to determine the recurrence risk.	
+Kantaputra et al. (2018)	reports	Kantaputra et al. (2018) reported an Indian girl with split-hand/foot malformation (SHFM), sparse hair, and interrupted eyebrows. The patient and all family members had normal bone density and were not obese, unlike some patients with WNT10B variants. The authors suggested that sparse hair and interrupted eyebrows may be associated findings of SHFM6.	
+Kantaputra et al. (2018)	reports	In an Indian girl with SHFM6, Kantaputra et al. (2018) identified a novel homozygous 3-bp deletion in the WNT10B gene (c.695_697delACA), predicted to cause an in-frame deletion of asparagine-232 (p.Asn232del). Protein modeling suggested that this deletion at a critical position likely severely affects protein structure and function, likely decreasing protein lifetime and preventing binding to its receptors and other ligands.	
+WNT10B c.695_697delaca / p.N232del	in_gene	WNT10B	
+SPLIT-HAND/FOOT MALFORMATION 6	caused_by	WNT10B	18515319,20635353,29427788
+SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B c.695_697delaca / p.N232del	29427788
+SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B p.R332W	18515319
+SPLIT-HAND/FOOT MALFORMATION 6	has_variant	WNT10B 4-bp duplication resulting in a premature termination codon	20635353
+SPLIT-HAND/FOOT MALFORMATION 6	inheritance	Autosomal recessive	12072797,1248167,18515319,20635353,2918544,29427788,3585937,5094721
+SPLIT-HAND/FOOT MALFORMATION 6	has_phenotype	Split hand	12072797,1248167,18515319,20635353,2918544,29427788,3346888,3585937,5094721
+SPLIT-HAND/FOOT MALFORMATION 6	has_phenotype	Split foot	12072797,1248167,18515319,2918544,29427788,4320415
+SPLIT-HAND/FOOT MALFORMATION 6	has_phenotype	Sparse scalp hair	29427788
+SPLIT-HAND/FOOT MALFORMATION 6	has_phenotype	Abnormal eyebrow morphology	29427788
+SPLIT-HAND/FOOT MALFORMATION 6	has_phenotype	Absent tibia	3585937

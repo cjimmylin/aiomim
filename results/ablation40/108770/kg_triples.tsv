@@ -1,0 +1,38 @@
+subject	predicate	object	pmids
+Allensworth et al. (1969)	reports	Allensworth et al. (1969) reported persistent atrial standstill in a family with myocardial disease.	
+Harrison and Derrick (1969)	reports	Harrison and Derrick (1969) reviewed atrial standstill and described 2 new cases that they called familial and unusual. One of these patients was treated with epicardial pacing.	
+Williams et al. (1972)	reports	Williams et al. (1972) reported a familial form of atrial cardiomyopathy with heart block.	
+Amat-y-Leon et al. (1974)	reports	Amat-y-Leon et al. (1974) reported a familial atrial dysrhythmia with atrioventricular block. They studied it with intracellular microelectrode recordings, clinical electrophysiologic studies and morphologic observations.	
+Shah et al. (1992)	reports	Shah et al. (1992) reported familial total atrial standstill.	
+Groenewegen et al. (2003)	reports	Groenewegen et al. (2003) clinically evaluated 44 members of a large family with atrial standstill. One deceased and three living relatives were unambiguously affected by atrial standstill; all other relatives appeared unaffected.	
+Groenewegen et al. (2003)	reports	In a large family with atrial standstill, Groenewegen et al. (2003) used candidate gene screening to identify a novel SCN5A mutation, D1275N, in all 3 affected living relatives and in 5 unaffected relatives; the deceased affected relative was an obligate carrier. SCN5A-D1275N channels showed a small depolarizing shift in activation compared with wildtype channels.	
+SCN5A p.D1275N	in_gene	SCN5A	
+Groenewegen et al. (2003)	reports	Groenewegen et al. (2003) also detected 2 closely linked polymorphisms in regulatory regions of the atrial-specific gap junction gene connexin-40 (Cx40; GJA5), at nucleotides -44 (G-A) and +71 (A-G). Eight relatives were homozygous for both polymorphisms, a genotype found in only about 7% of controls, and 3 of these were affected. Reporter gene analysis showed reduced expression with the rare Cx40 genotype compared with the more common genotype.	
+GJA5 -44 (G-->A)	in_gene	GJA5	
+GJA5 +71 (A-->G)	in_gene	GJA5	
+Groenewegen et al. (2003)	reports	Groenewegen et al. (2003) found that the 3 living patients with atrial standstill were the only relatives who coinherited both the rare homozygous Cx40 genotype and the SCN5A D1275N mutation. They proposed that, although each genetic change alone had a relatively benign functional effect, the combined effect eventually progressed to total atrial standstill.	
+Fazelifar et al. (2005)	reports	Fazelifar et al. (2005) reported a family with atrial standstill associated with syncope, dilated cardiomyopathy, and sudden cardiac death.	
+Fazelifar et al. (2005)	reports	Fazelifar et al. (2005) noted that atrial standstill is an extremely uncommon arrhythmia that rarely appears to be familial, and that it has been associated with conditions including congenital heart disease, valvular heart disease, conduction disturbances, Brugada syndrome, myocardial infarction, and amyloidosis.	
+Makita et al. (2005)	reports	Makita et al. (2005) described an 11-year-old boy with an apparently sporadic case of congenital atrial standstill. His surface ECG showed no P waves, and pacing could not capture his right atrium. His father, who carried the same SCN5A mutation, was in normal sinus rhythm.	
+Makita et al. (2005)	reports	In a boy with congenital atrial standstill, Makita et al. (2005) identified a novel SCN5A mutation, L212P, which he had inherited from his father, who was in normal sinus rhythm. In a heterologous expression system studied by whole-cell patch clamp, the L212P sodium channel showed large hyperpolarizing shifts in the voltage dependence of both activation (-63.5 vs -48.1 mV) and inactivation (-95.6 vs -86.6 mV), as well as delayed recovery from inactivation.	
+SCN5A p.L212P	in_gene	SCN5A	
+Makita et al. (2005)	reports	Makita et al. (2005) found that the proband with atrial standstill, but not his unaffected father who also carried the SCN5A L212P mutation, carried connexin-40 (Cx40) polymorphisms inherited from his asymptomatic mother. The authors suggested that coinheritance of Cx40 polymorphisms is a possible genetic factor that modifies the clinical manifestation of atrial standstill, which is consistent with digenic inheritance and incomplete penetrance.	
+GJA5 Cx40 polymorphisms	in_gene	GJA5	
+ATRIAL STANDSTILL 1	caused_by	GJA5	12522116
+ATRIAL STANDSTILL 1	has_variant	GJA5 +71 (A-->G)	12522116
+ATRIAL STANDSTILL 1	has_variant	GJA5 -44 (G-->A)	12522116
+ATRIAL STANDSTILL 1	caused_by	SCN5A	12522116,16188595
+ATRIAL STANDSTILL 1	has_variant	SCN5A p.D1275N	12522116
+ATRIAL STANDSTILL 1	has_variant	SCN5A p.L212P	16188595
+ATRIAL STANDSTILL 1	inheritance	Digenic	12522116,16188595
+ATRIAL STANDSTILL 1	has_phenotype	Absent P wave	16188595
+ATRIAL STANDSTILL 1	has_phenotype	Atrial standstill	12522116,1575158,16176547,16188595,4981961,5347950
+ATRIAL STANDSTILL 1	has_phenotype	Syncope	16176547
+ATRIAL STANDSTILL 1	has_phenotype	Dilated cardiomyopathy	16176547
+ATRIAL STANDSTILL 1	has_phenotype	Sudden cardiac death	16176547
+ATRIAL STANDSTILL 1	has_phenotype	Cardiomyopathy	4636548,4981961
+ATRIAL STANDSTILL 1	has_phenotype	Heart block	4636548
+ATRIAL STANDSTILL 1	has_phenotype	Atrial arrhythmia	4430108
+ATRIAL STANDSTILL 1	has_phenotype	Atrioventricular block	4430108
+Atrioventricular block	is_a	Heart block	
+Dilated cardiomyopathy	is_a	Cardiomyopathy	

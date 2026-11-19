@@ -1,0 +1,16 @@
+subject	predicate	object	pmids
+Li et al. (2016)	reports	Li et al. (2016) reported 2 unrelated children with epileptic encephalopathy whose seizures were refractory to conventional antiepileptic medications. The older proband later developed refractory status epilepticus.	
+Li et al. (2016)	reports	In 2 unrelated children with epileptic encephalopathy, Li et al. (2016) used exome and candidate panel sequencing to identify a recurrent de novo heterozygous missense mutation in the GRIN2D gene, c.1999G>A (p.Val667Ile). The variant lies in the M3 transmembrane domain, which is involved in channel gating. GRIN2D had not previously been recognized to harbor disease-causing mutations.	
+GRIN2D c.1999G>A / p.V667I	in_gene	GRIN2D	
+Li et al. (2016)	reports	Li et al. (2016) found that the GRIN2D V667I mutation causes a gain of function. It increased glutamate and glycine potency 2-fold and channel open probability 6-fold, reduced sensitivity to negative modulators such as extracellular protons, and prolonged deactivation after glutamate removal. Cultured neurons transfected with the mutant cDNA showed dendritic swelling and cell death, which the authors suggested reflected excitotoxicity from NMDAR overactivation.	
+Li et al. (2016)	reports	Li et al. (2016) first tested the mutant receptors' sensitivity to FDA-approved NMDAR antagonists. Both children were then treated with oral memantine, which led to mild to moderate improvement in seizure burden and development. The older proband's later refractory status epilepticus improved dramatically, both electrically and clinically, with ketamine and magnesium. The authors suggested that NMDAR antagonists may be useful as adjuvant therapy in individuals with GRIN2D gain-of-function mutations.	
+Tsuchida et al. (2018)	reports	Tsuchida et al. (2018) reported 3 unrelated patients with developmental and epileptic encephalopathy, characterized by severe developmental delay and intractable epilepsy. When they compared their 3 patients with the 2 previously reported patients who had GRIN2D variants, they found that all 5 had similar clinical features.	
+Tsuchida et al. (2018)	reports	Using whole exome sequencing, Tsuchida et al. (2018) identified novel heterozygous missense variants in the GRIN2D gene in 3 unrelated patients with developmental and epileptic encephalopathy. All of the altered residues were highly conserved across vertebrates and among the 4 GluN2 subunits. Based on structural analysis, the authors concluded that all 3 variants probably impair GluN2D function, either by affecting intersubunit interaction or by altering channel gating activity.	
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	caused_by	GRIN2D	27616483
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	has_variant	GRIN2D c.1999G>A / p.V667I	27616483
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	inheritance	Autosomal dominant	27616483,30280376
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	has_phenotype	Severe global developmental delay	30280376
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	has_phenotype	Seizure	27616483,30280376
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	has_phenotype	Epileptic encephalopathy	27616483
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46	has_phenotype	Status epilepticus	27616483
+Status epilepticus	is_a	Seizure	

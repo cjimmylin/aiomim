@@ -1,0 +1,129 @@
+subject	predicate	object	pmids
+Rienhoff et al. (2013)	reports	Rienhoff et al. (2013) reported a 9-year-old European American girl born to nonconsanguineous healthy parents. At birth she had distal arthrogryposis, with contractures of the right hand (most severe in the 3rd and 4th fingers) and of all toes, a midline facial nevus flammeus, and mild hypotonia. She failed to thrive and had delayed gross motor development. At 17 months she had hypertelorism, prominent eyes, blue sclerae, a bifid uvula with an intact hard palate, retrognathia, mild pectus excavatum, pes planus, hyperextensible large joints, reduced muscle bulk with low tone and diminished reflexes, and markedly reduced subcutaneous fat.	
+Rienhoff et al. (2013)	reports	Rienhoff et al. (2013) found that the patient walked at 24 months with a waddling gait and a positive Gowers sign, and that her neurocognitive development was normal. Radiographs showed bilateral coxa valga. She had persistent growth retardation, weighing below the 1st centile at age 7. Yearly echocardiograms from 18 months showed no cardiac defect, and her aortic root dimensions were normal (z score 0.39 at age 6.5 years). A quadriceps biopsy at age 7 showed only mild focal type 1 fiber disproportion consistent with disuse, with no dystrophic or inflammatory changes.	
+Rienhoff et al. (2013)	reports	In a girl with a syndrome of distal arthrogryposis, hypotonia, bifid uvula, hypertelorism, low muscle mass and growth retardation, Rienhoff et al. (2013) used exome sequencing to identify a de novo heterozygous c.1226G>A transition in the TGFB3 gene, resulting in a cys409-to-tyr (C409Y) substitution. Sanger sequencing confirmed that the variant was de novo. It was not present in dbSNP130, the EVS database, or 1000 Genomes. Cys409 is the penultimate cysteine of the cysteine knot and is conserved across TGF-beta family ligands. No mutations were found in TGFB2, TGFBR1, TGFBR2, SMAD3, FBN1, or FBN2.	
+TGFB3 c.1226G>A / p.C409Y	in_gene	TGFB3	
+Rienhoff et al. (2013)	reports	Rienhoff et al. (2013) also found a de novo heterozygous nonsense mutation in CDH2 (c.208C>T, Q70X) in the same patient. N-cadherin levels in her fibroblasts did not differ from those in controls, and Cdh2-null heterozygous mice are normal. The authors therefore concluded that the CDH2 variant was unlikely to drive the phenotype, although they could not exclude modifying effects.	
+CDH2 c.208C>T / p.Q70*	in_gene	CDH2	
+Rienhoff et al. (2013)	reports	In functional studies, Rienhoff et al. (2013) found that secreted TGFB3 C409Y failed to activate a TGF-beta reporter in cultured cells. In Xenopus embryos, co-injecting mutant and wildtype RNA at a 1:1 ratio reduced pSMAD2 and pERK1/2 signals to about 40% and 60% of wildtype levels, respectively, consistent with a dominant-negative effect. The mutant had no effect on BMP/SMAD1 signaling. The authors concluded that the mutation is hypomorphic and that reduced TGF-beta signaling likely accounts for the phenotype.	
+Rienhoff et al. (2013)	reports	Rienhoff et al. (2013) reported that a 3-year trial of losartan, started at age 3 at doses up to 2.0 mg/kg/day, produced no change in the patient's muscle strength or mass. They took this as further evidence that her disease mechanism differs from that of disorders with enhanced TGF-beta signaling.	
+Rienhoff et al. (2013)	reports	Rienhoff et al. (2013) suggested that a deficiency of TGFB3 during early myogenesis, possibly through incomplete epithelial-to-mesenchymal transition of the dermomyotome, could cause hypomyoplasia. This would clinically mimic, but be distinct from, the myopathy caused by excess TGF-beta signaling in Marfan syndrome. They concluded that normal muscle mass and complete palatal fusion require a minimum level of TGFB3 signaling.	
+Matyas et al. (2014)	reports	Matyas et al. (2014) reported a de novo mutation in the latency-associated peptide (LAP) domain of TGFB3 in a patient with overgrowth and features of Loeys-Dietz syndrome.	
+TGFB3 De novo mutation of the latency-associated peptide domain of TGFB3	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) studied a large Dutch family (family 1) with an autosomal dominant disorder whose features overlapped with Marfan and Loeys-Dietz syndromes. Seven members aged 40 to 68 years had aneurysms and dissections, mainly of the descending thoracic and abdominal aorta. Three died of aortic dissection and rupture, and 4 had mitral valve abnormalities ranging from mild prolapse to severe regurgitation. Other features were subtle craniofacial changes (long face, high-arched palate, retrognathia), pectus deformity, scoliosis, velvety skin, varices, hiatal hernia, and autoimmune features including HLA-B27-positive spondyloarthritis, Graves disease, and celiac disease.	
+Bertoli-Avella et al. (2015)	reports	In the Dutch family 1, in which all known TAAD genes had been excluded by sequencing, Bertoli-Avella et al. (2015) carried out SNP-based linkage analysis in 6 patients. All affected patients shared 2 large genomic regions on chromosomes 14 and 15, and the TGFB3 gene on 14q24 was the leading candidate in these regions.	
+Bertoli-Avella et al. (2015)	reports	In affected members of the Dutch family 1, Bertoli-Avella et al. (2015) found a heterozygous TGFB3 splice donor variant in intron 4 (c.754+2T>C). It was absent from variant databases and segregated with the phenotype. Analysis of cDNA from 2 patients showed skipping of exon 4, giving an in-frame deletion of 108 nucleotides and a predicted loss of 36 amino acids (p.Glu216_Lys251del). The variant was also present in a 17-year-old without documented cardiovascular features who had mild systemic findings.	
+TGFB3 c.754+2T>C / p.E216_K251del	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) screened 470 additional probands with syndromic or nonsyndromic TAAD for TGFB3 mutations (350 by Sanger sequencing, 120 by exome sequencing). They found heterozygous TGFB3 mutations in 10 more probands: 4 different missense mutations, 1 nonsense mutation, and 2 single-base deletions causing frameshifts. None of the mutations was found in controls in EVS, 1000 Genomes, or Genome of the Netherlands.	
+Bertoli-Avella et al. (2015)	reports	In family 3, Bertoli-Avella et al. (2015) identified a heterozygous TGFB3 missense mutation, p.Asp263His, in exon 5. It changes a highly conserved residue of the latency-associated peptide (LAP) domain and disrupts the RGD motif needed for integrin binding. In a homology model, Asp263 lies in a surface loop that is accessible to integrins. Aortic tissue from a patient carrying this mutation showed elastic fiber fragmentation and paradoxically increased TGF-beta signaling.	
+TGFB3 p.D263H	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) found a heterozygous TGFB3 missense mutation, p.Arg300Trp, in 4 families (2, 4, 5, and 11). It affects the last amino acid of the LAP domain and disrupts the last residue of the RKKR furin cleavage recognition motif. Homology modeling predicted that ionic interactions would be lost and steric rearrangements induced. Mutations at Arg300 were associated with cleft palate and/or bifid uvula.	
+TGFB3 p.R300W	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	In family 10, Bertoli-Avella et al. (2015) identified a heterozygous TGFB3 missense mutation, p.Ile322Thr, at a highly conserved residue in the active cytokine region. In a homology model, the change was predicted to alter the position of Arg325, a residue important for binding to TGFBR2, and to disrupt hydrophobic contacts with the LAP domain.	
+TGFB3 p.I322T	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	In family 8, Bertoli-Avella et al. (2015) identified a heterozygous TGFB3 missense mutation, p.Leu401Pro, at a highly conserved residue in the active cytokine region. The substitution was predicted to change hydrophobic interactions with residues of both the LAP and TGFB3 domains.	
+TGFB3 p.L401P	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	In the proband of family 6, Bertoli-Avella et al. (2015) identified a de novo heterozygous TGFB3 nonsense mutation, p.Tyr365*. The proband also carried a SMAD3 variant of unknown significance (p.Ala250Thr), inherited from a mother who had variable connective tissue findings and mild cardiovascular involvement. The authors considered the contribution of the SMAD3 variant unclear.	
+TGFB3 p.Y365*	in_gene	TGFB3	
+SMAD3 p.A250T	in_gene	SMAD3	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) identified 2 heterozygous single-base deletions in TGFB3 that cause frameshifts and premature stop codons: p.Leu386Argfs*21 in family 7 and p.Asn235Metfs*11 in family 9. The authors predicted that these lead to nonsense-mediated decay or truncated proteins that probably lose cytokine activity.	
+TGFB3 p.L386Rfs / p.L386fs	in_gene	TGFB3	
+TGFB3 p.N235Mfs / p.N235fs	in_gene	TGFB3	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) summarized 43 patients (23 male, 20 female) from 11 families with TGFB3 mutations. Features overlapped with Loeys-Dietz syndrome. Findings included type A dissection (4 patients; median age 51 years) and type B dissection (6 patients; median age 44.5 years), aortic aneurysm, mitral valve disease, septal defects, hypertelorism, bifid uvula, cleft palate, cervical spine instability, clubfoot, tall stature, arachnodactyly, pectus deformity, kyphoscoliosis, joint hypermobility, and hernia. They observed no early dissection, no dissection at small aortic size, no striking arterial tortuosity, and no ectopia lentis. Clinical variability was striking both within and between families.	
+Bertoli-Avella et al. (2015)	reports	In the dissected aortic wall of a patient with the p.Asp263His mutation, Bertoli-Avella et al. (2015) found elastic fiber fragmentation with increased collagen and proteoglycan deposition. Immunohistochemistry showed paradoxically enhanced TGF-beta signaling, with increased pSMAD2 (canonical) and pERK (noncanonical), as well as elevated TGFB1 mRNA, similar to findings in TGFB2-deficient aortas. Pathology reports from 2 family 1 patients also described extensive elastic fiber fragmentation and aortic medial degeneration.	
+Bertoli-Avella et al. (2015)	reports	Because they found 3 truncating mutations and an in-frame splice site mutation, Bertoli-Avella et al. (2015) hypothesized that TGFB3 mutations cause loss of function. They also proposed that the young age of previously reported patients (8 and 10.5 years) might explain why those patients lacked obvious cardiovascular disease.	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) noted that TGFB3 mutations appeared to have opposing effects on height. One patient with p.Asp263His had short stature and received growth hormone, whereas several others had tall stature. Mutations affecting Arg300 were associated with cleft palate and/or bifid uvula.	
+Bertoli-Avella et al. (2015)	reports	Bertoli-Avella et al. (2015) recommended yearly echocardiographic evaluation of the aortic root in all TGFB3 mutation carriers, plus at least 1 baseline imaging study of the complete aorta and its side branches. They added that imaging of the brain vessels might be indicated.	
+Kuechler et al. (2015)	reports	Kuechler et al. (2015) described a family in which a father and his 2 children had features overlapping Marfan and Loeys-Dietz syndromes, including tall stature, arachnodactyly, hyperextensible joints, hypertelorism, and bifid uvula. None had cardiac involvement, aortic dilation, or eye involvement.	
+Kuechler et al. (2015)	reports	In 3 affected members of a family with a disorder overlapping Marfan and Loeys-Dietz syndromes, Kuechler et al. (2015) identified a heterozygous c.898C>G mutation in the TGFB3 gene, predicting an arg300-to-gly (R300G) substitution. The mutation was found by whole-exome sequencing in 2 affected individuals and confirmed by Sanger sequencing, segregating with the phenotype. The authors noted that a different mutation at the same codon (R300Q) had previously been reported in a child with overgrowth, and that Arg300 mutations presumably increase TGF-beta signaling.	
+TGFB3 c.898C>G / p.R300G	in_gene	TGFB3	
+Kuechler et al. (2015)	reports	Kuechler et al. (2015) noted that a heterozygous loss-of-function TGFB3 mutation (C409Y) had been reported in an individual with growth retardation, whereas codon Arg300 mutations, presumably leading to increased TGF-beta signaling, were associated with tall stature/overgrowth, suggesting that short or tall stature in patients with TGFB3 mutations may result from opposing effects on TGF-beta signaling.	
+LOEYS-DIETZ SYNDROME 5	caused_by	CDH2	23824657
+LOEYS-DIETZ SYNDROME 5	has_variant	CDH2 c.208C>T / p.Q70*	23824657
+LOEYS-DIETZ SYNDROME 5	caused_by	SMAD3	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	SMAD3 p.A250T	25835445
+LOEYS-DIETZ SYNDROME 5	caused_by	TGFB3	23824657,24798638,25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.1226G>A / p.C409Y	23824657
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.754+2T>C / p.E216_K251del	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 c.898C>G / p.R300G	26184463
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.D263H	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.I322T	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.L386Rfs / p.L386fs	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.L401P	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.N235Mfs / p.N235fs	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.R300W	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 p.Y365*	25835445
+LOEYS-DIETZ SYNDROME 5	has_variant	TGFB3 De novo mutation of the latency-associated peptide domain of TGFB3	24798638
+LOEYS-DIETZ SYNDROME 5	inheritance	Autosomal dominant	23824657,25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Tall stature	25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Arachnodactyly	25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Joint hypermobility	23824657,25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Hypertelorism	23824657,25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Bifid uvula	23824657,25835445,26184463
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Aortic dissection	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Mitral valve prolapse	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Long face	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	High palate	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Retrognathia	23824657,25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Abnormal sternum morphology	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Scoliosis	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Soft skin	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Varicose veins	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Hiatus hernia	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Graves disease	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Celiac disease	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Bruising susceptibility	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Aortic aneurysm	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Arterial dissection	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Mitral regurgitation	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Atrial septal defect	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Kyphoscoliosis	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Cleft palate	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Cervical instability	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Talipes equinovarus	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Dolichocephaly	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Inguinal hernia	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Osteoarthritis	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Cystic medial necrosis	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Short stature	25835445
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Overgrowth	24798638
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Distal arthrogryposis	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Camptodactyly of finger	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Camptodactyly of toe	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Nevus flammeus	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Hypotonia	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Failure to thrive	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Motor delay	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Proptosis	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Blue sclerae	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Pectus excavatum	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Pes planus	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Decreased muscle mass	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Hyporeflexia	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Reduced subcutaneous adipose tissue	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Abnormality of the nose	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Prominent metopic ridge	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Waddling gait	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Gowers sign	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Coxa valga	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Growth delay	23824657
+LOEYS-DIETZ SYNDROME 5	has_phenotype	Type 1 muscle fiber predominance	23824657
+Varicose veins	is_a	Abnormality of the cardiovascular system	
+Hypertelorism	is_a	Abnormality of the eye	
+Arterial dissection	is_a	Abnormality of the cardiovascular system	
+Aortic dissection	is_a	Abnormality of the cardiovascular system	
+Bruising susceptibility	is_a	Abnormality of the cardiovascular system	
+Cystic medial necrosis	is_a	Abnormality of the cardiovascular system	
+Overgrowth	is_a	Tall stature	
+Proptosis	is_a	Abnormality of the eye	
+Aortic root aneurysm	is_a	Aortic aneurysm	
+Aortic aneurysm	is_a	Abnormality of the cardiovascular system	
+Mitral valve prolapse	is_a	Abnormality of the cardiovascular system	
+Ectopia lentis	is_a	Abnormality of the eye	
+Kyphoscoliosis	is_a	Scoliosis	
+Short stature	is_a	Growth delay	
+Mitral regurgitation	is_a	Abnormality of the cardiovascular system	
+Atrial septal defect	is_a	Abnormality of the cardiovascular system	
+Blue sclerae	is_a	Abnormality of the eye	
+Pectus excavatum	is_a	Abnormal sternum morphology	
+Arterial tortuosity	is_a	Abnormality of the cardiovascular system	

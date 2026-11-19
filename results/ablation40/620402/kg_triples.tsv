@@ -1,0 +1,98 @@
+subject	predicate	object	pmids
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) reported 3 Portuguese sibs (2 brothers and a sister, aged 36, 25, and 42 years) born to nonconsanguineous healthy parents with an axonal, recessively inherited distal hereditary motor neuropathy. Onset was between ages 9 and 12 years with walking difficulties, followed by progressive distal weakness predominantly in the lower limbs, later hand involvement, amyotrophy, and pes cavus in all; sensory examination was normal and there was no cognitive disorder. Two had pyramidal signs (brisk reflexes and Hoffman sign in one, left Babinski sign in another), and achilles reflexes were abolished in 2; 2 were ambulant without help and the eldest used ankle-foot orthoses.	
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) found on electrophysiologic studies in 2 patients evidence of a pure motor axonal neuropathy predominantly affecting the distal lower limbs, with fibrillations and neurogenic recruitment. In the index patient, brain and spinal cord MRI, echocardiography, ECG, and audiometry were normal, and creatine kinase was mildly elevated (215 U/l).	
+Jacquier et al. (2023)	reports	In 3 sibs with distal hereditary motor neuropathy, Jacquier et al. (2023) identified by whole-exome sequencing a homozygous c.3G>T variant in the start codon of COQ7 isoform 1 (NM_016138.5; p.Met1?). The variant segregated with disease (parents heterozygous), was absent from ExAC, and was present once in heterozygous state in gnomAD (allele frequency 0.000004065). Alternative isoforms 2 and 3 use other start codons and were predicted unaffected.	
+COQ7 c.3G>T / p.M1	in_gene	COQ7	
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) showed that the c.3G>T COQ7 mutation reduced COQ7 protein by 85% in transfected SH-EP neuroblastoma cells without changing mRNA levels or subcellular localization, and that COQ7 protein was barely detectable in patient fibroblasts while mRNA was only modestly decreased (17-21%), suggesting a translation initiation defect. A FLAG-tagged isoform 2 localized to mitochondria, suggesting other isoforms could partially compensate.	
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) found decreased CoQ10 in fibroblasts from the index patient (12.5 vs 71.5 pmol/mg protein in controls) with accumulation of 6-demethoxycoenzyme Q10 (6-DMQ), the COQ7 substrate; 6-DMQ was also detected in the patient's plasma. The authors suggested that plasma 6-DMQ accumulation could be used to confirm pathogenicity of COQ7 variants.	
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) showed that patient fibroblasts had reduced mitochondrial ATP production (42% vs 56-63% in controls) with increased glycolytic ATP production, reduced basal and maximal respiration, and reduced proliferation in galactose medium. Treatment with 2,4-dihydroxybenzoic acid normalized 6-DMQ and slightly increased CoQ10, and CoQ10 supplementation rescued respiration and proliferation. They speculated that milder disease than with previously reported catalytic-domain COQ7 mutations reflects sparing of alternative isoforms.	
+Jacquier et al. (2023)	reports	Jacquier et al. (2023) reported that the affected sister had symptom stabilization between ages 15 and 18 years while taking CoQ10 (30 mg/day), with renewed progression after stopping supplementation at 18 years. The authors suggested oral CoQ10 supplementation as a potential therapy.	
+Liu et al. (2023)	reports	Liu et al. (2023) reported biallelic variants in the COQ7 gene causing distal hereditary motor neuropathy in 2 Chinese families.	
+Smith et al. (2023)	reports	Smith et al. (2023) reported 3 sibs (a 24-year-old woman and men aged 23 and 12 years), born to Syrian first-cousin parents, with a progressive, severe length-dependent motor neuropathy. Distal weakness developed by 10 to 14 years of age, with muscle atrophy in the distal lower more than upper limbs, preserved sensation in all modalities, and preserved deep tendon reflexes. The patients had no developmental delay, cognitive impairment, or upper motor neuron features. Gene panels for Charcot-Marie-Tooth disease, SMA, distal HMN, and mtDNA were negative.	
+Smith et al. (2023)	reports	Smith et al. (2023) found that electrodiagnostic testing in all 3 affected sibs showed reduced distal motor amplitudes with preserved sensory responses, and needle EMG showed distal chronic reinnervation without active denervation; there was no evidence of demyelination.	
+Smith et al. (2023)	reports	Smith et al. (2023) reported that muscle MRI in 2 sibs showed normal proximal muscles with distal muscle wasting and moderate to severe fat infiltration beginning at the distal third of the thigh and most pronounced in the calves, particularly soleus and gastrocnemius. Vastus lateralis biopsy in 1 sib showed neurogenic atrophy with angular atrophic fibers, pyknotic nuclear clumps, group atrophy, and fiber type grouping, without ragged red or cytochrome oxidase-negative fibers.	
+Smith et al. (2023)	reports	In 3 sibs with distal hereditary motor neuropathy from a consanguineous Syrian family, Smith et al. (2023) identified a homozygous c.1A-G variant in the COQ7 gene (NM_016138.5), predicted to abolish the initiating methionine, by duo-exome sequencing with Sanger confirmation. The parents and an unaffected sib were heterozygous carriers, and the variant was absent from gnomAD. Translation was predicted to start at met39, removing the cleavable N-terminal mitochondrial targeting sequence and 2 additional amino acids.	
+COQ7 c.1A>G	in_gene	COQ7	
+Smith et al. (2023)	reports	Smith et al. (2023) found that fibroblasts from the 3 affected sibs had on average 87% lower CoQ10 than those of the carrier father and unaffected sib and accumulated the COQ7 substrate DMQ10, which was undetectable in carriers. Muscle from 1 sib had 67% lower CoQ10 than a control (63 vs 192.7 ng/mg protein) without detectable DMQ10. COQ7 protein was reduced by about 85% in patient fibroblasts and undetectable in muscle, whereas PDSS2 levels were unchanged.	
+Smith et al. (2023)	reports	Smith et al. (2023) found that permeabilized muscle from 1 affected sib had lower FCCP-induced maximal respiration and complex IV activity, higher H2O2 emission, and decreased complex I- and IV-containing supercomplexes than controls, with near-normal complex I and I+II respiration. Patient fibroblasts had reduced maximal and spare respiratory capacity, increased basal extracellular acidification, a glycolysis-favoring bioenergetic profile, and impaired metabolic flexibility, but remained viable in galactose medium.	
+Smith et al. (2023)	reports	Smith et al. (2023) reported congenital deafness in 2 of the affected sibs and in the unaffected sib, which did not segregate with the motor neuropathy. It was explained by a homozygous GJB2 c.35delG (p.Gly12ValfsTer2) variant, for which both parents were heterozygous carriers.	
+GJB2 c.35delg / p.G12Vfs / p.G12fs	in_gene	GJB2	
+Smith et al. (2023)	reports	Smith et al. (2023) postulated that the metabolic dysfunction and increased oxidative stress (elevated H2O2 emission) associated with CoQ10 deficiency contribute to the selective distal motor phenotype. They suggested that the increased H2O2 emission may be due to loss of nuclear-located COQ7.	
+Smith et al. (2023)	reports	Smith et al. (2023) stated that their family represented a distinct phenotype from previously reported COQ7-related primary CoQ10 deficiency. Earlier cases had demyelinating and axonal sensorimotor polyneuropathy, developmental delay, and upper motor neuron features, and the authors described their family as the first report of pure distal hereditary motor neuropathy caused by COQ7.	
+Wongkittichote et al. (2023)	reports	Wongkittichote et al. (2023) reported 5 new patients with COQ7-related primary CoQ10 deficiency. They described two distinct presentations: a neonatal-onset form with severe neuromuscular, cardiorespiratory, and renal involvement, and a late-onset form with progressive neuropathy, lower extremity weakness, abnormal gait, and variable developmental delay.	
+Wongkittichote et al. (2023)	reports	Wongkittichote et al. (2023) studied previously reported and newly found COQ7 variants in a yeast cat5-deletion model (CAT5 is the yeast ortholog of COQ7). Wildtype CAT5 completely rescued the oxidative growth defect, but yeast CAT5 carrying the equivalent human pathogenic variants did not. Variants equivalent to human p.Arg54Gln, p.Arg107Trp, p.Ile66Asn, and the complex allele p.[Thr103Met;Leu111Pro] partially rescued growth, which the authors took to mean that these are hypomorphic alleles.	
+COQ7 p.R54Q	in_gene	COQ7	
+COQ7 p.R107W	in_gene	COQ7	
+COQ7 p.I66N	in_gene	COQ7	
+COQ7 p.L111P / p.T103M	in_gene	COQ7	
+Wongkittichote et al. (2023)	reports	Wongkittichote et al. (2023) defined two distinct presentations of COQ7-related disorder, a severe neonatal-onset form and a late-onset neuropathy form, and reported an emerging genotype-phenotype correlation in which several variants behaved as hypomorphic (leaky) alleles in yeast.	
+Wongkittichote et al. (2023)	reports	Wongkittichote et al. (2023) found that 2,4-dihydroxybenzoic acid (2,4-diHB) supplementation rescued the oxidative growth defect of cat5-deleted yeast carrying either leaky or severe mutants. COQ8 overexpression combined with 2,4-diHB acted synergistically to restore oxidative growth and the respiratory defect.	
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	caused_by	COQ7	36454683,37077559,37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 c.1A>G	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 c.3G>T / p.M1	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 p.I66N	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 p.L111P / p.T103M	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 p.R107W	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_variant	COQ7 p.R54Q	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	inheritance	Autosomal recessive	36454683,36758993,37077559,37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Peripheral neuropathy	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Lower limb muscle weakness	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Gait disturbance	36454683,37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Global developmental delay	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Abnormality of the musculature	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Abnormality of the cardiovascular system	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Abnormality of the kidney	37392700
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Distal muscle weakness	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Distal amyotrophy	36454683,37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Decreased compound muscle action potential amplitude	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	EMG: chronic denervation signs	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Fatty replacement of skeletal muscle	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Skeletal muscle atrophy	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Fiber type grouping	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Decreased level of coenzyme Q10 in skeletal muscle	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Decreased activity of mitochondrial respiratory chain	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Congenital sensorineural hearing impairment	37077559
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Distal lower limb muscle weakness	36454683,36758993
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Distal upper limb muscle weakness	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Foot dorsiflexor weakness	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Pes cavus	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Hyperreflexia	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Babinski sign	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Absent Achilles reflex	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Gowers sign	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Motor axonal neuropathy	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	EMG: neuropathic changes	36454683
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9	has_phenotype	Elevated circulating creatine kinase activity	36454683
+Decreased level of coenzyme Q10 in skeletal muscle	is_a	Abnormality of the musculature	
+EMG: neuropathic changes	is_a	Abnormality of the musculature	
+Global developmental delay	is_a	Abnormality of the nervous system	
+Hyperreflexia	is_a	Abnormality of the nervous system	
+Decreased compound muscle action potential amplitude	is_a	Abnormality of the nervous system	
+Abnormal sensory nerve conduction velocity	is_a	Abnormality of the nervous system	
+Absent Achilles reflex	is_a	Abnormality of the nervous system	
+Hyporeflexia	is_a	Abnormality of the nervous system	
+Gowers sign	is_a	Abnormality of the musculature	
+Distal upper limb muscle weakness	is_a	Distal muscle weakness	
+Distal upper limb muscle weakness	is_a	Abnormality of the musculature	
+Somatic sensory dysfunction	is_a	Abnormality of the nervous system	
+Peripheral demyelination	is_a	Abnormality of the nervous system	
+EMG: chronic denervation signs	is_a	EMG: neuropathic changes	
+Peripheral neuropathy	is_a	Abnormality of the nervous system	
+Upper motor neuron dysfunction	is_a	Abnormality of the nervous system	
+Distal amyotrophy	is_a	Skeletal muscle atrophy	
+Skeletal muscle atrophy	is_a	Abnormality of the musculature	
+Fiber type grouping	is_a	Abnormality of the musculature	
+Distal sensory impairment	is_a	Somatic sensory dysfunction	
+Babinski sign	is_a	Upper motor neuron dysfunction	
+Babinski sign	is_a	Abnormality of the nervous system	
+Gait disturbance	is_a	Abnormality of the nervous system	
+Distal lower limb muscle weakness	is_a	Distal muscle weakness	
+Distal lower limb muscle weakness	is_a	Lower limb muscle weakness	
+Foot dorsiflexor weakness	is_a	Abnormality of the musculature	
+Fatty replacement of skeletal muscle	is_a	Abnormality of the musculature	
+Lower limb muscle weakness	is_a	Abnormality of the musculature	
+Distal muscle weakness	is_a	Abnormality of the musculature	
+Ragged-red muscle fibers	is_a	Abnormality of the musculature	
+Motor axonal neuropathy	is_a	Peripheral neuropathy	
+Motor axonal neuropathy	is_a	Abnormality of the nervous system	
+Cognitive impairment	is_a	Abnormality of the nervous system	

@@ -1,0 +1,135 @@
+subject	predicate	object	pmids
+Minegishi et al. (2006)	reports	Minegishi et al. (2006) described a patient who had been clinically diagnosed with hyper-IgE syndrome. The patient was unusually susceptible to various microorganisms, including viruses, fungi, and mycobacteria, and had atopic dermatitis with elevated serum IgE.	
+Minegishi et al. (2006)	reports	Minegishi et al. (2006) identified a homozygous mutation in the TYK2 gene in a patient who had been clinically diagnosed with hyper-IgE syndrome. The abstract does not specify the mutation.	
+TYK2 homozygous Tyk2 mutation	in_gene	TYK2	
+Minegishi et al. (2006)	reports	Minegishi et al. (2006) found that the patient's cells had defects in several cytokine signaling pathways, including those for type I interferon, IL6, IL10, IL12, and IL23. Transducing intact TYK2 restored these signals. The authors concluded that TYK2 deficiency likely accounted for the patient's complex clinical features, including impaired Th1 differentiation and accelerated Th2 differentiation.	
+Minegishi et al. (2006)	reports	Minegishi et al. (2006) concluded that in humans TYK2 plays obligatory roles in multiple cytokine signals involved in innate and acquired immunity, and that this differs substantially from TYK2 function in mice.	
+Woellner et al. (2007)	reports	Woellner et al. (2007) addressed the relationship between the hyper-IgE syndrome and mutations in TYK2 in a correspondence.	
+Kilic et al. (2012)	reports	Kilic et al. (2012) reported a Turkish boy, born to first-cousin parents, who developed disseminated BCG disease after vaccination at 2 months of age. Left axillary lymphadenopathy appeared at 8 months, and generalized fistulous cervical, axillary and inguinal lymphadenopathy with fever developed by 21 months. M. bovis BCG was isolated from discharging sinuses, and lymph node histology showed acid-fast bacilli. He recovered without relapse after 18 months of antimycobacterial therapy.	
+Kilic et al. (2012)	reports	Kilic et al. (2012) reported that at age 8 years the patient developed neurobrucellosis, with seizures, neck stiffness and Brucella-positive blood and CSF cultures. It left him with severe sensorineural hearing loss, severe cognitive impairment and lacunar infarcts on MRI. At 11 years he had herpes zoster of the maxillary branch of the trigeminal nerve, which was treated with acyclovir and did not recur.	
+Kilic et al. (2012)	reports	Unlike the first reported Japanese TYK2-deficient patient, the patient described by Kilic et al. (2012) had no features of hyper-IgE syndrome: no atopy, asthma, eczema, staphylococcal or candidal skin infections, and no skeletal or dental abnormalities. His serum IgE ranged from 80 to 218 IU/ml, normal or only slightly elevated. Serum IgG, IgM and IgA levels, lymphocyte subsets and the NBT test were normal. The authors suggested that TYK2 deficiency should be considered in patients with BCG disease or other intramacrophage infections, particularly with severe herpesvirus infections, even without HIES features.	
+Kilic et al. (2012)	reports	Kilic et al. (2012) found that the Turkish patient was homozygous for a 9-bp deletion in exon 16 of the TYK2 gene (c.2302_2310del), which creates a premature termination codon at position 767. No full-length TYK2 protein was detectable by Western blot in the patient's EBV-B cells.	
+TYK2 c.2302_2310del / c.2302del9	in_gene	TYK2	
+Kilic et al. (2012)	reports	Kilic et al. (2012) proposed that loss of TYK2 impairs IL-12 signaling and IFN-gamma production, causing susceptibility to BCG and Brucella. They suggested that the viral illnesses are probably related to an impaired cellular response to IFN-alpha/beta.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) concluded that the core clinical phenotype of autosomal recessive complete TYK2 deficiency is mycobacterial and/or viral infections caused by impaired responses to IL-12 and IFN-alpha/beta, and that impaired IL-6 responses and hyper-IgE syndrome (HIES) do not appear to be intrinsic features of TYK2 deficiency in humans.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) reported 7 TYK2-deficient patients (P2-P8) from 5 unrelated families from Turkey, Morocco, Iran, and Argentina who had mycobacterial and/or viral infections but none of the features of HIES: none had atopy, high serum IgE, staphylococcal disease, documented pyogenic infections, or fungal infections including mucocutaneous candidiasis. This contrasted with the previously reported Japanese patient (P1), who had atopic dermatitis, high IgE, and staphylococcal abscesses.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) described a Turkish man (P2), born to first-cousin parents, who had disseminated BCG lymphadenitis at 21 months, Brucella meningitis at 8 years, and shingles of the maxillary branch of the trigeminal nerve at 11 years; he was 23 years old at report.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) described Moroccan sibs born to first-cousin parents: a girl (P3) who developed disseminated extrapulmonary M. tuberculosis infection (abdominal disease, ascites, psoas abscess) at 13 years and died after bacterial meningitis 15 months after onset, and her brother (P4) who had meningitis of unknown etiology at 8 months, recurrent otitis and urinary tract infections, asthma, ear canal eczema, and high eosinophils.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) described Iranian sibs born to consanguineous parents: a boy (P5) who developed BCG axillary and cervical lymphadenitis at 2 and 4 months and paravertebral and psoas abscesses with pulmonary involvement at 4.5 years, treated with antimycobacterials, surgery and IFN-gamma; and his sister (P6) who had BCG lymphadenopathy after vaccination and an unknown viral skin infection at 1 year.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) described a 9-year-old Iranian girl (P7) born to consanguineous parents who developed miliary tuberculosis, with diffuse bilateral micronodular lung infiltrations, hilar and mediastinal adenopathy, and cavitary consolidation; M. tuberculosis was identified on gastric washes.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) described an 11-year-old Argentinian boy (P8), adopted at 1 day, who had recurrent HSV disease including herpes gingivostomatitis, aseptic herpes meningitis, and disseminated cutaneous herpetic lesions from 18 months, with good response to acyclovir; he also had mild mental disability of uncertain origin and no mycobacterial disease despite BCG vaccination.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) updated the clinical history of the original Japanese TYK2-deficient patient (P1), born to consanguineous parents, who had atopic dermatitis from 1 month, BCGitis, S. aureus skin abscesses, Salmonella sepsis, PIV3 pneumonia, recurrent oral HSV, molluscum contagiosum, mild oral candidiasis, hypereosinophilia and high serum IgE (1,430-2,100 IU/ml); at 30 years he had ocular sarcoidosis.	
+Kreins et al. (2015)	reports	In a Turkish patient (P2) with BCG disease, Brucella meningitis, and VZV infection, Kreins et al. (2015) identified, by linkage analysis and Sanger sequencing, a homozygous 9-bp deletion in exon 16 of TYK2 (c.2303_2311del), resulting in a premature stop codon at position 767 (L767X). The mutation was absent from public databases, and no TYK2 protein was detectable in the patient's cells.	
+TYK2 c.2303_2311del / p.L767*	in_gene	TYK2	
+Kreins et al. (2015)	reports	In Moroccan sibs (P3 and P4), Kreins et al. (2015) identified by whole-exome sequencing a homozygous 1-bp insertion in exon 23 of TYK2 (c.3318_3319insC), causing a frameshift and a premature stop codon at position 1110 (T1106HfsX4).	
+TYK2 c.3318_3319insc / p.T1106Hfs / p.T1106fs	in_gene	TYK2	
+Kreins et al. (2015)	reports	In Iranian sibs (P5 and P6) with BCG disease, Kreins et al. (2015) identified by whole-exome sequencing a homozygous c.462G>T substitution in exon 5 of TYK2, resulting in a premature stop codon (E154X).	
+TYK2 c.462G>T / p.E154*	in_gene	TYK2	
+Kreins et al. (2015)	reports	In an Iranian girl (P7) with miliary tuberculosis, Kreins et al. (2015) identified by whole-exome sequencing a homozygous 1-bp deletion in exon 3 of TYK2 (c.149delC), causing a frameshift and premature stop codon at position 50 (S50HfsX1).	
+TYK2 c.149delc / p.S50Hfs / p.S50fs	in_gene	TYK2	
+Kreins et al. (2015)	reports	In an Argentinian boy (P8) with recurrent HSV disease, Kreins et al. (2015) identified by targeted next-generation sequencing a homozygous c.1912C>T substitution in exon 13 of TYK2, creating a premature stop codon (R638X).	
+TYK2 c.1912C>T / p.R638*	in_gene	TYK2	
+Kreins et al. (2015)	reports	Kreins et al. (2015) found that in all kindreds clinical disease was observed in all homozygotes and only in homozygotes, and concluded that the patients had autosomal recessive TYK2 deficiency; most families were consanguineous.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) noted that the 5 novel TYK2 mutations were private, absent from their in-house exome database and public databases including 1000 Genomes and ExAC, and that no homozygotes and only 84 heterozygotes for TYK2 stop mutations were present in any database.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) showed by Western blotting with 4 antibodies against N- or C-terminal epitopes that the 130-kD TYK2 protein was undetectable in EBV-B cells, HVS-T cells, and fibroblasts of all patients, indicating complete TYK2 deficiency; no abnormal splicing was detected. TYK2-deficient cells had reduced surface IFN-alpha-R1, IL-10R2, and IL-12R-beta-1, rescued by wildtype TYK2, reflecting loss of the TYK2 scaffolding role.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) found that TYK2-deficient T and NK cells had impaired but not abolished IFN-gamma production in response to IL-12, in contrast to IL-12R-beta-1 deficiency, which they suggested accounts for mycobacterial disease and its relatively favorable response to antibiotics; the patient with virulent M. tuberculosis (P3) died.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) showed impaired but not abolished IL-23 responses in TYK2-deficient cells, with profoundly impaired IL-17A/F production by naive CD4 T cells in vitro but normal proportions of circulating IL-17+ T cells ex vivo, probably accounting for the lack of overt chronic mucocutaneous candidiasis.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) found reduced but not absent STAT1 phosphorylation and GAF/ISGF3 DNA binding in response to IFN-alpha/beta in patient cells, absent STAT3 phosphorylation, low basal ISG expression, and failure of IFN-alpha to control VSV replication in EBV-B and HVS-T cells, all rescued by wildtype TYK2; they suggested residual responses explain the mild viral phenotype resembling partial STAT1 deficiency. Responses to IFN-lambda were normal although basal IFIT1 levels were low.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) showed impaired but not abolished IL-10 responses (STAT3 phosphorylation, SOCS3 induction, TNF suppression in macrophages) in all TYK2-deficient patients, rescued by wildtype TYK2, and suggested residual IL-10 signaling accounts for absence of early-onset colitis. Responses to IL-21, IL-27, IFN-gamma, and LIF were normal.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) found that cells from the 7 new patients responded normally to IL-6, unlike those of P1 who had HIES. Re-expression of wildtype TYK2 did not rescue IL-6 hyporesponsiveness in P1 cells, and TYK2 silencing in control or P1 cells did not alter IL-6 responses, indicating that P1's IL-6 defect was independent of the TYK2 mutation; they suggested it may underlie P1's staphylococcal disease and HIES features and that P1 may carry a variant in another unknown component of the IL-6 pathway.	
+Kreins et al. (2015)	reports	Kreins et al. (2015) found normal numbers of central and effector memory CD4+ and CD8+ T cells in TYK2-deficient patients, unlike STAT3-mutated AD-HIES patients, suggesting viral reactivation results from impaired IFN-alpha/beta responses rather than a memory T-cell defect.	
+Fuchs et al. (2016)	reports	Fuchs et al. (2016) reported a patient with TYK2 deficiency who had eczema, skin abscesses, respiratory infections, and serum IgE levels above 1000 U/mL. The patient had no viral or mycobacterial infections. The authors described the human phenotype as surprisingly mild.	
+Fuchs et al. (2016)	reports	Fuchs et al. (2016) developed a simple diagnostic monocyte assay and used it to show that the patient's TYK2 mutation completely abolished the IFN-alpha-mediated antiviral response. The mutation also partly reduced IL-10-mediated signaling, which was associated with reduced IL-10R-beta expression. IL-6-mediated signaling was not affected.	
+Fuchs et al. (2016)	reports	Fuchs et al. (2016) established a simple diagnostic monocyte assay that detects the loss of the IFN-alpha-mediated antiviral response in TYK2 deficiency.	
+Fuchs et al. (2016)	reports	In a TYK2-deficient human cell line, Fuchs et al. (2016) found nearly normal type III IFN signaling and only minimal impairment of virus control. In the patient, NK-cell phenotype and function were normal, including IL-12/IL-18-mediated responses, which contrasts with TYK2-deficient mice. The authors suggested that preserved type III IFN responses and normal NK-cell function may help protect against viruses in TYK2 deficiency and may account for the mild human phenotype.	
+Wu et al. (2020)	reports	Wu et al. (2020) reported a Chinese boy, the second child of young nonconsanguineous parents, who was vaccinated with BCG on day 3 of life. He had repeated abscess and ulceration at the injection site, which healed by 10 months. At 14 months he developed BCG-associated left axillary lymph node tuberculosis, with acid-fast bacilli and Mycobacterium bovis BCG isolated. From age 6 months he had recurrent respiratory tract infections every 1 to 2 months and diarrhea. Pathogens identified included Salmonella, Mycoplasma pneumoniae, and influenza A and B (IgM positive). He did not have high serum IgE, atopy, staphylococcal disease, lymphopenia, or significant fungal infection. He also had a small head circumference and delayed speech.	
+Wu et al. (2020)	reports	Wu et al. (2020) found that at age 1 year 11 months the patient had normal serum IgG, IgA, IgM, and IgE (27.4 IU/ml) and normal eosinophil counts. CD3+, CD4+, and CD8+ T-cell percentages were normal, the CD19+ B-cell percentage was increased (26.6%), and the NK-cell percentage was decreased (3.6%).	
+Wu et al. (2020)	reports	Wu et al. (2020) used whole-exome sequencing to identify a homozygous missense variant in exon 17 of the TYK2 gene, c.2395G>A (p.G799R), in a Chinese boy with BCG disease and recurrent respiratory infections. Both parents were heterozygous for the variant. The authors noted that the variant is listed in gnomAD and therefore is not a private mutation; its CADD score was 25.6. The patient also carried heterozygous variants in CFH, LRRC8A, and NIPBL, for which the authors considered the evidence of pathogenicity insufficient.	
+TYK2 c.2395G>A / p.G799R	in_gene	TYK2	
+Wu et al. (2020)	reports	Wu et al. (2020) found that patient-derived cells had reduced TYK2 mRNA on qRT-PCR, and western blot detected no TYK2 protein. When the c.2395G>A (p.G799R) mutant was expressed in HEK293T cells as FLAG-tagged and GFP-tagged constructs, it lowered both TYK2 mRNA and protein levels compared with wildtype.	
+Wu et al. (2020)	reports	Wu et al. (2020) reviewed 12 reported patients with TYK2 deficiency, including their own patient; the mean age at diagnosis was 10.8 years. Seven patients (58%) had intracellular bacterial infections, 2 had M. tuberculosis, and 7 (58%) had recurrent viral infections. Two had rash or atopic dermatitis, 3 had markedly increased serum IgE, and 2 had EBV-related B-cell lymphoma with T-cell lymphopenia. None had the facial, skeletal, dental, or vascular features of STAT3-associated hyper-IgE syndrome.	
+Wu et al. (2020)	reports	Wu et al. (2020) summarized the main features of TYK2 deficiency as autosomal recessive TYK2 mutation, normal lymphocyte counts with defects in multiple cytokine signaling pathways, susceptibility to viruses or intracellular bacteria, and IgE that may or may not be elevated. They suggested that TYK2 deficiency be considered in patients with repeated intracellular bacterial (including tuberculosis) or viral infections, or with eczema.	
+Lv et al. (2022)	reports	Lv et al. (2022) described 5 patients with TYK2 deficiency who presented with or without elevated IgE levels and atopy and had distinct pathogen infection profiles, supporting the observation that TYK2-deficient patients do not necessarily show features of hyper-IgE syndrome. Lymphocyte homeostasis was disrupted, with altered T- and B-cell differentiation assessed by flow cytometry.	
+Lv et al. (2022)	reports	In 5 patients with TYK2 deficiency, Lv et al. (2022) identified novel TYK2 mutations by high-throughput sequencing, confirmed by Sanger sequencing. Pathogenicity was supported by qRT-PCR, Western blot, and protein stability assays, and patient PBMCs showed heterogeneous responses to IFN-alpha/beta/gamma, IL-6, IL-10, IL-12, and IL-23.	
+Lv et al. (2022)	reports	Lv et al. (2022) proposed that TYK2 acts as a multi-tasker orchestrating various cytokine signaling pathways, with differentially combined defects accounting for the varied clinical manifestations of TYK2 deficiency.	
+Zhang et al. (2022)	reports	Zhang et al. (2022) described 3 unrelated children with AR TYK2 deficiency, each born to a different set of consanguineous Turkish parents, among 112 children hospitalized for COVID-19 pneumonia. P2, a 2-year-old girl, had moderate COVID-19 pneumonia that did not need oxygen. She had earlier had neonatal sepsis, 2 ICU admissions for fever and dyspnea before 5 months of age, Kawasaki disease at 11 months, and a hospitalization for infection with the VZV vaccine at age 2. P3 (age 4) and P4 (age 9), both boys, had critical COVID-19 pneumonia needing ICU admission and high-flow oxygen. P3 had earlier had neonatal sepsis and influenza pneumonia needing ICU care at age 3. P4 had recurrent bronchitis needing hospital admission. All 3 survived.	
+Zhang et al. (2022)	reports	In 3 unrelated consanguineous Turkish children with COVID-19 pneumonia (P2-P4), Zhang et al. (2022) used whole-exome or whole-genome sequencing to find the same homozygous TYK2 frameshift variant, P216Rfs*14, and confirmed it by Sanger sequencing. Family segregation analysis confirmed AR inheritance. The variant had previously been shown to cause loss of expression in patient cells, and the authors confirmed that it was loss-of-function. Eight of the 12 patients in the series, including those with other gene defects, were tested for autoantibodies against type I IFNs, and all were negative.	
+TYK2 p.P216Rfs / p.P216fs	in_gene	TYK2	
+Zhang et al. (2022)	reports	Zhang et al. (2022) found that the 3-year-old younger sister of P3 had the same homozygous TYK2 genotype. She had a history of critical influenza pneumonia needing intubation and ventilation, as well as disseminated varicella, but she had not been infected with SARS-CoV-2 and remained seronegative. The authors noted that TYK2 deficiency impairs, but does not abolish, cellular responses to type I IFN. They said more TYK2-deficient patients infected with SARS-CoV-2 were needed to estimate penetrance, and suggested penetrance may be incomplete.	
+Zhang et al. (2022)	reports	Zhang et al. (2022) studied ACE2-transduced SV40 fibroblasts from a TYK2-deficient patient homozygous for P216fs*14. Like STAT2-deficient cells, they did not control SARS-CoV-2 replication normally. Pretreatment with IFN-alpha-2b did not block the infection, and the cells failed to induce ISGs (IFIT1, MX1, IFI27) after viral infection or IFN-alpha-2b pretreatment. The authors suggested this supported a causal role of TYK2 deficiency in COVID-19 pneumonia.	
+Zhang et al. (2022)	reports	Zhang et al. (2022) studied an international cohort of 112 children under 16 years old hospitalized for COVID-19 pneumonia. Twelve (10.7%) had recessive complete inborn errors of type I IFN immunity: XLR TLR7 deficiency (7 children) and AR deficiency of IFNAR1 (1), STAT2 (1), or TYK2 (3). None of these 15 recessive deficiencies was found in 1,224 SARS-CoV-2-infected controls without pneumonia (P = 1.2 x 10(-11)). The authors identified AR TYK2 deficiency as a new genetic cause of COVID-19 pneumonia.	
+IMMUNODEFICIENCY 35	caused_by	TYK2	17088085,22402565,26304966,32537443,35708626
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.149delc / p.S50Hfs / p.S50fs	26304966
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.1912C>T / p.R638*	26304966
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.2302_2310del / c.2302del9	22402565
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.2303_2311del / p.L767*	26304966
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.2395G>A / p.G799R	32537443
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.3318_3319insc / p.T1106Hfs / p.T1106fs	26304966
+IMMUNODEFICIENCY 35	has_variant	TYK2 c.462G>T / p.E154*	26304966
+IMMUNODEFICIENCY 35	has_variant	TYK2 p.P216Rfs / p.P216fs	35708626
+IMMUNODEFICIENCY 35	has_variant	TYK2 homozygous Tyk2 mutation	17088085
+IMMUNODEFICIENCY 35	inheritance	Autosomal recessive	17088085,22402565,26304966,32537443,35708626
+IMMUNODEFICIENCY 35	has_phenotype	Pneumonia	22402565,26304966,32537443,35708626
+IMMUNODEFICIENCY 35	has_phenotype	Sepsis	35708626
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent viral infections	17088085,26304966,32537443,35708626
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent bronchitis	35708626
+IMMUNODEFICIENCY 35	has_phenotype	Increased circulating IgE concentration	17088085,26304966,27615517,32537443,34569645
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent infections	34569645
+IMMUNODEFICIENCY 35	has_phenotype	BCG-associated disease	26304966,32537443
+IMMUNODEFICIENCY 35	has_phenotype	Lymphadenitis	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent respiratory infections	27615517,32537443
+IMMUNODEFICIENCY 35	has_phenotype	Diarrhea	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent Salmonella infection	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent staphylococcal infections	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Microcephaly	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Delayed speech and language development	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Reduced total natural killer cell count	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Increased total B cell count	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent bacterial infections	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent mycobacterial infections	17088085,32537443
+IMMUNODEFICIENCY 35	has_phenotype	Atopic dermatitis	17088085,26304966,32537443
+IMMUNODEFICIENCY 35	has_phenotype	B-cell lymphoma	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Decreased total T cell count	32537443
+IMMUNODEFICIENCY 35	has_phenotype	Eczematoid dermatitis	27615517
+IMMUNODEFICIENCY 35	has_phenotype	Cutaneous abscess	27615517
+IMMUNODEFICIENCY 35	has_phenotype	Unusual mycobacterial infection	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Bacterial meningitis	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent herpes	22402565,26304966
+IMMUNODEFICIENCY 35	has_phenotype	Disseminated tuberculosis infection	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Meningitis	22402565,26304966
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent otitis media	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent urinary tract infections	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Asthma	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Increased total eosinophil count	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Abscess	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Non-infectious meningitis	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Mild intellectual disability	26304966
+IMMUNODEFICIENCY 35	has_phenotype	Uveitis	26304966
+IMMUNODEFICIENCY 35	has_phenotype	BCGosis	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Generalized lymphadenopathy	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Fever	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Seizure	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Sensorineural hearing impairment	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Intellectual disability	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Lacunar stroke	22402565
+IMMUNODEFICIENCY 35	has_phenotype	Recurrent fungal infections	17088085
+Recurrent mucocutaneous candidiasis	is_a	Recurrent fungal infections	
+Recurrent bronchitis	is_a	Recurrent respiratory infections	
+Microcephaly	is_a	Abnormality of the skeletal system	
+BCGosis	is_a	BCG-associated disease	
+Recurrent Salmonella infection	is_a	Recurrent bacterial infections	
+Recurrent fungal infections	is_a	Recurrent infections	
+Recurrent respiratory infections	is_a	Recurrent infections	
+Recurrent staphylococcal infections	is_a	Recurrent bacterial infections	
+Bacterial meningitis	is_a	Meningitis	
+BCG-associated disease	is_a	Unusual mycobacterial infection	
+Recurrent otitis media	is_a	Recurrent infections	
+Recurrent urinary tract infections	is_a	Recurrent infections	
+Cutaneous abscess	is_a	Abscess	
+Mild intellectual disability	is_a	Intellectual disability	
+Recurrent mycobacterial infections	is_a	Recurrent bacterial infections	
+Recurrent mycobacterial infections	is_a	Unusual mycobacterial infection	
+Recurrent viral infections	is_a	Recurrent infections	
+Disseminated tuberculosis infection	is_a	Unusual mycobacterial infection	
+Atopic dermatitis	is_a	Eczematoid dermatitis	
+Recurrent bacterial infections	is_a	Recurrent infections	

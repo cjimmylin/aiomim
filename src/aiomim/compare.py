@@ -1134,8 +1134,7 @@ def strategies_markdown(result: dict[str, Any]) -> str:
             out.append(f"### Difference from {base}, by how the paper was readable")
             out.append("Coverage pooled over the facts of all papers at that level, strategy minus baseline in "
                        "percentage points, with a 95% interval from resampling entries (all of an entry's facts move "
-                       "together); n is the number of entries with facts at that level for both strategies. Facts "
-                       "are split from the gold paragraph separately for each draft, so the fact counts differ slightly.")
+                       "together); n is the number of entries with facts at that level for both strategies.")
             lines = ["| Paper readable as | " + " | ".join(labels[n] for n in names if n != base_name) + " |",
                      "|" + "---|" * len(names)]
             for level in LEVEL_ORDER:
