@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+
+# Local caches: HTTP responses, LLM responses, downloaded ontologies.
+# Gold-standard material fetched from OMIM-derived sources stays out of git.
+data/
+
+# Working run directories (generated entries, evaluations, reports).
+# Curated examples are copied to examples/ on purpose.
+runs/
+
+.env

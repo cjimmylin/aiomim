@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiomim"
+version = "0.1.0"
+description = "Automated, evidence-grounded curation of OMIM-style entries from the published literature"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.6",
+    "requests>=2.31",
+    "lxml>=5.0",
+    "click>=8.1",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+aiomim = "aiomim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aiomim = ["report/*.html", "report/*.js", "report/*.css"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "network: test talks to live public APIs (NCBI, Europe PMC, HPO); deselect with -m 'not network'",
+    "llm: test spends LLM calls through the Claude Code CLI; deselect with -m 'not llm'",
+]
