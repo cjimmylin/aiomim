@@ -1,0 +1,53 @@
+{
+  "Thought": "Careful, unusually honest benchmark paper: 100 OMIM entries, cited papers held fixed, gene withheld, one model (Claude Opus 5.5) for writing, auditing and judging. Headline 1 (full text vs abstract on same papers: 79.8 vs 36.1, +43.7) is real but, as the authors concede, expected: curators wrote from full papers. Headline 2 (reading strategies within ~2 points) is essentially a null on a narrow, indirect endpoint (variant-centred ClinVar paragraphs; only 24% of draft statements have a counterpart). Headline 3 (strategies separate with more full text) is observational on 21 entries plus a matched ablation that mostly explains away the case-table deficit as extraction effort. The 'replicate-noise half-width' used to judge differences is conceptually muddled: the bootstrap CI over entries already absorbs run-to-run noise; replicate SD is a different quantity. Evidence-graph minus direct is +0.7 on the 30-entry replicate subset vs -0.5 on 93, consistent with null. Single-model-family judging with zero human validation is the dominant threat for every number. ML novelty for ICLR is limited: no new method, implementations are the authors' own, published systems not run. Writing is hedge-dense, abstract overloaded with numbers, title hard to parse. Figures/tables in PDF are consistent with the text (Fig 2 pooled 31.2/36.7/77.4; Fig 3 counts sum to 6,498). Leaning reject at ICLR; would be a solid fit for a bioinformatics / datasets venue.",
+  "Summary": "The paper builds a benchmark for drafting OMIM phenotype entries with a language model from exactly the papers the curators cited (causal gene withheld), and compares generation strategies with the model, sources, guards, claim-level audit and scoring held fixed. Strategies span three paradigms (direct long-context reading and an agentic curator; extract-then-write via an evidence graph or a per-patient case table; recall-then-verify), a memory-only control and three add-ons (second-hand evidence, a learned curation guide, reconciliation of case records). The primary endpoint, 'OMIM facts conveyed', scores what each draft says about each cited paper against fixed fact lists pre-split from OMIM allelic-variant paragraphs deposited in ClinVar (476 paragraphs, 6,652 facts). Main findings: hiding the full text of the same papers lowers coverage from 79.8% to 36.1% (paired +43.7 points); on 93 commonly completed entries the reading strategies lie within 47.2-49.1%, with only the case table significantly below direct reading; memory-first strategies are far lower (~15%); strategies separate where more full text is available (observational, 21 entries) and a matched ablation attributes part of the case-table gap to extraction effort. The audit flags 60/60 planted single-fact errors and 0/60 unaltered re-audits. All judgements are made by the same model family, with no human validation.",
+  "Strengths": [
+    "Well-controlled design: the cited papers, model, guards, audit and scoring are fixed so that the generation strategy is the only variable; the causal gene is withheld so the task is not trivially recall.",
+    "The within-paper access manipulation (hiding full text of the same papers, same 2,120 fixed facts, 46 entries) is a clean paired experiment, and the authors report it before and after repair to avoid an asymmetric comparison.",
+    "Fact lists are split once without sight of any draft and reused across strategies, avoiding draft-dependent denominators; the paper shows that re-splitting per draft inflates levels by 2-5 points.",
+    "Exemplary handling of completion: safety-filter stops are treated as an outcome, comparisons use entries all strategies completed, and an intention-to-treat sensitivity analysis is reported; the paper openly documents a corrected earlier analysis that produced a spurious 2.1-point deficit.",
+    "Provenance analyses of missed and conveyed facts (Figure 3, Table 16) are informative: most of the shortfall is information not present in the supplied text, and only 1.7% of facts conveyed from abstract/title-only papers are stated in no supplied text.",
+    "Replicate and judge variation are measured (Appendix E), a matched ablation separates representation from extraction effort, and a memory-only control by creation era plus 2026 entries serves as a contamination check.",
+    "Limitations are stated with unusual candour and specificity; costs, token counts and cached calls are reported, and the harness and per-entry outputs are to be released."
+  ],
+  "Weaknesses": [
+    "No human validation of any judgement. Drafting, auditing, fact splitting and fact judging are all done by one model family (Claude Opus 5.5), and evaluators are known to favour their own generations. Agreement of the fact judge with a human on even a few hundred facts, or a second judge family, is needed before any of the 1-2 point differences or the provenance percentages can be trusted.",
+    "The primary endpoint covers a small, specific slice of the task: variant-centred allelic-variant paragraphs from OMIM gene entries, not the phenotype entries' narrative sections. Only 24% of a direct-reading draft's statements have a counterpart in the reference, so the endpoint is largely blind to what differentiates strategies elsewhere in the draft, and the null between reading strategies may reflect the endpoint's narrowness.",
+    "The headline access effect is expected by construction (curators wrote from full papers; abstracts contain less), as the authors themselves note. Quantifying it is useful, but it is not a surprising or generalisable finding for an ML venue.",
+    "The use of a 'replicate-noise half-width' (1.0 point) as a threshold for meaningful differences is conceptually muddled. The bootstrap interval over entries already incorporates run-to-run variability; the within-entry replicate SD is a different quantity, and comparing point estimates to it is neither a test nor a calibrated threshold. Relatedly, evidence graph minus direct reading is +0.7 on the 30-entry replicate subset but -0.5 on the 93 entries, which should be discussed.",
+    "The claim that strategies separate where more full text is readable rests on 21 entries in an observational stratification confounded with creation date and journal, and the matched ablation then attributes much of the case-table gap to extraction effort rather than the representation. The resulting message about representations is weak and partly self-cancelling.",
+    "Limited ML contribution for ICLR: no new method; all strategies are the authors' own implementations (published systems such as PaperQA2 or GraphRAG were not run); one model; inputs small enough to fit in one prompt (2-12 references), which is precisely the regime where long-context direct reading is expected to be competitive. The interesting regime (large reference lists, 30-75 refs) is relegated to a 10-entry exploratory appendix.",
+    "Audit evaluation is narrow: planted errors are single-fact substitutions of easy types (count, zygosity, residue, inheritance mode) in paragraphs the audit had already passed; omissions, misattributed citations and subtle overgeneralisations are untested, and the 0/60 re-audit figure is not a false-positive rate on arbitrary text, as the authors acknowledge.",
+    "Every strategy is given the curators' reference list, which removes the hardest and most consequential curation step (finding and selecting papers); the retrieval check is on ten entries.",
+    "Presentation: the paper is very dense and heavily hedged. The title is hard to parse, the abstract packs in a dozen numbers and caveats, and key definitions (fact lists, which paragraphs are in scope, how 'partly present' is judged) are spread across sections and the appendix. The main message is difficult to extract on a first read."
+  ],
+  "Originality": 2,
+  "Quality": 3,
+  "Clarity": 2,
+  "Significance": 2,
+  "Questions": [
+    "Can you provide human validation of the fact judge (e.g., a curator or geneticist labelling a random sample of a few hundred fact statuses, stratified by strategy) and report agreement? Alternatively, re-judge a subset with a different model family and report whether the strategy ordering and the access effect hold.",
+    "How should the replicate-noise half-width be interpreted relative to the bootstrap CI? Would a mixed-effects model with entry and replicate as random effects, fitted on the 30 replicated entries, give a more principled interval for strategy differences?",
+    "Why does the evidence graph lead direct reading on the 30 replicated entries (+0.7, +1.9, +0.5 in three replicates) but trail it on the 93 entries (-0.5)? Is the 30-entry subset different in full-text share?",
+    "What fraction of the 476 in-scope paragraphs concern variants reported in papers readable only as abstract or title, and how does the endpoint behave if restricted to full-text papers only (where strategies can actually differ)?",
+    "Have you run any strategy on inputs that exceed one prompt (e.g., the 30-75-reference tier) with enough entries to compare paradigms? This seems to be where extract-then-write or agentic designs should matter.",
+    "For the 24 facts conveyed from abstract/title-only papers that are stated in no supplied text, can a human check whether they are recalled, inferred or misjudged?",
+    "Would scoring against a broader reference (e.g., the clinical-synopsis structured fields only partly used, or a curator-written sample of narrative sections) change the conclusion that reading strategies are close?"
+  ],
+  "Limitations": [
+    "Single model family for generation, audit and judging; no human validation of any judgement.",
+    "Reference covers only variant-centred allelic-variant paragraphs and structured fields; narrative phenotype text is not evaluated.",
+    "Only open-access text without supplements, 19% full text; small inputs (2-12 references) that fit in one prompt.",
+    "Reference lists are given to every strategy; retrieval is effectively not evaluated.",
+    "Separation by full-text share is observational on few entries; held-out 2026 set has 20 compared entries and five strategies.",
+    "Audit tested only on planted single-fact substitutions; omissions and citation misattribution untested; audit checks fidelity, not correctness.",
+    "The authors acknowledge essentially all of the above; the limitations section is adequate. Potential societal risk (machine-generated text mistaken for curated clinical content) is addressed by the ethics statement."
+  ],
+  "Ethical Concerns": false,
+  "Soundness": 3,
+  "Presentation": 2,
+  "Contribution": 2,
+  "Overall": 5,
+  "Confidence": 4,
+  "Decision": "Reject"
+}
