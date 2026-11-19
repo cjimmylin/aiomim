@@ -476,9 +476,10 @@ passages. Passages are paragraphs or table rows whose citation points at the tar
 
 For papers readable in full, the full text was hidden and entries were written by direct reading from the abstract,
 with and without second-hand passages. Claims about the hidden papers were then audited against the real full text.
-No repair round was applied to the two new drafts. Coverage in this experiment uses the earlier per-draft fact
-splitting, not the fixed lists. Our full texts exclude supplementary material, so "unsupported by the full text" is an
-upper bound on error.
+No repair round was applied to the two new drafts; the full-text draft is the main run's and went through repair.
+Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
+kept beside it. Our full texts exclude supplementary material, so "unsupported by the full text" is an upper bound on
+error.
 
 Source run `omim100`; 49 entries. In each, the papers read in full were hidden and the entry was written by direct reading from their abstracts, with and without second-hand passages from later open-access papers. Counts, not just rates.
 
@@ -488,7 +489,24 @@ Source run `omim100`; 49 entries. In each, the papers read in full were hidden a
 - Passages for the hidden papers: 523 (430,391 characters).
 - All papers supplemented (hidden and abstract-only): 243, of which 234 got passages; 1278 passages, 1,046,654 characters; retrieval 0.1 s in all.
 
-#### OMIM-fact coverage of the gold paragraphs about the hidden papers
+#### OMIM-fact coverage on the frozen fact lists (main measure)
+
+Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged.
+
+| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen) | Coverage (old scoring) |
+|---|---|---|---|---|---|---|---|---|---|
+| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% |
+| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% |
+| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% |
+
+Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
+
+| Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | better / worse / tied |
+|---|---|---|---|---|---|
+| Abstract + second-hand minus abstract only | 46 | +4.9 (+2.8 to +7.1) | 33 / 9 / 4 | +5.3 (+3.6 to +7.2) | 36 / 7 / 3 |
+| Full text minus abstract only | 46 | +43.9 (+38.5 to +49.3) | 45 / 0 / 1 | +41.7 (+36.7 to +46.6) | 46 / 0 / 0 |
+
+#### OMIM-fact coverage of the gold paragraphs about the hidden papers (old scoring: facts split afresh for each draft)
 
 Pooled over the 46 entries that have a full-text draft in the source run, the same entries for all three conditions; left out: 3 entries whose full-text direct draft was not written (the writer's reply was stopped), so they have no full-text coverage to compare: 609296, 620609, 621068.
 
@@ -822,5 +840,5 @@ on 2, and the evidence graph lost a paper on 7.
 
 ## 13. Total model usage
 
-All experiments, pilots and re-scoring: 37,812 cached model calls, 252 million input and
-69 million output tokens, about $2,832 at list price.
+All experiments, pilots and re-scoring: 38,037 cached model calls, 253 million input and
+69 million output tokens, about $2,841 at list price.

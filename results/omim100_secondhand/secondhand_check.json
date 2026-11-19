@@ -9581,5 +9581,454 @@
       "turns": 1369
     }
   },
-  "reaggregated_from_entry_files": true
+  "reaggregated_from_entry_files": true,
+  "coverage_frozen": {
+    "scoring": "frozen fact lists (facts.FactStore, split once without sight of any draft); full text from the source run's eval.direct.json gold_text_frozen",
+    "n_entries": 46,
+    "n_paragraphs": 136,
+    "paragraphs_dropped_not_scored_under_all_three": 0,
+    "entries_without_frozen_file": [],
+    "entries_with_stale_frozen_file": [],
+    "by_condition": {
+      "abstract": {
+        "paragraphs": 136,
+        "n_facts": 2120,
+        "n_judged": 2120,
+        "unjudged": 0,
+        "present": 495,
+        "partial": 331,
+        "absent": 1290,
+        "contradicted": 4,
+        "coverage": 0.3116
+      },
+      "secondhand": {
+        "paragraphs": 136,
+        "n_facts": 2120,
+        "n_judged": 2120,
+        "unjudged": 0,
+        "present": 629,
+        "partial": 297,
+        "absent": 1184,
+        "contradicted": 10,
+        "coverage": 0.3667
+      },
+      "fulltext": {
+        "paragraphs": 136,
+        "n_facts": 2120,
+        "n_judged": 2120,
+        "unjudged": 0,
+        "present": 1513,
+        "partial": 254,
+        "absent": 343,
+        "contradicted": 10,
+        "coverage": 0.7736
+      }
+    },
+    "paired": {
+      "secondhand_minus_abstract": {
+        "n": 46,
+        "difference": 0.0488,
+        "ci95": [
+          0.0281,
+          0.0709
+        ],
+        "median_difference": 0.0325,
+        "better": 33,
+        "worse": 9,
+        "ties": 4,
+        "sign_test_p": 0.0003,
+        "ci_unreliable": false
+      },
+      "fulltext_minus_abstract": {
+        "n": 46,
+        "difference": 0.4385,
+        "ci95": [
+          0.3848,
+          0.4927
+        ],
+        "median_difference": 0.456,
+        "better": 45,
+        "worse": 0,
+        "ties": 1,
+        "sign_test_p": 0.0,
+        "ci_unreliable": false
+      }
+    },
+    "paired_old_scoring_same_entries": {
+      "secondhand_minus_abstract": {
+        "n": 46,
+        "difference": 0.0534,
+        "ci95": [
+          0.0358,
+          0.0725
+        ],
+        "median_difference": 0.0441,
+        "better": 36,
+        "worse": 7,
+        "ties": 3,
+        "sign_test_p": 0.0,
+        "ci_unreliable": false
+      },
+      "fulltext_minus_abstract": {
+        "n": 46,
+        "difference": 0.4166,
+        "ci95": [
+          0.3671,
+          0.4663
+        ],
+        "median_difference": 0.4671,
+        "better": 46,
+        "worse": 0,
+        "ties": 0,
+        "sign_test_p": 0.0,
+        "ci_unreliable": false
+      }
+    },
+    "bootstrap": {
+      "resamples": 10000,
+      "seed": 20261119,
+      "unit": "entry",
+      "statistic": "mean of per-entry coverage differences"
+    },
+    "per_entry": [
+      {
+        "mim": "118210",
+        "paragraphs": 1,
+        "abstract": 0.3235,
+        "secondhand": 0.2941,
+        "fulltext": 0.8529
+      },
+      {
+        "mim": "251950",
+        "paragraphs": 5,
+        "abstract": 0.6053,
+        "secondhand": 0.5526,
+        "fulltext": 0.8816
+      },
+      {
+        "mim": "300148",
+        "paragraphs": 3,
+        "abstract": 0.4052,
+        "secondhand": 0.4655,
+        "fulltext": 0.7672
+      },
+      {
+        "mim": "600740",
+        "paragraphs": 3,
+        "abstract": 0.3243,
+        "secondhand": 0.4865,
+        "fulltext": 0.8784
+      },
+      {
+        "mim": "603552",
+        "paragraphs": 1,
+        "abstract": 0.3125,
+        "secondhand": 0.375,
+        "fulltext": 0.8958
+      },
+      {
+        "mim": "603689",
+        "paragraphs": 1,
+        "abstract": 0.7857,
+        "secondhand": 0.7857,
+        "fulltext": 0.7857
+      },
+      {
+        "mim": "604307",
+        "paragraphs": 2,
+        "abstract": 0.8462,
+        "secondhand": 0.9231,
+        "fulltext": 0.9231
+      },
+      {
+        "mim": "604928",
+        "paragraphs": 1,
+        "abstract": 0.3929,
+        "secondhand": 0.5,
+        "fulltext": 0.75
+      },
+      {
+        "mim": "606763",
+        "paragraphs": 3,
+        "abstract": 0.1053,
+        "secondhand": 0.2193,
+        "fulltext": 0.693
+      },
+      {
+        "mim": "607721",
+        "paragraphs": 3,
+        "abstract": 0.5263,
+        "secondhand": 0.5,
+        "fulltext": 0.6842
+      },
+      {
+        "mim": "607734",
+        "paragraphs": 1,
+        "abstract": 0.6538,
+        "secondhand": 0.6731,
+        "fulltext": 0.9231
+      },
+      {
+        "mim": "607876",
+        "paragraphs": 4,
+        "abstract": 0.4608,
+        "secondhand": 0.4706,
+        "fulltext": 0.7745
+      },
+      {
+        "mim": "608133",
+        "paragraphs": 2,
+        "abstract": 0.0,
+        "secondhand": 0.0758,
+        "fulltext": 0.7424
+      },
+      {
+        "mim": "611521",
+        "paragraphs": 8,
+        "abstract": 0.2454,
+        "secondhand": 0.3009,
+        "fulltext": 0.7824
+      },
+      {
+        "mim": "613730",
+        "paragraphs": 3,
+        "abstract": 0.4146,
+        "secondhand": 0.5854,
+        "fulltext": 0.9268
+      },
+      {
+        "mim": "613744",
+        "paragraphs": 3,
+        "abstract": 0.3115,
+        "secondhand": 0.3443,
+        "fulltext": 0.7295
+      },
+      {
+        "mim": "614501",
+        "paragraphs": 1,
+        "abstract": 0.1429,
+        "secondhand": 0.1607,
+        "fulltext": 0.6429
+      },
+      {
+        "mim": "614651",
+        "paragraphs": 3,
+        "abstract": 0.2292,
+        "secondhand": 0.5625,
+        "fulltext": 0.9167
+      },
+      {
+        "mim": "614856",
+        "paragraphs": 2,
+        "abstract": 0.6667,
+        "secondhand": 0.7037,
+        "fulltext": 0.9074
+      },
+      {
+        "mim": "615073",
+        "paragraphs": 6,
+        "abstract": 0.2021,
+        "secondhand": 0.2021,
+        "fulltext": 0.8298
+      },
+      {
+        "mim": "615268",
+        "paragraphs": 1,
+        "abstract": 0.8333,
+        "secondhand": 0.7667,
+        "fulltext": 0.9667
+      },
+      {
+        "mim": "615582",
+        "paragraphs": 5,
+        "abstract": 0.1208,
+        "secondhand": 0.125,
+        "fulltext": 0.4417
+      },
+      {
+        "mim": "615710",
+        "paragraphs": 8,
+        "abstract": 0.2122,
+        "secondhand": 0.2626,
+        "fulltext": 0.6511
+      },
+      {
+        "mim": "615972",
+        "paragraphs": 2,
+        "abstract": 0.4444,
+        "secondhand": 0.5,
+        "fulltext": 0.9259
+      },
+      {
+        "mim": "616151",
+        "paragraphs": 1,
+        "abstract": 0.3,
+        "secondhand": 0.2667,
+        "fulltext": 0.7333
+      },
+      {
+        "mim": "617153",
+        "paragraphs": 3,
+        "abstract": 0.2674,
+        "secondhand": 0.314,
+        "fulltext": 0.5233
+      },
+      {
+        "mim": "617232",
+        "paragraphs": 7,
+        "abstract": 0.2416,
+        "secondhand": 0.3539,
+        "fulltext": 0.8315
+      },
+      {
+        "mim": "617927",
+        "paragraphs": 1,
+        "abstract": 0.2222,
+        "secondhand": 0.3333,
+        "fulltext": 0.963
+      },
+      {
+        "mim": "618343",
+        "paragraphs": 2,
+        "abstract": 0.4839,
+        "secondhand": 0.5161,
+        "fulltext": 0.7742
+      },
+      {
+        "mim": "618400",
+        "paragraphs": 2,
+        "abstract": 0.2258,
+        "secondhand": 0.2581,
+        "fulltext": 0.7258
+      },
+      {
+        "mim": "618808",
+        "paragraphs": 2,
+        "abstract": 0.2083,
+        "secondhand": 0.1667,
+        "fulltext": 0.3958
+      },
+      {
+        "mim": "618875",
+        "paragraphs": 2,
+        "abstract": 0.037,
+        "secondhand": 0.1667,
+        "fulltext": 0.7222
+      },
+      {
+        "mim": "619124",
+        "paragraphs": 9,
+        "abstract": 0.1257,
+        "secondhand": 0.2545,
+        "fulltext": 0.6886
+      },
+      {
+        "mim": "619201",
+        "paragraphs": 2,
+        "abstract": 0.2791,
+        "secondhand": 0.3023,
+        "fulltext": 0.8023
+      },
+      {
+        "mim": "619681",
+        "paragraphs": 4,
+        "abstract": 0.425,
+        "secondhand": 0.4167,
+        "fulltext": 0.9
+      },
+      {
+        "mim": "620022",
+        "paragraphs": 6,
+        "abstract": 0.3073,
+        "secondhand": 0.3958,
+        "fulltext": 0.9167
+      },
+      {
+        "mim": "620029",
+        "paragraphs": 4,
+        "abstract": 0.3203,
+        "secondhand": 0.3203,
+        "fulltext": 0.8281
+      },
+      {
+        "mim": "620098",
+        "paragraphs": 2,
+        "abstract": 0.1957,
+        "secondhand": 0.1304,
+        "fulltext": 0.6522
+      },
+      {
+        "mim": "620249",
+        "paragraphs": 3,
+        "abstract": 0.6778,
+        "secondhand": 0.6778,
+        "fulltext": 0.9
+      },
+      {
+        "mim": "620402",
+        "paragraphs": 2,
+        "abstract": 0.4154,
+        "secondhand": 0.4231,
+        "fulltext": 0.8615
+      },
+      {
+        "mim": "620457",
+        "paragraphs": 1,
+        "abstract": 0.619,
+        "secondhand": 0.6429,
+        "fulltext": 0.9762
+      },
+      {
+        "mim": "620481",
+        "paragraphs": 3,
+        "abstract": 0.3889,
+        "secondhand": 0.3778,
+        "fulltext": 0.8444
+      },
+      {
+        "mim": "620670",
+        "paragraphs": 2,
+        "abstract": 0.3839,
+        "secondhand": 0.5,
+        "fulltext": 0.9018
+      },
+      {
+        "mim": "620851",
+        "paragraphs": 2,
+        "abstract": 0.3462,
+        "secondhand": 0.4615,
+        "fulltext": 0.7308
+      },
+      {
+        "mim": "621030",
+        "paragraphs": 2,
+        "abstract": 0.5147,
+        "secondhand": 0.6618,
+        "fulltext": 0.8971
+      },
+      {
+        "mim": "621313",
+        "paragraphs": 2,
+        "abstract": 0.04,
+        "secondhand": 0.06,
+        "fulltext": 0.92
+      }
+    ],
+    "usage": {
+      "this_pass": {
+        "calls": 268,
+        "cached": 0,
+        "input_tokens": 1065738,
+        "output_tokens": 193443,
+        "list_price_usd": 10.4214,
+        "seconds": 2384.56,
+        "full_input_tokens": 1065738,
+        "full_output_tokens": 193443,
+        "full_list_price_usd": 10.4214,
+        "full_seconds": 2384.56,
+        "turns": 536
+      },
+      "failures": {}
+    }
+  }
 }

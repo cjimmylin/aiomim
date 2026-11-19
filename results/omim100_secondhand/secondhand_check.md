@@ -8,7 +8,24 @@ Source run `omim100`; 49 entries. In each, the papers read in full were hidden a
 - Passages for the hidden papers: 523 (430,391 characters).
 - All papers supplemented (hidden and abstract-only): 243, of which 234 got passages; 1278 passages, 1,046,654 characters; retrieval 0.1 s in all.
 
-## OMIM-fact coverage of the gold paragraphs about the hidden papers
+## OMIM-fact coverage on the frozen fact lists (main measure)
+
+Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged.
+
+| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen) | Coverage (old scoring) |
+|---|---|---|---|---|---|---|---|---|---|
+| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% |
+| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% |
+| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% |
+
+Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
+
+| Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | better / worse / tied |
+|---|---|---|---|---|---|
+| Abstract + second-hand minus abstract only | 46 | +4.9 (+2.8 to +7.1) | 33 / 9 / 4 | +5.3 (+3.6 to +7.2) | 36 / 7 / 3 |
+| Full text minus abstract only | 46 | +43.9 (+38.5 to +49.3) | 45 / 0 / 1 | +41.7 (+36.7 to +46.6) | 46 / 0 / 0 |
+
+## OMIM-fact coverage of the gold paragraphs about the hidden papers (old scoring: facts split afresh for each draft)
 
 Pooled over the 46 entries that have a full-text draft in the source run, the same entries for all three conditions; left out: 3 entries whose full-text direct draft was not written (the writer's reply was stopped), so they have no full-text coverage to compare: 609296, 620609, 621068.
 
@@ -48,7 +65,7 @@ Facts are split from the gold paragraph separately for each condition, so the fa
 | few | 87 (83) | 55 (51) | 20 (20) | 11 (11) | 1 (1) | 0 (0) |
 | many | 25 (23) | 19 (17) | 4 (4) | 0 (0) | 2 (2) | 0 (0) |
 
-## Per entry
+## Per entry (coverage columns: old scoring)
 
 | MIM | Hidden | With passages | Gold paragraphs | Abstract | Second-hand | Full text | Claims | On second-hand | of which not supported by full text |
 |---|---|---|---|---|---|---|---|---|---|

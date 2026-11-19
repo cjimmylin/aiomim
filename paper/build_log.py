@@ -558,9 +558,10 @@ passages. Passages are paragraphs or table rows whose citation points at the tar
 
 For papers readable in full, the full text was hidden and entries were written by direct reading from the abstract,
 with and without second-hand passages. Claims about the hidden papers were then audited against the real full text.
-No repair round was applied to the two new drafts. Coverage in this experiment uses the earlier per-draft fact
-splitting, not the fixed lists. Our full texts exclude supplementary material, so "unsupported by the full text" is an
-upper bound on error.
+No repair round was applied to the two new drafts; the full-text draft is the main run's and went through repair.
+Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
+kept beside it. Our full texts exclude supplementary material, so "unsupported by the full text" is an upper bound on
+error.
 
 {shc_body}
 

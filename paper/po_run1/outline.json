@@ -13,7 +13,7 @@
       "title": "Within-paper effect of access: hiding the full text of the same papers",
       "plot_type": "plot",
       "data_source": "experimental_log.md",
-      "objective": "Horizontal stacked bar chart, one bar per condition (Abstract only; Abstract + second-hand; Full text), each bar split into Present / Partial / Absent / Contradicted fact counts, with coverage printed at the bar end: 35.5%, 41.4%, 78.6%. Data: log Sec. 6.2, table 'OMIM-fact coverage of the gold paragraphs about the hidden papers' (46 entries, 136 paragraphs; facts 1783 / 1802 / 1767; present 452/565/1268, partial 362/362/243, absent 966/864/246, contradicted 3/11/10). Caption must state: same papers in all three conditions; coverage here uses the earlier per-draft fact splitting, not the fixed lists; the full-text draft went through the repair round and the two new drafts did not. This is the lead evidence for the access claim.",
+      "objective": "Horizontal stacked bar chart, one bar per condition (Abstract only; Abstract + second-hand; Full text), each bar split into Present / Partial / Absent / Contradicted fact counts, with coverage printed at the bar end: 31.2%, 36.7%, 77.4%. Data: log Sec. 6.2, table 'OMIM-fact coverage on the frozen fact lists (main measure)' (46 entries, 136 paragraphs; facts 1783 / 1802 / 1767; present 452/565/1268, partial 362/362/243, absent 966/864/246, contradicted 3/11/10). Caption must state: same papers in all three conditions; coverage here uses the earlier per-draft fact splitting, not the fixed lists; the full-text draft went through the repair round and the two new drafts did not. This is the lead evidence for the access claim.",
       "aspect_ratio": "16:9"
     },
     {
@@ -29,7 +29,7 @@
       "title": "Differences between reading strategies grow as more of an entry's papers are readable in full",
       "plot_type": "plot",
       "data_source": "experimental_log.md",
-      "objective": "Forest plot (point estimate with 95% bootstrap interval) of the paired difference from direct reading in OMIM facts conveyed, in percentage points, for evidence graph, agentic curator and case table first, within three access groups of entries: no full text (n=46), under half full text (n=25), half or more full text (n=21). Data: log Sec. 2.9, table 'OMIM facts conveyed' (e.g. case table first +0.6 (-0.3 to +1.6), -4.0 (-6.2 to -2.0), -6.1 (-8.4 to -3.7); agentic -0.1, -0.4, -2.0 (-3.4 to -0.7); evidence graph -0.2, -0.7, -1.8 (-4.4 to +0.6)). Omit the 'all full text' group (n=1, no interval). Memory-only and recall-then-verify are off-scale (-18 to -60 points) and go in a note or inset, not the main axis. Draw a shaded band at +/-1.0 point for the replicate-noise half-width over 93 entries (log Sec. 4.2). Caption: observational stratification across entries, confounded with entry creation date and journal; the within-paper evidence is fig_hidden_fulltext.",
+      "objective": "Forest plot (point estimate with 95% bootstrap interval) of the paired difference from direct reading in OMIM facts conveyed, in percentage points, for evidence graph, agentic curator and case table first, within three access groups of entries: no full text (n=46), under half full text (n=25), half or more full text (n=21). Data: log Sec. 2.9, table 'OMIM facts conveyed' (e.g. case table first +0.6 (-0.3 to +1.6), -4.0 (-6.3 to -2.0), -6.1 (-8.3 to -3.6); agentic -0.1, -0.4, -2.0 (-3.4 to -0.7); evidence graph -0.2, -0.7, -1.8 (-4.4 to +0.6)). Omit the 'all full text' group (n=1, no interval). Memory-only and recall-then-verify are off-scale (-18 to -60 points) and go in a note or inset, not the main axis. Draw a shaded band at +/-1.0 point for the replicate-noise half-width over 93 entries (log Sec. 4.2). Caption: observational stratification across entries, confounded with entry creation date and journal; the within-paper evidence is fig_hidden_fulltext.",
       "aspect_ratio": "16:9"
     },
     {
@@ -128,7 +128,7 @@
             "Benchmark: 100 OMIM phenotype entries, each written from exactly the papers its curators cited, causal gene withheld; one model; shared guards, claim-level audit and scoring; strategies framed as three paradigms, a control and add-ons each tested against its parent (log Sec. 1.3) - never 'nine strategies'.",
             "Primary endpoint named once with required wording: coverage of facts in curator-written per-paper text (do not say 'the OMIM entry').",
             "Results: reading strategies are close at current open access (direct reading 49.1%, evidence graph 48.6%, agentic curator 48.4%, case table first 47.2%; log Sec. 2.2); memory-based strategies far lower (15.1%, 14.6%).",
-            "Lead the access claim with the within-paper experiment: hiding full text of the same papers drops coverage from 78.6% to 35.5%, second-hand passages recover to 41.4% (log Sec. 6.2); differences between strategies grow where more full text is readable (log Sec. 2.9).",
+            "Lead the access claim with the within-paper experiment: hiding full text of the same papers drops coverage from 77.4% to 31.2%, second-hand passages recover to 36.7% (log Sec. 6.2); differences between strategies grow where more full text is readable (log Sec. 2.9).",
             "Audit: removes unsupported claims and flagged all 60 planted single-fact errors, but checks fidelity, not correctness, and passes claims supported only by a later paper's description (log Sec. 11, 6.2).",
             "One clause on scope: one model family, no human validation, open-access text only."
           ],
@@ -235,7 +235,7 @@
         {
           "subsection_title": "4.2 Access to the source bounds agreement with curators",
           "content_bullets": [
-            "Lead with the within-paper hidden-full-text experiment (log Sec. 6.2; fig_hidden_fulltext): 49 entries, 91 hidden papers; on 46 entries / 136 paragraphs coverage 35.5% abstract only, 41.4% with second-hand passages, 78.6% with full text; state it uses the earlier per-draft fact splitting and that only the full-text draft had a repair round.",
+            "Lead with the within-paper hidden-full-text experiment (log Sec. 6.2; fig_hidden_fulltext): 49 entries, 91 hidden papers; on 46 entries / 136 paragraphs coverage 31.2% abstract only, 36.7% with second-hand passages, 77.4% with full text; state it uses the earlier per-draft fact splitting and that only the full-text draft had a repair round.",
             "Where missed facts went (log Sec. 3; fig_missed_facts): of facts direct reading did not fully convey, 49% were in the text for full-text papers vs 2% for abstract-only and 0% title-only; overall 43% conveyed, 4% omitted though stated, 13% omitted and partly stated, 40% not in the available text. Model judgement.",
             "Observational evidence (log Sec. 2.8, 2.9; fig_access_strata): pooled coverage 77.6% on full-text papers vs 40.1% abstract vs 17.5% title for direct reading; differences between strategies grow with the full-text share (case table first +0.6 / -4.0 / -6.1; agentic -0.1 / -0.4 / -2.0). Say explicitly this comparison is across papers and confounded with entry creation date and journal.",
             "Report both halves of the claim (notes.md): at current open access the reading strategies are close; where more full text is readable, differences grow. Do not claim the method matters little in general.",
@@ -319,7 +319,7 @@
         {
           "subsection_title": "Conclusion",
           "content_bullets": [
-            "Restate the three questions of idea.md 'Problem' and answer each with the bounded claim from Sec. 4 (strategy: close at current access; access: within-paper drop 78.6% -> 35.5%; audit: fidelity, not correctness).",
+            "Restate the three questions of idea.md 'Problem' and answer each with the bounded claim from Sec. 4 (strategy: close at current access; access: within-paper drop 77.4% -> 31.2%; audit: fidelity, not correctness).",
             "Position the benchmark and harness as the contribution (idea.md 'Contributions' 1): public sources only, claim-level audit, fixed fact lists, per-entry release of drafts, verdicts and scores (score files carry fact identifiers and statuses, not curator wording; notes.md 'Ethics').",
             "No promises of further experiments (other models, curator studies, published systems)."
           ],
