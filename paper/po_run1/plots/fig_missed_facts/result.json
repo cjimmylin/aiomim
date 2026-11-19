@@ -1,0 +1,9 @@
+{
+ "figure_id": "fig_missed_facts",
+ "image": "fig_missed_facts.png",
+ "caption": "Where the OMIM facts that direct reading did not fully convey went, by how each cited paper could be read (97 entries, 466 OMIM paragraphs; n = OMIM facts per access level). Each fact the draft did not fully convey was checked once against the text available for its paper: stated, partly stated, or not stated; this check is a model judgement. Facts the draft conveyed partly are counted with the missed ones, and the small remainder were contradicted. The right-hand column gives the share of missed facts that were stated in the available text. With full text, 49% of the missed facts were in the text the model read; with abstracts or titles only, nearly all missed facts were partly or not stated in the available text (2% and 0% stated).",
+ "plot_type": "plot",
+ "aspect_ratio": "4:3",
+ "description": "100%-stacked horizontal bars, one per access level (Full text n=1,837; Abstract only n=4,282; Title only n=379) from experimental_log.md Sec. 3 table 1. Segments: conveyed (1,329/1,420/38), missed but stated in available text (245/46/0), missed and partly stated (134/632/53), missed and not in available text (122/2,159/288), contradicted remainder (7/25/0, = facts - conveyed - not fully conveyed). Right column: 'In text, share of missed' 49%/2%/0% from the log. Okabe-Ito colours, single column ~3.5 x 2.65 in, 300 dpi.",
+ "critic_rounds": 3
+}

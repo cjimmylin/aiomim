@@ -1,0 +1,17 @@
+[
+ {
+  "round": 1,
+  "critic_suggestions": "All plotted values match log Sec. 3 table 1 (shares recomputed: 72.3/13.3/7.3/6.6/0.4; 33.2/1.1/14.8/50.4/0.6; 10.0/0.0/14.0/76.0/0.0). Presentation: the Full-text partly/not-in-text segments (7% each) had no value labels; the right-hand annotation 'in text: 49%\\nof missed' broke awkwardly across lines.",
+  "changed": true
+ },
+ {
+  "round": 2,
+  "critic_suggestions": "Rendered image was about 4.1 in wide because tight bbox added the legend and right annotations, so fonts would shrink below 8 pt at column width; the 7% in-segment labels were cramped. Moved n into the y tick labels, replaced the right annotations by one 'In text, share of missed' column, dropped the redundant y-axis title, switched to constrained layout with a figure legend. First re-render put the share column on top of the bar ends (x=103); moved it to x=108 inside an extended 0-115 range with the spine bounded at 100%.",
+  "changed": true
+ },
+ {
+  "round": 3,
+  "critic_suggestions": "Values unchanged and correct. The two 7% labels in the Full-text bar touched segment edges at 7 pt; removed labels for segments narrower than 9.5% (their sizes remain readable against the axis). Final render checked: no overlaps, no clipped text, no caption text inside the image, no project or author names.",
+  "changed": true
+ }
+]

@@ -1,0 +1,9 @@
+{
+ "figure_id": "fig_memory_by_era",
+ "image": "fig_memory_by_era.png",
+ "caption": "OMIM facts conveyed (top; primary endpoint, coverage of curator-written per-paper text) and causal gene F1 (bottom) for the memory-only control and direct reading, as entry means by the creation era of the entry (MIM-number range; n = 18, 19, 20, 19 and 17 compared entries per band). Hollow markers at right are a separate set of 20 entries created June to November 2026. The memory-only control falls for the newest entries (facts conveyed 5.7% for 620000 onward and 7.0% for the 2026 set; gene F1 41.2% and 30.0%), while direct reading conveys 51.2-53.9% of facts from the 600000 band on (52.2% for the 2026 set) and reaches 100.0% gene F1 in every band but the classic one (87.0%). The model's training cut-off is not known, so this is a contamination check, not proof that the reading results are free of memorisation: within abstract-only papers, coverage by direct reading also varies with creation era.",
+ "plot_type": "plot",
+ "aspect_ratio": "16:10",
+ "description": "Two vertically stacked line panels sharing an x axis of five creation-era bands (classic 1xxxxx-5xxxxx, 600000-609999, 610000-615999, 616000-619999, 620000 onward; n=18,19,20,19,17) plus a separate, unconnected position for 20 entries created Jun-Nov 2026 behind a dashed rule. Top: OMIM facts conveyed, memory only (#D55E00 squares) 14.5/24.1/17.5/12.6/5.7 vs direct reading (#0072B2 circles) 34.9/53.9/51.2/51.4/53.5; 2026 set 7.0 vs 52.2 (hollow markers). Bottom: causal gene F1, memory 88.9/94.7/100.0/89.5/41.2 vs direct 87.0/100.0/100.0/100.0/100.0; 2026 set 30.0 vs 100.0. Data: experimental_log.md Sec. 2.11 and Sec. 10. No error bars (log gives none).",
+ "critic_rounds": 3
+}

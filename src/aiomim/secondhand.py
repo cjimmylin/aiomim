@@ -755,7 +755,7 @@ def check_markdown(s: dict[str, Any]) -> str:
     lines += table(f"Other references cited by the passage (few = at most {sh.FEW_COCITED})",
                    cl.get("secondhand_by_cocited", {}), co.get("secondhand_by_cocited", {}))
     lines += [
-              "## Per entry", "",
+              "## Per entry" + (" (coverage columns: old scoring)" if s.get("coverage_frozen") else ""), "",
               "| MIM | Hidden | With passages | Gold paragraphs | Abstract | Second-hand | Full text | "
               "Claims | On second-hand | of which not supported by full text |",
               "|---|---|---|---|---|---|---|---|---|---|"]
@@ -848,10 +848,19 @@ def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4
 
 if __name__ == "__main__":
     # python -m aiomim.secondhand reaggregate <run> [<source run>]: re-pool from the per-entry files; no model calls.
-    import sys
+    # With --frozen [--jobs N], first score the two drafts of each entry against the frozen fact lists
+    # (judge calls) and pool them into `coverage_frozen`.
+    import argparse
 
-    if len(sys.argv) >= 3 and sys.argv[1] == "reaggregate":
-        reaggregate(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
-        print((get_settings().runs / sys.argv[2] / "secondhand_check.md").read_text())
-    else:
-        sys.exit("usage: python -m aiomim.secondhand reaggregate <run> [<source run>]")
+    ap = argparse.ArgumentParser(prog="python -m aiomim.secondhand")
+    ap.add_argument("command", choices=["reaggregate"])
+    ap.add_argument("run")
+    ap.add_argument("source", nargs="?")
+    ap.add_argument("--frozen", action="store_true",
+                    help="score the drafts against the frozen fact lists first (model calls)")
+    ap.add_argument("--jobs", type=int, default=1)
+    a = ap.parse_args()
+    out = reaggregate(a.run, a.source, frozen=a.frozen, jobs=a.jobs)
+    print((get_settings().runs / a.run / "secondhand_check.md").read_text())
+    if out.get("coverage_frozen", {}).get("usage"):
+        print(json.dumps(out["coverage_frozen"]["usage"], indent=1))

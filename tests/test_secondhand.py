@@ -470,3 +470,68 @@ def test_entries_without_a_full_text_draft_are_not_pooled_as_zero(tmp_path, monk
     assert summary["coverage_all_entries"]["abstract"]["n_facts"] == 20 and summary["usage"] == {"calls": 3}
     md = (runs / "chk" / "secondhand_check.md").read_text()
     assert "left out: 1 entries whose full-text direct draft was not written" in md and "| no draft |" in md
+
+
+def test_frozen_coverage_pools_the_same_entries_and_paragraphs(tmp_path, monkeypatch):
+    from aiomim import secondhand
+
+    def old_cov(present):
+        return {"paragraphs": 1, "n_facts": 10, "present": present, "partial": 0, "absent": 10 - present,
+                "contradicted": 0, "coverage": present / 10}
+
+    def para(present, partial, n=4, unjudged=0):
+        judged = n - unjudged
+        return {"key": "k", "pmids": ["1"], "n_facts": n, "n_judged": judged, "unjudged": unjudged,
+                "present": present, "partial": partial, "absent": judged - present - partial, "contradicted": 0,
+                "facts": [{"id": f"k.{i}", "status": "absent"} for i in range(n)]}
+
+    runs = tmp_path / "runs"
+    # Six entries with a full-text draft (the bootstrap needs at least five), one without.
+    mims = [f"10000{i}" for i in range(7)]
+    for i, mim in enumerate(mims):
+        stopped = i == 6
+        (runs / "src" / mim).mkdir(parents=True)
+        (runs / "src" / mim / "eval.direct.json").write_text(json.dumps({"stopped": "safety"} if stopped else {}))
+        out = runs / "chk" / mim / "secondhand_check"
+        out.mkdir(parents=True)
+        result = {"mim": mim, "title": "T", "hidden_papers": ["1"], "gold_paragraphs": 2,
+                  "retrieval": {"hidden_with_passages": 1}, "claims": {"n_claims": 0, "by_evidence_location": {}},
+                  "coverage": {"abstract": old_cov(4), "secondhand": old_cov(5), "fulltext": old_cov(8)},
+                  "coverage_same_paragraphs": {"paragraphs": 1}}
+        (out / "result.json").write_text(json.dumps(result))
+        for name in ("abstract", "secondhand"):
+            (out / f"entry.{name}.json").write_text(json.dumps({"title": name}))
+        hashes = {n: secondhand._draft_hash(out / f"entry.{n}.json") for n in ("abstract", "secondhand")}
+        rows = [  # the second paragraph has no full-text score: left out of all three conditions
+            {"key": "k", "pmids": ["1"], "abstract": para(1, 0), "secondhand": para(2, 0 if i else 1),
+             "fulltext": para(4, 0)},
+            {"key": "k2", "pmids": ["1"], "abstract": para(4, 0), "secondhand": para(4, 0), "fulltext": None},
+        ]
+        (out / "coverage_frozen.json").write_text(json.dumps({"mim": mim, "drafts": hashes, "paragraphs": rows}))
+    (runs / "chk" / "secondhand_check.json").write_text(json.dumps({"source": "src", "usage": {"calls": 3}}))
+    monkeypatch.setattr(secondhand, "get_settings", lambda: SimpleNamespace(runs=runs))
+
+    summary = secondhand.reaggregate("chk")
+    f = summary["coverage_frozen"]
+    assert summary["left_out_no_fulltext_draft"] == ["100006"]          # the old keys are still there
+    assert summary["coverage"]["abstract"]["n_facts"] == 60
+    assert f["n_entries"] == 6 and f["n_paragraphs"] == 6
+    assert f["paragraphs_dropped_not_scored_under_all_three"] == 6
+    a, s, ft = (f["by_condition"][n] for n in ("abstract", "secondhand", "fulltext"))
+    assert (a["n_judged"], a["present"], a["absent"], a["coverage"]) == (24, 6, 18, 0.25)
+    assert (s["present"], s["partial"]) == (12, 1) and s["coverage"] == round((12 + 0.5) / 24, 4)
+    assert ft["coverage"] == 1.0
+    d = f["paired"]["secondhand_minus_abstract"]
+    assert d["n"] == 6 and d["better"] == 6 and d["worse"] == 0
+    assert abs(d["difference"] - (5 * 0.25 + 0.375) / 6) < 1e-4 and d["ci95"][0] <= d["difference"] <= d["ci95"][1]
+    assert f["paired"]["fulltext_minus_abstract"]["difference"] == 0.75
+    assert f["paired_old_scoring_same_entries"]["secondhand_minus_abstract"]["difference"] == 0.1
+    again = secondhand.reaggregate("chk")["coverage_frozen"]
+    assert again["paired"] == f["paired"]                                 # fixed seed
+    md = (runs / "chk" / "secondhand_check.md").read_text()
+    assert "frozen fact lists (main measure)" in md and "(old scoring: facts split afresh for each draft)" in md
+
+    # A draft rewritten after scoring makes its frozen file stale: not pooled.
+    (runs / "chk" / "100000" / "secondhand_check" / "entry.abstract.json").write_text(json.dumps({"title": "new"}))
+    f = secondhand.reaggregate("chk")["coverage_frozen"]
+    assert f["entries_with_stale_frozen_file"] == ["100000"] and f["n_entries"] == 5

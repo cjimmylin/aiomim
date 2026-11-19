@@ -1,0 +1,308 @@
+{
+  "acomprehensiveandquantitativecomparisonoftextminingin15millionfulltextarticlesversustheircorrespondingabstracts": {
+    "citation_key": "Westergaard2018ComprehensiveQuantitative",
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [
+      "David Westergaard",
+      "Hans-Henrik Stærfeldt",
+      "Christian Tønsberg",
+      "Lars Juhl Jensen",
+      "Søren Brunak"
+    ],
+    "venue": "PLOS Computational Biology",
+    "year": 2018,
+    "abstract": "[Summary from web search, not the published abstract] Compares text mining on about 15 million full-text articles with their abstracts and finds full text consistently yields more results.",
+    "citation_count": 149,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Full text vs abstract for text mining.",
+    "journal": "PLOS Computational Biology",
+    "volume": "14",
+    "pages": "e1005962",
+    "publication_date": "2018-02-15",
+    "external_ids": {
+      "DOI": "10.1371/journal.pcbi.1005962"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "thestructuralandcontentaspectsofabstractsversusbodiesoffulltextjournalarticlesaredifferent": {
+    "citation_key": "Cohen2010StructuralContent",
+    "title": "The structural and content aspects of abstracts versus bodies of full text journal articles are different",
+    "authors": [
+      "K Bretonnel Cohen",
+      "Helen L Johnson",
+      "Karin Verspoor",
+      "Christophe Roeder",
+      "Lawrence E Hunter"
+    ],
+    "venue": "BMC Bioinformatics",
+    "year": 2010,
+    "abstract": "[Summary from web search, not the published abstract] Shows abstracts and article bodies differ structurally and in content, affecting text-mining performance.",
+    "citation_count": 108,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Abstract-only vs full-text consequences.",
+    "journal": "BMC Bioinformatics",
+    "volume": "11",
+    "pages": null,
+    "publication_date": "2010-09-29",
+    "external_ids": {
+      "DOI": "10.1186/1471-2105-11-492"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "pubtatorcentralautomatedconceptannotationforbiomedicalfulltextarticles": {
+    "citation_key": "Wei2019PubtatorCentral",
+    "title": "PubTator central: automated concept annotation for biomedical full text articles",
+    "authors": [
+      "Chih-Hsuan Wei",
+      "Alexis Allot",
+      "Robert Leaman",
+      "Zhiyong Lu"
+    ],
+    "venue": "Nucleic Acids Research",
+    "year": 2019,
+    "abstract": "PubTator Central (https://www.ncbi.nlm.nih.gov/research/pubtator/) is a web service for viewing and retrieving bioconcept annotations in full text biomedical articles. PubTator Central (PTC) provides automated annotations from state-of-the-art text mining systems for genes/proteins, genetic variants, diseases, chemicals, species and cell lines, all available for immediate download. PTC annotates PubMed (29 million abstracts) and the PMC Text Mining subset (3 million full text articles). The new PTC web interface allows users to build full text document collections and visualize concept annotations in each document. Annotations are downloadable in multiple formats (XML, JSON and tab delimited) via the online interface, a RESTful web service and bulk FTP. Improved concept identification systems and a new disambiguation module based on deep learning increase annotation accuracy, and the new server-side architecture is significantly faster. PTC is synchronized with PubMed and PubMed Central, with new articles added daily. The original PubTator service has served annotated abstracts for ∼300 million requests, enabling third-party research in use cases such as biocuration support, gene prioritization, genetic disease analysis, and literature-based knowledge discovery. We demonstrate the full text results in PTC significantly increase biomedical concept coverage and anticipate this expansion will both enhance existing downstream applications and enable new use cases.",
+    "citation_count": 362,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Open-access full-text resource for text mining.",
+    "journal": "Nucleic Acids Research",
+    "volume": "47",
+    "pages": "W587-W593",
+    "publication_date": "2019-05-22",
+    "external_ids": {
+      "DOI": "10.1093/nar/gkz389"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "flyaocevaluatingagenticontologycurationofdrosophilascientificknowledgebases": {
+    "citation_key": "Zhang2026FlyaocEvaluating",
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [
+      "Xingjian Zhang",
+      "Sophia Moylan",
+      "Ziyang Xiong",
+      "Qiaozhu Mei",
+      "Yichen Luo",
+      "Jiaqi W. Ma"
+    ],
+    "venue": "arXiv preprint arXiv:2602.09163",
+    "year": 2026,
+    "abstract": "Scientific knowledge bases accelerate discovery by curating findings from primary literature into structured, queryable formats for both human researchers and emerging AI systems. Maintaining these resources requires expert curators to search papers, reconcile evidence across documents, and produce ontology-grounded annotations. Existing benchmarks usually evaluate isolated subtasks, such as named entity recognition or relation extraction, and therefore do not capture this end-to-end workflow. We present FlyAOC to evaluate AI agents on end-to-end agentic ontology curation from scientific literature. Given a gene symbol, a concise FlyBase gene description, access to a 16,898-paper corpus, and ontology resources, agents must search for evidence and recover as many curator-relevant structured annotations as possible. Outputs span standardized function terms, expression patterns, and historical synonyms linking decades of nomenclature. The benchmark includes 7,397 expert-curated annotations across 100 genes drawn from FlyBase, the Drosophila knowledge base. Across four baseline agent harnesses---memorization, fixed pipeline, single-agent, and multi-agent---FlyAOC is sensitive to harness design, model family, and tool-use reliability. These results reveal system-level failure modes that model-only evaluations do not capture. FlyAOC provides a reproducible testbed for retrieval-augmented scientific curation.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "Named closest prior work.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2026-02-09",
+    "external_ids": {
+      "ArXiv": "2602.09163"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "genknowrdreframingaiforrarediseaserecognition": {
+    "citation_key": "Yan2026GenknowrdReframing",
+    "title": "GEN-KnowRD: Reframing AI for Rare Disease Recognition",
+    "authors": [
+      "Chao Yan",
+      "Wu-Chen Su",
+      "Yi Xin",
+      "Monika E. Grabowska",
+      "Vern E. Kerchberger",
+      "Victor A. Borza",
+      "Jinlian Wang",
+      "Liwei Wang",
+      "Rui Li",
+      "Jacob Lynn",
+      "Alyson L. Dickson",
+      "Cathy Shyr",
+      "QiPing Feng",
+      "Charles M. Stein",
+      "Kai Wang",
+      "Peter J. Embi",
+      "Bradley A. Malin",
+      "Hongfang Liu",
+      "Wei-Qi Wei"
+    ],
+    "venue": "openRxiv",
+    "year": 2026,
+    "abstract": "Rare diseases affect over 300 million people worldwide, yet patients often endure years-long diagnostic delays that limit timely intervention and trial opportunities. Computational rare disease recognition (RDR) remains constrained by knowledge resources that are often incomplete, heterogeneous, and dependent on extensive multi-disciplinary expert curation that cannot scale. Large language models (LLMs) applied directly for end-to-end diagnosis or disease discrimination face similar knowledge bottlenecks while also raising concerns around cost, reproducibility, and data governance. Here, we introduce GEN-KnowRD, a knowledge-layer-first framework that leverages LLMs to generate schema-guided rare disease profiles, systematically assesses their quality, and constructs a computable knowledge base (PheMAP-RD) for local deployment. GEN-KnowRD integrates this knowledge into lightweight inference pipelines for both general-purpose disease screening and specialized early discrimination from longitudinal electronic health records. Across six public benchmarks for general-purpose screen (9,290 patients spanning 798 rare diseases), GEN-KnowRD significantly improves disease ranking compared to a state-of-the-art, HPO-centered diagnostic framework (up to 345.8% improvement in top-1 success), advanced end-to-end LLM reasoning (up to 129.1% improvement), and a variant of GEN-KnowRD instantiated with expert-curated knowledge rather than LLM-generated profiles. In two real-world cohorts for e... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "Named closest prior work.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2026-03-03",
+    "external_ids": {
+      "DOI": "10.64898/2026.03.02.26347469"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "languageagentsachievesuperhumansynthesisofscientificknowledge": {
+    "citation_key": "Skarlinski2024LanguageAgents",
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+      "Michael D. Skarlinski",
+      "Sam Cox",
+      "Jon M. Laurent",
+      "James D. Braza",
+      "Michaela Hinks",
+      "Michael J. Hammerling",
+      "Manvitha Ponnapati",
+      "Samuel G. Rodriques",
+      "Andrew D. White"
+    ],
+    "venue": "arXiv preprint arXiv:2409.13740",
+    "year": 2024,
+    "abstract": "Language models are known to hallucinate incorrect information, and it is unclear if they are sufficiently accurate and reliable for use in scientific research. We developed a rigorous human-AI comparison methodology to evaluate language model agents on real-world literature search tasks covering information retrieval, summarization, and contradiction detection tasks. We show that PaperQA2, a frontier language model agent optimized for improved factuality, matches or exceeds subject matter expert performance on three realistic literature research tasks without any restrictions on humans (i.e., full access to internet, search tools, and time). PaperQA2 writes cited, Wikipedia-style summaries of scientific topics that are significantly more accurate than existing, human-written Wikipedia articles. We also introduce a hard benchmark for scientific literature research called LitQA2 that guided design of PaperQA2, leading to it exceeding human performance. Finally, we apply PaperQA2 to identify contradictions within the scientific literature, an important scientific task that is challenging for humans. PaperQA2 identifies 2.34 +/- 1.99 contradictions per paper in a random subset of biology papers, of which 70% are validated by human experts. These results demonstrate that language model agents are now capable of exceeding domain experts across meaningful tasks on scientific literature.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "WikiCrow named in notes.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-09-10",
+    "external_ids": {
+      "ArXiv": "2409.13740"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "asystematicassessmentoflargelanguagemodelsknowledgeofrarediseaseshowmuchdolargelanguagemodelsknowaboutraredisease": {
+    "citation_key": "Groza2026SystematicAssessment",
+    "title": "A systematic assessment of large language models’ knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [
+      "Tudor Groza",
+      "Allison J. Marcello",
+      "Tristan Carlisle",
+      "Weng Khong Lim",
+      "Melissa Haendel",
+      "Neerja Karnani",
+      "Peter N. Robinson",
+      "Holm Graessner",
+      "Jessica X. Chong",
+      "Gareth Baynam",
+      "Saumya Shekhar Jamuar"
+    ],
+    "venue": "Human Genetics and Genomics Advances",
+    "year": 2026,
+    "abstract": "[Summary from web search, not the published abstract] Compares LLM-generated rare disease gene and phenotype knowledge with Orphanet and HPOA; recall was generally low.",
+    "citation_count": 5,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "LLM profiles vs curated reports; tests memory.",
+    "journal": "Human Genetics and Genomics Advances",
+    "volume": "7",
+    "pages": "100558",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1016/j.xhgg.2025.100558"
+    },
+    "verified_by": "crossref_match_99",
+    "abstract_source": "web_summary"
+  },
+  "identifyingandextractingrarediseasesandtheirphenotypeswithlargelanguagemodels": {
+    "citation_key": "Shyr2024IdentifyingExtracting",
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [
+      "Cathy Shyr",
+      "Yan Hu",
+      "Lisa Bastarache",
+      "Alex Cheng",
+      "Rizwan Hamid",
+      "Paul Harris",
+      "Hua Xu"
+    ],
+    "venue": "Journal of Healthcare Informatics Research",
+    "year": 2024,
+    "abstract": "Phenotyping is critical for informing rare disease diagnosis and treatment, but disease phenotypes are often embedded in unstructured text. While natural language processing (NLP) can automate extraction, a major bottleneck is developing annotated corpora. Recently, prompt learning with large language models (LLMs) has been shown to lead to generalizable results without any (zero-shot) or few annotated samples (few-shot), but none have explored this for rare diseases. Our work is the first to study prompt learning for identifying and extracting rare disease phenotypes in the zero- and few-shot settings. We compared the performance of prompt learning with ChatGPT and fine-tuning with BioClinicalBERT. We engineered novel prompts for ChatGPT to identify and extract rare diseases and their phenotypes (e.g., diseases, symptoms, and signs), established a benchmark for evaluating its performance, and conducted an in-depth error analysis. Overall, fine-tuning BioClinicalBERT resulted in higher performance (F1 of 0.689) than ChatGPT (F1 of 0.472 and 0.610 in the zero- and few-shot settings, respectively). However, ChatGPT achieved higher accuracy for rare diseases and signs in the one-shot setting (F1 of 0.778 and 0.725). Conversational, sentence-based prompts generally achieved higher accuracy than structured lists. Prompt learning using ChatGPT has the potential to match or outperform fine-tuning BioClinicalBERT at extracting rare diseases and signs with just one annotated sample. G... [Truncated]",
+    "citation_count": 63,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "Phenotype extraction.",
+    "journal": "Journal of Healthcare Informatics Research",
+    "volume": "8",
+    "pages": "438-461",
+    "publication_date": "2024-01-05",
+    "external_ids": {
+      "DOI": "10.1007/s41666-023-00155-0"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "anevaluationofgptmodelsforphenotypeconceptrecognition": {
+    "citation_key": "Groza2023EvaluationGpt",
+    "title": "An evaluation of GPT models for phenotype concept recognition",
+    "authors": [
+      "Tudor Groza",
+      "Harry Caufield",
+      "Dylan Gration",
+      "Gareth Baynam",
+      "Melissa A Haendel",
+      "Peter N Robinson",
+      "Christopher J Mungall",
+      "Justin T Reese"
+    ],
+    "venue": "arXiv preprint arXiv:2309.17169",
+    "year": 2023,
+    "abstract": "Objective: Clinical deep phenotyping and phenotype annotation play a critical role in both the diagnosis of patients with rare disorders as well as in building computationally-tractable knowledge in the rare disorders field. These processes rely on using ontology concepts, often from the Human Phenotype Ontology, in conjunction with a phenotype concept recognition task (supported usually by machine learning methods) to curate patient profiles or existing scientific literature. With the significant shift in the use of large language models (LLMs) for most NLP tasks, we examine the performance of the latest Generative Pre-trained Transformer (GPT) models underpinning ChatGPT as a foundation for the tasks of clinical phenotyping and phenotype annotation. Materials and Methods: The experimental setup of the study included seven prompts of various levels of specificity, two GPT models (gpt-3.5-turbo and gpt-4.0) and two established gold standard corpora for phenotype recognition, one consisting of publication abstracts and the other clinical observations. Results: Our results show that, with an appropriate setup, these models can achieve state of the art performance. The best run, using few-shot learning, achieved 0.58 macro F1 score on publication abstracts and 0.75 macro F1 score on clinical observations, the former being comparable with the state of the art, while the latter surpassing the current best in class tool. Conclusion: While the results are promising, the non-determin... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "Phenotype concept-recognition baseline.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-09-29",
+    "external_ids": {
+      "ArXiv": "2309.17169"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "frontierllmbasedagentscanovercometheontologycurationbottleneckfornaturalphenotypes": {
+    "citation_key": "Balhoff2026FrontierLlmbased",
+    "title": "Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes",
+    "authors": [
+      "James P. Balhoff",
+      "Hilmar Lapp"
+    ],
+    "venue": "arXiv preprint arXiv:2605.28965",
+    "year": 2026,
+    "abstract": "Linking free-text phenotype descriptions to ontology terms, typically referred to as phenotype annotation, is essential for the cross-study integration of comparative morphological data. This labor intensive process has heavily relied on highly trained human experts, which makes it challenging to scale and thus a key bottleneck. Dahdul et al. (2018) established a Gold Standard (GS) of Entity-Quality (EQ) annotations across seven phylogenetic studies and used it to evaluate three human curators and the Semantic CharaParser NLP tool with ontology-based semantic similarity metrics; they reported that machine-human consistency was significantly lower than inter-curator (human-human) consistency. Here we revisit that benchmark with five frontier hosted LLMs from Anthropic and OpenAI, each operating as an \"agentic curator\" within a self-contained workspace that supplies the source publication PDF, the same annotation guide used by the original human curators, the four project ontologies (UBERON, PATO, BSPO, GO), and a validation script. Evaluated against the same Gold Standard, every agent fell within the range of inter-curator variability of the three trained human biocurators of the original study; the best performing agents approached but did not reach the best performing human curator. Agents substantially outperformed Semantic CharaParser on all four metrics.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "Agentic phenotype curation evaluated against humans.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2026-05-27",
+    "external_ids": {
+      "ArXiv": "2605.28965"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  }
+}

@@ -46,3 +46,13 @@ Segment shares (of OMIM facts, computed in plot.py):
 - Percent labels inside segments only when the segment is >= 8% wide; white text on dark fills, black on light.
 - Legend above the plot in two columns, no frame.
 - No title, no caption in the image.
+
+## Revisions after critic rounds (final state)
+- n per access level moved into the y tick labels ("Full text\nn = 1,837"); y-axis title dropped (tick labels are
+  self-explanatory).
+- Right-hand column headed "In text, share of missed" (log column name) with 49% / 2% / 0%, drawn inside an
+  x range of 0-115 with the x spine and ticks bounded at 100%.
+- Constrained layout and a figure-level legend (7 pt, two columns) so the whole image is about 3.5 in wide and
+  needs no down-scaling at column width.
+- Percent labels only inside segments >= 9.5% wide (8 pt if >= 12%, else 7 pt); the Full-text 7% / 7% segments and
+  the thin segments are unlabelled.

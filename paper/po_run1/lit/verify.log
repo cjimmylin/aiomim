@@ -6,3 +6,11 @@
   [5/186] + GEN-KnowRD: Reframing AI for Rare Disease Recognition (crossref_doi)
   [6/186] + Language agents achieve superhuman synthesis of scientific knowledge (arxiv_id)
   [7/186] + A systematic assessment of large language models’ knowledge of rare diseases: How much do  (crossref_match_99)
+  [8/186] + Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models (crossref_match_110)
+  [9/186] + An evaluation of GPT models for phenotype concept recognition (arxiv_id)
+  [10/186] + Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenot (arxiv_id)
+  ! Semantic Scholar keeps rate-limiting (no SEMANTIC_SCHOLAR_API_KEY?); falling back to Crossref/arXiv for the rest of this run
+  [11/186] + AutoPM3: enhancing variant interpretation via LLM-driven PM3 evidence extraction from scie (crossref_match_110)
+  [12/186] + PubMind: Literature-Based Genetic Variant Extraction and Functional Annotation Using Large (crossref_doi)
+  [13/186] + CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research (arxiv_id)
+  [15/186] + Chain-of-Verification Reduces Hallucination in Large Language Models (arxiv_id)
