@@ -1,0 +1,530 @@
+mim	id	gene	keys	omim_name	as_reported	individuals	zygosity	origin	authors	records	pmids
+108770	V1	SCN5A	p.D1275N	SCN5A, ASP1275ASN	D1275N	4	unknown:1	inherited:1	causal:1	R:12522116:1	12522116
+108770	V2	GJA5		GJA5, -44 (G-->A)	-44 (G-->A)	4	homozygous:1	inherited:1	uncertain:1	R:12522116:1	12522116
+108770	V3	GJA5		GJA5, +71 (A-->G)	+71 (A-->G)	4	homozygous:1	inherited:1	uncertain:1	R:12522116:1	12522116
+108770	V4	SCN5A	p.L212P	SCN5A, LEU212PRO	L212P	1	heterozygous:1	inherited:1	causal:1	R:16188595:1	16188595
+108770	V5	GJA5		GJA5, CX40 POLYMORPHISMS	Cx40 polymorphisms	1	unknown:1	inherited:1	uncertain:1	R:16188595:1	16188595
+118210	V1	KIF1B		KIF1B, LOSS-OF-FUNCTION MUTATION IN THE MOTOR DOMAIN OF THE KIF1B GENE	loss-of-function mutation in the motor domain of the KIF1B gene	1	unknown:1	unknown:1	causal:1	R:11389829:1	11389829
+118210	V2	KIF1B	c.3260A>G; p.Y1087C	KIF1B, TYR1087CYS	KIF1Bβ mutation Y1087C (a3260g); KIF1Bβ Y1087C mutation	3	heterozygous:3	unknown:3	causal:3	R:30126838:1; R:30126838:2; R:30126838:3	30126838
+166780	V1	EYA1		EYA1, LARGE DELETION OF THE EYA1 GENE REGION	large deletion of the EYA1 gene region	1	heterozygous:1	de_novo:1	causal:1	R:11409867:1	11409867
+166780	V2	EYA1		EYA1, SINGLE-NUCLEOTIDE SUBSTITUTION IN A SPLICE SITE OF EYA1	single-nucleotide substitution in a splice site of EYA1	1	unknown:1	unknown:1	causal:1	R:16441263:1	16441263
+166780	V3	PAX1	c.497G>T; p.G166V	PAX1, GLY166VAL	c.497G>T (p.G166V)	1	homozygous:1	inherited:1	causal:1	R:23851939:1	23851939
+167400	V1	SCN9A		SCN9A, EIGHT MISSENSE MUTATIONS	eight missense mutations	1	heterozygous:1	unknown:1	causal:1	R:17145499:1	17145499
+167400	V2	SCN9A	c.554G>A; p.R185H	SCN9A, ARG185HIS	c.554G>A (p.Arg185His)	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:24817410:1; R:24817410:2	24817410
+177735	V1	NR3C2		NR3C2, FRAMESHIFT MUTATION (DE NOVO)	frameshift mutation (de novo)	0	heterozygous:1	de_novo:1	causal:1	R:9662404:1	9662404
+177735	V2	NR3C2		NR3C2, FRAMESHIFT MUTATION	frameshift mutation	0	heterozygous:1	unknown:1	causal:1	R:9662404:1	9662404
+177735	V3	NR3C2		NR3C2, PREMATURE TERMINATION CODON	premature termination codon	0	heterozygous:2	unknown:2	causal:2	R:9662404:1	9662404
+177735	V4	NR3C2		NR3C2, SPLICE DONOR MUTATION	splice donor mutation	0	heterozygous:1	unknown:1	causal:1	R:9662404:1	9662404
+177735	V5	NR3C2	p.L924P	NR3C2, LEU924PRO	codon 924 Leu (CTG) to CCG (Pro) (L924P)	1	heterozygous:1	inherited:1	causal:1	R:11134129:1	11134129
+177735	V6	NR4A1		NR4A1, INS2871C	Ins2871C	1	heterozygous:1	unknown:1	causal:1	R:11344206:1	11344206
+177735	V7	NR4A1		NR4A1, INST1354	insT1354	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V8	NR4A1		NR4A1, DEL8BP537	del8bp537	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V9	NR4A1	c.2157C>A; p.C645*	NR4A1, CYS645TER	C2157A, Cys645stop	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V10	NR4A1	p.G633R	NR4A1, GLY633ARG	G633R	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V11	NR4A1	p.Q776R	NR4A1, GLN776ARG	Q776R	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V12	NR4A1	p.L979P	NR4A1, LEU979PRO	L979P	0	heterozygous:1	unknown:1	causal:1	R:12788847:1	12788847
+177735	V13	NR3C2	c.1131dupt	NR3C2, 1131DUPT	c.1131dupT	1	heterozygous:1	unknown:1	causal:1	R:16954160:1	16954160
+177735	V14	NR3C2	c.2871dupc	NR3C2, 2871DUPC	c.2871dupC	1	heterozygous:1	unknown:1	causal:1	R:16954160:2	16954160
+177735	V15	NR3C2		NR3C2, NOVEL NONSENSE MUTATION	novel nonsense mutation	2	heterozygous:1	unknown:1	causal:1	R:16954160:3	16954160
+177735	V16	NR3C2	p.S818L	NR3C2, SER818LEU	S818L	1	heterozygous:1	unknown:1	causal:1	R:16954160:4	16954160
+177735	V17	NR3C2	p.E972G	NR3C2, GLU972GLY	E972G	1	heterozygous:1	unknown:1	causal:1	R:16954160:5	16954160
+177735	V18	NR3C2		NR3C2, 22 MR GENE ABNORMALITIES	22 MR gene abnormalities	33	unknown:1	unknown:1	causal:1	R:16972228:1	16972228
+205950	V1	SLC25A38		SLC25A38, MUTATIONS IN THE GENE ENCODING THE ERYTHROID SPECIFIC MITOCHONDRIAL CARRIER FAMILY PROTEIN SLC25A38	mutations in the gene encoding the erythroid specific mitochondrial carrier family protein SLC25A38	1	unknown:1	unknown:1	causal:1	R:19412178:1	19412178
+219900	V1	CTNS		CTNS, ONE MILD MUTATION AND ONE WHICH IS KNOWN TO CAUSE NEPHROPATHIC CYSTINOSIS	one mild mutation and one which is known to cause nephropathic cystinosis	0	unknown:1	unknown:1	causal:1	R:10444339:1	10444339
+219900	V2	CTNS		CTNS, HOMOZYGOSITY FOR A PREDICTED MILD MUTATION	homozygosity for a predicted mild mutation	0	homozygous:1	unknown:1	causal:1	R:10444339:1	10444339
+219900	V3	CTNS		CTNS, MUTATIONS AFFECTING FUNCTIONALLY UNIMPORTANT REGIONS OF CYSTINOSIN	mutations affecting functionally unimportant regions of cystinosin	2	unknown:1	unknown:1	causal:1	R:10556299:1	10556299
+219900	V4	CTNS		CTNS, MISSENSE MUTATIONS	missense mutations	3	unknown:1	unknown:1	causal:1	R:10556299:2	10556299
+219900	V5	CTNS		CTNS, TWO SEVERELY TRUNCATING MUTATIONS (12 PATIENTS)	two severely truncating mutations (12 patients)	0	unknown:1	unknown:1	causal:1	R:10556299:3	10556299
+219900	V6	CTNS		CTNS, MISSENSE OR IN-FRAME DELETIONS (13 PATIENTS)	missense or in-frame deletions (13 patients)	0	unknown:1	unknown:1	causal:1	R:10556299:3	10556299
+225060	V1	NECTIN1	p.W185*	NECTIN1, TRP185TER	W185X	1	heterozygous:1	unknown:1	causal:1	R:11559849:1	11559849
+225060	V2	NECTIN1	c.400C>T; p.R134*	NECTIN1, ARG134TER	c.400C>T (p.Arg134*)	1	homozygous:1	inherited:1	causal:1	R:25913853:1	25913853
+225300	V1	WNT10B	p.R332W	WNT10B, ARG332TRP	p.R332W	13	homozygous:1	inherited:1	causal:1	R:18515319:1	18515319
+225300	V2	TP63		TP63, RS34201045	rs34201045	13	unknown:1	inherited:1	uncertain:1	R:18515319:1	18515319
+225300	V3	WNT10B		WNT10B, HOMOZYGOUS 4-BP DUPLICATION RESULTING IN A PREMATURE TERMINATION CODON	homozygous 4-bp duplication resulting in a premature termination codon	1	homozygous:1	inherited:1	causal:1	R:20635353:1	20635353
+225300	V4	WNT10B	c.695_697delaca; p.N232del	WNT10B, 695_697DELACA	c.695_697delACA (p.Asn232del)	1	homozygous:1	unknown:1	causal:1	R:29427788:1	29427788
+236730	V1	HPSE2		HPSE2, MUTATIONS WITH A LOSS OF FUNCTION IN THE HEPARANASE 2 (HPSE2) GENE	Mutations with a loss of function in the Heparanase 2 (HPSE2) gene	1	unknown:1	unknown:1	causal:1	R:20560209:1	20560209
+236730	V2	HPSE2		HPSE2, 10 KB DELETION ENCOMPASSING EXONS 8 AND 9 OF HPSE2	10 kb deletion encompassing exons 8 and 9 of HPSE2	1	homozygous:1	unknown:1	causal:1	R:20560210:1	20560210
+236730	V3	HPSE2		HPSE2, HOMOZYGOUS EXONIC DELETIONS	homozygous exonic deletions	0	homozygous:1	unknown:1	causal:1	R:20560210:2	20560210
+236730	V4	HPSE2		HPSE2, NONSENSE MUTATIONS	nonsense mutations	0	homozygous:1	unknown:1	causal:1	R:20560210:2	20560210
+236730	V5	HPSE2		HPSE2, FRAMESHIFT MUTATIONS	frameshift mutations	0	homozygous:1	unknown:1	causal:1	R:20560210:2	20560210
+241800	V1	GLI3		GLI3, SOMATIC CHROMOSOMAL ABNORMALITIES INCLUDING THE GLI3 LOCUS (LOSS OF HETEROZYGOSITY WITHIN GLI3; 7P COPY-NUMBER ABNORMALITY) IN HH TISSUE	somatic chromosomal abnormalities including the GLI3 locus (loss of heterozygosity within GLI3; 7p copy-number abnormality) in HH tissue	55	mosaic:1	unknown:1	uncertain:1	R:18252217:1	18252217
+241800	V2	SMO		SMO, GERMLINE MUTATIONS IN THE SMOOTHENED (SMO) GENE	germline mutations in the Smoothened (SMO) gene	2	unknown:1	inherited:1	causal:1	R:30497210:1	30497210
+241800	V3	SMO		SMO, BI-ALLELIC LOSS-OF-FUNCTION VARIATIONS IN SMO	bi-allelic loss-of-function variations in SMO	7	unknown:1	unknown:1	causal:1	R:32413283:1	32413283
+248360	V1	MCD	c.442C>G; p.S148*	MCD, SER148TER	442C-->G (S148X)	1	homozygous:1	inherited:1	causal:1	R:10417274:1	10417274
+248360	V2	MCD		MCD, IVS4-14A-->G (13-BP INSERTION IN MATURE RNA, FRAMESHIFT)	IVS4-14A-->G (13-bp insertion in mature RNA, frameshift)	1	homozygous:1	inherited:1	causal:1	R:10417274:2	10417274
+248360	V3	MCD	c.947-948deltt	MCD, 947-948DELTT	c.947-948delTT	1	unknown:1	unknown:1	causal:1	R:10455107:1	10455107
+248360	V4	MLYCD		MLYCD, MUTATION CAUSING MALONYL COA DECARBOXYLASE DEFICIENCY (NOT SPECIFIED IN ABSTRACT)	mutation causing malonyl CoA decarboxylase deficiency (not specified in abstract)	1	unknown:1	unknown:1	causal:1	R:9869665:1	9869665
+248360	V5	MLYCD	c.8G>A; p.G3D	MLYCD, GLY3ASP	c.8G>A (p.G3D)	0	unknown:1	unknown:1	causal:1	R:12955715:1	12955715
+248360	V6	MLYCD	c.119T>C; p.M40T	MLYCD, MET40THR	c.119T>C, p.M40T	0	unknown:1	unknown:1	causal:1	R:12955715:1	12955715
+248360	V7	MLYCD		MLYCD, A 25-BASE DELETION BETWEEN THE PUTATIVE MITOCHONDRIAL AND PEROXISOMAL INITIATING CODONS (M1 AND M40)	A 25-base deletion between the putative mitochondrial and peroxisomal initiating codons (M1 and M40)	0	unknown:1	unknown:1	causal:1	R:12955715:1	12955715
+248360	V8	MLYCD		MLYCD, NORMAL GENOMIC SEQUENCE BUT NO MESSENGER PRODUCT	normal genomic sequence but no messenger product	1	unknown:1	unknown:1	uncertain:1	R:16275149:1	16275149
+250220	V1	GPX4	c.587+5G>A	GPX4, 587+5G-A	c.587+5G>A	1	heterozygous:1	inherited:1	causal:1	R:24706940:1	24706940
+250220	V2	GPX4	c.588-8_588-4del	GPX4, 588-8_588-4DEL	c.588-8_588-4del	1	heterozygous:1	de_novo:1	causal:1	R:24706940:1	24706940
+250220	V3	GPX4	c.381C>A; p.Y127*	GPX4, TYR127TER	c.381C>A, p.Tyr127*	1	unknown:1	inherited:1	causal:1	R:24706940:2	24706940
+251950	V1	PNPLA8	c.334_337delaatt; p.N112H	PNPLA8, ASN112HIS	c.334_337delAATT (p.Asn112HisfsX29)	1	compound_heterozygous:1	inherited:1	causal:1	R:25512002:1	25512002
+251950	V2	PNPLA8	c.1975_1976delag; p.L659A	PNPLA8, LEU659ALA	c.1975_1976delAG (p.Leu659AlafsX4)	1	compound_heterozygous:1	inherited:1	causal:1	R:25512002:1	25512002
+251950	V3	PNPLA8	c.517G>T; p.E173*	PNPLA8, GLU173TER	c.517G>T, p.(Glu173Ter), NM_001256007.1	1	homozygous:1	inherited:1	causal:1	R:29681094:1	29681094
+251950	V4	PNPLA8	c.2269del; c.2275_2276del; c.2275_2276delct; p.L759A; p.T757Q	PNPLA8, LEU759ALA	c.2275_2276delCT; p.(Leu759AlafsTer4); c.2269del (p.(Thr757Glnfs*10)); c.2275_2276del (p.(Leu759Alafs*4)); biallelic PNPLA8 variants (LoF, missense or C-terminal frameshift p.Leu759Alafs*4); biallelic C-terminal frameshift variant (p.Thr757Glnfs*10 or p.Leu759Alafs*4); p.Leu759Alafs*4	9	heterozygous:1; compound_heterozygous:4; unknown:5; homozygous:1	inherited:3; unknown:8	causal:11	R:29681094:2; R:37057294:1; R:37057294:2; R:39082157:9; R:39082157:10; R:39082157:11; R:39082157:12; R:39082157:13; R:39082157:14	29681094; 37057294; 39082157
+251950	V5	PNPLA8	c.419C>A; p.S140*	PNPLA8, SER140TER	c.419C>A; p.(Ser140Ter)	1	heterozygous:1	inherited:1	causal:1	R:29681094:2	29681094
+251950	V6	PNPLA8	c.1874A>G	PNPLA8, 1874A-G	c.1874A>G	1	homozygous:1	unknown:1	causal:1	R:34177434:1	34177434
+251950	V7	PNPLA8	c.1231C>T; p.R411*	PNPLA8, ARG411TER	c.1231C>T, p.Arg411Ter	1	unknown:1	unknown:1	causal:1	R:37671596:1	37671596
+251950	V8	PNPLA8	c.1559T>A; p.V520D	PNPLA8, VAL520ASP	c.1559T>A, p.Val520Asp	2	unknown:1	unknown:1	causal:1	R:37671596:2	37671596
+251950	V9	PNPLA8	c.1625+3_1625+6del	PNPLA8, 1625+3_1625+6DEL	c.1625+3_1625+6del	1	unknown:1	unknown:1	causal:1	R:39082157:1	39082157
+251950	V10	PNPLA8	c.2075-2A>G	PNPLA8, 2075-2A-G	c.2075-2A>G	1	unknown:1	unknown:1	causal:1	R:39082157:2	39082157
+251950	V11	PNPLA8		PNPLA8, BIALLELIC PNPLA8 VARIANTS	biallelic PNPLA8 variants	4	unknown:4	unknown:4	causal:4	R:39082157:3; R:39082157:4; R:39082157:7; R:39082157:8	39082157
+251950	V12	PNPLA8	c.1684-2A>G	PNPLA8, 1684-2A-G	c.1684-2A>G	1	unknown:1	unknown:1	causal:1	R:39082157:5	39082157
+251950	V13	PNPLA8	p.E296K	PNPLA8, GLU296LYS	p.Glu296Lysfs*6	1	unknown:1	unknown:1	causal:1	R:39082157:6	39082157
+251950	V14	PNPLA8	p.V7*	PNPLA8, VAL7TER	p.Val7*	0	homozygous:1	unknown:1	uncertain:1	R:39082157:15	39082157
+251950	V15	PNPLA8		PNPLA8, N-TERMINAL FRAMESHIFT VARIANT	N-terminal frameshift variant	0	homozygous:1	unknown:1	uncertain:1	R:39082157:15	39082157
+278750	V1	DNA POLYMERASE ETA		DNA POLYMERASE ETA, MUTATIONS IN THEIR DNA POLYMERASE ETA GENE	mutations in their DNA polymerase eta gene	1	unknown:1	unknown:1	causal:1	R:10385124:1	10385124
+278750	V2	HRAD30		HRAD30, NONSENSE OR FRAMESHIFT MUTATIONS IN HRAD30 (EIGHT MUTATIONS)	nonsense or frameshift mutations in hRAD30 (eight mutations)	1	unknown:1	unknown:1	causal:1	R:10398605:1	10398605
+278750	V3		p.K535E	, LYS535GLU	A-->G transition at nucleotide 1840 that generates a K535E mis-sense mutation	1	heterozygous:1	inherited:1	causal:1	R:11121129:1	11121129
+278750	V4		p.K589	, K589	A-->C transversion at nucleotide 2003 that generates a K589 mis-sense mutation	1	heterozygous:1	inherited:1	causal:1	R:11121129:1	11121129
+300148	V1	EIF2S3	c.665T>C; p.I222; p.I222T	EIF2S3, ILE222THR	c.665T>C (p.Ile222>Thr)	3	hemizygous:3	inherited:3	causal:3	R:23063529:1; R:23063529:2; R:23063529:3	23063529
+300148	V2	EIF2S3	c.777T>G; p.I259M	EIF2S3, ILE259MET	c.777T>G p.(Ile259Met)	0	hemizygous:1	inherited:1	causal:1	R:27333055:1	27333055
+300148	V3	EIF2S3	c.1394_1397del; c.1394_1397deltcaa; p.I465S	EIF2S3, ILE465SER	c.1394_1397del p.(Ile465Serfs*4); c.1394_1397delTCAA (p.Ile465Serfs*4)	6	hemizygous:4	inherited:3; unknown:1	causal:4	R:27333055:1; R:28055140:1; R:28055140:2; R:28055140:3	27333055; 28055140
+300148	V4	EIF2S3	c.324T>A; p.S108R	EIF2S3, SER108ARG	c.324T>A (p.Ser108Arg)	1	hemizygous:1	inherited:1	uncertain:1	R:28055140:4	28055140
+301059	V1	CFAP47		CFAP47, HEMIZYGOUS MISSENSE VARIANTS IN THE X-LINKED CFAP47	hemizygous missense variants in the X-linked CFAP47	3	hemizygous:1	unknown:1	causal:1	R:33472045:1	33472045
+301059	V2	CFAP47		CFAP47, HEMIZYGOUS XP21.1 DELETION REMOVING THE ENTIRE CFAP47 GENE	hemizygous Xp21.1 deletion removing the entire CFAP47 gene	1	hemizygous:1	unknown:1	causal:1	R:33472045:2	33472045
+301059	V3	CFAP47	c.706G>A; p.V236M	CFAP47, VAL236MET	c.706G>A, Val236Met	1	unknown:1	unknown:1	causal:1	R:36571501:1	36571501
+301059	V4	CFAP47	c.1337C>T; p.T446M	CFAP47, THR446MET	c.1337C>T, Thr446Met	1	unknown:1	unknown:1	causal:1	R:36571501:1	36571501
+302905	V1	TBX22	c.593-5T>A	TBX22, 593-5T-A	c.593-5T>A	1	unknown:1	inherited:1	causal:1	R:22784330:1	22784330
+500001	V1	MT-ND6	m.14459G>A; p.A72V	MTND6, ALA72VAL	G-to-A transition at nucleotide pair (np) 14459 ... alanine to a valine at NADH dehydrogenase subunit 6 (ND6) residue 72; G14459A	2	unknown:2	inherited:1; unknown:1	causal:2	R:8016139:1; R:16380132:1	8016139; 16380132
+500001	V2	MT-ND6	m.14596T>A; p.I26M	MTND6, ILE26MET	T-->A transition at nucleotide position 14596 in the ND6 gene (isoleucine 26 to methionine)	1	homoplasmic:1	inherited:1	uncertain:1	R:8644732:1	8644732
+500001	V3	MT-ND4	m.11696G>A; p.V312I	MTND4, VAL312ILE	A-->G transition at nucleotide position 11696 in the ND4 gene (valine 312 to isoleucine)	1	heteroplasmic:1	inherited:1	uncertain:1	R:8644732:1	8644732
+500001	V4		c.3203A>G; m.3203A>G	, 3203A-G	A3203G	1	unknown:1	unknown:1	uncertain:1	R:16380132:1	16380132
+500001	V5	MT-ND1	m.3697G>A	MTND1, 3697G-A	3697G>A/ND1	1	heteroplasmic:1	unknown:1	causal:1	R:17562939:1	17562939
+500001	V6	MT-ND3	m.10197G>A; p.A47T	MTND3, ALA47THR	mtND3*10197A (m.10197G>A)	18	homoplasmic:1	inherited:1	causal:1	R:19458970:1	19458970
+600204	V1	COL9A2		COL9A2, G --> C SUBSTITUTION AT POSITION -1 IN THE COL9A2 EXON 3/INTRON 3 SPLICING REGION	G --> C substitution at position -1 in the COL9A2 exon 3/intron 3 splicing region	12	unknown:1	inherited:1	causal:1	R:12244547:1	12244547
+600251	V1			DE NOVO BALANCED TRANSLOCATION BETWEEN A CHROMOSOME 1 AND 22	de novo balanced translocation between a chromosome 1 and 22	1	heterozygous:1	de_novo:1	uncertain:1	R:3398011:1	3398011
+600501	V1	EDNRB	p.R201*	EDNRB, ARG201TER	R201X	1	homozygous:1	unknown:1	causal:1	R:11891690:1	11891690
+600740	V1	AP2S1	p.R15C; p.R15H; p.R15L	AP2S1, ARG15CYS	Arg15Cys (CGC→TTGC); Arg15Cys; Arg15Leu (CGC→CTC); Arg15Leu; Arg15His (CGC→CAC); Arg15His; p.Arg15Leu; AP2S1 mutation causing an Arg15Cys, Arg15His, or Arg15Leu substitution	56	heterozygous:17	inherited:2; unknown:14; de_novo:1	causal:17	R:23222959:1; R:23222959:2; R:23222959:3; R:23222959:4; R:23222959:5; R:23222959:6; R:23222959:7; R:23222959:8; R:23222959:9; R:23222959:10; R:23222959:11; R:23222959:12; R:23222959:13; R:24081735:1; R:27050234:1; R:27050234:2; R:27050234:3	23222959; 24081735; 27050234
+603552	V1	STX11		STX11, HOMOZYGOUS DELETION OF 5 BP IN THE SYNTAXIN 11 GENE (STX11)	homozygous deletion of 5 bp in the syntaxin 11 gene (STX11); 5 bp deletion	6	homozygous:2	inherited:1; unknown:1	causal:2	R:15703195:1; R:15703195:2	15703195
+603552	V3	STX11		STX11, LARGE 19.2 KB GENOMIC DELETION SPANNING THE ENTIRE CODING REGION OF STX11 (EXON 2)	large 19.2 kb genomic deletion spanning the entire coding region of STX11 (exon 2)	1	homozygous:1	unknown:1	causal:1	R:15703195:3	15703195
+603552	V4	STX11		STX11, NONSENSE MUTATION THAT LEADS TO A PREMATURE STOP CODON IN THE C-TERMINAL END OF THE PROTEIN	nonsense mutation that leads to a premature stop codon in the C-terminal end of the protein	1	homozygous:1	unknown:1	causal:1	R:15703195:4	15703195
+603552	V5	STX11		STX11, MUTATIONS IN STX11	mutations in STX11	6	unknown:1	unknown:1	causal:1	R:16278825:1	16278825
+603552	V6	PRF1	p.W374*	PRF1, TRP374TER	Trp374X	20	unknown:1	unknown:1	causal:1	R:16278825:2	16278825
+603552	V7	UNC13D	p.L403P	UNC13D, LEU403PRO	Leu403Pro	12	unknown:1	unknown:1	causal:1	R:16278825:3	16278825
+603552	V8	RAB27A	p.A87P	RAB27A, ALA87PRO	Ala87Pro	3	unknown:1	unknown:1	not_causal:1	R:16278825:4	16278825
+603552	V9	STX11		STX11, NONSENSE MUTATION	nonsense mutation	0	unknown:1	unknown:1	causal:1	R:16582076:1	16582076
+603552	V10	STX11		STX11, DELETION	deletion	0	unknown:1	unknown:1	causal:1	R:16582076:1	16582076
+603552	V11	STX11	c.173T>C; p.L58P	STX11, LEU58PRO	c.173T > C (p.L58P)	3	homozygous:3	inherited:3	causal:3	R:24459464:1; R:24459464:2; R:24459464:3	24459464
+603552	V12	UNC13D	c.811C>T; p.P271S	UNC13D, PRO271SER	UNC13D c.811C > T (p.P271S)	1	heterozygous:1	inherited:1	uncertain:1	R:24459464:1	24459464
+603552	V13	UNC13D	c.2782C>T; p.R928C	UNC13D, ARG928CYS	UNC13D c.2782C > T (p.R928C)	1	homozygous:1	inherited:1	uncertain:1	R:24459464:1	24459464
+603689	V1	TTN	g.274375T>C; p.C30071R	TTN, CYS30071ARG	g.274375T>C; p.Cys30071Arg; g.274375T>C (p.C30071R); C30071R	40	unknown:1; heterozygous:9	inherited:8; unknown:2	causal:10	R:22577215:1; R:23486992:2; R:23486992:3; R:23486992:4; R:23486992:5; R:23486992:6; R:23486992:7; R:23486992:9; R:23486992:10; R:23486992:11	22577215; 23486992
+603689	V2	TTN	g.274436C>T; p.P30091L	TTN, PRO30091LEU	g.274436C>T, p.P30091L	1	heterozygous:1	unknown:1	uncertain:1	R:23486992:12	23486992
+603689	V3	TTN	g.274599C>G; p.N30145K	TTN, ASN30145LYS	g.274599C>G, p.N30145K	1	heterozygous:1	unknown:1	uncertain:1	R:23486992:13	23486992
+604307	V1	PSI GAMMA E (GAMMA E-CRYSTALLIN PSEUDOGENE)		PSI GAMMA E (GAMMA E-CRYSTALLIN PSEUDOGENE), CLUSTER OF SEQUENCE CHANGES WITHIN AND AROUND ITS TATA BOX	cluster of sequence changes within and around its TATA box	1	unknown:1	inherited:1	uncertain:1	R:8004095:1	8004095
+604307	V2	CRYGC		CRYGC, MISSENSE MUTATION IN A HIGHLY CONSERVED SEGMENT OF EXON 2 OF CRYGC	missense mutation in a highly conserved segment of exon 2 of CRYGC	1	unknown:1	inherited:1	causal:1	R:10521291:1	10521291
+604307	V3	CRYGE		CRYGE, PREVIOUSLY REPORTED COPPOCK-LIKE-CATARACT MUTATION ... IN THE PSEUDOGENE CRYGE	previously reported Coppock-like-cataract mutation ... in the pseudogene CRYGE	1	unknown:1	unknown:1	not_causal:1	R:10521291:1	10521291
+604307	V4	CRYGC		CRYGC, 5-BP DUPLICATION WITHIN EXON 2 OF THE GAMMAC-CRYSTALLIN GENE	5-bp duplication within exon 2 of the gammaC-crystallin gene	30	heterozygous:1	inherited:1	causal:1	R:10914683:1	10914683
+604307	V5	CRYGC	c.502C>T; p.R168W	CRYGC, ARG168TRP	c.502C>T (Arg168Trp)	1	heterozygous:1	inherited:1	causal:1	R:17679936:1	17679936
+604307	V6	CRYGC	c.470G>A; c.471G>A; p.W157*	CRYGC, TRP157TER	c.470G>A (W157X); c.471G>A (W157X)	12	heterozygous:1; unknown:6	inherited:2; unknown:5	causal:7	R:19204787:1; R:22876111:1; R:22876111:2; R:22876111:3; R:22876111:4; R:22876111:5; R:22876111:6	19204787; 22876111
+604307	V7	CRYGC	c.385G>T; p.G129C	CRYGC, GLY129CYS	c.385G<T (p.Gly129Cys)	1	heterozygous:1	inherited:1	causal:1	R:22052681:1	22052681
+604928	V1	CISD2	c.109G>C; p.E37Q	CISD2, GLU37GLN	G-->C transversion at nucleotide 109 (E37Q)	1	homozygous:1	inherited:1	causal:1	R:17846994:1	17846994
+604928	V2	CISD2		CISD2, HOMOZYGOUS DELETION AFFECTING THE WHOLE EXON 2 OF CISD2	homozygous deletion affecting the whole exon 2 of CISD2	1	homozygous:1	inherited:1	causal:1	R:25056293:1	25056293
+604928	V3	CISD2		CISD2, A NOVEL CISD2 MUTATION	a novel CISD2 mutation	1	unknown:1	unknown:1	causal:1	R:25371195:1	25371195
+606763	V1	DNAAF3	c.323T>C; p.L108P	DNAAF3, LEU108PRO	c.323T>C (p.Leu108Pro)	1	homozygous:1	inherited:1	causal:1	R:22387996:1	22387996
+606763	V2	DNAAF3	c.406C>T; p.R136*	DNAAF3, ARG136TER	c.406C>T (p.Arg136X)	1	homozygous:1	inherited:1	causal:1	R:22387996:2	22387996
+606763	V3	DNAAF3	c.762_763inst; p.V255C	DNAAF3, VAL255CYS	c.762_763insT (p.Val255CysfsX12)	1	homozygous:1	inherited:1	causal:1	R:22387996:3	22387996
+606763	V4	DNAAF3	c.973G>A; p.A325T	DNAAF3, ALA325THR	c.973G>A (p.Ala325Thr)	1	homozygous:1	unknown:1	not_causal:1	R:22387996:4	22387996
+606824	V1	SLC5A1		SLC5A1, SINGLE MISSENSE MUTATION IN SGLT1	single missense mutation in SGLT1	1	unknown:1	inherited:1	causal:1	R:2008213:1	2008213
+606824	V2	SLC5A1		SLC5A1, MUTATIONS IN SGLT1	mutations in SGLT1	30	unknown:1	unknown:1	causal:1	R:8563765:1	8563765
+606824	V3	SLC5A1	p.D28N	SLC5A1, ASP28ASN	D28N	2	unknown:1	unknown:1	causal:1	R:8844006:1	8844006
+606824	V4	SLC5A1	c.152A>G; p.N51S	SLC5A1, ASN51SER	c.152A>G (p.N51S)	33	homozygous:1	inherited:1	uncertain:1	R:20486940:1	20486940
+606824	V5	SLC5A1	c.1231G>A; p.A411T	SLC5A1, ALA411THR	c.1231G>A (p.A411T)	33	homozygous:1	inherited:1	uncertain:1	R:20486940:1	20486940
+606824	V6	SLC5A1	c.1673G>A; p.R558H	SLC5A1, ARG558HIS	c.1673G>A (p.R558H)	33	homozygous:1	inherited:1	uncertain:1	R:20486940:1	20486940
+606824	V7	SLC5A1	c.1845C>G; p.H615Q	SLC5A1, HIS615GLN	c.1845C>G (p.H615Q)	33	homozygous:1	inherited:1	uncertain:1	R:20486940:1	20486940
+607602	V1	KRT10	p.R83E	KRT10, ARG83GLU	tandem CG to GA 2-bp mutation ... arginine to glutamate substitution at residue 83 (R83E) of the 2B helical segment	1	heterozygous:1	inherited:1	causal:1	R:9036939:1	9036939
+607602	V2	KRT10	p.I107T	KRT10, ILE107THR	isoleucine to threonine substitution at residue 107 (codon 446)	1	unknown:1	unknown:1	causal:1	R:9856845:1	9856845
+607641	V1	DYNACTIN LARGEST SUBUNIT		DYNACTIN LARGEST SUBUNIT, A SINGLE BASE-PAIR CHANGE RESULTING IN AN AMINO-ACID SUBSTITUTION	a single base-pair change resulting in an amino-acid substitution	1	unknown:1	unknown:1	causal:1	R:12627231:1	12627231
+607721	V1	SHOC2	c.4A>G; p.S2G	SHOC2, SER2GLY	4A>G (S2G); p.S2G; p.Ser2Gly; SHOC2 c.4A>G; SHOC2 p.Ser2Gly	39	heterozygous:7; unknown:1	de_novo:4; unknown:4	causal:8	R:19684605:1; R:20882035:1; R:22528146:1; R:23918763:1; R:23918763:2; R:23918763:3; R:23918763:4; R:23918763:5	19684605; 20882035; 22528146; 23918763
+607721	V2	SHOC2	c.519G>A; p.M173I	SHOC2, MET173ILE	c.519G>A; p.M173I	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:25137548:1; R:25137548:2	25137548
+607721	V3	SHOC2	c.807_808delinstt; p.Q269	SHOC2, 807_808DELINSTT	c.807_808delinsTT, p.Gln269_His270delinsHisTyr	1	unknown:1	unknown:1	causal:1	R:31059601:1	31059601
+607734	V1	NEFL		NEFL, SIX DISEASE ASSOCIATED MISSENSE MUTATIONS	six disease associated missense mutations	0	unknown:1	unknown:1	causal:1	R:12566280:1	12566280
+607734	V2	NEFL		NEFL, ONE 3-BP IN-FRAME DELETION	one 3-bp in-frame deletion	0	unknown:1	unknown:1	causal:1	R:12566280:1	12566280
+607734	V3	NEFL		NEFL, DE NOVO MISSENSE MUTATION IN NEFL	de novo missense mutation in NEFL	1	heterozygous:1	de_novo:1	causal:1	R:12566280:2	12566280
+607734	V4	NEFL	p.P8L	NEFL, PRO8LEU	Pro8Leu	0	heterozygous:1	unknown:1	causal:1	R:19158810:1	19158810
+607734	V5	NEFL	p.E90K	NEFL, GLU90LYS	Glu90Lys	0	heterozygous:1	unknown:1	causal:1	R:19158810:1	19158810
+607734	V6	NEFL	p.N98S	NEFL, ASN98SER	Asn98Ser	0	heterozygous:1	unknown:1	causal:1	R:19158810:1	19158810
+607734	V7	NEFL	p.E396K	NEFL, GLU396LYS	Glu396Lys	0	heterozygous:1	unknown:1	causal:1	R:19158810:1	19158810
+607734	V8	NEFL	p.E140*	NEFL, GLU140TER	Glu140Stop	1	homozygous:1	unknown:1	causal:1	R:19158810:2	19158810
+607734	V9	NEFL	c.628G>T; p.E210*	NEFL, GLU210TER	c.628G>T (E210X)	4	homozygous:4	inherited:4	causal:4	R:20039262:1; R:20039262:2; R:20039262:3; R:20039262:4	20039262
+607876	V1	ADRA2B	c.675_686deltggtggggctttinsgtttggcag; p.H225	ADRA2B, 675_686DELTGGTGGGGCTTTINSGTTTGGCAG	c.675_686delTGGTGGGGCTTTinsGTTTGGCAG; p.H225_L229delinsQ225_F_G_R228; p.H225_L229delinsQ225_F_G_R228; ADRA2B; c.675_686delTGGTGGGGCTTTinsGTTTGGCAG; p.H225_L229delinsQ225_F_G_R228	16	heterozygous:1; unknown:7	inherited:1; unknown:7	causal:6; not_causal:2	R:24114805:1; R:24114805:2; R:24114805:3; R:24114805:4; R:24114805:5; R:24114805:6; R:31664034:4; R:31664034:15	24114805; 31664034
+607876	V2	STARD7		STARD7, ATTTC EXPANSION IN THE FIRST INTRON OF STARD7	ATTTC expansion in the first intron of STARD7; ATTTC expansion in STARD7; ATTTC expansion in STARD7 (588 AAATG and 340 AAAAT repeats in III-37)	267	unknown:22	unknown:22	causal:22	R:31664034:1; R:31664034:2; R:31664034:3; R:31664034:4; R:31664034:6; R:31664034:7; R:31664034:8; R:31664034:9; R:31664034:10; R:31664034:11; R:31664034:12; R:31664034:13; R:31664034:14; R:31664034:15; R:31664034:16; R:31664034:17; R:31664034:18; R:31664034:19; R:31664034:20; R:31664034:21; R:31664034:22; R:31664034:5	31664034
+608133	V1	PRPH2		PRPH2, THREE MUTATIONS OF THE HUMAN HOMOLOGUE OF THE RDS GENE (RDS)	three mutations of the human homologue of the rds gene (RDS)	1	heterozygous:1	inherited:1	causal:1	R:1684223:1	1684223
+608133	V2	PERIPHERIN-RDS		PERIPHERIN-RDS, THREE-BASE-PAIR DELETION WHICH RESULTS IN THE LOSS OF ONE OF A PAIR OF HIGHLY CONSERVED CYSTEINE RESIDUES IN THE PREDICTED THIRD TRANSMEMBRANE DOMAIN OF PERIPHERIN	three-base-pair deletion which results in the loss of one of a pair of highly conserved cysteine residues in the predicted third transmembrane domain of peripherin	1	heterozygous:1	inherited:1	causal:1	R:1749427:1	1749427
+608133	V3	PERIPHERIN/RDS		PERIPHERIN/RDS, 3-BASE PAIR DELETION OF CODON 153 OR 154	3-base pair deletion of codon 153 or 154	4	unknown:4	unknown:1; inherited:3	causal:4	R:8240110:1; R:8240110:2; R:8240110:3; R:8240110:4	8240110
+608133	V4	PRPH2		PRPH2, CYSTEINE DELETION AT CODON 118/119	cysteine deletion at codon 118/119	1	heterozygous:1	inherited:1	causal:1	R:8485576:1	8485576
+608133	V5	PERIPHERIN/RDS	p.N244K	PERIPHERIN/RDS, ASN244LYS	Asn244Lys	1	heterozygous:1	inherited:1	causal:1	R:8020945:1	8020945
+608133	V6	ROM1		ROM1, MUTATION IN ROM1	mutation in ROM1	1	heterozygous:1	inherited:1	causal:1	R:8202715:1	8202715
+608133	V7	PERIPHERIN/RDS		PERIPHERIN/RDS, MUTATION IN PERIPHERIN/RDS	mutation in peripherin/RDS	1	heterozygous:1	inherited:1	causal:1	R:8202715:1	8202715
+608133	V8	PRPH2	c.637T>C; p.C213R	PRPH2, CYS213ARG	c.637T>C (p.C213R)	1	homozygous:1	inherited:1	causal:1	R:23847139:1	23847139
+608133	V9	PRPH2	c.554T>C; p.L185P	PRPH2, LEU185PRO	c.554T>C (p.L185P)	2	homozygous:2	unknown:1; inherited:1	causal:2	R:23847139:2; R:23847139:3	23847139
+608133	V10	PRPH2	p.L254Q	PRPH2, LEU254GLN	p.Leu254Gln	1	unknown:1	unknown:1	causal:1	R:25447119:1	25447119
+608885	V1	SLC2A1		SLC2A1, MUTATIONS IN SLC2A1 (2 MUTATIONS FOUND)	mutations in SLC2A1 (2 mutations found)	2	unknown:1	unknown:1	causal:1	R:21791420:1	21791420
+608885	V2	SLC2A1		SLC2A1, TRINUCLEOTIDE DELETION IN SLC2A1, CODING FOR THE DELETION OF ISOLEUCINE 435 OR 436 IN GLUT1	trinucleotide deletion in SLC2A1, coding for the deletion of isoleucine 435 or 436 in GLUT1	1	unknown:1	unknown:1	causal:1	R:22492876:1	22492876
+609057	V1	CD151	p.G383	CD151, G383	single nucleotide insertion (G383) in exon 5 of CD151	3	homozygous:2	unknown:2	causal:2	R:15265795:1; R:15265795:2	15265795
+609220	V1	PLOD2		PLOD2, TWO MISSENSE MUTATIONS IN EXON 17 OF PLOD2	two missense mutations in exon 17 of PLOD2	1	unknown:1	unknown:1	causal:1	R:12881513:1	12881513
+609220	V2	PLOD2	p.R598H	PLOD2, ARG598HIS	Arg598His	1	homozygous:1	unknown:1	causal:1	R:15523624:1	15523624
+609220	V3	PLOD2		PLOD2, HOMOZYGOUS FRAMESHIFT MUTATION IN THE ALTERNATIVE EXON 13A OF PLOD2	homozygous frameshift mutation in the alternative exon 13a of PLOD2	2	homozygous:1	unknown:1	causal:1	R:22689593:1	22689593
+609220	V4	FKBP10		FKBP10, CHANGES IN FKBP10	changes in FKBP10	1	unknown:1	unknown:1	not_causal:1	R:22689593:2	22689593
+609220	V5	PLOD2		PLOD2, HOMOZYGOUS DONOR SPLICE SITE MUTATION IN PLOD2	homozygous donor splice site mutation in PLOD2	1	homozygous:1	unknown:1	causal:1	R:22689593:3	22689593
+609220	V6	PLOD2		PLOD2, COMPOUND HETEROZYGOUS MUTATIONS IN PLOD2	compound heterozygous mutations in PLOD2	2	compound_heterozygous:1	unknown:1	causal:1	R:22689593:4	22689593
+609296	V1	TOP2B	c.1761_1763delaga	TOP2B, 1761_1763DELAGA	a de novo in-frame deletion c.1761_1763delAGA, p.EE587E	0	heterozygous:1	de_novo:1	causal:1	R:31409799:1	31409799
+609296	V2	TOP2B	c.1448C>T; p.S483L	TOP2B, SER483LEU	a missense mutation c.1448C > T, p.S483L	0	heterozygous:1	unknown:1	causal:1	R:31409799:1	31409799
+609296	V3	TOP2B	c.1897G>A; p.G633S	TOP2B, GLY633SER	a heterozygous TOP2B variant: c.1897G > A, p.G633S	1	heterozygous:1	unknown:1	causal:1	R:31409799:2	31409799
+609296	V4	TOP2B	c.1453G>C; p.A485P	TOP2B, ALA485PRO	heterozygous G>C mutation at the cDNA nucleotide 1,453 of the TOP2B gene (ENST00000435706) ... A485P; A485P	3	heterozygous:3	de_novo:1; inherited:1; unknown:1	causal:3	R:32128574:1; R:32128574:2; R:32128574:3	32128574
+611521	V1	TYK2	p.C70H	TYK2, CYS70HIS	homozygous Tyk2 mutation; homozygous 4-bp deletion in exon 4 (C70HfsX21)	1	homozygous:2	unknown:1; inherited:1	causal:2	R:17088085:1; R:26304966:1	17088085; 26304966
+611521	V2	TYK2	c.2302_2310del; c.2302del9; c.2303_2311del; p.L767*	TYK2, LEU767TER	c.2302_2310del or 2302del9; c.2303_2311del (L767X)	1	homozygous:2	unknown:1; inherited:1	causal:2	R:22402565:1; R:26304966:2	22402565; 26304966
+611521	V5	TYK2	c.3318_3319insc; p.T1106H	TYK2, THR1106HIS	c.3318_3319insC (T1106HfsX4)	2	homozygous:2	inherited:2	causal:2	R:26304966:3; R:26304966:4	26304966
+611521	V6	TYK2	c.462G>T; p.E154*	TYK2, GLU154TER	c.462G>T (E154X)	2	homozygous:2	inherited:2	causal:2	R:26304966:5; R:26304966:6	26304966
+611521	V7	TYK2	c.149delc; p.S50H	TYK2, SER50HIS	c.149delC (S50HfsX1)	1	homozygous:1	inherited:1	causal:1	R:26304966:7	26304966
+611521	V8	TYK2	c.1912C>T; p.R638*	TYK2, ARG638TER	c.1912 C>T (R638X)	1	homozygous:1	unknown:1	causal:1	R:26304966:8	26304966
+611521	V9	TYK2		TYK2, THE MUTATION	the mutation	1	unknown:1	unknown:1	causal:1	R:27615517:1	27615517
+611521	V10	TYK2	c.2395G>A; p.G799R	TYK2, GLY799ARG	c.2395G>A, p.G799R, hom	1	homozygous:1	inherited:1	causal:1	R:32537443:1	32537443
+611521	V11	CFH	c.2089C>T; p.L697F	CFH, LEU697PHE	c.2089C>T, p.L697F, het	1	heterozygous:1	unknown:1	uncertain:1	R:32537443:1	32537443
+611521	V12	LRRC8A	c.1250G>A; p.R417Q	LRRC8A, ARG417GLN	c.1250G>A, p.R417Q, het	1	heterozygous:1	unknown:1	uncertain:1	R:32537443:1	32537443
+611521	V13	NIPBL		NIPBL, C.5575-27_C.5575-26DELCT, –, HET	c.5575-27_c.5575-26delCT, –, het	1	heterozygous:1	unknown:1	uncertain:1	R:32537443:1	32537443
+611521	V14	TYK2		TYK2, NOVEL TYK2 MUTATIONS	novel TYK2 mutations	5	unknown:1	unknown:1	causal:1	R:34569645:1	34569645
+611521	V15	TYK2	p.P216R	TYK2, PRO216ARG	P216Rfs*14	4	homozygous:4	inherited:4	causal:4	R:35708626:1; R:35708626:2; R:35708626:3; R:35708626:4	35708626
+611880	V1	TNNI3		TNNI3, NOVEL TNNI3 MUTATION	novel TNNI3 mutation	1	unknown:1	unknown:1	causal:1	R:15070570:1	15070570
+611880	V2	TNNI3	p.K36Q	TNNI3, LYS36GLN	Lys36Gln	0	heterozygous:1	inherited:1	causal:1	R:19590045:1	19590045
+611880	V3	TNNI3	p.N185K	TNNI3, ASN185LYS	Asn185Lys	0	heterozygous:1	inherited:1	causal:1	R:19590045:1	19590045
+612847	V1	PAPSS2		PAPSS2, NONSENSE MUTATION IN ATPSK2	nonsense mutation in ATPSK2	1	unknown:1	inherited:1	causal:1	R:9771708:1	9771708
+612847	V2	PAPSS2		PAPSS2, COMPOUND HETEROZYGOUS MUTATIONS IN PAPSS2	compound heterozygous mutations in PAPSS2	1	compound_heterozygous:1	unknown:1	causal:1	R:19474428:1	19474428
+612847	V3	PAPSS2	c.337_338insg; p.A113G	PAPSS2, ALA113GLY	c.337_338insG (p.A113GfsX18)	3	homozygous:1	inherited:1	causal:1	R:22791835:1	22791835
+612847	V4	PAPSS2		PAPSS2, IVS3+2DELT	IVS3+2delT	1	homozygous:1	unknown:1	causal:1	R:22791835:2	22791835
+612847	V5	PAPSS2	c.616-634del19; p.V206S	PAPSS2, VAL206SER	c.616-634del19 (p.V206SfsX9)	1	compound_heterozygous:1	unknown:1	causal:1	R:22791835:3	22791835
+612847	V6	PAPSS2	c.1309-1310delag; p.R437G	PAPSS2, ARG437GLY	c.1309-1310delAG (p.R437GfsX19)	1	compound_heterozygous:1	unknown:1	causal:1	R:22791835:3	22791835
+612847	V7	PAPSS2	c.480_481inscgta; p.K161R	PAPSS2, LYS161ARG	c.480_481insCGTA (p.K161RfsX6)	1	compound_heterozygous:1	unknown:1	causal:1	R:22791835:4	22791835
+612847	V8	PAPSS2	c.661dela; p.I221S	PAPSS2, ILE221SER	c.661delA (p.I221SfsX40)	1	compound_heterozygous:1	unknown:1	causal:1	R:22791835:4	22791835
+613581	V1	IMPG2		IMPG2, NONSENSE MUTATION	nonsense mutation	3	homozygous:1	inherited:1	causal:1	R:20673862:1	20673862
+613581	V2	IMPG2		IMPG2, 1.8 KB GENOMIC DELETION THAT REMOVES EXON 9 AND RESULTS IN THE ABSENCE OF SEVEN AMINO ACIDS IN A CONSERVED SEA DOMAIN	1.8 kb genomic deletion that removes exon 9 and results in the absence of seven amino acids in a conserved SEA domain	3	homozygous:1	inherited:1	causal:1	R:20673862:2	20673862
+613581	V3	IMPG2		IMPG2, FOUR NONSENSE MUTATIONS	four nonsense mutations	1	homozygous:1	unknown:1	causal:1	R:20673862:3	20673862
+613581	V4	IMPG2		IMPG2, MISSENSE MUTATION AFFECTING A HIGHLY CONSERVED PHENYLALANINE RESIDUE	missense mutation affecting a highly conserved phenylalanine residue	1	homozygous:1	unknown:1	causal:1	R:20673862:4	20673862
+613730	V1	JAM3		JAM3, MUTATION IN THE CANONICAL SPLICE-DONOR SITE OF INTRON 5 OF JAM3	mutation in the canonical splice-donor site of intron 5 of JAM3	1	homozygous:1	inherited:1	causal:1	R:21109224:1	21109224
+613730	V2	JAM3	c.656G>A; p.C219Y	JAM3, CYS219TYR	c.656G>A (p.C219Y)	1	homozygous:1	inherited:1	causal:1	R:23255084:1	23255084
+613730	V3	JAM3	c.346G>A; p.E116K	JAM3, GLU116LYS	c.346G>A (p.E116K)	2	homozygous:2	inherited:2	causal:2	R:23255084:2; R:23255084:3	23255084
+613730	V4	JAM3	c.2T>G; p.M1R	JAM3, MET1ARG	c.2T>G (p.M1R)	1	homozygous:1	inherited:1	causal:1	R:23255084:4	23255084
+613744	V1	AP4E1		AP4E1, 192 KB HOMOZYGOUS DELETION OF CHROMOSOME 15Q21.2 (CHR15:48835480-49028171; HG18) INCLUDING THE 5' END OF AP4E1 AND SPPL2A	192 kb homozygous deletion of chromosome 15q21.2 (chr15:48835480-49028171; hg18) including the 5' end of AP4E1 and SPPL2A	2	homozygous:2	inherited:2	causal:2	R:20972249:1; R:20972249:2	20972249
+613744	V2	AP4S1	c.124C>T; p.R42; p.R42*	AP4S1, ARG42TER	NM_007077.3: c.124C>T, p.Arg42(∗)	0	unknown:1	inherited:1	causal:1	R:21620353:1	21620353
+613744	V3	AP4B1	c.487_488instat; p.E163	AP4B1, 487_488INSTAT	NM_006594.2: c.487_488insTAT, p.Glu163_Ser739delinsVal	0	unknown:1	inherited:1	causal:1	R:21620353:1	21620353
+613744	V4	AP4E1	c.542+1_542+4delgtaa; p.E181G	AP4E1, GLU181GLY	NM_007347.3: c.542+1_542+4delGTAA, r.421_542del, p.Glu181Glyfs(∗)20	0	unknown:1	inherited:1	causal:1	R:21620353:1	21620353
+613744	V5	AP4E1	p.R1105*	AP4E1, ARG1105TER	p.R1105X; homozygous p.R1105X mutation of the AP4E1 gene	2	homozygous:3	inherited:2; unknown:1	causal:3	R:23472171:1; R:23472171:2; R:30127434:1	23472171; 30127434
+613744	V6	SPPL2A	c.733+1G>A	SPPL2A, 733+1G-A	homozygous c.733+1G>A mutation of the splice donor site of SPPL2A intron 6	2	homozygous:1	inherited:1	not_causal:1	R:30127434:1	30127434
+613848	V1	SERPINH1	c.233T>C; p.L78P	SERPINH1, LEU78PRO	c.233T>C, p.Leu78Pro	1	homozygous:1	unknown:1	causal:1	R:20188343:1	20188343
+613848	V2	SERPINH1		SERPINH1, NEW OI MUTATION IN SERPINH1	new OI mutation in SERPINH1	1	unknown:1	unknown:1	causal:1	R:25510505:1	25510505
+614501	V1	SNIP1	c.1097A>G; p.E366G	SNIP1, GLU366GLY	SNIP1 c.1097A>G (p.Glu366Gly); NM_024700.4:c.1097A>G, p.(Glu366Gly)	3	homozygous:2	inherited:2	causal:2	R:22279524:1; R:34570759:1	22279524; 34570759
+614651	V1	PDSS1	p.D308E	PDSS1, ASP308GLU	D308E	1	homozygous:1	unknown:1	causal:1	R:17332895:1	17332895
+614651	V2	COQ2	c.1198delt; p.N401fs	COQ2, 1198DELT	c.1198delT, N401fsX415	1	unknown:1	unknown:1	causal:1	R:17332895:2	17332895
+614651	V3	PDSS1	c.735G>T; p.Q245H	PDSS1, GLN245HIS	c.735G > T (p.Gln245His)	2	homozygous:2	inherited:2	causal:2	R:33285023:1; R:33285023:2	33285023
+614651	V4	PDSS1	c.716T>G; p.V239G	PDSS1, VAL239GLY	NM_014317.3: c.716 T > G (p.Val239Gly)	1	heterozygous:1	unknown:1	causal:1	R:34765390:1	34765390
+614651	V5	PDSS1	c.1183C>T; p.R395*	PDSS1, ARG395TER	NM_014317.3: c.1183C > T (p.Arg395*)	1	heterozygous:1	unknown:1	causal:1	R:34765390:1	34765390
+614701	V1	EXT1		EXT1, DE NOVO DELETION ON CHROMOSOME 8Q24 INVOLVING THE EXT1 GENE AND ADDITIONAL GENES LOCATED DISTAL TO EXT1	de novo deletion on chromosome 8q24 involving the EXT1 gene and additional genes located distal to EXT1	0	heterozygous:1	de_novo:1	uncertain:1	R:12457403:1	12457403
+614701	V2	EXT1		EXT1, SMALL MICRODELETION INVOLVING EXT1 ALONE (8Q24)	small microdeletion involving EXT1 alone (8q24)	0	heterozygous:1	unknown:1	uncertain:1	R:18478595:1	18478595
+614701	V3	RAD21		RAD21, DOMINANT MISSENSE MUTATIONS	dominant missense mutations	0	heterozygous:1	unknown:1	causal:1	R:22633399:1	22633399
+614701	V4	RAD21		RAD21, LOSS-OF-FUNCTION MUTATIONS	loss-of-function mutations	0	unknown:1	unknown:1	causal:1	R:22633399:1	22633399
+614701	V5	RAD21		RAD21, IN-FRAME DELETION OF EXON 13	in-frame deletion of exon 13	2	heterozygous:1	inherited:1	causal:1	R:24378232:1	24378232
+614701	V6	RAD21	c.592_593dup; c.592_593dupag; p.S198R	RAD21, SER198ARG	c.592_593dup; c.592_593dupAG p.(Ser198Argfs*6)	1	heterozygous:2	unknown:2	causal:2	R:24378232:2; R:32193685:5	24378232; 32193685
+614701	V7	RAD21	c.704delg; p.S235I	RAD21, SER235ILE	c.704delG [p.(Ser235Ilefs*19)]; c.704delG p.(Ser235Ilefs*19)	5	heterozygous:6	inherited:6	causal:6	R:27882533:1; R:32193685:7; R:32193685:8; R:32193685:9; R:32193685:10; R:32193685:11	27882533; 32193685
+614701	V8	RAD21	c.1774_1776del; p.Q592del	RAD21, 1774_1776DEL	c.1774_1776del, p.(Gln592del); c.1774_1776del p.(Gln592del)	1	heterozygous:2	de_novo:2	causal:2	R:30125677:1; R:32193685:25	30125677; 32193685
+614701	V9	RAD21		RAD21, VARIANTS IN RAD21	variants in RAD21	0	unknown:1	unknown:1	uncertain:1	R:31334757:1	31334757
+614701	V10	SMC3		SMC3, VARIANTS IN SMC3	variants in SMC3	0	unknown:1	unknown:1	uncertain:1	R:31334757:1	31334757
+614701	V11	STAG2		STAG2, LOSS-OF-FUNCTION VARIANTS IN STAG2	loss-of-function variants in STAG2	0	unknown:1	unknown:1	uncertain:1	R:31334757:2	31334757
+614701	V12	SMC1A		SMC1A, LOSS-OF-FUNCTION AND MISSENSE VARIANTS IN SMC1A	loss-of-function and missense variants in SMC1A	0	unknown:1	unknown:1	uncertain:1	R:31334757:2	31334757
+614701	V13	RAD21	c.943_946del; p.E315Q	RAD21, GLU315GLN	novel RAD21 mutation; c.943_946del p.(Glu315Glnfs*9)	1	unknown:1; heterozygous:1	unknown:1; de_novo:1	causal:2	R:30716475:1; R:32193685:12	30716475; 32193685
+614701	V14	RAD21	c.68G>A; p.W23*	RAD21, TRP23TER	c.68G > A p.(Trp23*)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:1	32193685
+614701	V15	RAD21	c.194G>A; p.R65Q	RAD21, ARG65GLN	c.194G > A p.(Arg65Gln)	1	heterozygous:1	unknown:1	causal:1	R:32193685:2	32193685
+614701	V16	RAD21	c.274+1G>A	RAD21, 274+1G-A	c.274 + 1G > A	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:32193685:3; R:32193685:4	32193685
+614701	V18	RAD21	c.617_620del; p.I206T	RAD21, ILE206THR	c.617_620del p.(Ile206Thrfs*3)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:6	32193685
+614701	V20	RAD21	c.1127C>G; p.P376R	RAD21, PRO376ARG	c.1127C > G p.(Pro376Arg)	0	heterozygous:1	de_novo:1	causal:1	R:32193685:13	32193685
+614701	V21	RAD21	c.1217_1224del; p.K406R	RAD21, LYS406ARG	c.1217_1224del p.(Lys406Argfs*4)	0	heterozygous:1	de_novo:1	causal:1	R:32193685:14	32193685
+614701	V22	RAD21	c.1382C>T; p.T461I	RAD21, THR461ILE	c.1382C > T p.(Thr461Ile)	1	heterozygous:1	inherited:1	causal:1	R:32193685:15	32193685
+614701	V23	RAD21	c.1621-388_1704+193del; c.193del; p.D541	RAD21, 1621-388_1704+193DEL	c.1621-388_1704 + 193del p.(Asp541_Gln568del)	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:32193685:16; R:32193685:17	32193685
+614701	V24	RAD21	c.1635del; p.G547A	RAD21, GLY547ALA	c.1635del p.(Gly547Alafs*65)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:18	32193685
+614701	V25	RAD21	c.1753T>C; p.C585R	RAD21, CYS585ARG	c.1753T > C p.(Cys585Arg)	2	heterozygous:3	de_novo:1; inherited:2	causal:3	R:32193685:19; R:32193685:20; R:32193685:21	32193685
+614701	V26	RAD21	c.1756C>T; p.R586*	RAD21, ARG586TER	c.1756C > T p.(Arg586*)	3	heterozygous:3	unknown:2; inherited:1	causal:3	R:32193685:22; R:32193685:23; R:32193685:24	32193685
+614701	V27	RAD21	c.1800_1802del; p.F600del	RAD21, 1800_1802DEL	c.1800_1802del p.(Phe600del)	1	heterozygous:1	unknown:1	causal:1	R:32193685:26	32193685
+614701	V28	RAD21		RAD21, ARR[HG19] 8Q23.3Q24.11(116880827–118875305)X1	arr[hg19] 8q23.3q24.11(116880827–118875305)x1	0	heterozygous:1	unknown:1	causal:1	R:32193685:27	32193685
+614701	V29	RAD21		RAD21, ARR[HG19] 8Q23.3Q24.11(116915114–119171074)X1	arr[hg19] 8q23.3q24.11(116915114–119171074)x1	1	heterozygous:1	de_novo:1	causal:1	R:32193685:28	32193685
+614701	V30	RAD21		RAD21, ARR[HG19] 8Q23.3Q24.12(117571728–119260904)X1	arr[hg19] 8q23.3q24.12(117571728–119260904)x1	0	heterozygous:1	de_novo:1	causal:1	R:32193685:29	32193685
+614701	V31	RAD21		RAD21, ARR[HG19] 8Q24.11(117866471–117893495)X1	arr[hg19] 8q24.11(117866471–117893495)x1	1	heterozygous:1	unknown:1	causal:1	R:32193685:30	32193685
+614701	V32	RAD21	c.16T>G; p.F6V	RAD21, PHE6VAL	c.16T > G p.(Phe6Val)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:31	32193685
+614701	V33	RAD21	c.85delinscct; p.K29P	RAD21, LYS29PRO	c.85delinsCCT p.(Lys29Profs*10)	1	heterozygous:1	unknown:1	causal:1	R:32193685:32	32193685
+614701	V34	RAD21	c.951del; p.A318P	RAD21, ALA318PRO	c.951del p.(Ala318Profs*7)	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:32193685:33; R:32193685:34	32193685
+614701	V35	RAD21	c.1033T>C; p.S345P	RAD21, SER345PRO	c.1033T > C p.(Ser345Pro)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:35	32193685
+614701	V36	RAD21	c.1161+1G>A	RAD21, 1161+1G-A	c.1161 + 1G > A	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:32193685:36; R:32193685:37	32193685
+614701	V37	RAD21	c.1550dupc; p.E518R	RAD21, GLU518ARG	c.1550dupC p.(Glu518Argfs*19)	0	heterozygous:2	inherited:1; unknown:1	causal:2	R:32193685:38; R:32193685:39	32193685
+614701	V38	RAD21	c.1808T>C; p.L603P	RAD21, LEU603PRO	c.1808T > C p.(Leu603Pro)	1	heterozygous:1	de_novo:1	causal:1	R:32193685:40	32193685
+614701	V39	RAD21	c.1864G>A; p.A622T	RAD21, ALA622THR	c.[1864G > A];[1864G > A] p.(Ala622Thr); c.[1864G > A] p.(Ala622Thr)	6	homozygous:3; heterozygous:3	inherited:6	uncertain:6	R:32193685:41; R:32193685:42; R:32193685:43; R:32193685:44; R:32193685:45; R:32193685:46	32193685
+614701	V40	RAD21		RAD21, ARR[HG19] 8Q23.3-24.11(116902507–118942698)X1	arr[hg19] 8q23.3-24.11(116902507–118942698)x1	1	heterozygous:1	unknown:1	causal:1	R:32193685:47	32193685
+614701	V41	RAD21		RAD21, ARR[HG19] 8Q23.3-24.11(117509968–118391406)X1	arr[hg19] 8q23.3-24.11(117509968–118391406)x1	1	heterozygous:1	unknown:1	causal:1	R:32193685:48	32193685
+614701	V42	RAD21		RAD21, ARR[HG19] 8Q24.11(117714768–119072307)X1	arr[hg19] 8q24.11(117714768–119072307)x1	1	heterozygous:1	unknown:1	causal:1	R:32193685:49	32193685
+614701	V43	RAD21		RAD21, RAD21 LOSS-OF-FUNCTION VARIANT	RAD21 loss-of-function variant	1	unknown:1	unknown:1	uncertain:1	R:32696056:1	32696056
+614856	V1	BMP1	c.747C>G; p.F249L	BMP1, PHE249LEU	c.747C>G (p.Phe249Leu)	2	homozygous:2	inherited:2	causal:2	R:22052668:1; R:22052668:2	22052668
+614856	V2	BMP1	c.34G>C	BMP1, 34G-C	c.34G>C	2	homozygous:2	inherited:1; unknown:1	causal:2	R:22482805:1; R:24648371:1	22482805; 24648371
+614856	V3	BMP1	c.*241T>C	BMP1, *241T-C	c.*241T>C	4	homozygous:1; compound_heterozygous:1	unknown:2	causal:2	R:25214535:1; R:25214535:2	25214535
+614856	V4	BMP1	c.2107G>C	BMP1, 2107G-C	c.2107G>C	1	compound_heterozygous:1	unknown:1	causal:1	R:25214535:2	25214535
+614856	V5	BMP1	c.808A>G; p.M270V	BMP1, MET270VAL	c.808A>G p.(Met270Val)	1	compound_heterozygous:1	unknown:1	causal:1	R:25402547:1	25402547
+614856	V6	BMP1	c.1297G>T	BMP1, 1297G-T	c.1297G>T	1	compound_heterozygous:1	unknown:1	causal:1	R:25402547:1	25402547
+615073	V1	GNAL	c.409G>A; p.V137M	GNAL, VAL137MET	c.409G>A V137M	7	heterozygous:7	inherited:7	causal:7	R:23222958:1; R:23222958:2; R:23222958:3; R:23222958:4; R:23222958:5; R:23222958:6; R:23222958:7	23222958
+615073	V2	GNAL	c.878C>A; p.S293*	GNAL, SER293TER	c.878C>A p.S293X	6	heterozygous:6	inherited:6	causal:6	R:23222958:8; R:23222958:9; R:23222958:10; R:23222958:11; R:23222958:12; R:23222958:13	23222958
+615073	V3	GNAL	c.463G>A; p.E155K	GNAL, GLU155LYS	c.463G>A p.E155K	2	heterozygous:2	inherited:2	causal:2	R:23222958:14; R:23222958:15	23222958
+615073	V4	GNAL	c.283-284inst; p.S95fs	GNAL, 283-284INST	c.283-284insT p.S95fsX110	4	heterozygous:4	inherited:4	causal:4	R:23222958:16; R:23222958:17; R:23222958:18; R:23222958:19	23222958
+615073	V5	GNAL	c.591-592insa; p.R198fs	GNAL, 591-592INSA	c.591-592insA p.R198fsX210	3	heterozygous:3	inherited:3	causal:3	R:23222958:20; R:23222958:21; R:23222958:22	23222958
+615073	V6	GNAL	c.274-5T>C	GNAL, 274-5T-C	c.274-5T>C	2	heterozygous:2	inherited:2	causal:2	R:23222958:23; R:23222958:24	23222958
+615073	V7	GNAL	c.61C>T; p.R21*	GNAL, ARG21TER	c.61C>T p.R21X	3	heterozygous:3	inherited:3	causal:3	R:23222958:25; R:23222958:26; R:23222958:27	23222958
+615073	V8	GNAL	c.304-312delcctccagtt; p.P102	GNAL, 304-312DELCCTCCAGTT	c.304-312delCCTCCAGTT p.P102-V104del	1	heterozygous:1	unknown:1	causal:1	R:23222958:28	23222958
+615268	V1	WDR81	p.P856L	WDR81, PRO856LEU	WDR81 p.P856L	1	homozygous:1	inherited:1	causal:1	R:21885617:1	21885617
+615268	V2	ATP8A2	p.I376M	ATP8A2, ILE376MET	p.I376M	4	homozygous:1	inherited:1	causal:1	R:22892528:1	22892528
+615268	V3	ATP8A2	c.1339G>A; p.G447R	ATP8A2, GLY447ARG	NM_016529.6:c.1339G > A, NP_057613.4:(p.Gly447Arg); c.1339G > A, p.G447R	2	homozygous:2	inherited:2	causal:2	R:33079427:1; R:33079427:2	33079427
+615268	V4	ATP8A2	c.1580-18C>G	ATP8A2, 1580-18C-G	c.1580-18C > G - intron 17	2	homozygous:1	unknown:1	causal:1	R:33682124:1	33682124
+615268	V5	ATP8A2	c.1741C>T; p.R581*	ATP8A2, ARG581TER	NM_016529.6:c.1741C>T p.(Arg581*)	2	compound_heterozygous:1	unknown:1	causal:1	R:35321980:1	35321980
+615268	V6	ATP8A2	c.2158C>T; p.R720*	ATP8A2, ARG720TER	NM_016529.6:c.2158C>T p.(Arg720*)	2	compound_heterozygous:1	unknown:1	causal:1	R:35321980:1	35321980
+615425	V1	DST	p.Q1124*	DST, GLN1124TER	p.Gln1124X	1	homozygous:1	unknown:1	causal:1	R:20164846:1	20164846
+615425	V2	DST	c.7097dupa; p.Y2366*	DST, TYR2366TER	c.7097dupA (p.Tyr2366X)	0	unknown:1	unknown:1	causal:1	R:33471381:1	33471381
+615425	V3	DST	c.7429delc; p.L2477S	DST, LEU2477SER	c.7429delC (p.Leu2477Serfs*13)	0	unknown:1	unknown:1	causal:1	R:33471381:1	33471381
+615493	V1	ANK3		ANK3, HOMOZYGOUS TRUNCATING FRAMESHIFT MUTATION IN THE LONGEST ISOFORM	homozygous truncating frameshift mutation in the longest isoform	1	homozygous:1	inherited:1	causal:1	R:23390136:1	23390136
+615493	V2	ANK3		ANK3, BALANCED TRANSLOCATION DISRUPTING ALL ISOFORMS OF THE ANK3 GENE	balanced translocation disrupting all isoforms of the ANK3 gene	1	heterozygous:1	unknown:1	causal:1	R:23390136:2	23390136
+615582	V1	TGFB3	c.1226G>A; p.C409Y	TGFB3, CYS409TYR	c.1226G>A; pC409Y	1	heterozygous:1	de_novo:1	causal:1	R:23824657:1	23824657
+615582	V2	CDH2	c.208C>T; p.Q70*	CDH2, GLN70TER	c.208C>T, pQ70X	1	heterozygous:1	de_novo:1	not_causal:1	R:23824657:1	23824657
+615582	V3	TGFB3		TGFB3, DE NOVO MUTATION OF THE LATENCY-ASSOCIATED PEPTIDE DOMAIN OF TGFB3	De novo mutation of the latency-associated peptide domain of TGFB3	1	unknown:1	de_novo:1	causal:1	R:24798638:1	24798638
+615582	V4	TGFB3	c.754+2T>C; p.E216	TGFB3, 754+2T-C	c.754+2T>C (p.Glu216_Lys251del)	1	heterozygous:1	inherited:1	causal:1	R:25835445:1	25835445
+615582	V5	TGFB3	p.D263H	TGFB3, ASP263HIS	p.Asp263His	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V6	TGFB3	p.R300W	TGFB3, ARG300TRP	p.Arg300Trp	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V7	TGFB3	p.I322T	TGFB3, ILE322THR	p.Ile322Thr	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V8	TGFB3	p.L401P	TGFB3, LEU401PRO	p.Leu401Pro	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V9	TGFB3	p.Y365*	TGFB3, TYR365TER	p.Tyr365*	0	heterozygous:1	de_novo:1	causal:1	R:25835445:2	25835445
+615582	V10	TGFB3	p.L386R	TGFB3, LEU386ARG	p.Leu386Argfs*21	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V11	TGFB3	p.N235M	TGFB3, ASN235MET	p.Asn235Metfs*11	0	heterozygous:1	unknown:1	causal:1	R:25835445:2	25835445
+615582	V12	SMAD3	p.A250T	SMAD3, ALA250THR	p.Ala250Thr	0	heterozygous:1	inherited:1	uncertain:1	R:25835445:2	25835445
+615582	V13	TGFB3	c.898C>G; p.R300G	TGFB3, ARG300GLY	c.898C>G, p.Arg300Gly	3	heterozygous:1	inherited:1	causal:1	R:26184463:1	26184463
+615631	V1	CDIN1	c.533T>A; p.L178Q	CDIN1, LEU178GLN	c.533T>A, p.L178Q	1	homozygous:1	inherited:1	causal:1	R:23716552:1	23716552
+615631	V2	CDIN1	c.281A>G; p.Y94C	CDIN1, TYR94CYS	c.281A>G, p.Y94C	1	homozygous:1	unknown:1	causal:1	R:23716552:2	23716552
+615710	V1	RFX6		RFX6, IVS2+2 T>C	IVS2+2 t>c	5	homozygous:1	inherited:1	causal:1	R:20148032:1	20148032
+615710	V2	RFX6	p.S217P	RFX6, SER217PRO	217 Ser>Pro	1	homozygous:1	inherited:1	causal:1	R:20148032:2	20148032
+615710	V3	RFX6		RFX6, IVS6+2 T>G	IVS6+2 t>g	5	compound_heterozygous:1	inherited:1	causal:1	R:20148032:3	20148032
+615710	V4	RFX6		RFX6, IVS1-12 A>G	IVS1-12 a>g	5	compound_heterozygous:1	inherited:1	causal:1	R:20148032:3	20148032
+615710	V5	RFX6		RFX6, OUT-OF-FRAME DELETION IN EXON 7	out-of-frame deletion in exon 7	1	homozygous:1	inherited:1	causal:1	R:20148032:4	20148032
+615710	V6	RFX6	p.R181Q	RFX6, ARG181GLN	181 R>Q	1	homozygous:1	inherited:1	causal:1	R:20148032:5	20148032
+615710	V7	RFX6	c.2176C>T; p.R726*	RFX6, ARG726TER	c.2176C>T (p.Arg726X)	2	compound_heterozygous:2	inherited:2	causal:2	R:26264437:1; R:26264437:2	26264437
+615710	V8	RFX6	c.2596C>T; p.R866*	RFX6, ARG866TER	c.2596C>T (p.Arg866X)	2	compound_heterozygous:2	inherited:2	causal:2	R:26264437:1; R:26264437:2	26264437
+615817	V1	WASHC4	c.3056C>G; p.P1019R	WASHC4, PRO1019ARG	non-synonymous sequence change in the SWIP gene; WASHC4c.3056C>G (protein: SWIPP1019R)	7	homozygous:2	inherited:1; unknown:1	causal:2	R:21498477:1; R:33749590:1	21498477; 33749590
+615817	V2	WASHC4	p.Q442*	WASHC4, GLN442TER	p.(Gln442*)	2	compound_heterozygous:2	inherited:2	causal:2	R:31953988:1; R:31953988:2	31953988
+615817	V3	WASHC4	p.D1048G	WASHC4, ASP1048GLY	p.(Asp1048Gly)	2	compound_heterozygous:2	inherited:2	causal:2	R:31953988:1; R:31953988:2	31953988
+615817	V4	WASHC4	p.K1079R	WASHC4, LYS1079ARG	p.(Lys1079Arg)	1	compound_heterozygous:1	inherited:1	causal:1	R:31953988:3	31953988
+615817	V5	WASHC4	p.H503R	WASHC4, HIS503ARG	p.(His503Arg)	1	compound_heterozygous:1	inherited:1	causal:1	R:31953988:3	31953988
+615817	V7	WASHC4		WASHC4, HOMOZYGOUS WASHC4 VARIANT	homozygous WASHC4 variant	2	homozygous:1	unknown:1	causal:1	R:34599609:1	34599609
+615972	V1	TMEM98	c.577G>C; p.A193P	TMEM98, ALA193PRO	c.577G>C (p.Ala193Pro)	16	heterozygous:1	inherited:1	causal:1	R:24852644:1	24852644
+615972	V2	TMEM98	p.H196P	TMEM98, HIS196PRO	His196Pro	9	unknown:7	inherited:7	causal:7	R:26392740:1; R:26392740:2; R:26392740:3; R:26392740:4; R:26392740:5; R:26392740:6; R:26392740:7	26392740
+615972	V3	TMEM98	c.694_721delagaatgaagactggatcgaagatgcctcgtaagg	TMEM98, 694_721DELAGAATGAAGACTGGATCGAAGATGCCTCGTAAGG	c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg	11	heterozygous:9	inherited:9	causal:9	R:26392740:8; R:26392740:9; R:26392740:10; R:26392740:11; R:26392740:12; R:26392740:13; R:26392740:14; R:26392740:15; R:26392740:16	26392740
+616151	V1	IMPG1	c.713T>G; p.L238R	IMPG1, LEU238ARG	c.713T>G (p.Leu238Arg); c.713T→G (p.Leu238Arg)	11	heterozygous:2	inherited:2	causal:2	R:23993198:1; R:25085631:1	23993198; 25085631
+616151	V2	IMPG1	c.807+1G>T	IMPG1, 807+1G-T	c.807+1G>T	2	homozygous:1	unknown:1	causal:1	R:23993198:2	23993198
+616151	V3	IMPG1	c.461T>C; p.L154P	IMPG1, LEU154PRO	c.461T>C (p.Leu154Pro); p.Leu154Pro	3	compound_heterozygous:1; heterozygous:1	unknown:2	causal:1; uncertain:1	R:23993198:3; R:30688845:1	23993198; 30688845
+616151	V4	IMPG1	c.1519C>T; p.R507; p.R507*	IMPG1, ARG507TER	c.1519C>T (p.Arg507(∗))	2	compound_heterozygous:1	unknown:1	causal:1	R:23993198:3	23993198
+616151	V5	IMPG2	c.3230G>T; p.C1077F	IMPG2, CYS1077PHE	c.3230G→T (p.Cys1077Phe)	2	heterozygous:1	inherited:1	causal:1	R:25085631:3	25085631
+616151	V6	IMPG1	c.713T>C; p.L238P	IMPG1, LEU238PRO	c.713T > C, p.(Leu238Pro)	1	heterozygous:1	unknown:1	causal:1	R:28644393:1	28644393
+616151	V7	IMPG1	c.807+5G>A	IMPG1, 807+5G-A	c.807 + 5G > A	1	homozygous:1	inherited:1	causal:1	R:28644393:2	28644393
+616151	V8	IMPG1		IMPG1, SPLICE VARIANT IN IMPG1	splice variant in IMPG1	2	unknown:2	inherited:1; unknown:1	causal:2	R:32817297:1; R:32817297:2	32817297
+616151	V9	IMPG1		IMPG1, DIFFERENT MISSENSE OR NONSENSE VARIANTS IN IMPG1	different missense or nonsense variants in IMPG1	1	unknown:1	unknown:1	causal:1	R:32817297:3	32817297
+616294	V1	SEC24D	c.3044C>T; p.S1015F	SEC24D, SER1015PHE	c.3044C>T (p.Ser1015Phe)	3	compound_heterozygous:2	inherited:2	causal:2	R:25683121:1; R:25683121:2	25683121
+616294	V2	SEC24D	c.2723G>A; p.C908Y	SEC24D, CYS908TYR	c.2723G>A (p. Cys908Tyr)	1	compound_heterozygous:1	unknown:1	causal:1	R:27942778:1	27942778
+616294	V3	SEC24D	c.2842T>C; p.S948P	SEC24D, SER948PRO	c.2842T>C (p. Ser948Pro)	1	compound_heterozygous:1	unknown:1	causal:1	R:27942778:1	27942778
+616294	V4	SEC24D	c.938G>A; p.R313H	SEC24D, ARG313HIS	c.938G>A (p. Arg313His); p.Arg313His	2	compound_heterozygous:2	unknown:2	causal:2	R:27942778:2; R:30462379:1	27942778; 30462379
+616294	V5	SEC24D	c.875C>T; p.P292L	SEC24D, PRO292LEU	c.875C>T (p. Pro292Leu)	1	compound_heterozygous:1	unknown:1	causal:1	R:27942778:2	27942778
+616294	V6	SEC24D	p.R484*	SEC24D, ARG484TER	p.Arg484*	1	compound_heterozygous:1	unknown:1	causal:1	R:30462379:1	30462379
+616326	V1	RAPSN	p.L14P	RAPSN, LEU14PRO	L14P	1	heterozygous:1	unknown:1	causal:1	R:11791205:1	11791205
+616326	V2	RAPSN	p.N88K	RAPSN, ASN88LYS	N88K	23	heterozygous:2; homozygous:2; unknown:1	unknown:4; inherited:1	causal:5	R:11791205:1; R:11791205:2; R:11791205:3; R:14504330:1; R:15252722:1	11791205; 14504330; 15252722
+616326	V3	RAPSN	c.553ins5	RAPSN, 553INS5	553ins5	1	heterozygous:1	unknown:1	causal:1	R:11791205:3	11791205
+616326	V4	RAPSN		RAPSN, -27C-->G	-27C-->G	1	unknown:1	unknown:1	causal:1	R:12651869:1	12651869
+616326	V5	RAPSN		RAPSN, -38A-->G	-38A-->G	7	unknown:1	inherited:1	causal:1	R:12651869:2	12651869
+616326	V6	RAPSN		RAPSN, THREE NOVEL MULTI-EXON DELETIONS OF RAPSN	three novel multi-exon deletions of RAPSN	3	heterozygous:1	inherited:1	causal:1	R:20930056:1	20930056
+616326	V7	RAPSN		RAPSN, TWO CONFIRMED PATHOGENIC MUTATIONS IN THE RAPSN GENE	two confirmed pathogenic mutations in the RAPSN gene	1	unknown:1	unknown:1	causal:1	R:25194721:1	25194721
+616482	V1	FGFR3	c.1949A>T; p.A1949T; p.K650M	FGFR3, ALA1949THR	A1949T: Lys650Met; Lys650Met; FGFR3 Lys650Met	5	unknown:3	unknown:3	causal:3	R:10053006:1; R:10377013:1; R:18076102:1	10053006; 10377013; 18076102
+616867	V1	ASCC1		ASCC1, HOMOZYGOUS AND COMPOUND-HETEROZYGOUS NONSENSE AND FRAMESHIFT ASCC1 MUTATIONS	homozygous and compound-heterozygous nonsense and frameshift ASCC1 mutations	0	unknown:1	inherited:1	causal:1	R:26924529:1	26924529
+616867	V2	TRIP4		TRIP4, HOMOZYGOUS AND COMPOUND-HETEROZYGOUS NONSENSE AND FRAMESHIFT TRIP4 MUTATIONS	homozygous and compound-heterozygous nonsense and frameshift TRIP4 mutations	0	unknown:1	inherited:1	causal:1	R:26924529:1	26924529
+616867	V3	ASCC1	c.157dupg; p.E53G	ASCC1, GLU53GLY	c.157dupG, p.Glu53Glyfs*19	1	homozygous:1	unknown:1	causal:1	R:28218388:1	28218388
+616867	V4	ASCC1		ASCC1, RECESSIVE NONSENSE OR FRAMESHIFT MUTATIONS IN ASCC1, INCLUDING TWO NOVEL MUTATIONS	recessive nonsense or frameshift mutations in ASCC1, including two novel mutations	1	unknown:1	unknown:1	causal:1	R:30327447:1	30327447
+616867	V5	ASCC1		ASCC1, MICRODELETION COPY NUMBER VARIANT (CNV) OF ABOUT 64 KB, INVOLVING FOUR EXONS OF ASCC1	microdeletion copy number variant (CNV) of about 64 Kb, involving four exons of ASCC1	1	compound_heterozygous:1	unknown:1	causal:1	R:31880396:1	31880396
+616867	V6	ASCC1	c.1027C>T; p.R343*	ASCC1, ARG343TER	c.1027C>T; (p. Arg343*)	1	compound_heterozygous:1	unknown:1	causal:1	R:31880396:1	31880396
+617153	V1	GABRB1	p.F246S	GABRB1, PHE246SER	de novo mutation in GABRB1; GABRB1(F246S)	1	heterozygous:2	de_novo:2	uncertain:1; causal:1	R:23934111:1; R:26950270:1	23934111; 26950270
+617153	V3	GABRB1		GABRB1, DE NOVO GABRB1 MUTATION	De Novo GABRB1 mutation	1	unknown:1	de_novo:1	causal:1	R:27273810:1	27273810
+617153	V4	GABRB1	p.I247T	GABRB1, ILE247THR	Chr4:47405633T>C p.I247T	1	heterozygous:1	de_novo:1	causal:1	R:31618474:1	31618474
+617162	V1	GRIN2D	c.1999G>A; p.V667I	GRIN2D, VAL667ILE	c.1999G>A (p.Val667Ile)	2	heterozygous:1	de_novo:1	causal:1	R:27616483:1	27616483
+617162	V2	GRIN2D		GRIN2D, NOVEL HETEROZYGOUS GRIN2D MISSENSE VARIANTS	novel heterozygous GRIN2D missense variants	3	heterozygous:1	unknown:1	causal:1	R:30280376:1	30280376
+617927	V1	IFT57	c.777G>A; p.K259K	IFT57, LYS259LYS	chr3:g.107910368C>T, c.777G>A, p.Lys259Lys; c.777G>A, p.Lys259Lys	3	homozygous:3	inherited:3	causal:3	R:27060890:1; R:27060890:2; R:27060890:3	27060890
+618184	V1	MPZ		MPZ, FIVE NOVEL MUTATIONS IN THE MYELIN PROTEIN ZERO (MPZ) GENE	five novel mutations in the myelin protein zero (MPZ) gene	1	unknown:1	unknown:1	causal:1	R:8816708:1	8816708
+618184	V2	MPZ	p.Q215*	MPZ, GLN215TER	Q215X	1	unknown:1	de_novo:1	causal:1	R:10319895:1	10319895
+618184	V3	MPZ		MPZ, 3BP DELETION OF CTA FROM NUCLEOTIDE 550 TO 552 AND INSERTION OF G AT NUCLEOTIDE 550	3bp deletion of CTA from nucleotide 550 to 552 and insertion of G at nucleotide 550	1	heterozygous:1	de_novo:1	causal:1	R:12953275:1	12953275
+618184	V4	MPZ	p.T124K	MPZ, THR124LYS	Thr124Lys	1	unknown:1	unknown:1	causal:1	R:15184631:1	15184631
+618184	V5	MPZ		MPZ, HETEROZYGOUS MUTATION IN MPZ	heterozygous mutation in MPZ	1	heterozygous:1	inherited:1	causal:1	R:17825553:1	17825553
+618229	V1	NDUFS2		NDUFS2, THREE MISSENSE MUTATIONS RESULTING IN THE SUBSTITUTION OF CONSERVED AMINO ACIDS	three missense mutations resulting in the substitution of conserved amino acids	1	unknown:1	unknown:1	causal:1	R:11220739:1	11220739
+618229	V2	NDUFV2	c.1delgtaa	NDUFV2, 1DELGTAA	IVS2+5_+8delGTAA; c.IVS2 + 1delGTAA	8	homozygous:2; compound_heterozygous:1	inherited:1; unknown:2	causal:3	R:12754703:1; R:26008862:1; R:26008862:2	12754703; 26008862
+618229	V4	NDUFV2	c.669_670insg; p.S224V	NDUFV2, SER224VAL	c.669_670insG, p.Ser224Valfs*3	2	compound_heterozygous:1	unknown:1	causal:1	R:26008862:1	26008862
+618343	V1	COL3A1	c.1832delaa	COL3A1, 1832DELAA	1832delAA	1	heterozygous:1	unknown:1	causal:1	R:11577371:1	11577371
+618343	V2	COL3A1	c.413delc	COL3A1, 413DELC	413delC	1	heterozygous:1	unknown:1	causal:1	R:11577371:2	11577371
+618343	V3	COL3A1	c.555delt	COL3A1, 555DELT	555delT	1	heterozygous:1	unknown:1	causal:1	R:11577371:3	11577371
+618343	V4	COL3A1	c.4294C>T; p.R1432*	COL3A1, ARG1432TER	4294C-->T [Arg1432Ter]	1	heterozygous:1	unknown:1	causal:1	R:11577371:4	11577371
+618343	V5	COL3A1	c.479dupt; p.K161Q	COL3A1, LYS161GLN	c.479dupT (p.Lys161GlnfsX45)	1	homozygous:1	inherited:1	causal:1	R:19455184:1	19455184
+618343	V6	COL3A1	c.1786C>T; p.R596*	COL3A1, ARG596TER	c.1786C>T, p.(Arg596*)	2	compound_heterozygous:2	inherited:2	causal:2	R:25205403:1; R:25205403:2	25205403
+618343	V7	COL3A1	c.3851G>A; p.G1284E	COL3A1, GLY1284GLU	c.3851G>A, p.(Gly1284Glu)	2	compound_heterozygous:2	inherited:2	causal:2	R:25205403:1; R:25205403:2	25205403
+618343	V8	COL3A1	c.145C>G; p.P49A	COL3A1, PRO49ALA	c.145C>G (p.Pro49Ala) in exon 2 of COL3A1; c.145C<G, p.(Pro49Ala)	4	homozygous:2	unknown:2	causal:2	R:28258187:1; R:28742248:2	28258187; 28742248
+618343	V9	COL3A1		COL3A1, BI-ALLELIC COL3A1 MUTATIONS	bi-allelic COL3A1 mutations	2	unknown:1	unknown:1	causal:1	R:28258187:2	28258187
+618343	V10	COL3A1	c.1282C>T; p.R428*	COL3A1, ARG428TER	c.1282C>T, p.(Arg428*)	1	compound_heterozygous:1	unknown:1	causal:1	R:28742248:1	28742248
+618343	V11	COL3A1	c.2057delc; p.P686L	COL3A1, PRO686LEU	c.2057delC, p.(Pro686Leufs*105)	1	compound_heterozygous:1	unknown:1	causal:1	R:28742248:1	28742248
+618400	V1	MPV17	c.2898C>T; c.298C>T; p.P98L	MPV17, PRO98LEU	c.2898C>T; p.Pro98Leu	1	homozygous:1	unknown:1	causal:1	R:22508010:1	22508010
+618400	V2	MPV17	c.122G>A; p.R41Q	MPV17, ARG41GLN	c.122G> A (p.R41Q); c.122G>A (p.Arg41Gln)	3	homozygous:3	inherited:2; unknown:1	causal:3	R:26437932:1; R:26437932:2; R:30298599:1	26437932; 30298599
+618400	V3	MPV17	c.376-9T>G	MPV17, 376-9T-G	c.376-9T>G	1	homozygous:1	unknown:1	causal:1	R:30298599:2	30298599
+618458	V1	PAK2	p.E435K	PAK2, GLU435LYS	p.(Glu435Lys)	2	heterozygous:1	de_novo:1	causal:1	R:33693784:1	33693784
+618808	V1	ABCA2	c.4993delg; p.V1665Y	ABCA2, VAL1665TYR	c.4993delG:p.(Val1665TyrfsTer36) in ABCA2 (NM_212533.2)	2	unknown:1	inherited:1	causal:1	R:31047799:1	31047799
+618875	V1	NRROS	c.1777C>T; p.Q593*	NRROS, GLN593TER	c.1777C > T/p.(Gln593*)	2	homozygous:2	unknown:2	causal:2	R:32100099:1; R:32100099:2	32100099
+618875	V2	NRROS	c.1257del; p.G420A	NRROS, GLY420ALA	c.1257del/p.(Gly420AlafsTer14)	1	homozygous:1	unknown:1	causal:1	R:32100099:3	32100099
+618875	V3	NRROS		NRROS, BI-ALLELIC VARIANTS IN NRROS	bi-allelic variants in NRROS	6	unknown:1	unknown:1	causal:1	R:32197075:1	32197075
+619124	V1	GAD1	c.1414-1G>C	GAD1, 1414-1G-C	c.1414-1G>C	2	homozygous:2	inherited:2	causal:2	R:32282878:1; R:32282878:2	32282878
+619124	V2	GAD1	c.695_697delaga; p.K232del	GAD1, 695_697DELAGA	c.695_697delAGA, p.(Lys232del)	2	homozygous:2	inherited:2	causal:2	R:32282878:3; R:32282878:4	32282878
+619124	V3	GAD1	c.812_816delttaag; p.V271D	GAD1, VAL271ASP	c.812_816delTTAAG, p.(Val271Aspfs*9)	2	homozygous:2	inherited:2	causal:2	R:32282878:5; R:32282878:6	32282878
+619124	V4	GAD1	c.1591C>T; g.171715383C>T; p.R531*	GAD1, ARG531TER	c.1591C>T, p.(Arg531*)	5	homozygous:4; compound_heterozygous:1	inherited:4; unknown:1	causal:5	R:32282878:7; R:32282878:8; R:32282878:9; R:32282878:10; R:32705143:3	32282878; 32705143
+619124	V5	GAD1	c.1525G>A; p.E509K	GAD1, GLU509LYS	c.1525G>A, p.(Glu509Lys)	1	homozygous:1	inherited:1	causal:1	R:32282878:11	32282878
+619124	V6	GAD1	c.1691A>G; g.171716298A>G; p.N564S	GAD1, ASN564SER	c.1691A>G p.(Asn564Ser)	1	homozygous:1	inherited:1	causal:1	R:32705143:1	32705143
+619124	V7	GAD1	c.971T>G; g.171702542T>G; p.F324C	GAD1, PHE324CYS	c.971T>G p.(Phe324Cys)	1	homozygous:1	inherited:1	causal:1	R:32705143:2	32705143
+619124	V8	GAD1	c.670delc; g.171700586delc; p.L224S	GAD1, LEU224SER	c.670delC, p.(Leu224Serfs*5)	1	compound_heterozygous:1	inherited:1	causal:1	R:32705143:3	32705143
+619124	V9	GAD1	c.1040C>T; g.171704223C>T; p.T347M	GAD1, THR347MET	c.1040C>T, p.(Thr347Met)	1	homozygous:1	inherited:1	causal:1	R:32705143:4	32705143
+619124	V10	GAD1	c.87C>G; g.171678601C>G; p.Y29*	GAD1, TYR29TER	c.87C>G, p.(Tyr29Ter)	1	homozygous:1	inherited:1	causal:1	R:32705143:5	32705143
+619124	V11	GAD1	c.568delc; g.171693323delc; p.Q190S	GAD1, GLN190SER	c.568delC p.(Gln190SerfsTer11)	1	homozygous:1	inherited:1	causal:1	R:32705143:6	32705143
+619201	V1	KIRREL1	p.R440C	KIRREL1, ARG440CYS	p.Arg440Cys	1	homozygous:1	unknown:1	causal:1	R:31472902:1	31472902
+619201	V2	KIRREL1	p.S573L	KIRREL1, SER573LEU	p.Ser573Leu	1	homozygous:1	unknown:1	causal:1	R:31472902:2	31472902
+619681	V1	ATP5MC3	c.318C>G; g.176043127G>C; p.N106K	ATP5MC3, ASN106LYS	NM_001689.4:c.318C>G, NP_001680.1:p.(Asn106Lys); NM_001689.4:c.318C>G (p.Asn106Lys); c.318C>G (p.Asn106Lys)	19	heterozygous:3	inherited:1; de_novo:2	causal:3	R:34636445:1; R:34636445:2; R:34954817:1	34636445; 34954817
+619681	V2	ATP5MC3	c.319C>G; p.P107A	ATP5MC3, PRO107ALA	c.319C>G (p.Pro107Ala)	1	heterozygous:1	de_novo:1	causal:1	R:34954817:2	34954817
+619681	V3	ATP5MC3	c.236G>T; p.G79V	ATP5MC3, GLY79VAL	c.236G>T (p.Gly79Val)	1	heterozygous:1	de_novo:1	causal:1	R:34954817:3	34954817
+619816	V1	ITGB4	c.4501deltc	ITGB4, 4501DELTC	4501delTC	0	homozygous:1	unknown:1	uncertain:1	R:9422533:1	9422533
+619816	V2	ITGB4	c.120deltg	ITGB4, 120DELTG	120delTG	0	compound_heterozygous:1	inherited:1	uncertain:1	R:9422533:2	9422533
+619816	V3	ITGB4	c.245C>G	ITGB4, 245C-G	C245G	0	compound_heterozygous:1	inherited:1	uncertain:1	R:9422533:2	9422533
+619816	V4	ITGB4	p.Q73*	ITGB4, GLN73TER	Q73X	0	heterozygous:1	inherited:1	uncertain:1	R:9422533:3	9422533
+619816	V5	ITGB4		ITGB4, 3793 + 1G-TO-A	3793 + 1G-to-A	1	compound_heterozygous:1	unknown:1	causal:1	R:9892956:1	9892956
+619816	V6	ITGB4	p.W1478*	ITGB4, TRP1478TER	W1478X	1	compound_heterozygous:1	unknown:1	causal:1	R:9892956:1	9892956
+619816	V7	ITGB4	p.C38R	ITGB4, CYS38ARG	C38R	1	compound_heterozygous:1	unknown:1	causal:1	R:9892956:2	9892956
+619816	V8	ITGB4	c.4776delg	ITGB4, 4776DELG	4776delG	1	compound_heterozygous:1	unknown:1	causal:1	R:9892956:2	9892956
+619816	V9	ITGB4	p.G931D	ITGB4, GLY931ASP	G931D	1	homozygous:1	unknown:1	causal:1	R:10792571:1	10792571
+619816	V10	ITGB4	c.4733delct	ITGB4, 4733DELCT	4733delCT	1	heterozygous:1	unknown:1	causal:1	R:12485428:1	12485428
+620022	V1	COL9A3	c.1176_1198del; p.Q393C	COL9A3, GLN393CYS	c.1176_1198del, p.Gln393Cysfs*25	1	unknown:1	unknown:1	causal:1	R:24273071:1	24273071
+620022	V2	COL9A3	c.650dupc	COL9A3, 650DUPC	c.650dupC	1	homozygous:1	inherited:1	causal:1	R:30450842:1	30450842
+620022	V3	GJB2	c.380G>A; p.R127H	GJB2, ARG127HIS	380G>A (R127H)	1	heterozygous:1	unknown:1	uncertain:1	R:30450842:1	30450842
+620022	V4	COL9A3		COL9A3, HOMOZYGOUS COL9A3 VARIANT	homozygous COL9A3 variant	2	homozygous:1	unknown:1	causal:1	R:31090205:1	31090205
+620022	V5	COL9A2		COL9A2, HOMOZYGOUS COL9A2 VARIANTS	homozygous COL9A2 variants	3	homozygous:1	unknown:1	causal:1	R:31090205:2	31090205
+620022	V6	COL9A1		COL9A1, HOMOZYGOUS COL9A1 VARIANT	homozygous COL9A1 variant	1	homozygous:1	unknown:1	causal:1	R:31090205:3	31090205
+620022	V7	COL9A3	c.268C>T; p.R90*	COL9A3, ARG90TER	c.268C>T (p.Arg90Ter)	1	compound_heterozygous:1	inherited:1	causal:1	R:33570243:1	33570243
+620022	V8	COL9A3	c.1729C>T; p.R577*	COL9A3, ARG577TER	c.1729C>T (p.Arg577Ter)	1	compound_heterozygous:1	inherited:1	causal:1	R:33570243:1	33570243
+620022	V9	COL9A3	c.107_116del; p.P36R	COL9A3, PRO36ARG	c.107_116del, p.(Pro36Argfs*49), rs1470627424	1	homozygous:1	inherited:1	causal:1	R:35241111:1	35241111
+620022	V10	COL9A3	c.1204C>T; p.R402*	COL9A3, ARG402TER	c.1204C > T, p.(Arg402*), rs989413835; p.(Arg402*)	2	homozygous:2	inherited:2	causal:2	R:35241111:2; R:35241111:3	35241111
+620022	V11	COL9A3	c.355delc; p.L119S	COL9A3, LEU119SER	c.355delC, p.(Leu119Serfs*9); p.(Leu119Serfs*10)	2	homozygous:2	inherited:2	causal:2	R:35241111:4; R:35241111:5	35241111
+620029	V1	CACNA1C	p.R1024G	CACNA1C, ARG1024GLY	p.Arg1024Gly	1	heterozygous:1	de_novo:1	causal:1	R:29736926:1	29736926
+620029	V2	CACNA1C	c.4087G>A; p.V1363M	CACNA1C, VAL1363MET	NM_000719.6: c.4087G>A, p.V1363M	1	heterozygous:1	de_novo:1	causal:1	R:30513141:1	30513141
+620029	V3	MSH2		MSH2, HETEROZYGOUS, DE NOVO, TERMINAL DELETION OF MSH2 ... EXONS 11–16	heterozygous, de novo, terminal deletion of MSH2 ... exons 11–16	1	heterozygous:1	de_novo:1	not_causal:1	R:30513141:1	30513141
+620029	V4	CACNA1C	c.3717+1_3717+2insa	CACNA1C, 3717+1_3717+2INSA	NM_000719.6: c.3717+1_3717+2insA; c.3717+1_3717+2insA	2	heterozygous:2	inherited:1; unknown:1	uncertain:2	R:30513141:2; R:30513141:3	30513141
+620029	V5	ALPK3	c.5105+2dupt	ALPK3, 5105+2DUPT	NM_020778.4: c.5105+2dupT	1	heterozygous:1	unknown:1	not_causal:1	R:30513141:2	30513141
+620029	V6	TPM1	c.389T>C; p.I130T	TPM1, ILE130THR	NM_001018005.1: c.389T>C, p.I130T	1	heterozygous:1	unknown:1	uncertain:1	R:30513141:2	30513141
+620029	V7	CACNA1C	c.496T>C; p.F166L	CACNA1C, PHE166LEU	p.Phe166Leu c.496T>C	1	heterozygous:1	de_novo:1	causal:1	R:34163037:1	34163037
+620029	V8	CACNA1C	c.530A>G; p.K177R	CACNA1C, LYS177ARG	p.Lys177Arg c.530A>G	1	heterozygous:1	de_novo:1	causal:1	R:34163037:2	34163037
+620029	V9	CACNA1C	c.970C>T; p.R324W	CACNA1C, ARG324TRP	p.Arg324Trp c.970C>T	1	heterozygous:1	de_novo:1	causal:1	R:34163037:3	34163037
+620029	V10	CACNA1C	c.1207G>A; p.V403M	CACNA1C, VAL403MET	p.Val403Met c.1207G>A	1	heterozygous:1	de_novo:1	causal:1	R:34163037:4	34163037
+620029	V11	CACNA1C	c.1802T>G; p.L601R	CACNA1C, LEU601ARG	p.Leu601Arg c.1802T>G	1	heterozygous:1	de_novo:1	causal:1	R:34163037:5	34163037
+620029	V12	CACNA1C	c.1832T>C; p.M611T	CACNA1C, MET611THR	p.Met611Thr c.1832T>C	1	heterozygous:1	de_novo:1	causal:1	R:34163037:6	34163037
+620029	V13	CACNA1C	c.1841T>G; p.L614R	CACNA1C, LEU614ARG	p.Leu614Arg c.1841 T>G	1	heterozygous:1	de_novo:1	causal:1	R:34163037:7	34163037
+620029	V14	CACNA1C	c.1841T>C; p.L614P	CACNA1C, LEU614PRO	p.Leu614Pro c.1841T>C	1	heterozygous:1	de_novo:1	causal:1	R:34163037:8	34163037
+620029	V15	CACNA1C	c.1969C>T; p.L657F	CACNA1C, LEU657PHE	p.Leu657Phe c.1969C>T	1	heterozygous:1	de_novo:1	causal:1	R:34163037:9	34163037
+620029	V16	CACNA1C	c.2227_2229delatc; p.I743del	CACNA1C, 2227_2229DELATC	p.Ile743del c.2227_2229delATC	1	heterozygous:1	de_novo:1	causal:1	R:34163037:10	34163037
+620029	V17	CACNA1C	c.3560T>C; p.V1187A	CACNA1C, VAL1187ALA	p.Val1187Ala c.3560T>C	1	heterozygous:1	de_novo:1	causal:1	R:34163037:11	34163037
+620029	V18	CACNA1C	c.4222C>G; p.L1408V	CACNA1C, LEU1408VAL	p.Leu1408Val c.4222C>G	1	heterozygous:1	de_novo:1	causal:1	R:34163037:12	34163037
+620029	V19	CACNA1C	c.4231G>C; c.4231G>T; p.V1411L	CACNA1C, VAL1411LEU	p.Val1411Leu c.4231G>C; p.Val1411Leu c.4231G>T	2	heterozygous:2	de_novo:2	causal:2	R:34163037:13; R:34163037:14	34163037
+620029	V20	CACNA1C	c.239_244delagcggainsttgcagctcc; p.Q80L	CACNA1C, GLN80LEU	p.Gln80Leufs*49 c.239_244delAGCGGAinsTTGCAGCTCC	1	heterozygous:1	de_novo:1	causal:1	R:34163037:15	34163037
+620029	V21	CACNA1C	c.481C>T; p.R161*	CACNA1C, ARG161TER	p.Arg161* c.481C>T	2	heterozygous:2	inherited:1; de_novo:1	causal:2	R:34163037:16; R:34163037:17	34163037
+620029	V22	CACNA1C	c.1584G>A; p.W528*	CACNA1C, TRP528TER	p.Trp528* c.1584G>A	1	heterozygous:1	inherited:1	causal:1	R:34163037:18	34163037
+620029	V23	CACNA1C	c.2663+1G>C	CACNA1C, 2663+1G-C	splice c.2663+1G>C	1	heterozygous:1	unknown:1	causal:1	R:34163037:19	34163037
+620029	V24	CACNA1C	c.2926delg; p.V996W	CACNA1C, VAL996TRP	p.Val996Trpfs*19 c.2926delG	1	heterozygous:1	de_novo:1	causal:1	R:34163037:20	34163037
+620029	V25	CACNA1C	c.4129dup; p.R1377P	CACNA1C, ARG1377PRO	p.Arg1377Profs*61 c.4129dup	1	heterozygous:1	de_novo:1	causal:1	R:34163037:21	34163037
+620029	V26	CACNA1C	c.4553del; p.L1518P	CACNA1C, LEU1518PRO	p.Leu1518Profs*3 c.4553del	1	heterozygous:1	de_novo:1	causal:1	R:34163037:22	34163037
+620029	V27	CACNA1C	c.5860C>T; p.R189*; p.R1989*	CACNA1C, ARG189TER	p.Arg1989* c.5860C>T; p.Arg189* c.5860C>T	3	heterozygous:3	inherited:2; unknown:1	causal:3	R:34163037:23; R:34163037:24; R:34163037:25	34163037
+620098	V1	JARID2		JARID2, 6P22.3-P24.1 DELETION, 13071924-17918584 BP (HG19), 4846 KB, INCLUDING JARID2 AND ATXN1	6p22.3-p24.1 deletion, 13071924-17918584 bp (hg19), 4846 kb, including JARID2 and ATXN1	1	heterozygous:1	de_novo:1	causal:1	R:23294540:1	23294540
+620098	V2	JARID2		JARID2, 6P22.3-P23 DELETION, 15081747-18207178 BP (HG19), 3125 KB, INCLUDING JARID2 AND ATXN1	6p22.3-p23 deletion, 15081747-18207178 bp (hg19), 3125 kb, including JARID2 and ATXN1	1	heterozygous:1	de_novo:1	causal:1	R:23294540:2	23294540
+620098	V3	JARID2		JARID2, 6P22.3-P23 DELETION, 14545576-16846846 BP (HG19), 2301 KB, INCLUDING JARID2 AND ATXN1	6p22.3-p23 deletion, 14545576-16846846 bp (hg19), 2301 kb, including JARID2 and ATXN1	1	heterozygous:1	de_novo:1	causal:1	R:23294540:3	23294540
+620098	V4			463 KB DUPLICATION OF CHROMOSOME 4Q23 (CHR4:100124832–100588141)	463 kb duplication of chromosome 4q23 (chr4:100124832–100588141)	1	heterozygous:1	inherited:1	not_causal:1	R:23294540:3	23294540
+620098	V5	JARID2		JARID2, 6P22.3 DELETION, 15405377-15594945 BP (HG19), 189 KB, DELETING EXONS 3-18 OF JARID2 AND EXONS 7-10 OF DTNBP1	6p22.3 deletion, 15405377-15594945 bp (hg19), 189 kb, deleting exons 3-18 of JARID2 and exons 7-10 of DTNBP1	1	heterozygous:1	de_novo:1	causal:1	R:23294540:4	23294540
+620098	V6	ATXN1		ATXN1, 6P22.3 DELETION, 16215803-16332297 BP (HG19), 116 KB, INCLUDING GMPR AND EXONS 8-9 OF ATXN1	6p22.3 deletion, 16215803-16332297 bp (hg19), 116 kb, including GMPR and exons 8-9 of ATXN1	1	heterozygous:1	de_novo:1	not_causal:1	R:23294540:5	23294540
+620098	V7	JARID2		JARID2, DELETION OR SINGLE-NUCLEOTIDE VARIANT IN JARID2	deletion or single-nucleotide variant in JARID2	16	heterozygous:1	unknown:1	causal:1	R:33077894:1	33077894
+620098	V8	JARID2		JARID2, PATHOGENIC OR LIKELY PATHOGENIC JARID2 VARIANTS, INCLUDING INTRAGENIC COPY NUMBER VARIANTS	pathogenic or likely pathogenic JARID2 variants, including intragenic copy number variants	7	heterozygous:1	unknown:1	causal:1	R:35533077:1	35533077
+620098	V9	JARID2		JARID2, (15291644_15388348)X1	(15291644_15388348)x1	1	heterozygous:1	de_novo:1	causal:1	R:35887345:1	35887345
+620098	V10	JARID2		JARID2, (15330889_15419256)X1	(15330889_15419256)x1	1	heterozygous:1	de_novo:1	causal:1	R:35887345:2	35887345
+620098	V11	JARID2		JARID2, (15374392_15405436)X1	(15374392_15405436)x1	1	heterozygous:1	de_novo:1	causal:1	R:35887345:3	35887345
+620098	V12	JARID2	c.15511546dup; c.2866dupg; p.E956G	JARID2, GLU956GLY	c.2866dupG p.(Glu956GlyfsTer72)	1	heterozygous:1	de_novo:1	causal:1	R:35887345:4	35887345
+620098	V13	JARID2	c.15507648G>C; c.2731+1G>C	JARID2, 15507648G-C	c.2731 + 1G > C	1	heterozygous:1	de_novo:1	causal:1	R:35887345:5	35887345
+620098	V14	JARID2		JARID2, (15383717_15462037)X1	(15383717_15462037)x1	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:35887345:6; R:35887345:7	35887345
+620098	V15	JARID2		JARID2, DELETION EXONS 6-18	deletion exons 6-18	1	heterozygous:1	de_novo:1	causal:1	R:35887345:8	35887345
+620098	V16	JARID2	c.15501555G>A; c.2363G>A; p.R788Q	JARID2, ARG788GLN	c.2363G > A p.(Arg788Gln)	2	heterozygous:2	de_novo:1; inherited:1	uncertain:2	R:35887345:9; R:35887345:11	35887345
+620098	V17	TNRC18		TNRC18, TWO DE NOVO VUSS IN THE TNRC18 GENE	two de novo VUSs in the TNRC18 gene	1	unknown:1	de_novo:1	uncertain:1	R:35887345:9	35887345
+620098	V18	JARID2	c.15497386G>A; c.1930G>A; p.E644K	JARID2, GLU644LYS	c.1930G > A p.(Glu644Lys)	1	heterozygous:1	de_novo:1	uncertain:1	R:35887345:10	35887345
+620249	V1	MEGF10	c.976T>C; p.C326R	MEGF10, CYS326ARG	c.976T > C (p.C326R)	3	compound_heterozygous:1	inherited:1	causal:1	R:22371254:1	22371254
+620249	V2	MEGF10	c.2320T>C; p.C774R	MEGF10, CYS774ARG	c.2320T > C (p.C774R)	3	compound_heterozygous:1	inherited:1	causal:1	R:22371254:1	22371254
+620249	V3	MEGF10	c.211C>T; p.R71W	MEGF10, ARG71TRP	c.211C > T (p.R71W)	1	heterozygous:1	inherited:1	uncertain:1	R:22371254:2	22371254
+620249	V4	MEGF10	c.2981-2A>G	MEGF10, 2981-2A-G	c.2981-2A > G	1	compound_heterozygous:1	unknown:1	causal:1	R:27460346:1	27460346
+620249	V5	MEGF10	p.C810Y	MEGF10, CYS810TYR	p.Cys810Tyr	1	compound_heterozygous:1	unknown:1	causal:1	R:27460346:1	27460346
+620249	V6	MEGF10	c.131_132del	MEGF10, 131_132DEL	c.131_132del	1	homozygous:1	unknown:1	causal:1	R:27460346:2	27460346
+620249	V7	MEGF10	c.1426+1G>T	MEGF10, 1426+1G-T	c.1426+1G>T	1	heterozygous:1	unknown:1	causal:1	R:29128256:1	29128256
+620249	V8	MEGF10	c.352T>C; p.C118R	MEGF10, CYS118ARG	c.352T>C, p.(Cys118Arg)	1	heterozygous:1	unknown:1	causal:1	R:29128256:1	29128256
+620249	V9	MEGF10	c.2096G>C; p.C699S	MEGF10, CYS699SER	(NM_001256545.2): c.2096G > C (p.Cys699Ser)	1	homozygous:1	inherited:1	causal:1	R:36349186:1	36349186
+620402	V1	COQ7	c.3G>T; p.M1	COQ7, 3G-T	c.3G>T (p.1Met?)	3	homozygous:3	inherited:3	causal:3	R:36454683:1; R:36454683:2; R:36454683:3	36454683
+620402	V2	COQ7		COQ7, BIALLELIC VARIANTS IN THE COQ7 GENE	Biallelic variants in the COQ7 gene	1	unknown:1	unknown:1	causal:1	R:36758993:1	36758993
+620402	V3	COQ7	c.1A>G	COQ7, 1A-G	c.1A > G p.?	3	homozygous:3	inherited:3	causal:3	R:37077559:1; R:37077559:2; R:37077559:3	37077559
+620402	V4	GJB2	c.35delg; p.G12V	GJB2, GLY12VAL	c.35delG; p.(Gly12Valfs*2)	2	homozygous:2	inherited:2	not_causal:2	R:37077559:2; R:37077559:3	37077559
+620457	V1	HDAC9	g.18437239_18867540dup	HDAC9, 18437239_18867540DUP	NC_000007.14:g.18437239_18867540dup	11	unknown:1	inherited:1	causal:1	R:34750192:1	34750192
+620481	V1	THPO	c.112C>T; p.R17C; p.R38C	THPO, ARG17CYS	THPO, c.112C>T (R17C; arginine to cysteine at residue 38)	2	homozygous:1	inherited:1	causal:1	R:24085763:1	24085763
+620481	V2	THPO	p.R99W	THPO, ARG99TRP	THPO R99W	4	homozygous:1	unknown:1	causal:1	R:28559357:1	28559357
+620481	V3	THPO	p.R157*	THPO, ARG157TER	THPO R157X	1	homozygous:1	unknown:1	causal:1	R:28559357:2	28559357
+620481	V4	THPO	c.355C>T; p.R119C	THPO, ARG119CYS	c.355C>T (p.R119C)	3	homozygous:3	inherited:3	causal:3	R:29191945:1; R:29191945:2; R:29191945:3	29191945
+620481	V5	THPO	c.-323C>T	THPO, -323C-T	c.-323C>T (NM_000460.2); chr3:g.184096040G>A	1	homozygous:1	inherited:1	causal:1	R:36226497:1	36226497
+620507	V1	KLK11	c.149G>A; p.G50E	KLK11, GLY50GLU	c.149G>A (p.Gly50Glu)	0	heterozygous:1	unknown:1	causal:1	R:36689511:1	36689511
+620507	V2	KLK11	p.G50	KLK11, G50	second heterozygous variant affecting Gly50	0	heterozygous:1	unknown:1	causal:1	R:36689511:1	36689511
+620528	V1	SPTAN1		SPTAN1, HETEROZYGOUS NONSENSE MUTATIONS IN THE ΑII-SPECTRIN GENE, SPTAN1	heterozygous nonsense mutations in the αII-spectrin gene, SPTAN1	1	heterozygous:1	unknown:1	causal:1	R:31332438:1	31332438
+620528	V2	SPTAN1		SPTAN1, DE NOVO SPTAN1 MUTATION	De novo SPTAN1 mutation	1	unknown:1	de_novo:1	causal:1	R:33206935:1	33206935
+620528	V3	SPTAN1		SPTAN1, NOVEL DE NOVO SPTAN1 NONSENSE VARIANT	novel de novo SPTAN1 nonsense variant	1	unknown:1	de_novo:1	causal:1	R:33578420:1	33578420
+620609	V1	RRAGC	c.224C>A; p.S75Y	RRAGC, SER75TYR	c.224C>A, p.S75Y (NM_022157.3)	1	heterozygous:1	de_novo:1	causal:1	R:27234373:1	27234373
+620609	V2	RRAGC	c.269C>A; p.T90N	RRAGC, THR90ASN	NM_022157.4: c.269C>A, p.(Thr90Asn)	0	heterozygous:1	de_novo:1	causal:1	R:37057673:1	37057673
+620609	V3	RRAGC	c.353C>T; p.P118L	RRAGC, PRO118LEU	c.353C>T, p.(Pro118Leu)	0	heterozygous:1	de_novo:1	causal:1	R:37057673:1	37057673
+620609	V4	RRAGC	c.343T>C; p.W115R	RRAGC, TRP115ARG	c.343T>C, p.(Trp115Arg)	0	heterozygous:1	de_novo:1	causal:1	R:37057673:1	37057673
+620662	V1	ERI1		ERI1, 8P23.1 HOMOZYGOUS DELETION, CONTAINING THE MICRORNA MIR-4660, THE EXORIBONUCLEASE 1 (ERI1), AND MALIGNANT FIBROUS HISTIOCYTOMA AMPLIFIED SEQUENCE 1 (MFHAS1) GENES	8p23.1 homozygous deletion, containing the microRNA miR-4660, the exoribonuclease 1 (ERI1), and malignant fibrous histiocytoma amplified sequence 1 (MFHAS1) genes	1	homozygous:1	unknown:1	uncertain:1	R:28488351:1	28488351
+620662	V2	ERI1	c.514C>T; p.Q172*	ERI1, GLN172TER	NM_153332.4(ERI1):c.514C>T p.(Gln172*)	1	homozygous:1	unknown:1	uncertain:1	R:33942433:1	33942433
+620662	V3	KYNU	c.616G>A; p.E206K	KYNU, GLU206LYS	c.616G>A p.(Glu206Lys)	1	homozygous:1	inherited:1	not_causal:1	R:33942433:1	33942433
+620662	V4	ERI1		ERI1, HOMOZYGOUS NONSENSE VARIANT IN ERI1 GENE	homozygous nonsense variant in ERI1 gene	1	homozygous:1	unknown:1	causal:1	R:36208065:1	36208065
+620662	V5	ERI1		ERI1, BI-ALLELIC NULL VARIANTS	bi-allelic null variants	1	unknown:1	unknown:1	causal:1	R:37352860:1	37352860
+620662	V6	ERI1		ERI1, MISSENSE VARIANTS	missense variants	5	unknown:1	unknown:1	uncertain:1	R:37352860:2	37352860
+620670	V1	SEC61A1	c.254T>A; p.V85D	SEC61A1, VAL85ASP	c.254T>A, p.V85D	10	heterozygous:1	inherited:1	causal:1	R:28782633:1	28782633
+620670	V2	SEC61A1	c.1325G>T; p.E381*	SEC61A1, GLU381TER	c.1325G>T, p.E381*	2	heterozygous:2	inherited:1; unknown:1	causal:2	R:28782633:2; R:28782633:3	28782633
+620718	V1	RAB34		RAB34, BI-ALLELIC MISSENSE VARIANTS	bi-allelic missense variants	4	unknown:1	unknown:1	causal:1	R:37384395:1	37384395
+620718	V2	RAB34	c.254T>C; p.I85T	RAB34, ILE85THR	c.254T>C, p.(Ile85Thr)	1	compound_heterozygous:1	inherited:1	causal:1	R:37619988:1	37619988
+620718	V3	RAB34	c.691C>T; p.R231*	RAB34, ARG231TER	c.691C>T, p.(Arg231*)	1	compound_heterozygous:1	inherited:1	causal:1	R:37619988:1	37619988
+620851	V1	RNU4-2	n.64_65inst	RNU4-2, 64_65INST	n.64_65insT; NR_003137.2(RNU4-2):n.64_65insT	1	heterozygous:4	de_novo:4	causal:4	R:38821540:1; R:38859706:1; R:38991538:1; R:38991538:2	38821540; 38859706; 38991538
+620851	V2	RNU4-2	n.65A>G	RNU4-2, 65A-G	n.65A>G	0	heterozygous:2	unknown:1; inherited:1	causal:2	R:38821540:1; R:38991538:2	38821540; 38991538
+620851	V3	RNU4-2	n.63T>G	RNU4-2, 63T-G	n.63T>G	0	heterozygous:1	unknown:1	causal:1	R:38821540:1	38821540
+620851	V4	RNU4-2	n.64_65insg	RNU4-2, 64_65INSG	n.64_65insG	0	heterozygous:2	unknown:2	causal:2	R:38821540:1; R:38991538:1	38821540; 38991538
+620851	V5	RNU4-2	n.65_66inst	RNU4-2, 65_66INST	n.65_66insT	0	heterozygous:1	unknown:1	causal:1	R:38821540:1	38821540
+620851	V6	RNU4-2	n.67A>G	RNU4-2, 67A-G	n.67A>G	0	heterozygous:1	unknown:1	causal:1	R:38821540:1	38821540
+620851	V7	RNU4-2	n.68_69insa	RNU4-2, 68_69INSA	n.68_69insA	0	heterozygous:2	unknown:2	causal:2	R:38821540:1; R:38991538:1	38821540; 38991538
+620851	V8	RNU4-2	n.76C>T	RNU4-2, 76C-T	n.76C>T	0	heterozygous:3	unknown:2; inherited:1	causal:3	R:38821540:1; R:38821540:2; R:38991538:1	38821540; 38991538
+620851	V9	RNU4-2	n.77_78inst	RNU4-2, 77_78INST	n.77_78insT	0	heterozygous:2	unknown:2	causal:2	R:38821540:1; R:38991538:2	38821540; 38991538
+620851	V10	RNU4-2		RNU4-2, RARE VARIANT WITHIN THE TWO REGIONS OF INTEREST (N.62–70 AND N.73–79)	rare variant within the two regions of interest (n.62–70 and n.73–79)	0	heterozygous:1	unknown:1	causal:1	R:38821540:2	38821540
+620851	V11	RNU4-2	n.78A>C	RNU4-2, 78A-C	n.78A>C	0	heterozygous:1	unknown:1	causal:1	R:38991538:2	38991538
+621030	V1	OTULIN	c.385T>A; c.386G>C; p.C129S	OTULIN, CYS129SER	ENST00000284274.5:c.386G>C (p.Cys129Ser); ENST00000284274.5:c.385T>A (p.Cys129Ser)	2	heterozygous:2	de_novo:2	causal:2	R:38630025:1; R:38630025:2	38630025
+621030	V2	OTULIN	c.917G>A; p.R306Q	OTULIN, ARG306GLN	c.917G>A p.R306Q	1	heterozygous:1	de_novo:1	causal:1	R:38652464:1	38652464
+621030	V3	OTULIN	c.455C>T; p.P152L	OTULIN, PRO152LEU	c.455C>T p.P152L	1	heterozygous:1	inherited:1	not_causal:1	R:38652464:1	38652464
+621169	V1	HHB1	p.E403K	HHB1, GLU403LYS	Glu 403 Lys	1	unknown:1	inherited:1	causal:1	R:9402962:1	9402962
+621169	V2	HHB6	p.E410K	HHB6, GLU410LYS	Glu 410 Lys	1	unknown:1	unknown:1	causal:1	R:9402962:2	9402962
+621169	V3	HHB1	p.E402K	HHB1, GLU402LYS	Glu402Lys	3	unknown:3	unknown:3	causal:3	R:9665406:1; R:9665406:2; R:9665406:3	9665406
+621214	V1	CST3		CST3, ONE OF FOUR DIFFERENT STOP-GAIN OR FRAMESHIFT DOMINANT VARIANTS	one of four different stop-gain or frameshift dominant variants	16	heterozygous:1	unknown:1	causal:1	R:38489591:1	38489591
+621214	V2	CST3		CST3, CST3 VARIANTS	CST3 variants	1	unknown:1	unknown:1	causal:1	R:38729262:1	38729262
+621224	V1	LEF1		LEF1, 4Q25 DE NOVO DELETION ENCOMPASSING LEF1	4q25 de novo deletion encompassing LEF1	2	heterozygous:1	de_novo:1	causal:1	R:32022899:1	32022899
+621224	V2	LEF1		LEF1, MONOALLELIC VARIANTS IN LEF1	monoallelic variants in LEF1	11	heterozygous:1	unknown:1	causal:1	R:35583550:1	35583550
+621224	V3	LEF1		LEF1, BIALLELIC VARIANT	biallelic variant	1	homozygous:1	unknown:1	causal:1	R:35583550:2	35583550
+621313	V1	NIT1	c.457G>A; p.G153R	NIT1, GLY153ARG	c.457G > A;p.Gly153Arg	2	compound_heterozygous:2	unknown:2	causal:2	R:31705625:2; R:31705625:3	31705625
+621313	V2	NIT1	c.670dupa; p.T224N	NIT1, THR224ASN	c.670dupA;p.Thr224Asnfs*41	2	compound_heterozygous:2	inherited:2	causal:2	R:31705625:2; R:31705625:3	31705625
+621313	V3	NIT1	c.727C>T; p.R243W	NIT1, ARG243TRP	NIT1 c.727C>T; (p.Arg243Trp); NIT1 c.727C>T; p.(Arg243Trp)	7	compound_heterozygous:1; homozygous:1	unknown:2	causal:2	R:38430071:1; R:38430071:2	38430071
+621313	V4	NIT1	c.198_199del; p.A68; p.A68*	NIT1, ALA68TER	NIT1 c.198_199del; p.(Ala68∗)	3	compound_heterozygous:1	unknown:1	causal:1	R:38430071:1	38430071

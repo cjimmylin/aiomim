@@ -1,0 +1,2336 @@
+{
+  "run": "omim100_secondhand",
+  "baseline": "direct",
+  "n_entries": 96,
+  "stopped": {
+    "secondhand": [
+      "278750",
+      "609296",
+      "620609",
+      "621068"
+    ],
+    "direct": [
+      "609296",
+      "620609",
+      "621068"
+    ]
+  },
+  "strategies": [
+    {
+      "name": "direct",
+      "label": "Direct reading",
+      "summary": "All papers in one prompt; the model writes the entry straight from the text.",
+      "control": false,
+      "n_entries": 97
+    },
+    {
+      "name": "secondhand",
+      "label": "Second-hand evidence",
+      "summary": "Direct reading; a paper not readable in full is supplemented with what later open-access papers say it reported.",
+      "control": false,
+      "n_entries": 96
+    }
+  ],
+  "means": [
+    {
+      "metric": "claim_supported_rate",
+      "label": "Claims supported by cited paper",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.9621,
+        "secondhand": 0.9441
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "claim_error_rate",
+      "label": "Claims unsupported or contradicted",
+      "higher_is_better": false,
+      "values": {
+        "direct": 0.0,
+        "secondhand": 0.0018
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "claim_error_rate_before_repair",
+      "label": "\u2026 same, before the repair round",
+      "higher_is_better": false,
+      "values": {
+        "direct": 0.0035,
+        "secondhand": 0.0392
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "gold_fact_coverage",
+      "label": "OMIM per-paper facts conveyed",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.5318,
+        "secondhand": 0.5397
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "gold_fact_strict_coverage",
+      "label": "\u2026 fully (no partial credit)",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.4483,
+        "secondhand": 0.4626
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "gold_fact_contradiction_rate",
+      "label": "OMIM per-paper facts contradicted",
+      "higher_is_better": false,
+      "values": {
+        "direct": 0.0055,
+        "secondhand": 0.0098
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "hpo_exact_f1",
+      "label": "Clinical synopsis HPO F1, exact",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.359,
+        "secondhand": 0.3698
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "hpo_exact_precision",
+      "label": "\u2026 precision",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.4374,
+        "secondhand": 0.4324
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "hpo_exact_recall",
+      "label": "\u2026 recall",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.3621,
+        "secondhand": 0.375
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "hpo_hierarchical_f1",
+      "label": "Clinical synopsis HPO F1, hierarchical",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.5671,
+        "secondhand": 0.5893
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "hpo_semantic_f1",
+      "label": "Clinical synopsis HPO F1, semantic",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.6654,
+        "secondhand": 0.6866
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "variant_recall",
+      "label": "OMIM allelic variants recovered",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.6817,
+        "secondhand": 0.7316
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "gene_f1",
+      "label": "Causal gene F1",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.986,
+        "secondhand": 0.986
+      },
+      "n": {
+        "direct": 95,
+        "secondhand": 95
+      }
+    },
+    {
+      "metric": "inheritance_match",
+      "label": "Inheritance matches OMIM",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.9375,
+        "secondhand": 0.9583
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "reference_recall",
+      "label": "OMIM references used",
+      "higher_is_better": true,
+      "values": {
+        "direct": 0.9457,
+        "secondhand": 0.9453
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    }
+  ],
+  "volume": [
+    {
+      "metric": "claims",
+      "label": "Claims audited per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 103.5729,
+        "secondhand": 107.8854
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "claims_not_checkable",
+      "label": "Claims that could not be audited per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 1.3229,
+        "secondhand": 3.0312
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "synopsis_terms",
+      "label": "Clinical-synopsis HPO terms per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 15.75,
+        "secondhand": 16.4271
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "variants",
+      "label": "Allelic variants per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 3.25,
+        "secondhand": 3.4167
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "references",
+      "label": "Papers cited per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 4.8438,
+        "secondhand": 4.875
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    },
+    {
+      "metric": "dropped_paragraphs",
+      "label": "Paragraphs dropped by the grounding guards per entry",
+      "higher_is_better": null,
+      "values": {
+        "direct": 0.0104,
+        "secondhand": 0.0
+      },
+      "n": {
+        "direct": 96,
+        "secondhand": 96
+      }
+    }
+  ],
+  "versus_baseline": {
+    "secondhand": [
+      {
+        "metric": "claim_supported_rate",
+        "label": "Claims supported by cited paper",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.9441,
+        "baseline": 0.9621,
+        "difference": -0.0181,
+        "ci95": [
+          -0.0289,
+          -0.0081
+        ],
+        "better": 31,
+        "worse": 60,
+        "ties": 5,
+        "sign_test_p": 0.0031
+      },
+      {
+        "metric": "claim_error_rate",
+        "label": "Claims unsupported or contradicted",
+        "higher_is_better": false,
+        "n": 96,
+        "strategy": 0.0018,
+        "baseline": 0.0,
+        "difference": 0.0018,
+        "ci95": [
+          0.0006,
+          0.0031
+        ],
+        "better": 0,
+        "worse": 9,
+        "ties": 87,
+        "sign_test_p": 0.0039
+      },
+      {
+        "metric": "claim_error_rate_before_repair",
+        "label": "\u2026 same, before the repair round",
+        "higher_is_better": false,
+        "n": 96,
+        "strategy": 0.0392,
+        "baseline": 0.0035,
+        "difference": 0.0357,
+        "ci95": [
+          0.0222,
+          0.0509
+        ],
+        "better": 8,
+        "worse": 51,
+        "ties": 37,
+        "sign_test_p": 0.0
+      },
+      {
+        "metric": "gold_fact_coverage",
+        "label": "OMIM per-paper facts conveyed",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.5397,
+        "baseline": 0.5318,
+        "difference": 0.0079,
+        "ci95": [
+          -0.0028,
+          0.0188
+        ],
+        "better": 50,
+        "worse": 41,
+        "ties": 5,
+        "sign_test_p": 0.4018
+      },
+      {
+        "metric": "gold_fact_strict_coverage",
+        "label": "\u2026 fully (no partial credit)",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.4626,
+        "baseline": 0.4483,
+        "difference": 0.0143,
+        "ci95": [
+          0.0017,
+          0.0273
+        ],
+        "better": 48,
+        "worse": 42,
+        "ties": 6,
+        "sign_test_p": 0.5984
+      },
+      {
+        "metric": "gold_fact_contradiction_rate",
+        "label": "OMIM per-paper facts contradicted",
+        "higher_is_better": false,
+        "n": 96,
+        "strategy": 0.0098,
+        "baseline": 0.0055,
+        "difference": 0.0043,
+        "ci95": [
+          0.0007,
+          0.0092
+        ],
+        "better": 9,
+        "worse": 19,
+        "ties": 68,
+        "sign_test_p": 0.0872
+      },
+      {
+        "metric": "hpo_exact_f1",
+        "label": "Clinical synopsis HPO F1, exact",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.3698,
+        "baseline": 0.359,
+        "difference": 0.0108,
+        "ci95": [
+          -0.0073,
+          0.0292
+        ],
+        "better": 42,
+        "worse": 36,
+        "ties": 18,
+        "sign_test_p": 0.5716
+      },
+      {
+        "metric": "hpo_exact_precision",
+        "label": "\u2026 precision",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.4324,
+        "baseline": 0.4374,
+        "difference": -0.0051,
+        "ci95": [
+          -0.0328,
+          0.0221
+        ],
+        "better": 37,
+        "worse": 41,
+        "ties": 18,
+        "sign_test_p": 0.7343
+      },
+      {
+        "metric": "hpo_exact_recall",
+        "label": "\u2026 recall",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.375,
+        "baseline": 0.3621,
+        "difference": 0.0128,
+        "ci95": [
+          -0.0072,
+          0.0333
+        ],
+        "better": 33,
+        "worse": 21,
+        "ties": 42,
+        "sign_test_p": 0.1337
+      },
+      {
+        "metric": "hpo_hierarchical_f1",
+        "label": "Clinical synopsis HPO F1, hierarchical",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.5893,
+        "baseline": 0.5671,
+        "difference": 0.0222,
+        "ci95": [
+          0.004,
+          0.0434
+        ],
+        "better": 50,
+        "worse": 36,
+        "ties": 10,
+        "sign_test_p": 0.1606
+      },
+      {
+        "metric": "hpo_semantic_f1",
+        "label": "Clinical synopsis HPO F1, semantic",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.6866,
+        "baseline": 0.6654,
+        "difference": 0.0212,
+        "ci95": [
+          0.0039,
+          0.0419
+        ],
+        "better": 48,
+        "worse": 41,
+        "ties": 7,
+        "sign_test_p": 0.525
+      },
+      {
+        "metric": "variant_recall",
+        "label": "OMIM allelic variants recovered",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.7316,
+        "baseline": 0.6817,
+        "difference": 0.0499,
+        "ci95": [
+          0.0126,
+          0.092
+        ],
+        "better": 13,
+        "worse": 2,
+        "ties": 81,
+        "sign_test_p": 0.0074
+      },
+      {
+        "metric": "gene_f1",
+        "label": "Causal gene F1",
+        "higher_is_better": true,
+        "n": 95,
+        "strategy": 0.986,
+        "baseline": 0.986,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "better": 0,
+        "worse": 0,
+        "ties": 95,
+        "sign_test_p": null
+      },
+      {
+        "metric": "inheritance_match",
+        "label": "Inheritance matches OMIM",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.9583,
+        "baseline": 0.9375,
+        "difference": 0.0208,
+        "ci95": [
+          0.0,
+          0.0521
+        ],
+        "better": 2,
+        "worse": 0,
+        "ties": 94,
+        "sign_test_p": 0.5
+      },
+      {
+        "metric": "reference_recall",
+        "label": "OMIM references used",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.9453,
+        "baseline": 0.9457,
+        "difference": -0.0004,
+        "ci95": [
+          -0.0196,
+          0.0192
+        ],
+        "better": 4,
+        "worse": 4,
+        "ties": 88,
+        "sign_test_p": 1.0
+      }
+    ]
+  },
+  "pooled": {
+    "direct": {
+      "claims": {
+        "supported": 9614,
+        "partially_supported": 329,
+        "unsupported": 0,
+        "contradicted": 0,
+        "n": 9943,
+        "supported_rate": 0.9669,
+        "error_rate": 0.0
+      },
+      "gold_facts": {
+        "n_facts": 5462,
+        "present": 2421,
+        "partial": 912,
+        "absent": 2093,
+        "contradicted": 36,
+        "coverage": 0.5267,
+        "contradiction_rate": 0.0066
+      }
+    },
+    "secondhand": {
+      "claims": {
+        "supported": 9913,
+        "partially_supported": 431,
+        "unsupported": 13,
+        "contradicted": 0,
+        "n": 10357,
+        "supported_rate": 0.9571,
+        "error_rate": 0.0013
+      },
+      "gold_facts": {
+        "n_facts": 5453,
+        "present": 2484,
+        "partial": 849,
+        "absent": 2074,
+        "contradicted": 46,
+        "coverage": 0.5334,
+        "contradiction_rate": 0.0084
+      }
+    }
+  },
+  "by_content_level": {
+    "abstract": {
+      "direct": {
+        "n_facts": 3580,
+        "present": 1252,
+        "partial": 659,
+        "contradicted": 29,
+        "coverage": 0.4418,
+        "contradiction_rate": 0.0081
+      },
+      "secondhand": {
+        "n_facts": 3581,
+        "present": 1315,
+        "partial": 591,
+        "contradicted": 31,
+        "coverage": 0.4497,
+        "contradiction_rate": 0.0087
+      }
+    },
+    "fulltext": {
+      "direct": {
+        "n_facts": 1538,
+        "present": 1119,
+        "partial": 194,
+        "contradicted": 7,
+        "coverage": 0.7906,
+        "contradiction_rate": 0.0046
+      },
+      "secondhand": {
+        "n_facts": 1531,
+        "present": 1096,
+        "partial": 199,
+        "contradicted": 14,
+        "coverage": 0.7809,
+        "contradiction_rate": 0.0091
+      }
+    },
+    "title": {
+      "direct": {
+        "n_facts": 344,
+        "present": 50,
+        "partial": 59,
+        "contradicted": 0,
+        "coverage": 0.2311,
+        "contradiction_rate": 0.0
+      },
+      "secondhand": {
+        "n_facts": 341,
+        "present": 73,
+        "partial": 59,
+        "contradicted": 1,
+        "coverage": 0.3006,
+        "contradiction_rate": 0.0029
+      }
+    }
+  },
+  "by_stratum": {
+    "600000-609999": {
+      "n": 19,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9599,
+            "secondhand": 0.9523
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0052,
+            "secondhand": 0.0273
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5572,
+            "secondhand": 0.584
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0034,
+            "secondhand": 0.0057
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3995,
+            "secondhand": 0.4269
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.6225,
+            "secondhand": 0.6694
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7223,
+            "secondhand": 0.8056
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.8947,
+            "secondhand": 0.9474
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        }
+      ]
+    },
+    "610000-615999": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.956,
+            "secondhand": 0.9315
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.002,
+            "secondhand": 0.0638
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5344,
+            "secondhand": 0.5449
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0058,
+            "secondhand": 0.0143
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3654,
+            "secondhand": 0.3857
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5417,
+            "secondhand": 0.5806
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7268,
+            "secondhand": 0.8206
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.95,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        }
+      ]
+    },
+    "616000-619999": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.968,
+            "secondhand": 0.9437
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0009,
+            "secondhand": 0.0279
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.554,
+            "secondhand": 0.5563
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0085,
+            "secondhand": 0.0103
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3503,
+            "secondhand": 0.3389
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5572,
+            "secondhand": 0.5614
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.811,
+            "secondhand": 0.8276
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.95,
+            "secondhand": 0.95
+          },
+          "n": {
+            "direct": 20,
+            "secondhand": 20
+          }
+        }
+      ]
+    },
+    "620000 onward": {
+      "n": 18,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9697,
+            "secondhand": 0.942
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0003,
+            "secondhand": 0.0253
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5716,
+            "secondhand": 0.5683
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0013,
+            "secondhand": 0.0035
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3443,
+            "secondhand": 0.3344
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5425,
+            "secondhand": 0.5331
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.6681,
+            "secondhand": 0.6403
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        }
+      ]
+    },
+    "classic (1xxxxx-5xxxxx)": {
+      "n": 19,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9574,
+            "secondhand": 0.9515
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0092,
+            "secondhand": 0.05
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4424,
+            "secondhand": 0.4453
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.008,
+            "secondhand": 0.0147
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3347,
+            "secondhand": 0.3616
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5721,
+            "secondhand": 0.6008
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4707,
+            "secondhand": 0.5496
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9259,
+            "secondhand": 0.9259
+          },
+          "n": {
+            "direct": 18,
+            "secondhand": 18
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.8947,
+            "secondhand": 0.8947
+          },
+          "n": {
+            "direct": 19,
+            "secondhand": 19
+          }
+        }
+      ]
+    }
+  },
+  "by_access": {
+    "no full text (abstracts only)": {
+      "n": 45,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9514,
+            "secondhand": 0.9231
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0037,
+            "secondhand": 0.073
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4039,
+            "secondhand": 0.412
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0034,
+            "secondhand": 0.009
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3036,
+            "secondhand": 0.3311
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5072,
+            "secondhand": 0.5519
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4915,
+            "secondhand": 0.5887
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9697,
+            "secondhand": 0.9697
+          },
+          "n": {
+            "direct": 44,
+            "secondhand": 44
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9111,
+            "secondhand": 0.9556
+          },
+          "n": {
+            "direct": 45,
+            "secondhand": 45
+          }
+        }
+      ]
+    },
+    "under half full text": {
+      "n": 27,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9646,
+            "secondhand": 0.9574
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0059,
+            "secondhand": 0.0114
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5594,
+            "secondhand": 0.5864
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0099,
+            "secondhand": 0.009
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3932,
+            "secondhand": 0.3887
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.6109,
+            "secondhand": 0.6107
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.802,
+            "secondhand": 0.8051
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9259,
+            "secondhand": 0.9259
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        }
+      ]
+    },
+    "half or more full text": {
+      "n": 22,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9788,
+            "secondhand": 0.9672
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0004,
+            "secondhand": 0.0076
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7369,
+            "secondhand": 0.7278
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0047,
+            "secondhand": 0.0069
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4111,
+            "secondhand": 0.4113
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.615,
+            "secondhand": 0.6252
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.8943,
+            "secondhand": 0.9095
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 22,
+            "secondhand": 22
+          }
+        }
+      ]
+    },
+    "all full text": {
+      "n": 2,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9855,
+            "secondhand": 0.9815
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0,
+            "secondhand": 0.0
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7775,
+            "secondhand": 0.713
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0,
+            "secondhand": 0.0715
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.569,
+            "secondhand": 0.5255
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7965,
+            "secondhand": 0.7455
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 2,
+            "secondhand": 2
+          }
+        }
+      ]
+    }
+  },
+  "by_reference_count": {
+    "2-4 references": {
+      "n": 53,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9615,
+            "secondhand": 0.9386
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0019,
+            "secondhand": 0.0397
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5479,
+            "secondhand": 0.551
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.004,
+            "secondhand": 0.0099
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3374,
+            "secondhand": 0.3542
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.543,
+            "secondhand": 0.575
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.6743,
+            "secondhand": 0.7065
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 1.0,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9811,
+            "secondhand": 1.0
+          },
+          "n": {
+            "direct": 53,
+            "secondhand": 53
+          }
+        }
+      ]
+    },
+    "5-8 references": {
+      "n": 27,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9614,
+            "secondhand": 0.9491
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0072,
+            "secondhand": 0.051
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4987,
+            "secondhand": 0.5178
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.006,
+            "secondhand": 0.0106
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.3611,
+            "secondhand": 0.3715
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5803,
+            "secondhand": 0.5893
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.667,
+            "secondhand": 0.7811
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.963,
+            "secondhand": 0.963
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.8889,
+            "secondhand": 0.9259
+          },
+          "n": {
+            "direct": 27,
+            "secondhand": 27
+          }
+        }
+      ]
+    },
+    "9 or more references": {
+      "n": 16,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9654,
+            "secondhand": 0.9537
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0026,
+            "secondhand": 0.0174
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.5341,
+            "secondhand": 0.5391
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "direct": 0.0096,
+            "secondhand": 0.008
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.4269,
+            "secondhand": 0.4183
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.6245,
+            "secondhand": 0.6366
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.7312,
+            "secondhand": 0.7312
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.9778,
+            "secondhand": 0.9778
+          },
+          "n": {
+            "direct": 15,
+            "secondhand": 15
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "direct": 0.875,
+            "secondhand": 0.875
+          },
+          "n": {
+            "direct": 16,
+            "secondhand": 16
+          }
+        }
+      ]
+    }
+  },
+  "cost": {
+    "direct": {
+      "entries": 96,
+      "generate": {
+        "calls": 177,
+        "turns": 178,
+        "input_tokens": 2101723,
+        "output_tokens": 609397,
+        "list_price_usd": 26.4,
+        "seconds": 4952.6,
+        "per_entry": {
+          "calls": 1.8,
+          "list_price_usd": 0.275,
+          "input_tokens": 21893,
+          "output_tokens": 6348,
+          "seconds": 51.6
+        }
+      },
+      "audit": {
+        "calls": 633,
+        "turns": 660,
+        "input_tokens": 5074015,
+        "output_tokens": 1994994,
+        "list_price_usd": 72.34,
+        "seconds": 15607.3,
+        "per_entry": {
+          "calls": 6.6,
+          "list_price_usd": 0.754,
+          "input_tokens": 52854,
+          "output_tokens": 20781,
+          "seconds": 162.6
+        }
+      },
+      "score": {
+        "calls": 498,
+        "turns": 537,
+        "input_tokens": 1965341,
+        "output_tokens": 351611,
+        "list_price_usd": 18.82,
+        "seconds": 4006.6,
+        "per_entry": {
+          "calls": 5.2,
+          "list_price_usd": 0.196,
+          "input_tokens": 20472,
+          "output_tokens": 3663,
+          "seconds": 41.7
+        }
+      },
+      "total": {
+        "calls": 1308,
+        "turns": 1375,
+        "input_tokens": 9141079,
+        "output_tokens": 2956002,
+        "list_price_usd": 117.56,
+        "seconds": 24566.5,
+        "per_entry": {
+          "calls": 13.6,
+          "list_price_usd": 1.225,
+          "input_tokens": 95220,
+          "output_tokens": 30792,
+          "seconds": 255.9
+        }
+      }
+    },
+    "secondhand": {
+      "entries": 96,
+      "generate": {
+        "calls": 176,
+        "turns": 350,
+        "input_tokens": 3013944,
+        "output_tokens": 741956,
+        "list_price_usd": 34.82,
+        "seconds": 6115.3,
+        "per_entry": {
+          "calls": 1.8,
+          "list_price_usd": 0.363,
+          "input_tokens": 31395,
+          "output_tokens": 7729,
+          "seconds": 63.7
+        }
+      },
+      "audit": {
+        "calls": 779,
+        "turns": 1558,
+        "input_tokens": 6175125,
+        "output_tokens": 2305497,
+        "list_price_usd": 88.85,
+        "seconds": 18910.6,
+        "per_entry": {
+          "calls": 8.1,
+          "list_price_usd": 0.926,
+          "input_tokens": 64324,
+          "output_tokens": 24016,
+          "seconds": 197.0
+        }
+      },
+      "score": {
+        "calls": 501,
+        "turns": 985,
+        "input_tokens": 1989158,
+        "output_tokens": 358564,
+        "list_price_usd": 19.14,
+        "seconds": 4437.4,
+        "per_entry": {
+          "calls": 5.2,
+          "list_price_usd": 0.199,
+          "input_tokens": 20720,
+          "output_tokens": 3735,
+          "seconds": 46.2
+        }
+      },
+      "total": {
+        "calls": 1456,
+        "turns": 2893,
+        "input_tokens": 11178227,
+        "output_tokens": 3406017,
+        "list_price_usd": 142.81,
+        "seconds": 29463.3,
+        "per_entry": {
+          "calls": 15.2,
+          "list_price_usd": 1.488,
+          "input_tokens": 116440,
+          "output_tokens": 35479,
+          "seconds": 306.9
+        }
+      }
+    }
+  },
+  "knowledge_graph_edges": {
+    "direct": {
+      "caused_by": {
+        "in_both": 99,
+        "generated": 100,
+        "omim": 105,
+        "precision": 0.99,
+        "recall": 0.9429,
+        "f1": 0.9659
+      },
+      "inheritance": {
+        "in_both": 98,
+        "generated": 102,
+        "omim": 103,
+        "precision": 0.9608,
+        "recall": 0.9515,
+        "f1": 0.9561
+      },
+      "has_phenotype": {
+        "in_both": 689,
+        "generated": 1559,
+        "omim": 2344,
+        "precision": 0.4419,
+        "recall": 0.2939,
+        "f1": 0.3531
+      },
+      "has_variant": {
+        "in_both": 274,
+        "generated": 314,
+        "omim": 428,
+        "precision": 0.8726,
+        "recall": 0.6402,
+        "f1": 0.7385
+      }
+    },
+    "secondhand": {
+      "caused_by": {
+        "in_both": 98,
+        "generated": 99,
+        "omim": 105,
+        "precision": 0.9899,
+        "recall": 0.9333,
+        "f1": 0.9608
+      },
+      "inheritance": {
+        "in_both": 98,
+        "generated": 101,
+        "omim": 103,
+        "precision": 0.9703,
+        "recall": 0.9515,
+        "f1": 0.9608
+      },
+      "has_phenotype": {
+        "in_both": 720,
+        "generated": 1624,
+        "omim": 2347,
+        "precision": 0.4433,
+        "recall": 0.3068,
+        "f1": 0.3626
+      },
+      "has_variant": {
+        "in_both": 286,
+        "generated": 328,
+        "omim": 428,
+        "precision": 0.872,
+        "recall": 0.6682,
+        "f1": 0.7566
+      }
+    }
+  }
+}

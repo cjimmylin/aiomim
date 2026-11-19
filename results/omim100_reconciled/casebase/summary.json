@@ -1,0 +1,4036 @@
+{
+  "run": "omim100_reconciled",
+  "strategy": "reconciled",
+  "entries": [
+    {
+      "mim": "108770",
+      "title": "ATRIAL STANDSTILL 1",
+      "gold_terms_with_frequency": 3,
+      "cohort": {
+        "n_gold": 3,
+        "n_table": 8,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 12,
+        "families": 8,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 3,
+        "n_table": 8,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 12,
+        "families": 8,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 3,
+          "n_table": 8,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 12,
+        "families_before": 8
+      }
+    },
+    {
+      "mim": "118210",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2A1",
+      "gold_terms_with_frequency": 3,
+      "cohort": {
+        "n_gold": 3,
+        "n_table": 21,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.25,
+        "individuals": 9,
+        "families": 10,
+        "units": 9
+      },
+      "reconciled": {
+        "n_gold": 3,
+        "n_table": 21,
+        "n_compared": 2,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.25,
+        "individuals": 9,
+        "families": 10,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 3,
+          "n_table": 21,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.25
+        },
+        "individuals_before": 9,
+        "families_before": 10
+      }
+    },
+    {
+      "mim": "166780",
+      "title": "OTOFACIOCERVICAL SYNDROME 1",
+      "gold_terms_with_frequency": 9,
+      "cohort": {
+        "n_gold": 9,
+        "n_table": 22,
+        "n_compared": 5,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 0.8,
+        "count_agreement": 0.8,
+        "mean_abs_diff": 0.2,
+        "individuals": 5,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 9,
+        "n_table": 22,
+        "n_compared": 5,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 0.8,
+        "count_agreement": 0.8,
+        "mean_abs_diff": 0.2,
+        "individuals": 5,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 9,
+          "n_table": 22,
+          "n_compared": 5,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 0.8,
+          "count_agreement": 0.8,
+          "mean_abs_diff": 0.2
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "167400",
+      "title": "PAROXYSMAL EXTREME PAIN DISORDER",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 11,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 81,
+        "families": 30,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 11,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 81,
+        "families": 30,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 11,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 81,
+        "families_before": 30
+      }
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "gold_terms_with_frequency": 2,
+      "cohort": {
+        "n_gold": 2,
+        "n_table": 13,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2,
+        "individuals": 52,
+        "families": 32,
+        "units": 15
+      },
+      "reconciled": {
+        "n_gold": 2,
+        "n_table": 13,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2,
+        "individuals": 52,
+        "families": 32,
+        "units": 15,
+        "before_reconciliation": {
+          "n_gold": 2,
+          "n_table": 13,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.2
+        },
+        "individuals_before": 52,
+        "families_before": 32
+      }
+    },
+    {
+      "mim": "186100",
+      "title": "SYNDACTYLY, TYPE III",
+      "gold_terms_with_frequency": 3,
+      "cohort": {
+        "n_gold": 3,
+        "n_table": 12,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 33,
+        "families": 6,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 3,
+        "n_table": 12,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 33,
+        "families": 6,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 3,
+          "n_table": 12,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 33,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "205950",
+      "title": "ANEMIA, SIDEROBLASTIC, 2, PYRIDOXINE-REFRACTORY",
+      "gold_terms_with_frequency": 3,
+      "cohort": {
+        "n_gold": 3,
+        "n_table": 5,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 4,
+        "families": 3,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 3,
+        "n_table": 5,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 4,
+        "families": 3,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 3,
+          "n_table": 5,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 4,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "219900",
+      "title": "CYSTINOSIS, LATE-ONSET JUVENILE OR ADOLESCENT NEPHROPATHIC TYPE",
+      "gold_terms_with_frequency": 4,
+      "cohort": {
+        "n_gold": 4,
+        "n_table": 3,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 37,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 4,
+        "n_table": 3,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 37,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 4,
+          "n_table": 3,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 37,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "225060",
+      "title": "CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 23,
+        "n_compared": 5,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.0,
+        "individuals": 37,
+        "families": 16,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 23,
+        "n_compared": 5,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.0,
+        "individuals": 37,
+        "families": 16,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 23,
+          "n_compared": 5,
+          "denominator_agreement": 0.4,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.4,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 37,
+        "families_before": 16
+      }
+    },
+    {
+      "mim": "225300",
+      "title": "SPLIT-HAND/FOOT MALFORMATION 6",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 8,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 36,
+        "families": 9,
+        "units": 9
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 8,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 36,
+        "families": 9,
+        "units": 9,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 8,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 36,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "236730",
+      "title": "UROFACIAL SYNDROME 1",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 17,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 94,
+        "families": 21,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 17,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 94,
+        "families": 21,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 17,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 94,
+        "families_before": 21
+      }
+    },
+    {
+      "mim": "241800",
+      "title": "PALLISTER-HALL-LIKE SYNDROME",
+      "gold_terms_with_frequency": 10,
+      "cohort": {
+        "n_gold": 10,
+        "n_table": 14,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.222,
+        "individuals": 70,
+        "families": 12,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 10,
+        "n_table": 14,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.222,
+        "individuals": 70,
+        "families": 12,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 10,
+          "n_table": 14,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.222
+        },
+        "individuals_before": 70,
+        "families_before": 12
+      }
+    },
+    {
+      "mim": "248360",
+      "title": "MALONYL-CoA DECARBOXYLASE DEFICIENCY",
+      "gold_terms_with_frequency": 8,
+      "cohort": {
+        "n_gold": 8,
+        "n_table": 22,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6667,
+        "individuals": 27,
+        "families": 18,
+        "units": 10
+      },
+      "reconciled": {
+        "n_gold": 8,
+        "n_table": 22,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6667,
+        "individuals": 27,
+        "families": 18,
+        "units": 10,
+        "before_reconciliation": {
+          "n_gold": 8,
+          "n_table": 22,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.6667
+        },
+        "individuals_before": 27,
+        "families_before": 18
+      }
+    },
+    {
+      "mim": "250220",
+      "title": "SPONDYLOMETAPHYSEAL DYSPLASIA, SEDAGHATIAN TYPE",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 23,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 12,
+        "families": 10,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 23,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 12,
+        "families": 10,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 23,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 12,
+        "families_before": 10
+      }
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "gold_terms_with_frequency": 16,
+      "cohort": {
+        "n_gold": 16,
+        "n_table": 99,
+        "n_compared": 15,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 0.667,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.1103,
+        "individuals": 27,
+        "families": 24,
+        "units": 25
+      },
+      "reconciled": {
+        "n_gold": 16,
+        "n_table": 99,
+        "n_compared": 15,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 0.667,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.1103,
+        "individuals": 27,
+        "families": 24,
+        "units": 25,
+        "before_reconciliation": {
+          "n_gold": 16,
+          "n_table": 99,
+          "n_compared": 15,
+          "denominator_agreement": 0.4,
+          "fraction_agreement": 0.667,
+          "count_agreement": 0.4,
+          "mean_abs_diff": 0.1103
+        },
+        "individuals_before": 27,
+        "families_before": 24
+      }
+    },
+    {
+      "mim": "278750",
+      "title": "XERODERMA PIGMENTOSUM, VARIANT TYPE",
+      "gold_terms_with_frequency": 8,
+      "cohort": {
+        "n_gold": 8,
+        "n_table": 2,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 4,
+        "families": 4,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 8,
+        "n_table": 2,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 4,
+        "families": 4,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 8,
+          "n_table": 2,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 4,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "300148",
+      "title": "MEHMO SYNDROME",
+      "gold_terms_with_frequency": 10,
+      "cohort": {
+        "n_gold": 10,
+        "n_table": 73,
+        "n_compared": 8,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.25,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3266,
+        "individuals": 11,
+        "families": 9,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 10,
+        "n_table": 73,
+        "n_compared": 8,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.25,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3277,
+        "individuals": 14,
+        "families": 9,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 10,
+          "n_table": 73,
+          "n_compared": 8,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.25,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.3266
+        },
+        "individuals_before": 11,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "301059",
+      "title": "SPERMATOGENIC FAILURE, X-LINKED, 3",
+      "gold_terms_with_frequency": 7,
+      "cohort": {
+        "n_gold": 7,
+        "n_table": 4,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 5,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 7,
+        "n_table": 4,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 5,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 7,
+          "n_table": 4,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "302905",
+      "title": "ABRUZZO-ERICKSON SYNDROME",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 18,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 5,
+        "families": 4,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 18,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 4,
+        "families": 3,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 18,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "500001",
+      "title": "LEBER OPTIC ATROPHY AND DYSTONIA",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 10,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 52,
+        "families": 8,
+        "units": 7
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 10,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 52,
+        "families": 8,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 10,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 52,
+        "families_before": 8
+      }
+    },
+    {
+      "mim": "600204",
+      "title": "EPIPHYSEAL DYSPLASIA, MULTIPLE, 2",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 8,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.1731,
+        "individuals": 14,
+        "families": 4,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 8,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.1731,
+        "individuals": 14,
+        "families": 4,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 8,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.1731
+        },
+        "individuals_before": 14,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "600251",
+      "title": "FACIAL CLEFTING, OBLIQUE, 1",
+      "gold_terms_with_frequency": 4,
+      "cohort": {
+        "n_gold": 4,
+        "n_table": 5,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 2,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 4,
+        "n_table": 5,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 4,
+          "n_table": 5,
+          "n_compared": 1,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "600501",
+      "title": "ABCD SYNDROME",
+      "gold_terms_with_frequency": 9,
+      "cohort": {
+        "n_gold": 9,
+        "n_table": 8,
+        "n_compared": 2,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 6,
+        "families": 3,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 9,
+        "n_table": 8,
+        "n_compared": 2,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 6,
+        "families": 3,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 9,
+          "n_table": 8,
+          "n_compared": 2,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 6,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "600740",
+      "title": "HYPOCALCIURIC HYPERCALCEMIA, FAMILIAL, TYPE III",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 17,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 127,
+        "families": 22,
+        "units": 22
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 17,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 72,
+        "families": 18,
+        "units": 18,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 17,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 127,
+        "families_before": 22
+      }
+    },
+    {
+      "mim": "603552",
+      "title": "HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4",
+      "gold_terms_with_frequency": 18,
+      "cohort": {
+        "n_gold": 18,
+        "n_table": 16,
+        "n_compared": 11,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.455,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0698,
+        "individuals": 58,
+        "families": 52,
+        "units": 12
+      },
+      "reconciled": {
+        "n_gold": 18,
+        "n_table": 16,
+        "n_compared": 11,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.455,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0698,
+        "individuals": 58,
+        "families": 52,
+        "units": 12,
+        "before_reconciliation": {
+          "n_gold": 18,
+          "n_table": 16,
+          "n_compared": 11,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.455,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0698
+        },
+        "individuals_before": 58,
+        "families_before": 52
+      }
+    },
+    {
+      "mim": "603689",
+      "title": "MYOPATHY, MYOFIBRILLAR, 9, WITH EARLY RESPIRATORY FAILURE",
+      "gold_terms_with_frequency": 4,
+      "cohort": {
+        "n_gold": 4,
+        "n_table": 49,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6273,
+        "individuals": 79,
+        "families": 21,
+        "units": 18
+      },
+      "reconciled": {
+        "n_gold": 4,
+        "n_table": 49,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6273,
+        "individuals": 79,
+        "families": 21,
+        "units": 18,
+        "before_reconciliation": {
+          "n_gold": 4,
+          "n_table": 49,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.6273
+        },
+        "individuals_before": 79,
+        "families_before": 21
+      }
+    },
+    {
+      "mim": "604307",
+      "title": "CATARACT 2, MULTIPLE TYPES",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 12,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 95,
+        "families": 9,
+        "units": 14
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 12,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 93,
+        "families": 7,
+        "units": 12,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 12,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 95,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "604928",
+      "title": "WOLFRAM SYNDROME 2",
+      "gold_terms_with_frequency": 5,
+      "cohort": {
+        "n_gold": 5,
+        "n_table": 22,
+        "n_compared": 4,
+        "denominator_agreement": 0.25,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.25,
+        "mean_abs_diff": 0.1572,
+        "individuals": 19,
+        "families": 9,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 5,
+        "n_table": 22,
+        "n_compared": 4,
+        "denominator_agreement": 0.25,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.25,
+        "mean_abs_diff": 0.1572,
+        "individuals": 19,
+        "families": 9,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 5,
+          "n_table": 22,
+          "n_compared": 4,
+          "denominator_agreement": 0.25,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.25,
+          "mean_abs_diff": 0.1572
+        },
+        "individuals_before": 19,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "606763",
+      "title": "CILIARY DYSKINESIA, PRIMARY, 2",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 8,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 5,
+        "families": 9,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 8,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 5,
+        "families": 9,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 8,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 5,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "606824",
+      "title": "GLUCOSE/GALACTOSE MALABSORPTION",
+      "gold_terms_with_frequency": 2,
+      "cohort": {
+        "n_gold": 2,
+        "n_table": 12,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 76,
+        "families": 14,
+        "units": 7
+      },
+      "reconciled": {
+        "n_gold": 2,
+        "n_table": 12,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 76,
+        "families": 14,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 2,
+          "n_table": 12,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 76,
+        "families_before": 14
+      }
+    },
+    {
+      "mim": "607602",
+      "title": "ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 12,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.375,
+        "individuals": 6,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 12,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.375,
+        "individuals": 5,
+        "families": 4,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 12,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.375
+        },
+        "individuals_before": 6,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "607641",
+      "title": "NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 14",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 1,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 1,
+        "families": 1,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 1,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 1,
+        "families": 1,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 1,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 1,
+        "families_before": 1
+      }
+    },
+    {
+      "mim": "607721",
+      "title": "NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1",
+      "gold_terms_with_frequency": 58,
+      "cohort": {
+        "n_gold": 58,
+        "n_table": 121,
+        "n_compared": 39,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.154,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4224,
+        "individuals": 47,
+        "families": 38,
+        "units": 14
+      },
+      "reconciled": {
+        "n_gold": 58,
+        "n_table": 121,
+        "n_compared": 39,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.154,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4224,
+        "individuals": 47,
+        "families": 38,
+        "units": 14,
+        "before_reconciliation": {
+          "n_gold": 58,
+          "n_table": 121,
+          "n_compared": 39,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.154,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.4224
+        },
+        "individuals_before": 47,
+        "families_before": 38
+      }
+    },
+    {
+      "mim": "607734",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 23,
+        "n_compared": 4,
+        "denominator_agreement": 0.25,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.25,
+        "mean_abs_diff": 0.0938,
+        "individuals": 12,
+        "families": 9,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 23,
+        "n_compared": 4,
+        "denominator_agreement": 0.25,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.25,
+        "mean_abs_diff": 0.0938,
+        "individuals": 12,
+        "families": 9,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 23,
+          "n_compared": 4,
+          "denominator_agreement": 0.25,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.25,
+          "mean_abs_diff": 0.0938
+        },
+        "individuals_before": 12,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "607876",
+      "title": "EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2",
+      "gold_terms_with_frequency": 6,
+      "cohort": {
+        "n_gold": 6,
+        "n_table": 21,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0532,
+        "individuals": 417,
+        "families": 36,
+        "units": 35
+      },
+      "reconciled": {
+        "n_gold": 6,
+        "n_table": 21,
+        "n_compared": 3,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0369,
+        "individuals": 322,
+        "families": 30,
+        "units": 25,
+        "before_reconciliation": {
+          "n_gold": 6,
+          "n_table": 21,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0532
+        },
+        "individuals_before": 417,
+        "families_before": 36
+      }
+    },
+    {
+      "mim": "608133",
+      "title": "RETINITIS PIGMENTOSA 7",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 22,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 15,
+        "families": 47,
+        "units": 15
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 22,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 13,
+        "families": 45,
+        "units": 13,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 22,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 15,
+        "families_before": 47
+      }
+    },
+    {
+      "mim": "608885",
+      "title": "STOMATIN-DEFICIENT CRYOHYDROCYTOSIS WITH NEUROLOGIC DEFECTS",
+      "gold_terms_with_frequency": 16,
+      "cohort": {
+        "n_gold": 16,
+        "n_table": 18,
+        "n_compared": 5,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.0,
+        "individuals": 7,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 16,
+        "n_table": 18,
+        "n_compared": 5,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 4,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 16,
+          "n_table": 18,
+          "n_compared": 5,
+          "denominator_agreement": 0.4,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.4,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 7,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "609057",
+      "title": "EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS",
+      "gold_terms_with_frequency": 5,
+      "cohort": {
+        "n_gold": 5,
+        "n_table": 5,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 3,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 5,
+        "n_table": 5,
+        "n_compared": 3,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 5,
+          "n_table": 5,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "609220",
+      "title": "BRUCK SYNDROME 2",
+      "gold_terms_with_frequency": 1,
+      "cohort": {
+        "n_gold": 1,
+        "n_table": 7,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 9,
+        "families": 8,
+        "units": 7
+      },
+      "reconciled": {
+        "n_gold": 1,
+        "n_table": 7,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 9,
+        "families": 8,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 1,
+          "n_table": 7,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 9,
+        "families_before": 8
+      }
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "gold_terms_with_frequency": 98,
+      "cohort": {
+        "n_gold": 98,
+        "n_table": 31,
+        "n_compared": 10,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 0.7,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.1286,
+        "individuals": 12,
+        "families": 10,
+        "units": 10
+      },
+      "reconciled": {
+        "n_gold": 98,
+        "n_table": 31,
+        "n_compared": 10,
+        "denominator_agreement": 0.4,
+        "fraction_agreement": 0.7,
+        "count_agreement": 0.4,
+        "mean_abs_diff": 0.1286,
+        "individuals": 9,
+        "families": 7,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 98,
+          "n_table": 31,
+          "n_compared": 10,
+          "denominator_agreement": 0.4,
+          "fraction_agreement": 0.7,
+          "count_agreement": 0.4,
+          "mean_abs_diff": 0.1286
+        },
+        "individuals_before": 12,
+        "families_before": 10
+      }
+    },
+    {
+      "mim": "611521",
+      "title": "IMMUNODEFICIENCY 35",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 58,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 19,
+        "families": 12,
+        "units": 15
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 58,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 19,
+        "families": 12,
+        "units": 15,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 58,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 19,
+        "families_before": 12
+      }
+    },
+    {
+      "mim": "611880",
+      "title": "CARDIOMYOPATHY, DILATED, 2A",
+      "gold_terms_with_frequency": 5,
+      "cohort": {
+        "n_gold": 5,
+        "n_table": 3,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2,
+        "individuals": 64,
+        "families": 45,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 5,
+        "n_table": 3,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2,
+        "individuals": 64,
+        "families": 45,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 5,
+          "n_table": 3,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.2
+        },
+        "individuals_before": 64,
+        "families_before": 45
+      }
+    },
+    {
+      "mim": "612847",
+      "title": "BRACHYOLMIA TYPE 4 WITH MILD EPIPHYSEAL AND METAPHYSEAL CHANGES",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 22,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 24,
+        "families": 7,
+        "units": 7
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 22,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 24,
+        "families": 7,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 22,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 24,
+        "families_before": 7
+      }
+    },
+    {
+      "mim": "613581",
+      "title": "RETINITIS PIGMENTOSA 56",
+      "gold_terms_with_frequency": 9,
+      "cohort": {
+        "n_gold": 9,
+        "n_table": 4,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 8,
+        "families": 12,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 9,
+        "n_table": 4,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 8,
+        "families": 12,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 9,
+          "n_table": 4,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 8,
+        "families_before": 12
+      }
+    },
+    {
+      "mim": "613730",
+      "title": "HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 37,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 4,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 37,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 4,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 37,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "613744",
+      "title": "SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE",
+      "gold_terms_with_frequency": 17,
+      "cohort": {
+        "n_gold": 17,
+        "n_table": 56,
+        "n_compared": 13,
+        "denominator_agreement": 0.231,
+        "fraction_agreement": 0.462,
+        "count_agreement": 0.154,
+        "mean_abs_diff": 0.2058,
+        "individuals": 14,
+        "families": 6,
+        "units": 6
+      },
+      "reconciled": {
+        "n_gold": 17,
+        "n_table": 56,
+        "n_compared": 13,
+        "denominator_agreement": 0.308,
+        "fraction_agreement": 0.462,
+        "count_agreement": 0.231,
+        "mean_abs_diff": 0.1801,
+        "individuals": 12,
+        "families": 5,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 17,
+          "n_table": 56,
+          "n_compared": 13,
+          "denominator_agreement": 0.231,
+          "fraction_agreement": 0.462,
+          "count_agreement": 0.154,
+          "mean_abs_diff": 0.2058
+        },
+        "individuals_before": 14,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "613848",
+      "title": "OSTEOGENESIS IMPERFECTA, TYPE X",
+      "gold_terms_with_frequency": 31,
+      "cohort": {
+        "n_gold": 31,
+        "n_table": 1,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 2,
+        "families": 2,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 31,
+        "n_table": 1,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 2,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 31,
+          "n_table": 1,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 2,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "614501",
+      "title": "NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES",
+      "gold_terms_with_frequency": 22,
+      "cohort": {
+        "n_gold": 22,
+        "n_table": 62,
+        "n_compared": 18,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 0.556,
+        "count_agreement": 0.056,
+        "mean_abs_diff": 0.1567,
+        "individuals": 3,
+        "families": 2,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 22,
+        "n_table": 62,
+        "n_compared": 18,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 0.556,
+        "count_agreement": 0.056,
+        "mean_abs_diff": 0.1567,
+        "individuals": 3,
+        "families": 2,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 22,
+          "n_table": 62,
+          "n_compared": 18,
+          "denominator_agreement": 0.333,
+          "fraction_agreement": 0.556,
+          "count_agreement": 0.056,
+          "mean_abs_diff": 0.1567
+        },
+        "individuals_before": 3,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "614651",
+      "title": "COENZYME Q10 DEFICIENCY, PRIMARY, 2",
+      "gold_terms_with_frequency": 15,
+      "cohort": {
+        "n_gold": 15,
+        "n_table": 43,
+        "n_compared": 7,
+        "denominator_agreement": 0.143,
+        "fraction_agreement": 0.571,
+        "count_agreement": 0.143,
+        "mean_abs_diff": 0.3571,
+        "individuals": 5,
+        "families": 4,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 15,
+        "n_table": 43,
+        "n_compared": 7,
+        "denominator_agreement": 0.143,
+        "fraction_agreement": 0.571,
+        "count_agreement": 0.143,
+        "mean_abs_diff": 0.3571,
+        "individuals": 5,
+        "families": 4,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 15,
+          "n_table": 43,
+          "n_compared": 7,
+          "denominator_agreement": 0.143,
+          "fraction_agreement": 0.571,
+          "count_agreement": 0.143,
+          "mean_abs_diff": 0.3571
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "614701",
+      "title": "CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS",
+      "gold_terms_with_frequency": 40,
+      "cohort": {
+        "n_gold": 40,
+        "n_table": 18,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3333,
+        "individuals": 57,
+        "families": 34,
+        "units": 44
+      },
+      "reconciled": {
+        "n_gold": 40,
+        "n_table": 20,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3333,
+        "individuals": 62,
+        "families": 32,
+        "units": 42,
+        "before_reconciliation": {
+          "n_gold": 40,
+          "n_table": 18,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.333,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.3333
+        },
+        "individuals_before": 57,
+        "families_before": 34
+      }
+    },
+    {
+      "mim": "614856",
+      "title": "OSTEOGENESIS IMPERFECTA, TYPE XIII",
+      "gold_terms_with_frequency": 34,
+      "cohort": {
+        "n_gold": 34,
+        "n_table": 50,
+        "n_compared": 27,
+        "denominator_agreement": 0.296,
+        "fraction_agreement": 0.407,
+        "count_agreement": 0.259,
+        "mean_abs_diff": 0.287,
+        "individuals": 12,
+        "families": 11,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 34,
+        "n_table": 50,
+        "n_compared": 27,
+        "denominator_agreement": 0.296,
+        "fraction_agreement": 0.407,
+        "count_agreement": 0.259,
+        "mean_abs_diff": 0.287,
+        "individuals": 9,
+        "families": 8,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 34,
+          "n_table": 50,
+          "n_compared": 27,
+          "denominator_agreement": 0.296,
+          "fraction_agreement": 0.407,
+          "count_agreement": 0.259,
+          "mean_abs_diff": 0.287
+        },
+        "individuals_before": 12,
+        "families_before": 11
+      }
+    },
+    {
+      "mim": "615073",
+      "title": "DYSTONIA 25",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 12,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 35,
+        "families": 9,
+        "units": 29
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 12,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 28,
+        "families": 8,
+        "units": 22,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 12,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 35,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "615268",
+      "title": "CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4",
+      "gold_terms_with_frequency": 7,
+      "cohort": {
+        "n_gold": 7,
+        "n_table": 32,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2589,
+        "individuals": 12,
+        "families": 6,
+        "units": 6
+      },
+      "reconciled": {
+        "n_gold": 7,
+        "n_table": 32,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2589,
+        "individuals": 11,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 7,
+          "n_table": 32,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.2589
+        },
+        "individuals_before": 12,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "615425",
+      "title": "EPIDERMOLYSIS BULLOSA SIMPLEX 3, LOCALIZED OR GENERALIZED INTERMEDIATE, WITH BP230 DEFICIENCY",
+      "gold_terms_with_frequency": 6,
+      "cohort": {
+        "n_gold": 6,
+        "n_table": 6,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 6,
+        "families": 4,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 6,
+        "n_table": 6,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 6,
+        "families": 4,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 6,
+          "n_table": 6,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 6,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "615493",
+      "title": "INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37",
+      "gold_terms_with_frequency": 9,
+      "cohort": {
+        "n_gold": 9,
+        "n_table": 6,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 2,
+        "families": 2,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 9,
+        "n_table": 6,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 2,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 9,
+          "n_table": 6,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 2,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "615582",
+      "title": "LOEYS-DIETZ SYNDROME 5",
+      "gold_terms_with_frequency": 54,
+      "cohort": {
+        "n_gold": 54,
+        "n_table": 59,
+        "n_compared": 30,
+        "denominator_agreement": 0.2,
+        "fraction_agreement": 0.3,
+        "count_agreement": 0.2,
+        "mean_abs_diff": 0.5985,
+        "individuals": 7,
+        "families": 14,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 54,
+        "n_table": 59,
+        "n_compared": 30,
+        "denominator_agreement": 0.2,
+        "fraction_agreement": 0.3,
+        "count_agreement": 0.2,
+        "mean_abs_diff": 0.5985,
+        "individuals": 7,
+        "families": 14,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 54,
+          "n_table": 59,
+          "n_compared": 30,
+          "denominator_agreement": 0.2,
+          "fraction_agreement": 0.3,
+          "count_agreement": 0.2,
+          "mean_abs_diff": 0.5985
+        },
+        "individuals_before": 7,
+        "families_before": 14
+      }
+    },
+    {
+      "mim": "615631",
+      "title": "ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib",
+      "gold_terms_with_frequency": 2,
+      "cohort": {
+        "n_gold": 2,
+        "n_table": 11,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 4,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 2,
+        "n_table": 11,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 4,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 2,
+          "n_table": 11,
+          "n_compared": 1,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "615710",
+      "title": "MITCHELL-RILEY SYNDROME",
+      "gold_terms_with_frequency": 11,
+      "cohort": {
+        "n_gold": 11,
+        "n_table": 30,
+        "n_compared": 7,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.39,
+        "individuals": 22,
+        "families": 18,
+        "units": 15
+      },
+      "reconciled": {
+        "n_gold": 11,
+        "n_table": 30,
+        "n_compared": 7,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.39,
+        "individuals": 20,
+        "families": 16,
+        "units": 13,
+        "before_reconciliation": {
+          "n_gold": 11,
+          "n_table": 30,
+          "n_compared": 7,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.143,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.39
+        },
+        "individuals_before": 22,
+        "families_before": 18
+      }
+    },
+    {
+      "mim": "615817",
+      "title": "INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 43",
+      "gold_terms_with_frequency": 19,
+      "cohort": {
+        "n_gold": 19,
+        "n_table": 19,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.75,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.125,
+        "individuals": 6,
+        "families": 4,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 19,
+        "n_table": 19,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.75,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.125,
+        "individuals": 12,
+        "families": 4,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 19,
+          "n_table": 19,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.75,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.125
+        },
+        "individuals_before": 6,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "615972",
+      "title": "NANOPHTHALMOS 4",
+      "gold_terms_with_frequency": 4,
+      "cohort": {
+        "n_gold": 4,
+        "n_table": 10,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.25,
+        "individuals": 46,
+        "families": 7,
+        "units": 27
+      },
+      "reconciled": {
+        "n_gold": 4,
+        "n_table": 10,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.25,
+        "individuals": 46,
+        "families": 7,
+        "units": 27,
+        "before_reconciliation": {
+          "n_gold": 4,
+          "n_table": 10,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.25
+        },
+        "individuals_before": 46,
+        "families_before": 7
+      }
+    },
+    {
+      "mim": "616151",
+      "title": "MACULAR DYSTROPHY, VITELLIFORM, 4",
+      "gold_terms_with_frequency": 3,
+      "cohort": {
+        "n_gold": 3,
+        "n_table": 14,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 24,
+        "families": 23,
+        "units": 12
+      },
+      "reconciled": {
+        "n_gold": 3,
+        "n_table": 14,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 24,
+        "families": 23,
+        "units": 12,
+        "before_reconciliation": {
+          "n_gold": 3,
+          "n_table": 14,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 24,
+        "families_before": 23
+      }
+    },
+    {
+      "mim": "616294",
+      "title": "COLE-CARPENTER SYNDROME 2",
+      "gold_terms_with_frequency": 18,
+      "cohort": {
+        "n_gold": 18,
+        "n_table": 21,
+        "n_compared": 8,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.625,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0929,
+        "individuals": 6,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 18,
+        "n_table": 21,
+        "n_compared": 8,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.625,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0929,
+        "individuals": 6,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 18,
+          "n_table": 21,
+          "n_compared": 8,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.625,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0929
+        },
+        "individuals_before": 6,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "616326",
+      "title": "MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY",
+      "gold_terms_with_frequency": 18,
+      "cohort": {
+        "n_gold": 18,
+        "n_table": 23,
+        "n_compared": 6,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4241,
+        "individuals": 55,
+        "families": 39,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 18,
+        "n_table": 23,
+        "n_compared": 6,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4241,
+        "individuals": 55,
+        "families": 39,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 18,
+          "n_table": 23,
+          "n_compared": 6,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.333,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.4241
+        },
+        "individuals_before": 55,
+        "families_before": 39
+      }
+    },
+    {
+      "mim": "616482",
+      "title": "ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS",
+      "gold_terms_with_frequency": 41,
+      "cohort": {
+        "n_gold": 41,
+        "n_table": 14,
+        "n_compared": 6,
+        "denominator_agreement": 0.667,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.167,
+        "mean_abs_diff": 0.2167,
+        "individuals": 5,
+        "families": 5,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 41,
+        "n_table": 14,
+        "n_compared": 6,
+        "denominator_agreement": 0.667,
+        "fraction_agreement": 0.333,
+        "count_agreement": 0.167,
+        "mean_abs_diff": 0.25,
+        "individuals": 5,
+        "families": 5,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 41,
+          "n_table": 14,
+          "n_compared": 6,
+          "denominator_agreement": 0.667,
+          "fraction_agreement": 0.333,
+          "count_agreement": 0.167,
+          "mean_abs_diff": 0.2167
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "616867",
+      "title": "SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2",
+      "gold_terms_with_frequency": 15,
+      "cohort": {
+        "n_gold": 15,
+        "n_table": 14,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 9,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 15,
+        "n_table": 14,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 9,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 15,
+          "n_table": 14,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "617153",
+      "title": "DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 45",
+      "gold_terms_with_frequency": 9,
+      "cohort": {
+        "n_gold": 9,
+        "n_table": 5,
+        "n_compared": 2,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.0,
+        "individuals": 4,
+        "families": 4,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 9,
+        "n_table": 5,
+        "n_compared": 2,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 3,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 9,
+          "n_table": 5,
+          "n_compared": 2,
+          "denominator_agreement": 0.5,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.5,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 4,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "617162",
+      "title": "DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 46",
+      "gold_terms_with_frequency": 16,
+      "cohort": {
+        "n_gold": 16,
+        "n_table": 4,
+        "n_compared": 3,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 5,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 16,
+        "n_table": 4,
+        "n_compared": 3,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0,
+        "individuals": 5,
+        "families": 5,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 16,
+          "n_table": 4,
+          "n_compared": 3,
+          "denominator_agreement": 0.333,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.333,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "617232",
+      "title": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21",
+      "gold_terms_with_frequency": 11,
+      "cohort": {
+        "n_gold": 11,
+        "n_table": 0,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 0,
+        "families": 0,
+        "units": 0
+      },
+      "reconciled": {
+        "n_gold": 11,
+        "n_table": 0,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 0,
+        "families": 0,
+        "units": 0,
+        "before_reconciliation": {
+          "n_gold": 11,
+          "n_table": 0,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 0,
+        "families_before": 0
+      }
+    },
+    {
+      "mim": "617927",
+      "title": "OROFACIODIGITAL SYNDROME XVIII",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 42,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 1,
+        "families": 1,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 42,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 3,
+        "families": 1,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 42,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 1,
+        "families_before": 1
+      }
+    },
+    {
+      "mim": "618184",
+      "title": "NEUROPATHY, CONGENITAL HYPOMYELINATING, 2",
+      "gold_terms_with_frequency": 16,
+      "cohort": {
+        "n_gold": 16,
+        "n_table": 7,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 5,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 16,
+        "n_table": 7,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 5,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 16,
+          "n_table": 7,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "gold_terms_with_frequency": 7,
+      "cohort": {
+        "n_gold": 7,
+        "n_table": 8,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 9,
+        "families": 6,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 7,
+        "n_table": 8,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 9,
+        "families": 6,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 7,
+          "n_table": 8,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 9,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "618343",
+      "title": "POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME",
+      "gold_terms_with_frequency": 17,
+      "cohort": {
+        "n_gold": 17,
+        "n_table": 37,
+        "n_compared": 4,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 0.75,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.25,
+        "individuals": 14,
+        "families": 12,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 17,
+        "n_table": 37,
+        "n_compared": 4,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 0.75,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.25,
+        "individuals": 14,
+        "families": 12,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 17,
+          "n_table": 37,
+          "n_compared": 4,
+          "denominator_agreement": 0.75,
+          "fraction_agreement": 0.75,
+          "count_agreement": 0.5,
+          "mean_abs_diff": 0.25
+        },
+        "individuals_before": 14,
+        "families_before": 12
+      }
+    },
+    {
+      "mim": "618400",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE",
+      "gold_terms_with_frequency": 2,
+      "cohort": {
+        "n_gold": 2,
+        "n_table": 42,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6364,
+        "individuals": 5,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 2,
+        "n_table": 42,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6364,
+        "individuals": 5,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 2,
+          "n_table": 42,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.6364
+        },
+        "individuals_before": 5,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "618458",
+      "title": "KNOBLOCH SYNDROME 2",
+      "gold_terms_with_frequency": 19,
+      "cohort": {
+        "n_gold": 19,
+        "n_table": 10,
+        "n_compared": 4,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.25,
+        "individuals": 5,
+        "families": 3,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 19,
+        "n_table": 10,
+        "n_compared": 4,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.25,
+        "individuals": 3,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 19,
+          "n_table": 10,
+          "n_compared": 4,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.5,
+          "mean_abs_diff": 0.25
+        },
+        "individuals_before": 5,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "618808",
+      "title": "INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA",
+      "gold_terms_with_frequency": 13,
+      "cohort": {
+        "n_gold": 13,
+        "n_table": 4,
+        "n_compared": 2,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 2,
+        "families": 1,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 13,
+        "n_table": 4,
+        "n_compared": 2,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 2,
+        "families": 1,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 13,
+          "n_table": 4,
+          "n_compared": 2,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 2,
+        "families_before": 1
+      }
+    },
+    {
+      "mim": "618875",
+      "title": "SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS",
+      "gold_terms_with_frequency": 6,
+      "cohort": {
+        "n_gold": 6,
+        "n_table": 13,
+        "n_compared": 2,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0833,
+        "individuals": 9,
+        "families": 6,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 6,
+        "n_table": 13,
+        "n_compared": 2,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 0.5,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0833,
+        "individuals": 9,
+        "families": 6,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 6,
+          "n_table": 13,
+          "n_compared": 2,
+          "denominator_agreement": 0.5,
+          "fraction_agreement": 0.5,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0833
+        },
+        "individuals_before": 9,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "619124",
+      "title": "DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89",
+      "gold_terms_with_frequency": 43,
+      "cohort": {
+        "n_gold": 43,
+        "n_table": 112,
+        "n_compared": 27,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.074,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6411,
+        "individuals": 18,
+        "families": 13,
+        "units": 18
+      },
+      "reconciled": {
+        "n_gold": 43,
+        "n_table": 112,
+        "n_compared": 27,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.074,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.6411,
+        "individuals": 18,
+        "families": 13,
+        "units": 18,
+        "before_reconciliation": {
+          "n_gold": 43,
+          "n_table": 112,
+          "n_compared": 27,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.074,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.6411
+        },
+        "individuals_before": 18,
+        "families_before": 13
+      }
+    },
+    {
+      "mim": "619201",
+      "title": "NEPHROTIC SYNDROME, TYPE 23",
+      "gold_terms_with_frequency": 6,
+      "cohort": {
+        "n_gold": 6,
+        "n_table": 9,
+        "n_compared": 5,
+        "denominator_agreement": 0.2,
+        "fraction_agreement": 0.4,
+        "count_agreement": 0.2,
+        "mean_abs_diff": 0.3,
+        "individuals": 2,
+        "families": 2,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 6,
+        "n_table": 9,
+        "n_compared": 5,
+        "denominator_agreement": 0.2,
+        "fraction_agreement": 0.4,
+        "count_agreement": 0.2,
+        "mean_abs_diff": 0.3,
+        "individuals": 2,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 6,
+          "n_table": 9,
+          "n_compared": 5,
+          "denominator_agreement": 0.2,
+          "fraction_agreement": 0.4,
+          "count_agreement": 0.2,
+          "mean_abs_diff": 0.3
+        },
+        "individuals_before": 2,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "619681",
+      "title": "DYSTONIA, EARLY-ONSET, AND/OR SPASTIC PARAPLEGIA",
+      "gold_terms_with_frequency": 0,
+      "cohort": {
+        "n_gold": 0,
+        "n_table": 21,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 23,
+        "families": 6,
+        "units": 6
+      },
+      "reconciled": {
+        "n_gold": 0,
+        "n_table": 21,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 22,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 0,
+          "n_table": 21,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 23,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "619816",
+      "title": "EPIDERMOLYSIS BULLOSA, JUNCTIONAL 5A, INTERMEDIATE",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 9,
+        "n_compared": 4,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 4,
+        "families": 4,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 9,
+        "n_compared": 4,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 4,
+        "families": 4,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 9,
+          "n_compared": 4,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 4,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "620022",
+      "title": "STICKLER SYNDROME, TYPE VI",
+      "gold_terms_with_frequency": 12,
+      "cohort": {
+        "n_gold": 12,
+        "n_table": 60,
+        "n_compared": 7,
+        "denominator_agreement": 0.286,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3619,
+        "individuals": 14,
+        "families": 10,
+        "units": 11
+      },
+      "reconciled": {
+        "n_gold": 12,
+        "n_table": 60,
+        "n_compared": 7,
+        "denominator_agreement": 0.286,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.3619,
+        "individuals": 14,
+        "families": 10,
+        "units": 11,
+        "before_reconciliation": {
+          "n_gold": 12,
+          "n_table": 60,
+          "n_compared": 7,
+          "denominator_agreement": 0.286,
+          "fraction_agreement": 0.143,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.3619
+        },
+        "individuals_before": 14,
+        "families_before": 10
+      }
+    },
+    {
+      "mim": "620029",
+      "title": "NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, LANGUAGE DELAY, AND SKELETAL DEFECTS WITH OR WITHOUT SEIZURES",
+      "gold_terms_with_frequency": 48,
+      "cohort": {
+        "n_gold": 48,
+        "n_table": 99,
+        "n_compared": 33,
+        "denominator_agreement": 0.455,
+        "fraction_agreement": 0.758,
+        "count_agreement": 0.455,
+        "mean_abs_diff": 0.1395,
+        "individuals": 29,
+        "families": 25,
+        "units": 29
+      },
+      "reconciled": {
+        "n_gold": 48,
+        "n_table": 99,
+        "n_compared": 33,
+        "denominator_agreement": 0.455,
+        "fraction_agreement": 0.758,
+        "count_agreement": 0.455,
+        "mean_abs_diff": 0.1395,
+        "individuals": 29,
+        "families": 25,
+        "units": 29,
+        "before_reconciliation": {
+          "n_gold": 48,
+          "n_table": 99,
+          "n_compared": 33,
+          "denominator_agreement": 0.455,
+          "fraction_agreement": 0.758,
+          "count_agreement": 0.455,
+          "mean_abs_diff": 0.1395
+        },
+        "individuals_before": 29,
+        "families_before": 25
+      }
+    },
+    {
+      "mim": "620098",
+      "title": "DEVELOPMENTAL DELAY WITH VARIABLE INTELLECTUAL DISABILITY AND DYSMORPHIC FACIES",
+      "gold_terms_with_frequency": 53,
+      "cohort": {
+        "n_gold": 53,
+        "n_table": 78,
+        "n_compared": 21,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.048,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.7251,
+        "individuals": 39,
+        "families": 35,
+        "units": 18
+      },
+      "reconciled": {
+        "n_gold": 53,
+        "n_table": 78,
+        "n_compared": 21,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.048,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.7251,
+        "individuals": 39,
+        "families": 35,
+        "units": 18,
+        "before_reconciliation": {
+          "n_gold": 53,
+          "n_table": 78,
+          "n_compared": 21,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.048,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.7251
+        },
+        "individuals_before": 39,
+        "families_before": 35
+      }
+    },
+    {
+      "mim": "620249",
+      "title": "CONGENITAL MYOPATHY 10B, MILD VARIANT",
+      "gold_terms_with_frequency": 38,
+      "cohort": {
+        "n_gold": 38,
+        "n_table": 51,
+        "n_compared": 22,
+        "denominator_agreement": 0.591,
+        "fraction_agreement": 0.955,
+        "count_agreement": 0.591,
+        "mean_abs_diff": 0.0151,
+        "individuals": 8,
+        "families": 6,
+        "units": 6
+      },
+      "reconciled": {
+        "n_gold": 38,
+        "n_table": 51,
+        "n_compared": 22,
+        "denominator_agreement": 0.591,
+        "fraction_agreement": 0.955,
+        "count_agreement": 0.591,
+        "mean_abs_diff": 0.0151,
+        "individuals": 8,
+        "families": 6,
+        "units": 6,
+        "before_reconciliation": {
+          "n_gold": 38,
+          "n_table": 51,
+          "n_compared": 22,
+          "denominator_agreement": 0.591,
+          "fraction_agreement": 0.955,
+          "count_agreement": 0.591,
+          "mean_abs_diff": 0.0151
+        },
+        "individuals_before": 8,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "620402",
+      "title": "NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL RECESSIVE 9",
+      "gold_terms_with_frequency": 15,
+      "cohort": {
+        "n_gold": 15,
+        "n_table": 33,
+        "n_compared": 10,
+        "denominator_agreement": 0.1,
+        "fraction_agreement": 0.3,
+        "count_agreement": 0.1,
+        "mean_abs_diff": 0.4238,
+        "individuals": 12,
+        "families": 5,
+        "units": 8
+      },
+      "reconciled": {
+        "n_gold": 15,
+        "n_table": 33,
+        "n_compared": 10,
+        "denominator_agreement": 0.1,
+        "fraction_agreement": 0.3,
+        "count_agreement": 0.1,
+        "mean_abs_diff": 0.4238,
+        "individuals": 12,
+        "families": 5,
+        "units": 8,
+        "before_reconciliation": {
+          "n_gold": 15,
+          "n_table": 33,
+          "n_compared": 10,
+          "denominator_agreement": 0.1,
+          "fraction_agreement": 0.3,
+          "count_agreement": 0.1,
+          "mean_abs_diff": 0.4238
+        },
+        "individuals_before": 12,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "620457",
+      "title": "AURICULOCONDYLAR SYNDROME 4",
+      "gold_terms_with_frequency": 11,
+      "cohort": {
+        "n_gold": 11,
+        "n_table": 4,
+        "n_compared": 3,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 11,
+        "families": 1,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 11,
+        "n_table": 5,
+        "n_compared": 4,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 0.75,
+        "count_agreement": 0.75,
+        "mean_abs_diff": 0.1273,
+        "individuals": 11,
+        "families": 1,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 11,
+          "n_table": 4,
+          "n_compared": 3,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 11,
+        "families_before": 1
+      }
+    },
+    {
+      "mim": "620481",
+      "title": "AMEGAKARYOCYTIC THROMBOCYTOPENIA, CONGENITAL, 2",
+      "gold_terms_with_frequency": 7,
+      "cohort": {
+        "n_gold": 7,
+        "n_table": 20,
+        "n_compared": 6,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 0.833,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0278,
+        "individuals": 11,
+        "families": 6,
+        "units": 7
+      },
+      "reconciled": {
+        "n_gold": 7,
+        "n_table": 20,
+        "n_compared": 6,
+        "denominator_agreement": 0.333,
+        "fraction_agreement": 0.833,
+        "count_agreement": 0.333,
+        "mean_abs_diff": 0.0278,
+        "individuals": 11,
+        "families": 6,
+        "units": 7,
+        "before_reconciliation": {
+          "n_gold": 7,
+          "n_table": 20,
+          "n_compared": 6,
+          "denominator_agreement": 0.333,
+          "fraction_agreement": 0.833,
+          "count_agreement": 0.333,
+          "mean_abs_diff": 0.0278
+        },
+        "individuals_before": 11,
+        "families_before": 6
+      }
+    },
+    {
+      "mim": "620507",
+      "title": "ICHTHYOSIS WITH ERYTHROKERATODERMA",
+      "gold_terms_with_frequency": 8,
+      "cohort": {
+        "n_gold": 8,
+        "n_table": 4,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 1,
+        "families": 3,
+        "units": 1
+      },
+      "reconciled": {
+        "n_gold": 8,
+        "n_table": 4,
+        "n_compared": 1,
+        "denominator_agreement": 1.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 1.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 1,
+        "families": 3,
+        "units": 1,
+        "before_reconciliation": {
+          "n_gold": 8,
+          "n_table": 4,
+          "n_compared": 1,
+          "denominator_agreement": 1.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 1.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 1,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "620528",
+      "title": "NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11",
+      "gold_terms_with_frequency": 45,
+      "cohort": {
+        "n_gold": 45,
+        "n_table": 5,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 5,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 45,
+        "n_table": 5,
+        "n_compared": 1,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 5,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 45,
+          "n_table": 5,
+          "n_compared": 1,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 3,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "620609",
+      "title": "LONG-OLSEN-DISTELMAIER SYNDROME",
+      "gold_terms_with_frequency": 27,
+      "cohort": {
+        "n_gold": 27,
+        "n_table": 22,
+        "n_compared": 14,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 0.571,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.2857,
+        "individuals": 4,
+        "families": 4,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 27,
+        "n_table": 22,
+        "n_compared": 14,
+        "denominator_agreement": 0.5,
+        "fraction_agreement": 0.571,
+        "count_agreement": 0.5,
+        "mean_abs_diff": 0.2857,
+        "individuals": 4,
+        "families": 4,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 27,
+          "n_table": 22,
+          "n_compared": 14,
+          "denominator_agreement": 0.5,
+          "fraction_agreement": 0.571,
+          "count_agreement": 0.5,
+          "mean_abs_diff": 0.2857
+        },
+        "individuals_before": 4,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "620662",
+      "title": "HOXHA-ALIU SYNDROME",
+      "gold_terms_with_frequency": 64,
+      "cohort": {
+        "n_gold": 64,
+        "n_table": 31,
+        "n_compared": 13,
+        "denominator_agreement": 0.538,
+        "fraction_agreement": 0.846,
+        "count_agreement": 0.538,
+        "mean_abs_diff": 0.1128,
+        "individuals": 9,
+        "families": 5,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 64,
+        "n_table": 31,
+        "n_compared": 13,
+        "denominator_agreement": 0.538,
+        "fraction_agreement": 0.846,
+        "count_agreement": 0.538,
+        "mean_abs_diff": 0.1128,
+        "individuals": 9,
+        "families": 5,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 64,
+          "n_table": 31,
+          "n_compared": 13,
+          "denominator_agreement": 0.538,
+          "fraction_agreement": 0.846,
+          "count_agreement": 0.538,
+          "mean_abs_diff": 0.1128
+        },
+        "individuals_before": 9,
+        "families_before": 5
+      }
+    },
+    {
+      "mim": "620670",
+      "title": "IMMUNODEFICIENCY, COMMON VARIABLE, 15",
+      "gold_terms_with_frequency": 17,
+      "cohort": {
+        "n_gold": 17,
+        "n_table": 15,
+        "n_compared": 7,
+        "denominator_agreement": 0.143,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4156,
+        "individuals": 12,
+        "families": 2,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 17,
+        "n_table": 15,
+        "n_compared": 7,
+        "denominator_agreement": 0.143,
+        "fraction_agreement": 0.143,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4156,
+        "individuals": 12,
+        "families": 2,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 17,
+          "n_table": 15,
+          "n_compared": 7,
+          "denominator_agreement": 0.143,
+          "fraction_agreement": 0.143,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.4156
+        },
+        "individuals_before": 12,
+        "families_before": 2
+      }
+    },
+    {
+      "mim": "620718",
+      "title": "OROFACIODIGITAL SYNDROME XX",
+      "gold_terms_with_frequency": 29,
+      "cohort": {
+        "n_gold": 29,
+        "n_table": 14,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.5,
+        "individuals": 5,
+        "families": 4,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 29,
+        "n_table": 14,
+        "n_compared": 2,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.0,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.5,
+        "individuals": 5,
+        "families": 4,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 29,
+          "n_table": 14,
+          "n_compared": 2,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.0,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.5
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "620851",
+      "title": "ReNU SYNDROME",
+      "gold_terms_with_frequency": 209,
+      "cohort": {
+        "n_gold": 209,
+        "n_table": 58,
+        "n_compared": 38,
+        "denominator_agreement": 0.079,
+        "fraction_agreement": 0.053,
+        "count_agreement": 0.026,
+        "mean_abs_diff": 0.135,
+        "individuals": 189,
+        "families": 76,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 209,
+        "n_table": 58,
+        "n_compared": 38,
+        "denominator_agreement": 0.079,
+        "fraction_agreement": 0.053,
+        "count_agreement": 0.026,
+        "mean_abs_diff": 0.135,
+        "individuals": 189,
+        "families": 76,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 209,
+          "n_table": 58,
+          "n_compared": 38,
+          "denominator_agreement": 0.079,
+          "fraction_agreement": 0.053,
+          "count_agreement": 0.026,
+          "mean_abs_diff": 0.135
+        },
+        "individuals_before": 189,
+        "families_before": 76
+      }
+    },
+    {
+      "mim": "621030",
+      "title": "AUTOINFLAMMATION, PANNICULITIS, AND DERMATOSIS SYNDROME, AUTOSOMAL DOMINANT",
+      "gold_terms_with_frequency": 27,
+      "cohort": {
+        "n_gold": 27,
+        "n_table": 40,
+        "n_compared": 16,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.75,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 3,
+        "units": 3
+      },
+      "reconciled": {
+        "n_gold": 27,
+        "n_table": 40,
+        "n_compared": 16,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 1.0,
+        "count_agreement": 0.75,
+        "mean_abs_diff": 0.0,
+        "individuals": 3,
+        "families": 3,
+        "units": 3,
+        "before_reconciliation": {
+          "n_gold": 27,
+          "n_table": 40,
+          "n_compared": 16,
+          "denominator_agreement": 0.75,
+          "fraction_agreement": 1.0,
+          "count_agreement": 0.75,
+          "mean_abs_diff": 0.0
+        },
+        "individuals_before": 3,
+        "families_before": 3
+      }
+    },
+    {
+      "mim": "621068",
+      "title": "NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, POOR GROWTH, DYSMORPHIC FACIES, AND AGAMMAGLOBULINEMIA",
+      "gold_terms_with_frequency": 40,
+      "cohort": {
+        "n_gold": 40,
+        "n_table": 0,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 0,
+        "families": 0,
+        "units": 0
+      },
+      "reconciled": {
+        "n_gold": 40,
+        "n_table": 0,
+        "n_compared": 0,
+        "denominator_agreement": null,
+        "fraction_agreement": null,
+        "count_agreement": null,
+        "mean_abs_diff": null,
+        "individuals": 0,
+        "families": 0,
+        "units": 0,
+        "before_reconciliation": {
+          "n_gold": 40,
+          "n_table": 0,
+          "n_compared": 0,
+          "denominator_agreement": null,
+          "fraction_agreement": null,
+          "count_agreement": null,
+          "mean_abs_diff": null
+        },
+        "individuals_before": 0,
+        "families_before": 0
+      }
+    },
+    {
+      "mim": "621169",
+      "title": "MONILETHRIX 2",
+      "gold_terms_with_frequency": 5,
+      "cohort": {
+        "n_gold": 5,
+        "n_table": 3,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.667,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.1667,
+        "individuals": 5,
+        "families": 4,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 5,
+        "n_table": 3,
+        "n_compared": 3,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.667,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.1667,
+        "individuals": 5,
+        "families": 4,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 5,
+          "n_table": 3,
+          "n_compared": 3,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.667,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.1667
+        },
+        "individuals_before": 5,
+        "families_before": 4
+      }
+    },
+    {
+      "mim": "621214",
+      "title": "LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY",
+      "gold_terms_with_frequency": 34,
+      "cohort": {
+        "n_gold": 34,
+        "n_table": 14,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.25,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2011,
+        "individuals": 17,
+        "families": 9,
+        "units": 2
+      },
+      "reconciled": {
+        "n_gold": 34,
+        "n_table": 14,
+        "n_compared": 4,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.25,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.2011,
+        "individuals": 17,
+        "families": 9,
+        "units": 2,
+        "before_reconciliation": {
+          "n_gold": 34,
+          "n_table": 14,
+          "n_compared": 4,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.25,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.2011
+        },
+        "individuals_before": 17,
+        "families_before": 9
+      }
+    },
+    {
+      "mim": "621224",
+      "title": "ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS",
+      "gold_terms_with_frequency": 55,
+      "cohort": {
+        "n_gold": 55,
+        "n_table": 9,
+        "n_compared": 6,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.167,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4127,
+        "individuals": 15,
+        "families": 8,
+        "units": 4
+      },
+      "reconciled": {
+        "n_gold": 55,
+        "n_table": 9,
+        "n_compared": 6,
+        "denominator_agreement": 0.0,
+        "fraction_agreement": 0.167,
+        "count_agreement": 0.0,
+        "mean_abs_diff": 0.4127,
+        "individuals": 15,
+        "families": 8,
+        "units": 4,
+        "before_reconciliation": {
+          "n_gold": 55,
+          "n_table": 9,
+          "n_compared": 6,
+          "denominator_agreement": 0.0,
+          "fraction_agreement": 0.167,
+          "count_agreement": 0.0,
+          "mean_abs_diff": 0.4127
+        },
+        "individuals_before": 15,
+        "families_before": 8
+      }
+    },
+    {
+      "mim": "621313",
+      "title": "BRAIN SMALL VESSEL DISEASE 4",
+      "gold_terms_with_frequency": 26,
+      "cohort": {
+        "n_gold": 26,
+        "n_table": 15,
+        "n_compared": 8,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 0.875,
+        "count_agreement": 0.75,
+        "mean_abs_diff": 0.1042,
+        "individuals": 10,
+        "families": 8,
+        "units": 5
+      },
+      "reconciled": {
+        "n_gold": 26,
+        "n_table": 15,
+        "n_compared": 8,
+        "denominator_agreement": 0.75,
+        "fraction_agreement": 0.875,
+        "count_agreement": 0.75,
+        "mean_abs_diff": 0.1042,
+        "individuals": 10,
+        "families": 8,
+        "units": 5,
+        "before_reconciliation": {
+          "n_gold": 26,
+          "n_table": 15,
+          "n_compared": 8,
+          "denominator_agreement": 0.75,
+          "fraction_agreement": 0.875,
+          "count_agreement": 0.75,
+          "mean_abs_diff": 0.1042
+        },
+        "individuals_before": 10,
+        "families_before": 8
+      }
+    }
+  ],
+  "pooled_agreement": {
+    "cohort": {
+      "n_compared": 560,
+      "denominator_agreement": 0.255,
+      "fraction_agreement": 0.48,
+      "count_agreement": 0.22,
+      "mean_abs_diff": 0.2562
+    },
+    "reconciled": {
+      "n_compared": 561,
+      "denominator_agreement": 0.262,
+      "fraction_agreement": 0.481,
+      "count_agreement": 0.226,
+      "mean_abs_diff": 0.2564
+    },
+    "reconciled_before": {
+      "n_compared": 560,
+      "denominator_agreement": 0.255,
+      "fraction_agreement": 0.48,
+      "count_agreement": 0.22,
+      "mean_abs_diff": 0.2562
+    }
+  },
+  "totals": {
+    "entries": 100,
+    "units": 739,
+    "individuals": 2414,
+    "variants": 529,
+    "phenotype_rows": 2352
+  }
+}

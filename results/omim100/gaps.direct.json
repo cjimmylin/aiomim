@@ -1,0 +1,3352 @@
+{
+  "run": "omim100",
+  "strategy": "direct",
+  "n_entries": 97,
+  "n_paragraphs": 466,
+  "n_calls": 442,
+  "n_errors": 0,
+  "quotes_verified": 941,
+  "yes_downgraded": 0,
+  "overall": {
+    "n_gold_facts": 5530,
+    "present": 2429,
+    "contradicted": 36,
+    "n_not_conveyed": 3065,
+    "by_draft_status": {
+      "absent": {
+        "yes": 115,
+        "partly": 109,
+        "no": 1907,
+        "unjudged": 0
+      },
+      "partial": {
+        "yes": 167,
+        "partly": 550,
+        "no": 217,
+        "unjudged": 0
+      }
+    },
+    "yes": 282,
+    "partly": 659,
+    "no": 2124,
+    "unjudged": 0,
+    "share_in_text": 0.092,
+    "share_in_text_or_partly": 0.307,
+    "share_not_in_text": 0.693,
+    "of_gold": {
+      "present": 0.439,
+      "missed_in_text": 0.051,
+      "missed_partly_in_text": 0.119,
+      "missed_not_in_text": 0.384
+    }
+  },
+  "by_content_level": {
+    "fulltext": {
+      "n_gold_facts": 1538,
+      "present": 1119,
+      "contradicted": 7,
+      "n_not_conveyed": 412,
+      "by_draft_status": {
+        "absent": {
+          "yes": 99,
+          "partly": 23,
+          "no": 96,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 117,
+          "partly": 69,
+          "no": 8,
+          "unjudged": 0
+        }
+      },
+      "yes": 216,
+      "partly": 92,
+      "no": 104,
+      "unjudged": 0,
+      "share_in_text": 0.524,
+      "share_in_text_or_partly": 0.748,
+      "share_not_in_text": 0.252,
+      "of_gold": {
+        "present": 0.728,
+        "missed_in_text": 0.14,
+        "missed_partly_in_text": 0.06,
+        "missed_not_in_text": 0.068
+      }
+    },
+    "abstract": {
+      "n_gold_facts": 3648,
+      "present": 1260,
+      "contradicted": 29,
+      "n_not_conveyed": 2359,
+      "by_draft_status": {
+        "absent": {
+          "yes": 16,
+          "partly": 83,
+          "no": 1579,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 49,
+          "partly": 444,
+          "no": 188,
+          "unjudged": 0
+        }
+      },
+      "yes": 65,
+      "partly": 527,
+      "no": 1767,
+      "unjudged": 0,
+      "share_in_text": 0.028,
+      "share_in_text_or_partly": 0.251,
+      "share_not_in_text": 0.749,
+      "of_gold": {
+        "present": 0.345,
+        "missed_in_text": 0.018,
+        "missed_partly_in_text": 0.144,
+        "missed_not_in_text": 0.484
+      }
+    },
+    "title": {
+      "n_gold_facts": 344,
+      "present": 50,
+      "contradicted": 0,
+      "n_not_conveyed": 294,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 232,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 37,
+          "no": 21,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 40,
+      "no": 253,
+      "unjudged": 0,
+      "share_in_text": 0.003,
+      "share_in_text_or_partly": 0.139,
+      "share_not_in_text": 0.861,
+      "of_gold": {
+        "present": 0.145,
+        "missed_in_text": 0.003,
+        "missed_partly_in_text": 0.116,
+        "missed_not_in_text": 0.735
+      }
+    }
+  },
+  "stopped_entries": [
+    "609296",
+    "620609",
+    "621068"
+  ],
+  "entries": {
+    "108770": {
+      "n_gold_facts": 23,
+      "present": 11,
+      "contradicted": 0,
+      "n_not_conveyed": 12,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 8,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 8,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.333,
+      "share_not_in_text": 0.667,
+      "of_gold": {
+        "present": 0.478,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.174,
+        "missed_not_in_text": 0.348
+      }
+    },
+    "118210": {
+      "n_gold_facts": 24,
+      "present": 13,
+      "contradicted": 1,
+      "n_not_conveyed": 10,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 6,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 3,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 3,
+      "no": 6,
+      "unjudged": 0,
+      "share_in_text": 0.1,
+      "share_in_text_or_partly": 0.4,
+      "share_not_in_text": 0.6,
+      "of_gold": {
+        "present": 0.542,
+        "missed_in_text": 0.042,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.25
+      }
+    },
+    "166780": {
+      "n_gold_facts": 18,
+      "present": 3,
+      "contradicted": 0,
+      "n_not_conveyed": 15,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 13,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.133,
+      "share_not_in_text": 0.867,
+      "of_gold": {
+        "present": 0.167,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.111,
+        "missed_not_in_text": 0.722
+      }
+    },
+    "167400": {
+      "n_gold_facts": 60,
+      "present": 8,
+      "contradicted": 0,
+      "n_not_conveyed": 52,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 36,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 11,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 11,
+      "no": 39,
+      "unjudged": 0,
+      "share_in_text": 0.038,
+      "share_in_text_or_partly": 0.25,
+      "share_not_in_text": 0.75,
+      "of_gold": {
+        "present": 0.133,
+        "missed_in_text": 0.033,
+        "missed_partly_in_text": 0.183,
+        "missed_not_in_text": 0.65
+      }
+    },
+    "177735": {
+      "n_gold_facts": 128,
+      "present": 56,
+      "contradicted": 4,
+      "n_not_conveyed": 68,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 3,
+          "no": 37,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 5,
+          "partly": 13,
+          "no": 9,
+          "unjudged": 0
+        }
+      },
+      "yes": 6,
+      "partly": 16,
+      "no": 46,
+      "unjudged": 0,
+      "share_in_text": 0.088,
+      "share_in_text_or_partly": 0.324,
+      "share_not_in_text": 0.676,
+      "of_gold": {
+        "present": 0.438,
+        "missed_in_text": 0.047,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.359
+      }
+    },
+    "186100": {
+      "n_gold_facts": 21,
+      "present": 4,
+      "contradicted": 0,
+      "n_not_conveyed": 17,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 11,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 3,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 3,
+      "no": 13,
+      "unjudged": 0,
+      "share_in_text": 0.059,
+      "share_in_text_or_partly": 0.235,
+      "share_not_in_text": 0.765,
+      "of_gold": {
+        "present": 0.19,
+        "missed_in_text": 0.048,
+        "missed_partly_in_text": 0.143,
+        "missed_not_in_text": 0.619
+      }
+    },
+    "205950": {
+      "n_gold_facts": 44,
+      "present": 6,
+      "contradicted": 0,
+      "n_not_conveyed": 38,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 31,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 4,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 4,
+      "no": 33,
+      "unjudged": 0,
+      "share_in_text": 0.026,
+      "share_in_text_or_partly": 0.132,
+      "share_not_in_text": 0.868,
+      "of_gold": {
+        "present": 0.136,
+        "missed_in_text": 0.023,
+        "missed_partly_in_text": 0.091,
+        "missed_not_in_text": 0.75
+      }
+    },
+    "219900": {
+      "n_gold_facts": 47,
+      "present": 5,
+      "contradicted": 0,
+      "n_not_conveyed": 42,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 32,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 9,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 9,
+      "no": 33,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.214,
+      "share_not_in_text": 0.786,
+      "of_gold": {
+        "present": 0.106,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.191,
+        "missed_not_in_text": 0.702
+      }
+    },
+    "225060": {
+      "n_gold_facts": 32,
+      "present": 11,
+      "contradicted": 0,
+      "n_not_conveyed": 21,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 15,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 4,
+          "partly": 1,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 1,
+      "no": 16,
+      "unjudged": 0,
+      "share_in_text": 0.19,
+      "share_in_text_or_partly": 0.238,
+      "share_not_in_text": 0.762,
+      "of_gold": {
+        "present": 0.344,
+        "missed_in_text": 0.125,
+        "missed_partly_in_text": 0.031,
+        "missed_not_in_text": 0.5
+      }
+    },
+    "225300": {
+      "n_gold_facts": 53,
+      "present": 18,
+      "contradicted": 0,
+      "n_not_conveyed": 35,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 27,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 7,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 7,
+      "no": 28,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.2,
+      "share_not_in_text": 0.8,
+      "of_gold": {
+        "present": 0.34,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.132,
+        "missed_not_in_text": 0.528
+      }
+    },
+    "236730": {
+      "n_gold_facts": 97,
+      "present": 12,
+      "contradicted": 0,
+      "n_not_conveyed": 85,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 4,
+          "no": 57,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 15,
+          "no": 8,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 19,
+      "no": 65,
+      "unjudged": 0,
+      "share_in_text": 0.012,
+      "share_in_text_or_partly": 0.235,
+      "share_not_in_text": 0.765,
+      "of_gold": {
+        "present": 0.124,
+        "missed_in_text": 0.01,
+        "missed_partly_in_text": 0.196,
+        "missed_not_in_text": 0.67
+      }
+    },
+    "241800": {
+      "n_gold_facts": 73,
+      "present": 10,
+      "contradicted": 1,
+      "n_not_conveyed": 62,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 41,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 13,
+          "no": 6,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 15,
+      "no": 47,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.242,
+      "share_not_in_text": 0.758,
+      "of_gold": {
+        "present": 0.137,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.205,
+        "missed_not_in_text": 0.644
+      }
+    },
+    "248360": {
+      "n_gold_facts": 67,
+      "present": 38,
+      "contradicted": 0,
+      "n_not_conveyed": 29,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 7,
+          "no": 17,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 3,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 10,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.034,
+      "share_in_text_or_partly": 0.379,
+      "share_not_in_text": 0.621,
+      "of_gold": {
+        "present": 0.567,
+        "missed_in_text": 0.015,
+        "missed_partly_in_text": 0.149,
+        "missed_not_in_text": 0.269
+      }
+    },
+    "250220": {
+      "n_gold_facts": 27,
+      "present": 17,
+      "contradicted": 0,
+      "n_not_conveyed": 10,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 5,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 6,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.4,
+      "share_not_in_text": 0.6,
+      "of_gold": {
+        "present": 0.63,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.148,
+        "missed_not_in_text": 0.222
+      }
+    },
+    "251950": {
+      "n_gold_facts": 58,
+      "present": 37,
+      "contradicted": 3,
+      "n_not_conveyed": 18,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 1,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 1,
+      "no": 15,
+      "unjudged": 0,
+      "share_in_text": 0.111,
+      "share_in_text_or_partly": 0.167,
+      "share_not_in_text": 0.833,
+      "of_gold": {
+        "present": 0.638,
+        "missed_in_text": 0.034,
+        "missed_partly_in_text": 0.017,
+        "missed_not_in_text": 0.259
+      }
+    },
+    "278750": {
+      "n_gold_facts": 68,
+      "present": 8,
+      "contradicted": 0,
+      "n_not_conveyed": 60,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 38,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 9,
+          "no": 11,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 9,
+      "no": 49,
+      "unjudged": 0,
+      "share_in_text": 0.033,
+      "share_in_text_or_partly": 0.183,
+      "share_not_in_text": 0.817,
+      "of_gold": {
+        "present": 0.118,
+        "missed_in_text": 0.029,
+        "missed_partly_in_text": 0.132,
+        "missed_not_in_text": 0.721
+      }
+    },
+    "300148": {
+      "n_gold_facts": 75,
+      "present": 39,
+      "contradicted": 1,
+      "n_not_conveyed": 35,
+      "by_draft_status": {
+        "absent": {
+          "yes": 6,
+          "partly": 2,
+          "no": 16,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 5,
+          "partly": 4,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 11,
+      "partly": 6,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.314,
+      "share_in_text_or_partly": 0.486,
+      "share_not_in_text": 0.514,
+      "of_gold": {
+        "present": 0.52,
+        "missed_in_text": 0.147,
+        "missed_partly_in_text": 0.08,
+        "missed_not_in_text": 0.24
+      }
+    },
+    "301059": {
+      "n_gold_facts": 45,
+      "present": 14,
+      "contradicted": 0,
+      "n_not_conveyed": 31,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 15,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 10,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 12,
+      "no": 19,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.387,
+      "share_not_in_text": 0.613,
+      "of_gold": {
+        "present": 0.311,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.267,
+        "missed_not_in_text": 0.422
+      }
+    },
+    "302905": {
+      "n_gold_facts": 13,
+      "present": 4,
+      "contradicted": 0,
+      "n_not_conveyed": 9,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 2,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 5,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.444,
+      "share_not_in_text": 0.556,
+      "of_gold": {
+        "present": 0.308,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.308,
+        "missed_not_in_text": 0.385
+      }
+    },
+    "500001": {
+      "n_gold_facts": 72,
+      "present": 25,
+      "contradicted": 0,
+      "n_not_conveyed": 47,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 33,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 6,
+          "no": 7,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 7,
+      "no": 40,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.149,
+      "share_not_in_text": 0.851,
+      "of_gold": {
+        "present": 0.347,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.097,
+        "missed_not_in_text": 0.556
+      }
+    },
+    "600204": {
+      "n_gold_facts": 40,
+      "present": 6,
+      "contradicted": 1,
+      "n_not_conveyed": 33,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 27,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 3,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 29,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.121,
+      "share_not_in_text": 0.879,
+      "of_gold": {
+        "present": 0.15,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.1,
+        "missed_not_in_text": 0.725
+      }
+    },
+    "600251": {
+      "n_gold_facts": 17,
+      "present": 1,
+      "contradicted": 0,
+      "n_not_conveyed": 16,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 14,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.125,
+      "share_not_in_text": 0.875,
+      "of_gold": {
+        "present": 0.059,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.118,
+        "missed_not_in_text": 0.824
+      }
+    },
+    "600501": {
+      "n_gold_facts": 16,
+      "present": 14,
+      "contradicted": 0,
+      "n_not_conveyed": 2,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 1,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 1,
+      "no": 1,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.5,
+      "share_not_in_text": 0.5,
+      "of_gold": {
+        "present": 0.875,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.062,
+        "missed_not_in_text": 0.062
+      }
+    },
+    "600740": {
+      "n_gold_facts": 43,
+      "present": 31,
+      "contradicted": 0,
+      "n_not_conveyed": 12,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 2,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 4,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 7,
+      "no": 2,
+      "unjudged": 0,
+      "share_in_text": 0.25,
+      "share_in_text_or_partly": 0.833,
+      "share_not_in_text": 0.167,
+      "of_gold": {
+        "present": 0.721,
+        "missed_in_text": 0.07,
+        "missed_partly_in_text": 0.163,
+        "missed_not_in_text": 0.047
+      }
+    },
+    "603552": {
+      "n_gold_facts": 63,
+      "present": 31,
+      "contradicted": 0,
+      "n_not_conveyed": 32,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 0,
+          "no": 18,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 10,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 10,
+      "no": 19,
+      "unjudged": 0,
+      "share_in_text": 0.094,
+      "share_in_text_or_partly": 0.406,
+      "share_not_in_text": 0.594,
+      "of_gold": {
+        "present": 0.492,
+        "missed_in_text": 0.048,
+        "missed_partly_in_text": 0.159,
+        "missed_not_in_text": 0.302
+      }
+    },
+    "603689": {
+      "n_gold_facts": 42,
+      "present": 13,
+      "contradicted": 0,
+      "n_not_conveyed": 29,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 0,
+          "no": 19,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 8,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 8,
+      "no": 20,
+      "unjudged": 0,
+      "share_in_text": 0.034,
+      "share_in_text_or_partly": 0.31,
+      "share_not_in_text": 0.69,
+      "of_gold": {
+        "present": 0.31,
+        "missed_in_text": 0.024,
+        "missed_partly_in_text": 0.19,
+        "missed_not_in_text": 0.476
+      }
+    },
+    "604307": {
+      "n_gold_facts": 74,
+      "present": 51,
+      "contradicted": 0,
+      "n_not_conveyed": 23,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 1,
+          "no": 12,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 5,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 6,
+      "no": 14,
+      "unjudged": 0,
+      "share_in_text": 0.13,
+      "share_in_text_or_partly": 0.391,
+      "share_not_in_text": 0.609,
+      "of_gold": {
+        "present": 0.689,
+        "missed_in_text": 0.041,
+        "missed_partly_in_text": 0.081,
+        "missed_not_in_text": 0.189
+      }
+    },
+    "604928": {
+      "n_gold_facts": 54,
+      "present": 20,
+      "contradicted": 0,
+      "n_not_conveyed": 34,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 1,
+          "no": 24,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 5,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 6,
+      "no": 25,
+      "unjudged": 0,
+      "share_in_text": 0.088,
+      "share_in_text_or_partly": 0.265,
+      "share_not_in_text": 0.735,
+      "of_gold": {
+        "present": 0.37,
+        "missed_in_text": 0.056,
+        "missed_partly_in_text": 0.111,
+        "missed_not_in_text": 0.463
+      }
+    },
+    "606763": {
+      "n_gold_facts": 50,
+      "present": 30,
+      "contradicted": 0,
+      "n_not_conveyed": 20,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 4,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 7,
+          "no": 6,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 7,
+      "no": 10,
+      "unjudged": 0,
+      "share_in_text": 0.15,
+      "share_in_text_or_partly": 0.5,
+      "share_not_in_text": 0.5,
+      "of_gold": {
+        "present": 0.6,
+        "missed_in_text": 0.06,
+        "missed_partly_in_text": 0.14,
+        "missed_not_in_text": 0.2
+      }
+    },
+    "606824": {
+      "n_gold_facts": 38,
+      "present": 18,
+      "contradicted": 0,
+      "n_not_conveyed": 20,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 17,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.1,
+      "share_not_in_text": 0.9,
+      "of_gold": {
+        "present": 0.474,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.053,
+        "missed_not_in_text": 0.474
+      }
+    },
+    "607602": {
+      "n_gold_facts": 20,
+      "present": 9,
+      "contradicted": 0,
+      "n_not_conveyed": 11,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 7,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 3,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 3,
+      "no": 8,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.273,
+      "share_not_in_text": 0.727,
+      "of_gold": {
+        "present": 0.45,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.15,
+        "missed_not_in_text": 0.4
+      }
+    },
+    "607641": {
+      "n_gold_facts": 29,
+      "present": 5,
+      "contradicted": 0,
+      "n_not_conveyed": 24,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 15,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 7,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 7,
+      "no": 17,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.292,
+      "share_not_in_text": 0.708,
+      "of_gold": {
+        "present": 0.172,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.241,
+        "missed_not_in_text": 0.586
+      }
+    },
+    "607721": {
+      "n_gold_facts": 58,
+      "present": 27,
+      "contradicted": 0,
+      "n_not_conveyed": 31,
+      "by_draft_status": {
+        "absent": {
+          "yes": 6,
+          "partly": 2,
+          "no": 10,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 6,
+          "partly": 7,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 12,
+      "partly": 9,
+      "no": 10,
+      "unjudged": 0,
+      "share_in_text": 0.387,
+      "share_in_text_or_partly": 0.677,
+      "share_not_in_text": 0.323,
+      "of_gold": {
+        "present": 0.466,
+        "missed_in_text": 0.207,
+        "missed_partly_in_text": 0.155,
+        "missed_not_in_text": 0.172
+      }
+    },
+    "607734": {
+      "n_gold_facts": 48,
+      "present": 20,
+      "contradicted": 1,
+      "n_not_conveyed": 27,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 17,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 4,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 6,
+      "no": 20,
+      "unjudged": 0,
+      "share_in_text": 0.037,
+      "share_in_text_or_partly": 0.259,
+      "share_not_in_text": 0.741,
+      "of_gold": {
+        "present": 0.417,
+        "missed_in_text": 0.021,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.417
+      }
+    },
+    "607876": {
+      "n_gold_facts": 40,
+      "present": 26,
+      "contradicted": 0,
+      "n_not_conveyed": 14,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 0,
+          "no": 3,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 5,
+          "partly": 5,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 6,
+      "partly": 5,
+      "no": 3,
+      "unjudged": 0,
+      "share_in_text": 0.429,
+      "share_in_text_or_partly": 0.786,
+      "share_not_in_text": 0.214,
+      "of_gold": {
+        "present": 0.65,
+        "missed_in_text": 0.15,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.075
+      }
+    },
+    "608133": {
+      "n_gold_facts": 104,
+      "present": 55,
+      "contradicted": 2,
+      "n_not_conveyed": 47,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 2,
+          "no": 31,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 5,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 5,
+      "partly": 7,
+      "no": 35,
+      "unjudged": 0,
+      "share_in_text": 0.106,
+      "share_in_text_or_partly": 0.255,
+      "share_not_in_text": 0.745,
+      "of_gold": {
+        "present": 0.529,
+        "missed_in_text": 0.048,
+        "missed_partly_in_text": 0.067,
+        "missed_not_in_text": 0.337
+      }
+    },
+    "608885": {
+      "n_gold_facts": 28,
+      "present": 6,
+      "contradicted": 0,
+      "n_not_conveyed": 22,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 7,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 7,
+      "no": 15,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.318,
+      "share_not_in_text": 0.682,
+      "of_gold": {
+        "present": 0.214,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.25,
+        "missed_not_in_text": 0.536
+      }
+    },
+    "609057": {
+      "n_gold_facts": 14,
+      "present": 13,
+      "contradicted": 0,
+      "n_not_conveyed": 1,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 1,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.929,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.071,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "609220": {
+      "n_gold_facts": 37,
+      "present": 11,
+      "contradicted": 0,
+      "n_not_conveyed": 26,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 18,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 5,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 6,
+      "no": 20,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.231,
+      "share_not_in_text": 0.769,
+      "of_gold": {
+        "present": 0.297,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.162,
+        "missed_not_in_text": 0.541
+      }
+    },
+    "611521": {
+      "n_gold_facts": 143,
+      "present": 83,
+      "contradicted": 2,
+      "n_not_conveyed": 58,
+      "by_draft_status": {
+        "absent": {
+          "yes": 4,
+          "partly": 1,
+          "no": 25,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 10,
+          "partly": 12,
+          "no": 6,
+          "unjudged": 0
+        }
+      },
+      "yes": 14,
+      "partly": 13,
+      "no": 31,
+      "unjudged": 0,
+      "share_in_text": 0.241,
+      "share_in_text_or_partly": 0.466,
+      "share_not_in_text": 0.534,
+      "of_gold": {
+        "present": 0.58,
+        "missed_in_text": 0.098,
+        "missed_partly_in_text": 0.091,
+        "missed_not_in_text": 0.217
+      }
+    },
+    "611880": {
+      "n_gold_facts": 12,
+      "present": 0,
+      "contradicted": 0,
+      "n_not_conveyed": 12,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 9,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 3,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 3,
+      "no": 9,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.25,
+      "share_not_in_text": 0.75,
+      "of_gold": {
+        "present": 0.0,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.25,
+        "missed_not_in_text": 0.75
+      }
+    },
+    "612847": {
+      "n_gold_facts": 79,
+      "present": 40,
+      "contradicted": 0,
+      "n_not_conveyed": 39,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 25,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 10,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 11,
+      "no": 27,
+      "unjudged": 0,
+      "share_in_text": 0.026,
+      "share_in_text_or_partly": 0.308,
+      "share_not_in_text": 0.692,
+      "of_gold": {
+        "present": 0.506,
+        "missed_in_text": 0.013,
+        "missed_partly_in_text": 0.139,
+        "missed_not_in_text": 0.342
+      }
+    },
+    "613581": {
+      "n_gold_facts": 74,
+      "present": 10,
+      "contradicted": 0,
+      "n_not_conveyed": 64,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 49,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 8,
+          "no": 7,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 8,
+      "no": 56,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.125,
+      "share_not_in_text": 0.875,
+      "of_gold": {
+        "present": 0.135,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.108,
+        "missed_not_in_text": 0.757
+      }
+    },
+    "613730": {
+      "n_gold_facts": 52,
+      "present": 41,
+      "contradicted": 1,
+      "n_not_conveyed": 10,
+      "by_draft_status": {
+        "absent": {
+          "yes": 4,
+          "partly": 0,
+          "no": 3,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 1,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 5,
+      "partly": 1,
+      "no": 4,
+      "unjudged": 0,
+      "share_in_text": 0.5,
+      "share_in_text_or_partly": 0.6,
+      "share_not_in_text": 0.4,
+      "of_gold": {
+        "present": 0.788,
+        "missed_in_text": 0.096,
+        "missed_partly_in_text": 0.019,
+        "missed_not_in_text": 0.077
+      }
+    },
+    "613744": {
+      "n_gold_facts": 74,
+      "present": 44,
+      "contradicted": 0,
+      "n_not_conveyed": 30,
+      "by_draft_status": {
+        "absent": {
+          "yes": 9,
+          "partly": 4,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 3,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 10,
+      "partly": 7,
+      "no": 13,
+      "unjudged": 0,
+      "share_in_text": 0.333,
+      "share_in_text_or_partly": 0.567,
+      "share_not_in_text": 0.433,
+      "of_gold": {
+        "present": 0.595,
+        "missed_in_text": 0.135,
+        "missed_partly_in_text": 0.095,
+        "missed_not_in_text": 0.176
+      }
+    },
+    "613848": {
+      "n_gold_facts": 33,
+      "present": 4,
+      "contradicted": 0,
+      "n_not_conveyed": 29,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 15,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 8,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 11,
+      "no": 16,
+      "unjudged": 0,
+      "share_in_text": 0.069,
+      "share_in_text_or_partly": 0.448,
+      "share_not_in_text": 0.552,
+      "of_gold": {
+        "present": 0.121,
+        "missed_in_text": 0.061,
+        "missed_partly_in_text": 0.333,
+        "missed_not_in_text": 0.485
+      }
+    },
+    "614501": {
+      "n_gold_facts": 15,
+      "present": 10,
+      "contradicted": 0,
+      "n_not_conveyed": 5,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 1,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 0.8,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.667,
+        "missed_in_text": 0.267,
+        "missed_partly_in_text": 0.067,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "614651": {
+      "n_gold_facts": 57,
+      "present": 37,
+      "contradicted": 1,
+      "n_not_conveyed": 19,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 0,
+          "no": 10,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 0,
+          "no": 7,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 0,
+      "no": 17,
+      "unjudged": 0,
+      "share_in_text": 0.105,
+      "share_in_text_or_partly": 0.105,
+      "share_not_in_text": 0.895,
+      "of_gold": {
+        "present": 0.649,
+        "missed_in_text": 0.035,
+        "missed_partly_in_text": 0.0,
+        "missed_not_in_text": 0.298
+      }
+    },
+    "614701": {
+      "n_gold_facts": 166,
+      "present": 39,
+      "contradicted": 2,
+      "n_not_conveyed": 125,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 100,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 17,
+          "no": 6,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 19,
+      "no": 106,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.152,
+      "share_not_in_text": 0.848,
+      "of_gold": {
+        "present": 0.235,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.114,
+        "missed_not_in_text": 0.639
+      }
+    },
+    "614856": {
+      "n_gold_facts": 101,
+      "present": 53,
+      "contradicted": 0,
+      "n_not_conveyed": 48,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 27,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 4,
+          "partly": 12,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 15,
+      "no": 29,
+      "unjudged": 0,
+      "share_in_text": 0.083,
+      "share_in_text_or_partly": 0.396,
+      "share_not_in_text": 0.604,
+      "of_gold": {
+        "present": 0.525,
+        "missed_in_text": 0.04,
+        "missed_partly_in_text": 0.149,
+        "missed_not_in_text": 0.287
+      }
+    },
+    "615073": {
+      "n_gold_facts": 41,
+      "present": 33,
+      "contradicted": 0,
+      "n_not_conveyed": 8,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 4,
+          "partly": 2,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 4,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 0.5,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.805,
+        "missed_in_text": 0.098,
+        "missed_partly_in_text": 0.098,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "615268": {
+      "n_gold_facts": 69,
+      "present": 44,
+      "contradicted": 1,
+      "n_not_conveyed": 24,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 1,
+          "no": 14,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 4,
+          "partly": 3,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 6,
+      "partly": 4,
+      "no": 14,
+      "unjudged": 0,
+      "share_in_text": 0.25,
+      "share_in_text_or_partly": 0.417,
+      "share_not_in_text": 0.583,
+      "of_gold": {
+        "present": 0.638,
+        "missed_in_text": 0.087,
+        "missed_partly_in_text": 0.058,
+        "missed_not_in_text": 0.203
+      }
+    },
+    "615425": {
+      "n_gold_facts": 69,
+      "present": 15,
+      "contradicted": 0,
+      "n_not_conveyed": 54,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 43,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 9,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 9,
+      "no": 45,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.167,
+      "share_not_in_text": 0.833,
+      "of_gold": {
+        "present": 0.217,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.13,
+        "missed_not_in_text": 0.652
+      }
+    },
+    "615493": {
+      "n_gold_facts": 32,
+      "present": 4,
+      "contradicted": 0,
+      "n_not_conveyed": 28,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 2,
+          "no": 18,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 4,
+      "no": 21,
+      "unjudged": 0,
+      "share_in_text": 0.107,
+      "share_in_text_or_partly": 0.25,
+      "share_not_in_text": 0.75,
+      "of_gold": {
+        "present": 0.125,
+        "missed_in_text": 0.094,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.656
+      }
+    },
+    "615582": {
+      "n_gold_facts": 117,
+      "present": 51,
+      "contradicted": 0,
+      "n_not_conveyed": 66,
+      "by_draft_status": {
+        "absent": {
+          "yes": 8,
+          "partly": 5,
+          "no": 41,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 5,
+          "partly": 4,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 13,
+      "partly": 9,
+      "no": 44,
+      "unjudged": 0,
+      "share_in_text": 0.197,
+      "share_in_text_or_partly": 0.333,
+      "share_not_in_text": 0.667,
+      "of_gold": {
+        "present": 0.436,
+        "missed_in_text": 0.111,
+        "missed_partly_in_text": 0.077,
+        "missed_not_in_text": 0.376
+      }
+    },
+    "615631": {
+      "n_gold_facts": 32,
+      "present": 10,
+      "contradicted": 0,
+      "n_not_conveyed": 22,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 16,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.182,
+      "share_not_in_text": 0.818,
+      "of_gold": {
+        "present": 0.312,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.562
+      }
+    },
+    "615710": {
+      "n_gold_facts": 96,
+      "present": 55,
+      "contradicted": 1,
+      "n_not_conveyed": 40,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 3,
+          "no": 16,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 14,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 5,
+      "partly": 17,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.125,
+      "share_in_text_or_partly": 0.55,
+      "share_not_in_text": 0.45,
+      "of_gold": {
+        "present": 0.573,
+        "missed_in_text": 0.052,
+        "missed_partly_in_text": 0.177,
+        "missed_not_in_text": 0.188
+      }
+    },
+    "615817": {
+      "n_gold_facts": 70,
+      "present": 34,
+      "contradicted": 0,
+      "n_not_conveyed": 36,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 26,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 8,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 9,
+      "no": 27,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.25,
+      "share_not_in_text": 0.75,
+      "of_gold": {
+        "present": 0.486,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.129,
+        "missed_not_in_text": 0.386
+      }
+    },
+    "615972": {
+      "n_gold_facts": 34,
+      "present": 25,
+      "contradicted": 1,
+      "n_not_conveyed": 8,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 2,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 4,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.5,
+      "share_not_in_text": 0.5,
+      "of_gold": {
+        "present": 0.735,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.118,
+        "missed_not_in_text": 0.118
+      }
+    },
+    "616151": {
+      "n_gold_facts": 82,
+      "present": 21,
+      "contradicted": 2,
+      "n_not_conveyed": 59,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 0,
+          "no": 44,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 8,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 8,
+      "no": 47,
+      "unjudged": 0,
+      "share_in_text": 0.068,
+      "share_in_text_or_partly": 0.203,
+      "share_not_in_text": 0.797,
+      "of_gold": {
+        "present": 0.256,
+        "missed_in_text": 0.049,
+        "missed_partly_in_text": 0.098,
+        "missed_not_in_text": 0.573
+      }
+    },
+    "616294": {
+      "n_gold_facts": 120,
+      "present": 61,
+      "contradicted": 0,
+      "n_not_conveyed": 59,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 46,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 7,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 10,
+      "no": 48,
+      "unjudged": 0,
+      "share_in_text": 0.017,
+      "share_in_text_or_partly": 0.186,
+      "share_not_in_text": 0.814,
+      "of_gold": {
+        "present": 0.508,
+        "missed_in_text": 0.008,
+        "missed_partly_in_text": 0.083,
+        "missed_not_in_text": 0.4
+      }
+    },
+    "616326": {
+      "n_gold_facts": 67,
+      "present": 24,
+      "contradicted": 1,
+      "n_not_conveyed": 42,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 2,
+          "no": 31,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 6,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 8,
+      "no": 33,
+      "unjudged": 0,
+      "share_in_text": 0.024,
+      "share_in_text_or_partly": 0.214,
+      "share_not_in_text": 0.786,
+      "of_gold": {
+        "present": 0.358,
+        "missed_in_text": 0.015,
+        "missed_partly_in_text": 0.119,
+        "missed_not_in_text": 0.493
+      }
+    },
+    "616482": {
+      "n_gold_facts": 30,
+      "present": 12,
+      "contradicted": 0,
+      "n_not_conveyed": 18,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 16,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 16,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.111,
+      "share_not_in_text": 0.889,
+      "of_gold": {
+        "present": 0.4,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.067,
+        "missed_not_in_text": 0.533
+      }
+    },
+    "616867": {
+      "n_gold_facts": 83,
+      "present": 17,
+      "contradicted": 0,
+      "n_not_conveyed": 66,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 50,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 10,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 12,
+      "no": 54,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.182,
+      "share_not_in_text": 0.818,
+      "of_gold": {
+        "present": 0.205,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.145,
+        "missed_not_in_text": 0.651
+      }
+    },
+    "617153": {
+      "n_gold_facts": 51,
+      "present": 18,
+      "contradicted": 0,
+      "n_not_conveyed": 33,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 0,
+          "no": 23,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 5,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 5,
+      "no": 27,
+      "unjudged": 0,
+      "share_in_text": 0.03,
+      "share_in_text_or_partly": 0.182,
+      "share_not_in_text": 0.818,
+      "of_gold": {
+        "present": 0.353,
+        "missed_in_text": 0.02,
+        "missed_partly_in_text": 0.098,
+        "missed_not_in_text": 0.529
+      }
+    },
+    "617162": {
+      "n_gold_facts": 67,
+      "present": 22,
+      "contradicted": 0,
+      "n_not_conveyed": 45,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 29,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 4,
+          "no": 12,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 4,
+      "no": 41,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.089,
+      "share_not_in_text": 0.911,
+      "of_gold": {
+        "present": 0.328,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.06,
+        "missed_not_in_text": 0.612
+      }
+    },
+    "617232": {
+      "n_gold_facts": 76,
+      "present": 55,
+      "contradicted": 1,
+      "n_not_conveyed": 20,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 11,
+          "partly": 4,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 14,
+      "partly": 5,
+      "no": 1,
+      "unjudged": 0,
+      "share_in_text": 0.7,
+      "share_in_text_or_partly": 0.95,
+      "share_not_in_text": 0.05,
+      "of_gold": {
+        "present": 0.724,
+        "missed_in_text": 0.184,
+        "missed_partly_in_text": 0.066,
+        "missed_not_in_text": 0.013
+      }
+    },
+    "617927": {
+      "n_gold_facts": 22,
+      "present": 21,
+      "contradicted": 0,
+      "n_not_conveyed": 1,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 0,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 1.0,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.955,
+        "missed_in_text": 0.045,
+        "missed_partly_in_text": 0.0,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "618184": {
+      "n_gold_facts": 45,
+      "present": 14,
+      "contradicted": 0,
+      "n_not_conveyed": 31,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 25,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 3,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 3,
+      "no": 27,
+      "unjudged": 0,
+      "share_in_text": 0.032,
+      "share_in_text_or_partly": 0.129,
+      "share_not_in_text": 0.871,
+      "of_gold": {
+        "present": 0.311,
+        "missed_in_text": 0.022,
+        "missed_partly_in_text": 0.067,
+        "missed_not_in_text": 0.6
+      }
+    },
+    "618229": {
+      "n_gold_facts": 41,
+      "present": 18,
+      "contradicted": 3,
+      "n_not_conveyed": 20,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 4,
+          "no": 11,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 3,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 7,
+      "no": 12,
+      "unjudged": 0,
+      "share_in_text": 0.05,
+      "share_in_text_or_partly": 0.4,
+      "share_not_in_text": 0.6,
+      "of_gold": {
+        "present": 0.439,
+        "missed_in_text": 0.024,
+        "missed_partly_in_text": 0.171,
+        "missed_not_in_text": 0.293
+      }
+    },
+    "618343": {
+      "n_gold_facts": 103,
+      "present": 49,
+      "contradicted": 2,
+      "n_not_conveyed": 52,
+      "by_draft_status": {
+        "absent": {
+          "yes": 4,
+          "partly": 2,
+          "no": 38,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 5,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 7,
+      "no": 41,
+      "unjudged": 0,
+      "share_in_text": 0.077,
+      "share_in_text_or_partly": 0.212,
+      "share_not_in_text": 0.788,
+      "of_gold": {
+        "present": 0.476,
+        "missed_in_text": 0.039,
+        "missed_partly_in_text": 0.068,
+        "missed_not_in_text": 0.398
+      }
+    },
+    "618400": {
+      "n_gold_facts": 44,
+      "present": 21,
+      "contradicted": 0,
+      "n_not_conveyed": 23,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 1,
+          "no": 10,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 8,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 9,
+      "no": 11,
+      "unjudged": 0,
+      "share_in_text": 0.13,
+      "share_in_text_or_partly": 0.522,
+      "share_not_in_text": 0.478,
+      "of_gold": {
+        "present": 0.477,
+        "missed_in_text": 0.068,
+        "missed_partly_in_text": 0.205,
+        "missed_not_in_text": 0.25
+      }
+    },
+    "618458": {
+      "n_gold_facts": 16,
+      "present": 10,
+      "contradicted": 0,
+      "n_not_conveyed": 6,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 4,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 4,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.333,
+      "share_not_in_text": 0.667,
+      "of_gold": {
+        "present": 0.625,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.125,
+        "missed_not_in_text": 0.25
+      }
+    },
+    "618808": {
+      "n_gold_facts": 53,
+      "present": 16,
+      "contradicted": 0,
+      "n_not_conveyed": 37,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 4,
+          "no": 24,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 7,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 11,
+      "no": 24,
+      "unjudged": 0,
+      "share_in_text": 0.054,
+      "share_in_text_or_partly": 0.351,
+      "share_not_in_text": 0.649,
+      "of_gold": {
+        "present": 0.302,
+        "missed_in_text": 0.038,
+        "missed_partly_in_text": 0.208,
+        "missed_not_in_text": 0.453
+      }
+    },
+    "618875": {
+      "n_gold_facts": 78,
+      "present": 24,
+      "contradicted": 2,
+      "n_not_conveyed": 52,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 3,
+          "no": 30,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 14,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 17,
+      "no": 34,
+      "unjudged": 0,
+      "share_in_text": 0.019,
+      "share_in_text_or_partly": 0.346,
+      "share_not_in_text": 0.654,
+      "of_gold": {
+        "present": 0.308,
+        "missed_in_text": 0.013,
+        "missed_partly_in_text": 0.218,
+        "missed_not_in_text": 0.436
+      }
+    },
+    "619124": {
+      "n_gold_facts": 164,
+      "present": 88,
+      "contradicted": 0,
+      "n_not_conveyed": 76,
+      "by_draft_status": {
+        "absent": {
+          "yes": 13,
+          "partly": 3,
+          "no": 23,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 28,
+          "partly": 9,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 41,
+      "partly": 12,
+      "no": 23,
+      "unjudged": 0,
+      "share_in_text": 0.539,
+      "share_in_text_or_partly": 0.697,
+      "share_not_in_text": 0.303,
+      "of_gold": {
+        "present": 0.537,
+        "missed_in_text": 0.25,
+        "missed_partly_in_text": 0.073,
+        "missed_not_in_text": 0.14
+      }
+    },
+    "619201": {
+      "n_gold_facts": 39,
+      "present": 30,
+      "contradicted": 0,
+      "n_not_conveyed": 9,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 6,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 3,
+      "no": 6,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.333,
+      "share_not_in_text": 0.667,
+      "of_gold": {
+        "present": 0.769,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.077,
+        "missed_not_in_text": 0.154
+      }
+    },
+    "619681": {
+      "n_gold_facts": 57,
+      "present": 49,
+      "contradicted": 0,
+      "n_not_conveyed": 8,
+      "by_draft_status": {
+        "absent": {
+          "yes": 4,
+          "partly": 0,
+          "no": 2,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 5,
+      "partly": 1,
+      "no": 2,
+      "unjudged": 0,
+      "share_in_text": 0.625,
+      "share_in_text_or_partly": 0.75,
+      "share_not_in_text": 0.25,
+      "of_gold": {
+        "present": 0.86,
+        "missed_in_text": 0.088,
+        "missed_partly_in_text": 0.018,
+        "missed_not_in_text": 0.035
+      }
+    },
+    "619816": {
+      "n_gold_facts": 37,
+      "present": 21,
+      "contradicted": 0,
+      "n_not_conveyed": 16,
+      "by_draft_status": {
+        "absent": {
+          "yes": 1,
+          "partly": 0,
+          "no": 12,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 1,
+      "no": 12,
+      "unjudged": 0,
+      "share_in_text": 0.188,
+      "share_in_text_or_partly": 0.25,
+      "share_not_in_text": 0.75,
+      "of_gold": {
+        "present": 0.568,
+        "missed_in_text": 0.081,
+        "missed_partly_in_text": 0.027,
+        "missed_not_in_text": 0.324
+      }
+    },
+    "620022": {
+      "n_gold_facts": 110,
+      "present": 83,
+      "contradicted": 0,
+      "n_not_conveyed": 27,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 0,
+          "no": 9,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 4,
+          "partly": 8,
+          "no": 3,
+          "unjudged": 0
+        }
+      },
+      "yes": 7,
+      "partly": 8,
+      "no": 12,
+      "unjudged": 0,
+      "share_in_text": 0.259,
+      "share_in_text_or_partly": 0.556,
+      "share_not_in_text": 0.444,
+      "of_gold": {
+        "present": 0.755,
+        "missed_in_text": 0.064,
+        "missed_partly_in_text": 0.073,
+        "missed_not_in_text": 0.109
+      }
+    },
+    "620029": {
+      "n_gold_facts": 58,
+      "present": 46,
+      "contradicted": 0,
+      "n_not_conveyed": 12,
+      "by_draft_status": {
+        "absent": {
+          "yes": 2,
+          "partly": 3,
+          "no": 1,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 4,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 7,
+      "no": 1,
+      "unjudged": 0,
+      "share_in_text": 0.333,
+      "share_in_text_or_partly": 0.917,
+      "share_not_in_text": 0.083,
+      "of_gold": {
+        "present": 0.793,
+        "missed_in_text": 0.069,
+        "missed_partly_in_text": 0.121,
+        "missed_not_in_text": 0.017
+      }
+    },
+    "620098": {
+      "n_gold_facts": 23,
+      "present": 15,
+      "contradicted": 0,
+      "n_not_conveyed": 8,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 4,
+          "no": 2,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 6,
+      "no": 2,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.75,
+      "share_not_in_text": 0.25,
+      "of_gold": {
+        "present": 0.652,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.261,
+        "missed_not_in_text": 0.087
+      }
+    },
+    "620249": {
+      "n_gold_facts": 87,
+      "present": 52,
+      "contradicted": 1,
+      "n_not_conveyed": 34,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 2,
+          "no": 20,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 7,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 9,
+      "no": 22,
+      "unjudged": 0,
+      "share_in_text": 0.088,
+      "share_in_text_or_partly": 0.353,
+      "share_not_in_text": 0.647,
+      "of_gold": {
+        "present": 0.598,
+        "missed_in_text": 0.034,
+        "missed_partly_in_text": 0.103,
+        "missed_not_in_text": 0.253
+      }
+    },
+    "620402": {
+      "n_gold_facts": 120,
+      "present": 46,
+      "contradicted": 0,
+      "n_not_conveyed": 74,
+      "by_draft_status": {
+        "absent": {
+          "yes": 6,
+          "partly": 1,
+          "no": 45,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 3,
+          "partly": 15,
+          "no": 4,
+          "unjudged": 0
+        }
+      },
+      "yes": 9,
+      "partly": 16,
+      "no": 49,
+      "unjudged": 0,
+      "share_in_text": 0.122,
+      "share_in_text_or_partly": 0.338,
+      "share_not_in_text": 0.662,
+      "of_gold": {
+        "present": 0.383,
+        "missed_in_text": 0.075,
+        "missed_partly_in_text": 0.133,
+        "missed_not_in_text": 0.408
+      }
+    },
+    "620457": {
+      "n_gold_facts": 19,
+      "present": 18,
+      "contradicted": 0,
+      "n_not_conveyed": 1,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 0,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 1.0,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.947,
+        "missed_in_text": 0.053,
+        "missed_partly_in_text": 0.0,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "620481": {
+      "n_gold_facts": 90,
+      "present": 51,
+      "contradicted": 0,
+      "n_not_conveyed": 39,
+      "by_draft_status": {
+        "absent": {
+          "yes": 5,
+          "partly": 1,
+          "no": 16,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 7,
+          "partly": 3,
+          "no": 7,
+          "unjudged": 0
+        }
+      },
+      "yes": 12,
+      "partly": 4,
+      "no": 23,
+      "unjudged": 0,
+      "share_in_text": 0.308,
+      "share_in_text_or_partly": 0.41,
+      "share_not_in_text": 0.59,
+      "of_gold": {
+        "present": 0.567,
+        "missed_in_text": 0.133,
+        "missed_partly_in_text": 0.044,
+        "missed_not_in_text": 0.256
+      }
+    },
+    "620507": {
+      "n_gold_facts": 37,
+      "present": 7,
+      "contradicted": 0,
+      "n_not_conveyed": 30,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 1,
+          "no": 15,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 2,
+          "partly": 10,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 2,
+      "partly": 11,
+      "no": 17,
+      "unjudged": 0,
+      "share_in_text": 0.067,
+      "share_in_text_or_partly": 0.433,
+      "share_not_in_text": 0.567,
+      "of_gold": {
+        "present": 0.189,
+        "missed_in_text": 0.054,
+        "missed_partly_in_text": 0.297,
+        "missed_not_in_text": 0.459
+      }
+    },
+    "620528": {
+      "n_gold_facts": 73,
+      "present": 9,
+      "contradicted": 0,
+      "n_not_conveyed": 64,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 45,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 10,
+          "no": 9,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 10,
+      "no": 54,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.156,
+      "share_not_in_text": 0.844,
+      "of_gold": {
+        "present": 0.123,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.137,
+        "missed_not_in_text": 0.74
+      }
+    },
+    "620662": {
+      "n_gold_facts": 29,
+      "present": 4,
+      "contradicted": 0,
+      "n_not_conveyed": 25,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 18,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 7,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 7,
+      "no": 18,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.28,
+      "share_not_in_text": 0.72,
+      "of_gold": {
+        "present": 0.138,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.241,
+        "missed_not_in_text": 0.621
+      }
+    },
+    "620670": {
+      "n_gold_facts": 41,
+      "present": 32,
+      "contradicted": 0,
+      "n_not_conveyed": 9,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 1,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 7,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 7,
+      "partly": 1,
+      "no": 1,
+      "unjudged": 0,
+      "share_in_text": 0.778,
+      "share_in_text_or_partly": 0.889,
+      "share_not_in_text": 0.111,
+      "of_gold": {
+        "present": 0.78,
+        "missed_in_text": 0.171,
+        "missed_partly_in_text": 0.024,
+        "missed_not_in_text": 0.024
+      }
+    },
+    "620718": {
+      "n_gold_facts": 86,
+      "present": 17,
+      "contradicted": 1,
+      "n_not_conveyed": 68,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 41,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 19,
+          "no": 8,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 19,
+      "no": 49,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.279,
+      "share_not_in_text": 0.721,
+      "of_gold": {
+        "present": 0.198,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.221,
+        "missed_not_in_text": 0.57
+      }
+    },
+    "620851": {
+      "n_gold_facts": 34,
+      "present": 20,
+      "contradicted": 0,
+      "n_not_conveyed": 14,
+      "by_draft_status": {
+        "absent": {
+          "yes": 3,
+          "partly": 1,
+          "no": 8,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 3,
+      "partly": 3,
+      "no": 8,
+      "unjudged": 0,
+      "share_in_text": 0.214,
+      "share_in_text_or_partly": 0.429,
+      "share_not_in_text": 0.571,
+      "of_gold": {
+        "present": 0.588,
+        "missed_in_text": 0.088,
+        "missed_partly_in_text": 0.088,
+        "missed_not_in_text": 0.235
+      }
+    },
+    "621030": {
+      "n_gold_facts": 31,
+      "present": 26,
+      "contradicted": 0,
+      "n_not_conveyed": 5,
+      "by_draft_status": {
+        "absent": {
+          "yes": 4,
+          "partly": 0,
+          "no": 0,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 1,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 4,
+      "partly": 1,
+      "no": 0,
+      "unjudged": 0,
+      "share_in_text": 0.8,
+      "share_in_text_or_partly": 1.0,
+      "share_not_in_text": 0.0,
+      "of_gold": {
+        "present": 0.839,
+        "missed_in_text": 0.129,
+        "missed_partly_in_text": 0.032,
+        "missed_not_in_text": 0.0
+      }
+    },
+    "621169": {
+      "n_gold_facts": 30,
+      "present": 14,
+      "contradicted": 0,
+      "n_not_conveyed": 16,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 13,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 2,
+          "no": 1,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 2,
+      "no": 14,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.125,
+      "share_not_in_text": 0.875,
+      "of_gold": {
+        "present": 0.467,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.067,
+        "missed_not_in_text": 0.467
+      }
+    },
+    "621214": {
+      "n_gold_facts": 61,
+      "present": 7,
+      "contradicted": 0,
+      "n_not_conveyed": 54,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 45,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 6,
+          "no": 2,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 6,
+      "no": 47,
+      "unjudged": 0,
+      "share_in_text": 0.019,
+      "share_in_text_or_partly": 0.13,
+      "share_not_in_text": 0.87,
+      "of_gold": {
+        "present": 0.115,
+        "missed_in_text": 0.016,
+        "missed_partly_in_text": 0.098,
+        "missed_not_in_text": 0.77
+      }
+    },
+    "621224": {
+      "n_gold_facts": 53,
+      "present": 2,
+      "contradicted": 0,
+      "n_not_conveyed": 51,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 4,
+          "no": 37,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 0,
+          "partly": 10,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 0,
+      "partly": 14,
+      "no": 37,
+      "unjudged": 0,
+      "share_in_text": 0.0,
+      "share_in_text_or_partly": 0.275,
+      "share_not_in_text": 0.725,
+      "of_gold": {
+        "present": 0.038,
+        "missed_in_text": 0.0,
+        "missed_partly_in_text": 0.264,
+        "missed_not_in_text": 0.698
+      }
+    },
+    "621313": {
+      "n_gold_facts": 47,
+      "present": 31,
+      "contradicted": 0,
+      "n_not_conveyed": 16,
+      "by_draft_status": {
+        "absent": {
+          "yes": 0,
+          "partly": 0,
+          "no": 11,
+          "unjudged": 0
+        },
+        "partial": {
+          "yes": 1,
+          "partly": 4,
+          "no": 0,
+          "unjudged": 0
+        }
+      },
+      "yes": 1,
+      "partly": 4,
+      "no": 11,
+      "unjudged": 0,
+      "share_in_text": 0.062,
+      "share_in_text_or_partly": 0.312,
+      "share_not_in_text": 0.688,
+      "of_gold": {
+        "present": 0.66,
+        "missed_in_text": 0.021,
+        "missed_partly_in_text": 0.085,
+        "missed_not_in_text": 0.234
+      }
+    }
+  }
+}

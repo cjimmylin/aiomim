@@ -1,0 +1,2324 @@
+{
+  "run": "omim100_reconciled",
+  "baseline": "cohort",
+  "n_entries": 100,
+  "stopped": {},
+  "strategies": [
+    {
+      "name": "cohort",
+      "label": "Case table first",
+      "summary": "One structured record per reported patient or family, pooled into a case table; the entry is rendered from it.",
+      "control": false,
+      "n_entries": 100
+    },
+    {
+      "name": "reconciled",
+      "label": "Reconciled case database",
+      "summary": "The case table after merging the same patient, family or variant across papers and settling conflicts.",
+      "control": false,
+      "n_entries": 100
+    }
+  ],
+  "means": [
+    {
+      "metric": "claim_supported_rate",
+      "label": "Claims supported by cited paper",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.9455,
+        "reconciled": 0.9455
+      },
+      "n": {
+        "cohort": 99,
+        "reconciled": 99
+      }
+    },
+    {
+      "metric": "claim_error_rate",
+      "label": "Claims unsupported or contradicted",
+      "higher_is_better": false,
+      "values": {
+        "cohort": 0.002,
+        "reconciled": 0.0021
+      },
+      "n": {
+        "cohort": 99,
+        "reconciled": 99
+      }
+    },
+    {
+      "metric": "claim_error_rate_before_repair",
+      "label": "\u2026 same, before the repair round",
+      "higher_is_better": false,
+      "values": {
+        "cohort": 0.0075,
+        "reconciled": 0.0083
+      },
+      "n": {
+        "cohort": 99,
+        "reconciled": 99
+      }
+    },
+    {
+      "metric": "gold_fact_coverage",
+      "label": "OMIM per-paper facts conveyed",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.4903,
+        "reconciled": 0.4911
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "gold_fact_strict_coverage",
+      "label": "\u2026 fully (no partial credit)",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.4108,
+        "reconciled": 0.4143
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "gold_fact_contradiction_rate",
+      "label": "OMIM per-paper facts contradicted",
+      "higher_is_better": false,
+      "values": {
+        "cohort": 0.0066,
+        "reconciled": 0.007
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "hpo_exact_f1",
+      "label": "Clinical synopsis HPO F1, exact",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.3396,
+        "reconciled": 0.3391
+      },
+      "n": {
+        "cohort": 98,
+        "reconciled": 98
+      }
+    },
+    {
+      "metric": "hpo_exact_precision",
+      "label": "\u2026 precision",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.4057,
+        "reconciled": 0.4057
+      },
+      "n": {
+        "cohort": 98,
+        "reconciled": 98
+      }
+    },
+    {
+      "metric": "hpo_exact_recall",
+      "label": "\u2026 recall",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.3678,
+        "reconciled": 0.3657
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "hpo_hierarchical_f1",
+      "label": "Clinical synopsis HPO F1, hierarchical",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.5402,
+        "reconciled": 0.5405
+      },
+      "n": {
+        "cohort": 98,
+        "reconciled": 98
+      }
+    },
+    {
+      "metric": "hpo_semantic_f1",
+      "label": "Clinical synopsis HPO F1, semantic",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.6468,
+        "reconciled": 0.6472
+      },
+      "n": {
+        "cohort": 98,
+        "reconciled": 98
+      }
+    },
+    {
+      "metric": "variant_recall",
+      "label": "OMIM allelic variants recovered",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.6353,
+        "reconciled": 0.6362
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "gene_f1",
+      "label": "Causal gene F1",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.9618,
+        "reconciled": 0.9618
+      },
+      "n": {
+        "cohort": 96,
+        "reconciled": 96
+      }
+    },
+    {
+      "metric": "inheritance_match",
+      "label": "Inheritance matches OMIM",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.9,
+        "reconciled": 0.9
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "reference_recall",
+      "label": "OMIM references used",
+      "higher_is_better": true,
+      "values": {
+        "cohort": 0.9353,
+        "reconciled": 0.9323
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    }
+  ],
+  "volume": [
+    {
+      "metric": "claims",
+      "label": "Claims audited per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 116.5,
+        "reconciled": 116.43
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "claims_not_checkable",
+      "label": "Claims that could not be audited per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 2.29,
+        "reconciled": 3.43
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "synopsis_terms",
+      "label": "Clinical-synopsis HPO terms per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 21.28,
+        "reconciled": 21.16
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "variants",
+      "label": "Allelic variants per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 3.99,
+        "reconciled": 3.98
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "references",
+      "label": "Papers cited per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 4.87,
+        "reconciled": 4.85
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    },
+    {
+      "metric": "dropped_paragraphs",
+      "label": "Paragraphs dropped by the grounding guards per entry",
+      "higher_is_better": null,
+      "values": {
+        "cohort": 0.0,
+        "reconciled": 0.0
+      },
+      "n": {
+        "cohort": 100,
+        "reconciled": 100
+      }
+    }
+  ],
+  "versus_baseline": {
+    "reconciled": [
+      {
+        "metric": "claim_supported_rate",
+        "label": "Claims supported by cited paper",
+        "higher_is_better": true,
+        "n": 99,
+        "strategy": 0.9455,
+        "baseline": 0.9455,
+        "difference": 0.0,
+        "ci95": [
+          -0.004,
+          0.0039
+        ],
+        "better": 14,
+        "worse": 14,
+        "ties": 71,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "claim_error_rate",
+        "label": "Claims unsupported or contradicted",
+        "higher_is_better": false,
+        "n": 99,
+        "strategy": 0.0021,
+        "baseline": 0.002,
+        "difference": 0.0001,
+        "ci95": [
+          0.0,
+          0.0003
+        ],
+        "better": 0,
+        "worse": 1,
+        "ties": 98,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "claim_error_rate_before_repair",
+        "label": "\u2026 same, before the repair round",
+        "higher_is_better": false,
+        "n": 99,
+        "strategy": 0.0083,
+        "baseline": 0.0075,
+        "difference": 0.0008,
+        "ci95": [
+          -0.0005,
+          0.0022
+        ],
+        "better": 4,
+        "worse": 13,
+        "ties": 82,
+        "sign_test_p": 0.049
+      },
+      {
+        "metric": "gold_fact_coverage",
+        "label": "OMIM per-paper facts conveyed",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.4911,
+        "baseline": 0.4903,
+        "difference": 0.0008,
+        "ci95": [
+          -0.0018,
+          0.0033
+        ],
+        "better": 15,
+        "worse": 9,
+        "ties": 76,
+        "sign_test_p": 0.3075
+      },
+      {
+        "metric": "gold_fact_strict_coverage",
+        "label": "\u2026 fully (no partial credit)",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.4143,
+        "baseline": 0.4108,
+        "difference": 0.0035,
+        "ci95": [
+          -0.0003,
+          0.0078
+        ],
+        "better": 17,
+        "worse": 6,
+        "ties": 77,
+        "sign_test_p": 0.0347
+      },
+      {
+        "metric": "gold_fact_contradiction_rate",
+        "label": "OMIM per-paper facts contradicted",
+        "higher_is_better": false,
+        "n": 100,
+        "strategy": 0.007,
+        "baseline": 0.0066,
+        "difference": 0.0004,
+        "ci95": [
+          -0.0002,
+          0.0011
+        ],
+        "better": 4,
+        "worse": 4,
+        "ties": 92,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "hpo_exact_f1",
+        "label": "Clinical synopsis HPO F1, exact",
+        "higher_is_better": true,
+        "n": 98,
+        "strategy": 0.3391,
+        "baseline": 0.3396,
+        "difference": -0.0005,
+        "ci95": [
+          -0.0037,
+          0.0028
+        ],
+        "better": 6,
+        "worse": 5,
+        "ties": 87,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "hpo_exact_precision",
+        "label": "\u2026 precision",
+        "higher_is_better": true,
+        "n": 98,
+        "strategy": 0.4057,
+        "baseline": 0.4057,
+        "difference": 0.0001,
+        "ci95": [
+          -0.0029,
+          0.003
+        ],
+        "better": 6,
+        "worse": 4,
+        "ties": 88,
+        "sign_test_p": 0.7539
+      },
+      {
+        "metric": "hpo_exact_recall",
+        "label": "\u2026 recall",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.3657,
+        "baseline": 0.3678,
+        "difference": -0.002,
+        "ci95": [
+          -0.0057,
+          0.0012
+        ],
+        "better": 1,
+        "worse": 4,
+        "ties": 95,
+        "sign_test_p": 0.375
+      },
+      {
+        "metric": "hpo_hierarchical_f1",
+        "label": "Clinical synopsis HPO F1, hierarchical",
+        "higher_is_better": true,
+        "n": 98,
+        "strategy": 0.5405,
+        "baseline": 0.5402,
+        "difference": 0.0003,
+        "ci95": [
+          -0.0001,
+          0.001
+        ],
+        "better": 2,
+        "worse": 1,
+        "ties": 95,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "hpo_semantic_f1",
+        "label": "Clinical synopsis HPO F1, semantic",
+        "higher_is_better": true,
+        "n": 98,
+        "strategy": 0.6472,
+        "baseline": 0.6468,
+        "difference": 0.0004,
+        "ci95": [
+          -0.0009,
+          0.0022
+        ],
+        "better": 4,
+        "worse": 7,
+        "ties": 87,
+        "sign_test_p": 0.5488
+      },
+      {
+        "metric": "variant_recall",
+        "label": "OMIM allelic variants recovered",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.6362,
+        "baseline": 0.6353,
+        "difference": 0.0009,
+        "ci95": [
+          0.0,
+          0.0027
+        ],
+        "better": 1,
+        "worse": 0,
+        "ties": 99,
+        "sign_test_p": 1.0
+      },
+      {
+        "metric": "gene_f1",
+        "label": "Causal gene F1",
+        "higher_is_better": true,
+        "n": 96,
+        "strategy": 0.9618,
+        "baseline": 0.9618,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "better": 0,
+        "worse": 0,
+        "ties": 96,
+        "sign_test_p": null
+      },
+      {
+        "metric": "inheritance_match",
+        "label": "Inheritance matches OMIM",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.9,
+        "baseline": 0.9,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "better": 0,
+        "worse": 0,
+        "ties": 100,
+        "sign_test_p": null
+      },
+      {
+        "metric": "reference_recall",
+        "label": "OMIM references used",
+        "higher_is_better": true,
+        "n": 100,
+        "strategy": 0.9323,
+        "baseline": 0.9353,
+        "difference": -0.003,
+        "ci95": [
+          -0.008,
+          0.0
+        ],
+        "better": 0,
+        "worse": 2,
+        "ties": 98,
+        "sign_test_p": 0.5
+      }
+    ]
+  },
+  "pooled": {
+    "cohort": {
+      "claims": {
+        "supported": 11162,
+        "partially_supported": 487,
+        "unsupported": 1,
+        "contradicted": 0,
+        "n": 11650,
+        "supported_rate": 0.9581,
+        "error_rate": 0.0001
+      },
+      "gold_facts": {
+        "n_facts": 5677,
+        "present": 2286,
+        "partial": 883,
+        "absent": 2471,
+        "contradicted": 37,
+        "coverage": 0.4804,
+        "contradiction_rate": 0.0065
+      }
+    },
+    "reconciled": {
+      "claims": {
+        "supported": 11152,
+        "partially_supported": 489,
+        "unsupported": 2,
+        "contradicted": 0,
+        "n": 11643,
+        "supported_rate": 0.9578,
+        "error_rate": 0.0002
+      },
+      "gold_facts": {
+        "n_facts": 5685,
+        "present": 2313,
+        "partial": 864,
+        "absent": 2470,
+        "contradicted": 38,
+        "coverage": 0.4828,
+        "contradiction_rate": 0.0067
+      }
+    }
+  },
+  "by_content_level": {
+    "abstract": {
+      "cohort": {
+        "n_facts": 3743,
+        "present": 1254,
+        "partial": 655,
+        "contradicted": 27,
+        "coverage": 0.4225,
+        "contradiction_rate": 0.0072
+      },
+      "reconciled": {
+        "n_facts": 3747,
+        "present": 1262,
+        "partial": 649,
+        "contradicted": 27,
+        "coverage": 0.4234,
+        "contradiction_rate": 0.0072
+      }
+    },
+    "fulltext": {
+      "cohort": {
+        "n_facts": 1568,
+        "present": 978,
+        "partial": 157,
+        "contradicted": 9,
+        "coverage": 0.6738,
+        "contradiction_rate": 0.0057
+      },
+      "reconciled": {
+        "n_facts": 1576,
+        "present": 998,
+        "partial": 145,
+        "contradicted": 10,
+        "coverage": 0.6793,
+        "contradiction_rate": 0.0063
+      }
+    },
+    "title": {
+      "cohort": {
+        "n_facts": 366,
+        "present": 54,
+        "partial": 71,
+        "contradicted": 1,
+        "coverage": 0.2445,
+        "contradiction_rate": 0.0027
+      },
+      "reconciled": {
+        "n_facts": 362,
+        "present": 53,
+        "partial": 70,
+        "contradicted": 1,
+        "coverage": 0.2431,
+        "contradiction_rate": 0.0028
+      }
+    }
+  },
+  "by_stratum": {
+    "600000-609999": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9265,
+            "reconciled": 0.9291
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.004,
+            "reconciled": 0.0043
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5362,
+            "reconciled": 0.537
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0056,
+            "reconciled": 0.0075
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3786,
+            "reconciled": 0.3742
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6024,
+            "reconciled": 0.6024
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6819,
+            "reconciled": 0.6819
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9474,
+            "reconciled": 0.9474
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9,
+            "reconciled": 0.9
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        }
+      ]
+    },
+    "610000-615999": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9435,
+            "reconciled": 0.9472
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0069,
+            "reconciled": 0.0063
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5119,
+            "reconciled": 0.5173
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0128,
+            "reconciled": 0.0129
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3381,
+            "reconciled": 0.3381
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4945,
+            "reconciled": 0.4944
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.7035,
+            "reconciled": 0.708
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        }
+      ]
+    },
+    "616000-619999": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9469,
+            "reconciled": 0.9469
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0208,
+            "reconciled": 0.0216
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4885,
+            "reconciled": 0.4886
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0086,
+            "reconciled": 0.0085
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3228,
+            "reconciled": 0.3185
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5238,
+            "reconciled": 0.5238
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.736,
+            "reconciled": 0.736
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.85,
+            "reconciled": 0.85
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        }
+      ]
+    },
+    "620000 onward": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9651,
+            "reconciled": 0.9591
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0013,
+            "reconciled": 0.002
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.503,
+            "reconciled": 0.5029
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0005,
+            "reconciled": 0.0005
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3516,
+            "reconciled": 0.3571
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5462,
+            "reconciled": 0.5479
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.645,
+            "reconciled": 0.645
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9474,
+            "reconciled": 0.9474
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9,
+            "reconciled": 0.9
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        }
+      ]
+    },
+    "classic (1xxxxx-5xxxxx)": {
+      "n": 20,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9466,
+            "reconciled": 0.9462
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0043,
+            "reconciled": 0.007
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.412,
+            "reconciled": 0.4096
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0053,
+            "reconciled": 0.0053
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3065,
+            "reconciled": 0.3074
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5334,
+            "reconciled": 0.5334
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4102,
+            "reconciled": 0.4102
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9123,
+            "reconciled": 0.9123
+          },
+          "n": {
+            "cohort": 19,
+            "reconciled": 19
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.85,
+            "reconciled": 0.85
+          },
+          "n": {
+            "cohort": 20,
+            "reconciled": 20
+          }
+        }
+      ]
+    }
+  },
+  "by_access": {
+    "no full text (abstracts only)": {
+      "n": 46,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9367,
+            "reconciled": 0.937
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0051,
+            "reconciled": 0.0055
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4,
+            "reconciled": 0.3982
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0039,
+            "reconciled": 0.0039
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.2992,
+            "reconciled": 0.2979
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4908,
+            "reconciled": 0.4908
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4777,
+            "reconciled": 0.4777
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9167,
+            "reconciled": 0.9167
+          },
+          "n": {
+            "cohort": 44,
+            "reconciled": 44
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.8696,
+            "reconciled": 0.8696
+          },
+          "n": {
+            "cohort": 46,
+            "reconciled": 46
+          }
+        }
+      ]
+    },
+    "under half full text": {
+      "n": 28,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9511,
+            "reconciled": 0.9491
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0046,
+            "reconciled": 0.0064
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5116,
+            "reconciled": 0.515
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0083,
+            "reconciled": 0.0097
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3496,
+            "reconciled": 0.3469
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5785,
+            "reconciled": 0.5783
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.7269,
+            "reconciled": 0.7269
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9286,
+            "reconciled": 0.9286
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        }
+      ]
+    },
+    "half or more full text": {
+      "n": 23,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9561,
+            "reconciled": 0.9583
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0165,
+            "reconciled": 0.017
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.633,
+            "reconciled": 0.6357
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0034,
+            "reconciled": 0.0033
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3949,
+            "reconciled": 0.3988
+          },
+          "n": {
+            "cohort": 22,
+            "reconciled": 22
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5784,
+            "reconciled": 0.5799
+          },
+          "n": {
+            "cohort": 22,
+            "reconciled": 22
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.8352,
+            "reconciled": 0.8391
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 22,
+            "reconciled": 22
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9565,
+            "reconciled": 0.9565
+          },
+          "n": {
+            "cohort": 23,
+            "reconciled": 23
+          }
+        }
+      ]
+    },
+    "all full text": {
+      "n": 3,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9465,
+            "reconciled": 0.9465
+          },
+          "n": {
+            "cohort": 2,
+            "reconciled": 2
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0,
+            "reconciled": 0.0
+          },
+          "n": {
+            "cohort": 2,
+            "reconciled": 2
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5823,
+            "reconciled": 0.5823
+          },
+          "n": {
+            "cohort": 3,
+            "reconciled": 3
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0557,
+            "reconciled": 0.0557
+          },
+          "n": {
+            "cohort": 3,
+            "reconciled": 3
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.519,
+            "reconciled": 0.519
+          },
+          "n": {
+            "cohort": 2,
+            "reconciled": 2
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.72,
+            "reconciled": 0.72
+          },
+          "n": {
+            "cohort": 2,
+            "reconciled": 2
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6667,
+            "reconciled": 0.6667
+          },
+          "n": {
+            "cohort": 3,
+            "reconciled": 3
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 1.0,
+            "reconciled": 1.0
+          },
+          "n": {
+            "cohort": 2,
+            "reconciled": 2
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6667,
+            "reconciled": 0.6667
+          },
+          "n": {
+            "cohort": 3,
+            "reconciled": 3
+          }
+        }
+      ]
+    }
+  },
+  "by_reference_count": {
+    "2-4 references": {
+      "n": 55,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9385,
+            "reconciled": 0.94
+          },
+          "n": {
+            "cohort": 54,
+            "reconciled": 54
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0111,
+            "reconciled": 0.0111
+          },
+          "n": {
+            "cohort": 54,
+            "reconciled": 54
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4951,
+            "reconciled": 0.4946
+          },
+          "n": {
+            "cohort": 55,
+            "reconciled": 55
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0066,
+            "reconciled": 0.0066
+          },
+          "n": {
+            "cohort": 55,
+            "reconciled": 55
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.339,
+            "reconciled": 0.338
+          },
+          "n": {
+            "cohort": 53,
+            "reconciled": 53
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5343,
+            "reconciled": 0.5349
+          },
+          "n": {
+            "cohort": 53,
+            "reconciled": 53
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6316,
+            "reconciled": 0.6316
+          },
+          "n": {
+            "cohort": 55,
+            "reconciled": 55
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9615,
+            "reconciled": 0.9615
+          },
+          "n": {
+            "cohort": 52,
+            "reconciled": 52
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9091,
+            "reconciled": 0.9091
+          },
+          "n": {
+            "cohort": 55,
+            "reconciled": 55
+          }
+        }
+      ]
+    },
+    "5-8 references": {
+      "n": 28,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9544,
+            "reconciled": 0.9506
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0026,
+            "reconciled": 0.0052
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4769,
+            "reconciled": 0.4776
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0059,
+            "reconciled": 0.0059
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3192,
+            "reconciled": 0.32
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.54,
+            "reconciled": 0.54
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6134,
+            "reconciled": 0.6166
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9881,
+            "reconciled": 0.9881
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.8571,
+            "reconciled": 0.8571
+          },
+          "n": {
+            "cohort": 28,
+            "reconciled": 28
+          }
+        }
+      ]
+    },
+    "9 or more references": {
+      "n": 17,
+      "means": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9533,
+            "reconciled": 0.9549
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "claim_error_rate_before_repair",
+          "label": "\u2026 same, before the repair round",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0041,
+            "reconciled": 0.0043
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.4968,
+            "reconciled": 0.5018
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "gold_fact_contradiction_rate",
+          "label": "OMIM per-paper facts contradicted",
+          "higher_is_better": false,
+          "values": {
+            "cohort": 0.0077,
+            "reconciled": 0.0101
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.3748,
+            "reconciled": 0.3737
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.5588,
+            "reconciled": 0.5585
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.6835,
+            "reconciled": 0.6835
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9167,
+            "reconciled": 0.9167
+          },
+          "n": {
+            "cohort": 16,
+            "reconciled": 16
+          }
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "values": {
+            "cohort": 0.9412,
+            "reconciled": 0.9412
+          },
+          "n": {
+            "cohort": 17,
+            "reconciled": 17
+          }
+        }
+      ]
+    }
+  },
+  "cost": {
+    "cohort": {
+      "entries": 100,
+      "generate": {
+        "calls": 699,
+        "turns": 1421,
+        "input_tokens": 6688398,
+        "output_tokens": 1759006,
+        "list_price_usd": 64.03,
+        "seconds": 14618.0,
+        "per_entry": {
+          "calls": 7.0,
+          "list_price_usd": 0.64,
+          "input_tokens": 66884,
+          "output_tokens": 17590,
+          "seconds": 146.2
+        }
+      },
+      "audit": {
+        "calls": 703,
+        "turns": 1413,
+        "input_tokens": 5445511,
+        "output_tokens": 2317362,
+        "list_price_usd": 80.58,
+        "seconds": 18457.1,
+        "per_entry": {
+          "calls": 7.0,
+          "list_price_usd": 0.806,
+          "input_tokens": 54455,
+          "output_tokens": 23174,
+          "seconds": 184.6
+        }
+      },
+      "score": {
+        "calls": 533,
+        "turns": 1046,
+        "input_tokens": 2064639,
+        "output_tokens": 369051,
+        "list_price_usd": 19.71,
+        "seconds": 4606.9,
+        "per_entry": {
+          "calls": 5.3,
+          "list_price_usd": 0.197,
+          "input_tokens": 20646,
+          "output_tokens": 3691,
+          "seconds": 46.1
+        }
+      },
+      "total": {
+        "calls": 1935,
+        "turns": 3880,
+        "input_tokens": 14198548,
+        "output_tokens": 4445419,
+        "list_price_usd": 164.31,
+        "seconds": 37682.1,
+        "per_entry": {
+          "calls": 19.4,
+          "list_price_usd": 1.643,
+          "input_tokens": 141985,
+          "output_tokens": 44454,
+          "seconds": 376.8
+        }
+      }
+    },
+    "reconciled": {
+      "entries": 100,
+      "generate": {
+        "calls": 832,
+        "turns": 1689,
+        "input_tokens": 7717333,
+        "output_tokens": 1922265,
+        "list_price_usd": 73.59,
+        "seconds": 16557.4,
+        "per_entry": {
+          "calls": 8.3,
+          "list_price_usd": 0.736,
+          "input_tokens": 77173,
+          "output_tokens": 19223,
+          "seconds": 165.6
+        }
+      },
+      "audit": {
+        "calls": 727,
+        "turns": 1459,
+        "input_tokens": 5565670,
+        "output_tokens": 2348972,
+        "list_price_usd": 83.22,
+        "seconds": 18840.2,
+        "per_entry": {
+          "calls": 7.3,
+          "list_price_usd": 0.832,
+          "input_tokens": 55657,
+          "output_tokens": 23490,
+          "seconds": 188.4
+        }
+      },
+      "score": {
+        "calls": 534,
+        "turns": 1049,
+        "input_tokens": 2068002,
+        "output_tokens": 369721,
+        "list_price_usd": 19.74,
+        "seconds": 4647.8,
+        "per_entry": {
+          "calls": 5.3,
+          "list_price_usd": 0.197,
+          "input_tokens": 20680,
+          "output_tokens": 3697,
+          "seconds": 46.5
+        }
+      },
+      "total": {
+        "calls": 2093,
+        "turns": 4197,
+        "input_tokens": 15351005,
+        "output_tokens": 4640958,
+        "list_price_usd": 176.54,
+        "seconds": 40045.3,
+        "per_entry": {
+          "calls": 20.9,
+          "list_price_usd": 1.765,
+          "input_tokens": 153510,
+          "output_tokens": 46410,
+          "seconds": 400.5
+        }
+      }
+    }
+  },
+  "knowledge_graph_edges": {
+    "cohort": {
+      "caused_by": {
+        "in_both": 97,
+        "generated": 102,
+        "omim": 105,
+        "precision": 0.951,
+        "recall": 0.9238,
+        "f1": 0.9372
+      },
+      "inheritance": {
+        "in_both": 97,
+        "generated": 102,
+        "omim": 103,
+        "precision": 0.951,
+        "recall": 0.9417,
+        "f1": 0.9463
+      },
+      "has_phenotype": {
+        "in_both": 750,
+        "generated": 2139,
+        "omim": 2311,
+        "precision": 0.3506,
+        "recall": 0.3245,
+        "f1": 0.3371
+      },
+      "has_variant": {
+        "in_both": 262,
+        "generated": 399,
+        "omim": 428,
+        "precision": 0.6566,
+        "recall": 0.6121,
+        "f1": 0.6336
+      }
+    },
+    "reconciled": {
+      "caused_by": {
+        "in_both": 97,
+        "generated": 102,
+        "omim": 105,
+        "precision": 0.951,
+        "recall": 0.9238,
+        "f1": 0.9372
+      },
+      "inheritance": {
+        "in_both": 97,
+        "generated": 102,
+        "omim": 103,
+        "precision": 0.951,
+        "recall": 0.9417,
+        "f1": 0.9463
+      },
+      "has_phenotype": {
+        "in_both": 746,
+        "generated": 2127,
+        "omim": 2311,
+        "precision": 0.3507,
+        "recall": 0.3228,
+        "f1": 0.3362
+      },
+      "has_variant": {
+        "in_both": 263,
+        "generated": 398,
+        "omim": 428,
+        "precision": 0.6608,
+        "recall": 0.6145,
+        "f1": 0.6368
+      }
+    }
+  }
+}

@@ -1,0 +1,740 @@
+mim	id	kind	label	n_affected	n_families	sex	ancestry	consanguinity	onset	age_last	inheritance_stated	genotype_mode	variants	sources	pmids	relations
+108770	R:4981961:1	family	Family with persistent atrial standstill	1	1			not_stated			UNKNOWN			R:4981961:1	4981961	
+108770	R:5347950:1	group	Two new familial cases of atrial standstill	2	1			not_stated			UNKNOWN			R:5347950:1	5347950	
+108770	R:4636548:1	family	Family with atrial cardiomyopathy and heart block	1	1			not_stated			UNKNOWN			R:4636548:1	4636548	
+108770	R:4430108:1	family	Family with atrial dysrhythmia and A-V block	1	1			not_stated			UNKNOWN			R:4430108:1	4430108	
+108770	R:1575158:1	family	Family with total atrial standstill	1	1			not_stated			UNKNOWN			R:1575158:1	1575158	
+108770	R:12522116:1	family	Large family with atrial standstill	4	1			not_stated			DIGENIC	AR	V1 SCN5A D1275N (unknown); V2 GJA5 -44 (G-->A) (homozygous); V3 GJA5 +71 (A-->G) (homozygous)	R:12522116:1	12522116	
+108770	R:16176547:1	family	Family with atrial standstill	1	1			not_stated			UNKNOWN			R:16176547:1	16176547	
+108770	R:16188595:1	individual	Proband	1	1	male		not_stated		11 years	DIGENIC	DIGENIC	V4 SCN5A L212P (heterozygous); V5 GJA5 Cx40 polymorphisms (unknown)	R:16188595:1	16188595	
+118210	R:1733853:1	group	Two CMT2 pedigrees	1	2			not_stated			AD	AD		R:1733853:1	1733853	
+118210	R:8406488:1	family	Family DUK662	1	1			not_stated			AD	AD		R:8406488:1	8406488	
+118210	R:8406488:2	family	Family DUK1241	1	1			not_stated			AD	AD		R:8406488:2	8406488	
+118210	R:8406488:3	family	Family 1523	1	1			not_stated			AD	AD		R:8406488:3	8406488	
+118210	R:9409358:1	group	Two Japanese CMT2 families	1	2		Japanese	not_stated			UNKNOWN			R:9409358:1	9409358	
+118210	R:11389829:1	group	CMT2A patients	1	1			not_stated			UNKNOWN		V1 KIF1B loss-of-function mutation in the motor domain of the KIF1B gene (unknown)	R:11389829:1	11389829	
+118210	C:1	family	Patient 2 (proband of the American pedigree) (Xu et al. (2018)) = Brother of Patient 2 (Xu et al. (2018))	2	1	male	Caucasian; American	not_stated		43 yr old	AD	AD	V2 KIF1B KIF1Bβ Y1087C mutation (heterozygous)	R:30126838:2; R:30126838:3	30126838	same_family
+118210	R:30126838:1	individual	Patient 1	1	1	male	Caucasian	not_stated		55 yr old (on diagnosis)	UNKNOWN		V2 KIF1B KIF1Bβ mutation Y1087C (a3260g) (heterozygous)	R:30126838:1	30126838	
+166780	R:5585518:1	family	Family with oto-facio-cervical dysmorphia	1	1			not_stated			UNKNOWN			R:5585518:1	5585518	
+166780	R:8558563:1	individual	Sporadic patient	1	1			not_stated			UNKNOWN			R:8558563:1	8558563	
+166780	R:11409867:1	individual	OFC syndrome patient	1	1			not_stated			UNKNOWN	AD	V1 EYA1 large deletion of the EYA1 gene region (heterozygous)	R:11409867:1	11409867	
+166780	R:16441263:1	individual	OFC patient	1	1			not_stated			UNKNOWN		V2 EYA1 single-nucleotide substitution in a splice site of EYA1 (unknown)	R:16441263:1	16441263	
+166780	R:23851939:1	family	Large consanguineous Turkish OFCS family	1	1		Turkish	yes			AR	AR	V3 PAX1 c.497G>T (p.G166V) (homozygous)	R:23851939:1	23851939	
+167400	R:13636703:1	family	Reported family	1	1			not_stated			UNKNOWN			R:13636703:1	13636703	
+167400	R:17145499:1	group	11 PEPD families and 2 sporadic cases	1	13			not_stated			UNKNOWN		V1 SCN9A eight missense mutations (heterozygous)	R:17145499:1	17145499	
+167400	R:17679678:1	group	77 individuals from 15 families	77	15			not_stated	neonatal period or infancy		AD	AD		R:17679678:1	17679678	
+167400	R:24817410:1	individual	3-year-old girl (proband)	1	1	female		not_stated	since birth	3 years	AD	AD	V2 SCN9A c.554G>A (p.Arg185His) (heterozygous)	R:24817410:1	24817410	
+167400	R:24817410:2	individual	Father of proband	1	1	male		not_stated	childhood		AD	AD	V2 SCN9A c.554G>A (p.Arg185His) (heterozygous)	R:24817410:2	24817410	
+177735	R:2932642:1	individual	Patient 1	1	1			not_stated		28 years	UNKNOWN			R:2932642:1	2932642	
+177735	R:2932642:2	individual	Patient 2	1	1	female		yes		8 years	AR	AR		R:2932642:2	2932642	
+177735	R:2932642:3	individual	Patient 3	1	1	male		yes		2 years	AR	AR		R:2932642:3	2932642	
+177735	R:1939532:1	family	Kindred I	1	1			not_stated	infancy		AD	AD		R:1939532:1	1939532	
+177735	R:9662404:1	group	Four dominant and one sporadic PHA1 kindreds with MLR mutations	1	5			not_stated	neonatal		AD	AD	V1 NR3C2 frameshift mutation (de novo) (heterozygous); V2 NR3C2 frameshift mutation (heterozygous); V3 NR3C2 premature termination codon (heterozygous); V3 NR3C2 premature termination codon (heterozygous); V4 NR3C2 splice donor mutation (heterozygous)	R:9662404:1	9662404	
+177735	R:11134129:1	family	Japanese family with renal PHA1	1	1		Japanese	not_stated			UNKNOWN		V5 NR3C2 codon 924 Leu (CTG) to CCG (Pro) (L924P) (heterozygous)	R:11134129:1	11134129	
+177735	R:11344206:1	individual	Sporadic case	1	1			not_stated			UNKNOWN		V6 NR4A1 Ins2871C (heterozygous)	R:11344206:1	11344206	
+177735	R:11344206:2	group	2 autosomal dominant PHA1 kindreds	5	2			not_stated			AD	AD		R:11344206:2	11344206	
+177735	R:12788847:1	group	14 families with autosomal dominant or sporadic PHA1	1	14			not_stated	neonatal		AD	AD	V7 NR4A1 insT1354 (heterozygous); V8 NR4A1 del8bp537 (heterozygous); V9 NR4A1 C2157A, Cys645stop (heterozygous); V10 NR4A1 G633R (heterozygous); V11 NR4A1 Q776R (heterozygous); V12 NR4A1 L979P (heterozygous)	R:12788847:1	12788847	
+177735	R:16954160:1	individual	Patient with c.1131dupT	1	1			not_stated			UNKNOWN		V13 NR3C2 c.1131dupT (heterozygous)	R:16954160:1	16954160	
+177735	R:16954160:2	individual	Patient with c.2871dupC	1	1			not_stated			UNKNOWN		V14 NR3C2 c.2871dupC (heterozygous)	R:16954160:2	16954160	
+177735	R:16954160:3	group	Patients with novel nonsense mutations	2	1			not_stated			UNKNOWN		V15 NR3C2 novel nonsense mutation (heterozygous)	R:16954160:3	16954160	
+177735	R:16954160:4	individual	Patient with S818L	1	1			not_stated			UNKNOWN		V16 NR3C2 S818L (heterozygous)	R:16954160:4	16954160	
+177735	R:16954160:5	individual	Patient with E972G	1	1			not_stated			UNKNOWN		V17 NR3C2 E972G (heterozygous)	R:16954160:5	16954160	
+177735	R:16972228:1	group	33 PHA1 patients with MR gene abnormalities	33	1			not_stated			UNKNOWN		V18 NR3C2 22 MR gene abnormalities (unknown)	R:16972228:1	16972228	
+186100	R:6249060:1	family	Norwegian family	9	1		Norwegian	not_stated			AD	AD		R:6249060:1	6249060	
+186100	R:2157843:1	family	Family with type III syndactyly	1	1			not_stated			UNKNOWN			R:2157843:1	2157843	
+186100	R:8110413:1	individual	Newborn male proband	1	1	male		not_stated	congenital	newborn	AD	AD		R:8110413:1	8110413	
+186100	R:8110413:2	individual	Mother of proband	1	1	female		not_stated	congenital		AD	AD		R:8110413:2	8110413	
+186100	R:8110413:3	individual	Maternal grandmother of proband	1	1	female		not_stated	congenital		AD	AD		R:8110413:3	8110413	
+186100	R:8313625:1	family	Large pedigree with type III syndactyly	14	1			not_stated			AD	AD		R:8313625:1	8313625	
+186100	R:8031535:1	group	Five cases of isolated ring and small finger syndactyly	5	1			not_stated			AD	AD		R:8031535:1	8031535	
+186100	R:9002680:1	family	Large family with type III syndactyly	1	1			not_stated			UNKNOWN			R:9002680:1	9002680	
+205950	R:7039309:1	individual	Female infant	1	1	female		not_stated	congenital		UNKNOWN			R:7039309:1	7039309	
+205950	R:7912287:1	individual	Son (affected brother)	1	1	male		not_stated	from birth		AR	AR		R:7912287:1	7912287	
+205950	R:7912287:2	individual	Daughter (affected sister)	1	1	female		not_stated	from birth		AR	AR		R:7912287:2	7912287	
+205950	R:19412178:1	group	Patients with autosomal recessive nonsyndromic congenital sideroblastic anemia	1	1			not_stated	congenital		AR	AR	V1 SLC25A38 mutations in the gene encoding the erythroid specific mitochondrial carrier family protein SLC25A38 (unknown)	R:19412178:1	19412178	
+219900	R:4056976:1	family	Sibship with late-onset cystinosis	1	1			not_stated			UNKNOWN			R:4056976:1	4056976	
+219900	R:10444339:1	group	Six patients with intermediate cystinosis	6	1			not_stated			AR	AR	V1 CTNS one mild mutation and one which is known to cause nephropathic cystinosis (unknown); V2 CTNS homozygosity for a predicted mild mutation (homozygous)	R:10444339:1	10444339	
+219900	R:10556299:1	group	Late-onset cystinosis patients	2	1			not_stated			AR	AR	V3 CTNS mutations affecting functionally unimportant regions of cystinosin (unknown)	R:10556299:1	10556299	
+219900	R:10556299:2	group	Patients with onset <7 years and milder course	3	1			not_stated	<7 years		AR	AR	V4 CTNS missense mutations (unknown)	R:10556299:2	10556299	
+219900	R:10556299:3	group	Infantile nephropathic cystinosis patients	25	1			not_stated			AR	AR	V5 CTNS two severely truncating mutations (12 patients) (unknown); V6 CTNS missense or in-frame deletions (13 patients) (unknown)	R:10556299:3	10556299	
+225060	R:3035184:1	individual	Older sib	1	1			not_stated			AR	AR		R:3035184:1	3035184	
+225060	R:3035184:2	individual	Younger sib	1	1			not_stated			AR	AR		R:3035184:2	3035184	
+225060	R:2832607:1	family	Two Turkish brothers	2	1	2 males	Turkish	yes			UNKNOWN			R:2832607:1	2832607	
+225060	R:2167611:1	family	3 Brazilian brothers	3	1	3 males	Brazilian	yes			AR	AR		R:2167611:1	2167611	
+225060	R:1776626:1	group	27 affected individuals from 7 related families, Margarita Island	27	7	both sexes	Venezuelan (Margarita Island, Nueva Esparta State)	not_stated			AR	AR		R:1776626:1	1776626	
+225060	R:9758630:1	group	Four Margarita Island ED4 families	1	4		Margarita Island (Venezuela)	not_stated			AR	AR		R:9758630:1	9758630	
+225060	R:11559849:1	group	Sporadic non-syndromic CL/P patients, northern Venezuela	1	1		Venezuelan (northern Venezuela)	not_stated			UNKNOWN		V1 NECTIN1 W185X (heterozygous)	R:11559849:1	11559849	
+225060	R:25913853:1	individual	7-year-old Japanese boy	1	1	male	Japanese	yes		7 years	AR	AR	V2 NECTIN1 c.400C>T (p.Arg134*) (homozygous)	R:25913853:1	25913853	
+225300	R:4320415:1	family	Two sibs with split foot	2	1			not_stated			UNKNOWN			R:4320415:1	4320415	
+225300	R:1248167:1	family	Intermarried consanguineous family	1	1			yes			AR	AR		R:1248167:1	1248167	
+225300	R:3585937:1	family	Extended family with ectrodactyly in sisters and half sisters	4	1	4 females		not_stated			AR	AR		R:3585937:1	3585937	
+225300	R:3346888:1	family	Sisters and half sisters with ectrodactyly	1	1	female		not_stated			UNKNOWN			R:3346888:1	3346888	
+225300	R:2918544:1	family	Family with split hand/foot malformation in two sibships	4	1			not_stated			AR	AR		R:2918544:1	2918544	
+225300	R:12072797:1	family	Inbred kindred with nine SHFM cases	9	1			yes			AR	AR		R:12072797:1	12072797	
+225300	R:18515319:1	family	Large consanguineous kindred with autosomal recessive SHFM	13	1			yes			AR	AR	V1 WNT10B p.R332W (homozygous); V2 TP63 rs34201045 (unknown)	R:18515319:1	18515319	
+225300	R:20635353:1	individual	Patient with sporadic SHFM	1	1			not_stated			AR	AR	V3 WNT10B homozygous 4-bp duplication resulting in a premature termination codon (homozygous)	R:20635353:1	20635353	
+225300	R:29427788:1	individual	Indian girl with SHFM	1	1	female	Indian	not_stated			AR	AR	V4 WNT10B c.695_697delACA (p.Asn232del) (homozygous)	R:29427788:1	29427788	
+236730	R:474623:1	group	Seven patients from three unrelated families	7	3	4 females, 3 males		not_stated			AD	AD		R:474623:1	474623	
+236730	R:3631137:1	group	36 children with urofacial syndrome	36	1			yes	childhood		AR	AR		R:3631137:1	3631137	
+236730	R:9199567:1	group	31 UFS patients	31	1			not_stated			AR	AR		R:9199567:1	9199567	
+236730	R:10360399:1	group	American patients with Irish heritage	1	1		American, Irish heritage	not_stated			AR	AR		R:10360399:1	10360399	
+236730	R:11074487:1	family	French family	1	1		French	not_stated			UNKNOWN			R:11074487:1	11074487	
+236730	R:11446407:1	group	Three European cases	3	1		European	not_stated			UNKNOWN			R:11446407:1	11446407	
+236730	R:19839856:1	individual	Turkish patient with urofacial syndrome	1	1		Turkish	not_stated		16 years	UNKNOWN			R:19839856:1	19839856	
+236730	R:19669792:1	group	11 patients in five Turkish families	11	5		Turkish	not_stated			AR	AR		R:19669792:1	19669792	
+236730	R:20560209:1	group	UFS patients from Colombia, the United States, and France	1	1		Colombian, American, French	not_stated			AR	AR	V1 HPSE2 Mutations with a loss of function in the Heparanase 2 (HPSE2) gene (unknown)	R:20560209:1	20560209	
+236730	R:20560210:1	individual	Index individual with 10 kb HPSE2 deletion	1	1			not_stated			AR	AR	V2 HPSE2 10 kb deletion encompassing exons 8 and 9 of HPSE2 (homozygous)	R:20560210:1	20560210	
+236730	R:20560210:2	group	Five further unrelated families	1	5			not_stated			AR	AR	V3 HPSE2 homozygous exonic deletions (homozygous); V4 HPSE2 nonsense mutations (homozygous); V5 HPSE2 frameshift mutations (homozygous)	R:20560210:2	20560210	
+241800	R:13085273:1	group	Two cases of hypothalamic hamartoma	2	1			not_stated			UNKNOWN			R:13085273:1	13085273	
+241800	R:1308364:1	individual	Fetus 1	1	1			not_stated	prenatal	fetus (autopsy)	UNKNOWN			R:1308364:1	1308364	
+241800	R:1308364:2	individual	Fetus 2	1	1			not_stated	prenatal	fetus (autopsy)	UNKNOWN			R:1308364:2	1308364	
+241800	R:1308364:3	individual	Fetus 3	1	1			not_stated	prenatal	fetus (autopsy)	UNKNOWN			R:1308364:3	1308364	
+241800	R:1308364:4	individual	Previous boy (sib of one proband)	1	1	male		not_stated	congenital	died soon after birth	UNKNOWN			R:1308364:4	1308364	
+241800	R:18252217:1	group	55 patients with sporadic hypothalamic hamartoma and intractable epilepsy	55	1			not_stated			SOMATIC	SOMATIC	V1 GLI3 somatic chromosomal abnormalities including the GLI3 locus (loss of heterozygosity within GLI3; 7p copy-number abnormality) in HH tissue (mosaic)	R:18252217:1	18252217	
+241800	R:30497210:1	family	Two brothers	2	1	2 males		not_stated			UNKNOWN		V2 SMO germline mutations in the Smoothened (SMO) gene (unknown)	R:30497210:1	30497210	
+241800	R:32413283:1	group	Seven individuals from five families with bi-allelic SMO variants	7	5			not_stated			AR	AR	V3 SMO bi-allelic loss-of-function variations in SMO (unknown)	R:32413283:1	32413283	
+248360	R:6145813:1	individual	Patient	1	1			not_stated			UNKNOWN			R:6145813:1	6145813	
+248360	R:3709568:1	individual	Second child with MCD deficiency	1	1	male		not_stated			UNKNOWN			R:3709568:1	3709568	
+248360	R:8259873:1	group	Two Scots-born patients	2	1		Scottish (Scots/Irish parents)	yes			UNKNOWN			R:8259873:1	8259873	
+248360	R:10417274:1	individual	Patient with S148X	1	1		Scottish	yes			AR	AR	V1 MCD 442C-->G (S148X) (homozygous)	R:10417274:1	10417274	
+248360	R:10417274:2	individual	Patient with IVS4-14A-G	1	1		Scottish	yes			AR	AR	V2 MCD IVS4-14A-->G (13-bp insertion in mature RNA, frameshift) (homozygous)	R:10417274:2	10417274	
+248360	R:10455107:1	individual	Malonyl-CoA decarboxylase-deficient patient	1	1			not_stated			UNKNOWN		V3 MCD c.947-948delTT (unknown)	R:10455107:1	10455107	
+248360	R:9869665:1	individual	Patient with MCD deficiency	1	1			not_stated			UNKNOWN		V4 MLYCD mutation causing malonyl CoA decarboxylase deficiency (not specified in abstract) (unknown)	R:9869665:1	9869665	
+248360	R:12955715:1	group	Nine unrelated MLYCD-deficient patients	9	9			not_stated			AR	AR	V5 MLYCD c.8G>A (p.G3D) (unknown); V6 MLYCD c.119T>C, p.M40T (unknown); V7 MLYCD A 25-base deletion between the putative mitochondrial and peroxisomal initiating codons (M1 and M40) (unknown)	R:12955715:1	12955715	
+248360	R:16275149:1	individual	girl with MCD deficiency	1	1	female		not_stated			UNKNOWN		V8 MLYCD normal genomic sequence but no messenger product (unknown)	R:16275149:1	16275149	
+248360	R:31395333:1	group	Nine patients with malonyl-CoA decarboxylase deficiency	9	1			not_stated			UNKNOWN			R:31395333:1	31395333	
+250220	R:7211944:1	individual	Brother with ante-mortem labs and autopsy	1	1	male		not_stated	congenital	died at three days	AR	AR		R:7211944:1	7211944	
+250220	R:7211944:2	individual	Second brother	1	1	male		not_stated	congenital	died at three days	AR	AR		R:7211944:2	7211944	
+250220	R:7211944:3	individual	Affected baby girl (sib)	1	1	female		not_stated			AR	AR		R:7211944:3	7211944	
+250220	R:3565474:1	individual	Iranian infant (second Iranian family)	1	1		Iranian	not_stated		died on day 4	UNKNOWN			R:3565474:1	3565474	
+250220	R:1481828:1	individual	Reported infant	1	1			not_stated			UNKNOWN			R:1481828:1	1481828	
+250220	R:9556300:1	group	Two unrelated cases	2	2			not_stated			UNKNOWN			R:9556300:1	9556300	
+250220	R:10678656:1	individual	Infant born to Yemeni parents	1	1		Yemeni	no		died at 161 days	UNKNOWN			R:10678656:1	10678656	
+250220	R:16892303:1	individual	Female infant	1	1	female	Caucasian	no	birth	died at 17 days	UNKNOWN			R:16892303:1	16892303	
+250220	R:22529034:1	individual	Patient	1	1			not_stated			UNKNOWN			R:22529034:1	22529034	
+250220	R:24706940:1	individual	Child with SSMD (family 1)	1	1	female		not_stated			AR	AR	V1 GPX4 c.587+5G>A (heterozygous); V2 GPX4 c.588-8_588-4del (heterozygous)	R:24706940:1	24706940	
+250220	R:24706940:2	individual	Second child with SSMD (family 2)	1	1			not_stated			AR	AR	V3 GPX4 c.381C>A, p.Tyr127* (unknown)	R:24706940:2	24706940	
+251950	R:4725145:1	group	Patient(s) with metabolic myopathy and chronic lactic acidemia	1	1			not_stated			UNKNOWN			R:4725145:1	4725145	
+251950	R:6938188:1	individual	23-year-old male	1	1	male		not_stated		23 years	UNKNOWN			R:6938188:1	6938188	
+251950	R:25512002:1	individual	CMH193	1	1	female		not_stated	2 years (toe-walking noted in first year)	7 years	AR	AR	V1 PNPLA8 c.334_337delAATT (p.Asn112HisfsX29) (compound_heterozygous); V2 PNPLA8 c.1975_1976delAG (p.Leu659AlafsX4) (compound_heterozygous)	R:25512002:1	25512002	
+251950	R:29681094:1	individual	Patient 1	1	1	female	India	yes	At birth	10 days	AR	AR	V3 PNPLA8 c.517G>T, p.(Glu173Ter), NM_001256007.1 (homozygous)	R:29681094:1	29681094	
+251950	R:29681094:2	individual	Patient 2	1	1	female	India/Fiji	no	13 months	15 years	AR	AR	V4 PNPLA8 c.2275_2276delCT; p.(Leu759AlafsTer4) (heterozygous); V5 PNPLA8 c.419C>A; p.(Ser140Ter) (heterozygous)	R:29681094:2	29681094	
+251950	R:34177434:1	individual	The patient	1	1			not_stated	prenatal	died in infancy	AR	AR	V6 PNPLA8 c.1874A>G (homozygous)	R:34177434:1	34177434	
+251950	R:37057294:1	individual	Sibling A	1	1	male	Lithuanian	not_stated	14 years	49 years	AR	AR	V4 PNPLA8 c.2269del (p.(Thr757Glnfs*10)) (compound_heterozygous); V4 PNPLA8 c.2275_2276del (p.(Leu759Alafs*4)) (compound_heterozygous)	R:37057294:1	37057294	
+251950	R:37057294:2	individual	Sibling B	1	1	female	Lithuanian	not_stated	14 years	21 years	AR	AR	V4 PNPLA8 c.2269del (p.(Thr757Glnfs*10)) (compound_heterozygous); V4 PNPLA8 c.2275_2276del (p.(Leu759Alafs*4)) (compound_heterozygous)	R:37057294:2	37057294	
+251950	R:37671596:1	individual	Patient 1	1	1			not_stated	congenital		UNKNOWN		V7 PNPLA8 c.1231C>T, p.Arg411Ter (unknown)	R:37671596:1	37671596	
+251950	R:37671596:2	group	Patients 2 and 3	2	1			not_stated	infantile		UNKNOWN		V8 PNPLA8 c.1559T>A, p.Val520Asp (unknown)	R:37671596:2	37671596	
+251950	R:39082157:1	individual	Patient 1	1	1	male	Japanese	no	1 d (seizures)	died at 4 y	AR	AR	V9 PNPLA8 c.1625+3_1625+6del (unknown)	R:39082157:1	39082157	
+251950	R:39082157:10	individual	Patient 10	1	1			not_stated			AR	AR	V4 PNPLA8 biallelic PNPLA8 variants (LoF, missense or C-terminal frameshift p.Leu759Alafs*4) (unknown)	R:39082157:10	39082157	
+251950	R:39082157:11	individual	Patient 11a	1	1	male	Iranian	yes		33 y	AR	AR	V4 PNPLA8 biallelic C-terminal frameshift variant (p.Thr757Glnfs*10 or p.Leu759Alafs*4) (unknown)	R:39082157:11	39082157	
+251950	R:39082157:12	individual	Patient 11b	1	1	male	Iranian	yes			AR	AR	V4 PNPLA8 biallelic C-terminal frameshift variant (p.Thr757Glnfs*10 or p.Leu759Alafs*4) (unknown)	R:39082157:12	39082157	
+251950	R:39082157:13	individual	Patient 11c	1	1	female	Iranian	yes		29 y	AR	AR	V4 PNPLA8 biallelic C-terminal frameshift variant (p.Thr757Glnfs*10 or p.Leu759Alafs*4) (unknown)	R:39082157:13	39082157	
+251950	R:39082157:14	individual	Patient 12	1	1	female	Egyptian	yes		21 y	AR	AR	V4 PNPLA8 p.Leu759Alafs*4 (homozygous)	R:39082157:14	39082157	
+251950	R:39082157:15	group	Families 13 and 14 (non-neurological cohort)	2	2		Iranian	not_stated			UNKNOWN	AR	V14 PNPLA8 p.Val7* (homozygous); V15 PNPLA8 N-terminal frameshift variant (homozygous)	R:39082157:15	39082157	
+251950	R:39082157:2	individual	Patient 2	1	1	female	Japanese	no	1 d (seizures)	died at 10 mo	AR	AR	V10 PNPLA8 c.2075-2A>G (unknown)	R:39082157:2	39082157	
+251950	R:39082157:3	individual	Patient 3	1	1	female	Saudi Arabian	yes	1 d (seizures)	3 d	AR	AR	V11 PNPLA8 biallelic PNPLA8 variants (unknown)	R:39082157:3	39082157	
+251950	R:39082157:4	individual	Patient 4	1	1	female	Iraqi	yes	7 mo (seizures)	1 y	AR	AR	V11 PNPLA8 biallelic PNPLA8 variants (unknown)	R:39082157:4	39082157	
+251950	R:39082157:5	individual	Patient 5	1	1	male	Afghan	yes	3 mo (seizures)	2 y	AR	AR	V12 PNPLA8 c.1684-2A>G (unknown)	R:39082157:5	39082157	
+251950	R:39082157:6	individual	Patient 6	1	1	female	Pakistani	yes	2 d (seizures)	1 y	AR	AR	V13 PNPLA8 p.Glu296Lysfs*6 (unknown)	R:39082157:6	39082157	
+251950	R:39082157:7	individual	Patient 7	1	1	male	Turkish	yes	1 mo (seizures)	3 y	AR	AR	V11 PNPLA8 biallelic PNPLA8 variants (unknown)	R:39082157:7	39082157	
+251950	R:39082157:8	individual	Patient 8	1	1	female	Lebanese	yes	1 d (seizures)	died at 8 mo	AR	AR	V11 PNPLA8 biallelic PNPLA8 variants (unknown)	R:39082157:8	39082157	
+251950	R:39082157:9	individual	Patient 9	1	1			not_stated			AR	AR	V4 PNPLA8 biallelic PNPLA8 variants (LoF, missense or C-terminal frameshift p.Leu759Alafs*4) (unknown)	R:39082157:9	39082157	
+278750	R:10385124:1	group	XP-V cell lines examined	1	1			not_stated			UNKNOWN		V1 DNA POLYMERASE ETA mutations in their DNA polymerase eta gene (unknown)	R:10385124:1	10385124	
+278750	R:10398605:1	group	XP-V cell lines	1	1			not_stated			AR	AR	V2 HRAD30 nonsense or frameshift mutations in hRAD30 (eight mutations) (unknown)	R:10398605:1	10398605	
+278750	R:11121129:1	family	Family with two missense mutations	1	1		Japanese	not_stated			AR	AR	V3  A-->G transition at nucleotide 1840 that generates a K535E mis-sense mutation (heterozygous); V4  A-->C transversion at nucleotide 2003 that generates a K589 mis-sense mutation (heterozygous)	R:11121129:1	11121129	
+278750	R:11121129:2	family	Second XPV family	1	1			not_stated			UNKNOWN			R:11121129:2	11121129	
+300148	R:2635712:1	individual	First brother	1	1	male		not_stated		died at 4 1/2 years	UNKNOWN			R:2635712:1	2635712	
+300148	R:2635712:2	individual	Second brother	1	1	male		not_stated			UNKNOWN			R:2635712:2	2635712	
+300148	C:1	family	Large three-generation family (Steinmüller et al. (1998)) = Family 3 (Steinmüller family) (Skopkova et al. (2017))	4	1	males	German	not_stated	prenatal (index microcephaly)	died at 2 y / 7 mo / 2 y / 10 mo	XLR	XLR	V3 EIF2S3 c.1394_1397delTCAA (p.Ile465Serfs*4) (hemizygous)	R:9781023:1; R:28055140:3	9781023; 28055140	same_family
+300148	R:12032729:1	individual	Child with MEHMO	1	1			not_stated			UNKNOWN			R:12032729:1	12032729	
+300148	R:23063529:1	individual	III:1	1	1	male	Morocco Jewish (maternal line)	yes			XLR	XLR	V1 EIF2S3 c.665T>C (p.Ile222>Thr) (hemizygous)	R:23063529:1	23063529	
+300148	R:23063529:2	individual	III:2	1	1	male	Morocco Jewish (maternal line)	yes			XLR	XLR	V1 EIF2S3 c.665T>C (p.Ile222>Thr) (hemizygous)	R:23063529:2	23063529	
+300148	R:23063529:3	individual	II:3	1	1	male	Morocco Jewish (maternal line)	yes			XLR	XLR	V1 EIF2S3 c.665T>C (p.Ile222>Thr) (hemizygous)	R:23063529:3	23063529	
+300148	R:27333055:1	group	Two unrelated families with EIF2S3 mutations	1	2	males		not_stated			XLR	XLR	V2 EIF2S3 c.777T>G p.(Ile259Met) (hemizygous); V3 EIF2S3 c.1394_1397del p.(Ile465Serfs*4) (hemizygous)	R:27333055:1	27333055	
+300148	R:28055140:1	individual	Index patient, family 1 (Patient 1)	1	1	male	Slovak	no	prenatal (microcephaly at 28 weeks gestation)	5 years	XLR	XLR	V3 EIF2S3 c.1394_1397delTCAA (p.Ile465Serfs*4) (hemizygous)	R:28055140:1	28055140	
+300148	R:28055140:2	individual	Index patient, family 2 (Patient 2)	1	1	male	Slovak	no	birth	3 years	XLR	XLR	V3 EIF2S3 c.1394_1397delTCAA (p.Ile465Serfs*4) (hemizygous)	R:28055140:2	28055140	
+300148	R:28055140:4	individual	Index patient, family 4	1	1	male	Northern European (US)	no		4 years 7 months	XLR	XLR	V4 EIF2S3 c.324T>A (p.Ser108Arg) (hemizygous)	R:28055140:4	28055140	
+301059	R:33472045:1	group	Three unrelated Chinese men with MMAF	3	3	3 males	Chinese	not_stated			XLR	XLR	V1 CFAP47 hemizygous missense variants in the X-linked CFAP47 (hemizygous)	R:33472045:1	33472045	
+301059	R:33472045:2	group	Australian severe asthenoteratozoospermic man(men) with Xp21.1 deletion	1	1	male	Australian	not_stated			XLR	XLR	V2 CFAP47 hemizygous Xp21.1 deletion removing the entire CFAP47 gene (hemizygous)	R:33472045:2	33472045	
+301059	R:36571501:1	individual	CFAP47-mutated MMAF man	1	1	male		not_stated			UNKNOWN	XL	V3 CFAP47 c.706G>A, Val236Met (unknown); V4 CFAP47 c.1337C>T, Thr446Met (unknown)	R:36571501:1	36571501	
+302905	C:1	family	Original family (Abruzzo and Erickson (1977)) = Previously reported family with new X-linked syndrome (Abruzzo and Erickson (1989))	1	1			not_stated			XL	XL		R:839509:1; R:2596527:1	839509; 2596527	same_family
+302905	R:3565473:1	individual	Proband (male patient)	1	1	male		not_stated		died at 19 months	AD	AD		R:3565473:1	3565473	
+302905	R:3565473:2	individual	Mother of proband	1	1	female		not_stated			AD	AD		R:3565473:2	3565473	
+302905	R:22784330:1	family	Abruzzo-Erickson syndrome family	1	1			not_stated			XL	XL	V1 TBX22 c.593-5T>A (unknown)	R:22784330:1	22784330	
+500001	R:3711913:1	group	Seven members of two families	7	2			not_stated			UNKNOWN			R:3711913:1	3711913	
+500001	R:3736869:1	family	Kindred with Leber's disease and dystonia	23	1			not_stated			MT	MT		R:3736869:1	3736869	
+500001	R:8016139:1	family	Five-generation Hispanic family	1	1		Hispanic	not_stated			MT	MT	V1 MT-ND6 G-to-A transition at nucleotide pair (np) 14459 ... alanine to a valine at NADH dehydrogenase subunit 6 (ND6) residue 72 (unknown)	R:8016139:1	8016139	
+500001	R:8644732:1	family	Large Dutch family with LHON and hereditary spastic dystonia	1	1		Dutch	not_stated			MT	MT	V2 MT-ND6 T-->A transition at nucleotide position 14596 in the ND6 gene (isoleucine 26 to methionine) (homoplasmic); V3 MT-ND4 A-->G transition at nucleotide position 11696 in the ND4 gene (valine 312 to isoleucine) (heteroplasmic)	R:8644732:1	8644732	
+500001	R:16380132:1	family	Japanese family	1	1		Japanese	not_stated	dystonia in childhood; optic neuropathy late onset		MT	MT	V1 MT-ND6 G14459A (unknown); V4  A3203G (unknown)	R:16380132:1	16380132	
+500001	R:17562939:1	family	LHON and spastic dystonia family	1	1			not_stated			MT	MT	V5 MT-ND1 3697G>A/ND1 (heteroplasmic)	R:17562939:1	17562939	
+500001	R:19458970:1	family	Chinese LDYT family	18	1		Chinese	not_stated			MT	MT	V6 MT-ND3 mtND3*10197A (m.10197G>A) (homoplasmic)	R:19458970:1	19458970	
+600204	R:3238439:1	group	Two families with MED and osteochondritis dissecans	1	2			not_stated			UNKNOWN			R:3238439:1	3238439	
+600204	R:7942845:1	family	Large MED family	1	1			not_stated			AD	AD		R:7942845:1	7942845	
+600204	R:12244547:1	family	Four-generation family	12	1			not_stated	childhood		UNKNOWN		V1 COL9A2 G --> C substitution at position -1 in the COL9A2 exon 3/intron 3 splicing region (unknown)	R:12244547:1	12244547	
+600251	R:3398011:1	individual	8-month-old girl	1	1	female		not_stated	congenital	8 months	UNKNOWN	AD	V1  de novo balanced translocation between a chromosome 1 and 22 (heterozygous)	R:3398011:1	3398011	
+600251	R:7856656:1	group	4 Brazilian patients with oblique facial clefts	4	1		Brazilian	yes			UNKNOWN			R:7856656:1	7856656	
+600501	R:7778600:1	individual	Proband (14th child)	1	1	female	Kurdish	yes	newborn	died at 5 weeks	AR	AR		R:7778600:1	7778600	
+600501	R:7778600:2	group	Four affected sibs of the proband	4	1		Kurdish	yes		died a few days after birth	AR	AR		R:7778600:2	7778600	
+600501	R:11891690:1	individual	Index patient of the ABCD syndrome family	1	1			not_stated			AR	AR	V1 EDNRB R201X (homozygous)	R:11891690:1	11891690	
+600740	C:1	family	Large FBH kindred (5 generations) (McMurtry et al. (1992)) = Oklahoma kindred (Trump et al. (1995)) = Oklahoma family (FBHOk) (Lloyd et al. (1999)) = FBHHOk (Oklahoma) kindred (Hannan et al. (2010)) = FHHOk kindred (Nesbit et al. (2013))	19	1	13 females, 3 males	Oklahoma	not_stated			AD	AD	V1 AP2S1 Arg15Cys (CGC→TTGC) (heterozygous)	R:1524075:1; R:7635467:1; R:9915958:1; R:19809483:1; R:23222959:1	1524075; 7635467; 9915958; 19809483; 23222959	same_family
+600740	R:20133464:1	family	FHH3 kindred (proband: 43-year-old woman)	16	1			not_stated			UNKNOWN			R:20133464:1	20133464	
+600740	R:23222959:10	family	19/07	3	1	1 male, 2 females		not_stated			AD	AD	V1 AP2S1 Arg15Leu (heterozygous)	R:23222959:10	23222959	
+600740	R:23222959:11	individual	04/04	1	1	female		not_stated		19 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15His (CGC→CAC) (heterozygous)	R:23222959:11	23222959	
+600740	R:23222959:12	individual	23/08	1	1	male		not_stated		73 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15His (heterozygous)	R:23222959:12	23222959	
+600740	R:23222959:13	individual	11/10	1	1	female		not_stated		49 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15His (heterozygous)	R:23222959:13	23222959	
+600740	R:23222959:2	family	FHHNI kindred	16	1	11 females, 5 males		not_stated			AD	AD	V1 AP2S1 Arg15Cys (CGC→TTGC) (heterozygous)	R:23222959:2	23222959	
+600740	R:23222959:3	family	02/08	2	1	2 females		not_stated			AD	AD	V1 AP2S1 Arg15Cys (heterozygous)	R:23222959:3	23222959	
+600740	R:23222959:4	individual	02/10	1	1	male		not_stated		78 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15Cys (heterozygous)	R:23222959:4	23222959	
+600740	R:23222959:5	individual	03/96	1	1	male		not_stated			UNKNOWN		V1 AP2S1 Arg15Cys (heterozygous)	R:23222959:5	23222959	
+600740	R:23222959:6	family	07/98	2	1	2 females		not_stated			AD	AD	V1 AP2S1 Arg15Cys (heterozygous)	R:23222959:6	23222959	
+600740	R:23222959:7	individual	13/07	1	1	female		not_stated		51 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15Leu (CGC→CTC) (heterozygous)	R:23222959:7	23222959	
+600740	R:23222959:8	family	11/02	3	1	2 males, 1 female		not_stated			AD	AD	V1 AP2S1 Arg15Leu (heterozygous)	R:23222959:8	23222959	
+600740	R:23222959:9	individual	04/10	1	1	male		not_stated		11 years (age at diagnosis)	UNKNOWN		V1 AP2S1 Arg15Leu (heterozygous)	R:23222959:9	23222959	
+600740	R:24081735:1	individual	Japanese female infant	1	1	female	Japanese	not_stated	infancy		AD	AD	V1 AP2S1 p.Arg15Leu (heterozygous)	R:24081735:1	24081735	
+600740	R:27050234:1	individual	Proband (34-year-old woman)	1	1	female		not_stated		34 years	UNKNOWN		V1 AP2S1 AP2S1 mutation causing an Arg15Cys, Arg15His, or Arg15Leu substitution (heterozygous)	R:27050234:1	27050234	
+600740	R:27050234:2	individual	Proband (22-year-old man)	1	1	male		not_stated		22 years	UNKNOWN		V1 AP2S1 AP2S1 mutation causing an Arg15Cys, Arg15His, or Arg15Leu substitution (heterozygous)	R:27050234:2	27050234	
+600740	R:27050234:3	individual	Proband (52-year-old woman)	1	1	female		not_stated		52 years	UNKNOWN		V1 AP2S1 AP2S1 mutation causing an Arg15Cys, Arg15His, or Arg15Leu substitution (heterozygous)	R:27050234:3	27050234	
+603552	R:15703195:1	family	Large consanguineous Kurdish kindred	5	1		Kurdish	yes			AR	AR	V1 STX11 homozygous deletion of 5 bp in the syntaxin 11 gene (STX11) (homozygous)	R:15703195:1	15703195	
+603552	R:15703195:2	group	Two additional families with the 5 bp deletion	1	2		Turkish/Kurdish	yes			AR	AR	V1 STX11 5 bp deletion (homozygous)	R:15703195:2	15703195	
+603552	R:15703195:3	family	Family with 19.2 kb genomic deletion	1	1		Turkish/Kurdish	yes			AR	AR	V3 STX11 large 19.2 kb genomic deletion spanning the entire coding region of STX11 (exon 2) (homozygous)	R:15703195:3	15703195	
+603552	R:15703195:4	group	Two families with nonsense mutation	1	2		Turkish/Kurdish	yes			AR	AR	V4 STX11 nonsense mutation that leads to a premature stop codon in the C-terminal end of the protein (homozygous)	R:15703195:4	15703195	
+603552	R:16278825:1	group	Turkish FHL patients with STX11 mutations	6	6		Turkish	not_stated			AR	AR	V5 STX11 mutations in STX11 (unknown)	R:16278825:1	16278825	
+603552	R:16278825:2	group	FHL patients with PRF1 mutations	20	20		Turkish (14), German (3), other (3)	not_stated			AR	AR	V6 PRF1 Trp374X (unknown)	R:16278825:2	16278825	
+603552	R:16278825:3	group	FHL patients with UNC13D mutations	12	12		Turkish (6), German (4), other (2)	not_stated			AR	AR	V7 UNC13D Leu403Pro (unknown)	R:16278825:3	16278825	
+603552	R:16278825:4	group	Griscelli syndrome type 2 patients with RAB27A mutations	3	1			not_stated			UNKNOWN		V8 RAB27A Ala87Pro (unknown)	R:16278825:4	16278825	
+603552	R:16582076:1	group	Six STX11-mutated FHL patients from 4 PRF1-negative families	6	4			not_stated			AR	AR	V9 STX11 nonsense mutation (unknown); V10 STX11 deletion (unknown)	R:16582076:1	16582076	
+603552	R:24459464:1	individual	Patient A	1	1	male	Pakistani	yes	2 months		AR	AR	V11 STX11 c.173T > C (p.L58P) (homozygous); V12 UNC13D UNC13D c.811C > T (p.P271S) (heterozygous); V13 UNC13D UNC13D c.2782C > T (p.R928C) (homozygous)	R:24459464:1	24459464	
+603552	R:24459464:2	individual	Patient B	1	1	male	Pakistani	yes	5 years		AR	AR	V11 STX11 c.173T > C (p.L58P) (homozygous)	R:24459464:2	24459464	
+603552	R:24459464:3	individual	Patient C	1	1	female	Pakistani	yes	48 months		AR	AR	V11 STX11 c.173T > C (p.L58P) (homozygous)	R:24459464:3	24459464	
+603689	R:2376753:1	group	16 patients from 7 pedigrees	16	7			not_stated	adult onset		AD	AD		R:2376753:1	2376753	
+603689	R:10053013:1	group	Two Swedish families	1	2		Swedish	not_stated			AD	AD		R:10053013:1	10053013	
+603689	R:11310621:1	family	Three-generation family with AD distal myopathy and early respiratory failure	11	1			not_stated	mid-adult life		AD	AD		R:11310621:1	11310621	
+603689	R:16084088:1	group	Seven cases of autosomal dominant myopathy with early respiratory failure	7	1	4 male, 3 female		not_stated	late adult life	37-66 years	AD	AD		R:16084088:1	16084088	
+603689	R:22577215:1	group	31 TTN mutation carriers from 3 families	31	3			not_stated	highly variable, from early adulthood		AD	AD	V1 TTN g.274375T>C; p.Cys30071Arg (unknown)	R:22577215:1	22577215	
+603689	R:23486992:1	individual	F.1A	1	1		British	not_stated	late 30s	65	AD	AD		R:23486992:1	23486992	
+603689	R:23486992:10	individual	F.4C	1	1		British	not_stated	30s	34	AD	AD	V1 TTN C30071R (heterozygous)	R:23486992:10	23486992	
+603689	R:23486992:11	individual	F.5	1	1		British	not_stated	late 20s	39	UNKNOWN		V1 TTN g.274375T>C (p.C30071R) (heterozygous)	R:23486992:11	23486992	
+603689	R:23486992:12	individual	F.6	1	1			not_stated	30s	57	UNKNOWN		V2 TTN g.274436C>T, p.P30091L (heterozygous)	R:23486992:12	23486992	
+603689	R:23486992:13	individual	F.7	1	1		Brazil	not_stated	30s	39	UNKNOWN		V3 TTN g.274599C>G, p.N30145K (heterozygous)	R:23486992:13	23486992	
+603689	R:23486992:2	individual	F.1B	1	1		British	not_stated	33	44	AD	AD	V1 TTN g.274375T>C (p.C30071R) (heterozygous)	R:23486992:2	23486992	
+603689	R:23486992:3	individual	F.1C	1	1		British	not_stated	30s	44	AD	AD	V1 TTN C30071R (heterozygous)	R:23486992:3	23486992	
+603689	R:23486992:4	individual	F.2A	1	1		British	not_stated	30s	63	AD	AD	V1 TTN g.274375T>C (p.C30071R) (heterozygous)	R:23486992:4	23486992	
+603689	R:23486992:5	individual	F.2B	1	1		British	not_stated	36	38	AD	AD	V1 TTN C30071R (heterozygous)	R:23486992:5	23486992	
+603689	R:23486992:6	individual	F.2C	1	1		British	not_stated	36	36	AD	AD	V1 TTN C30071R (heterozygous)	R:23486992:6	23486992	
+603689	R:23486992:7	individual	F.3	1	1		British	not_stated	30s	44	UNKNOWN		V1 TTN g.274375T>C (p.C30071R) (heterozygous)	R:23486992:7	23486992	
+603689	R:23486992:8	individual	F.4A	1	1		British	not_stated		58	AD	AD		R:23486992:8	23486992	
+603689	R:23486992:9	individual	F.4B	1	1		British	not_stated	20s	57	AD	AD	V1 TTN g.274375T>C (p.C30071R) (heterozygous)	R:23486992:9	23486992	
+604307	C:1	family	Family with Coppock-like cataract (Lubsen et al. (1987)) = Coppock-like cataract (CCL) family/chromosome (Brakenhoff et al. (1994)) = Original Coppock-like cataract family (Héon et al. (1999))	1	1			not_stated			AD	AD	V1 PSI GAMMA E (GAMMA E-CRYSTALLIN PSEUDOGENE) cluster of sequence changes within and around its TATA box (unknown); V2 CRYGC missense mutation in a highly conserved segment of exon 2 of CRYGC (unknown); V3 CRYGE previously reported Coppock-like-cataract mutation ... in the pseudogene CRYGE (unknown)	R:3025877:1; R:8004095:1; R:10521291:1	3025877; 8004095; 10521291	same_family
+604307	R:8190472:1	family	Seven-generation family with autosomal dominant pulverulent congenital cataract	48	1			not_stated	congenital		AD	AD		R:8190472:1	8190472	
+604307	R:10914683:1	family	Seven-generation family with zonular pulverulent cataract	30	1			not_stated			AD	AD	V4 CRYGC 5-bp duplication within exon 2 of the gammaC-crystallin gene (heterozygous)	R:10914683:1	10914683	
+604307	R:17679936:1	family	Family with primary congenital cataract	1	1			not_stated	congenital		AD	AD	V5 CRYGC c.502C>T (Arg168Trp) (heterozygous)	R:17679936:1	17679936	
+604307	R:19204787:1	family	Four-generation Chinese family	6	1		Chinese (northern China)	not_stated	congenital		AD	AD	V6 CRYGC c.470G>A (W157X) (heterozygous)	R:19204787:1	19204787	
+604307	R:22052681:1	family	Three-generation Chinese family	1	1		Chinese	not_stated	congenital		AD	AD	V7 CRYGC c.385G<T (p.Gly129Cys) (heterozygous)	R:22052681:1	22052681	
+604307	R:22876111:1	individual	II:7 (proband)	1	1	male	Chinese	not_stated		38 years	AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:1	22876111	
+604307	R:22876111:2	individual	I:2	1	1		Chinese	not_stated		68 years	AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:2	22876111	
+604307	R:22876111:3	individual	II:2	1	1		Chinese	not_stated			AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:3	22876111	
+604307	R:22876111:4	individual	III:3	1	1		Chinese	not_stated			AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:4	22876111	
+604307	R:22876111:5	individual	III:6	1	1		Chinese	not_stated	6 months		AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:5	22876111	
+604307	R:22876111:6	individual	IV:1	1	1		Chinese	not_stated	1 year		AD	AD	V6 CRYGC c.471G>A (W157X) (unknown)	R:22876111:6	22876111	
+604928	R:10739754:1	group	16 patients from four families with Wolfram syndrome	16	4			not_stated			AR	AR		R:10739754:1	10739754	
+604928	R:17846994:1	group	Three consanguineous Jordanian families with Wolfram syndrome	1	3		Jordanian	yes			AR	AR	V1 CISD2 G-->C transversion at nucleotide 109 (E37Q) (homozygous)	R:17846994:1	17846994	
+604928	R:25056293:1	individual	FS	1	1	female	Caucasian (Italian)	no	5 years	22 years	AR	AR	V2 CISD2 homozygous deletion affecting the whole exon 2 of CISD2 (homozygous)	R:25056293:1	25056293	
+604928	R:25371195:1	family	Italian siblings	1	1		Italian	not_stated			UNKNOWN		V3 CISD2 a novel CISD2 mutation (unknown)	R:25371195:1	25371195	
+606763	R:10745040:1	group	Five Arabic families with primary ciliary dyskinesia	1	5		Arabic	not_stated			AR	AR		R:10745040:1	10745040	
+606763	R:22387996:1	family	UCL89	1	1		Arabic	yes			AR	AR	V1 DNAAF3 c.323T>C (p.Leu108Pro) (homozygous)	R:22387996:1	22387996	
+606763	R:22387996:2	family	UCL66/67	1	1		Arabic	yes			AR	AR	V2 DNAAF3 c.406C>T (p.Arg136X) (homozygous)	R:22387996:2	22387996	
+606763	R:22387996:3	family	UCL71	1	1		UK-Pakistani	yes			AR	AR	V3 DNAAF3 c.762_763insT (p.Val255CysfsX12) (homozygous)	R:22387996:3	22387996	
+606763	R:22387996:4	individual	OP-549	1	1		Belgian	not_stated			UNKNOWN		V4 DNAAF3 c.973G>A (p.Ala325Thr) (homozygous)	R:22387996:4	22387996	
+606824	R:5415683:1	individual	Proband	1	1	female		not_stated	congenital	3 yr	AR	AR		R:5415683:1	5415683	
+606824	R:5581590:1	family	Oriental-Iraqui Jewish family	1	1		Oriental-Iraqi Jewish	not_stated			UNKNOWN			R:5581590:1	5581590	
+606824	R:2008213:1	family	GGM family	1	1			not_stated			AR	AR	V1 SLC5A1 single missense mutation in SGLT1 (unknown)	R:2008213:1	2008213	
+606824	R:8563765:1	group	30 new GGM patients	30	1			not_stated	neonatal		UNKNOWN		V2 SLC5A1 mutations in SGLT1 (unknown)	R:8563765:1	8563765	
+606824	R:8844006:1	group	Two proband siblings	2	1			yes	shortly after birth		AR	AR	V3 SLC5A1 D28N (unknown)	R:8844006:1	8844006	
+606824	R:8985845:1	group	Eight Arab children with GGM	8	8		Arab (6 Saudi Arab, 2 other Arab nationalities)	not_stated	since birth		UNKNOWN			R:8985845:1	8985845	
+606824	R:20486940:1	group	33 GGM patients from a large Old Order Amish pedigree	33	1		Old Order Amish	not_stated	newborn		AR	AR	V4 SLC5A1 c.152A>G (p.N51S) (homozygous); V5 SLC5A1 c.1231G>A (p.A411T) (homozygous); V6 SLC5A1 c.1673G>A (p.R558H) (homozygous); V7 SLC5A1 c.1845C>G (p.H615Q) (homozygous)	R:20486940:1	20486940	
+607602	C:1	group	Proband (30-year-old woman) (Sahn et al. (1992)) = Two affected children of proband (Sahn et al. (1992))	2	1	female	white	not_stated	8 months	30 years	AD	AD		R:1517502:1; R:1517502:2	1517502	same_family
+607602	R:9036939:1	family	Family with two affected generations	1	1			not_stated			AD	AD	V1 KRT10 tandem CG to GA 2-bp mutation ... arginine to glutamate substitution at residue 83 (R83E) of the 2B helical segment (heterozygous)	R:9036939:1	9036939	
+607602	R:9856845:1	family	Third kindred with annular epidermolytic ichthyosis	1	1			not_stated	early childhood		UNKNOWN		V2 KRT10 isoleucine to threonine substitution at residue 107 (codon 446) (unknown)	R:9856845:1	9856845	
+607602	R:32482553:1	individual	8-year-old girl	1	1	female	Brazil	no	first months of life	8 years	UNKNOWN			R:32482553:1	32482553	
+607641	R:12627231:1	family	Family with lower motor neuron disease linked to 2p13	1	1			not_stated			UNKNOWN		V1 DYNACTIN LARGEST SUBUNIT a single base-pair change resulting in an amino-acid substitution (unknown)	R:12627231:1	12627231	
+607721	R:1884862:1	individual	4 1/2-year-old girl	1	1	female		not_stated		4 1/2 years	UNKNOWN			R:1884862:1	1884862	
+607721	R:9301585:1	individual	5-year-old boy with Noonan syndrome and loose anagen hair	1	1	male		not_stated		5 years	UNKNOWN			R:9301585:1	9301585	
+607721	R:12673660:1	group	Three children with Noonan-like syndrome with loose anagen hair	3	1			not_stated			UNKNOWN			R:12673660:1	12673660	
+607721	R:19684605:1	group	25 SHOC2 S2G mutation-positive subjects	25	25			not_stated			AD	AD	V1 SHOC2 4A>G (S2G) (heterozygous)	R:19684605:1	19684605	
+607721	R:20882035:1	group	8 SHOC2 p.S2G mutation-positive patients	8	1			not_stated			UNKNOWN		V1 SHOC2 p.S2G (unknown)	R:20882035:1	20882035	
+607721	R:22528146:1	individual	Male infant	1	1	male		not_stated	prenatal		UNKNOWN	AD	V1 SHOC2 p.Ser2Gly (heterozygous)	R:22528146:1	22528146	
+607721	R:23918763:1	individual	Patient 1 (CS# 229; LR13-109)	1	1	male		not_stated	prenatal	died at 2 1/2 years	UNKNOWN	AD	V1 SHOC2 SHOC2 c.4A>G (heterozygous)	R:23918763:1	23918763	
+607721	R:23918763:2	individual	Patient 2 (CS#113; LR13-110)	1	1	male		not_stated	prenatal	9 5/12 years	UNKNOWN	AD	V1 SHOC2 SHOC2 p.Ser2Gly (heterozygous)	R:23918763:2	23918763	
+607721	R:23918763:3	individual	Patient 3 (CS#134)	1	1	male		not_stated	prenatal	9 years	UNKNOWN		V1 SHOC2 SHOC2 p.Ser2Gly (heterozygous)	R:23918763:3	23918763	
+607721	R:23918763:4	individual	Patient 4 (LR#12-389)	1	1	male	Mexican	not_stated	infancy	6 years	UNKNOWN		V1 SHOC2 SHOC2 p.Ser2Gly (heterozygous)	R:23918763:4	23918763	
+607721	R:23918763:5	individual	Patient 5 (LR#12-454)	1	1	male		not_stated	neonatal	8 3/12 years	UNKNOWN		V1 SHOC2 SHOC2 p.Ser2Gly (heterozygous)	R:23918763:5	23918763	
+607721	R:25137548:1	individual	Proband (5-year-old female)	1	1	female	European	no		5 years	AD	AD	V2 SHOC2 c.519G>A; p.M173I (heterozygous)	R:25137548:1	25137548	
+607721	R:25137548:2	individual	Proband's father	1	1	male	European	no			AD	AD	V2 SHOC2 c.519G>A; p.M173I (heterozygous)	R:25137548:2	25137548	
+607721	R:31059601:1	individual	Patient with SHOC2 p.Gln269_His270delinsHisTyr	1	1			not_stated	prenatal		UNKNOWN		V3 SHOC2 c.807_808delinsTT, p.Gln269_His270delinsHisTyr (unknown)	R:31059601:1	31059601	
+607734	R:12566280:1	group	Patients with NEFL mutations from a screen of 323 CMT/neuropathy patients	1	1			not_stated	early onset		UNKNOWN		V1 NEFL six disease associated missense mutations (unknown); V2 NEFL one 3-bp in-frame deletion (unknown)	R:12566280:1	12566280	
+607734	R:12566280:2	individual	CMT patient with de novo NEFL missense mutation (nerve biopsy)	1	1			not_stated			UNKNOWN	AD	V3 NEFL de novo missense mutation in NEFL (heterozygous)	R:12566280:2	12566280	
+607734	R:19158810:1	group	Five unrelated patients with heterozygous NEFL missense mutations	5	5		Japanese	not_stated			AD	AD	V4 NEFL Pro8Leu (heterozygous); V5 NEFL Glu90Lys (heterozygous); V6 NEFL Asn98Ser (heterozygous); V7 NEFL Glu396Lys (heterozygous)	R:19158810:1	19158810	
+607734	R:19158810:2	individual	Patient with homozygous Glu140Stop	1	1		Japanese	not_stated			AR	AR	V8 NEFL Glu140Stop (homozygous)	R:19158810:2	19158810	
+607734	R:20039262:1	individual	II-1	1	1	female	Palestinian	yes	~1.5 years	23 years	AR	AR	V9 NEFL c.628G>T (E210X) (homozygous)	R:20039262:1	20039262	
+607734	R:20039262:2	individual	II-3	1	1	male	Palestinian	yes	~1.5 years	17 years	AR	AR	V9 NEFL c.628G>T (E210X) (homozygous)	R:20039262:2	20039262	
+607734	R:20039262:3	individual	II-4	1	1	male	Palestinian	yes	~1.5 years	16 years	AR	AR	V9 NEFL c.628G>T (E210X) (homozygous)	R:20039262:3	20039262	
+607734	R:20039262:4	individual	II-5	1	1	female	Palestinian	yes	~1.5 years	13 years	AR	AR	V9 NEFL c.628G>T (E210X) (homozygous)	R:20039262:4	20039262	
+607876	C:1	family	ADCME pedigree (Guerrini et al. (2001)) = Family A (De Fusco et al. (2014)) = Family 4 (Corbett et al. (2019))	11	1		Italian (Tuscany)	not_stated	22.3 y [12–49,50 y]		AD	AD	V1 ADRA2B ADRA2B; c.675_686delTGGTGGGGCTTTinsGTTTGGCAG; p.H225_L229delinsQ225_F_G_R228 (heterozygous); V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:11701600:1; R:24114805:1; R:31664034:4	11701600; 24114805; 31664034	same_family
+607876	C:2	family	Four-generation European FAME kindred (Labauge et al. (2002)) = Family 19 (Corbett et al. (2019))	13	1		French/ Spanish	not_stated	41 y [30–59,60 y]		AD	AD	V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:11914412:1; R:31664034:19	11914412; 31664034	same_family
+607876	R:12707452:1	group	Two Italian BAFME families	1	2		Italian	not_stated			UNKNOWN			R:12707452:1	12707452	
+607876	C:3	family	Five-generation family from Naples (Striano et al. (2005)) = Family 12 (Corbett et al. (2019))	21	1		Italian	not_stated	39.2 y [24–55,56 y]	24-56 years (mean 39.2 years)	UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:16393167:1; R:31664034:12	16393167; 31664034	same_family
+607876	R:18231815:1	group	Five southern Italian BAFME families	53	5		Italian (southern Italy)	not_stated			AD	AD		R:18231815:1	18231815	
+607876	R:19222544:1	family	Italian FCMTE family	1	1		Italian	not_stated			UNKNOWN			R:19222544:1	19222544	
+607876	C:4	family	6-generation FAME kindred (Crompton et al. (2012)) = Family 1 (Corbett et al. (2019))	55	1		Australian/New Zealand of European ancestry	not_stated	18.6 y [4–59,60 y]		AD	AD	V2 STARD7 ATTTC expansion in the first intron of STARD7 (unknown)	R:22491192:1; R:31664034:1	22491192; 31664034	same_family
+607876	C:5	family	I:2 (De Fusco et al. (2014)) = II:4 (De Fusco et al. (2014)) = III:2 (De Fusco et al. (2014)) = III:5 (De Fusco et al. (2014)) = IV:1 (De Fusco et al. (2014)) = Family 15 (Corbett et al. (2019))	5	1	female	Italian (Tuscany)	not_stated	49 years	70 years	AD	AD	V1 ADRA2B ADRA2B; c.675_686delTGGTGGGGCTTTinsGTTTGGCAG; p.H225_L229delinsQ225_F_G_R228 (unknown); V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:24114805:2; R:24114805:3; R:24114805:4; R:24114805:5; R:24114805:6; R:31664034:15	24114805; 31664034	included_in_group
+607876	R:31664034:10	family	Family 10	16	1		Italian	not_stated	15.8 y [13–19,20 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:10	31664034	
+607876	R:31664034:11	family	Family 11	10	1		Italian	not_stated	15.5 y [13–17,18 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:11	31664034	
+607876	R:31664034:13	family	Family 13	3	1		Italian	not_stated	17.7 y [12–22,23 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:13	31664034	
+607876	R:31664034:14	family	Family 14	3	1		Italian	not_stated	16.3 y [15–18 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:14	31664034	
+607876	R:31664034:16	family	Family 16	15	1		Iraqi of Sephardic Jewish ancestry	not_stated	21 y [12–31,32 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:16	31664034	
+607876	R:31664034:17	family	Family 17	2	1		Israeli of Sephardic Jewish ancestry	not_stated	21 y [21 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:17	31664034	
+607876	R:31664034:18	family	Family 18	24	1		South African of European ancestry	not_stated	15.8 y [11–19,20 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:18	31664034	
+607876	R:31664034:2	family	Family 2	2	1		Italian	not_stated	15–25 y		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:2	31664034	
+607876	R:31664034:20	family	Family 20	7	1		French	not_stated	20 y (n = 1) Childhood (n = 1)		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:20	31664034	
+607876	R:31664034:21	individual	Family 21 singleton case	1	1		Syrian	not_stated	20 y		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:21	31664034	
+607876	R:31664034:22	family	Family 22	11	1		Italian	not_stated	25.1 y [14–39,40 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:22	31664034	
+607876	R:31664034:3	family	Family 3	4	1		Italian	not_stated	2–18y		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:3	31664034	
+607876	R:31664034:5	family	Family 5	25	1		Italian	not_stated	26.6 y [5–39,40 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (588 AAATG and 340 AAAAT repeats in III-37) (unknown)	R:31664034:5	31664034	
+607876	R:31664034:6	family	Family 6	12	1		Italian	not_stated	12 y [8–17,18 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:6	31664034	
+607876	R:31664034:7	family	Family 7	4	1		Italian	not_stated	22.75 y [10–35,36 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:7	31664034	
+607876	R:31664034:8	family	Family 8	10	1		Italian	not_stated	18.5 y [17–19,20 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:8	31664034	
+607876	R:31664034:9	family	Family 9	13	1		Italian	not_stated	17 y [12–21,22 y]		UNKNOWN		V2 STARD7 ATTTC expansion in STARD7 (unknown)	R:31664034:9	31664034	
+608133	R:1684223:1	group	Three adRP families with RDS mutations	1	3			not_stated			AD	AD	V1 PRPH2 three mutations of the human homologue of the rds gene (RDS) (heterozygous)	R:1684223:1	1684223	
+608133	C:1	family	Large Irish adRP pedigree (Farrar et al. (1991)) = Irish ADRP pedigree (Farrar et al. (1991)) = Large Irish adRP family (Jordan et al. (1992))	1	1		Irish	not_stated	late onset		AD	AD	V2 PERIPHERIN-RDS three-base-pair deletion which results in the loss of one of a pair of highly conserved cysteine residues in the predicted third transmembrane domain of peripherin (heterozygous)	R:1749427:1; R:1783395:1; R:1539599:1	1749427; 1783395; 1539599	same_family
+608133	R:8240110:1	individual	Mother	1	1	female		not_stated	presented at age 63 years	75 years	AD	AD	V3 PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154 (unknown)	R:8240110:1	8240110	
+608133	R:8240110:2	individual	Daughter with pattern macular dystrophy	1	1	female		not_stated	31 years	44 years	AD	AD	V3 PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154 (unknown)	R:8240110:2	8240110	
+608133	R:8240110:3	individual	Daughter with fundus flavimaculatus	1	1	female		not_stated	presented at age 42 years	50 years	AD	AD	V3 PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154 (unknown)	R:8240110:3	8240110	
+608133	R:8240110:4	individual	Son	1	1	male		not_stated	44 years	49 years	AD	AD	V3 PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154 (unknown)	R:8240110:4	8240110	
+608133	R:8485576:1	family	Family with autosomal dominant retinitis pigmentosa (Cys118/119 deletion)	1	1			not_stated			AD	AD	V4 PRPH2 cysteine deletion at codon 118/119 (heterozygous)	R:8485576:1	8485576	
+608133	R:8020945:1	family	ADRP patients with peripherin/RDS Asn244Lys	1	1			not_stated			AD	AD	V5 PERIPHERIN/RDS Asn244Lys (heterozygous)	R:8020945:1	8020945	
+608133	R:8202715:1	group	Three digenic RP families	1	3			not_stated			DIGENIC	DIGENIC	V6 ROM1 mutation in ROM1 (heterozygous); V7 PERIPHERIN/RDS mutation in peripherin/RDS (heterozygous)	R:8202715:1	8202715	
+608133	R:23847139:1	individual	Patient 1318	1	1			not_stated	within the first year of life	29 years (age at fundus photograph)	AR	AR	V8 PRPH2 c.637T>C (p.C213R) (homozygous)	R:23847139:1	23847139	
+608133	R:23847139:2	individual	Patient 3256	1	1			not_stated	within the first year of life	66 years (age at fundus photograph)	UNKNOWN	AR	V9 PRPH2 c.554T>C (p.L185P) (homozygous)	R:23847139:2	23847139	
+608133	R:23847139:3	individual	Patient 741	1	1			not_stated	within the first year of life	30 years (age at fundus photograph)	AR	AR	V9 PRPH2 c.554T>C (p.L185P) (homozygous)	R:23847139:3	23847139	
+608133	R:25447119:1	group	32 French adRP families with PRPH2 mutations	1	32		French	not_stated			AD	AD	V10 PRPH2 p.Leu254Gln (unknown)	R:25447119:1	25447119	
+608885	R:7174793:1	individual	Patient with cryohydrocytosis	1	1			not_stated			UNKNOWN			R:7174793:1	7174793	
+608885	R:7174793:2	individual	Patient with hereditary stomatocytosis	1	1			not_stated			UNKNOWN			R:7174793:2	7174793	
+608885	C:1	group	Two stomatin-deficient cryohydrocytosis cases (Fricke et al. (2004)) = 2 previously reported sdCHC cases (Flatt et al. (2011))	2	1			not_stated	congenital		UNKNOWN		V1 SLC2A1 mutations in SLC2A1 (2 mutations found) (unknown)	R:15180870:1; R:21791420:1	15180870; 21791420	included_in_group
+608885	R:22492876:1	individual	Proband (infant)	1	1			not_stated	neonatal		UNKNOWN		V2 SLC2A1 trinucleotide deletion in SLC2A1, coding for the deletion of isoleucine 435 or 436 in GLUT1 (unknown)	R:22492876:1	22492876	
+609057	C:1	group	Two siblings (Kagan et al. (1988)) = Affected sibs (Karamatic Crew et al. (2004))	2	1		Indian Jewish	not_stated			AR	AR	V1 CD151 single nucleotide insertion (G383) in exon 5 of CD151 (homozygous)	R:3412548:1; R:15265795:1	3412548; 15265795	same_family
+609057	R:15265795:2	individual	Third MER2-negative patient	1	1		Indian Jewish	not_stated			UNKNOWN	AR	V1 CD151 single nucleotide insertion (G383) in exon 5 of CD151 (homozygous)	R:15265795:2	15265795	
+609220	R:9927692:1	group	Affected sibs with Bruck syndrome	1	1			not_stated			UNKNOWN			R:9927692:1	9927692	
+609220	R:12881513:1	group	Bruck syndrome patients with PLOD2 exon 17 missense mutations	1	1			not_stated			UNKNOWN		V1 PLOD2 two missense mutations in exon 17 of PLOD2 (unknown)	R:12881513:1	12881513	
+609220	R:15523624:1	individual	Boy with Bruck syndrome	1	1	male		not_stated	at birth		AR	AR	V2 PLOD2 Arg598His (homozygous)	R:15523624:1	15523624	
+609220	R:22689593:1	group	Two Bruck syndrome probands with homozygous PLOD2 exon 13a frameshift	2	2			yes			AR	AR	V3 PLOD2 homozygous frameshift mutation in the alternative exon 13a of PLOD2 (homozygous)	R:22689593:1	22689593	
+609220	R:22689593:2	group	Consanguineous Bruck syndrome families with FKBP10 mutations	1	1			yes			AR	AR	V4 FKBP10 changes in FKBP10 (unknown)	R:22689593:2	22689593	
+609220	R:22689593:3	individual	Patient with AR-OI and homozygous PLOD2 donor splice site mutation	1	1			not_stated			AR	AR	V5 PLOD2 homozygous donor splice site mutation in PLOD2 (homozygous)	R:22689593:3	22689593	
+609220	R:22689593:4	family	Two brothers with compound heterozygous PLOD2 mutations	2	1	2 males		not_stated			AR	AR	V6 PLOD2 compound heterozygous mutations in PLOD2 (compound_heterozygous)	R:22689593:4	22689593	
+609296	C:1	group	6-year-old girl (Hoffman et al. (2001)) = 7-year-old girl (proband) (Hügle et al. (2011)) = Mother of proband (Hügle et al. (2011)) = Families 1 and 2 (probands and affected relative with TOP2B mutations) (Broderick et al. (2019))	3	2	female		not_stated		ages at presentation 7 years and 35 years (family 1), 6 years (family 2)	AD	AD	V1 TOP2B a de novo in-frame deletion c.1761_1763delAGA, p.EE587E (heterozygous); V2 TOP2B a missense mutation c.1448C > T, p.S483L (heterozygous)	R:11152140:1; R:21204224:1; R:21204224:2; R:31409799:1	11152140; 21204224; 31409799	included_in_group
+609296	R:11476068:1	family	Three generation family	1	1			not_stated			AD	AD		R:11476068:1	11476068	
+609296	R:15521984:1	family	Second BILU family	1	1			not_stated			AD	AD		R:15521984:1	15521984	
+609296	R:31409799:2	individual	Family 3 patient	1	1			not_stated		5 years at presentation	AD	AD	V3 TOP2B a heterozygous TOP2B variant: c.1897G > A, p.G633S (heterozygous)	R:31409799:2	31409799	
+609296	R:32128574:1	individual	II:4	1	1	female	Cyprus	not_stated			AD	AD	V4 TOP2B heterozygous G>C mutation at the cDNA nucleotide 1,453 of the TOP2B gene (ENST00000435706) ... A485P (heterozygous)	R:32128574:1	32128574	
+609296	R:32128574:2	individual	III:1	1	1	female	Cyprus	not_stated			AD	AD	V4 TOP2B A485P (heterozygous)	R:32128574:2	32128574	
+609296	R:32128574:3	family	Family B	1	1		France	not_stated			AD	AD	V4 TOP2B A485P (heterozygous)	R:32128574:3	32128574	
+611521	C:1	individual	Tyk2-deficient patient (Minegishi et al. (2006)) = P1 (Kreins et al. (2015))	1	1	male	Japanese	yes	1 mo (atopic dermatitis); 1 yr (infections)	30 yr	AR	AR	V1 TYK2 homozygous 4-bp deletion in exon 4 (C70HfsX21) (homozygous)	R:17088085:1; R:26304966:1	17088085; 26304966	same_individual
+611521	C:2	individual	Turkish patient (Kilic et al. (2012)) = P2 (Kreins et al. (2015))	1	1	male	Turkish	yes	8 months	23 yr	AR	AR	V2 TYK2 c.2303_2311del (L767X) (homozygous)	R:22402565:1; R:26304966:2	22402565; 26304966	same_individual
+611521	R:26304966:3	individual	P3	1	1	female	Moroccan	yes	13 yr	died at 15 yr	AR	AR	V5 TYK2 c.3318_3319insC (T1106HfsX4) (homozygous)	R:26304966:3	26304966	
+611521	R:26304966:4	individual	P4	1	1	male	Moroccan	yes	8 mo	15 yr	AR	AR	V5 TYK2 c.3318_3319insC (T1106HfsX4) (homozygous)	R:26304966:4	26304966	
+611521	R:26304966:5	individual	P5	1	1	male	Iranian	yes	2 mo	6 yr	AR	AR	V6 TYK2 c.462G>T (E154X) (homozygous)	R:26304966:5	26304966	
+611521	R:26304966:6	individual	P6	1	1	female	Iranian	yes	after BCG vaccination at birth	2 yr	AR	AR	V6 TYK2 c.462G>T (E154X) (homozygous)	R:26304966:6	26304966	
+611521	R:26304966:7	individual	P7	1	1	female	Iranian	yes	9 yr	9 yr	AR	AR	V7 TYK2 c.149delC (S50HfsX1) (homozygous)	R:26304966:7	26304966	
+611521	R:26304966:8	individual	P8	1	1	male	Argentinian	not_stated	18 mo	11 yr	AR	AR	V8 TYK2 c.1912 C>T (R638X) (homozygous)	R:26304966:8	26304966	
+611521	R:27615517:1	individual	TYK2 deficient patient	1	1			not_stated			UNKNOWN		V9 TYK2 the mutation (unknown)	R:27615517:1	27615517	
+611521	R:32537443:1	individual	P12 (Chinese boy)	1	1	male	Chinese	no		1 year and 11 months	AR	AR	V10 TYK2 c.2395G>A, p.G799R, hom (homozygous); V11 CFH c.2089C>T, p.L697F, het (heterozygous); V12 LRRC8A c.1250G>A, p.R417Q, het (heterozygous); V13 NIPBL c.5575-27_c.5575-26delCT, –, het (heterozygous)	R:32537443:1	32537443	
+611521	R:34569645:1	group	Five TYK2-deficient patients	5	1			not_stated			UNKNOWN		V14 TYK2 novel TYK2 mutations (unknown)	R:34569645:1	34569645	
+611521	R:35708626:1	individual	P2	1	1	female	Turkish	yes	neonatal	2 years	AR	AR	V15 TYK2 P216Rfs*14 (homozygous)	R:35708626:1	35708626	
+611521	R:35708626:2	individual	P3	1	1	male	Turkish	yes	neonatal	4 years	AR	AR	V15 TYK2 P216Rfs*14 (homozygous)	R:35708626:2	35708626	
+611521	R:35708626:3	individual	Younger sister of P3	1	1	female	Turkish	yes		3 years	AR	AR	V15 TYK2 P216Rfs*14 (homozygous)	R:35708626:3	35708626	
+611521	R:35708626:4	individual	P4	1	1	male	Turkish	yes		9 years	AR	AR	V15 TYK2 P216Rfs*14 (homozygous)	R:35708626:4	35708626	
+611880	R:3594932:1	family	Consanguineous Madeira Portuguese family	3	1		Madeira Portuguese	yes			AR	AR		R:3594932:1	3594932	
+611880	R:11102545:1	group	55 consecutive infantile DCM cases from 41 Arab families, Eastern Province of Saudi Arabia	55	41	males 38%, females 62%	Arab, Eastern Province of Saudi Arabia	yes	<30 mo in 95% (range, 1 to 100 mo)		AR	AR		R:11102545:1	11102545	
+611880	R:15070570:1	family	Family with recessive DCM	1	1			not_stated			AR	AR	V1 TNNI3 novel TNNI3 mutation (unknown)	R:15070570:1	15070570	
+611880	R:19590045:1	group	Families with TNNI3 Lys36Gln or Asn185Lys	5	2			not_stated	early onset		AD	AD	V2 TNNI3 Lys36Gln (heterozygous); V3 TNNI3 Asn185Lys (heterozygous)	R:19590045:1	19590045	
+612847	R:9714015:1	family	Inbred Pakistani kindred (8 generations)	16	1	11 males, 5 females	Pakistani	yes	at birth		AR	AR		R:9714015:1	9714015	
+612847	R:9771708:1	family	Large inbred Pakistani SEMD family	1	1		Pakistani	yes			AR	AR	V1 PAPSS2 nonsense mutation in ATPSK2 (unknown)	R:9771708:1	9771708	
+612847	R:19474428:1	individual	Girl with premature pubarche	1	1	female		not_stated			AR	AR	V2 PAPSS2 compound heterozygous mutations in PAPSS2 (compound_heterozygous)	R:19474428:1	19474428	
+612847	R:22791835:1	family	Turkish family	3	1		Turkish	not_stated	childhood		AR	AR	V3 PAPSS2 c.337_338insG (p.A113GfsX18) (homozygous)	R:22791835:1	22791835	
+612847	R:22791835:2	individual	Patient homozygous for IVS3+2delT	1	1			not_stated	childhood		AR	AR	V4 PAPSS2 IVS3+2delT (homozygous)	R:22791835:2	22791835	
+612847	R:22791835:3	individual	Patient compound heterozygous for c.616-634del19 and c.1309-1310delAG	1	1			not_stated	childhood		AR	AR	V5 PAPSS2 c.616-634del19 (p.V206SfsX9) (compound_heterozygous); V6 PAPSS2 c.1309-1310delAG (p.R437GfsX19) (compound_heterozygous)	R:22791835:3	22791835	
+612847	R:22791835:4	individual	Patient compound heterozygous for c.480_481insCGTA and c.661delA	1	1			not_stated	childhood		AR	AR	V7 PAPSS2 c.480_481insCGTA (p.K161RfsX6) (compound_heterozygous); V8 PAPSS2 c.661delA (p.I221SfsX40) (compound_heterozygous)	R:22791835:4	22791835	
+613581	R:20673862:1	family	Iraqi Jewish family	3	1		Iraqi Jewish	not_stated			AR	AR	V1 IMPG2 nonsense mutation (homozygous)	R:20673862:1	20673862	
+613581	R:20673862:2	family	Dutch family	3	1		Dutch	not_stated			AR	AR	V2 IMPG2 1.8 kb genomic deletion that removes exon 9 and results in the absence of seven amino acids in a conserved SEA domain (homozygous)	R:20673862:2	20673862	
+613581	R:20673862:3	group	Additional index cases with IMPG2 nonsense mutations	1	9		Dutch, Israeli, Italian, Pakistani	not_stated			AR	AR	V3 IMPG2 four nonsense mutations (homozygous)	R:20673862:3	20673862	
+613581	R:20673862:4	individual	Patient with missense mutation	1	1			not_stated			UNKNOWN	AR	V4 IMPG2 missense mutation affecting a highly conserved phenylalanine residue (homozygous)	R:20673862:4	20673862	
+613730	R:21109224:1	family	Large consanguineous family from the United Arab Emirates	1	1		United Arab Emirates	yes			AR	AR	V1 JAM3 mutation in the canonical splice-donor site of intron 5 of JAM3 (homozygous)	R:21109224:1	21109224	
+613730	R:23255084:1	individual	II2	1	1	female	Turkish	yes	neonatal	died at 2 months	AR	AR	V2 JAM3 c.656G>A (p.C219Y) (homozygous)	R:23255084:1	23255084	
+613730	R:23255084:2	individual	Patient 1 (II1)	1	1	male	Afghani	no	birth	died at two weeks	AR	AR	V3 JAM3 c.346G>A (p.E116K) (homozygous)	R:23255084:2	23255084	
+613730	R:23255084:3	individual	Patient 2 (II3)	1	1	male	Afghani	no	birth	died on the fifth day of life	AR	AR	V3 JAM3 c.346G>A (p.E116K) (homozygous)	R:23255084:3	23255084	
+613730	R:23255084:4	individual	II5 (index case)	1	1	female	Moroccan	yes	birth	died at 39 days	AR	AR	V4 JAM3 c.2T>G (p.M1R) (homozygous)	R:23255084:4	23255084	
+613744	R:20972249:1	individual	IV-4	1	1	female	Palestinian-Jordanian	yes	at birth	23 years	AR	AR	V1 AP4E1 192 kb homozygous deletion of chromosome 15q21.2 (chr15:48835480-49028171; hg18) including the 5' end of AP4E1 and SPPL2A (homozygous)	R:20972249:1	20972249	
+613744	R:20972249:2	individual	IV-5	1	1	male	Palestinian-Jordanian	yes	postnatal	22 years	AR	AR	V1 AP4E1 192 kb homozygous deletion of chromosome 15q21.2 (chr15:48835480-49028171; hg18) including the 5' end of AP4E1 and SPPL2A (homozygous)	R:20972249:2	20972249	
+613744	R:21620353:1	group	Eight affected individuals from three consanguineous families	8	3			yes			AR	AR	V2 AP4S1 NM_007077.3: c.124C>T, p.Arg42(∗) (unknown); V3 AP4B1 NM_006594.2: c.487_488insTAT, p.Glu163_Ser739delinsVal (unknown); V4 AP4E1 NM_007347.3: c.542+1_542+4delGTAA, r.421_542del, p.Glu181Glyfs(∗)20 (unknown)	R:21620353:1	21620353	
+613744	C:1	family	P1 (Kong et al. (2013)) = P2 (Kong et al. (2013)) = P1 and P2 (twins, Kindred A) (Kong et al. (2018))	2	1	female	Moroccan	yes	Infancy	8 years	AR	AR	V5 AP4E1 homozygous p.R1105X mutation of the AP4E1 gene (homozygous); V6 SPPL2A homozygous c.733+1G>A mutation of the splice donor site of SPPL2A intron 6 (homozygous)	R:23472171:1; R:23472171:2; R:30127434:1	23472171; 30127434	included_in_group
+613848	R:20188343:1	individual	Affected individual	1	1			not_stated			AR	AR	V1 SERPINH1 c.233T>C, p.Leu78Pro (homozygous)	R:20188343:1	20188343	
+613848	R:25510505:1	group	OI patient with novel SERPINH1 mutation	1	1			not_stated			AR	AR	V2 SERPINH1 new OI mutation in SERPINH1 (unknown)	R:25510505:1	25510505	
+614501	R:22279524:1	group	Symptomatic epilepsy and skull dysplasia patients (Old Order Amish)	3	2	includes 2 brothers	Old Order Amish	not_stated	neonatal		AR	AR	V1 SNIP1 SNIP1 c.1097A>G (p.Glu366Gly) (homozygous)	R:22279524:1	22279524	
+614651	R:17332895:1	family	Family 1	1	1			not_stated			AR	AR	V1 PDSS1 D308E (homozygous)	R:17332895:1	17332895	
+614651	R:17332895:2	family	Family 2	1	1			not_stated			UNKNOWN		V2 COQ2 c.1198delT, N401fsX415 (unknown)	R:17332895:2	17332895	
+614651	R:33285023:1	individual	Present case (1), older sister (II:1)	1	1	female	Egyptian	yes	4 years (hearing loss detected)	16 years	AR	AR	V3 PDSS1 c.735G > T (p.Gln245His) (homozygous)	R:33285023:1	33285023	
+614651	R:33285023:2	individual	Present case (2), younger sister (II:4)	1	1	female	Egyptian	yes		6 years	AR	AR	V3 PDSS1 c.735G > T (p.Gln245His) (homozygous)	R:33285023:2	33285023	
+614651	R:34765390:1	individual	Reported infant	1	1	male		not_stated	5 months	died at 3 years	AR	AR	V4 PDSS1 NM_014317.3: c.716 T > G (p.Val239Gly) (heterozygous); V5 PDSS1 NM_014317.3: c.1183C > T (p.Arg395*) (heterozygous)	R:34765390:1	34765390	
+614701	C:1	group	Boy with 8q24 microdeletion (McBrien et al. (2008)) = Children with RAD21 mutations (Deardorff et al. (2012)) = F8 (Krab et al. (2020)) = F13 (Krab et al. (2020)) = F19 (Krab et al. (2020)) = F21 (Krab et al. (2020))	4	1	male		not_stated			AD	AD	V2 EXT1 small microdeletion involving EXT1 alone (8q24) (heterozygous); V3 RAD21 dominant missense mutations (heterozygous); V4 RAD21 loss-of-function mutations (unknown); V20 RAD21 c.1127C > G p.(Pro376Arg) (heterozygous); V25 RAD21 c.1753T > C p.(Cys585Arg) (heterozygous); V28 RAD21 arr[hg19] 8q23.3q24.11(116880827–118875305)x1 (heterozygous); V30 RAD21 arr[hg19] 8q23.3q24.12(117571728–119260904)x1 (heterozygous)	R:18478595:1; R:22633399:1; R:32193685:13; R:32193685:19; R:32193685:27; R:32193685:29	18478595; 22633399; 32193685	same_individual; included_in_group
+614701	C:2	family	Patient 1 (exon 13 in-frame deletion) (Minor et al. (2014)) = F11a (Krab et al. (2020)) = F11b (Krab et al. (2020))	2	1	female		not_stated			AD	AR	V5 RAD21 in-frame deletion of exon 13 (heterozygous); V23 RAD21 c.1621-388_1704 + 193del p.(Asp541_Gln568del) (heterozygous)	R:24378232:1; R:32193685:16; R:32193685:17	24378232; 32193685	same_individual; same_family
+614701	C:3	individual	Patient 2 (c.592_593dup) (Minor et al. (2014)) = F4 (Krab et al. (2020))	1	1			not_stated			UNKNOWN		V6 RAD21 c.592_593dupAG p.(Ser198Argfs*6) (heterozygous)	R:24378232:2; R:32193685:5	24378232; 32193685	same_individual
+614701	C:4	family	IV.16 (Boyle et al. (2017)) = F6d (Krab et al. (2020)) = F6a (Krab et al. (2020)) = F6b (Krab et al. (2020)) = F6c (Krab et al. (2020))	4	1			not_stated			AD	AD	V7 RAD21 c.704delG p.(Ser235Ilefs*19) (heterozygous)	R:27882533:1; R:32193685:10; R:32193685:7; R:32193685:8; R:32193685:9	27882533; 32193685	same_individual; same_family
+614701	C:5	individual	15-month-old boy (Gudmundsson et al. (2019)) = F17 (Krab et al. (2020))	1	1	male		not_stated		15 months	AD	AD	V8 RAD21 c.1774_1776del p.(Gln592del) (heterozygous)	R:30125677:1; R:32193685:25	30125677; 32193685	same_individual
+614701	C:7	group	Individuals with SMC3 or RAD21 variants (Kruszka et al. (2019)) = F9 (Krab et al. (2020)) = F28a (Krab et al. (2020)) = F28b (Krab et al. (2020))	4	1	male		not_stated			AD	AD	V9 RAD21 variants in RAD21 (unknown); V10 SMC3 variants in SMC3 (unknown); V21 RAD21 c.1217_1224del p.(Lys406Argfs*4) (heterozygous); V37 RAD21 c.1550dupC p.(Glu518Argfs*19) (heterozygous)	R:31334757:1; R:32193685:14; R:32193685:38; R:32193685:39	31334757; 32193685	included_in_group
+614701	R:31334757:2	group	Individuals with STAG2 or SMC1A variants	11	1			not_stated			XL	XL	V11 STAG2 loss-of-function variants in STAG2 (unknown); V12 SMC1A loss-of-function and missense variants in SMC1A (unknown)	R:31334757:2	31334757	
+614701	C:6	individual	Boy with RAD21 mutation (Dorval et al. (2020)) = F7 (Krab et al. (2020))	1	1	male		not_stated			AD	AD	V13 RAD21 c.943_946del p.(Glu315Glnfs*9) (heterozygous)	R:30716475:1; R:32193685:12	30716475; 32193685	same_individual
+614701	R:32193685:1	individual	F1	1	1			not_stated			AD	AD	V14 RAD21 c.68G > A p.(Trp23*) (heterozygous)	R:32193685:1	32193685	
+614701	R:32193685:11	individual	F6e	1	1			not_stated			AD	AD	V7 RAD21 c.704delG p.(Ser235Ilefs*19) (heterozygous)	R:32193685:11	32193685	
+614701	R:32193685:15	individual	F10	1	1			not_stated			AD	AD	V22 RAD21 c.1382C > T p.(Thr461Ile) (heterozygous)	R:32193685:15	32193685	
+614701	R:32193685:18	individual	F12	1	1			not_stated			AD	AD	V24 RAD21 c.1635del p.(Gly547Alafs*65) (heterozygous)	R:32193685:18	32193685	
+614701	R:32193685:2	individual	F2	1	1			not_stated			UNKNOWN		V15 RAD21 c.194G > A p.(Arg65Gln) (heterozygous)	R:32193685:2	32193685	
+614701	R:32193685:20	individual	F14a	1	1			not_stated			AD	AD	V25 RAD21 c.1753T > C p.(Cys585Arg) (heterozygous)	R:32193685:20	32193685	
+614701	R:32193685:21	individual	F14b	1	1			not_stated			AD	AD	V25 RAD21 c.1753T > C p.(Cys585Arg) (heterozygous)	R:32193685:21	32193685	
+614701	R:32193685:22	individual	F15	1	1			not_stated			UNKNOWN		V26 RAD21 c.1756C > T p.(Arg586*) (heterozygous)	R:32193685:22	32193685	
+614701	R:32193685:23	individual	F16a	1	1			not_stated			AD	AD	V26 RAD21 c.1756C > T p.(Arg586*) (heterozygous)	R:32193685:23	32193685	
+614701	R:32193685:24	individual	F16b	1	1	male		not_stated			AD	AD	V26 RAD21 c.1756C > T p.(Arg586*) (heterozygous)	R:32193685:24	32193685	
+614701	R:32193685:26	individual	F18	1	1			not_stated			UNKNOWN		V27 RAD21 c.1800_1802del p.(Phe600del) (heterozygous)	R:32193685:26	32193685	
+614701	R:32193685:28	individual	F20	1	1			not_stated			AD	AD	V29 RAD21 arr[hg19] 8q23.3q24.11(116915114–119171074)x1 (heterozygous)	R:32193685:28	32193685	
+614701	R:32193685:3	individual	F3a	1	1			not_stated			AD	AD	V16 RAD21 c.274 + 1G > A (heterozygous)	R:32193685:3	32193685	
+614701	R:32193685:30	individual	F22	1	1			not_stated			UNKNOWN		V31 RAD21 arr[hg19] 8q24.11(117866471–117893495)x1 (heterozygous)	R:32193685:30	32193685	
+614701	R:32193685:31	individual	F23	1	1			not_stated			AD	AD	V32 RAD21 c.16T > G p.(Phe6Val) (heterozygous)	R:32193685:31	32193685	
+614701	R:32193685:32	individual	F24	1	1			not_stated			UNKNOWN		V33 RAD21 c.85delinsCCT p.(Lys29Profs*10) (heterozygous)	R:32193685:32	32193685	
+614701	R:32193685:33	individual	F25a	1	1			not_stated			AD	AD	V34 RAD21 c.951del p.(Ala318Profs*7) (heterozygous)	R:32193685:33	32193685	
+614701	R:32193685:34	individual	F25b	1	1	male		not_stated			AD	AD	V34 RAD21 c.951del p.(Ala318Profs*7) (heterozygous)	R:32193685:34	32193685	
+614701	R:32193685:35	individual	F26	1	1			not_stated			AD	AD	V35 RAD21 c.1033T > C p.(Ser345Pro) (heterozygous)	R:32193685:35	32193685	
+614701	R:32193685:36	individual	F27a	1	1			not_stated			AD	AD	V36 RAD21 c.1161 + 1G > A (heterozygous)	R:32193685:36	32193685	
+614701	R:32193685:37	individual	F27b	1	1	female		not_stated			AD	AD	V36 RAD21 c.1161 + 1G > A (heterozygous)	R:32193685:37	32193685	
+614701	R:32193685:4	individual	F3b	1	1			not_stated			AD	AD	V16 RAD21 c.274 + 1G > A (heterozygous)	R:32193685:4	32193685	
+614701	R:32193685:40	individual	F29	1	1			not_stated			AD	AD	V38 RAD21 c.1808T > C p.(Leu603Pro) (heterozygous)	R:32193685:40	32193685	
+614701	R:32193685:41	individual	F30a	1	1			not_stated			AR	AR	V39 RAD21 c.[1864G > A];[1864G > A] p.(Ala622Thr) (homozygous)	R:32193685:41	32193685	
+614701	R:32193685:42	individual	F30b	1	1			not_stated			AR	AR	V39 RAD21 c.[1864G > A];[1864G > A] p.(Ala622Thr) (homozygous)	R:32193685:42	32193685	
+614701	R:32193685:43	individual	F30c	1	1			not_stated			AR	AR	V39 RAD21 c.[1864G > A];[1864G > A] p.(Ala622Thr) (homozygous)	R:32193685:43	32193685	
+614701	R:32193685:44	individual	F30d	1	1			not_stated			UNKNOWN		V39 RAD21 c.[1864G > A] p.(Ala622Thr) (heterozygous)	R:32193685:44	32193685	
+614701	R:32193685:45	individual	F30e	1	1			not_stated			UNKNOWN		V39 RAD21 c.[1864G > A] p.(Ala622Thr) (heterozygous)	R:32193685:45	32193685	
+614701	R:32193685:46	individual	F30f	1	1			not_stated			UNKNOWN		V39 RAD21 c.[1864G > A] p.(Ala622Thr) (heterozygous)	R:32193685:46	32193685	
+614701	R:32193685:47	individual	F31	1	1			not_stated			UNKNOWN		V40 RAD21 arr[hg19] 8q23.3-24.11(116902507–118942698)x1 (heterozygous)	R:32193685:47	32193685	
+614701	R:32193685:48	individual	F32	1	1			not_stated			UNKNOWN		V41 RAD21 arr[hg19] 8q23.3-24.11(117509968–118391406)x1 (heterozygous)	R:32193685:48	32193685	
+614701	R:32193685:49	individual	F33	1	1			not_stated			UNKNOWN		V42 RAD21 arr[hg19] 8q24.11(117714768–119072307)x1 (heterozygous)	R:32193685:49	32193685	
+614701	R:32193685:6	individual	F5	1	1			not_stated			AD	AD	V18 RAD21 c.617_620del p.(Ile206Thrfs*3) (heterozygous)	R:32193685:6	32193685	
+614701	R:32696056:1	individual	Patient with holoprosencephaly	1	1			not_stated			UNKNOWN		V43 RAD21 RAD21 loss-of-function variant (unknown)	R:32696056:1	32696056	
+614856	C:1	group	Three unrelated children (Munns et al. (2004)) = Three unrelated individuals homozygous for c.*241T>C (Fahiminiya et al. (2015))	3	3			not_stated	with weight bearing		AR	AR	V3 BMP1 c.*241T>C (homozygous)	R:15542026:1; R:25214535:1	15542026; 25214535	included_in_group
+614856	R:22052668:1	individual	II-3	1	1	female	Egyptian	yes	birth	15 years	AR	AR	V1 BMP1 c.747C>G (p.Phe249Leu) (homozygous)	R:22052668:1	22052668	
+614856	R:22052668:2	individual	II-6	1	1	male	Egyptian	yes	prenatal	5 years	AR	AR	V1 BMP1 c.747C>G (p.Phe249Leu) (homozygous)	R:22052668:2	22052668	
+614856	R:22482805:1	family	Consanguineous family with BMP1 c.34G>C	1	1			yes			AR	AR	V2 BMP1 c.34G>C (homozygous)	R:22482805:1	22482805	
+614856	R:24648371:1	individual	Newly identified patient	1	1			not_stated			AR	AR	V2 BMP1 c.34G>C (homozygous)	R:24648371:1	24648371	
+614856	R:25214535:2	individual	Fourth individual, compound heterozygous	1	1			not_stated	childhood		AR	AR	V3 BMP1 c.*241T>C (compound_heterozygous); V4 BMP1 c.2107G>C (compound_heterozygous)	R:25214535:2	25214535	
+614856	R:25402547:1	individual	Korean OI patient	1	1		Korean	not_stated			AR	AR	V5 BMP1 c.808A>G p.(Met270Val) (compound_heterozygous); V6 BMP1 c.1297G>T (compound_heterozygous)	R:25402547:1	25402547	
+615073	C:1	family	Non-Jewish North American family (Bressman et al. (1994)) = Family D1 individual 1 (Fuchs et al. (2013)) = Family D1 individual 2 (Fuchs et al. (2013)) = Family D1 individual 3 (Fuchs et al. (2013)) = Family D1 individual 4 (proband) (Fuchs et al. (2013)) = Family D1 individual 5 (Fuchs et al. (2013)) = Family D1 individual 6 (Fuchs et al. (2013)) = Family D1 individual 7 (Fuchs et al. (2013))	7	1	male	Caucasian, mixed European	not_stated	31 years	75 years	AD	AD	V1 GNAL c.409G>A V137M (heterozygous)	R:8309575:1; R:23222958:1; R:23222958:2; R:23222958:3; R:23222958:4; R:23222958:5; R:23222958:6; R:23222958:7	8309575; 23222958	included_in_group
+615073	R:23222958:10	individual	Family P individual 3	1	1	male	mixed Russian and Swiss Mennonite	not_stated	47 years	48 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:10	23222958	
+615073	R:23222958:11	individual	Family P individual 4 (proband)	1	1	female	mixed Russian and Swiss Mennonite	not_stated	25 years	47 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:11	23222958	
+615073	R:23222958:12	individual	Family P individual 5	1	1	male	mixed Russian and Swiss Mennonite	not_stated	32 years	44 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:12	23222958	
+615073	R:23222958:13	individual	Family P individual 6	1	1	male	mixed Russian and Swiss Mennonite	not_stated	35 years	41 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:13	23222958	
+615073	R:23222958:14	individual	Family S individual 1 (proband)	1	1	male	Caucasian, mixed European	not_stated	18 years	38 years	AD	AD	V3 GNAL c.463G>A p.E155K (heterozygous)	R:23222958:14	23222958	
+615073	R:23222958:15	individual	Family S individual 2	1	1	male	Caucasian, mixed European	not_stated	17 years	38 years	AD	AD	V3 GNAL c.463G>A p.E155K (heterozygous)	R:23222958:15	23222958	
+615073	R:23222958:16	individual	Family D2 individual 1	1	1	female	Caucasian, mixed European	not_stated	33 years	46 years	AD	AD	V4 GNAL c.283-284insT p.S95fsX110 (heterozygous)	R:23222958:16	23222958	
+615073	R:23222958:17	individual	Family D2 individual 2 (proband)	1	1	female	Caucasian, mixed European	not_stated	39 years	44 years	AD	AD	V4 GNAL c.283-284insT p.S95fsX110 (heterozygous)	R:23222958:17	23222958	
+615073	R:23222958:18	individual	Family D2 individual 3	1	1	female	Caucasian, mixed European	not_stated	18 years	31 years	AD	AD	V4 GNAL c.283-284insT p.S95fsX110 (heterozygous)	R:23222958:18	23222958	
+615073	R:23222958:19	individual	Family D2 individual 4	1	1	female	Caucasian, mixed European	not_stated	11 years	19 years	AD	AD	V4 GNAL c.283-284insT p.S95fsX110 (heterozygous)	R:23222958:19	23222958	
+615073	R:23222958:20	individual	Family H individual 1	1	1	male	Caucasian, mixed European	not_stated	47 years	72 years	AD	AD	V5 GNAL c.591-592insA p.R198fsX210 (heterozygous)	R:23222958:20	23222958	
+615073	R:23222958:21	individual	Family H individual 2 (proband)	1	1	female	Caucasian, mixed European	not_stated	38 years	39 years	AD	AD	V5 GNAL c.591-592insA p.R198fsX210 (heterozygous)	R:23222958:21	23222958	
+615073	R:23222958:22	individual	Family H individual 3	1	1	female	Caucasian, mixed European	not_stated	31 years	41 years	AD	AD	V5 GNAL c.591-592insA p.R198fsX210 (heterozygous)	R:23222958:22	23222958	
+615073	R:23222958:23	individual	Family B individual 1	1	1	male	Caucasian, mixed European	not_stated	54 years	59 years	AD	AD	V6 GNAL c.274-5T>C (heterozygous)	R:23222958:23	23222958	
+615073	R:23222958:24	individual	Family B individual 2 (proband)	1	1	female	Caucasian, mixed European	not_stated	36 years	50 years	AD	AD	V6 GNAL c.274-5T>C (heterozygous)	R:23222958:24	23222958	
+615073	R:23222958:25	individual	Family T individual 1 (proband)	1	1	male	Caucasian, mixed European	not_stated	25 years	45 years	AD	AD	V7 GNAL c.61C>T p.R21X (heterozygous)	R:23222958:25	23222958	
+615073	R:23222958:26	individual	Family T individual 2	1	1	male	Caucasian, mixed European	not_stated	42 years	54 years	AD	AD	V7 GNAL c.61C>T p.R21X (heterozygous)	R:23222958:26	23222958	
+615073	R:23222958:27	individual	Family T individual 3	1	1	female	Caucasian, mixed European	not_stated	25 years	33 years	AD	AD	V7 GNAL c.61C>T p.R21X (heterozygous)	R:23222958:27	23222958	
+615073	R:23222958:28	individual	Family N individual 1 (proband)	1	1	male	Caucasian, mixed European	not_stated	20 years	56 years	AD	AD	V8 GNAL c.304-312delCCTCCAGTT p.P102-V104del (heterozygous)	R:23222958:28	23222958	
+615073	R:23222958:8	individual	Family P individual 1	1	1	female	mixed Russian and Swiss Mennonite	not_stated	48 years	68 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:8	23222958	
+615073	R:23222958:9	individual	Family P individual 2	1	1	male	mixed Russian and Swiss Mennonite	not_stated	35 years	38 years	AD	AD	V2 GNAL c.878C>A p.S293X (heterozygous)	R:23222958:9	23222958	
+615268	R:21885617:1	family	Large consanguineous Turkish family	1	1		Turkish	yes			AR	AR	V1 WDR81 WDR81 p.P856L (homozygous)	R:21885617:1	21885617	
+615268	R:22892528:1	family	Consanguineous Turkish family	4	1		Turkish	yes			AR	AR	V2 ATP8A2 p.I376M (homozygous)	R:22892528:1	22892528	
+615268	C:1	group	IV.4 (proband) (Mohamadian et al. (2020)) = Affected sibs IV.1 and IV.2 (Mohamadian et al. (2020))	2	1	female	Iranian, Arab descent	yes	Birth	9 years	AR	AR	V3 ATP8A2 NM_016529.6:c.1339G > A, NP_057613.4:(p.Gly447Arg) (homozygous)	R:33079427:1; R:33079427:2	33079427	same_family
+615268	R:33682124:1	family	Two siblings	2	1			not_stated	congenital		UNKNOWN	AR	V4 ATP8A2 c.1580-18C > G - intron 17 (homozygous)	R:33682124:1	33682124	
+615268	R:35321980:1	family	Japanese siblings	2	1		Japanese	not_stated	1 and 2 months of age		AR	AR	V5 ATP8A2 NM_016529.6:c.1741C>T p.(Arg581*) (compound_heterozygous); V6 ATP8A2 NM_016529.6:c.2158C>T p.(Arg720*) (compound_heterozygous)	R:35321980:1	35321980	
+615425	R:20164846:1	individual	38-year-old affected individual	1	1	male		not_stated	lifelong	38 years	AR	AR	V1 DST p.Gln1124X (homozygous)	R:20164846:1	20164846	
+615425	R:33471381:1	group	Five EBS patients from three families with bi-allelic DST mutations	5	3			not_stated			AR	AR	V2 DST c.7097dupA (p.Tyr2366X) (unknown); V3 DST c.7429delC (p.Leu2477Serfs*13) (unknown)	R:33471381:1	33471381	
+615493	R:23390136:1	family	Consanguineous family with moderate ID	1	1			yes			AR	AR	V1 ANK3 homozygous truncating frameshift mutation in the longest isoform (homozygous)	R:23390136:1	23390136	
+615493	R:23390136:2	individual	Patient with balanced translocation	1	1			not_stated			UNKNOWN		V2 ANK3 balanced translocation disrupting all isoforms of the ANK3 gene (heterozygous)	R:23390136:2	23390136	
+615582	R:23824657:1	individual	Proband	1	1	female	European-American	no	birth	9 years	AD	AD	V1 TGFB3 c.1226G>A; pC409Y (heterozygous); V2 CDH2 c.208C>T, pQ70X (heterozygous)	R:23824657:1	23824657	
+615582	R:24798638:1	individual	Patient with overgrowth and LDS features	1	1			not_stated			UNKNOWN		V3 TGFB3 De novo mutation of the latency-associated peptide domain of TGFB3 (unknown)	R:24798638:1	24798638	
+615582	R:25835445:1	family	Family 1	1	1		Dutch	not_stated			AD	AD	V4 TGFB3 c.754+2T>C (p.Glu216_Lys251del) (heterozygous)	R:25835445:1	25835445	
+615582	R:25835445:2	group	Families 2-11	1	10			not_stated			AD	AD	V5 TGFB3 p.Asp263His (heterozygous); V6 TGFB3 p.Arg300Trp (heterozygous); V7 TGFB3 p.Ile322Thr (heterozygous); V8 TGFB3 p.Leu401Pro (heterozygous); V9 TGFB3 p.Tyr365* (heterozygous); V10 TGFB3 p.Leu386Argfs*21 (heterozygous); V11 TGFB3 p.Asn235Metfs*11 (heterozygous); V12 SMAD3 p.Ala250Thr (heterozygous)	R:25835445:2	25835445	
+615582	R:26184463:1	family	Family with father and two affected children	3	1			not_stated			AD	AD	V13 TGFB3 c.898C>G, p.Arg300Gly (heterozygous)	R:26184463:1	26184463	
+615631	R:9220189:1	group	Three Bedouin sibs	3	1		Bedouin	not_stated			UNKNOWN			R:9220189:1	9220189	
+615631	R:23716552:1	family	Consanguineous Middle-Eastern pedigree	1	1		Middle-Eastern	yes			AR	AR	V1 CDIN1 c.533T>A, p.L178Q (homozygous)	R:23716552:1	23716552	
+615631	R:23716552:2	group	Two SouthEast Asian pedigrees	1	2		SouthEast Asian (Pakistan)	not_stated			UNKNOWN	AR	V2 CDIN1 c.281A>G, p.Y94C (homozygous)	R:23716552:2	23716552	
+615710	R:1488984:1	family	2 sibs	2	1			yes			AR	AR		R:1488984:1	1488984	
+615710	R:1488984:2	group	3 unrelated infants from ECEMC	3	3		Spanish	not_stated			UNKNOWN			R:1488984:2	1488984	
+615710	R:9677074:1	group	Patients with lethal autosomal recessive IUGR, biliary atresia and esophageal/duodenal atresia syndrome	1	1			not_stated			AR	AR		R:9677074:1	9677074	
+615710	C:1	group	Five infants (two sibling pairs and an isolated case) (Mitchell et al. (2004)) = Proband #1 (Smith et al. (2010)) = Proband #3 (Smith et al. (2010))	5	3	female		yes	neonatal	died in the first few months of life	AR	AR	V1 RFX6 IVS2+2 t>c (homozygous); V3 RFX6 IVS6+2 t>g (compound_heterozygous); V4 RFX6 IVS1-12 a>g (compound_heterozygous)	R:15592663:1; R:20148032:1; R:20148032:3	15592663; 20148032	included_in_group
+615710	R:17321227:1	individual	Patient (female infant)	1	1	female		yes		died at 60 days	AR	AR		R:17321227:1	17321227	
+615710	R:18512226:1	individual	Patient born to consanguineous parents	1	1			yes	neonatal		AR	AR		R:18512226:1	18512226	
+615710	R:19887127:1	individual	Newborn from consanguineous parents	1	1			yes	neonatal		AR	AR		R:19887127:1	19887127	
+615710	R:20148032:2	individual	Proband #2	1	1			yes		4.5 years	AR	AR	V2 RFX6 217 Ser>Pro (homozygous)	R:20148032:2	20148032	
+615710	R:20148032:4	individual	Proband #4	1	1			not_stated		died in the first few months of life	AR	AR	V5 RFX6 out-of-frame deletion in exon 7 (homozygous)	R:20148032:4	20148032	
+615710	R:20148032:5	individual	Proband #5	1	1			not_stated		died in the first few months of life	AR	AR	V6 RFX6 181 R>Q (homozygous)	R:20148032:5	20148032	
+615710	R:20148032:6	individual	Proband #6	1	1			not_stated			UNKNOWN			R:20148032:6	20148032	
+615710	R:26264437:1	individual	Case 1 (I5)	1	1	female	Turkish	no	diabetes at 3 years; intestinal atresia at birth	9 years	AR	AR	V7 RFX6 c.2176C>T (p.Arg726X) (compound_heterozygous); V8 RFX6 c.2596C>T (p.Arg866X) (compound_heterozygous)	R:26264437:1	26264437	
+615710	R:26264437:2	individual	Case 2 (I12)	1	1	male	Turkish	no	diabetes at 6 years; intestinal atresia at birth	9 years	AR	AR	V7 RFX6 c.2176C>T (p.Arg726X) (compound_heterozygous); V8 RFX6 c.2596C>T (p.Arg866X) (compound_heterozygous)	R:26264437:2	26264437	
+615817	C:1	group	Large consanguineous ARID family (Ropers et al. (2011)) = Seven children with homozygous WASHC4 c.3056C>G (Courtland et al. (2021))	7	1		Oman	yes		now an average of 21 years old	AR	AR	V1 WASHC4 WASHC4c.3056C>G (protein: SWIPP1019R) (homozygous)	R:21498477:1; R:33749590:1	21498477; 33749590	included_in_group
+615817	R:31953988:1	individual	Younger sister (aged 4 years)	1	1	female		not_stated		4 years	AR	AR	V2 WASHC4 p.(Gln442*) (compound_heterozygous); V3 WASHC4 p.(Asp1048Gly) (compound_heterozygous)	R:31953988:1	31953988	
+615817	R:31953988:2	individual	Older sister (aged 5.5 years)	1	1	female		not_stated		5.5 years	AR	AR	V2 WASHC4 p.(Gln442*) (compound_heterozygous); V3 WASHC4 p.(Asp1048Gly) (compound_heterozygous)	R:31953988:2	31953988	
+615817	R:31953988:3	individual	Third patient (aged 34 years)	1	1			not_stated		34 years	AR	AR	V4 WASHC4 p.(Lys1079Arg) (compound_heterozygous); V5 WASHC4 p.(His503Arg) (compound_heterozygous)	R:31953988:3	31953988	
+615817	R:34599609:1	family	Two sisters with homozygous WASHC4 variant	2	1	2 females		not_stated			AR	AR	V7 WASHC4 homozygous WASHC4 variant (homozygous)	R:34599609:1	34599609	
+615972	R:19452014:1	individual	III10	1	1	female	Chinese	not_stated	since birth	66 years	AD	AD		R:19452014:1	19452014	
+615972	R:19452014:2	individual	III11	1	1	male	Chinese	not_stated	since birth	60 years	AD	AD		R:19452014:2	19452014	
+615972	R:19452014:3	individual	III14	1	1	female	Chinese	not_stated	since birth	56 years	AD	AD		R:19452014:3	19452014	
+615972	R:19452014:4	individual	III15	1	1	male	Chinese	not_stated	since birth	53 years	AD	AD		R:19452014:4	19452014	
+615972	R:19452014:5	individual	III17	1	1	male	Chinese	not_stated	since birth	50 years	AD	AD		R:19452014:5	19452014	
+615972	R:19452014:6	individual	IV10	1	1	male	Chinese	not_stated	since birth	40 years	AD	AD		R:19452014:6	19452014	
+615972	R:19452014:7	individual	IV19	1	1	male	Chinese	not_stated	since birth	28 years	AD	AD		R:19452014:7	19452014	
+615972	R:19452014:8	individual	IV21	1	1	male	Chinese	not_stated	since birth	27 years	AD	AD		R:19452014:8	19452014	
+615972	R:19452014:9	individual	V5	1	1	male	Chinese	not_stated	since birth	6 years	AD	AD		R:19452014:9	19452014	
+615972	R:21345985:1	family	Chinese family with congenital simple microphthalmia	1	1		Chinese	not_stated	congenital		AD	AD		R:21345985:1	21345985	
+615972	R:24852644:1	family	Family NNO-SA1	16	1		white (South Australia)	not_stated	congenital		AD	AD	V1 TMEM98 c.577G>C (p.Ala193Pro) (heterozygous)	R:24852644:1	24852644	
+615972	R:26392740:1	individual	III-3	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:1	26392740	
+615972	R:26392740:10	individual	III-3	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:10	26392740	
+615972	R:26392740:11	individual	IV-4	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:11	26392740	
+615972	R:26392740:12	individual	IV-5	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:12	26392740	
+615972	R:26392740:13	individual	IV-6	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:13	26392740	
+615972	R:26392740:14	individual	IV-7	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:14	26392740	
+615972	R:26392740:15	individual	IV-11	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:15	26392740	
+615972	R:26392740:16	group	Pedigree 951-N, affected by family history only	3	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:16	26392740	
+615972	R:26392740:2	individual	III-4	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:2	26392740	
+615972	R:26392740:3	individual	IV-2	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:3	26392740	
+615972	R:26392740:4	individual	IV-3	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:4	26392740	
+615972	R:26392740:5	individual	V-1	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:5	26392740	
+615972	R:26392740:6	individual	V-2	1	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:6	26392740	
+615972	R:26392740:7	group	Pedigree 991-F, affected by family history only	3	1		Caucasian, German heritage, United States	not_stated			AD	AD	V2 TMEM98 His196Pro (unknown)	R:26392740:7	26392740	
+615972	R:26392740:8	individual	II-5	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:8	26392740	
+615972	R:26392740:9	individual	III-2	1	1		Pacific Islander, Micronesian, Mariana Islands	not_stated			AD	AD	V3 TMEM98 c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg (heterozygous)	R:26392740:9	26392740	
+616151	R:23993198:1	group	Three families with autosomal-dominant VMD (p.Leu238Arg)	1	3			not_stated			AD	AD	V1 IMPG1 c.713T>G (p.Leu238Arg) (heterozygous)	R:23993198:1	23993198	
+616151	R:23993198:2	family	Autosomal-recessive VMD family with homozygous splice-site mutation	2	1			not_stated			AR	AR	V2 IMPG1 c.807+1G>T (homozygous)	R:23993198:2	23993198	
+616151	R:23993198:3	family	Autosomal-recessive VMD family with compound heterozygous mutations	2	1			not_stated			AR	AR	V3 IMPG1 c.461T>C (p.Leu154Pro) (compound_heterozygous); V4 IMPG1 c.1519C>T (p.Arg507(∗)) (compound_heterozygous)	R:23993198:3	23993198	
+616151	R:25085631:1	group	IMPG1 families 1 and 2	10	2			not_stated			AD	AD	V1 IMPG1 c.713T→G (p.Leu238Arg) (heterozygous)	R:25085631:1	25085631	
+616151	R:25085631:2	individual	Family 3 sporadic case	1	1			not_stated	38 years		AR	AR		R:25085631:2	25085631	
+616151	R:25085631:3	family	IMPG2 family 4	2	1			not_stated			AD	AD	V5 IMPG2 c.3230G→T (p.Cys1077Phe) (heterozygous)	R:25085631:3	25085631	
+616151	R:28644393:1	individual	Patient #1	1	1	male	German	not_stated		16 years	UNKNOWN		V6 IMPG1 c.713T > C, p.(Leu238Pro) (heterozygous)	R:28644393:1	28644393	
+616151	R:28644393:2	individual	Patient #2	1	1	male	Turkish	yes	2 years	10 years	AR	AR	V7 IMPG1 c.807 + 5G > A (homozygous)	R:28644393:2	28644393	
+616151	R:30688845:1	individual	25-year-old female patient	1	1	female		not_stated		25 years	UNKNOWN		V3 IMPG1 p.Leu154Pro (heterozygous)	R:30688845:1	30688845	
+616151	R:32817297:1	family	Index autosomal dominant RP family	1	1			not_stated			AD	AD	V8 IMPG1 splice variant in IMPG1 (unknown)	R:32817297:1	32817297	
+616151	R:32817297:2	group	Two families with the same IMPG1 splice variant (RP or VMD)	1	2			not_stated			UNKNOWN		V8 IMPG1 splice variant in IMPG1 (unknown)	R:32817297:2	32817297	
+616151	R:32817297:3	group	Eight additional families with IMPG1 missense or nonsense variants	1	8			not_stated			UNKNOWN		V9 IMPG1 different missense or nonsense variants in IMPG1 (unknown)	R:32817297:3	32817297	
+616294	R:25683121:1	individual	7-year-old boy	1	1	male		not_stated	prenatal	7 years	AR	AR	V1 SEC24D c.3044C>T (p.Ser1015Phe) (compound_heterozygous)	R:25683121:1	25683121	
+616294	R:25683121:2	group	Two fetuses	2	1			not_stated	prenatal	fetus	AR	AR	V1 SEC24D c.3044C>T (p.Ser1015Phe) (compound_heterozygous)	R:25683121:2	25683121	
+616294	R:27942778:1	individual	Family 1 proband	1	1	male	Chinese	not_stated		23 years	AR	AR	V2 SEC24D c.2723G>A (p. Cys908Tyr) (compound_heterozygous); V3 SEC24D c.2842T>C (p. Ser948Pro) (compound_heterozygous)	R:27942778:1	27942778	
+616294	R:27942778:2	individual	Family 2 proband	1	1	male	Chinese	not_stated		7 years	AR	AR	V4 SEC24D c.938G>A (p. Arg313His) (compound_heterozygous); V5 SEC24D c.875C>T (p. Pro292Leu) (compound_heterozygous)	R:27942778:2	27942778	
+616294	R:30462379:1	individual	15-year-old Japanese boy	1	1	male	Japanese	not_stated		15 years	AR	AR	V6 SEC24D p.Arg484* (compound_heterozygous); V4 SEC24D p.Arg313His (compound_heterozygous)	R:30462379:1	30462379	
+616326	R:2245297:1	group	14 Jewish patients from 10 families of Iraqi or Iranian origin	14	10		Iraqi or Iranian Jewish	not_stated			AR	AR		R:2245297:1	2245297	
+616326	R:9813454:1	group	5 Iranian Jewish CMS families	6	5		Iranian Jewish	yes			UNKNOWN			R:9813454:1	9813454	
+616326	R:11791205:1	individual	Patient with L14P and N88K	1	1			not_stated			AR	AR	V1 RAPSN L14P (heterozygous); V2 RAPSN N88K (heterozygous)	R:11791205:1	11791205	
+616326	R:11791205:2	group	Two patients homozygous for N88K	2	1			not_stated			AR	AR	V2 RAPSN N88K (homozygous)	R:11791205:2	11791205	
+616326	R:11791205:3	individual	Patient with N88K and 553ins5	1	1			not_stated			AR	AR	V2 RAPSN N88K (heterozygous); V3 RAPSN 553ins5 (heterozygous)	R:11791205:3	11791205	
+616326	R:12651869:1	individual	Patient 1	1	1			not_stated			UNKNOWN		V4 RAPSN -27C-->G (unknown)	R:12651869:1	12651869	
+616326	R:12651869:2	group	Patients 2-8	7	1		Oriental Jewish (Iraqi or Iranian origin)	not_stated			UNKNOWN		V5 RAPSN -38A-->G (unknown)	R:12651869:2	12651869	
+616326	R:14504330:1	group	16 unrelated patients with rapsyn mutations	16	16			not_stated	early onset or adolescence/adulthood		UNKNOWN		V2 RAPSN N88K (unknown)	R:14504330:1	14504330	
+616326	R:15252722:1	group	Three affected N88K homozygous individuals	3	1			not_stated			AR	AR	V2 RAPSN N88K (homozygous)	R:15252722:1	15252722	
+616326	R:20930056:1	group	Three patients with RAPSN multiexon deletions	3	1			not_stated			AR	AR	V6 RAPSN three novel multi-exon deletions of RAPSN (heterozygous)	R:20930056:1	20930056	
+616326	R:25194721:1	individual	20-month-old boy	1	1	male		not_stated	at birth	20 months	UNKNOWN		V7 RAPSN two confirmed pathogenic mutations in the RAPSN gene (unknown)	R:25194721:1	25194721	
+616482	C:1	group	Four unrelated individuals with FGFR3 Lys650Met (Tavormina et al. (1999)) = SADDAN patients with FGFR3 Lys650Met (Bellus et al. (1999))	4	4			not_stated			UNKNOWN		V1 FGFR3 A1949T: Lys650Met (unknown)	R:10053006:1; R:10377013:1	10053006; 10377013	included_in_group
+616482	R:18076102:1	individual	Patient with SADDAN	1	1			not_stated	prenatal		UNKNOWN		V1 FGFR3 FGFR3 Lys650Met (unknown)	R:18076102:1	18076102	
+616867	R:26924529:1	group	Four families with TRIP4 or ASCC1 mutations	1	4			not_stated	prenatal		AR	AR	V1 ASCC1 homozygous and compound-heterozygous nonsense and frameshift ASCC1 mutations (unknown); V2 TRIP4 homozygous and compound-heterozygous nonsense and frameshift TRIP4 mutations (unknown)	R:26924529:1	26924529	
+616867	R:28218388:1	individual	Proband (female newborn)	1	1	female		not_stated	newborn	died within the first days of life	AR	AR	V3 ASCC1 c.157dupG, p.Glu53Glyfs*19 (homozygous)	R:28218388:1	28218388	
+616867	R:28218388:2	individual	Male sibling	1	1	male		not_stated	newborn		AR	AR		R:28218388:2	28218388	
+616867	R:30327447:1	group	Three ASCC1 families	1	3			not_stated	prenatal		AR	AR	V4 ASCC1 recessive nonsense or frameshift mutations in ASCC1, including two novel mutations (unknown)	R:30327447:1	30327447	
+616867	R:31880396:1	individual	Stillbirth case	1	1			not_stated	prenatal	stillbirth	AR	AR	V5 ASCC1 microdeletion copy number variant (CNV) of about 64 Kb, involving four exons of ASCC1 (compound_heterozygous); V6 ASCC1 c.1027C>T; (p. Arg343*) (compound_heterozygous)	R:31880396:1	31880396	
+617153	C:1	individual	Patient with de novo GABRB1 mutation (Epi4K Consortium et al. (2013)) = IS patient with GABRB1(F246S) (Janve et al. (2016))	1	1			not_stated			AD	AD	V1 GABRB1 GABRB1(F246S) (heterozygous)	R:23934111:1; R:26950270:1	23934111; 26950270	same_individual
+617153	R:27273810:1	individual	Second patient with de novo GABRB1 mutation	1	1			not_stated			UNKNOWN		V3 GABRB1 De Novo GABRB1 mutation (unknown)	R:27273810:1	27273810	
+617153	R:31618474:1	individual	Patient 63	1	1			not_stated	4 months	2 years	AD	AD	V4 GABRB1 Chr4:47405633T>C p.I247T (heterozygous)	R:31618474:1	31618474	
+617162	R:27616483:1	group	Two unrelated children with GRIN2D p.Val667Ile	2	2			not_stated			AD	AD	V1 GRIN2D c.1999G>A (p.Val667Ile) (heterozygous)	R:27616483:1	27616483	
+617162	R:30280376:1	group	Three unrelated patients with GRIN2D missense variants	3	3			not_stated			UNKNOWN		V2 GRIN2D novel heterozygous GRIN2D missense variants (heterozygous)	R:30280376:1	30280376	
+617927	C:1	family	Consanguineous family with OFDS and acromelic short stature (Phadke et al. (1999)) = Subject II-1 (Thevenon et al. (2016)) = Subject II-2 (Thevenon et al. (2016)) = Subject II-3 (Thevenon et al. (2016))	3	1	male	Indian	yes		25 years	AR	AR	V1 IFT57 chr3:g.107910368C>T, c.777G>A, p.Lys259Lys (homozygous)	R:10457851:1; R:27060890:1; R:27060890:2; R:27060890:3	10457851; 27060890	included_in_group
+618184	R:8816708:1	group	Patients with CMT1B, DSS, or CH carrying novel MPZ mutations	1	1			not_stated			UNKNOWN		V1 MPZ five novel mutations in the myelin protein zero (MPZ) gene (unknown)	R:8816708:1	8816708	
+618184	R:10319895:1	individual	CH patient	1	1			not_stated			UNKNOWN		V2 MPZ Q215X (unknown)	R:10319895:1	10319895	
+618184	R:12953275:1	individual	Case report patient	1	1			not_stated			UNKNOWN	AD	V3 MPZ 3bp deletion of CTA from nucleotide 550 to 552 and insertion of G at nucleotide 550 (heterozygous)	R:12953275:1	12953275	
+618184	R:15184631:1	individual	Patient with CHN	1	1			not_stated			UNKNOWN		V4 MPZ Thr124Lys (unknown)	R:15184631:1	15184631	
+618184	R:17825553:1	family	Affected family	1	1			not_stated			AD	AD	V5 MPZ heterozygous mutation in MPZ (heterozygous)	R:17825553:1	17825553	
+618229	R:11220739:1	group	Three families with NDUFS2 missense mutations	1	3			not_stated			UNKNOWN		V1 NDUFS2 three missense mutations resulting in the substitution of conserved amino acids (unknown)	R:11220739:1	11220739	
+618229	R:12754703:1	family	Three affected sibs of a consanguineous family	3	1			yes	early onset		AR	AR	V2 NDUFV2 IVS2+5_+8delGTAA (homozygous)	R:12754703:1	12754703	
+618229	R:26008862:1	family	Family 1 (two siblings)	2	1			not_stated			AR	AR	V2 NDUFV2 c.IVS2 + 1delGTAA (compound_heterozygous); V4 NDUFV2 c.669_670insG, p.Ser224Valfs*3 (compound_heterozygous)	R:26008862:1	26008862	
+618229	R:26008862:2	family	Family 2 (consanguineous, three affected siblings)	3	1			yes			AR	AR	V2 NDUFV2 c.IVS2 + 1delGTAA (homozygous)	R:26008862:2	26008862	
+618343	R:11577371:1	individual	Proband with 1832delAA	1	1			not_stated			AD	AD	V1 COL3A1 1832delAA (heterozygous)	R:11577371:1	11577371	
+618343	R:11577371:2	individual	Proband with 413delC	1	1			not_stated			AD	AD	V2 COL3A1 413delC (heterozygous)	R:11577371:2	11577371	
+618343	R:11577371:3	individual	Proband with 555delT	1	1			not_stated			AD	AD	V3 COL3A1 555delT (heterozygous)	R:11577371:3	11577371	
+618343	R:11577371:4	individual	Fourth patient (Arg1432Ter)	1	1			not_stated			AD	AD	V4 COL3A1 4294C-->T [Arg1432Ter] (heterozygous)	R:11577371:4	11577371	
+618343	R:19455184:1	individual	Proband (young consanguineous girl)	1	1	female		yes			AR	AR	V5 COL3A1 c.479dupT (p.Lys161GlnfsX45) (homozygous)	R:19455184:1	19455184	
+618343	R:25205403:1	individual	III-2 (proband)	1	1	male		not_stated	birth	died at 15 years	AR	AR	V6 COL3A1 c.1786C>T, p.(Arg596*) (compound_heterozygous); V7 COL3A1 c.3851G>A, p.(Gly1284Glu) (compound_heterozygous)	R:25205403:1	25205403	
+618343	R:25205403:2	individual	III-3	1	1	female		not_stated		19 years	AR	AR	V6 COL3A1 c.1786C>T, p.(Arg596*) (compound_heterozygous); V7 COL3A1 c.3851G>A, p.(Gly1284Glu) (compound_heterozygous)	R:25205403:2	25205403	
+618343	R:28258187:1	family	Family with two affected siblings	2	1			not_stated			AR	AR	V8 COL3A1 c.145C>G (p.Pro49Ala) in exon 2 of COL3A1 (homozygous)	R:28258187:1	28258187	
+618343	R:28258187:2	group	Two previously reported individuals with bi-allelic COL3A1 mutations	2	2			not_stated			AR	AR	V9 COL3A1 bi-allelic COL3A1 mutations (unknown)	R:28258187:2	28258187	
+618343	R:28742248:1	individual	3-year-old female	1	1	female		not_stated		3 years	AR	AR	V10 COL3A1 c.1282C>T, p.(Arg428*) (compound_heterozygous); V11 COL3A1 c.2057delC, p.(Pro686Leufs*105) (compound_heterozygous)	R:28742248:1	28742248	
+618343	R:28742248:2	family	Second family, two affected siblings	2	1			not_stated			AR	AR	V8 COL3A1 c.145C<G, p.(Pro49Ala) (homozygous)	R:28742248:2	28742248	
+618400	R:22508010:1	individual	21-year-old Pakistani male	1	1	male	Pakistani	no	14 years	21 years	AR	AR	V1 MPV17 c.2898C>T; p.Pro98Leu (homozygous)	R:22508010:1	22508010	
+618400	R:26437932:1	individual	Patient 1	1	1	female	Korean	no	9 years	34 years	AR	AR	V2 MPV17 c.122G> A (p.R41Q) (homozygous)	R:26437932:1	26437932	
+618400	R:26437932:2	individual	Patient 2	1	1	male	Korean	no	13 years	22 years	AR	AR	V2 MPV17 c.122G> A (p.R41Q) (homozygous)	R:26437932:2	26437932	
+618400	R:30298599:1	family	Family 1	1	1			not_stated			AR	AR	V2 MPV17 c.122G>A (p.Arg41Gln) (homozygous)	R:30298599:1	30298599	
+618400	R:30298599:2	family	Family 2	1	1			not_stated			AR	AR	V3 MPV17 c.376-9T>G (homozygous)	R:30298599:2	30298599	
+618458	C:1	family	Two sibs with Knobloch syndrome (Wilson et al. (1998)) = KNO2 family (historical pedigree, two affected sibs) (Antonarakis et al. (2021))	2	1			not_stated			AD	AD	V1 PAK2 p.(Glu435Lys) (heterozygous)	R:9677068:1; R:33693784:1	9677068; 33693784	same_family
+618458	R:14695535:1	family	New Zealand family	1	1		New Zealand	not_stated			AR	AR		R:14695535:1	14695535	
+618808	R:31047799:1	family	Consanguineous Pakistani family (two affected siblings)	2	1		Pakistani	yes			AR	AR	V1 ABCA2 c.4993delG:p.(Val1665TyrfsTer36) in ABCA2 (NM_212533.2) (unknown)	R:31047799:1	31047799	
+618875	R:32100099:1	individual	P1	1	1	female	Maori	no	second year of life		AR	AR	V1 NRROS c.1777C > T/p.(Gln593*) (homozygous)	R:32100099:1	32100099	
+618875	R:32100099:2	individual	P2	1	1	female	Maori	no	second year of life		AR	AR	V1 NRROS c.1777C > T/p.(Gln593*) (homozygous)	R:32100099:2	32100099	
+618875	R:32100099:3	individual	P3	1	1	male	South Asian	yes	second year of life		AR	AR	V2 NRROS c.1257del/p.(Gly420AlafsTer14) (homozygous)	R:32100099:3	32100099	
+618875	R:32197075:1	group	Six individuals from four families with bi-allelic NRROS variants	6	4			not_stated	seizure onset within the first year of life		AR	AR	V3 NRROS bi-allelic variants in NRROS (unknown)	R:32197075:1	32197075	
+619124	R:32282878:1	individual	Case 1 (Patient A-III:1)	1	1	male	Algerian	yes	<6 months	6 years	AR	AR	V1 GAD1 c.1414-1G>C (homozygous)	R:32282878:1	32282878	
+619124	R:32282878:10	individual	Case 10 (Patient E-III:1)	1	1	male	Turkish	yes	1 day	died at 9 days	AR	AR	V4 GAD1 c.1591C>T, p.(Arg531*) (homozygous)	R:32282878:10	32282878	
+619124	R:32282878:11	individual	Case 11 (Patient F-IV:1)	1	1	female	Brazilian (Caucasian and African ancestry)	yes	7 days	6 years 11 months	AR	AR	V5 GAD1 c.1525G>A, p.(Glu509Lys) (homozygous)	R:32282878:11	32282878	
+619124	R:32282878:2	individual	Case 2 (Patient A-III:2)	1	1	female	Algerian	yes	2 days	26 months	AR	AR	V1 GAD1 c.1414-1G>C (homozygous)	R:32282878:2	32282878	
+619124	R:32282878:3	individual	Case 3 (Patient B-IV:4)	1	1	female	Egyptian	yes	2 weeks	died at 2 years	AR	AR	V2 GAD1 c.695_697delAGA, p.(Lys232del) (homozygous)	R:32282878:3	32282878	
+619124	R:32282878:4	individual	Case 4 (Patient B-IV:1)	1	1	male	Egyptian	yes	2 weeks	died at 4 years	AR	AR	V2 GAD1 c.695_697delAGA, p.(Lys232del) (homozygous)	R:32282878:4	32282878	
+619124	R:32282878:5	individual	Case 5 (Patient C-III:1)	1	1	female	Turkish	yes	2 weeks	12 years	AR	AR	V3 GAD1 c.812_816delTTAAG, p.(Val271Aspfs*9) (homozygous)	R:32282878:5	32282878	
+619124	R:32282878:6	individual	Case 6 (Patient C-III:2)	1	1	male	Turkish	yes	first day of life	died at 2 years	AR	AR	V3 GAD1 c.812_816delTTAAG, p.(Val271Aspfs*9) (homozygous)	R:32282878:6	32282878	
+619124	R:32282878:7	individual	Case 7 (Patient D-V:2)	1	1	male	Iranian	yes	1 day	11 years	AR	AR	V4 GAD1 c.1591C>T, p.(Arg531*) (homozygous)	R:32282878:7	32282878	
+619124	R:32282878:8	individual	Case 8 (Patient D-V:3)	1	1	female	Iranian	yes	7 days	15 months	AR	AR	V4 GAD1 c.1591C>T, p.(Arg531*) (homozygous)	R:32282878:8	32282878	
+619124	R:32282878:9	individual	Case 9 (Patient E-III:2)	1	1	male	Turkish	yes	1 month	15 months	AR	AR	V4 GAD1 c.1591C>T, p.(Arg531*) (homozygous)	R:32282878:9	32282878	
+619124	R:32705143:1	individual	Patient III-2	1	1	female	Persian	yes	2 m	10 y 3 m	AR	AR	V6 GAD1 c.1691A>G p.(Asn564Ser) (homozygous)	R:32705143:1	32705143	
+619124	R:32705143:2	individual	Patient III-4	1	1	male	Pakistani	yes	6 m	7 y	AR	AR	V7 GAD1 c.971T>G p.(Phe324Cys) (homozygous)	R:32705143:2	32705143	
+619124	R:32705143:3	individual	Patient II-1	1	1	male	African American	not_stated	2 m	22 m	AR	AR	V4 GAD1 c.1591C>T, p.(Arg531*) (compound_heterozygous); V8 GAD1 c.670delC, p.(Leu224Serfs*5) (compound_heterozygous)	R:32705143:3	32705143	
+619124	R:32705143:4	individual	Patient II-4	1	1	male	Sudanese	yes	2 m	18 m	AR	AR	V9 GAD1 c.1040C>T, p.(Thr347Met) (homozygous)	R:32705143:4	32705143	
+619124	R:32705143:5	individual	Patient III-3	1	1	female	Egyptian	yes	6 m	4 y	AR	AR	V10 GAD1 c.87C>G, p.(Tyr29Ter) (homozygous)	R:32705143:5	32705143	
+619124	R:32705143:6	individual	Patient II-2	1	1	female	Turkish	yes	2 m	3 y	AR	AR	V11 GAD1 c.568delC p.(Gln190SerfsTer11) (homozygous)	R:32705143:6	32705143	
+619124	R:33146701:1	individual	Patient with GAD1 deficiency	1	1			not_stated			UNKNOWN			R:33146701:1	33146701	
+619201	R:31472902:1	individual	A666_21	1	1	male		yes	5 years		AR	AR	V1 KIRREL1 p.Arg440Cys (homozygous)	R:31472902:1	31472902	
+619201	R:31472902:2	individual	B742_21	1	1	male	Italian	yes	14 years		AR	AR	V2 KIRREL1 p.Ser573Leu (homozygous)	R:31472902:2	31472902	
+619681	R:19006192:1	family	Large Ohio kindred	1	1		Ohio (USA)	not_stated	spasticity/weakness first year to sixth decade; dystonia first to third decade		AD	AD		R:19006192:1	19006192	
+619681	C:1	individual	Family-2 proband (Neilson et al. (2022)) = Patient 8 (Zech et al. (2022))	1	1	male	European	no	age 7 years (4-year history at age 11)	11 years	AD	AD	V1 ATP5MC3 NM_001689.4:c.318C>G (p.Asn106Lys) (heterozygous)	R:34636445:2; R:34954817:1	34636445; 34954817	same_individual
+619681	R:34636445:1	family	Family-1	18	1			not_stated	childhood (dystonia, proband at age 2 years); adulthood (spastic paraplegia, after age 20 years)	proband 25 years	AD	AD	V1 ATP5MC3 NM_001689.4:c.318C>G, NP_001680.1:p.(Asn106Lys) (heterozygous)	R:34636445:1	34636445	
+619681	R:34954817:2	individual	Patient 9	1	1	female		not_stated		15 years	AD	AD	V2 ATP5MC3 c.319C>G (p.Pro107Ala) (heterozygous)	R:34954817:2	34954817	
+619681	R:34954817:3	individual	Patient 10	1	1	male	French	not_stated		6 years	AD	AD	V3 ATP5MC3 c.236G>T (p.Gly79Val) (heterozygous)	R:34954817:3	34954817	
+619816	R:9892956:1	individual	Patient 1	1	1			not_stated		early childhood	AR	AR	V5 ITGB4 3793 + 1G-to-A (compound_heterozygous); V6 ITGB4 W1478X (compound_heterozygous)	R:9892956:1	9892956	
+619816	R:9892956:2	individual	Patient 2	1	1			not_stated		early childhood	AR	AR	V7 ITGB4 C38R (compound_heterozygous); V8 ITGB4 4776delG (compound_heterozygous)	R:9892956:2	9892956	
+619816	R:10792571:1	family	Patient(s) with homozygous beta4 integrin G931D	1	1			not_stated			UNKNOWN	AR	V9 ITGB4 G931D (homozygous)	R:10792571:1	10792571	
+619816	R:12485428:1	individual	49-year-old female patient	1	1	female		not_stated	from birth	49 years	UNKNOWN		V10 ITGB4 4733delCT (heterozygous)	R:12485428:1	12485428	
+620022	R:24273071:1	family	Autosomal recessive Stickler family	1	1			not_stated			AR	AR	V1 COL9A3 c.1176_1198del, p.Gln393Cysfs*25 (unknown)	R:24273071:1	24273071	
+620022	R:30450842:1	individual	R08-308A	1	1	male	Indian	yes	birth	12 years	AR	AR	V2 COL9A3 c.650dupC (homozygous); V3 GJB2 380G>A (R127H) (heterozygous)	R:30450842:1	30450842	
+620022	R:31090205:1	family	COL9A3 family (2 patients)	2	1			not_stated			AR	AR	V4 COL9A3 homozygous COL9A3 variant (homozygous)	R:31090205:1	31090205	
+620022	R:31090205:2	group	COL9A2 families (3 patients)	3	2			not_stated			AR	AR	V5 COL9A2 homozygous COL9A2 variants (homozygous)	R:31090205:2	31090205	
+620022	R:31090205:3	individual	COL9A1 patient	1	1			not_stated			AR	AR	V6 COL9A1 homozygous COL9A1 variant (homozygous)	R:31090205:3	31090205	
+620022	R:33570243:1	individual	Proband	1	1	male	Russian	no	congenital	3 years	AR	AR	V7 COL9A3 c.268C>T (p.Arg90Ter) (compound_heterozygous); V8 COL9A3 c.1729C>T (p.Arg577Ter) (compound_heterozygous)	R:33570243:1	33570243	
+620022	R:35241111:1	individual	Family 1, II1	1	1	female	Iranian	yes		28 years	AR	AR	V9 COL9A3 c.107_116del, p.(Pro36Argfs*49), rs1470627424 (homozygous)	R:35241111:1	35241111	
+620022	R:35241111:2	individual	Family 2, II1	1	1	male	Iranian	yes		65 years	AR	AR	V10 COL9A3 c.1204C > T, p.(Arg402*), rs989413835 (homozygous)	R:35241111:2	35241111	
+620022	R:35241111:3	individual	Family 2, II2	1	1	male	Iranian	yes		57 years	AR	AR	V10 COL9A3 p.(Arg402*) (homozygous)	R:35241111:3	35241111	
+620022	R:35241111:4	individual	Family 3, II1	1	1	male	Iranian	yes	congenital hearing impairment	11.8 years	AR	AR	V11 COL9A3 c.355delC, p.(Leu119Serfs*9) (homozygous)	R:35241111:4	35241111	
+620022	R:35241111:5	individual	Family 3, II4	1	1	female	Iranian	yes	congenital hearing impairment	3.1 years	AR	AR	V11 COL9A3 p.(Leu119Serfs*10) (homozygous)	R:35241111:5	35241111	
+620029	R:29736926:1	individual	5-year-old female patient	1	1	female		not_stated		5 years	AD	AD	V1 CACNA1C p.Arg1024Gly (heterozygous)	R:29736926:1	29736926	
+620029	R:30513141:1	individual	Patient 1	1	1	female	English (maternal) and Ukrainian (paternal)	no	within a few hours of birth	18 months	AD	AD	V2 CACNA1C NM_000719.6: c.4087G>A, p.V1363M (heterozygous); V3 MSH2 heterozygous, de novo, terminal deletion of MSH2 ... exons 11–16 (heterozygous)	R:30513141:1	30513141	
+620029	R:30513141:2	individual	Patient 2	1	1	female	Irish and German	no	neonatal	12 months	AD	AD	V4 CACNA1C NM_000719.6: c.3717+1_3717+2insA (heterozygous); V5 ALPK3 NM_020778.4: c.5105+2dupT (heterozygous); V6 TPM1 NM_001018005.1: c.389T>C, p.I130T (heterozygous)	R:30513141:2	30513141	
+620029	R:30513141:3	individual	Patient 3	1	1	male	Irish and German	not_stated	congenital		AD	AD	V4 CACNA1C c.3717+1_3717+2insA (heterozygous)	R:30513141:3	30513141	
+620029	R:34163037:1	individual	P1	1	1	female		not_stated		23 years	AD	AD	V7 CACNA1C p.Phe166Leu c.496T>C (heterozygous)	R:34163037:1	34163037	
+620029	R:34163037:10	individual	P10	1	1	male		not_stated		3.5 years	AD	AD	V16 CACNA1C p.Ile743del c.2227_2229delATC (heterozygous)	R:34163037:10	34163037	
+620029	R:34163037:11	individual	P11	1	1	male		not_stated	1 year (seizures)	1.5 years	AD	AD	V17 CACNA1C p.Val1187Ala c.3560T>C (heterozygous)	R:34163037:11	34163037	
+620029	R:34163037:12	individual	P12	1	1	female		not_stated	6 months (seizures)	6.8 years	AD	AD	V18 CACNA1C p.Leu1408Val c.4222C>G (heterozygous)	R:34163037:12	34163037	
+620029	R:34163037:13	individual	P13	1	1	female		not_stated	11 months (seizures)	7.8 years	AD	AD	V19 CACNA1C p.Val1411Leu c.4231G>C (heterozygous)	R:34163037:13	34163037	
+620029	R:34163037:14	individual	P14	1	1	male		not_stated	2 months (seizures)	10 months	AD	AD	V19 CACNA1C p.Val1411Leu c.4231G>T (heterozygous)	R:34163037:14	34163037	
+620029	R:34163037:15	individual	P15	1	1	female		not_stated		15 years	AD	AD	V20 CACNA1C p.Gln80Leufs*49 c.239_244delAGCGGAinsTTGCAGCTCC (heterozygous)	R:34163037:15	34163037	
+620029	R:34163037:16	individual	P16a	1	1	male		not_stated		6 years	AD	AD	V21 CACNA1C p.Arg161* c.481C>T (heterozygous)	R:34163037:16	34163037	
+620029	R:34163037:17	individual	P16b	1	1	male		not_stated		33 years	AD	AD	V21 CACNA1C p.Arg161* c.481C>T (heterozygous)	R:34163037:17	34163037	
+620029	R:34163037:18	individual	P17	1	1	female		not_stated		14.5 years	AD	AD	V22 CACNA1C p.Trp528* c.1584G>A (heterozygous)	R:34163037:18	34163037	
+620029	R:34163037:19	individual	P18	1	1	male		not_stated		16 years	UNKNOWN		V23 CACNA1C splice c.2663+1G>C (heterozygous)	R:34163037:19	34163037	
+620029	R:34163037:2	individual	P2	1	1	female		not_stated	11 months (seizures)	7.6 years	AD	AD	V8 CACNA1C p.Lys177Arg c.530A>G (heterozygous)	R:34163037:2	34163037	
+620029	R:34163037:20	individual	P19	1	1	male		not_stated		6 years	AD	AD	V24 CACNA1C p.Val996Trpfs*19 c.2926delG (heterozygous)	R:34163037:20	34163037	
+620029	R:34163037:21	individual	P20	1	1	female		not_stated		4 years	AD	AD	V25 CACNA1C p.Arg1377Profs*61 c.4129dup (heterozygous)	R:34163037:21	34163037	
+620029	R:34163037:22	individual	P21	1	1	female		not_stated		40 years	AD	AD	V26 CACNA1C p.Leu1518Profs*3 c.4553del (heterozygous)	R:34163037:22	34163037	
+620029	R:34163037:23	individual	P22a	1	1	male		not_stated		2 years	AD	AD	V27 CACNA1C p.Arg1989* c.5860C>T (heterozygous)	R:34163037:23	34163037	
+620029	R:34163037:24	individual	P22b	1	1	male		not_stated		3 years	AD	AD	V27 CACNA1C p.Arg189* c.5860C>T (heterozygous)	R:34163037:24	34163037	
+620029	R:34163037:25	individual	P22c	1	1	male		not_stated		32 years	AD	AD	V27 CACNA1C p.Arg1989* c.5860C>T (heterozygous)	R:34163037:25	34163037	
+620029	R:34163037:3	individual	P3	1	1	female		not_stated	8 years (seizures)	9 years	AD	AD	V9 CACNA1C p.Arg324Trp c.970C>T (heterozygous)	R:34163037:3	34163037	
+620029	R:34163037:4	individual	P4	1	1	female		not_stated		2.3 years	AD	AD	V10 CACNA1C p.Val403Met c.1207G>A (heterozygous)	R:34163037:4	34163037	
+620029	R:34163037:5	individual	P5	1	1	female		not_stated		4 years	AD	AD	V11 CACNA1C p.Leu601Arg c.1802T>G (heterozygous)	R:34163037:5	34163037	
+620029	R:34163037:6	individual	P6	1	1	male		not_stated	7 months (seizures)	4 years	AD	AD	V12 CACNA1C p.Met611Thr c.1832T>C (heterozygous)	R:34163037:6	34163037	
+620029	R:34163037:7	individual	P7	1	1	male		not_stated	10 months (seizures)	2.5 years	AD	AD	V13 CACNA1C p.Leu614Arg c.1841 T>G (heterozygous)	R:34163037:7	34163037	
+620029	R:34163037:8	individual	P8	1	1	male		not_stated	1 year (seizures)	24 years	AD	AD	V14 CACNA1C p.Leu614Pro c.1841T>C (heterozygous)	R:34163037:8	34163037	
+620029	R:34163037:9	individual	P9	1	1	female		not_stated	6 years (seizures)	15 years	AD	AD	V15 CACNA1C p.Leu657Phe c.1969C>T (heterozygous)	R:34163037:9	34163037	
+620098	R:23294540:1	individual	Patient 1	1	1	female	Norwegian	no	early childhood	15 years	UNKNOWN	AD	V1 JARID2 6p22.3-p24.1 deletion, 13071924-17918584 bp (hg19), 4846 kb, including JARID2 and ATXN1 (heterozygous)	R:23294540:1	23294540	
+620098	R:23294540:2	individual	Patient 2	1	1	male	Norwegian and English	no	early	4 years	UNKNOWN	AD	V2 JARID2 6p22.3-p23 deletion, 15081747-18207178 bp (hg19), 3125 kb, including JARID2 and ATXN1 (heterozygous)	R:23294540:2	23294540	
+620098	R:23294540:3	individual	Patient 3	1	1	female	Norwegian	no	neonatal	6.5 years	UNKNOWN	AD	V3 JARID2 6p22.3-p23 deletion, 14545576-16846846 bp (hg19), 2301 kb, including JARID2 and ATXN1 (heterozygous); V4  463 kb duplication of chromosome 4q23 (chr4:100124832–100588141) (heterozygous)	R:23294540:3	23294540	
+620098	R:23294540:4	individual	Patient 4	1	1	male	Lebanese	no	early-onset hypotonia	6.5 years	UNKNOWN	AD	V5 JARID2 6p22.3 deletion, 15405377-15594945 bp (hg19), 189 kb, deleting exons 3-18 of JARID2 and exons 7-10 of DTNBP1 (heterozygous)	R:23294540:4	23294540	
+620098	R:23294540:5	individual	Patient 5	1	1	female	Norwegian	no		17 years	UNKNOWN		V6 ATXN1 6p22.3 deletion, 16215803-16332297 bp (hg19), 116 kb, including GMPR and exons 8-9 of ATXN1 (heterozygous)	R:23294540:5	23294540	
+620098	R:33077894:1	group	16 individuals in 15 families with JARID2 deletion or SNV	16	15			not_stated			AD	AD	V7 JARID2 deletion or single-nucleotide variant in JARID2 (heterozygous)	R:33077894:1	33077894	
+620098	R:35533077:1	group	Seven individuals from five families with JARID2 variants	7	5			not_stated			AD	AD	V8 JARID2 pathogenic or likely pathogenic JARID2 variants, including intragenic copy number variants (heterozygous)	R:35533077:1	35533077	
+620098	R:35887345:1	individual	Patient 1	1	1	male		not_stated		14 years	AD	AD	V9 JARID2 (15291644_15388348)x1 (heterozygous)	R:35887345:1	35887345	
+620098	R:35887345:10	individual	Patient 10	1	1	male		not_stated		12 years	UNKNOWN	AD	V18 JARID2 c.1930G > A p.(Glu644Lys) (heterozygous)	R:35887345:10	35887345	
+620098	R:35887345:11	individual	Patient 11	1	1	male		not_stated		8 years	UNKNOWN		V16 JARID2 c.2363G > A p.(Arg788Gln) (heterozygous)	R:35887345:11	35887345	
+620098	R:35887345:2	individual	Patient 2	1	1	female		not_stated		21 years	AD	AD	V10 JARID2 (15330889_15419256)x1 (heterozygous)	R:35887345:2	35887345	
+620098	R:35887345:3	individual	Patient 3	1	1	female		not_stated		18 years	AD	AD	V11 JARID2 (15374392_15405436)x1 (heterozygous)	R:35887345:3	35887345	
+620098	R:35887345:4	individual	Patient 4	1	1	male		not_stated		14 years	AD	AD	V12 JARID2 c.2866dupG p.(Glu956GlyfsTer72) (heterozygous)	R:35887345:4	35887345	
+620098	R:35887345:5	individual	Patient 5	1	1	male		not_stated		5 years	AD	AD	V13 JARID2 c.2731 + 1G > C (heterozygous)	R:35887345:5	35887345	
+620098	R:35887345:6	individual	Patient 6	1	1	female		not_stated		6 years	AD	AD	V14 JARID2 (15383717_15462037)x1 (heterozygous)	R:35887345:6	35887345	
+620098	R:35887345:7	individual	Patient 7	1	1	female		not_stated		36 years	AD	AD	V14 JARID2 (15383717_15462037)x1 (heterozygous)	R:35887345:7	35887345	
+620098	R:35887345:8	individual	Patient 8	1	1	male		not_stated		9 years	AD	AD	V15 JARID2 deletion exons 6-18 (heterozygous)	R:35887345:8	35887345	
+620098	R:35887345:9	individual	Patient 9	1	1	female		not_stated		43 years	UNKNOWN	AD	V16 JARID2 c.2363G > A p.(Arg788Gln) (heterozygous); V17 TNRC18 two de novo VUSs in the TNRC18 gene (unknown)	R:35887345:9	35887345	
+620249	R:22371254:1	family	Family 1030	3	1		Caucasian, mixed European ancestry	no	by 12 months of age	adulthood	AR	AR	V1 MEGF10 c.976T > C (p.C326R) (compound_heterozygous); V2 MEGF10 c.2320T > C (p.C774R) (compound_heterozygous)	R:22371254:1	22371254	
+620249	R:22371254:2	individual	Subject 105-1	1	1	female	Caucasian, distant Portuguese ancestry	not_stated	several weeks of age		UNKNOWN		V3 MEGF10 c.211C > T (p.R71W) (heterozygous)	R:22371254:2	22371254	
+620249	R:27460346:1	individual	Patient with milder phenotype	1	1		Japanese	not_stated			AR	AR	V4 MEGF10 c.2981-2A > G (compound_heterozygous); V5 MEGF10 p.Cys810Tyr (compound_heterozygous)	R:27460346:1	27460346	
+620249	R:27460346:2	individual	Patient with EMARDD phenotype	1	1		Japanese	not_stated			AR	AR	V6 MEGF10 c.131_132del (homozygous)	R:27460346:2	27460346	
+620249	R:29128256:1	individual	66-year-old male	1	1	male		not_stated	5th decade	66 years	AR	AR	V7 MEGF10 c.1426+1G>T (heterozygous); V8 MEGF10 c.352T>C, p.(Cys118Arg) (heterozygous)	R:29128256:1	29128256	
+620249	R:36349186:1	individual	22-year-old boy	1	1	male	Italian	yes	since the first months of life	22 years	AR	AR	V9 MEGF10 (NM_001256545.2): c.2096G > C (p.Cys699Ser) (homozygous)	R:36349186:1	36349186	
+620402	R:36454683:1	individual	Patient II-2	1	1	male	Portuguese	no	12 years	36 years	AR	AR	V1 COQ7 c.3G>T (p.1Met?) (homozygous)	R:36454683:1	36454683	
+620402	R:36454683:2	individual	Patient II-3	1	1	female	Portuguese	no	9 years	25 years	AR	AR	V1 COQ7 c.3G>T (p.1Met?) (homozygous)	R:36454683:2	36454683	
+620402	R:36454683:3	individual	Patient II-1	1	1	male	Portuguese	no	10 years	42 years	AR	AR	V1 COQ7 c.3G>T (p.1Met?) (homozygous)	R:36454683:3	36454683	
+620402	R:36758993:1	group	Two Chinese families with distal hereditary motor neuropathy	1	2		Chinese	not_stated			AR	AR	V2 COQ7 Biallelic variants in the COQ7 gene (unknown)	R:36758993:1	36758993	
+620402	R:37077559:1	individual	Sibling 1	1	1	female	Syrian	yes	10-14 years	24 years	AR	AR	V3 COQ7 c.1A > G p.? (homozygous)	R:37077559:1	37077559	
+620402	R:37077559:2	individual	Sibling 2	1	1	male	Syrian	yes	10-14 years	23 years	AR	AR	V3 COQ7 c.1A > G p.? (homozygous); V4 GJB2 c.35delG; p.(Gly12Valfs*2) (homozygous)	R:37077559:2	37077559	
+620402	R:37077559:3	individual	Sibling 3	1	1	male	Syrian	yes	10-14 years	12 years	AR	AR	V3 COQ7 c.1A > G p.? (homozygous); V4 GJB2 c.35delG; p.(Gly12Valfs*2) (homozygous)	R:37077559:3	37077559	
+620402	R:37392700:1	group	Five new patients with COQ7-related primary CoQ10 deficiency	5	1			not_stated	neonatal or late onset		AR	AR		R:37392700:1	37392700	
+620457	C:1	family	F1 (Masotti et al. (2008)) = F1 (Romanelli Tavares et al. (2022))	11	1		Brazilian	no			AD	AD	V1 HDAC9 NC_000007.14:g.18437239_18867540dup (unknown)	R:18000524:1; R:34750192:1	18000524; 34750192	same_family
+620481	R:24085763:1	family	Micronesian family with 2 affected siblings	2	1		Micronesian	not_stated			AR	AR	V1 THPO THPO, c.112C>T (R17C; arginine to cysteine at residue 38) (homozygous)	R:24085763:1	24085763	
+620481	R:28559357:1	group	Affected children in 2 families with THPO R99W	4	2			not_stated			AR	AR	V2 THPO THPO R99W (homozygous)	R:28559357:1	28559357	
+620481	R:28559357:2	individual	Affected child in third family with THPO R157X	1	1			not_stated			AR	AR	V3 THPO THPO R157X (homozygous)	R:28559357:2	28559357	
+620481	R:29191945:1	individual	Proband	1	1	male	Egyptian	yes	3.5 years		AR	AR	V4 THPO c.355C>T (p.R119C) (homozygous)	R:29191945:1	29191945	
+620481	R:29191945:2	individual	1st sibling	1	1	male	Egyptian	yes	7 months		AR	AR	V4 THPO c.355C>T (p.R119C) (homozygous)	R:29191945:2	29191945	
+620481	R:29191945:3	individual	2nd sibling	1	1	female	Egyptian	yes	2 months		AR	AR	V4 THPO c.355C>T (p.R119C) (homozygous)	R:29191945:3	29191945	
+620481	R:36226497:1	individual	II-3 (proband)	1	1	male	Muslim Palestinian	yes	birth		AR	AR	V5 THPO c.-323C>T (NM_000460.2); chr3:g.184096040G>A (homozygous)	R:36226497:1	36226497	
+620507	R:36689511:1	group	One familial and two sporadic cases with KLK11 Gly50 variants	1	3			not_stated	early onset		AD	AD	V1 KLK11 c.149G>A (p.Gly50Glu) (heterozygous); V2 KLK11 second heterozygous variant affecting Gly50 (heterozygous)	R:36689511:1	36689511	
+620528	R:31332438:1	group	Three dominant hereditary motor neuropathy families with SPTAN1 nonsense mutations	1	3			not_stated	juvenile		AD	AD	V1 SPTAN1 heterozygous nonsense mutations in the αII-spectrin gene, SPTAN1 (heterozygous)	R:31332438:1	31332438	
+620528	R:33206935:1	group	Patient(s) with de novo SPTAN1 mutation	1	1			not_stated			UNKNOWN		V2 SPTAN1 De novo SPTAN1 mutation (unknown)	R:33206935:1	33206935	
+620528	R:33578420:1	family	Chinese family with hereditary motor neuropathy	1	1		Chinese	not_stated			UNKNOWN		V3 SPTAN1 novel de novo SPTAN1 nonsense variant (unknown)	R:33578420:1	33578420	
+620609	R:27234373:1	individual	Proband (22-month-old female)	1	1	female	white European	not_stated	30 weeks gestation	died at 22 months	UNKNOWN	AD	V1 RRAGC c.224C>A, p.S75Y (NM_022157.3) (heterozygous)	R:27234373:1	27234373	
+620609	R:37057673:1	group	3 infants with de novo RRAGC missense variants	3	3			not_stated	early childhood		AD	AD	V2 RRAGC NM_022157.4: c.269C>A, p.(Thr90Asn) (heterozygous); V3 RRAGC c.353C>T, p.(Pro118Leu) (heterozygous); V4 RRAGC c.343T>C, p.(Trp115Arg) (heterozygous)	R:37057673:1	37057673	
+620662	R:28488351:1	individual	Male child with 8p23.1 homozygous deletion	1	1	male		yes			UNKNOWN	AR	V1 ERI1 8p23.1 homozygous deletion, containing the microRNA miR-4660, the exoribonuclease 1 (ERI1), and malignant fibrous histiocytoma amplified sequence 1 (MFHAS1) genes (homozygous)	R:28488351:1	28488351	
+620662	R:33942433:1	individual	F5.II.1 (Patient 5)	1	1	female		not_stated			AR	AR	V2 ERI1 NM_153332.4(ERI1):c.514C>T p.(Gln172*) (homozygous); V3 KYNU c.616G>A p.(Glu206Lys) (homozygous)	R:33942433:1	33942433	
+620662	R:36208065:1	individual	Female patient	1	1	female		not_stated			AR	AR	V4 ERI1 homozygous nonsense variant in ERI1 gene (homozygous)	R:36208065:1	36208065	
+620662	R:37352860:1	group	Individuals with bi-allelic ERI1 null variants	1	1			not_stated			AR	AR	V5 ERI1 bi-allelic null variants (unknown)	R:37352860:1	37352860	
+620662	R:37352860:2	group	Individuals with bi-allelic ERI1 missense variants	5	1			not_stated			AR	AR	V6 ERI1 missense variants (unknown)	R:37352860:2	37352860	
+620670	C:1	family	II.P3 (Schubert et al. (2018)) = II.P1 (Schubert et al. (2018))	2	1	male		not_stated	since birth	8 years	AD	AD	V2 SEC61A1 c.1325G>T, p.E381* (heterozygous)	R:28782633:2; R:28782633:3	28782633	same_family
+620670	R:28782633:1	family	Family I	10	1			not_stated	mostly in the first year of life		AD	AD	V1 SEC61A1 c.254T>A, p.V85D (heterozygous)	R:28782633:1	28782633	
+620718	R:37384395:1	group	Four individuals from three unrelated families with OFDS-RAB34	4	3			not_stated			AR	AR	V1 RAB34 bi-allelic missense variants (unknown)	R:37384395:1	37384395	
+620718	R:37619988:1	individual	Affected fetus	1	1			not_stated	prenatal	fetus	AR	AR	V2 RAB34 c.254T>C, p.(Ile85Thr) (compound_heterozygous); V3 RAB34 c.691C>T, p.(Arg231*) (compound_heterozygous)	R:37619988:1	37619988	
+620851	R:38821540:1	group	100KGP discovery cases with RNU4-2 variants in n.62-70 and n.73-79	47	47		UK (100,000 Genomes Project)	not_stated			AD	AD	V1 RNU4-2 n.64_65insT (heterozygous); V2 RNU4-2 n.65A>G (heterozygous); V3 RNU4-2 n.63T>G (heterozygous); V4 RNU4-2 n.64_65insG (heterozygous); V5 RNU4-2 n.65_66insT (heterozygous); V6 RNU4-2 n.67A>G (heterozygous); V7 RNU4-2 n.68_69insA (heterozygous); V8 RNU4-2 n.76C>T (heterozygous); V9 RNU4-2 n.77_78insT (heterozygous)	R:38821540:1	38821540	
+620851	R:38821540:2	group	Replication probands (NBR, 100KGP Pilot, GMS)	26	26		UK; one NBR pedigree from Belgium	not_stated			AD	AD	V10 RNU4-2 rare variant within the two regions of interest (n.62–70 and n.73–79) (heterozygous); V8 RNU4-2 n.76C>T (heterozygous)	R:38821540:2	38821540	
+620851	R:38859706:1	individual	5-year-old girl	1	1	female		not_stated		5 years	AD	AD	V1 RNU4-2 NR_003137.2(RNU4-2):n.64_65insT (heterozygous)	R:38859706:1	38859706	
+620851	R:38991538:1	group	49 individuals with detailed phenotyping (Table 1)	49	1	21 F, 28 M		not_stated		median 10 years (range 2-38)	AD	AD	V1 RNU4-2 n.64_65insT (heterozygous); V7 RNU4-2 n.68_69insA (heterozygous); V4 RNU4-2 n.64_65insG (heterozygous); V8 RNU4-2 n.76C>T (heterozygous)	R:38991538:1	38991538	
+620851	R:38991538:2	group	Remaining 66 individuals with RNU4-2 critical-region variants without detailed phenotyping	66	1			not_stated			AD	AD	V1 RNU4-2 n.64_65insT (heterozygous); V9 RNU4-2 n.77_78insT (heterozygous); V11 RNU4-2 n.78A>C (heterozygous); V2 RNU4-2 n.65A>G (heterozygous)	R:38991538:2	38991538	
+621030	R:38630025:1	individual	Patient 1 (P1)	1	1	male	Caucasian	no	4 days	22 months	AD	AD	V1 OTULIN ENST00000284274.5:c.386G>C (p.Cys129Ser) (heterozygous)	R:38630025:1	38630025	
+621030	R:38630025:2	individual	Patient 2 (P2)	1	1	female	Saudi	no	7 months	3 years	AD	AD	V1 OTULIN ENST00000284274.5:c.385T>A (p.Cys129Ser) (heterozygous)	R:38630025:2	38630025	
+621030	R:38652464:1	individual	Japanese girl with ORAS-like symptoms	1	1	female	Japanese	no	shortly after birth (neonatal)	9 years	AD	AD	V2 OTULIN c.917G>A p.R306Q (heterozygous); V3 OTULIN c.455C>T p.P152L (heterozygous)	R:38652464:1	38652464	
+621169	R:9402962:1	family	Second family (hHb1 Glu403Lys)	1	1			not_stated			AD	AD	V1 HHB1 Glu 403 Lys (unknown)	R:9402962:1	9402962	
+621169	R:9402962:2	group	Families and single case with hHb6 Glu410Lys	1	2			not_stated			UNKNOWN		V2 HHB6 Glu 410 Lys (unknown)	R:9402962:2	9402962	
+621169	R:9665406:1	individual	Infant 1 (severe)	1	1		French	not_stated		infant	AD	AD	V3 HHB1 Glu402Lys (unknown)	R:9665406:1	9665406	
+621169	R:9665406:2	individual	Infant 2 (mild)	1	1		French	not_stated		infant	AD	AD	V3 HHB1 Glu402Lys (unknown)	R:9665406:2	9665406	
+621169	R:9665406:3	individual	Adult member	1	1		French	not_stated		adult	AD	AD	V3 HHB1 Glu402Lys (unknown)	R:9665406:3	9665406	
+621214	R:38489591:1	group	16 patients from eight families with CST3 truncating variants	16	8			not_stated	mid to older adult ages		AD	AD	V1 CST3 one of four different stop-gain or frameshift dominant variants (heterozygous)	R:38489591:1	38489591	
+621214	R:38729262:1	group	Chinese patients with adult-onset leukodystrophy	1	1		Chinese	not_stated	adult		UNKNOWN		V2 CST3 CST3 variants (unknown)	R:38729262:1	38729262	
+621224	R:32022899:1	group	Two unrelated patients with 4q25 deletion	2	2			not_stated			UNKNOWN	AD	V1 LEF1 4q25 de novo deletion encompassing LEF1 (heterozygous)	R:32022899:1	32022899	
+621224	R:35583550:1	group	Individuals with monoallelic LEF1 variants	11	4			not_stated			AD	AD	V2 LEF1 monoallelic variants in LEF1 (heterozygous)	R:35583550:1	35583550	
+621224	R:35583550:2	individual	Affected individual from consanguineous family with biallelic LEF1 variant	1	1			yes			AR	AR	V3 LEF1 biallelic variant (homozygous)	R:35583550:2	35583550	
+621224	R:39107921:1	family	Family with hypohidrotic ectodermal dysplasia	1	1			not_stated			UNKNOWN			R:39107921:1	39107921	
+621313	R:31705625:1	individual	II.4	1	1	male		not_stated		died at 57	AR	AR		R:31705625:1	31705625	
+621313	R:31705625:2	individual	II.5	1	1	male		not_stated	58 years	63	AR	AR	V1 NIT1 c.457G > A;p.Gly153Arg (compound_heterozygous); V2 NIT1 c.670dupA;p.Thr224Asnfs*41 (compound_heterozygous)	R:31705625:2	31705625	
+621313	R:31705625:3	individual	II.7	1	1	male		not_stated		60	AR	AR	V1 NIT1 c.457G > A;p.Gly153Arg (compound_heterozygous); V2 NIT1 c.670dupA;p.Thr224Asnfs*41 (compound_heterozygous)	R:31705625:3	31705625	
+621313	R:38430071:1	family	3 affected siblings	3	1			not_stated	mid-adulthood		AR	AR	V3 NIT1 NIT1 c.727C>T; (p.Arg243Trp) (compound_heterozygous); V4 NIT1 NIT1 c.198_199del; p.(Ala68∗) (compound_heterozygous)	R:38430071:1	38430071	
+621313	R:38430071:2	group	4 single cases from 4 unrelated pedigrees	4	4			not_stated	mid-adulthood		AR	AR	V3 NIT1 NIT1 c.727C>T; p.(Arg243Trp) (homozygous)	R:38430071:2	38430071	
