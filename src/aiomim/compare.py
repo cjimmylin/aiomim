@@ -337,11 +337,18 @@ def usage_by_strategy(run_dir: Path, entries: list[str]) -> dict[str, dict[str, 
     return out
 
 
-def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7) -> dict[str, Any]:
-    """All strategies of a run side by side, over the entries every one of them completed."""
+def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
+                       entries: list[str] | None = None) -> dict[str, Any]:
+    """All strategies of a run side by side, over the entries every one of them completed.
+
+    `entries` restricts the comparison to those entry folders (e.g. a held-out test split).
+    """
     from .strategies import STRATEGIES
 
     evals = load_evals(run_dir)
+    if entries is not None:
+        wanted = set(entries)
+        evals = {s: kept for s, items in evals.items() if (kept := {e: v for e, v in items.items() if e in wanted})}
     if not evals:
         return {}
     common = sorted(set.intersection(*(set(v) for v in evals.values())))

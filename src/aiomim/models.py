@@ -119,6 +119,33 @@ def _surname(author: str) -> str:
     return " ".join(tokens)
 
 
+class SecondhandPassage(BaseModel):
+    """A passage of a later open-access paper that cites a paper and says what it reported.
+
+    It is the later authors' wording, not the cited paper's: the writer may use it
+    for what the cited paper reported, and the audit can tell claims resting on it
+    from claims resting on the paper's own text.
+    """
+
+    citing_pmid: str
+    citing_pmcid: str = ""
+    citing_label: str = Field(default="", description='e.g. "Smith et al. (2015)"')
+    citing_title: str = ""
+    citing_year: int | None = None
+    section: str = Field(default="", description="Heading of the section the passage comes from")
+    kind: Literal["paragraph", "table"] = "paragraph"
+    text: str
+    n_other_refs: int = Field(default=0, description="Other references the same paragraph or table row cites")
+
+
+SECONDHAND_HEADING = (
+    "SECOND-HAND DESCRIPTIONS OF THIS PAPER\n"
+    "The passages below are NOT this paper's own text. They come from later open-access papers that cite this "
+    "paper, and say in those authors' words what they report this paper found. [*] marks where a passage cites "
+    "this paper."
+)
+
+
 class Paper(BaseModel):
     """One PubMed record plus whatever text we could legally obtain for it."""
 
@@ -136,6 +163,9 @@ class Paper(BaseModel):
     mesh_terms: list[str] = Field(default_factory=list)
     fulltext: str | None = Field(default=None, description="Plain-text body, section headings kept")
     fulltext_source: str | None = None
+    # What later papers say this one reported (strategy "secondhand"); never counts
+    # towards `content_level`.
+    secondhand: list[SecondhandPassage] = Field(default_factory=list)
 
     @property
     def content_level(self) -> ContentLevel:
@@ -181,10 +211,28 @@ class Paper(BaseModel):
             parts.append(f"ABSTRACT:\n{self.abstract}")
         if self.fulltext:
             parts.append(f"FULL TEXT:\n{self.fulltext}")
+        if self.secondhand:
+            parts.append(self.secondhand_block())
         text = "\n\n".join(parts)
         if max_chars is not None and len(text) > max_chars:
             text = text[:max_chars]
         return text
+
+    @staticmethod
+    def secondhand_header(n: int, passage: SecondhandPassage) -> str:
+        where = f', section "{passage.section}"' if passage.section else ""
+        kind = " (table row)" if passage.kind == "table" else ""
+        others = (f" (the same {'row' if passage.kind == 'table' else 'paragraph'} also cites "
+                  f"{passage.n_other_refs} other paper{'s' if passage.n_other_refs != 1 else ''})"
+                  if passage.n_other_refs else "")
+        return f"[{n}] {passage.citing_label or 'PMID ' + passage.citing_pmid}, PMID {passage.citing_pmid}{where}{kind}{others}:"
+
+    def secondhand_block(self) -> str:
+        """The delimited block of second-hand passages that `source_text` appends ('' if none)."""
+        if not self.secondhand:
+            return ""
+        items = [f"{self.secondhand_header(n, p)}\n{p.text}" for n, p in enumerate(self.secondhand, 1)]
+        return SECONDHAND_HEADING + "\n\n" + "\n\n".join(items) + "\nEND OF SECOND-HAND DESCRIPTIONS"
 
 
 # --------------------------------------------------------------------------- #
@@ -401,6 +449,9 @@ class EntryParagraph(BaseModel):
     audit_pmids: list[str] = Field(default_factory=list)
     finding_ids: list[str] = Field(default_factory=list)
     checks: list[ClaimCheck] = Field(default_factory=list)
+    # Citing papers whose description of a cited paper an audited claim rests on
+    # (strategy "secondhand"); they are not references of the entry.
+    secondhand_pmids: list[str] = Field(default_factory=list)
 
     @property
     def checked_pmids(self) -> list[str]:

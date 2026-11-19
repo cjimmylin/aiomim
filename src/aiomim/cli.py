@@ -141,22 +141,40 @@ def select(created_from, created_to, entry_type, limit, min_paragraphs):
 @click.option("--min-refs", default=2, show_default=True)
 @click.option("--max-refs", default=12, show_default=True)
 @click.option("--min-hpo", default=5, show_default=True, help="Minimum HPO phenotype annotations.")
+@click.option("--min-paragraphs", default=1, show_default=True,
+              help="Minimum OMIM-authored paragraphs (ClinVar) about papers the entry cites.")
 @click.option("--include", multiple=True, help="MIM numbers to include regardless of the draw.")
+@click.option("--prefilter", is_flag=True,
+              help="Check reference and HPO counts before building gold (fast for large-entry draws).")
+@click.option("--fill-short", is_flag=True, help="Give quota a stratum cannot fill to the other strata.")
+@click.option("--describe-papers", is_flag=True,
+              help="Retrieve each entry's papers and add columns for how readable they are.")
 @click.option("--out", required=True, type=click.Path(), help="TSV file to write.")
-def evalset(n, seed, min_refs, max_refs, min_hpo, include, out):
-    """Draw a reproducible, stratified evaluation set of phenotype entries."""
+def evalset(n, seed, min_refs, max_refs, min_hpo, min_paragraphs, include, prefilter, fill_short,
+            describe_papers, out):
+    """Draw a reproducible, stratified evaluation set of phenotype entries.
+
+    The defaults reproduce evalsets/omim100.tsv. The large-entry tier was drawn with
+    -n 12 --min-refs 30 --max-refs 100 --min-paragraphs 5 --prefilter --fill-short --describe-papers.
+    """
     from pathlib import Path
 
+    from .evalset import describe_papers as describe
     from .evalset import sample
 
     columns = ["mim", "stratum", "n_refs", "n_hpo", "n_omim_paragraphs", "genes", "inheritance", "title"]
+    if describe_papers:
+        columns[5:5] = ["n_papers", "n_fulltext", "n_abstract", "n_title", "source_chars"]
     path = Path(out)
     path.parent.mkdir(parents=True, exist_ok=True)
     count = 0
     with path.open("w", encoding="utf-8") as fh:
         fh.write("\t".join(columns) + "\n")
         for row in sample(n=n, seed=seed, min_refs=min_refs, max_refs=max_refs, min_hpo=min_hpo,
-                          include=tuple(include)):
+                          min_paragraphs=min_paragraphs, include=tuple(include), prefilter=prefilter,
+                          fill_short=fill_short):
+            if describe_papers:
+                row.update(describe(row["mim"]))
             fh.write("\t".join(str(row[c]) for c in columns) + "\n")
             fh.flush()
             count += 1
@@ -178,12 +196,29 @@ def summary(run_name):
 @main.command()
 @click.argument("run_name")
 @click.option("--baseline", default="direct", show_default=True, help="Strategy the others are compared against.")
-def compare(run_name, baseline):
+@click.option("--entries-file", type=click.Path(exists=True), default=None,
+              help="Compare only these entries (MIM numbers in the first column), e.g. a held-out test split.")
+@click.option("--tag", default=None,
+              help="Write strategies.<tag>.json/.md instead of the main files (default with --entries-file: the "
+                   "file's name without extension). Graph-edge and two-way comparison files are not written.")
+def compare(run_name, baseline, entries_file, tag):
     """Compare every strategy of a run: scores, paired differences from the baseline, volume and cost."""
     from .compare import (compare_run, compare_strategies, comparison_markdown, edge_markdown, load_evals,
                           strategies_markdown, write_graph_comparison)
 
     run_dir = get_settings().runs / run_name
+    if entries_file or tag:
+        from pathlib import Path
+
+        entries = _read_mims(entries_file) if entries_file else None
+        tag = tag or Path(entries_file).name.rsplit(".", 1)[0]
+        result = compare_strategies(run_dir, baseline=baseline, entries=entries)
+        result["entries_file"] = entries_file
+        text = strategies_markdown(result) if result else "No scored entries.\n"
+        (run_dir / f"strategies.{tag}.json").write_text(json.dumps(result, indent=2))
+        (run_dir / f"strategies.{tag}.md").write_text(text)
+        click.echo(text)
+        return
     present = load_evals(run_dir)
     edges = write_graph_comparison(run_dir)
     result = compare_strategies(run_dir, baseline=baseline)
@@ -199,6 +234,78 @@ def compare(run_name, baseline):
         (run_dir / "comparison.md").write_text(
             comparison_markdown(pair) + "\n" + edge_markdown(pair["knowledge_graph_edges"]))
     click.echo(text)
+
+
+@main.command()
+@click.argument("run_name")
+@click.option("--strategy", default="direct", show_default=True)
+@click.option("--entries-file", type=click.Path(exists=True), default=None, help="Only these entries (first column).")
+@click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
+def gaps(run_name, strategy, entries_file, jobs):
+    """Split the OMIM facts a draft missed into ones the available text had (omission) and ones it lacked (access)."""
+    from .gaps import gaps_markdown, gaps_run
+
+    run_dir = get_settings().runs / run_name
+    result = gaps_run(run_dir, strategy, entries=_read_mims(entries_file) if entries_file else None, jobs=jobs)
+    click.echo(gaps_markdown(result, run_name, strategy))
+
+
+@main.command()
+@click.argument("run_name")
+@click.option("--strategies", "strategies", default="direct", show_default=True, help="Comma-separated strategies.")
+@click.option("--entries-file", type=click.Path(exists=True), default=None, help="Only these entries (first column).")
+@click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
+def editorial(run_name, strategies, entries_file, jobs):
+    """Editorial precision: the share of what a draft says about each paper that OMIM's paragraph also says."""
+    from .editorial import editorial_markdown, editorial_run
+
+    run_dir = get_settings().runs / run_name
+    result = editorial_run(run_dir, _strategies(strategies), entries=_read_mims(entries_file) if entries_file else None,
+                           jobs=jobs)
+    click.echo(editorial_markdown(result))
+
+
+@main.command(name="guide-split")
+@click.option("--source", default="evalsets/omim100.tsv", show_default=True, type=click.Path(exists=True))
+@click.option("--train", "train_out", default="evalsets/omim100.train.tsv", show_default=True)
+@click.option("--test", "test_out", default="evalsets/omim100.test.tsv", show_default=True)
+@click.option("-n", "n_train", default=30, show_default=True, help="Training entries.")
+@click.option("--seed", default=None, type=int, help="Random seed (default: the fixed seed in aiomim.guide).")
+def guide_split(source, train_out, test_out, n_train, seed):
+    """Split an evaluation set into train and test, stratified by MIM-range stratum (fixed seed)."""
+    from pathlib import Path
+
+    from .guide import SPLIT_SEED, write_split
+
+    n, m = write_split(Path(source), Path(train_out), Path(test_out), n_train=n_train,
+                       seed=SPLIT_SEED if seed is None else seed)
+    click.echo(f"{n} training entries -> {train_out}; {m} test entries -> {test_out}")
+
+
+@main.command(name="guide-learn")
+@click.argument("run_name")
+@click.option("--train-file", required=True, type=click.Path(exists=True), help="Training entries (first column).")
+@click.option("--out", default="guides/omim100.guide.md", show_default=True, type=click.Path())
+@click.option("--rounds", default=2, show_default=True)
+@click.option("--work", default=None, help="Run folder for the training rounds (default: <run>_guide_train).")
+@click.option("--strategy", default="direct", show_default=True, help="Baseline strategy the feedback comes from.")
+@click.option("--jobs", default=3, show_default=True, help="Entries to process in parallel.")
+def guide_learn(run_name, train_file, out, rounds, work, strategy, jobs):
+    """Learn a curation guide from the training entries' misses and extras, in a few reflect-and-score rounds."""
+    from pathlib import Path
+
+    from .guide import learn_guide
+
+    record = learn_guide(run_name, Path(train_file), Path(out), rounds=rounds, work=work, strategy=strategy, jobs=jobs)
+    b = record["baseline"]
+    click.echo(f"baseline: coverage {b['gold_fact_coverage']}, synopsis F1 {b['synopsis_exact_f1']}, "
+               f"statements/paper {b['statements_per_paper']}")
+    for r in record["history"]:
+        s, sel = r["scores"], r["selection"]
+        click.echo(f"round {r['round']}: coverage {s['gold_fact_coverage']}, synopsis F1 {s['synopsis_exact_f1']}, "
+                   f"statements/paper {s['statements_per_paper']}; objective {sel['objective']}, growth "
+                   f"{sel['statements_growth']}, checks {'ok' if r['checks']['ok'] else 'FAILED'}")
+    click.echo(f"kept round {record['chosen_round']}{' (no gain)' if record['no_gain'] else ''} -> {out}")
 
 
 @main.command()
@@ -346,6 +453,31 @@ def _print_summary(summary: dict) -> None:
         u = summary["usage_total"]
         click.echo(f"\nModel usage: {int(u.get('calls', 0))} calls ({int(u.get('cached', 0))} from cache), "
                    f"{int(u.get('input_tokens', 0)):,} input / {int(u.get('output_tokens', 0)):,} output tokens.")
+
+
+@main.command()
+@click.argument("run_name")
+@click.option("--strategy", default="reconciled", show_default=True, type=click.Choice(["reconciled", "cohort"]),
+              help="Whose case table to export; frequency agreement is reported for both when present.")
+def casebase(run_name, strategy):
+    """Score a run's case tables against OMIM's HPO frequencies and export the pooled case database."""
+    from .casebase import build_casebase, summary_markdown
+
+    summary = build_casebase(get_settings().runs / run_name, strategy)
+    click.echo(summary_markdown(summary))
+
+
+@main.command("reconcile-check")
+@click.argument("run_name")
+@click.option("--n", "n", default=20, show_default=True, help="Entries to plant a re-report in.")
+@click.option("--seed", default=1, show_default=True)
+def reconcile_check_cmd(run_name, n, seed):
+    """Plant a re-reported paper in entries of a reconciled run and see whether reconciliation merges it."""
+    from .casebase import reconcile_check
+
+    report = reconcile_check(get_settings().runs / run_name, n=n, seed=seed)
+    click.echo(json.dumps(report["total"], indent=2))
+    click.echo(report["caveat"])
 
 
 if __name__ == "__main__":
