@@ -65,8 +65,9 @@ A coding agent then *reconciles* the table with SQL: it picks a key, canonicalis
 complementary records and true conflicts, with a second agent checking each change. The answer is written from the
 reconciled table, with citations to spans. The table can be reused for follow-up questions.
 
-**Reported.** Average cost $0.79 per question on corpora up to 363,000 tokens (GPT-4.1 for reasoning, GPT-4.1-mini for
-extraction). On a 3.9-million-token corpus: $13.10 and about 16 minutes, against $182 and 2.3 hours for GraphRAG.
+**Reported.** Average cost $0.79 per question across eight benchmarks, range $0.37–1.39 (GPT-4.1 for reasoning,
+GPT-4.1-mini for extraction). Extracting and reconciling a corpus of 100 documents and 3.9 million tokens took $13.10
+and about 16 minutes, against $182 and 2.3 hours for GraphRAG to build its graph.
 45% of chunks passed the relevance gate in the sample analysed. A check of 410 extracted facts found 99.03% correct.
 Removing reconciliation dropped accuracy from 78.9 to 60.5 on that corpus. End-to-end latency 2–3 minutes.
 
@@ -82,7 +83,7 @@ Removing reconciliation dropped accuracy from 78.9 to 60.5 on that corpus. End-t
 - It is built to answer questions, not to write long narrative entries; the writing step would have to be added.
 - The authors note that evidence which "does not factor cleanly into typed fields" falls back on free-text columns.
   Our results point the same way: the extraction-based strategy conveyed fewer of OMIM's facts than direct reading
-  where full text was available (66% against 70%).
+  on the 23 entries where at least half the papers were readable in full (66.0% against 70.5%).
 - "Aggressive canonicalization can collapse genuinely distinct entities": two unrelated patients with the same variant
   are exactly that case.
 - 55% accuracy on the hardest benchmark, which the authors call insufficient for full automation.
@@ -98,7 +99,8 @@ module standardises filters across sibling queries, and findings are merged into
 formed and then sharpened, pivoted or confirmed every few layers. The report is written in five stages: outline,
 section drafts, sentence-level fact verification, revision, polish.
 
-**Reported.** On InsightBench, insight-level recall of 69.3 against 49.9 for the previous best. On a 1.6-million-row
+**Reported.** On InsightBench, insight-level recall of 61.9 against 47.1 for the previous best with a GPT-4o judge
+(69.3 against 49.9 with a Qwen judge). On a 1.6-million-row
 conflict database, journalists preferred it to OpenAI's deep research in 57.5% of comparisons. An audit of 50 numeric
 claims found 86% faithful and 10% unfaithful. No cost, token or call counts are reported.
 
@@ -156,14 +158,14 @@ validates them with Mutalyzer, and extracts phenotype (as HPO), zygosity, varian
 - **Use here:** adopt its variant normalisation and per-observation design to strengthen the case table, and its
   benchmark as a second gold standard.
 
-### 3. Quote-then-cluster writing (Ai2 Scholar QA)
+### 3. Quote-then-cluster writing (Ai2 Scholar QA) ✓
 *Singh et al. (Allen Institute for AI), arXiv 2504.10861, 2025. Code: github.com/allenai/ai2-scholarqa-lib.* One call
 per paper extracts verbatim quotes relevant to the query; the quotes are clustered into an outline of sections; each
 section is written from its quotes.
 - **Pros:** reported about $0.50 and 2.5 minutes per 2,400-word report; verbatim quotes give provenance; outscored
   STORM, OpenScholar and PaperQA2 on its own benchmark (61.9 against 59.5, 53.5 and 51.4).
-- **Cons:** evaluated on computer-science questions with a model judge; reports incorrect or missing references;
-  no structured fields; close to a simplification of our evidence-graph strategy, so less new for the paper.
+- **Cons:** evaluated on computer-science questions with a model judge; incorrect or missing references were a
+  common user complaint (126 of 383 negative comments); no structured fields; close to a simplification of our evidence-graph strategy, so less new for the paper.
 
 ### 4. WikiCrow / PaperQA2 ✓
 *Skarlinski et al. (FutureHouse), arXiv 2409.13740, 2024. Code: github.com/Future-House/paper-qa (Apache-2.0).* An
@@ -286,7 +288,7 @@ same amount to every row (about 50,000–120,000 input and 20,000–55,000 outpu
 | Memory only (control) | 8K / 2K | 8K / 2K | 8K / 2K | Measured |
 | Recall, then verify | 62K / 22K | 116K / 22K | 1.4M / 60K | Measured |
 | Case table first | 68K / 20K | 166K / 43K | 3.2M / 580K | Measured |
-| **SLIDERS** | 87K / 14K | 185K / 21K | 2.5M / 190K | Gate + extraction read each chunk twice; reconciliation 40K–300K. A further entry or question from the same table: 10K–60K |
+| **SLIDERS** | 100K / 14K | 200K / 21K | 3–5.5M / 0.2–0.5M | Gate and extraction each read every chunk; reconciliation sized from the paper's $13.10 for 100 documents (see below). A further entry or question from the same table: 10K–60K |
 | **DataSTORM** | 2.4M / 100K | 2.4M / 100K | 2.4M / 100K | 22 questions × ~8 agent turns, reruns, warm start, five-stage report. Does not depend on source size; excludes building the database |
 | EvAgg | 0.3M / 15K | 1.4M / 60K | 29M / 1.2M | Whole paper re-sent for each of ~30 prompts per full-text paper |
 | Quote-then-cluster (Scholar QA) | 32K / 9K | 78K / 15K | 1.3M / 140K | One read per paper plus quotes twice |
@@ -304,10 +306,17 @@ same amount to every row (about 50,000–120,000 input and 20,000–55,000 outpu
 | PubTator 3 | 0 | 0 | 0 | Precomputed |
 | Evaporate | ~0 | ~0 | ~0 | One-off code generation, about 190 tokens per document |
 
-To turn tokens into list price, multiply input by the model's price per million and output likewise: at Claude Opus
-5.5 rates ($4 in, $20 out) scenario B costs about $0.50 for direct reading, $1.16 for SLIDERS and $11.60 for
-DataSTORM; at a small model's rates ($0.10 / $0.50) they cost a fortieth of that. SLIDERS' own split, a small model
-for extraction and a large one for reconciliation and writing, would put it near the direct strategy's cost.
+**How the SLIDERS row was sized.** The paper reports no token counts, but its $13.10 for 3.9 million tokens can be
+split. Reading every chunk once for the gate and 45% of them again for extraction is about 6.5 million small-model
+input tokens, roughly $3 at GPT-4.1-mini prices. The remaining $10 or so is the large model reconciling the table:
+on the order of 3–4 million tokens, about as many as the corpus itself. So reconciliation is not a small term, and it
+is the part most likely to grow with OMIM's larger entries. For OMIM the gate would save little, since a curator has
+already chosen every paper as relevant.
+
+**From tokens to price.** In our runs the list price reported by the command-line tool works out at roughly $5 per
+million input tokens and $25 per million output for the model used. At that rate scenario B costs about $0.63 for
+direct reading, $1.50 for SLIDERS and $14.50 for DataSTORM. SLIDERS' own split, a small model for extraction and a
+large one for reconciliation and writing, would bring it close to the direct strategy's cost.
 
 **All 6,953 entries**, at today's access to papers (about 140 million source tokens), generation input only:
 
@@ -316,7 +325,7 @@ for extraction and a large one for reconciliation and writing, would put it near
 | Direct reading | ~0.25 billion | Fails on the ~5% of entries with more than 50 references |
 | Quote-then-cluster | ~0.4 billion | |
 | Evidence graph; agentic curator | ~0.6 billion each | The agent's are mostly cached |
-| SLIDERS | ~1.1 billion | About half is per-chunk overhead on abstracts; leaves a reusable table |
+| SLIDERS | ~1.1–2.5 billion | About half is per-chunk and per-entry overhead on abstracts; leaves a reusable table |
 | WikiCrow / PaperQA2; STORM | ~2.5 billion each | Fixed cost per entry however small |
 | Open deep research | 4–14 billion | |
 | DataSTORM | ~17 billion | Plus the cost of building the database |
@@ -343,13 +352,14 @@ selective reading (the agent, PaperQA2) and summarisation (RAPTOR, chains).
 Re-read in the primary source: [SLIDERS](https://arxiv.org/abs/2604.22294) ·
 [DataSTORM](https://arxiv.org/abs/2604.06474) · [PaperQA2 / WikiCrow](https://arxiv.org/abs/2409.13740) ·
 [AutoSurvey](https://arxiv.org/abs/2406.10252) · [HippoRAG 2, indexing-cost table](https://arxiv.org/abs/2502.14802) ·
+[Ai2 Scholar QA](https://arxiv.org/abs/2504.10861) ·
 [Evaporate](https://arxiv.org/abs/2304.09433) ·
 [Open Deep Research](https://github.com/langchain-ai/open_deep_research) ·
 [Evidence Aggregator](https://www.biorxiv.org/content/10.1101/2025.03.10.642480v1) (abstract-level figures only).
 
 Read by a research assistant, not re-checked: [STORM](https://arxiv.org/abs/2402.14207) ·
 [Co-STORM](https://arxiv.org/abs/2408.15232) · [OpenScholar](https://arxiv.org/abs/2411.14199) ·
-[Ai2 Scholar QA](https://arxiv.org/abs/2504.10861) · [GEPA](https://arxiv.org/abs/2507.19457) ·
+[GEPA](https://arxiv.org/abs/2507.19457) ·
 [Chain-of-Verification](https://arxiv.org/abs/2309.11495) · [RARR](https://arxiv.org/abs/2210.08726) ·
 [RAPTOR](https://arxiv.org/abs/2401.18059) · [GraphRAG](https://arxiv.org/abs/2404.16130) ·
 [LightRAG](https://arxiv.org/abs/2410.05779) · [DocETL](https://arxiv.org/abs/2410.12189) ·
@@ -373,6 +383,8 @@ Read by a research assistant, not re-checked: [STORM](https://arxiv.org/abs/2402
 - EvAgg's precision figures and per-field accuracies come from the research assistant's reading of the full paper;
   I confirmed only the abstract (97% paper recall, 92% variant recall, about 80% content accuracy, 34% less review time).
 - SLIDERS' chunk size is given as 16000 in a sample configuration without units; tokens are assumed.
+- The split of SLIDERS' $13.10 between extraction and reconciliation uses GPT-4.1 and GPT-4.1-mini list prices from
+  memory ($2 / $8 and $0.40 / $1.60 per million tokens); the paper gives only the total.
 - The corpus size behind the GraphRAG indexing figure is given in passages, not tokens, so the "8× source" multiplier
   is an assumption about chunk size.
 - Venues for DocETL, HippoRAG 2, OpenScholar and Ai2 Scholar QA were taken from secondary listings.
