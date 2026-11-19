@@ -282,12 +282,12 @@ same amount to every row (about 50,000–120,000 input and 20,000–55,000 outpu
 
 | Approach | A: 5 papers, 9,500 tokens | B: 5 full texts, 45,000 | C: 100 full texts, 870,000 | Basis |
 |---|---|---|---|---|
-| Direct reading | 22K / 7K | 76K / 10K | 1.3M / 12K | Measured; C is at the edge of a 1M context |
-| Evidence graph | 57K / 15K | 106K / 33K | 2.1M / 450K | Measured |
-| Agentic curator | 58K / 10K | 180K / 14K | 1–3M / 20K | Measured for A–B; C untested. Mostly cached re-reads |
+| Direct reading | 22K / 7K | 76K / 10K | 1.3M / 12K | Fitted to our measured runs; C would not fit a 1M-token context |
+| Evidence graph | 57K / 15K | 106K / 33K | 2.1M / 450K | Fitted to our measured runs; C extrapolated |
+| Agentic curator | 58K / 10K | 180K / 14K | 1–3M / 20K | Fitted to our measured runs for A–B; C untested. Mostly cached re-reads |
 | Memory only (control) | 8K / 2K | 8K / 2K | 8K / 2K | Measured |
-| Recall, then verify | 62K / 22K | 116K / 22K | 1.4M / 60K | Measured |
-| Case table first | 68K / 20K | 166K / 43K | 3.2M / 580K | Measured |
+| Recall, then verify | 62K / 22K | 116K / 22K | 1.4M / 60K | Fitted to our measured runs; C extrapolated |
+| Case table first | 68K / 20K | 166K / 43K | 3.2M / 580K | Fitted to our measured runs; C extrapolated |
 | **SLIDERS** | 100K / 14K | 200K / 21K | 3–5.5M / 0.2–0.5M | Gate and extraction each read every chunk; reconciliation sized from the paper's $13.10 for 100 documents (see below). A further entry or question from the same table: 10K–60K |
 | **DataSTORM** | 2.4M / 100K | 2.4M / 100K | 2.4M / 100K | 22 questions × ~8 agent turns, reruns, warm start, five-stage report. Does not depend on source size; excludes building the database |
 | EvAgg | 0.3M / 15K | 1.4M / 60K | 29M / 1.2M | Whole paper re-sent for each of ~30 prompts per full-text paper |
@@ -305,6 +305,11 @@ same amount to every row (about 50,000–120,000 input and 20,000–55,000 outpu
 | AutoSurvey style | 92K / 16K | 92K / 16K | 1.0M / 30K | Scaled from its reported 3.0M / 113K |
 | PubTator 3 | 0 | 0 | 0 | Precomputed |
 | Evaporate | ~0 | ~0 | ~0 | One-off code generation, about 190 tokens per document |
+
+**Reading the table.** The first six rows are fitted to token counts from our own runs (entries of 1,300 to 24,000
+source tokens), so scenario C is an extrapolation for them too. Source sizes throughout are characters ÷ 4; the
+model's own count of the same text ran about 1.5 times higher in our runs, and every row allows for that. It is why
+reading 870,000 "tokens" directly shows as 1.3 million and would have to be split.
 
 **How the SLIDERS row was sized.** The paper reports no token counts, but its $13.10 for 3.9 million tokens can be
 split. Reading every chunk once for the gate and 45% of them again for extraction is about 6.5 million small-model
