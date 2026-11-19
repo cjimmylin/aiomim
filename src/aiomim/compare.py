@@ -122,6 +122,13 @@ def access_group(evaluation: dict) -> str:
 
 
 ACCESS_ORDER = ["no full text (abstracts only)", "under half full text", "half or more full text", "all full text"]
+REFERENCE_ORDER = ["2-4 references", "5-8 references", "9 or more references"]
+
+
+def reference_group(evaluation: dict) -> str:
+    """Size of the entry's reference list, the nearest thing here to a scaling axis."""
+    n = ((evaluation.get("references") or {}).get("cited") or {}).get("n_gold") or 0
+    return REFERENCE_ORDER[0] if n <= 4 else REFERENCE_ORDER[1] if n <= 8 else REFERENCE_ORDER[2]
 
 
 def compare_run(run_dir: Path, seed: int = 7) -> dict[str, Any]:
@@ -378,6 +385,7 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7) -
         "by_content_level": levels,
         "by_stratum": breakdown(lambda e: stratum_of(e["mim"])),
         "by_access": breakdown(access_group, ACCESS_ORDER),
+        "by_reference_count": breakdown(reference_group, REFERENCE_ORDER),
         "cost": usage_by_strategy(run_dir, common),
     }
 
@@ -445,6 +453,7 @@ def strategies_markdown(result: dict[str, Any]) -> str:
         out.append("\n".join(lines))
 
     for title, key in (("## By share of the entry's references readable as full text", "by_access"),
+                       ("## By size of the reference list", "by_reference_count"),
                        ("## By creation era (MIM number range)", "by_stratum")):
         out.append(title)
         for group, block in result[key].items():
