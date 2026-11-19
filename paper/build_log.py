@@ -278,6 +278,11 @@ def entry_means(shj: dict) -> str:
         x = f["by_condition"][c]
         cells.append(f"{names[c]} {pct(st.mean(vals))} mean over entries (n = {len(vals)}), "
                      f"{pct(x['coverage'])} pooled over facts ({x['n_judged']:,} facts)")
+    b = (shj.get("repair_parity") or {}).get("before_repair")
+    if b:
+        cells.append(f"full text before the repair round {pct(b['mean_over_entries'])} mean over entries "
+                     f"(n = {b['n_entries']}), {pct(b['pooled']['coverage'])} pooled over facts "
+                     f"({b['pooled']['n_judged']:,} facts)")
     return "OMIM facts conveyed on the fixed fact lists: " + "; ".join(cells) + "."
 
 

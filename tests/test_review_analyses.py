@@ -91,3 +91,37 @@ def test_cached_revisions_recognises_repair_replies_by_shape(tmp_path):
     (tmp_path / "ab" / "ab2.json").write_text(json.dumps({"data": {"paragraphs": [{"paragraph_id": "x", "claims": []}]}}))
     (tmp_path / "ab" / "ab3.json").write_text("not json")
     assert cached_revisions(tmp_path) == [[{"paragraph_id": "x.1", "text": "Revised."}]]
+
+
+def _row(present, partial, absent, ids=None):
+    n = present + partial + absent
+    facts = [{"id": f"k.{i}", "status": s} for i, s in
+             enumerate(["present"] * present + ["partial"] * partial + ["absent"] * absent, 1)]
+    return {"facts": facts, "n_facts": n, "n_judged": n, "unjudged": 0, "present": present, "partial": partial,
+            "absent": absent, "contradicted": 0}
+
+
+def test_pool_before_repair_pairs_unrounded_and_checks_unchanged_marks(tmp_path):
+    from aiomim.secondhand import BEFORE_REPAIR_FILE, FROZEN_FILE, pool_before_repair
+
+    def write(mim, abstract, after, before, changed):
+        out = tmp_path / mim / "secondhand_check"
+        out.mkdir(parents=True)
+        (out / FROZEN_FILE).write_text(json.dumps({"paragraphs": [
+            {"abstract": a, "secondhand": a, "fulltext": f} for a, f in zip(abstract, after)]}))
+        (out / BEFORE_REPAIR_FILE).write_text(json.dumps({"paragraphs": [
+            {"changed": c, "before_repair": b} for b, c in zip(before, changed)]}))
+
+    # Entry 1: repair changed nothing; entry 2: one paragraph changed and lost a fact.
+    write("1", [_row(1, 0, 2)], [_row(2, 0, 1)], [_row(2, 0, 1)], [False])
+    write("2", [_row(0, 0, 3), _row(1, 0, 2)], [_row(3, 0, 0), _row(1, 1, 1)], [_row(3, 0, 0), _row(1, 0, 2)],
+          [False, True])
+    frozen = {"per_entry": [{"mim": "1", "paragraphs": 1, "abstract": 0.3333, "fulltext": 0.6667},
+                            {"mim": "2", "paragraphs": 2, "abstract": 0.1667, "fulltext": 0.75}]}
+    b = pool_before_repair(tmp_path, frozen)
+    assert b["n_entries"] == 2 and b["n_paragraphs"] == 3 and b["paragraphs_with_changed_draft_text"] == 1
+    assert b["unchanged_paragraphs_with_different_marks"] == 0
+    assert b["pooled"]["present"] == 6 and b["pooled"]["n_judged"] == 9
+    rep = b["paired"]["after_minus_before_repair"]
+    # Rounded per-entry values must not turn an unchanged entry into a "better" one.
+    assert (rep["better"], rep["worse"], rep["ties"]) == (1, 0, 1)

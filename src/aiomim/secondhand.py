@@ -396,7 +396,7 @@ def pool_results(results: list[dict[str, Any]], no_fulltext_draft: list[str] | N
 
 
 def reaggregate(run: str, source: str | None = None, *, frozen: bool = False, jobs: int = 1,
-                llm=None) -> dict[str, Any]:
+                llm=None, before_repair: bool = False) -> dict[str, Any]:
     """Rebuild secondhand_check.json/.md from the per-entry result files, without any model call.
 
     Reads runs/<run>/<mim>/secondhand_check/result.json and the source run's
@@ -427,6 +427,19 @@ def reaggregate(run: str, source: str | None = None, *, frozen: bool = False, jo
         mims = [r["mim"] for r in results if "skipped" not in r and r["mim"] not in missing]
         _, failed = rescore_frozen_entries(mims, settings.runs / source, run_dir, llm, jobs=jobs)
         usage_frozen = {"this_pass": llm.usage.summary()["total"], "failures": failed}
+    if before_repair:
+        llm = llm or LLM(settings)
+        mims = [r["mim"] for r in results if "skipped" not in r and r["mim"] not in missing]
+        with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
+            for mim, fut in [(m, pool.submit(score_before_repair_entry, m, settings.runs / source, run_dir, llm))
+                             for m in mims]:
+                try:
+                    fut.result()
+                except Exception:  # noqa: BLE001 - one bad entry should not lose the rest
+                    log.exception("[%s] before-repair scoring failed", mim)
+        u = llm.usage.summary()["total"]
+        log.info("before-repair scoring: %d judge calls, %d from cache, %d fresh; safety stops %d",
+                 u["calls"], u["cached"], u["calls"] - u["cached"], llm.safety_stops)
     frozen_summary = pool_frozen(run_dir, results, missing)
     if frozen_summary:
         if usage_frozen:
@@ -437,6 +450,11 @@ def reaggregate(run: str, source: str | None = None, *, frozen: bool = False, jo
         cache_root = getattr(settings, "llm_cache", None)
         if cache_root and all((settings.runs / source / m / "entry.direct.json").exists() for m in mims):
             summary[REPAIR_KEY] = repair_parity(settings.runs / source, run_dir, mims, cache_root)
+            pooled_before = pool_before_repair(run_dir, frozen_summary)
+            if pooled_before:
+                summary[REPAIR_KEY]["before_repair"] = pooled_before
+                summary[REPAIR_KEY]["before_repair_draft_kept"] = False
+                summary[REPAIR_KEY]["before_repair_rebuilt_from_cache"] = True
     _write(run_dir / "secondhand_check.json", summary)
     _write(run_dir / "secondhand_check.md", check_markdown(summary))
     return summary
@@ -711,6 +729,150 @@ def repair_parity(source_dir: Path, run_dir: Path, mims: list[str], cache_root: 
     }
 
 
+BEFORE_REPAIR_FILE = "coverage_frozen_before_repair.json"
+
+
+class CacheOnly:
+    """A model backend that makes no call: every request it receives is a cache miss and fails."""
+
+    def __init__(self):
+        self.misses = 0
+        self._lock = threading.Lock()
+
+    def complete(self, **_kw):
+        from .llm import LLMError
+
+        with self._lock:
+            self.misses += 1
+        raise LLMError("cache miss: rebuilding from cached replies only")
+
+
+def rebuild_before_repair(source_entry: Path) -> tuple[GeneratedEntry, GeneratedEntry, int]:
+    """The direct-reading draft as it was after the audit and before the repair round, rebuilt from the
+    cached writer and audit replies with no model call (the pipeline does not keep it).
+
+    Returns the draft before repair, the same draft carried through the cached repair round (to check
+    against the stored final draft), and the number of cache misses (0 when the rebuild is exact).
+    """
+    from .sources.fulltext import load_papers
+    from .strategies import after_audit, audit_papers, run_strategy
+    from .verify import repair_entry, verify_entry
+
+    llm = LLM()
+    backend = CacheOnly()
+    llm.backend = backend
+    seed = Seed.model_validate_json((source_entry / "seed.json").read_text(encoding="utf-8"))
+    papers = load_papers([r["pmid"] for r in json.loads((source_entry / "papers.json").read_text(encoding="utf-8"))],
+                         with_fulltext=True)
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmp:   # the strategy may write working files; keep the source run untouched
+        entry = run_strategy("direct", seed, papers, llm, Path(tmp))
+        read = audit_papers("direct", papers, Path(tmp))
+        by_pmid = {p.pmid: p for p in read}
+        verify_entry(entry, by_pmid, llm)
+        before = entry.model_copy(deep=True)
+        repair_entry(entry, by_pmid, llm)
+        entry.assign_paragraph_ids()
+        after_audit("direct", entry, read, Path(tmp))
+    return before, entry, backend.misses
+
+
+def score_before_repair_entry(mim: str, source_dir: Path, run_dir: Path, llm, store=None) -> dict[str, Any]:
+    """Score the rebuilt before-repair full-text draft on the frozen lists of the gold paragraphs about the
+    hidden papers, exactly as `rescore` marks a draft. A paragraph whose cited draft text is unchanged by
+    the repair round gets the same prompt as the original scoring and is read from the cache; only
+    changed text costs a judge call. Writes `<run>/<mim>/secondhand_check/coverage_frozen_before_repair.json`.
+    """
+    from .evaluate import _draft_text_for
+    from .facts import FactStore, eval_gold_text_frozen, frozen_facts
+
+    store = store or FactStore()
+    src, out = source_dir / mim, run_dir / mim / "secondhand_check"
+    before, after, misses = rebuild_before_repair(src)
+    stored = GeneratedEntry.model_validate_json((src / "entry.direct.json").read_text(encoding="utf-8"))
+    after_matches = [p.text for p in after.all_paragraphs()] == [p.text for p in stored.all_paragraphs()]
+    hidden = set(json.loads((out / "result.json").read_text(encoding="utf-8"))["hidden_papers"])
+    gold = GoldEntry.model_validate_json((src / "gold.json").read_text(encoding="utf-8"))
+    gold_h = restrict_gold(gold, hidden)
+    paragraphs = gold_h.scoped_paragraphs
+    levels = {p["pmid"]: p.get("content_level", "not_retrieved") for p in
+              json.loads((src / "papers.json").read_text(encoding="utf-8"))}
+    changed = [_draft_text_for(before, p.pmids) != _draft_text_for(stored, p.pmids) for p in paragraphs]
+    data: dict[str, Any] = {
+        "mim": mim, "cache_misses_in_rebuild": misses, "rebuilt_after_repair_matches_stored": after_matches,
+        "before_equals_after": [p.text for p in before.all_paragraphs()] == [p.text for p in stored.all_paragraphs()],
+        "paragraphs_with_changed_draft_text": sum(changed),
+        "drafts": {"stored_final": _draft_hash(src / "entry.direct.json")},
+    }
+    if misses or not after_matches:
+        data["error"] = "the rebuild is not exact; not scored"
+    elif paragraphs:
+        records = frozen_facts(paragraphs, llm, store, split_missing=False)
+        score = eval_gold_text_frozen(before, gold_h, levels, llm, store, records=records)
+        data["paragraphs"] = [{"key": row.get("key"), "changed": ch,
+                               "before_repair": row if row.get("facts") and not row.get("error") else None}
+                              for row, ch in zip(score.get("paragraphs", []), changed)]
+    _write(out / BEFORE_REPAIR_FILE, data)
+    return data
+
+
+def pool_before_repair(run_dir: Path, frozen: dict[str, Any]) -> dict[str, Any] | None:
+    """The full-text arm before repair, on the same entries and paragraphs as `coverage_frozen`.
+
+    Pooled over facts and as the mean over entries; paired differences (before repair minus abstract,
+    after minus before) with the same bootstrap as `coverage_frozen`.
+    """
+    import random
+
+    from .compare import _pair_stats
+
+    rows, per_entry, missing, mismatched = [], [], [], 0
+    for e in frozen["per_entry"]:
+        out = run_dir / e["mim"] / "secondhand_check"
+        path = out / BEFORE_REPAIR_FILE
+        if not path.exists():
+            missing.append(e["mim"])
+            continue
+        before = json.loads(path.read_text(encoding="utf-8"))
+        cov = json.loads((out / FROZEN_FILE).read_text(encoding="utf-8"))
+        if before.get("error") or len(before.get("paragraphs", [])) != len(cov["paragraphs"]):
+            missing.append(e["mim"])
+            continue
+        pairs = [(b, p) for b, p in zip(before["paragraphs"], cov["paragraphs"]) if all(p.get(n) for n in CONDITIONS)]
+        mine = [b["before_repair"] for b, _ in pairs]
+        if len(mine) != e["paragraphs"] or any(r is None for r in mine):
+            missing.append(e["mim"])
+            continue
+        # Where the repair left the cited text alone, the marks must be the original ones (read from the cache).
+        status = lambda row: [(f["id"], f["status"]) for f in row["facts"]]  # noqa: E731
+        mismatched += sum(1 for b, p in pairs if not b["changed"] and status(b["before_repair"]) != status(p["fulltext"]))
+        rows.extend(mine)
+        per_entry.append({"mim": e["mim"], "abstract": _cov(_frozen_counts([p["abstract"] for _, p in pairs])),
+                          "fulltext": _cov(_frozen_counts([p["fulltext"] for _, p in pairs])),
+                          "before_repair": _cov(_frozen_counts(mine)),
+                          "changed_paragraphs": sum(1 for b, p in zip(before["paragraphs"], cov["paragraphs"])
+                                                    if b["changed"] and all(p.get(n) for n in CONDITIONS))})
+    if not per_entry:
+        return None
+    pairs_abs = [(e["before_repair"], e["abstract"]) for e in per_entry]
+    pairs_rep = [(e["fulltext"], e["before_repair"]) for e in per_entry]
+    vals = [e["before_repair"] for e in per_entry]
+    return {
+        "n_entries": len(per_entry), "entries_not_scored": sorted(missing),
+        "n_paragraphs": len(rows), "paragraphs_with_changed_draft_text": sum(e["changed_paragraphs"] for e in per_entry),
+        "entries_with_changed_draft_text": sorted(e["mim"] for e in per_entry if e["changed_paragraphs"]),
+        "unchanged_paragraphs_with_different_marks": mismatched,
+        "pooled": _frozen_counts(rows),
+        "mean_over_entries": round(sum(vals) / len(vals), 4),
+        "paired": {
+            "before_repair_minus_abstract": _pair_stats(pairs_abs, True, random.Random(BOOTSTRAP_SEED)),
+            "after_minus_before_repair": _pair_stats(pairs_rep, True, random.Random(BOOTSTRAP_SEED)),
+        },
+        "per_entry": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in e.items()} for e in per_entry],
+    }
+
+
 def repair_markdown(r: dict[str, Any]) -> list[str]:
     t = r["total"]
     return [
@@ -728,10 +890,36 @@ def repair_markdown(r: dict[str, Any]) -> list[str]:
         f"{t['claims_after_repair']:,} audited claims, {t['claims_after_repair_in_hidden_paragraphs']:,} of them in paragraphs "
         f"citing a hidden paper.",
         "",
+    ] + (_before_repair_markdown(r["before_repair"]) if r.get("before_repair") else [
         "The pipeline does not keep the draft as it was before repair, so the full-text draft could not be scored "
         "before repair; no draft was regenerated.",
         "",
+    ])
+
+
+def _before_repair_markdown(b: dict[str, Any]) -> list[str]:
+    x = b["pooled"]
+    lines = [
+        "The draft before repair is not kept by the pipeline; it was rebuilt from the cached writer and audit "
+        "replies (no generation call), and carrying the rebuilt draft through the cached repair round reproduces "
+        "the stored final draft exactly. It was scored on the same fixed fact lists with the same judge procedure "
+        f"as `rescore`; only the {b['paragraphs_with_changed_draft_text']} gold paragraphs whose cited draft text "
+        "the repair changed needed new judge calls, the rest are the original judgements read from the cache.",
+        "",
+        f"Full text before repair, {b['n_entries']} entries, {b['n_paragraphs']} paragraphs, {x['n_judged']:,} facts: "
+        f"coverage {_pct(x['coverage'])} pooled over facts ({x['present']} present, {x['partial']} partial, "
+        f"{x['absent']} absent, {x['contradicted']} contradicted); {_pct(b['mean_over_entries'])} mean over entries.",
+        "",
+        "| Difference (mean over entries) | Entries | Mean (95% CI) | better / worse / tied |",
+        "|---|---|---|---|",
     ]
+    for key, label in (("before_repair_minus_abstract", "Full text before repair minus abstract only"),
+                       ("after_minus_before_repair", "Full text after repair minus before repair")):
+        p = b["paired"][key]
+        ci = f"{_pp(p['ci95'][0])} to {_pp(p['ci95'][1])}" if p.get("ci95") else "n/a"
+        lines.append(f"| {label} | {p['n']} | {_pp(p['difference'])} ({ci}) | {p['better']} / {p['worse']} / "
+                     f"{p['ties']} |")
+    return lines + [""]
 
 
 def _pct(x) -> str:
@@ -994,8 +1182,11 @@ if __name__ == "__main__":
     ap.add_argument("--frozen", action="store_true",
                     help="score the drafts against the frozen fact lists first (model calls)")
     ap.add_argument("--jobs", type=int, default=1)
+    ap.add_argument("--before-repair", action="store_true",
+                    help="rebuild the full-text drafts before repair from the cached replies and score them (judge "
+                         "calls only where the repair changed the text cited for a gold paragraph)")
     a = ap.parse_args()
-    out = reaggregate(a.run, a.source, frozen=a.frozen, jobs=a.jobs)
+    out = reaggregate(a.run, a.source, frozen=a.frozen, jobs=a.jobs, before_repair=a.before_repair)
     print((get_settings().runs / a.run / "secondhand_check.md").read_text())
     if out.get("coverage_frozen", {}).get("usage"):
         print(json.dumps(out["coverage_frozen"]["usage"], indent=1))

@@ -29,7 +29,14 @@ Paired differences, mean over entries (percentage points of per-entry coverage),
 
 The full-text row is the source run's direct-reading draft, which went through the audit's repair round; the two abstract drafts did not. Over the 46 entries compared, the audit before repair flagged 13 of 6,609 audited claims (13 unsupported, 0 contradicted) in 11 paragraphs of 8 entries; the repair revised 11 paragraphs and deleted 0. 11 of the 11 revised paragraphs were located in the final drafts, and 11 of them cite a hidden paper; 13 of the flagged claims lie in paragraphs citing a hidden paper. After repair the drafts hold 6,637 audited claims, 5,328 of them in paragraphs citing a hidden paper.
 
-The pipeline does not keep the draft as it was before repair, so the full-text draft could not be scored before repair; no draft was regenerated.
+The draft before repair is not kept by the pipeline; it was rebuilt from the cached writer and audit replies (no generation call), and carrying the rebuilt draft through the cached repair round reproduces the stored final draft exactly. It was scored on the same fixed fact lists with the same judge procedure as `rescore`; only the 27 gold paragraphs whose cited draft text the repair changed needed new judge calls, the rest are the original judgements read from the cache.
+
+Full text before repair, 46 entries, 136 paragraphs, 2,120 facts: coverage 77.3% pooled over facts (1511 present, 255 partial, 344 absent, 10 contradicted); 79.8% mean over entries.
+
+| Difference (mean over entries) | Entries | Mean (95% CI) | better / worse / tied |
+|---|---|---|---|
+| Full text before repair minus abstract only | 46 | +43.7 (+38.3 to +49.1) | 45 / 0 / 1 |
+| Full text after repair minus before repair | 46 | +0.2 (-0.1 to +0.4) | 6 / 2 / 38 |
 
 ## OMIM-fact coverage of the gold paragraphs about the hidden papers (old scoring: facts split afresh for each draft)
 

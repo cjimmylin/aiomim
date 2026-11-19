@@ -10201,6 +10201,390 @@
           "clinical_features.1"
         ]
       }
-    ]
+    ],
+    "before_repair": {
+      "n_entries": 46,
+      "entries_not_scored": [],
+      "n_paragraphs": 136,
+      "paragraphs_with_changed_draft_text": 27,
+      "entries_with_changed_draft_text": [
+        "118210",
+        "607721",
+        "607876",
+        "611521",
+        "614856",
+        "615710",
+        "618343",
+        "620022"
+      ],
+      "unchanged_paragraphs_with_different_marks": 0,
+      "pooled": {
+        "paragraphs": 136,
+        "n_facts": 2120,
+        "n_judged": 2120,
+        "unjudged": 0,
+        "present": 1511,
+        "partial": 255,
+        "absent": 344,
+        "contradicted": 10,
+        "coverage": 0.7729
+      },
+      "mean_over_entries": 0.7975,
+      "paired": {
+        "before_repair_minus_abstract": {
+          "n": 46,
+          "difference": 0.4369,
+          "ci95": [
+            0.383,
+            0.4913
+          ],
+          "median_difference": 0.456,
+          "better": 45,
+          "worse": 0,
+          "ties": 1,
+          "sign_test_p": 0.0,
+          "ci_unreliable": false
+        },
+        "after_minus_before_repair": {
+          "n": 46,
+          "difference": 0.0016,
+          "ci95": [
+            -0.0005,
+            0.0039
+          ],
+          "median_difference": 0.0,
+          "better": 6,
+          "worse": 2,
+          "ties": 38,
+          "sign_test_p": 0.2891,
+          "ci_unreliable": false
+        }
+      },
+      "per_entry": [
+        {
+          "mim": "118210",
+          "abstract": 0.3235,
+          "fulltext": 0.8529,
+          "before_repair": 0.8235,
+          "changed_paragraphs": 1
+        },
+        {
+          "mim": "251950",
+          "abstract": 0.6053,
+          "fulltext": 0.8816,
+          "before_repair": 0.8816,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "300148",
+          "abstract": 0.4052,
+          "fulltext": 0.7672,
+          "before_repair": 0.7672,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "600740",
+          "abstract": 0.3243,
+          "fulltext": 0.8784,
+          "before_repair": 0.8784,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "603552",
+          "abstract": 0.3125,
+          "fulltext": 0.8958,
+          "before_repair": 0.8958,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "603689",
+          "abstract": 0.7857,
+          "fulltext": 0.7857,
+          "before_repair": 0.7857,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "604307",
+          "abstract": 0.8462,
+          "fulltext": 0.9231,
+          "before_repair": 0.9231,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "604928",
+          "abstract": 0.3929,
+          "fulltext": 0.75,
+          "before_repair": 0.75,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "606763",
+          "abstract": 0.1053,
+          "fulltext": 0.693,
+          "before_repair": 0.693,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "607721",
+          "abstract": 0.5263,
+          "fulltext": 0.6842,
+          "before_repair": 0.6579,
+          "changed_paragraphs": 2
+        },
+        {
+          "mim": "607734",
+          "abstract": 0.6538,
+          "fulltext": 0.9231,
+          "before_repair": 0.9231,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "607876",
+          "abstract": 0.4608,
+          "fulltext": 0.7745,
+          "before_repair": 0.7941,
+          "changed_paragraphs": 4
+        },
+        {
+          "mim": "608133",
+          "abstract": 0.0,
+          "fulltext": 0.7424,
+          "before_repair": 0.7424,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "611521",
+          "abstract": 0.2454,
+          "fulltext": 0.7824,
+          "before_repair": 0.7731,
+          "changed_paragraphs": 6
+        },
+        {
+          "mim": "613730",
+          "abstract": 0.4146,
+          "fulltext": 0.9268,
+          "before_repair": 0.9268,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "613744",
+          "abstract": 0.3115,
+          "fulltext": 0.7295,
+          "before_repair": 0.7295,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "614501",
+          "abstract": 0.1429,
+          "fulltext": 0.6429,
+          "before_repair": 0.6429,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "614651",
+          "abstract": 0.2292,
+          "fulltext": 0.9167,
+          "before_repair": 0.9167,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "614856",
+          "abstract": 0.6667,
+          "fulltext": 0.9074,
+          "before_repair": 0.8889,
+          "changed_paragraphs": 2
+        },
+        {
+          "mim": "615073",
+          "abstract": 0.2021,
+          "fulltext": 0.8298,
+          "before_repair": 0.8298,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "615268",
+          "abstract": 0.8333,
+          "fulltext": 0.9667,
+          "before_repair": 0.9667,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "615582",
+          "abstract": 0.1208,
+          "fulltext": 0.4417,
+          "before_repair": 0.4417,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "615710",
+          "abstract": 0.2122,
+          "fulltext": 0.6511,
+          "before_repair": 0.6619,
+          "changed_paragraphs": 6
+        },
+        {
+          "mim": "615972",
+          "abstract": 0.4444,
+          "fulltext": 0.9259,
+          "before_repair": 0.9259,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "616151",
+          "abstract": 0.3,
+          "fulltext": 0.7333,
+          "before_repair": 0.7333,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "617153",
+          "abstract": 0.2674,
+          "fulltext": 0.5233,
+          "before_repair": 0.5233,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "617232",
+          "abstract": 0.2416,
+          "fulltext": 0.8315,
+          "before_repair": 0.8315,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "617927",
+          "abstract": 0.2222,
+          "fulltext": 0.963,
+          "before_repair": 0.963,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "618343",
+          "abstract": 0.4839,
+          "fulltext": 0.7742,
+          "before_repair": 0.7581,
+          "changed_paragraphs": 2
+        },
+        {
+          "mim": "618400",
+          "abstract": 0.2258,
+          "fulltext": 0.7258,
+          "before_repair": 0.7258,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "618808",
+          "abstract": 0.2083,
+          "fulltext": 0.3958,
+          "before_repair": 0.3958,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "618875",
+          "abstract": 0.037,
+          "fulltext": 0.7222,
+          "before_repair": 0.7222,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "619124",
+          "abstract": 0.1257,
+          "fulltext": 0.6886,
+          "before_repair": 0.6886,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "619201",
+          "abstract": 0.2791,
+          "fulltext": 0.8023,
+          "before_repair": 0.8023,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "619681",
+          "abstract": 0.425,
+          "fulltext": 0.9,
+          "before_repair": 0.9,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620022",
+          "abstract": 0.3073,
+          "fulltext": 0.9167,
+          "before_repair": 0.9115,
+          "changed_paragraphs": 4
+        },
+        {
+          "mim": "620029",
+          "abstract": 0.3203,
+          "fulltext": 0.8281,
+          "before_repair": 0.8281,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620098",
+          "abstract": 0.1957,
+          "fulltext": 0.6522,
+          "before_repair": 0.6522,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620249",
+          "abstract": 0.6778,
+          "fulltext": 0.9,
+          "before_repair": 0.9,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620402",
+          "abstract": 0.4154,
+          "fulltext": 0.8615,
+          "before_repair": 0.8615,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620457",
+          "abstract": 0.619,
+          "fulltext": 0.9762,
+          "before_repair": 0.9762,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620481",
+          "abstract": 0.3889,
+          "fulltext": 0.8444,
+          "before_repair": 0.8444,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620670",
+          "abstract": 0.3839,
+          "fulltext": 0.9018,
+          "before_repair": 0.9018,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "620851",
+          "abstract": 0.3462,
+          "fulltext": 0.7308,
+          "before_repair": 0.7308,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "621030",
+          "abstract": 0.5147,
+          "fulltext": 0.8971,
+          "before_repair": 0.8971,
+          "changed_paragraphs": 0
+        },
+        {
+          "mim": "621313",
+          "abstract": 0.04,
+          "fulltext": 0.92,
+          "before_repair": 0.92,
+          "changed_paragraphs": 0
+        }
+      ]
+    },
+    "before_repair_rebuilt_from_cache": true
   }
 }
