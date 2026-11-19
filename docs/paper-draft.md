@@ -1,7 +1,6 @@
 # Drafting OMIM-style disease entries from the literature: a controlled comparison of nine generation strategies
 
-**Draft of 19 November 2026.** Authors and affiliations to be added. Two experiments were still running when this draft
-was written; their sections are marked *pending* and hold pilot results only. Every number comes from the result files in
+**Draft of 19 November 2026.** Authors and affiliations to be added. Every number comes from the result files in
 [`results/`](../results); the statements marked as interpretation are ours.
 
 ## Abstract
@@ -26,10 +25,13 @@ against the papers left fewer OMIM facts than any reading strategy. The gap to O
 facts were conveyed when the paper was readable in full, 44% from an abstract, and 38% of all OMIM facts were not in
 any text we could read. Recovering unreadable papers from later papers that describe them raised variant recall by 5
 points but doubled contradictions with OMIM. Reconciling re-reported patients removed 6% of counted individuals and
-changed no entry-level score.
+changed no entry-level score. A curation guide learned from 27 entries had no measurable effect on 68 held-out
+entries. On twelve entries with 30–75 references the reading strategies stayed level, and the case table conveyed 1.7
+points more facts but got inheritance wrong on three.
 
-**Conclusions.** For entries of this size the choice of generation method matters far less than whether the full text
-can be read. Structure is worth its cost when the product is a database, not when it is the entry text.
+**Conclusions.** The choice of generation method matters far less than whether the full text can be read. Structure
+is worth its cost when the product is a database or the entry has dozens of papers, not for the text of a typical
+entry.
 
 ## 1. Introduction
 
@@ -87,6 +89,8 @@ or Europe PMC, 345 as an abstract only and 74 as a title only. Supplementary mat
 Each strategy was given the entry's header (number, title, alternative titles) and exactly the papers OMIM cites. The
 causal gene was withheld, so that naming it is part of the task.
 
+A second set of twelve entries with 30–75 references, drawn the same way, tests larger entries (section 3.7).
+
 ### 2.3 Generation strategies
 
 All strategies return the same entry structure: an introductory paragraph, sections of paragraphs each citing papers, a
@@ -114,7 +118,7 @@ audit and the same scoring.*
 |---|---|---|
 | Second-hand evidence | Direct reading | For a paper not readable in full, passages from later open-access papers that cite and describe it are found through Europe PMC and given to the writer and the audit, marked as second-hand. |
 | Reconciled case database | Case table | A propose–verify–apply step merges the same patient, family or variant reported in several papers and settles conflicts, before anything is computed. |
-| Learned curation guide | Direct reading | A short guide to what OMIM reports and which synopsis terms it lists is learned from 30 training entries' omissions and extras, then applied to 70 held-out entries. |
+| Learned curation guide | Direct reading | A short guide to what OMIM reports and which synopsis terms it lists is learned from the omissions and extras of 30 training entries (27 usable), then applied to 70 held-out entries. |
 
 Second-hand evidence is inspired by citation following in PaperQA2, reconciliation by SLIDERS, and the guide by
 reflective prompt optimisation ([GEPA](https://arxiv.org/abs/2507.19457)) at a budget of two rounds.
@@ -143,6 +147,8 @@ deletes them, and are audited again. The memory-only control is audited but not 
 - **Allelic variants:** recall of OMIM's in-scope variants, matched on normalised protein or nucleotide change, with a
   judge for names that do not normalise.
 - **Causal gene** F1 and **inheritance** agreement.
+- **Editorial precision** (learned guide only): what a draft says about a paper is split into statements, and each is
+  marked as having a counterpart in OMIM's paragraph about that paper or not.
 
 Strategies are compared entry by entry against direct reading, with a bootstrap 95% interval over entries (10,000
 resamples).
@@ -342,13 +348,32 @@ annotations was unchanged (560 terms; fractions agree for 48%, mean absolute dif
 one or two calls per entry. The pooled result is a database of 739 patient or family records, 529 variants and about
 2,350 phenotype rows across the 100 entries.
 
-### 3.6 A learned curation guide — *pending*
+### 3.6 A learned curation guide
 
-The first guide was learned from feedback that included three empty drafts, so it is being relearned; the held-out
-test on 70 entries has not been run. On an 8-entry pilot the first guide improved the clinical synopsis (exact F1 28.7%
-to 32.9%, interval +1.2 to +7.3; hierarchical F1 better on 7 of 8 entries) and did not improve OMIM facts conveyed
-(48.2% to 45.1%, interval −7.0 to +0.5). That pattern is what section 3.2 predicts: little of the fact gap is editorial
-choice, while the synopsis is a problem of term selection. *To be replaced with the held-out result.*
+The guide was learned in two rounds from the 27 training entries that had a direct-reading draft. Each round turned
+the baseline's omissions, its statements with no counterpart in OMIM, and its missed and extra synopsis terms into
+general rules, and the rules for the text and for the synopsis were selected separately on the training entries. A
+first attempt, learned before stopped replies were recorded, had treated three empty drafts as omissions and was
+discarded; it is kept on record. On the training entries the selected text rules changed OMIM facts conveyed by +0.1
+point, and the synopsis rules raised exact F1 by 1.3 points when the final guide was run once more.
+
+**Table 6. Held-out test**, 68 entries (the guided writer was stopped on 2 of 70).
+
+| | Direct reading | With the learned guide | Difference (95% interval) |
+|---|---|---|---|
+| OMIM facts conveyed | 52.2% | 51.9% | −0.3 (−1.4 to +0.7) |
+| Claims supported | 96.2% | 96.1% | −0.1 (−1.0 to +1.0) |
+| Synopsis exact F1 | 35.7% | 36.5% | +0.8 (−0.8 to +2.4) |
+| … precision / recall | 43.8 / 37.1 | 43.0 / 40.0 | |
+| OMIM allelic variants recovered | 66.6% | 65.0% | −1.6 (−3.7 to 0.0) |
+| Statements per paper | 24.0 | 22.2 | |
+| Draft statements with a counterpart in OMIM's paragraph | 24% | 25% | |
+
+The guide had no measurable effect on held-out entries. That agrees with section 3.2: only 5% of OMIM's facts were
+plainly available and left out, so there was little for better selection to recover. The editorial measure adds that
+a draft makes about twice as many statements about a paper as OMIM's paragraph has facts (24 against 12), and a
+quarter of them have a counterpart there. OMIM may make some of the others elsewhere in the entry, so that share is
+a lower bound on agreement.
 
 ### 3.7 Large entries
 
@@ -412,7 +437,7 @@ being possible was therefore not measured.
 
 ### 3.10 Cost
 
-**Table 6. Cost per entry**, at list price.
+**Table 8. Cost per entry**, at list price.
 
 | | Direct reading | Agentic curator | Evidence graph | Case table first | Recall, then verify | Memory only |
 |---|---|---|---|---|---|---|
@@ -439,9 +464,18 @@ against the worst reading strategy is worth 4. Over a third of OMIM's facts were
 project that wants to reproduce OMIM, licensed full text and supplementary tables would do more than any change of
 method tested here.
 
-**At this entry size, the simplest method is the best.** With 2–12 papers everything fits in one prompt, and a model
+**For a typical entry, the simplest method is the best.** With 2–12 papers everything fits in one prompt, and a model
 that reads it all writes an entry that is as faithful as, and slightly more complete than, one written from an
 extracted graph or table, at half the generation cost. Extraction loses detail; it does not add accuracy.
+
+**With dozens of papers the balance shifts, a little.** On entries with 30–75 references the case table conveyed
+slightly more of OMIM's facts than direct reading, the agent began to skip papers, and structure cost four times as
+much. The structured strategies also listed twice as many synopsis terms, and inheritance computed by rule from
+pooled records was wrong on three of eleven entries, so a table needs a writer's judgement on top of it.
+
+**Telling the writer what OMIM wants did not help.** A guide learned from OMIM's own choices changed nothing
+measurable on held-out entries. What separates a draft from OMIM is mostly what could be read, not what the writer
+chose to say.
 
 **Structure pays when the database is the product.** The case table and its reconciliation produce what an entry
 cannot: per-patient records, variant lists with sources, phenotype counts, and a correction for patients reported
@@ -460,14 +494,14 @@ cost. Its blind spot is evidence that is not the cited paper's own text.
 | Approach | Strengths | Weaknesses | Use it for |
 |---|---|---|---|
 | Direct reading | Best or equal on every score; cheapest; simplest | Needs everything in one prompt; no reusable structure; a stopped reply loses the whole entry | Entries whose papers fit in context |
-| Agentic curator | Equal to direct reading; quotes for every paragraph; does not need papers in one prompt | Cost and behaviour less predictable; more stopped replies in our run | Larger entries; when per-paragraph quotes are wanted |
+| Agentic curator | Equal to direct reading; quotes for every paragraph; does not need papers in one prompt | Skips papers on large entries (used 90% of references against 97%); cost and behaviour less predictable | When per-paragraph quotes are wanted; papers that do not fit in one prompt |
 | Evidence graph | Every paragraph traceable to findings and quotes; computed gene, inheritance and variant tables | 2 points fewer facts; lower synopsis precision; twice the cost | Provenance-first curation; queries across entries |
-| Case table | Per-patient database with counts | Weakest reading strategy on facts, variants and faithfulness | Building the database, not writing the entry |
+| Case table | Per-patient database with counts; slightly ahead on facts for entries with 30+ papers | Weakest reading strategy on small entries; rule-computed inheritance wrong on 3 of 11 large entries; four times the cost on large entries | Building the database; entries with many papers |
 | Reconciled case database | Removes double counting; logs conflicts between papers; cheap | No effect on entry scores at this size | Any use of patient counts |
 | Recall, then verify | Faithful | Conveys least; most expensive to generate | Not recommended |
 | Memory only | Cheapest; shows what is already known | 22% of claims unsupported or contradicted; useless for recent disorders | A control only |
 | Second-hand evidence | Recovers variants and old papers with no abstract | Errors the audit cannot see; doubles contradictions | Flagged leads for a curator |
-| Learned curation guide | Improves synopsis term choice (pilot) | No gain in facts conveyed (pilot); needs clean training data | Synopsis; *pending held-out test* |
+| Learned curation guide | Cheap to learn; slightly shorter drafts | No measurable effect on any score on held-out entries | Not worth adding as tested |
 
 ### 4.3 Towards an OMIM-like database
 
@@ -489,7 +523,8 @@ The results suggest a combination, not a single winner (interpretation):
 - **Fact splitting is not frozen.** The judge splits each OMIM paragraph into facts separately for each draft, so fact
   counts differ slightly between strategies and facts cannot be aligned one to one.
 - **Entry size.** The main comparison covers 2–12 references. Across OMIM, about one entry in six has more, and those
-  hold most of the references; section 3.7 will address this.
+  hold most of the references. The large tier has only twelve entries, and because few of their papers were readable
+  in full it does not test inputs too large for one prompt.
 - **Oracle retrieval.** Strategies were given OMIM's reference list. Finding the literature is tested only on ten
   entries.
 - **One run per entry.** Run-to-run variation was not measured.
@@ -502,21 +537,23 @@ The results suggest a combination, not a single winner (interpretation):
 ## 5. Conclusion
 
 Nine ways of drafting OMIM-style entries were run on the same entries and scored against what curators wrote. Reading
-the papers directly was the most complete and the cheapest, intermediate structure cost a few points of content, the
-model's memory was unreliable, and no method recovered what could not be read. The practical route to an automated,
+the papers directly was the most complete and the cheapest for typical entries, intermediate structure cost a few
+points of content there and gained a little on entries with dozens of papers, the model's memory was unreliable, a
+learned guide changed nothing, and no method recovered what could not be read. The practical route to an automated,
 curator-reviewed OMIM-like resource is direct reading for the text, a reconciled case table for the database, a
 claim-level audit over both, and access to the full papers.
 
 ## Data and code availability
 
 Code, evaluation sets, generated entries, audits and scores are in this repository. `results/omim100/` holds the
-six-strategy run, `results/omim100_secondhand/` and `results/omim100_reconciled/` the derived strategies, and
+six-strategy run, `results/omim100_secondhand/`, `results/omim100_reconciled/` and `results/omim100_guided/` the
+derived strategies, `results/large12/` the large entries, and
 [`approach-survey.md`](approach-survey.md) the survey of published approaches with token estimates. OMIM-authored text
 is not included. The run can be browsed with `AIOMIM_RUNS=results aiomim report omim100`.
 
 ## Open items before submission
 
-- Sections 3.6 and 3.7: replace pilot results with the held-out guide test and the 12-entry large tier.
+- Extend the large tier to entries whose papers exceed one prompt, which needs licensed full text.
 - Confirm the candidate corrections against live OMIM entries with a curator.
 - Decide whether to add a second model as writer or judge.
 - Author list, acknowledgements, and a statement on OMIM data use.
