@@ -188,7 +188,9 @@ def editorial_markdown(summary: dict[str, Any]) -> str:
         "counts half). The OMIM paragraph compared is the allelic-variant text deposited in ClinVar; a statement "
         "with no counterpart there may still be in another section of the OMIM entry, so the rate is for "
         "comparing strategies on the same entries.",
-        f"Entries common to all strategies: {summary['n_entries']}.",
+        f"Entries common to all strategies: {summary['n_entries']}."
+        + (f" Left out, no draft from some strategy (writer stopped): {', '.join(summary['stopped_entries'])}."
+           if summary.get("stopped_entries") else ""),
         "| Strategy | Statements | Precision (pooled) | Precision (entry mean) | Statements per paper | "
         "OMIM facts per paper | Statements per OMIM fact |",
         "|---|---|---|---|---|---|---|",
@@ -227,8 +229,13 @@ def editorial_run(
     common = sorted(set.intersection(*have) if have else set())
     if wanted is not None:
         common = [e for e in common if e in wanted]
+    # An entry whose writer was stopped has no draft for some strategy: it is missing, not empty.
+    from .gaps import is_stopped
+    stopped = [e for e in common if any(is_stopped(run_dir / e, s) for s in strategies)]
+    common = [e for e in common if e not in stopped]
 
-    out: dict[str, Any] = {"run": run_dir.name, "n_entries": len(common), "strategies": {}}
+    out: dict[str, Any] = {"run": run_dir.name, "n_entries": len(common), "stopped_entries": stopped,
+                           "strategies": {}}
     for strategy in strategies:
         def one(folder: str) -> dict[str, Any] | None:
             entry_dir = run_dir / folder

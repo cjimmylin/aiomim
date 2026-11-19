@@ -98,7 +98,19 @@ def entry_dirs(run_dir: Path, strategy: str, entries: Iterable[str] | None = Non
     """Entry folders of a run that have a scored draft for `strategy`, optionally restricted."""
     wanted = set(entries) if entries is not None else None
     return [p.parent for p in sorted(run_dir.glob(f"*/eval.{strategy}.json"))
-            if wanted is None or p.parent.name in wanted]
+            if (wanted is None or p.parent.name in wanted) and not is_stopped(p.parent, strategy)]
+
+
+def is_stopped(entry_dir: Path, strategy: str) -> bool:
+    """The writer was stopped (safety filter, empty reply): there is no draft, so nothing was missed."""
+    path = entry_dir / f"eval.{strategy}.json"
+    return path.exists() and bool(json.loads(path.read_text(encoding="utf-8")).get("stopped"))
+
+
+def stopped_dirs(run_dir: Path, strategy: str, entries: Iterable[str] | None = None) -> list[str]:
+    wanted = set(entries) if entries is not None else None
+    return sorted(p.parent.name for p in run_dir.glob(f"*/eval.{strategy}.json")
+                  if (wanted is None or p.parent.name in wanted) and is_stopped(p.parent, strategy))
 
 
 def per_paper_chars(n_papers: int) -> int:
@@ -292,7 +304,9 @@ def gaps_markdown(summary: dict[str, Any], run: str, strategy: str) -> str:
         "is stated, or a claimed quote could not be found; *not in text* means the available text does not state "
         "it, so a writer reading only that text could not have conveyed it.",
         f"{summary['n_entries']} entries, {summary['n_paragraphs']} OMIM paragraphs, {summary['n_calls']} judge "
-        f"calls ({summary['n_errors']} failed).",
+        f"calls ({summary['n_errors']} failed)."
+        + (f" Left out, no draft (the writer was stopped): {len(summary['stopped_entries'])} entries "
+           f"({', '.join(summary['stopped_entries'])})." if summary.get("stopped_entries") else ""),
         "| Paper read as | OMIM facts | Conveyed | Not fully conveyed | … in text | … partly in text | … not in text "
         "| Unjudged | In text, share of missed |",
         "|---|---|---|---|---|---|---|---|---|",
@@ -352,6 +366,7 @@ def gaps_run(
     with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
         results = [r for r in pool.map(one, dirs) if r is not None]
     summary = {"run": run_dir.name, "strategy": strategy, **summarize_gaps(results),
+               "stopped_entries": stopped_dirs(run_dir, strategy, entries),
                "entries": {r["mim"]: r["tally"] for r in results}}
     if write_run_files:
         _write(run_dir / f"gaps.{strategy}.json", summary)

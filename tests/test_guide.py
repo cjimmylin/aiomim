@@ -359,3 +359,31 @@ def test_compare_entries_file_restricts_and_keeps_main_files(tmp_path, monkeypat
     assert compare_strategies(run)["n_entries"] == 6
     assert compare_strategies(run, entries=["100100"])["n_entries"] == 1
     assert compare_strategies(run, entries=[]) == {}
+
+
+# --------------------------------------------------------------------------- #
+# 7. A stopped writer is a missing entry, not a zero
+# --------------------------------------------------------------------------- #
+
+
+def test_stopped_entries_are_missing_not_zero(tmp_path):
+    run = tmp_path / "run"
+    for mim, coverage, stopped, sections in (("100010", 0.6, None, True), ("100011", 0.0, "the model's safety filter "
+                                             "stopped this reply", False), ("100012", 0.0, None, False)):
+        d = run / mim
+        d.mkdir(parents=True)
+        evaluation = {"mim": mim, "gold_text": {"coverage": coverage, "paragraphs": []},
+                      "synopsis": {"exact": {"f1": 0.5}}}
+        if stopped:
+            evaluation["stopped"] = stopped
+        (d / "eval.direct.json").write_text(json.dumps(evaluation))
+        entry = {"mim": mim, "meta": {"stopped": stopped} if stopped else {},
+                 "sections": [{"name": "clinical_features", "paragraphs": [{"text": "x"}]}] if sections else []}
+        (d / "entry.direct.json").write_text(json.dumps(entry))
+    # 100011 was stopped; 100012 is an empty entry from a run made before stops were recorded.
+    assert [guide.has_draft(run / m, "direct") for m in ("100010", "100011", "100012")] == [True, False, False]
+    scores = guide.training_scores(run, "direct", ["100010", "100011", "100012"])
+    assert scores["n_entries"] == 1 and scores["gold_fact_coverage"] == 0.6
+    assert scores["no_draft"] == ["100011", "100012"]
+    assert [p.name for p in gaps.entry_dirs(run, "direct")] == ["100010", "100012"]
+    assert gaps.stopped_dirs(run, "direct") == ["100011"]

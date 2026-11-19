@@ -242,6 +242,7 @@ def comparison_markdown(result: dict[str, Any]) -> str:
 
 VOLUME = [
     ("claims", "Claims audited per entry", "faithfulness.n_claims"),
+    ("claims_not_checkable", "Claims that could not be audited per entry", "faithfulness.not_checkable"),
     ("synopsis_terms", "Clinical-synopsis HPO terms per entry", "synopsis.exact.n_predicted"),
     ("variants", "Allelic variants per entry", "variants.n_generated"),
     ("references", "Papers cited per entry", "references.cited.n_predicted"),

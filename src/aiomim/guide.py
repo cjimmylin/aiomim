@@ -188,6 +188,18 @@ def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
+def has_draft(entry_dir: Path, strategy: str) -> bool:
+    """A scored draft exists. A writer that was stopped (safety filter, empty reply) left no draft:
+    such an entry is missing, not a draft that scored zero. Runs made before stops were recorded
+    hold an empty entry instead, which counts as stopped too."""
+    evaluation = _load(entry_dir / f"eval.{strategy}.json")
+    entry = _load(entry_dir / f"entry.{strategy}.json")
+    if evaluation is None or entry is None or evaluation.get("stopped") or (entry.get("meta") or {}).get("stopped"):
+        return False
+    return bool(entry.get("intro") or any(s.get("paragraphs") for s in entry.get("sections", []))
+                or entry.get("allelic_variants"))
+
+
 def _term(label: str) -> str:
     return label.split(" ", 1)[1] if label.startswith("HP:") and " " in label else label
 
@@ -277,7 +289,7 @@ def build_feedback(run_dir: Path, strategy: str, entries: list[str], baseline_ru
     blocks = []
     for mim in entries:
         d = run_dir / mim
-        if not (d / f"eval.{strategy}.json").exists():
+        if not has_draft(d, strategy):
             continue
         blocks.append(entry_feedback(d, strategy, baseline_run / mim if baseline_run else None, baseline_strategy))
     return "\n\n".join(blocks)
@@ -393,12 +405,13 @@ def _mean(values: list[float | None]) -> float | None:
 
 
 def training_scores(run_dir: Path, strategy: str, entries: list[str]) -> dict[str, Any]:
-    """Mean scores over `entries` that have a scored draft (numbers only)."""
-    evals, editorials = [], []
+    """Mean scores over `entries` that have a scored draft (numbers only); stopped entries are left out and listed."""
+    evals, editorials, missing = [], [], []
     for mim in entries:
-        e = _load(run_dir / mim / f"eval.{strategy}.json")
-        if e is None:
+        if not has_draft(run_dir / mim, strategy):
+            missing.append(mim)
             continue
+        e = _load(run_dir / mim / f"eval.{strategy}.json")
         evals.append(e)
         ed = _load(run_dir / mim / f"editorial.{strategy}.json")
         if ed is not None:
@@ -410,6 +423,7 @@ def training_scores(run_dir: Path, strategy: str, entries: list[str]) -> dict[st
     return {
         "n_entries": len(evals),
         "entries": sorted(e["mim"] for e in evals),
+        "no_draft": missing,
         "gold_fact_coverage": _mean(pick("gold_text.coverage")),
         "gold_fact_contradiction_rate": _mean(pick("gold_text.contradiction_rate")),
         "synopsis_exact_f1": _mean(pick("synopsis.exact.f1")),
@@ -467,8 +481,15 @@ def _ensure_analyses(run_dir: Path, strategy: str, entries: list[str], jobs: int
 def _generate(run_name: str, strategy: str, entries: list[str], jobs: int) -> None:
     from .pipeline import RunConfig, run_many
 
+    from .config import get_settings
+
+    # Resumable: an entry already scored in this folder is not generated again (a stopped or empty
+    # draft included: it stays missing rather than being asked again).
+    todo = [m for m in entries if not (get_settings().runs / run_name / m / f"eval.{strategy}.json").exists()]
+    if not todo:
+        return
     cfg = RunConfig(run=run_name, retrieval="oracle", strategies=(strategy,), verify=False, repair=False)
-    summary = run_many(entries, cfg, jobs=jobs)
+    summary = run_many(todo, cfg, jobs=jobs)
     if summary.get("failures"):
         log.warning("%s: %d entries failed: %s", run_name, len(summary["failures"]), summary["failures"])
 
@@ -509,18 +530,29 @@ def learn_guide(
     for k in range(1, rounds + 1):
         round_dir = work_dir / f"round{k}"
         round_dir.mkdir(parents=True, exist_ok=True)
-        (round_dir / "feedback.txt").write_text(feedback, encoding="utf-8")   # git-ignored; holds OMIM facts
-        reply = reflect(llm, feedback, previous, prev_scores, baseline)
-        guide = reply.guide.strip()
-        (round_dir / "guide.md").write_text(guide + "\n", encoding="utf-8")
-        (round_dir / "rationale.txt").write_text(reply.rationale, encoding="utf-8")
+        if (round_dir / "guide.md").exists():
+            # Resuming an interrupted run: keep the guide this round already learned and tested.
+            guide = (round_dir / "guide.md").read_text(encoding="utf-8").strip()
+            log.info("round %d: reusing %s", k, round_dir / "guide.md")
+        else:
+            (round_dir / "feedback.txt").write_text(feedback, encoding="utf-8")   # git-ignored; holds OMIM facts
+            reply = reflect(llm, feedback, previous, prev_scores, baseline)
+            guide = reply.guide.strip()
+            (round_dir / "guide.md").write_text(guide + "\n", encoding="utf-8")
+            (round_dir / "rationale.txt").write_text(reply.rationale, encoding="utf-8")
         checks = check_guide(guide, references, symbols, titles)
         log.info("round %d: guide of %d words, checks %s", k, checks["words"], checks)
 
         os.environ["AIOMIM_GUIDE"] = str(round_dir / "guide.md")
         _generate(f"{work}/round{k}", "guided", train, jobs)
-        common = [m for m in train if (round_dir / m / "eval.guided.json").exists()
-                  and (work_dir / "baseline" / m / f"eval.{strategy}.json").exists()]
+        # Compared only where both the round and the baseline wrote a draft: a stopped writer is a
+        # missing entry, not a zero, on either side.
+        common = [m for m in train if has_draft(round_dir / m, "guided")
+                  and has_draft(work_dir / "baseline" / m, strategy)]
+        excluded = [m for m in train if m not in common]
+        if excluded:
+            log.warning("round %d: %d training entries without a draft on one side, left out: %s",
+                        k, len(excluded), excluded)
         from .editorial import editorial_run
         editorial_run(round_dir, ("guided",), entries=common, jobs=jobs, llm=llm, write_run_files=False)
         scores = training_scores(round_dir, "guided", common)
@@ -531,6 +563,7 @@ def learn_guide(
             "round": k, "guide": guide, "words": checks["words"],
             "sha256": hashlib.sha256(guide.encode("utf-8")).hexdigest(),
             "checks": checks, "scores": scores, "baseline_same_entries": base_same, "selection": selection,
+            "excluded_no_draft": excluded,
         })
         if k < rounds:
             from .gaps import gaps_run
@@ -553,6 +586,9 @@ def learn_guide(
         "models": {"reflect": settings.model_for("reflect"), "synthesize": settings.model_for("synthesize"),
                    "judge": settings.model_for("judge")},
         "baseline": baseline,
+        "stopped_note": ("Entries whose writer was stopped (or, in runs made before stops were recorded, returned "
+                         "an empty entry) have no draft; they are left out of every score and of the comparison, "
+                         "per round, on both sides. See excluded_no_draft."),
         # A guide that failed the checks may hold OMIM wording: its text stays in the git-ignored run folder.
         "history": [{**r, "guide": r["guide"] if r["checks"]["ok"] else "(withheld: failed the checks)"}
                     for r in history],
