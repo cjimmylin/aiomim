@@ -1,28 +1,43 @@
-## Curation guide
+## Curation guide: what to report about each paper
 
-### Always produce a draft
-- Never return an empty entry. If the papers (even only titles or abstracts) name a gene and a variant, write a variant paragraph and a clinical synopsis.
+- **Keep each paper's paragraph tied to its variant(s).** Build it in this order, using only the items the paper gives:
+  1. **Who:** number of patients and their relationship (sibs, father and daughter, 3-generation family), sex, age, ethnicity or origin, and parental consanguinity. Name the disorder with its symbol ("a girl with [disorder] ([SYMBOL])") and any severity qualifier the paper uses (mild, severe).
+  2. **Variant:** zygosity (homozygous, heterozygous, compound heterozygous, apparently homozygous, de novo); the exact nucleotide change in the paper's notation, with the reference transcript if given; the change type (transition, transversion, duplication, deletion size in bp); its exon or intron; and the protein consequence (missense residue change, premature stop at codon N, frameshift with new stop, splice-site effect). For compound heterozygotes, give both alleles.
+  3. **Evidence:** how it was found (exome, panel, targeted sequencing; Sanger confirmation); segregation; carrier status of unaffected parents or relatives; absence from named control databases, or its population frequency.
+  4. **Location and conservation:** the domain or structural position, and whether the residue is conserved.
+  5. **Function:** the assay, the cell type or system, and the result, with numbers (percentage of wildtype activity or binding, loss of protein, mislocalization, abnormal splice products). Add the authors' one-line conclusion about the mechanism if they give one.
+  6. **Links:** "previously reported by…", "the same mutation was found by…", and earlier patients restudied.
+- **Precision beats paraphrase.** Copy codon numbers, percentages, deletion sizes and ages exactly. Never reduce "homozygous" or "compound heterozygous" to "carried a mutation."
+- **Drop to make room** (drafts run about twice OMIM's length):
+  - general definitions of the disorder, statements of its inheritance mode, and descriptions of what the gene or protein normally does;
+  - totals for the whole cohort and screening workflows (how many probands were screened, the screening method) for variants not described in this paragraph;
+  - long symptom lists, negative findings, treatment details, prognosis and counseling advice;
+  - comparisons with other syndromes and the authors' discussion beyond the variant's mechanism.
+- State each fact once per paper. Do not repeat it in another sentence or section with slightly different wording.
+- In clinical-feature sections, give each family one or two sentences covering the defining findings, onset and notable variability. Keep these sections; just keep them short.
 
-### Each variant paragraph, in this order
-1. Who: the paper's patient descriptor (age, sex, origin, "2 sibs", "a 3-generation family", "the mother was also affected"), then the disorder name with its abbreviation. If the patient or family was described earlier, or the same variant was reported before, say so and cite that report.
-2. What: zygosity (for compound heterozygotes, name the partner allele); the nucleotide change with transcript; exon or intron; change type (transition, transversion, deletion or duplication size in bp); protein change in 3-letter and 1-letter form, with the frameshift or stop position. Say "novel" if the paper does.
-3. How found and segregation: the method (exome, panel, Sanger confirmation), segregation, parents' status (carriers, de novo), relatives who could not be tested, absence from population databases or the allele frequency.
-4. Where: conservation of the residue and its domain or structural location.
-5. Function: the cell type or model, then the result with the paper's numbers. Then give the paper's own interpretation in one sentence (null allele through nonsense-mediated decay, loss of function, proposed mechanism).
-6. Phenotype in one sentence: the severity the paper states and one or two notable features of these patients (an unusual complication, milder relatives, a later malignancy).
-- Copy numbers, ages and measurements exactly. Never weaken "homozygous" to "carried" or a named stop codon to "truncating".
+## Curation guide: clinical-synopsis terms
 
-### What to drop (the main gap from OMIM's length is here)
-- Never open or pad a paragraph with background: what the disorder is, its cardinal features, its inheritance mode, its rarity, what the gene or protein does, or the gene's other associated phenotypes.
-- Study-level facts (how many patients or families were studied, how many mutations were found, the percentage of cases with mutations, "the authors characterized the phenotype") never go in a variant paragraph. They may appear at most once in the whole entry.
-- Never repeat a sentence across paragraphs. Each fact appears once per paper.
-- Leave out lists of clinical findings, normal or negative findings, treatment, follow-up course, the authors' syndrome names or acronyms, comparisons with earlier patients, linkage and mapping details, and variants that belong to another disorder.
-- Target 8–14 statements per paper. If you are over, cut background and clinical lists first, never the molecular facts in steps 1–5.
-
-### Clinical synopsis terms
-- Aim for 10–25 terms. Go past 30 only when the papers describe a large multisystem syndrome in detail. Too many terms costs more than a few missed ones.
-- A term is a feature the papers present as part of the disorder in affected individuals. Skip findings in a single patient of a series, findings the paper calls secondary to a complication or treatment, findings in relatives with another diagnosis, and passing "may have" mentions.
-- Use one term per feature, at the level of detail the paper states. Add no laterality, subtype or severity the paper does not give (use "Hearing impairment" unless the type is stated; use "Cataract" unless it is named). Do not list both a general term and its subtype for the same feature, and do not broaden a specific finding into an umbrella term ("Abnormal heart morphology", "Abnormality of the skeletal system").
-- Do list the cardinal finding that names the disorder when it is a clinical sign (the arrhythmia, the dysplasia, the hormonal syndrome).
-- Do list the basic findings when they are reported: hypotonia, global developmental delay, intellectual disability, seizure, failure to thrive, feeding difficulties, decreased fetal movement, polyhydramnios, premature birth, neonatal respiratory distress, short stature, recurrent infections, constipation.
-- Do list a defining laboratory abnormality, biopsy histopathology, and enzyme deficiency measured in patient cells. Do not list results from transfected cells or models, protein-level assays, or treatment responses.
+- **Number of terms:** usually 10–35, never more than about 40. List each finding once.
+- **Core finding:** if the disorder's defining finding is itself a clinical sign, list it as a term (for example, the named dysplasia, the hormone-resistance state, encephalocele). Do not list the full syndrome name.
+- **Level of specificity:**
+  - Give the plain base term without age, severity or course prefixes ("Intellectual disability", not mild; "Hypotonia", not neonatal; "Cataract", not developmental).
+  - If the paper names a specific form, list it next to the base term. Examples: a hypotonia distribution with "Hypotonia"; the named cardiomyopathy type with "Cardiomyopathy"; chronic constipation with "Constipation"; a palmoplantar keratoderma subtype with its parent term.
+  - Anchor digit and limb findings to their site (finger vs toe syndactyly, preaxial vs postaxial hand polydactyly).
+  - Never use "Abnormality of X" or "Abnormal X morphology".
+- **Include:**
+  - prenatal and neonatal findings (decreased fetal movement, polyhydramnios, prematurity, poor suck, respiratory distress, feeding difficulties);
+  - growth (failure to thrive, short stature, microcephaly);
+  - each craniofacial, eye, ear, dental, skin, hair and nail sign;
+  - named congenital heart defects and specific ECG or rhythm findings;
+  - gait type, motor milestones, speech and behavior;
+  - gastrointestinal symptoms and hernias;
+  - presenting symptoms of acute episodes (fever, rash, jaundice, edema, lymphadenopathy, seizures);
+  - named laboratory abnormalities (a specific metabolite, hormone, electrolyte or immunoglobulin, or vaccine response);
+  - tissue histopathology and each separate imaging or fundus sign.
+- **Exclude:**
+  - molecular, cellular or ultrastructural mechanism terms;
+  - treatment responses;
+  - later complications seen in a single patient, such as a malignancy;
+  - findings the paper reports as absent or incidental;
+  - near-synonyms of a term already listed.

@@ -1,7 +1,8 @@
 {
-  "created": "2026-11-19T14:28:42+00:00",
+  "created": "2026-11-19T15:41:01+00:00",
+  "version": 2,
   "source_run": "omim100",
-  "work_run": "omim100_guide_train",
+  "work_run": "omim100_guide_v2",
   "train_file": "evalsets/omim100.train.tsv",
   "n_train": 30,
   "train_entries": [
@@ -38,7 +39,11 @@
   ],
   "strategy": "direct",
   "rounds": 2,
-  "selection_rule": "Objective = (mean gold-fact coverage with the guide - without) + (mean clinical-synopsis exact F1 with the guide - without), over the training entries, both scored without the audit. A round is eligible only if its guide passes the mechanical checks (no run of 8+ words shared with any OMIM paragraph, no gene symbol or entry title of the evaluation set) and its draft statements per paper are at most 1.25 times the baseline's (a guide must not raise coverage by writing more). The eligible round with the highest objective is kept; if no round has a positive objective, the best is still saved and the log says there was no gain.",
+  "selection_rule": {
+    "text": "Text part (what to report about each paper): the round with the highest gain in mean OMIM-fact coverage over the baseline, on the training entries where both wrote a draft, among rounds whose draft statements per paper are at most 1.25 times the baseline's and whose part passes the checks. Included in the final guide only if that gain is positive.",
+    "synopsis": "Synopsis part (choice of clinical-synopsis terms): the round with the highest gain in mean clinical-synopsis exact F1 over the baseline, on the same entries, among rounds whose part passes the checks. Included only if that gain is positive.",
+    "common": "Each round's combined guide is evaluated once (regenerated and scored without the audit). Parts may come from different rounds. The final combination is then run once on the training entries to confirm; that run does not change the selection. Entries without a draft on either side (the writer was stopped) are left out of each comparison. Checks: no run of 8+ words shared with any OMIM paragraph, no gene symbol or entry title of the evaluation set, no rule about whether to produce output."
+  },
   "max_statements_growth": 1.25,
   "models": {
     "reflect": "claude-opus-5-5",
@@ -92,19 +97,44 @@
     "statements_per_paper": 19.904,
     "editorial_precision": 0.2635
   },
-  "stopped_note": "Entries whose writer was stopped (or, in runs made before stops were recorded, returned an empty entry) have no draft; they are left out of every score and of the comparison, per round, on both sides. See excluded_no_draft.",
+  "stopped_note": "Entries whose writer was stopped have no draft; they are left out of the feedback and of every comparison, per round, on both sides (excluded_no_draft).",
   "history": [
     {
       "round": 1,
-      "guide": "## Curation guide\n\n### Always produce a draft\n- Never return an empty entry. If the papers name a gene and a variant, write an allelic-variant paragraph for it and a clinical synopsis, even when the only source is an abstract or a title.\n\n### What each variant paragraph reports, in this order\n1. Who: the patient's descriptor as the paper gives it (age, sex, ethnic or geographic origin, \"affected members of a 3-generation family\", \"2 sibs\", \"the fifth affected child\"). Then the disorder name with its entry abbreviation, e.g. \"with [disorder] ([ABBR])\". If the paper restudies a previously described patient or family, say so (\"previously reported by …\").\n2. What: zygosity (homozygous, heterozygous, compound heterozygous with the partner allele), the exact nucleotide change with its transcript if given, its exon or intron, the change type (transition, transversion, duplication, deletion size in bp), and the protein consequence in both 3-letter and 1-letter form, including the frameshift or stop position. Say \"novel\" if the paper does.\n3. How found and how it segregated: the method (whole-exome or panel sequencing, Sanger confirmation), segregation with the disorder, the parents' status (heterozygous carriers, unaffected, de novo), absence from population databases, or the allele frequency.\n4. Where it sits: conservation of the residue, and the domain or structural location when the paper gives them.\n5. Function: the assay system (cell type or model organism), then the result, with the paper's numbers (for example, residual activity as a percentage of control). Add one interpretive sentence only if the paper makes one (for example, a predicted null allele through nonsense-mediated decay, or the proposed mechanism).\n- Copy the paper's numbers, ages and measurements exactly. Never weaken \"homozygous\" to \"carried\" or \"a stop codon\" to \"truncating\".\n\n### What to leave out (this is how you make room for the facts above)\n- Background sentences about the disorder or gene: definitions, lists of cardinal features, inheritance mode, what the protein normally does, how rare the disorder is, what earlier literature reported.\n- The size and design of the study (how many patients were screened, how many families or mutations were found in total), unless those numbers describe the carriers of this variant.\n- Other variants the same paper reported that belong to a different paragraph or disorder.\n- Screening technique details beyond the identifying method, counseling or recurrence-risk advice, treatment and follow-up course, authors' naming of families or syndromes, and speculation about associated features.\n- Long lists of clinical findings in the variant paragraph. Mention the phenotype in a few words; full clinical description belongs in the Clinical Features section, attributed to the paper once.\n- Repetition: state each fact once per paper. Do not restate it in Molecular Genetics or in other paragraphs.\n- Aim for about 8–15 statements per paper.\n\n### Clinical synopsis terms\n- List every distinct finding the papers report in patients, one term per finding, grouped by organ system. A syndromic disorder usually gets 15–40 terms; a narrow disorder gets 5–15.\n- Use the specific standard term for the specific site or type. Split findings by location (finger vs toe, hand vs foot polydactyly, preaxial vs postaxial). Use precise imaging, ocular and cardiac terms (the named cataract type, the septal defect, the brain malformation).\n- Don't use umbrella terms (\"Abnormality of the face\", \"Abnormal heart morphology\", \"Abnormal brain morphology\") when a specific finding is reported. Don't add severity or age qualifiers that the standard term doesn't carry (prefer \"Intellectual disability\" and \"Global developmental delay\" over \"mild …\" or \"severe …\").\n- Include basic and nonspecific findings when they are reported: hypotonia, failure to thrive, feeding difficulties, neonatal respiratory distress, decreased fetal movement, polyhydramnios, prematurity, short stature, seizures, recurrent infections, constipation, and laboratory abnormalities stated as clinical values.\n- Exclude: the disorder's own name, molecular, cellular or enzymatic findings (protein levels, assay results, ultrastructural changes), treatment responses, normal findings, and findings the paper attributes to another cause.",
-      "words": 652,
-      "sha256": "74d89ac832d95ac2e2d6dd8859569118d4623a130545a8c12aa51175fc0bed04",
+      "parts": {
+        "text": "- **Keep each paper's paragraph tied to its variant(s).** Build it in this order, using only the items the paper gives:\n  1. **Who:** number of patients and their relationship (sibs, father and daughter, 3-generation family), sex, age, ethnicity or origin, and parental consanguinity. Name the disorder with its symbol (\"a girl with [disorder] ([SYMBOL])\") and any severity qualifier the paper uses (mild, severe).\n  2. **Variant:** zygosity (homozygous, heterozygous, compound heterozygous, apparently homozygous, de novo); the exact nucleotide change in the paper's notation, with the reference transcript if given; the change type (transition, transversion, duplication, deletion size in bp); its exon or intron; and the protein consequence (missense residue change, premature stop at codon N, frameshift with new stop, splice-site effect). For compound heterozygotes, give both alleles.\n  3. **Evidence:** how it was found (exome, panel, targeted sequencing; Sanger confirmation); segregation; carrier status of unaffected parents or relatives; absence from named control databases, or its population frequency.\n  4. **Location and conservation:** the domain or structural position, and whether the residue is conserved.\n  5. **Function:** the assay, the cell type or system, and the result, with numbers (percentage of wildtype activity or binding, loss of protein, mislocalization, abnormal splice products). Add the authors' one-line conclusion about the mechanism if they give one.\n  6. **Links:** \"previously reported by…\", \"the same mutation was found by…\", and earlier patients restudied.\n- **Precision beats paraphrase.** Copy codon numbers, percentages, deletion sizes and ages exactly. Never reduce \"homozygous\" or \"compound heterozygous\" to \"carried a mutation.\"\n- **Drop to make room** (drafts run about twice OMIM's length):\n  - general definitions of the disorder, statements of its inheritance mode, and descriptions of what the gene or protein normally does;\n  - totals for the whole cohort and screening workflows (how many probands were screened, the screening method) for variants not described in this paragraph;\n  - long symptom lists, negative findings, treatment details, prognosis and counseling advice;\n  - comparisons with other syndromes and the authors' discussion beyond the variant's mechanism.\n- State each fact once per paper. Do not repeat it in another sentence or section with slightly different wording.\n- In clinical-feature sections, give each family one or two sentences covering the defining findings, onset and notable variability. Keep these sections; just keep them short.",
+        "synopsis": "- **Number of terms:** list each distinct abnormal finding reported in any patient. Typically this is 12–30 terms, more for multisystem dysmorphic syndromes and fewer for single-organ disorders. Do not stop at the defining triad.\n- **Specificity:**\n  - Use specific, site-anchored terms rather than umbrella categories. For example, use finger syndactyly and toe syndactyly instead of syndactyly. Use the named type of cardiomyopathy, elbow or knee flexion contracture, white eyelashes, or postaxial hand polydactyly.\n  - Never use \"Abnormality of X\" or \"Abnormal X morphology\" when the paper names the actual finding.\n  - Do not add severity, laterality, onset or progression qualifiers (mild, severe, progressive, bilateral) unless the paper's whole phenotype depends on them. Prefer \"Intellectual disability\" and \"Global developmental delay\".\n  - A general term can sit alongside a more specific one (seizure plus a seizure type; hypotonia plus axial hypotonia) when the papers support both.\n- **Include these kinds of findings:**\n  - prenatal and neonatal findings (decreased fetal movement, polyhydramnios, prematurity, poor suck, neonatal respiratory distress, feeding difficulties);\n  - growth (short stature, failure to thrive, microcephaly);\n  - each individual craniofacial, ocular, dental, ear, digit and skin sign;\n  - each individual fundus or imaging sign rather than an overall label (for example, list the separate retinal signs instead of \"retinal degeneration\");\n  - behavior, speech and motor milestones;\n  - gastrointestinal symptoms;\n  - specific abnormal laboratory values and histopathology of the affected tissue.\n- **Exclude:**\n  - the disease name or its core category used as a term;\n  - molecular or cellular mechanism terms (abnormal enzyme activity, abnormal synaptic transmission, ultrastructural protein findings);\n  - treatment responses;\n  - findings the paper presents as incidental, absent or in a single atypical relative only;\n  - redundant near-synonyms of a term already listed."
+      },
+      "words": {
+        "text": 374,
+        "synopsis": 285
+      },
+      "sha256": "38cc844e57f13a5bbfd2ca6bf448cc2c4ce601418ff55dfaf4d76594a746f7a6",
       "checks": {
-        "ok": true,
-        "shared_8word_runs": 0,
-        "gene_symbols": [],
-        "entry_titles": 0,
-        "words": 652
+        "text": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 374,
+          "output_rules": 0
+        },
+        "synopsis": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 285,
+          "output_rules": 0
+        },
+        "combined": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 673,
+          "output_rules": 0
+        }
       },
       "scores": {
         "n_entries": 27,
@@ -138,16 +168,16 @@
           "620718"
         ],
         "no_draft": [],
-        "gold_fact_coverage": 0.5489,
-        "gold_fact_contradiction_rate": 0.0085,
-        "synopsis_exact_f1": 0.337,
-        "synopsis_exact_precision": 0.4263,
-        "synopsis_exact_recall": 0.3304,
-        "synopsis_hierarchical_f1": 0.5618,
-        "synopsis_terms": 18.3704,
-        "variant_recall": 0.6989,
-        "statements_per_paper": 19.888,
-        "editorial_precision": 0.2715
+        "gold_fact_coverage": 0.5392,
+        "gold_fact_contradiction_rate": 0.0111,
+        "synopsis_exact_f1": 0.379,
+        "synopsis_exact_precision": 0.4816,
+        "synopsis_exact_recall": 0.3608,
+        "synopsis_hierarchical_f1": 0.5883,
+        "synopsis_terms": 16.7407,
+        "variant_recall": 0.7414,
+        "statements_per_paper": 19.456,
+        "editorial_precision": 0.2632
       },
       "baseline_same_entries": {
         "n_entries": 27,
@@ -192,11 +222,10 @@
         "statements_per_paper": 19.904,
         "editorial_precision": 0.2635
       },
-      "selection": {
-        "coverage_gain": 0.0111,
-        "synopsis_f1_gain": -0.0291,
-        "objective": -0.018,
-        "statements_growth": 0.999,
+      "gains": {
+        "coverage_gain": 0.0014,
+        "synopsis_f1_gain": 0.0129,
+        "statements_growth": 0.977,
         "grows_too_much": false
       },
       "excluded_no_draft": [
@@ -207,15 +236,40 @@
     },
     {
       "round": 2,
-      "guide": "## Curation guide\n\n### Always produce a draft\n- Never return an empty entry. If the papers (even only titles or abstracts) name a gene and a variant, write a variant paragraph and a clinical synopsis.\n\n### Each variant paragraph, in this order\n1. Who: the paper's patient descriptor (age, sex, origin, \"2 sibs\", \"a 3-generation family\", \"the mother was also affected\"), then the disorder name with its abbreviation. If the patient or family was described earlier, or the same variant was reported before, say so and cite that report.\n2. What: zygosity (for compound heterozygotes, name the partner allele); the nucleotide change with transcript; exon or intron; change type (transition, transversion, deletion or duplication size in bp); protein change in 3-letter and 1-letter form, with the frameshift or stop position. Say \"novel\" if the paper does.\n3. How found and segregation: the method (exome, panel, Sanger confirmation), segregation, parents' status (carriers, de novo), relatives who could not be tested, absence from population databases or the allele frequency.\n4. Where: conservation of the residue and its domain or structural location.\n5. Function: the cell type or model, then the result with the paper's numbers. Then give the paper's own interpretation in one sentence (null allele through nonsense-mediated decay, loss of function, proposed mechanism).\n6. Phenotype in one sentence: the severity the paper states and one or two notable features of these patients (an unusual complication, milder relatives, a later malignancy).\n- Copy numbers, ages and measurements exactly. Never weaken \"homozygous\" to \"carried\" or a named stop codon to \"truncating\".\n\n### What to drop (the main gap from OMIM's length is here)\n- Never open or pad a paragraph with background: what the disorder is, its cardinal features, its inheritance mode, its rarity, what the gene or protein does, or the gene's other associated phenotypes.\n- Study-level facts (how many patients or families were studied, how many mutations were found, the percentage of cases with mutations, \"the authors characterized the phenotype\") never go in a variant paragraph. They may appear at most once in the whole entry.\n- Never repeat a sentence across paragraphs. Each fact appears once per paper.\n- Leave out lists of clinical findings, normal or negative findings, treatment, follow-up course, the authors' syndrome names or acronyms, comparisons with earlier patients, linkage and mapping details, and variants that belong to another disorder.\n- Target 8–14 statements per paper. If you are over, cut background and clinical lists first, never the molecular facts in steps 1–5.\n\n### Clinical synopsis terms\n- Aim for 10–25 terms. Go past 30 only when the papers describe a large multisystem syndrome in detail. Too many terms costs more than a few missed ones.\n- A term is a feature the papers present as part of the disorder in affected individuals. Skip findings in a single patient of a series, findings the paper calls secondary to a complication or treatment, findings in relatives with another diagnosis, and passing \"may have\" mentions.\n- Use one term per feature, at the level of detail the paper states. Add no laterality, subtype or severity the paper does not give (use \"Hearing impairment\" unless the type is stated; use \"Cataract\" unless it is named). Do not list both a general term and its subtype for the same feature, and do not broaden a specific finding into an umbrella term (\"Abnormal heart morphology\", \"Abnormality of the skeletal system\").\n- Do list the cardinal finding that names the disorder when it is a clinical sign (the arrhythmia, the dysplasia, the hormonal syndrome).\n- Do list the basic findings when they are reported: hypotonia, global developmental delay, intellectual disability, seizure, failure to thrive, feeding difficulties, decreased fetal movement, polyhydramnios, premature birth, neonatal respiratory distress, short stature, recurrent infections, constipation.\n- Do list a defining laboratory abnormality, biopsy histopathology, and enzyme deficiency measured in patient cells. Do not list results from transfected cells or models, protein-level assays, or treatment responses.",
-      "words": 658,
-      "sha256": "bcd7094f16d313762a316bb5f02d04bfd61a385bf731dbf7044827d678c419ef",
+      "parts": {
+        "text": "- **Build one paragraph per variant per paper, and open it with the patients and the genotype.** Use this pattern: \"In [number, sex, age, relationship, origin, parental consanguinity] with [disorder name] ([SYMBOL]) [and the paper's severity qualifier], [Author] (year) identified a [zygosity] [nucleotide change exactly as written, with the transcript if given] in [exon or intron], resulting in [protein change, with the one-letter shorthand in parentheses, e.g. premature termination at a given codon, or a frameshift with its new stop].\"\n  - For compound heterozygotes, name the other allele.\n  - If several patients carry the variant, say how many were homozygous and how many compound heterozygous.\n- **Then add these items in order, only where the paper states them:**\n  1. detection method and confirmation;\n  2. segregation, de novo status, and which parents or relatives are carriers (including unaffected carriers);\n  3. absence from control databases, or the variant's population frequency;\n  4. the domain and whether the residue is conserved;\n  5. the assay, the cell type and the numeric result;\n  6. the authors' one-sentence mechanistic conclusion, or their statement that no functional studies were done.\n- **Links:** if the paper restudies earlier patients or cites an earlier report of the variant, name it (\"the patient previously reported by…\"). Also give any founder or shared-haplotype finding.\n- **Clinical detail in the variant paragraph:** age at onset and one to three defining findings of the carrier.\n- **Precision:** copy nucleotide spans, deletion sizes, codons and percentages exactly. Never reduce a stated zygosity to \"a mutation\", and never infer a zygosity the paper does not state.\n- **Drop, because drafts run about twice OMIM's length:**\n  - definitions of the disorder and statements of its inheritance mode;\n  - normal gene function;\n  - cohort totals (\"studied N patients from M families\") and the screening yield across the cohort;\n  - remarks that a finding is \"novel\" or \"first\";\n  - treatment, prognosis, negative findings and comparisons with other syndromes.\n- **State each fact once in the whole entry.** Never repeat a cohort description, phenotype summary or mapping result in several sections or sentences. In clinical sections, give each family one or two sentences, and give linkage results one sentence.",
+        "synopsis": "- **Number of terms:** usually 10–35, never more than about 40. List each finding once.\n- **Core finding:** if the disorder's defining finding is itself a clinical sign, list it as a term (for example, the named dysplasia, the hormone-resistance state, encephalocele). Do not list the full syndrome name.\n- **Level of specificity:**\n  - Give the plain base term without age, severity or course prefixes (\"Intellectual disability\", not mild; \"Hypotonia\", not neonatal; \"Cataract\", not developmental).\n  - If the paper names a specific form, list it next to the base term. Examples: a hypotonia distribution with \"Hypotonia\"; the named cardiomyopathy type with \"Cardiomyopathy\"; chronic constipation with \"Constipation\"; a palmoplantar keratoderma subtype with its parent term.\n  - Anchor digit and limb findings to their site (finger vs toe syndactyly, preaxial vs postaxial hand polydactyly).\n  - Never use \"Abnormality of X\" or \"Abnormal X morphology\".\n- **Include:**\n  - prenatal and neonatal findings (decreased fetal movement, polyhydramnios, prematurity, poor suck, respiratory distress, feeding difficulties);\n  - growth (failure to thrive, short stature, microcephaly);\n  - each craniofacial, eye, ear, dental, skin, hair and nail sign;\n  - named congenital heart defects and specific ECG or rhythm findings;\n  - gait type, motor milestones, speech and behavior;\n  - gastrointestinal symptoms and hernias;\n  - presenting symptoms of acute episodes (fever, rash, jaundice, edema, lymphadenopathy, seizures);\n  - named laboratory abnormalities (a specific metabolite, hormone, electrolyte or immunoglobulin, or vaccine response);\n  - tissue histopathology and each separate imaging or fundus sign.\n- **Exclude:**\n  - molecular, cellular or ultrastructural mechanism terms;\n  - treatment responses;\n  - later complications seen in a single patient, such as a malignancy;\n  - findings the paper reports as absent or incidental;\n  - near-synonyms of a term already listed."
+      },
+      "words": {
+        "text": 359,
+        "synopsis": 279
+      },
+      "sha256": "73097f53ce2bf0a3c4e8f1fb07d2cb3953d9358776196704bcd95f5f5ec81f8f",
       "checks": {
-        "ok": true,
-        "shared_8word_runs": 0,
-        "gene_symbols": [],
-        "entry_titles": 0,
-        "words": 658
+        "text": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 359,
+          "output_rules": 0
+        },
+        "synopsis": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 279,
+          "output_rules": 0
+        },
+        "combined": {
+          "ok": true,
+          "shared_8word_runs": 0,
+          "gene_symbols": [],
+          "entry_titles": 0,
+          "words": 652,
+          "output_rules": 0
+        }
       },
       "scores": {
         "n_entries": 27,
@@ -249,16 +303,16 @@
           "620718"
         ],
         "no_draft": [],
-        "gold_fact_coverage": 0.5282,
-        "gold_fact_contradiction_rate": 0.0122,
-        "synopsis_exact_f1": 0.3799,
-        "synopsis_exact_precision": 0.5187,
-        "synopsis_exact_recall": 0.3241,
-        "synopsis_hierarchical_f1": 0.5948,
-        "synopsis_terms": 11.3333,
-        "variant_recall": 0.7359,
-        "statements_per_paper": 20.408,
-        "editorial_precision": 0.2601
+        "gold_fact_coverage": 0.5237,
+        "gold_fact_contradiction_rate": 0.0129,
+        "synopsis_exact_f1": 0.4018,
+        "synopsis_exact_precision": 0.5095,
+        "synopsis_exact_recall": 0.3729,
+        "synopsis_hierarchical_f1": 0.5946,
+        "synopsis_terms": 14.6667,
+        "variant_recall": 0.6896,
+        "statements_per_paper": 18.936,
+        "editorial_precision": 0.2744
       },
       "baseline_same_entries": {
         "n_entries": 27,
@@ -303,11 +357,10 @@
         "statements_per_paper": 19.904,
         "editorial_precision": 0.2635
       },
-      "selection": {
-        "coverage_gain": -0.0096,
-        "synopsis_f1_gain": 0.0138,
-        "objective": 0.0042,
-        "statements_growth": 1.025,
+      "gains": {
+        "coverage_gain": -0.0141,
+        "synopsis_f1_gain": 0.0357,
+        "statements_growth": 0.951,
         "grows_too_much": false
       },
       "excluded_no_draft": [
@@ -317,9 +370,127 @@
       ]
     }
   ],
-  "chosen_round": 2,
-  "no_gain": false,
-  "guide_path": "guides/omim100.guide.md",
-  "guide_sha256": "bcd7094f16d313762a316bb5f02d04bfd61a385bf731dbf7044827d678c419ef",
-  "feedback_note": "The feedback for both rounds was built before stopped writers were recorded. It treated empty drafts as drafts: in round 1, 609296, 620609 and 621068 (baseline), whose OMIM facts were listed as omissions; in round 2, 609296 and 620609 (round-1 drafts). This is the likely source of the guide's 'always produce a draft' rule. The rounds were then resumed and scored with those entries left out on both sides (27 entries); the guides themselves were not relearned, to stay within the call budget."
+  "selection": {
+    "text": {
+      "round": 1,
+      "gain": 0.0014,
+      "included": true,
+      "why": "round 1 has the highest coverage_gain (+0.0014)"
+    },
+    "synopsis": {
+      "round": 2,
+      "gain": 0.0357,
+      "included": true,
+      "why": "round 2 has the highest synopsis_f1_gain (+0.0357)"
+    }
+  },
+  "final": {
+    "parts_from_round": {
+      "text": 1,
+      "synopsis": 2
+    },
+    "words": 667,
+    "sha256": "8689cc8e7ec577f34d868106cad70cc01ee360a51a6c21efa16013de2498717a",
+    "same_as_round": null
+  },
+  "confirmation": {
+    "scores": {
+      "n_entries": 27,
+      "entries": [
+        "108770",
+        "177735",
+        "225300",
+        "248360",
+        "300148",
+        "302905",
+        "600204",
+        "600501",
+        "600740",
+        "603552",
+        "609220",
+        "611880",
+        "612847",
+        "613581",
+        "613730",
+        "614501",
+        "614701",
+        "616326",
+        "616867",
+        "617162",
+        "618184",
+        "618458",
+        "619681",
+        "620457",
+        "620507",
+        "620670",
+        "620718"
+      ],
+      "no_draft": [],
+      "gold_fact_coverage": 0.5384,
+      "gold_fact_contradiction_rate": 0.0063,
+      "synopsis_exact_f1": 0.3789,
+      "synopsis_exact_precision": 0.4633,
+      "synopsis_exact_recall": 0.3557,
+      "synopsis_hierarchical_f1": 0.5907,
+      "synopsis_terms": 14.7778,
+      "variant_recall": 0.6896,
+      "statements_per_paper": 18.896,
+      "editorial_precision": 0.2735
+    },
+    "baseline_same_entries": {
+      "n_entries": 27,
+      "entries": [
+        "108770",
+        "177735",
+        "225300",
+        "248360",
+        "300148",
+        "302905",
+        "600204",
+        "600501",
+        "600740",
+        "603552",
+        "609220",
+        "611880",
+        "612847",
+        "613581",
+        "613730",
+        "614501",
+        "614701",
+        "616326",
+        "616867",
+        "617162",
+        "618184",
+        "618458",
+        "619681",
+        "620457",
+        "620507",
+        "620670",
+        "620718"
+      ],
+      "no_draft": [],
+      "gold_fact_coverage": 0.5378,
+      "gold_fact_contradiction_rate": 0.0047,
+      "synopsis_exact_f1": 0.3661,
+      "synopsis_exact_precision": 0.4486,
+      "synopsis_exact_recall": 0.3408,
+      "synopsis_hierarchical_f1": 0.5896,
+      "synopsis_terms": 14.2222,
+      "variant_recall": 0.685,
+      "statements_per_paper": 19.904,
+      "editorial_precision": 0.2635
+    },
+    "gains": {
+      "coverage_gain": 0.0006,
+      "synopsis_f1_gain": 0.0128,
+      "statements_growth": 0.949,
+      "grows_too_much": false
+    },
+    "excluded_no_draft": [
+      "609296",
+      "620609",
+      "621068"
+    ]
+  },
+  "guide_path": "guides/omim100.guide.md"
 }
