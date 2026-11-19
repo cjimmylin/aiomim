@@ -79,3 +79,28 @@
 - Generated entries are drafts for expert review and are not clinical guidance. They must be marked as machine
   generated and not as OMIM content.
 - Rights holders' terms of use for curated text apply to anyone rebuilding the reference.
+
+## Added after the first review round (three further analyses; numbers are in the log)
+
+- **Where the conveyed facts came from (log 3.1).** Every fact direct reading conveyed was checked against the text the
+  writer had. Use it to answer "is coverage from abstracts reading or recall?": of facts conveyed in full from
+  abstract-only or title-only papers, few are stated in no supplied text; most are stated in the paper's own abstract,
+  some only in another supplied paper, and some only partly stated. Say "stated in no supplied text" (the fact may have
+  been recalled, inferred or misjudged), not "recalled". Facts conveyed in part are more often outside the text; report
+  that too. This is a model judgement. It does not make the reading results "free of memorisation".
+- **Audit control (log 11).** The planted test's 60 paragraphs were re-audited unaltered with fresh calls. Report the
+  result as the rate at which a re-audit flags a paragraph that had passed once. It is not a false-flag rate on
+  arbitrary paragraphs, and omissions and misattributed citations remain untested.
+- **Repair parity (log 6.2).** The full-text arm of the hidden-full-text experiment was also scored before the repair
+  round, so all three arms can be compared without repair. Lead with whichever comparison is like for like and state
+  the other.
+- **Aggregation.** Say for every level whether it is pooled over facts or a mean over entries. The primary endpoint is
+  the mean over entries; paired differences are means over entries; the by-access figures and the missed-fact and
+  conveyed-fact attributions are pooled over facts. The hidden-full-text levels exist both ways (log 6.2).
+- **2026 entries (log 10).** They were chosen by creation date alone, used in no other run, and no code that shapes
+  how drafts are written, audited or repaired changed after their drafts were generated. They may be described as a
+  sample not used in developing the strategies. Five strategies were run on them (not recall, then verify), 20 of 30
+  entries are compared, and stopped replies are frequent there; say so.
+- **Framing of the task and the reference.** Each strategy writes a whole entry, but the primary endpoint scores only
+  what the draft says about each cited paper against variant-centred curator paragraphs. Do not let the title, abstract
+  or introduction suggest that agreement with whole OMIM entries is measured.
