@@ -34,6 +34,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import threading
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -478,11 +479,15 @@ def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4
     def one(mim, paper, own):
         return mim, paper, citing.secondhand_for(paper, own)
 
-    def report(future, n):
+    lock = threading.Lock()
+
+    def report(future):
         mim, paper, r = future.result()
         r = {**r, "mim": mim, "content_level": paper.content_level}
-        records.append(r)
-        echo(f"  ({n}/{len(futures)}) {mim} PMID {paper.pmid} [{paper.content_level}]: {r['n_citing']} citing, "
+        with lock:
+            records.append(r)
+            n = len(records)
+        echo(f"  ({n}/{len(futures)}+) {mim} PMID {paper.pmid} [{paper.content_level}]: {r['n_citing']} citing, "
              f"{r['n_open_access']} open access, {len(r['passages'])} passages, {r['n_chars']} chars, "
              f"{'cached' if r.get('cached') else str(r['seconds']) + ' s'}"
              + (f"  ERROR {r['error']}" if r["error"] else ""))
@@ -498,10 +503,11 @@ def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4
                 continue
             own = frozenset(p.pmid for p in papers)
             chosen = [p for p in papers if include_fulltext or p.content_level != "fulltext"]
-            futures.extend(pool.submit(one, mim, p, own) for p in chosen)
+            for p in chosen:
+                future = pool.submit(one, mim, p, own)
+                futures.append(future)
+                future.add_done_callback(report)   # progress as each lookup finishes
             echo(f"[{i}/{len(mims)}] {mim}: {len(chosen)} target papers of {len(papers)}")
-        for n, future in enumerate(as_completed(futures), 1):
-            report(future, n)
 
     def yield_of(rs):
         return {"targets": len(rs), "with_citing": sum(1 for r in rs if r["n_citing"]),
