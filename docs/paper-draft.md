@@ -350,13 +350,47 @@ to 32.9%, interval +1.2 to +7.3; hierarchical F1 better on 7 of 8 entries) and d
 (48.2% to 45.1%, interval −7.0 to +0.5). That pattern is what section 3.2 predicts: little of the fact gap is editorial
 choice, while the synopsis is a problem of term selection. *To be replaced with the held-out result.*
 
-### 3.7 Large entries — *pending*
+### 3.7 Large entries
 
-Twelve entries with 30–100 references (536 papers; 29 readable in full) are being run with five strategies. In two
-pilot entries (44 and 73 papers) every strategy ran end to end; direct reading needed batching for one entry, where
-the papers exceeded a single prompt. Stopped replies were more frequent than on small entries: the evidence-graph
-writer was stopped twice on one entry, and some audit calls on two papers were stopped for every strategy. Cost was
-$5–14 per entry per strategy. *To be replaced with the 12-entry result.*
+Twelve further entries with 30–75 references (536 papers: 29 readable in full, 407 as abstracts, 100 as titles) were
+run with five strategies. Eleven are compared. The twelfth, with 73 papers, was the only entry whose papers did not fit
+in one prompt; direct reading split it into two batches and one batch was stopped, so it has no direct-reading draft.
+
+**Table 7. Large entries, 11 compared.**
+
+| | Direct reading | Agentic curator | Evidence graph | Case table first | Reconciled case database |
+|---|---|---|---|---|---|
+| Claims supported by the cited paper | 97.9% | 98.1% | 97.2% | 96.2% | 96.3% |
+| OMIM facts conveyed | 46.6% | 46.5% | 47.0% | 48.3% | 48.4% |
+| Synopsis exact F1 | 33.1% | 33.2% | 28.8% | 30.9% | 30.9% |
+| … precision / recall | 34.9 / 40.8 | 35.5 / 40.4 | 22.3 / 53.5 | 27.9 / 51.5 | 27.9 / 51.5 |
+| Synopsis terms per entry | 20.2 | 18.5 | 41.6 | 39.3 | 39.3 |
+| OMIM allelic variants recovered | 53.4% | 53.7% | 53.4% | 55.5% | 55.5% |
+| Causal gene F1 | 100% | 100% | 100% | 100% | 100% |
+| Inheritance matches OMIM | 100% | 100% | 100% | 72.7% | 72.7% |
+| OMIM references used | 96.7% | 89.5% | 96.9% | 94.3% | 94.5% |
+| Claims audited per entry | 300 | 284 | 405 | 403 | 402 |
+| Generation cost per entry | $0.65 | $0.93 | $2.48 | $2.59 | $2.85 |
+| Total cost per entry | $3.37 | $3.53 | $5.75 | $5.84 | $6.09 |
+
+- **The reading strategies remain level, and the case table no longer trails.** Against direct reading the case table
+  conveyed 1.7 points more OMIM facts (95% interval +0.4 to +3.0; better on 9 entries, worse on 2), where on small
+  entries it conveyed 3.8 fewer. One reading (interpretation): with forty papers in a single prompt each paper gets
+  less attention, and per-paper extraction does not suffer from that.
+- **Structured strategies over-list.** The evidence graph and the case table list twice as many synopsis terms at
+  lower precision; the graph's exact F1 is 4.4 points below direct reading (interval −8.1 to −0.4).
+- **Rule-computed inheritance breaks down.** The case table disagreed with OMIM's inheritance on 3 of 11 entries,
+  listing one mode too many or too few, where the strategies that state it in prose matched on all 11.
+- **The agent skips papers.** It used 89.5% of OMIM's references against 96.7% for direct reading.
+- **Reconciliation still changes little.** It accepted 12 merges in 6 of the 12 entries (22 proposed) and merged 11
+  variant names; counted individuals fell by 1.6%, and no score moved.
+- **Structure costs four times as much to generate** at this size, because it makes one call per paper.
+- **Stopped replies were common.** Thirty-three calls were stopped in this run: 22 case-extraction calls, 9 audit
+  calls and one direct-reading batch. The evidence graph had 7.6 claims per entry that could not be audited.
+
+This tier tests many papers, not much text. Because so few of the papers were readable in full, eleven of the twelve
+entries still fit in one prompt, and the one that did not has no direct-reading draft. Where direct reading stops
+being possible was therefore not measured.
 
 ### 3.8 Is the audit reliable, and who is right when a draft disagrees with OMIM?
 
