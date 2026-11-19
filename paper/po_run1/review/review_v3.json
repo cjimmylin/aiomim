@@ -1,0 +1,65 @@
+{
+  "Thought": "All three reviewers converge (Overall 5, Confidence 4, Reject, each 'persuadable'). Shared core: excellent measurement hygiene and a clean hidden-full-text experiment (+43.7, 45/0/1), but (1) no human validation of any judgement, with the 'stated in supplied text' restriction behind Table 2 plausibly circular because the same model family judges both 'stated' and 'conveyed'; (2) a single writer model, so 'access dominates strategy' may not transfer to weaker or shorter-context writers; (3) the headline is expected and the strategy comparison is mostly nulls at the replicate-noise scale, in a regime (2-12 references, fits one prompt) where strategies are least expected to differ; (4) a narrow reference covering ~24% of draft statements. Two points can be fixed in the text: the 'case table first falls behind' headline in the abstract, Section 4.3/4.4 and the Conclusion is undercut by the paper's own matched ablation (-2.3 to -0.2), and the generality of the measurement lessons and the main conclusion is stated more broadly than one model supports. Density of Sections 4.1-4.4 and 4.7 is a shared presentation complaint. No reviewer found a factual or arithmetic error; two reviewers explicitly checked Figures 2, 3, 5 and Tables 1, 2, 6, 7, 16, 18 and 28 against the prose. Every reviewer names the same path to 6: a small human-validated subset of the judgements plus a second model family (as judge and/or writer) on a subset. I concur: Reject in current form.",
+  "Summary": "The paper builds a controlled benchmark for evidence-grounded knowledge-base writing from 100 OMIM phenotype entries (2-12 references each; 515 papers, 19% open-access full text). Each entry is drafted from its header and exactly the papers its curators cited (causal gene withheld) by one model (Claude Opus 5.5), under direct long-context reading, an agentic curator, an evidence-graph and a case-table-first extract-then-write pipeline, recall-then-verify, a memory-only control and three add-ons (second-hand evidence, reconciled case database, learned curation guide). All drafts pass the same claim-level audit and are scored against fixed fact lists (6,652 facts over 476 paragraphs) split once from OMIM allelic-variant descriptions deposited in ClinVar. Findings: hiding the full text of the same papers lowers coverage from 79.8% to 36.1% (paired +43.7, +38.3 to +49.1; 46 entries); on facts the supplied text is judged to state, three reading strategies convey 93.6-94.4%, and on facts it does not state they convey 5.5-6.9%; direct reading, agentic curator and evidence graph are within ~0.7 points; case table first is behind by 1.9 points (8.4 on full-text-stated facts), a gap a matched ablation reduces to 0.2; memory-based strategies convey far less. The paper also reports measurement lessons (symmetric completion handling, fixed fact lists, replicate noise), an audit planted-error test and a contamination check by entry creation date.",
+  "Strengths": [
+    "Careful experimental control: same papers, model, guards, audit and scoring for every strategy, so the generation strategy is the only manipulated variable. Fact lists are fixed once without sight of any draft, which removes denominator drift. The paper quantifies the drift: per-draft splitting scores 2-5 points higher (Table 6).",
+    "Clean within-paper access manipulation: the full text of the same 91 papers is hidden, the 2,120 facts are the same, no arm is repaired, and the result is +43.7 points with 45 entries higher and none lower. The effect is large enough to survive plausible judge noise.",
+    "Missed and conveyed facts are attributed to whether the supplied text states them (Table 2, Tables 16-17, Figure 3), which turns aggregate coverage into a diagnosis of where the shortfall comes from.",
+    "Transparent statistics: paired bootstrap intervals over entries, better/worse/tied counts, sign tests, Holm correction for secondary measures, an intention-to-treat sensitivity analysis, and replicate noise and judge variation reported separately. The paper shows explicitly that a 30-entry subset flips the sign of the evidence-graph difference.",
+    "Completion (safety-stopped replies) is treated as an outcome. The paper candidly reports that an asymmetric completion rule produced a spurious 2.1-point difference, a measurement lesson that generalises to comparisons of pipelines that make different numbers of calls.",
+    "Sensible contamination handling: a memory-only control stratified by creation era plus 20 entries created in 2026 (memory-only falls to ~6-7%), without overclaiming that reading is free of memorisation.",
+    "The matched ablation separates representation from incidental settings (extraction effort) before blaming a representation.",
+    "Claims are scoped carefully, the limitations list is extensive, the audit analysis is appropriately modest, costs are reported, and the harness, drafts, verdicts and scores are released per entry."
+  ],
+  "Weaknesses": [
+    "No human validation of any judgement (all three reviewers). Fact splitting, present/partly/absent marking, the 'supplied text states this fact' judgement behind Table 2 and Figure 3, the audit verdicts and variant-name matching are all made by the writer's own model family. Judge self-consistency (95.7%) measures reliability, not validity. A curator- or expert-annotated sample of a few hundred items is needed.",
+    "Possible circularity in the stated-facts analysis (Sec. 4.3, Table 2). 'Stated' and 'conveyed' are both judged by the same model, likely with similar lexical cues, so the 93.6-94.4% ceiling and the 5.5-6.9% floor may partly reflect correlated judge behaviour rather than reading quality. Outside the hidden-full-text experiment, this analysis is what carries the headline.",
+    "Single writer model, from one proprietary family, called with no temperature or seed control. 'Access dominates strategy' may hold only for a frontier long-context model, and a weaker or shorter-context writer might make the extract-then-write intermediates matter. The abstract, the Introduction ('measurement lessons apply to evaluating such systems generally') and the Conclusion phrase the result more generally than one model supports.",
+    "The main finding is expected (the paper says so), and the regime of 2-12 references, mostly abstracts and inputs that fit one prompt, is exactly where extraction and agentic designs are least expected to help. The motivating regime appears only in a 10-entry exploratory tier, and retrieval is tested on ten entries.",
+    "Narrow, indirect reference: variant-centred allelic-variant paragraphs covering ~24% of a direct-reading draft's statements (App. H). The rest is checked only by a same-family fidelity audit, so the endpoint measures recall of variant-level facts, not entry quality.",
+    "The case-table-first headline conflicts with the paper's own evidence. The abstract, Sec. 4.3-4.4, Sec. 5 and the Conclusion say 'case table first falls behind', but the matched ablation (Sec. 4.7) moves it from -2.3 to -0.2 and attributes the gap to the implementation's extraction effort.",
+    "Between-strategy differences (0-2 points) are on the scale of replicate noise (half-width 1.0), and the main comparison uses one run per entry. The agentic curator's interval touches zero (-1.3 to +0.0). The primary endpoint is not adjusted for the five comparisons against direct reading.",
+    "The strategies are the authors' own implementations, not published systems (GraphRAG, PaperQA2, STORM), and effort was matched only for the extract-then-write arms.",
+    "Several secondary results are weak by construction or under-powered: recall-then-verify, variant precision for memory strategies (23-30 entries), the tiny learned guide, and a planted-error test limited to single-value substitutions. The stated-facts restriction has its own ceiling (95-97% on abstract-stated facts, most entries tied).",
+    "The contamination analysis is suggestive: direct-reading coverage on abstract-only papers declines with entry era (49.8% to 37.9%), which is consistent with memorisation helping on older entries.",
+    "Limited fit and reusability for ICLR: a domain-specific evaluation with no new method and modest scale (93 compared entries, 20 post-cutoff). Curator text is not redistributed, and scoring depends on one proprietary judge.",
+    "Very dense presentation. Sections 4.1-4.4 and 4.7 pack numbers, intervals and caveats into nearly every sentence, and the reader must track many entry sets (93, 46, 49, 40/38, 30, 20, 68, 96) and terms (mean vs pooled, stated/partly stated). Key definitions sit in a long appendix."
+  ],
+  "Originality": 2,
+  "Quality": 3,
+  "Clarity": 2,
+  "Significance": 2,
+  "Questions": [
+    "Can you provide human (curator or expert) validation on a random sample of (a) fact present/partly/absent judgements, (b) 'stated in supplied text' judgements and (c) audit verdicts, with agreement statistics? How would Table 2 change under the observed error rates?",
+    "Have you re-run the scoring and 'stated' judgements with a judge from a different model family, at least on the 30-entry replicate subset?",
+    "Do the conclusions hold with a second writer model (weaker, shorter-context or open-weights), e.g. direct reading, evidence graph and case table first on 30 entries?",
+    "At the item level, how correlated are 'stated' and 'conveyed' beyond what reading explains? Does coverage drop when a draft paraphrases rather than echoes the source sentence?",
+    "Given that the matched ablation removes most of the case-table deficit, will you attribute the gap to the implementation's extraction effort in the abstract and conclusion? Is there any remaining evidence that the representation itself matters?",
+    "What do the strategies convey on the 1,198 partly stated facts, and how sensitive are the stated-facts results to the half credit and to the stated/partly-stated threshold?",
+    "How were the fact lists produced and checked (granularity, inferred vs stated facts), and does averaging per entry overweight entries with few facts?",
+    "For the 2.1-point spurious difference, which entries were excluded under the asymmetric rule, and were they systematically ones where direct reading did well?",
+    "Were the abstract-arm prompts of the hidden-full-text experiment otherwise identical to the main run, with the same model version and settings?",
+    "Were the 24 conveyed-but-unstated facts on abstract/title-only papers spot-checked for memory recall versus judge error?"
+  ],
+  "Limitations": [
+    "One model family writes, audits and judges everything, with no human validation; self-preference is acknowledged but not quantified.",
+    "Single writer model; transfer to other models or context lengths is untested.",
+    "Regime limited to small reference lists, inputs that fit one prompt and the curators' given reference list; retrieval and long-input settings are essentially untested.",
+    "The reference covers mainly variant-level facts (~24% of draft statements); the rest is checked only by a same-family fidelity audit.",
+    "Only open-access text without supplements; reading and recall cannot be separated.",
+    "Strategies are in-house implementations; one run per entry; the clean 2026 set is small.",
+    "The authors acknowledge these limitations adequately; the ethics statement covers misuse of drafts as curated content. The paper could also note that fidelity-audited text can still carry source errors into a knowledge base."
+  ],
+  "Ethical Concerns": false,
+  "Soundness": 3,
+  "Presentation": 2,
+  "Contribution": 2,
+  "Overall": 5,
+  "Confidence": 4,
+  "Decision": "Reject",
+  "_ensemble_sources": [
+    "/home/user/aiomim/paper/po_run1/review/v3_r1.json",
+    "/home/user/aiomim/paper/po_run1/review/v3_r2.json",
+    "/home/user/aiomim/paper/po_run1/review/v3_r3.json"
+  ]
+}
