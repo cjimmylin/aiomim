@@ -14,15 +14,15 @@ plt.rcParams.update({
 })
 
 # experimental_log.md Sec. 2.11 (entry means)
-bands = ["classic\n(1xxxxx–\n5xxxxx)\nn=18", "600000–\n609999\n\nn=19",
-         "610000–\n615999\n\nn=20", "616000–\n619999\n\nn=19",
-         "620000\nonward\n\nn=17"]
+bands = ["1xxxxx\n–5xxxxx\nn=18", "600000\n–609999\nn=19",
+         "610000\n–615999\nn=20", "616000\n–619999\nn=19",
+         "620000\nonward\nn=17"]
 facts_mem = [14.5, 24.1, 17.5, 12.6, 5.7]
 facts_dir = [34.9, 53.9, 51.2, 51.4, 53.5]
 gene_mem = [88.9, 94.7, 100.0, 89.5, 41.2]
 gene_dir = [87.0, 100.0, 100.0, 100.0, 100.0]
 # experimental_log.md Sec. 10 (separate set: 20 entries created Jun-Nov 2026)
-new_label = "Jun–Nov\n2026\n(separate\nset, n=20)"
+new_label = "Jun–Nov\n2026\nn=20\n(separate set)"
 new_facts = (7.0, 52.2)   # memory, direct
 new_gene = (30.0, 100.0)  # memory, direct
 
@@ -44,10 +44,9 @@ for ax, mem, dr, new, ylab in panels:
     ax.set_xticks(x + [x_new])
     ax.set_xticklabels(bands + [new_label])
     ax.set_xlim(-0.5, x_new + 0.5)
-    ax.set_ylim(0, 112)
+    ax.set_ylim(0, 105)
     ax.set_ylabel("Entry mean (%)")
     ax.set_title(ylab.replace(" (%)", ""))
-    ax.text(x_new, 103, "separate\nset", ha="center", va="top", fontsize=7, color="0.35")
     ax.grid(axis="y", color="0.9", lw=0.6)
     ax.set_axisbelow(True)
     for s in ("top", "right"):

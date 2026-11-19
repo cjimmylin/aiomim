@@ -44,6 +44,7 @@ Reference elements
 - Markers: filled circle, 2.0 pt-wide error bars with small caps; zero line solid black 0.8 pt; noise bands grey
   (alpha 0.18 for ±1.0, 0.08 for ±1.8), labelled directly at the top of the axes.
 - Group labels on the y axis with n; thin dotted separators between groups; light vertical grid only.
-- Legend: one compact legend for the three strategies (direct labels would repeat three times).
+- Legend above the axes: row 1 the three strategies, row 2 the two noise bands (direct labels would repeat three times).
+- Value labels to the right of each interval, with a true minus sign.
 - Off-scale values: small grey text box at the left of the plot.
 - No title inside the image; no caption text.

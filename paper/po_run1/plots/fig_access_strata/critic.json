@@ -8,5 +8,10 @@
   "round": 2,
   "critic_suggestions": "Content unchanged and still matches Sec. 2.9 and 4.2. Presentation: the overlap is gone and minus signs are consistent, but the legend fills column-wise so the two noise-band entries are split across columns and the rows are ragged. Fix: reorder legend handles so row 1 holds the three strategies and row 2 the two noise bands.",
   "changed": true
+ },
+ {
+  "round": 3,
+  "critic_suggestions": "No changes needed.",
+  "changed": false
  }
 ]

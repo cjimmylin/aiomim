@@ -41,13 +41,13 @@ for label, vals, color, tcol in segments:
                     fontsize=8 if p >= 12 else 7)
     left = [l + p for l, p in zip(left, pct)]
 
-for y, n, s in zip(ypos, facts, share_missed_in_text):
-    ax.text(101.5, y + 0.12, f"n = {n:,}", ha="left", va="center", fontsize=8)
-    ax.text(101.5, y - 0.16, f"{s} of missed\nin text", ha="left", va="center", fontsize=7,
-            color="#D55E00", linespacing=0.95)
+for y, s in zip(ypos, share_missed_in_text):
+    ax.text(103, y, s, ha="center", va="center", fontsize=8, color="#D55E00", clip_on=False)
+ax.text(103, 2.36, "In text,\nshare of\nmissed", ha="center", va="bottom", fontsize=7,
+        color="#D55E00", linespacing=0.95, clip_on=False)
 
 ax.set_yticks(ypos)
-ax.set_yticklabels(levels)
+ax.set_yticklabels([f"{l}\nn = {n:,}" for l, n in zip(levels, facts)])
 ax.set_ylabel("Paper read as")
 ax.set_xlim(0, 100)
 ax.set_xticks([0, 25, 50, 75, 100])
