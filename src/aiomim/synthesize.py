@@ -6,8 +6,11 @@ side:
 kg      The writer sees only quote-verified findings, arranged by the knowledge
         graph (per section, with the cross-paper variant, gene, inheritance and
         phenotype tables). Every paragraph must name the findings it rests on;
-        a paragraph that names none is removed. The clinical synopsis and the
-        inheritance are computed from the graph, not written by the model.
+        a paragraph that names none is removed. The clinical synopsis is
+        computed from the graph, not written by the model. The mode of
+        inheritance is the writer's: the modes it gives the gene-phenotype
+        relationships (each of which must cite findings about that gene); only
+        when it gives none is the mode most core papers assert in the graph used.
 
 direct  The baseline: the papers' text goes straight into one prompt and the
         model writes the entry, citing PMIDs. No extraction, no graph.
@@ -582,11 +585,11 @@ def has_content(raw) -> bool:
     return bool(getattr(raw, "sections", None)) or bool(intro is not None and getattr(intro, "text", "").strip())
 
 
-def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
-                      strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
-    """All papers in one prompt. `extra_rules` is appended to the system prompt, for
-    strategies that are direct reading plus something (a learned guide, second-hand
-    evidence); with none, the prompt is exactly the baseline's."""
+def paper_blocks(papers: list[Paper]) -> tuple[list[str], list[str]]:
+    """The papers as direct reading shows them to its writer: oldest first, each in a
+    `<paper>` block, cut to an equal share of `DIRECT_TOTAL_CHARS`. Returns the blocks
+    and the PMIDs that were cut. Any strategy that gives its writer the papers' text
+    uses this, so the text is laid out exactly as direct reading lays it out."""
     per_paper = max(20_000, DIRECT_TOTAL_CHARS // max(1, len(papers)))
     truncated = []
     blocks = []
@@ -597,6 +600,15 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules:
             text = text[:per_paper]
         blocks.append(f'<paper pmid="{p.pmid}" label="{p.label}" available="{p.content_level}">\n'
                       f"{p.reference}\n\n{text}\n</paper>")
+    return blocks, truncated
+
+
+def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
+                      strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
+    """All papers in one prompt. `extra_rules` is appended to the system prompt, for
+    strategies that are direct reading plus something (a learned guide, second-hand
+    evidence); with none, the prompt is exactly the baseline's."""
+    blocks, truncated = paper_blocks(papers)
     gene_ref, gene_facts = _gene_reference(seed.gene_symbols)
     prompt = (
         f"{_header(seed)}\n\n"
@@ -644,7 +656,6 @@ def draft_to_entry(
       ontology search, never by recall.
     """
     from .grounding import SourceIndex
-    from .sources.hpo import get_hpo
 
     gene_facts = dict(gene_facts or {})
     by_pmid = {p.pmid: p for p in papers}
@@ -727,20 +738,9 @@ def draft_to_entry(
                 name=squash(x.name), hgvs=list(x.hgvs), phenotype=squash(x.phenotype), paragraphs=paras,
             ))
 
-    hpo = get_hpo()
-    resolved, hpo_stats = resolve_hpo_terms([(i.feature, i.hpo_label) for i in raw.clinical_synopsis], llm)
-    seen: set[str] = set()
-    for item in raw.clinical_synopsis:
-        hpo_id = resolved.get((item.feature.lower(), item.hpo_label.lower()), "")
-        if not hpo_id or hpo_id in seen:
-            continue
-        seen.add(hpo_id)
-        pmids = [p for p in dict.fromkeys(str(i).strip() for i in (item.pmids or [])) if p in by_pmid]
-        entry.clinical_synopsis.append(SynopsisItem(
-            category=hpo.category(hpo_id), feature=squash(item.feature), hpo_id=hpo_id,
-            hpo_label=hpo.label(hpo_id), pmids=pmids, n_papers=len(pmids),
-        ))
-    entry.clinical_synopsis.sort(key=lambda i: (i.category, -i.n_papers, i.hpo_label))
+    entry.clinical_synopsis, hpo_stats = synopsis_from_phrases(
+        [(i.feature, i.hpo_label, [p for p in dict.fromkeys(str(x).strip() for x in (i.pmids or [])) if p in by_pmid])
+         for i in raw.clinical_synopsis], llm)
 
     entry.inheritance = _codes([c for rel in entry.relationships for c in rel.inheritance])
     entry.assign_paragraph_ids()
@@ -754,3 +754,32 @@ def draft_to_entry(
         **(meta or {}),
     }
     return entry
+
+
+def synopsis_from_phrases(
+    items: list[tuple[str, str, list[str]]], llm: LLM
+) -> tuple[list[SynopsisItem], dict[str, int]]:
+    """Clinical synopsis from a writer's phrases: (feature, guessed HPO label, PMIDs).
+
+    The route direct reading takes: each phrase is mapped to an HPO term by exact
+    label or synonym match, else by the model choosing among ontology search hits
+    (`resolve_hpo_terms`), so an HPO id is never written by the model. Phrases that
+    map to no term, or to a term already listed, are left out.
+    """
+    from .sources.hpo import get_hpo
+
+    hpo = get_hpo()
+    resolved, stats = resolve_hpo_terms([(feature, label) for feature, label, _ in items], llm)
+    out: list[SynopsisItem] = []
+    seen: set[str] = set()
+    for feature, label, pmids in items:
+        hpo_id = resolved.get((feature.lower(), label.lower()), "")
+        if not hpo_id or hpo_id in seen:
+            continue
+        seen.add(hpo_id)
+        out.append(SynopsisItem(
+            category=hpo.category(hpo_id), feature=squash(feature), hpo_id=hpo_id,
+            hpo_label=hpo.label(hpo_id), pmids=list(pmids), n_papers=len(pmids),
+        ))
+    out.sort(key=lambda i: (i.category, -i.n_papers, i.hpo_label))
+    return out, stats

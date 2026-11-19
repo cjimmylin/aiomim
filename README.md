@@ -180,7 +180,8 @@ one prompt. The strategies are listed in the table near the top; `guided` needs 
      │         gene aliases → approved symbol; "G14459A", "m.14459G>A", "A72V", "p.Ala72Val" → one variant node
      ▼
  synthesize.py writer sees only verified findings, arranged by the graph; each paragraph must name its findings
-     │         clinical synopsis, inheritance and the gene–phenotype table are computed from the graph
+     │         clinical synopsis computed from the graph; inheritance stated by the writer per gene link
+     │         (graph's best-supported mode only when the writer states none)
      ▼
  verify.py     independent audit: per cited paper, each claim → supported / partial / unsupported / contradicted
      │         one repair round on flagged paragraphs, then re-audit
@@ -198,8 +199,10 @@ model being right:
 - **The writer cannot cite what it was not given.** A paragraph must list finding IDs; paragraphs with none, or with
   IDs that do not exist, are deleted. Author–year citations in the text that match no supplied paper are reported.
 - **HPO IDs cannot be invented.** The model may only choose among candidates returned by a search of the ontology.
-- **Structured fields are computed, not written.** Clinical synopsis, inheritance and gene links come from counting
-  support in the graph, restricted to papers that are about the entry's subject.
+- **Structured fields are computed or checked, not taken on trust.** The clinical synopsis comes from counting
+  support in the graph, restricted to papers that are about the entry's subject. Gene links and their modes of
+  inheritance are stated by the writer, and a gene link survives only if the findings it cites are about that gene;
+  the graph supplies the mode of inheritance only when the writer states none.
 - **A second reader audits the result** against the paper text, without seeing the findings or the graph. An audit
   verdict of "supported" whose own evidence quote is not in the paper is downgraded.
 - **A curator has the last word.** The review page shows, for each paragraph, the claims, verdicts, quotes and papers.

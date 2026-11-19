@@ -10,11 +10,15 @@ Source run `omim100`; 49 entries. In each, the papers read in full were hidden a
 
 ## OMIM-fact coverage of the gold paragraphs about the hidden papers
 
+Pooled over the 46 entries that have a full-text draft in the source run, the same entries for all three conditions; left out: 3 entries whose full-text direct draft was not written (the writer's reply was stopped), so they have no full-text coverage to compare: 609296, 620609, 621068.
+
 | Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage |
 |---|---|---|---|---|---|---|---|
-| Abstract only | 142 | 1876 | 468 | 389 | 1016 | 3 | 35.3% |
-| Abstract + second-hand | 142 | 1889 | 583 | 388 | 907 | 11 | 41.1% |
-| Full text (source run's direct draft) | 142 | 1855 | 1268 | 243 | 334 | 10 | 74.9% |
+| Abstract only | 136 | 1783 | 452 | 362 | 966 | 3 | 35.5% |
+| Abstract + second-hand | 136 | 1802 | 565 | 362 | 864 | 11 | 41.4% |
+| Full text (source run's direct draft) | 136 | 1767 | 1268 | 243 | 246 | 10 | 78.6% |
+
+Over all 49 entries the two new conditions convey 35.3% (abstract only, 1876 facts) and 41.1% (abstract + second-hand, 1889 facts).
 
 Facts are split from the gold paragraph separately for each condition, so the fact counts differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.
 
@@ -61,7 +65,7 @@ Facts are split from the gold paragraph separately for each condition, so the fa
 | 607734 | 1 | 1 | 1 | 65.8% | 66.7% | 92.1% | 35 | 0 | 0 |
 | 607876 | 2 | 2 | 4 | 53.7% | 50.0% | 77.5% | 34 | 0 | 0 |
 | 608133 | 1 | 1 | 2 | 0.0% | 15.9% | 75.0% | 8 | 0 | 0 |
-| 609296 | 2 | 2 | 4 | 26.3% | 29.2% | 0.0% | 29 | 3 | 0 |
+| 609296 | 2 | 2 | 4 | 26.3% | 29.2% | no draft | 29 | 3 | 0 |
 | 611521 | 4 | 4 | 8 | 23.1% | 35.3% | 82.8% | 93 | 0 | 0 |
 | 613730 | 1 | 1 | 3 | 43.6% | 55.1% | 91.7% | 58 | 0 | 0 |
 | 613744 | 3 | 3 | 3 | 35.8% | 38.9% | 75.5% | 55 | 0 | 0 |
@@ -91,9 +95,9 @@ Facts are split from the gold paragraph separately for each condition, so the fa
 | 620402 | 2 | 2 | 2 | 43.1% | 48.2% | 85.2% | 79 | 0 | 0 |
 | 620457 | 1 | 1 | 1 | 69.4% | 71.1% | 97.4% | 41 | 0 | 0 |
 | 620481 | 2 | 2 | 3 | 34.3% | 38.5% | 82.9% | 62 | 0 | 0 |
-| 620609 | 2 | 2 | 1 | 54.5% | 57.7% | 0.0% | 51 | 0 | 0 |
+| 620609 | 2 | 2 | 1 | 54.5% | 57.7% | no draft | 51 | 0 | 0 |
 | 620670 | 1 | 1 | 2 | 40.2% | 56.1% | 87.8% | 44 | 0 | 0 |
 | 620851 | 2 | 2 | 2 | 40.9% | 45.5% | 75.0% | 78 | 9 | 1 |
 | 621030 | 2 | 2 | 2 | 53.0% | 66.7% | 85.5% | 99 | 34 | 2 |
-| 621068 | 2 | 2 | 1 | 34.0% | 38.1% | 0.0% | 35 | 0 | 0 |
+| 621068 | 2 | 2 | 1 | 34.0% | 38.1% | no draft | 35 | 0 | 0 |
 | 621313 | 1 | 0 | 2 | 13.2% | 12.5% | 95.5% | 4 | 0 | 0 |

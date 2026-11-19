@@ -6,13 +6,14 @@ import json
 import shutil
 from pathlib import Path
 
-# Per-entry files copied as they are. gold.json is deliberately absent.
+# Per-entry files copied as they are. gold.json and gold_facts.json (OMIM-derived) are deliberately absent.
 COPY = ("seed.json", "retrieval.json", "papers.json", "extractions.json", "kg.json", "kg_triples.tsv",
         "cohort.json", "recall.memory_audit.json", "usage.json", "updates.json", "updates.md")
 ENTRY_GLOBS = ("entry.*.json", "entry.*.md")
 RUN_FILES = ("summary.json", "strategies.json", "strategies.md", "comparison.json", "comparison.md",
              "backtest.json", "audit_check.json", "adjudication.json", "candidate_corrections.md")
 RUN_GLOBS = ("knowledge_graph.*.tsv",)
+FROZEN_KEYS = ("gold_text_frozen", "gold_text_frozen_whole")
 
 
 def _redact(evaluation: dict) -> dict:
@@ -22,6 +23,13 @@ def _redact(evaluation: dict) -> dict:
         para.pop("draft", None)  # the draft's own text is in entry.<strategy>.json
         # The judged facts restate the reference sentence by sentence; keep only their verdicts.
         para["facts"] = [{"status": f.get("status")} for f in para.get("facts", [])]
+    # Frozen-list scores: the fact wording is only in gold_facts.json (never exported);
+    # the judge's notes restate the facts too, so only ids and statuses leave.
+    for key in FROZEN_KEYS:
+        for para in (evaluation.get(key) or {}).get("paragraphs", []):
+            for field in ("reference", "draft", "text"):
+                para.pop(field, None)
+            para["facts"] = [{"id": f.get("id"), "status": f.get("status")} for f in para.get("facts", [])]
     return evaluation
 
 

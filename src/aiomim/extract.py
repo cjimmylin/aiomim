@@ -243,10 +243,13 @@ def _to_extraction(paper: Paper, source: str, raw: XExtraction) -> PaperExtracti
     )
 
 
-def extract_papers(seed: Seed, papers: list[Paper], llm: LLM) -> list[PaperExtraction]:
-    """Extract findings from every paper, concurrently. Order follows `papers`."""
+def extract_papers(seed: Seed, papers: list[Paper], llm: LLM, stage: str = "extract") -> list[PaperExtraction]:
+    """Extract findings from every paper, concurrently. Order follows `papers`.
+
+    `stage` picks the model and effort; the matched ablations run the same prompts
+    as "extract_matched", at the writer's effort."""
     built = [build_prompt(seed, p) for p in papers]
-    replies = llm.map("extract", EXTRACT_SYSTEM, [b[0] for b in built], XExtraction)
+    replies = llm.map(stage, EXTRACT_SYSTEM, [b[0] for b in built], XExtraction)
     out: list[PaperExtraction] = []
     for paper, (_, source, truncated), reply in zip(papers, built, replies):
         if isinstance(reply, Exception):

@@ -19,6 +19,13 @@ downgraded to "partly". One call per paragraph, stage "judge".
     <run>/gaps.<strategy>.json | .md     counts by how the paper could be read
 
 The run-level files hold counts only, never fact wording.
+
+With `frozen` (`aiomim gaps --frozen`) the facts are the frozen per-paragraph lists
+of `aiomim.facts`. Whether a fact is in the available text does not depend on the
+strategy, so every frozen fact is judged once per paragraph and source text (same
+prompt, same quote check), stored with the list, and each strategy's decomposition
+is a join with its marks in `gold_text_frozen`. Files: `gaps.<strategy>.frozen.json`
+per entry and `gaps.<strategy>.frozen.json|.md` per run.
 """
 
 from __future__ import annotations
@@ -138,6 +145,31 @@ def load_entry_papers(entry_dir: Path) -> dict[str, Paper]:
 # --------------------------------------------------------------------------- #
 
 
+def verdict_row(v: XGapVerdict | None, index: SourceIndex) -> dict[str, Any]:
+    """One fact's verdict with its quote checked against the source; `unjudged` when there is none."""
+    if v is None:
+        return {"in_text": "unjudged", "model_in_text": None, "quote": "", "quote_verified": False}
+    quote = squash(v.quote)
+    verified = bool(quote) and index.contains(quote)
+    final = v.in_text
+    # A "yes" must point at the passage; one we cannot find is not a yes.
+    if final == "yes" and not verified:
+        final = "partly"
+    return {"in_text": final, "model_in_text": v.in_text, "quote": quote, "quote_verified": verified}
+
+
+def paper_source(pmids: list[str], papers: dict[str, Paper], cap: int) -> str:
+    """The text available for a paragraph's papers, cut as the writer saw it ('' when none was retrieved)."""
+    blocks = []
+    for pmid in pmids:
+        paper = papers.get(pmid)
+        if paper is None:
+            continue
+        blocks.append(f'<paper pmid="{pmid}" available="{paper.content_level}">\n'
+                      f"{paper.source_text(cap)}\n</paper>")
+    return "\n\n".join(blocks)
+
+
 def _prompt(reference: str, facts: list[str], source: str) -> str:
     listed = "\n".join(f"{i}. {fact}" for i, fact in enumerate(facts, 1))
     return (f"<summary>\n{reference}\n</summary>\n\n<facts>\n{listed}\n</facts>\n\n{source}")
@@ -195,23 +227,76 @@ def gap_entry(entry_dir: Path, strategy: str, llm, papers: dict[str, Paper]) -> 
         index = SourceIndex(source)
         rows = []
         for k, fi in enumerate(missed, 1):
-            v = by_n.get(k)
             row = {"fact": facts[fi]["fact"], "draft_status": facts[fi]["status"]}
-            if v is None:
-                row.update(in_text="unjudged", model_in_text=None, quote="", quote_verified=False)
-            else:
-                quote = squash(v.quote)
-                verified = bool(quote) and index.contains(quote)
-                final = v.in_text
-                # A "yes" must point at the passage; one we cannot find is not a yes.
-                if final == "yes" and not verified:
-                    final = "partly"
-                row.update(in_text=final, model_in_text=v.in_text, quote=quote, quote_verified=verified)
+            row.update(verdict_row(by_n.get(k), index))
             rows.append(row)
         out_paragraphs[pi]["facts"] = rows
 
     result = {"mim": evaluation.get("mim", entry_dir.name), "strategy": strategy, "per_paper_chars": cap,
               "n_calls": len(jobs), "n_errors": n_errors, "paragraphs": out_paragraphs}
+    result["tally"] = tally_entry(result)
+    return result
+
+
+def gap_entry_frozen(entry_dir: Path, strategy: str, llm, papers: dict[str, Paper], store=None) -> dict[str, Any]:
+    """The same decomposition on frozen facts: a join of the draft's marks with stored availability.
+
+    Whether a fact is stated in the text available for its paper does not depend on
+    the strategy, so it is judged once per paragraph (all its frozen facts) and
+    stored with the frozen list; every strategy then reads it back. The draft's
+    marks come from `gold_text_frozen` in `eval.<strategy>.json` (see `aiomim rescore`).
+    """
+    from .facts import FactStore, availability, frozen_facts, write_gold_facts
+    from .models import GoldEntry
+
+    store = store or FactStore()
+    evaluation = json.loads((entry_dir / f"eval.{strategy}.json").read_text(encoding="utf-8"))
+    frozen = evaluation.get("gold_text_frozen")
+    if frozen is None:
+        raise ValueError(f"eval.{strategy}.json has no gold_text_frozen: run `aiomim rescore` first")
+    gold = GoldEntry.model_validate_json((entry_dir / "gold.json").read_text(encoding="utf-8"))
+    paragraphs = gold.scoped_paragraphs
+    records = frozen_facts(paragraphs, llm, store) if paragraphs else []
+    marks_by_key = {p["key"]: p for p in frozen.get("paragraphs", [])}
+    n_papers = len(json.loads((entry_dir / "papers.json").read_text(encoding="utf-8"))) \
+        if (entry_dir / "papers.json").exists() else len(papers)
+    cap = per_paper_chars(n_papers)
+
+    ok = [i for i, rec in enumerate(records) if rec is not None and rec["key"] in marks_by_key]
+    avails, n_calls = availability([records[i] for i in ok],
+                                   [paper_source(paragraphs[i].pmids, papers, cap) for i in ok],
+                                   llm, store, per_paper_chars=cap)
+    avail_by_i = dict(zip(ok, avails))
+    write_gold_facts(entry_dir, gold.mim, records, paragraphs,
+                     availability={a["key"]: {k: a.get(k) for k in ("source_key", "per_paper_chars", "rows")}
+                                   for a in avails})
+
+    out_paragraphs = []
+    for i, para in enumerate(paragraphs):
+        rec = records[i]
+        marks = marks_by_key.get(rec["key"]) if rec else None
+        if rec is None or marks is None:
+            out_paragraphs.append({"key": rec["key"] if rec else None, "pmids": para.pmids,
+                                   "content_level": "not_retrieved", "n_facts": 0, "draft_status": {}, "facts": [],
+                                   "error": "no frozen facts or no marks"})
+            continue
+        status = {f["id"]: f["status"] for f in marks["facts"]}
+        wording = {f["id"]: f["fact"] for f in rec["facts"]}
+        in_text = {r["id"]: r for r in avail_by_i[i]["rows"]}
+        rows = []
+        for fid in wording:
+            if status.get(fid) in NOT_CONVEYED:
+                judged = in_text.get(fid) or {"in_text": "unjudged", "model_in_text": None, "quote": "",
+                                              "quote_verified": False}
+                rows.append({"id": fid, "fact": wording[fid], "draft_status": status[fid],
+                             **{k: v for k, v in judged.items() if k != "id"}})
+        out_paragraphs.append({
+            "key": rec["key"], "pmids": para.pmids, "content_level": marks.get("content_level", "not_retrieved"),
+            "n_facts": len(rec["facts"]), "draft_status": _count(status.values()), "facts": rows,
+        })
+    result = {"mim": evaluation.get("mim", entry_dir.name), "strategy": strategy, "frozen": True,
+              "per_paper_chars": cap, "n_calls": n_calls,
+              "n_errors": sum(1 for a in avails if a.get("error")), "paragraphs": out_paragraphs}
     result["tally"] = tally_entry(result)
     return result
 
@@ -297,7 +382,8 @@ def gaps_markdown(summary: dict[str, Any], run: str, strategy: str) -> str:
              "not_retrieved": "Not retrieved", "all": "All papers"}
     pct = lambda x: "-" if x is None else f"{100 * x:.0f}%"  # noqa: E731
     lines = [
-        f"# Missed OMIM facts: access or omission — run `{run}`, strategy `{strategy}`",
+        f"# Missed OMIM facts: access or omission — run `{run}`, strategy `{strategy}`"
+        + (" (frozen fact lists)" if summary.get("frozen") else ""),
         "For every OMIM paragraph about a cited paper, the facts the draft did not fully convey (judged absent or "
         "partial) were checked against the text the writer had for that paper. *In text* means the judge found "
         "the fact stated and quoted the passage (the quote was verified in the text); *partly* means part of it "
@@ -343,22 +429,29 @@ def gaps_markdown(summary: dict[str, Any], run: str, strategy: str) -> str:
 def gaps_run(
     run_dir: Path, strategy: str = "direct", entries: Iterable[str] | None = None, jobs: int = 1,
     llm=None, load: Callable[[Path], dict[str, Paper]] | None = None, write_run_files: bool = True,
+    frozen: bool = False, store=None,
 ) -> dict[str, Any]:
-    """Gap analysis for every scored entry of a run; writes per-entry and run-level files."""
+    """Gap analysis for every scored entry of a run; writes per-entry and run-level files.
+
+    With `frozen`, the facts are the frozen lists (`aiomim.facts`) and the files are
+    `gaps.<strategy>.frozen.json|.md`; the existing files are left as they are.
+    """
     from .llm import LLM
     from .pipeline import _write
 
     llm = llm or LLM()
     load = load or load_entry_papers
     dirs = entry_dirs(run_dir, strategy, entries)
+    suffix = ".frozen" if frozen else ""
 
     def one(entry_dir: Path) -> dict[str, Any] | None:
         try:
-            result = gap_entry(entry_dir, strategy, llm, load(entry_dir))
+            result = (gap_entry_frozen(entry_dir, strategy, llm, load(entry_dir), store) if frozen
+                      else gap_entry(entry_dir, strategy, llm, load(entry_dir)))
         except Exception as exc:  # noqa: BLE001 - one broken entry must not lose the rest
             log.exception("[%s] gaps failed: %s", entry_dir.name, exc)
             return None
-        _write(entry_dir / f"gaps.{strategy}.json", result)
+        _write(entry_dir / f"gaps.{strategy}{suffix}.json", result)
         log.info("[%s] gaps: %d facts missed, %d in text", entry_dir.name, result["tally"]["n_not_conveyed"],
                  result["tally"]["yes"])
         return result
@@ -369,8 +462,9 @@ def gaps_run(
                "stopped_entries": stopped_dirs(run_dir, strategy, entries),
                "entries": {r["mim"]: r["tally"] for r in results}}
     if write_run_files:
-        _write(run_dir / f"gaps.{strategy}.json", summary)
-        _write(run_dir / f"gaps.{strategy}.md", gaps_markdown(summary, run_dir.name, strategy))
+        summary["frozen"] = frozen
+        _write(run_dir / f"gaps.{strategy}{suffix}.json", summary)
+        _write(run_dir / f"gaps.{strategy}{suffix}.md", gaps_markdown(summary, run_dir.name, strategy))
     return summary
 
 

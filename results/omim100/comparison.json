@@ -1,29 +1,39 @@
 {
   "run": "omim100",
-  "n_entries": 97,
+  "n_entries": 94,
+  "left_out": [
+    "118210",
+    "609296",
+    "617232",
+    "620609",
+    "621030",
+    "621068"
+  ],
   "overall": [
     {
       "metric": "claim_supported_rate",
       "label": "Claims supported by cited paper",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.9659,
-      "direct": 0.9613,
-      "difference": 0.0046,
+      "n": 94,
+      "kg": 0.9652,
+      "direct": 0.961,
+      "difference": 0.0043,
       "ci95": [
-        -0.0032,
-        0.0134
+        -0.0038,
+        0.013
       ],
-      "kg_better": 45,
-      "direct_better": 45,
+      "median_difference": 0.0,
+      "kg_better": 43,
+      "direct_better": 44,
       "ties": 7,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
     },
     {
       "metric": "claim_error_rate",
       "label": "Claims unsupported or contradicted",
       "higher_is_better": false,
-      "n": 97,
+      "n": 94,
       "kg": 0.0,
       "direct": 0.0,
       "difference": 0.0,
@@ -31,272 +41,514 @@
         0.0,
         0.0
       ],
+      "median_difference": 0.0,
       "kg_better": 0,
       "direct_better": 0,
-      "ties": 97,
-      "sign_test_p": null
+      "ties": 94,
+      "sign_test_p": null,
+      "ci_unreliable": false
     },
     {
       "metric": "claim_error_rate_before_repair",
       "label": "\u2026 same, before the repair round",
       "higher_is_better": false,
-      "n": 97,
-      "kg": 0.0028,
-      "direct": 0.0035,
-      "difference": -0.0007,
+      "n": 94,
+      "kg": 0.0027,
+      "direct": 0.0024,
+      "difference": 0.0002,
       "ci95": [
-        -0.0039,
-        0.0021
+        -0.0026,
+        0.0026
       ],
-      "kg_better": 12,
+      "median_difference": 0.0,
+      "kg_better": 11,
       "direct_better": 13,
-      "ties": 72,
-      "sign_test_p": 1.0
+      "ties": 70,
+      "sign_test_p": 0.8388,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "claim_unsupported_rate_before_repair",
+      "label": "\u2026 unsupported, before the repair round",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.002,
+      "direct": 0.0024,
+      "difference": -0.0004,
+      "ci95": [
+        -0.0031,
+        0.0019
+      ],
+      "median_difference": 0.0,
+      "kg_better": 11,
+      "direct_better": 10,
+      "ties": 73,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "claim_contradicted_rate_before_repair",
+      "label": "\u2026 contradicted, before the repair round",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.0006,
+      "direct": 0.0,
+      "difference": 0.0006,
+      "ci95": [
+        0.0001,
+        0.0014
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 4,
+      "ties": 90,
+      "sign_test_p": 0.125,
+      "ci_unreliable": false
     },
     {
       "metric": "gold_fact_coverage",
       "label": "OMIM per-paper facts conveyed",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.5083,
-      "direct": 0.5292,
-      "difference": -0.0209,
+      "n": 94,
+      "kg": 0.5145,
+      "direct": 0.5215,
+      "difference": -0.007,
       "ci95": [
-        -0.0406,
-        -0.0045
+        -0.0167,
+        0.0024
       ],
+      "median_difference": 0.0,
       "kg_better": 44,
-      "direct_better": 46,
+      "direct_better": 43,
       "ties": 7,
-      "sign_test_p": 0.9161
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
     },
     {
       "metric": "gold_fact_strict_coverage",
       "label": "\u2026 fully (no partial credit)",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.4279,
-      "direct": 0.4449,
-      "difference": -0.017,
+      "n": 94,
+      "kg": 0.4333,
+      "direct": 0.4367,
+      "difference": -0.0034,
       "ci95": [
-        -0.037,
-        0.0006
+        -0.0151,
+        0.0082
       ],
+      "median_difference": 0.0005,
       "kg_better": 47,
-      "direct_better": 43,
+      "direct_better": 40,
       "ties": 7,
-      "sign_test_p": 0.752
+      "sign_test_p": 0.5203,
+      "ci_unreliable": false
     },
     {
       "metric": "gold_fact_contradiction_rate",
       "label": "OMIM per-paper facts contradicted",
       "higher_is_better": false,
-      "n": 97,
-      "kg": 0.0066,
-      "direct": 0.0054,
-      "difference": 0.0011,
+      "n": 94,
+      "kg": 0.0065,
+      "direct": 0.005,
+      "difference": 0.0014,
       "ci95": [
-        -0.0017,
-        0.0052
+        -0.0012,
+        0.0055
       ],
-      "kg_better": 13,
-      "direct_better": 12,
-      "ties": 72,
-      "sign_test_p": 1.0
+      "median_difference": 0.0,
+      "kg_better": 12,
+      "direct_better": 11,
+      "ties": 71,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
     },
     {
       "metric": "hpo_exact_f1",
       "label": "Clinical synopsis HPO F1, exact",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.3417,
-      "direct": 0.3564,
-      "difference": -0.0148,
+      "n": 94,
+      "kg": 0.3444,
+      "direct": 0.3581,
+      "difference": -0.0137,
       "ci95": [
-        -0.0329,
-        0.0038
+        -0.0326,
+        0.0054
       ],
+      "median_difference": 0.0,
       "kg_better": 34,
-      "direct_better": 48,
-      "ties": 15,
-      "sign_test_p": 0.1507
+      "direct_better": 46,
+      "ties": 14,
+      "sign_test_p": 0.2185,
+      "ci_unreliable": false
     },
     {
       "metric": "hpo_exact_precision",
       "label": "\u2026 precision",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.4001,
-      "direct": 0.4364,
-      "difference": -0.0363,
+      "n": 94,
+      "kg": 0.4034,
+      "direct": 0.4396,
+      "difference": -0.0362,
       "ci95": [
-        -0.067,
-        -0.0069
+        -0.068,
+        -0.0063
       ],
+      "median_difference": -0.0205,
       "kg_better": 29,
-      "direct_better": 52,
-      "ties": 16,
-      "sign_test_p": 0.014
+      "direct_better": 50,
+      "ties": 15,
+      "sign_test_p": 0.0238,
+      "ci_unreliable": false
     },
     {
       "metric": "hpo_exact_recall",
       "label": "\u2026 recall",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.3697,
-      "direct": 0.3591,
-      "difference": 0.0106,
+      "n": 94,
+      "kg": 0.3735,
+      "direct": 0.3614,
+      "difference": 0.0121,
       "ci95": [
-        -0.0127,
-        0.0328
+        -0.0117,
+        0.034
       ],
+      "median_difference": 0.0,
       "kg_better": 37,
-      "direct_better": 21,
-      "ties": 39,
-      "sign_test_p": 0.0479
+      "direct_better": 20,
+      "ties": 37,
+      "sign_test_p": 0.0331,
+      "ci_unreliable": false
     },
     {
       "metric": "hpo_hierarchical_f1",
       "label": "Clinical synopsis HPO F1, hierarchical",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.5461,
-      "direct": 0.5631,
-      "difference": -0.017,
+      "n": 94,
+      "kg": 0.5465,
+      "direct": 0.5611,
+      "difference": -0.0146,
       "ci95": [
-        -0.0305,
-        -0.0037
+        -0.0281,
+        -0.0015
       ],
+      "median_difference": 0.0,
       "kg_better": 36,
-      "direct_better": 48,
+      "direct_better": 45,
       "ties": 13,
-      "sign_test_p": 0.2299
+      "sign_test_p": 0.3742,
+      "ci_unreliable": false
     },
     {
       "metric": "hpo_semantic_f1",
       "label": "Clinical synopsis HPO F1, semantic",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.6492,
-      "direct": 0.6628,
-      "difference": -0.0136,
+      "n": 94,
+      "kg": 0.6499,
+      "direct": 0.6632,
+      "difference": -0.0133,
       "ci95": [
-        -0.0241,
-        -0.0032
+        -0.024,
+        -0.0026
       ],
-      "kg_better": 36,
-      "direct_better": 55,
+      "median_difference": -0.005,
+      "kg_better": 35,
+      "direct_better": 53,
       "ties": 6,
-      "sign_test_p": 0.0586
+      "sign_test_p": 0.0693,
+      "ci_unreliable": false
     },
     {
       "metric": "variant_recall",
       "label": "OMIM allelic variants recovered",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.6559,
-      "direct": 0.6764,
-      "difference": -0.0205,
+      "n": 94,
+      "kg": 0.6609,
+      "direct": 0.6661,
+      "difference": -0.0052,
       "ci95": [
-        -0.0548,
-        0.0136
+        -0.0306,
+        0.025
       ],
+      "median_difference": 0.0,
       "kg_better": 4,
-      "direct_better": 10,
-      "ties": 83,
-      "sign_test_p": 0.1796
+      "direct_better": 8,
+      "ties": 82,
+      "sign_test_p": 0.3877,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "variant_precision",
+      "label": "Generated variants that are OMIM variants (precision)",
+      "higher_is_better": true,
+      "n": 83,
+      "kg": 0.825,
+      "direct": 0.8885,
+      "difference": -0.0635,
+      "ci95": [
+        -0.1043,
+        -0.0266
+      ],
+      "median_difference": 0.0,
+      "kg_better": 2,
+      "direct_better": 19,
+      "ties": 62,
+      "sign_test_p": 0.0002,
+      "ci_unreliable": false
     },
     {
       "metric": "gene_f1",
       "label": "Causal gene F1",
       "higher_is_better": true,
-      "n": 96,
-      "kg": 0.9931,
-      "direct": 0.9861,
-      "difference": 0.0069,
+      "n": 94,
+      "kg": 0.9823,
+      "direct": 0.9752,
+      "difference": 0.0071,
       "ci95": [
         0.0,
-        0.0208
+        0.0213
       ],
+      "median_difference": 0.0,
       "kg_better": 1,
       "direct_better": 0,
-      "ties": 95,
-      "sign_test_p": 1.0
+      "ties": 93,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "gene_recall",
+      "label": "\u2026 recall",
+      "higher_is_better": true,
+      "n": 94,
+      "kg": 0.984,
+      "direct": 0.9734,
+      "difference": 0.0106,
+      "ci95": [
+        0.0,
+        0.0319
+      ],
+      "median_difference": 0.0,
+      "kg_better": 1,
+      "direct_better": 0,
+      "ties": 93,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
     },
     {
       "metric": "inheritance_match",
       "label": "Inheritance matches OMIM",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.9278,
-      "direct": 0.9381,
-      "difference": -0.0103,
+      "n": 94,
+      "kg": 0.9255,
+      "direct": 0.9362,
+      "difference": -0.0106,
       "ci95": [
-        -0.0515,
-        0.0206
+        -0.0532,
+        0.0213
       ],
+      "median_difference": 0.0,
       "kg_better": 1,
       "direct_better": 2,
+      "ties": 91,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "inheritance_error_none_stated",
+      "label": "Inheritance error: none stated",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.0319,
+      "direct": 0.0213,
+      "difference": 0.0106,
+      "ci95": [
+        -0.0213,
+        0.0426
+      ],
+      "median_difference": 0.0,
+      "kg_better": 1,
+      "direct_better": 2,
+      "ties": 91,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "inheritance_error_mode_missing",
+      "label": "Inheritance error: a mode missing",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
       "ties": 94,
-      "sign_test_p": 1.0
+      "sign_test_p": null,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "inheritance_error_extra_mode",
+      "label": "Inheritance error: an extra mode",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.0319,
+      "direct": 0.0426,
+      "difference": -0.0106,
+      "ci95": [
+        -0.0319,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 1,
+      "direct_better": 0,
+      "ties": 93,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
+    },
+    {
+      "metric": "inheritance_error_different_mode",
+      "label": "Inheritance error: a different mode",
+      "higher_is_better": false,
+      "n": 94,
+      "kg": 0.0106,
+      "direct": 0.0,
+      "difference": 0.0106,
+      "ci95": [
+        0.0,
+        0.0319
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 1,
+      "ties": 93,
+      "sign_test_p": 1.0,
+      "ci_unreliable": false
     },
     {
       "metric": "reference_recall",
       "label": "OMIM references used",
       "higher_is_better": true,
-      "n": 97,
-      "kg": 0.9378,
-      "direct": 0.9453,
-      "difference": -0.0076,
+      "n": 94,
+      "kg": 0.9468,
+      "direct": 0.9436,
+      "difference": 0.0032,
       "ci95": [
-        -0.0339,
-        0.0162
+        -0.0202,
+        0.024
       ],
+      "median_difference": 0.0,
       "kg_better": 10,
-      "direct_better": 8,
+      "direct_better": 5,
       "ties": 79,
-      "sign_test_p": 0.8145
+      "sign_test_p": 0.3018,
+      "ci_unreliable": false
     }
   ],
   "pooled": {
     "kg": {
       "claims": {
-        "supported": 10883,
-        "partially_supported": 335,
+        "supported": 10553,
+        "partially_supported": 329,
         "unsupported": 0,
         "contradicted": 0,
-        "n": 11218,
-        "supported_rate": 0.9701,
+        "n": 10882,
+        "supported_rate": 0.9698,
         "error_rate": 0.0
       },
+      "claims_before_repair": {
+        "n_claims": 10860,
+        "supported": 10499,
+        "partially_supported": 333,
+        "unsupported": 16,
+        "contradicted": 12,
+        "unsupported_rate": 0.0015,
+        "contradicted_rate": 0.0011
+      },
       "gold_facts": {
-        "n_facts": 5525,
-        "present": 2333,
-        "partial": 897,
-        "absent": 2262,
-        "contradicted": 33,
-        "coverage": 0.5034,
-        "contradiction_rate": 0.006
+        "n_facts": 5404,
+        "present": 2295,
+        "partial": 882,
+        "absent": 2196,
+        "contradicted": 31,
+        "coverage": 0.5063,
+        "contradiction_rate": 0.0057
+      },
+      "variants": {
+        "generated": 365,
+        "matched": 257,
+        "matched_scoped": 257,
+        "generated_scoped": 365,
+        "not_in_omim": 107,
+        "in_omim_via_other_paper": 1,
+        "precision": 0.7041
+      },
+      "inheritance": {
+        "scored": 94,
+        "match": 87,
+        "none_stated": 3,
+        "mode_missing": 0,
+        "extra_mode": 3,
+        "different_mode": 1
+      },
+      "empty_predictions": {
+        "genes": 1,
+        "synopsis": 0,
+        "variants": 6
       }
     },
     "direct": {
       "claims": {
-        "supported": 9698,
-        "partially_supported": 340,
+        "supported": 9295,
+        "partially_supported": 330,
         "unsupported": 0,
         "contradicted": 0,
-        "n": 10038,
-        "supported_rate": 0.9661,
+        "n": 9625,
+        "supported_rate": 0.9657,
         "error_rate": 0.0
       },
+      "claims_before_repair": {
+        "n_claims": 9606,
+        "supported": 9259,
+        "partially_supported": 330,
+        "unsupported": 17,
+        "contradicted": 0,
+        "unsupported_rate": 0.0018,
+        "contradicted_rate": 0.0
+      },
       "gold_facts": {
-        "n_facts": 5530,
-        "present": 2429,
-        "partial": 934,
-        "absent": 2131,
-        "contradicted": 36,
-        "coverage": 0.5237,
-        "contradiction_rate": 0.0065
+        "n_facts": 5399,
+        "present": 2335,
+        "partial": 913,
+        "absent": 2117,
+        "contradicted": 34,
+        "coverage": 0.517,
+        "contradiction_rate": 0.0063
+      },
+      "variants": {
+        "generated": 299,
+        "matched": 262,
+        "matched_scoped": 262,
+        "generated_scoped": 299,
+        "not_in_omim": 36,
+        "in_omim_via_other_paper": 1,
+        "precision": 0.8763
+      },
+      "inheritance": {
+        "scored": 94,
+        "match": 88,
+        "none_stated": 2,
+        "mode_missing": 0,
+        "extra_mode": 4,
+        "different_mode": 0
+      },
+      "empty_predictions": {
+        "genes": 1,
+        "synopsis": 0,
+        "variants": 11
       }
     }
   },
@@ -313,13 +565,15 @@
           "direct": 0.9599,
           "difference": -0.0038,
           "ci95": [
-            -0.0235,
-            0.0138
+            -0.0234,
+            0.0134
           ],
+          "median_difference": -0.002,
           "kg_better": 8,
           "direct_better": 11,
           "ties": 0,
-          "sign_test_p": 0.6476
+          "sign_test_p": 0.6476,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -333,10 +587,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 19,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -347,13 +603,15 @@
           "direct": 0.5572,
           "difference": 0.0042,
           "ci95": [
-            -0.0225,
-            0.0305
+            -0.0226,
+            0.0313
           ],
+          "median_difference": 0.01,
           "kg_better": 11,
           "direct_better": 7,
           "ties": 1,
-          "sign_test_p": 0.4807
+          "sign_test_p": 0.4807,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -364,13 +622,15 @@
           "direct": 0.3995,
           "difference": 0.0086,
           "ci95": [
-            -0.0296,
-            0.0515
+            -0.0293,
+            0.0521
           ],
+          "median_difference": 0.0,
           "kg_better": 5,
           "direct_better": 9,
           "ties": 5,
-          "sign_test_p": 0.424
+          "sign_test_p": 0.424,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -381,13 +641,15 @@
           "direct": 0.6225,
           "difference": -0.007,
           "ci95": [
-            -0.0228,
-            0.0081
+            -0.0227,
+            0.0078
           ],
+          "median_difference": 0.0,
           "kg_better": 7,
           "direct_better": 9,
           "ties": 3,
-          "sign_test_p": 0.8036
+          "sign_test_p": 0.8036,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -401,10 +663,12 @@
             -0.0965,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 2,
           "ties": 17,
-          "sign_test_p": 0.5
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -418,10 +682,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 19,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -435,10 +701,12 @@
             -0.2632,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 2,
           "ties": 17,
-          "sign_test_p": 0.5
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
         }
       ]
     },
@@ -454,13 +722,15 @@
           "direct": 0.956,
           "difference": 0.014,
           "ci95": [
-            -0.0066,
-            0.0427
+            -0.0069,
+            0.0432
           ],
+          "median_difference": 0.0,
           "kg_better": 9,
           "direct_better": 9,
           "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "claim_error_rate",
@@ -474,10 +744,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 20,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "gold_fact_coverage",
@@ -488,13 +760,15 @@
           "direct": 0.5344,
           "difference": -0.0134,
           "ci95": [
-            -0.0397,
-            0.0114
+            -0.0391,
+            0.0113
           ],
+          "median_difference": -0.0065,
           "kg_better": 9,
           "direct_better": 11,
           "ties": 0,
-          "sign_test_p": 0.8238
+          "sign_test_p": 0.8238,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_exact_f1",
@@ -505,13 +779,15 @@
           "direct": 0.3654,
           "difference": -0.0442,
           "ci95": [
-            -0.0928,
-            0.0073
+            -0.093,
+            0.0068
           ],
+          "median_difference": -0.0605,
           "kg_better": 7,
           "direct_better": 11,
           "ties": 2,
-          "sign_test_p": 0.4807
+          "sign_test_p": 0.4807,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -522,13 +798,15 @@
           "direct": 0.5417,
           "difference": -0.0366,
           "ci95": [
-            -0.0713,
-            -0.0053
+            -0.0715,
+            -0.0054
           ],
+          "median_difference": -0.001,
           "kg_better": 6,
           "direct_better": 10,
           "ties": 4,
-          "sign_test_p": 0.4545
+          "sign_test_p": 0.4545,
+          "ci_unreliable": false
         },
         {
           "metric": "variant_recall",
@@ -542,10 +820,12 @@
             -0.0443,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 3,
           "ties": 17,
-          "sign_test_p": 0.25
+          "sign_test_p": 0.25,
+          "ci_unreliable": false
         },
         {
           "metric": "gene_f1",
@@ -559,10 +839,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 20,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "inheritance_match",
@@ -576,38 +858,42 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 20,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": false
         }
       ]
     },
     "616000-619999": {
-      "n": 20,
+      "n": 19,
       "metrics": [
         {
           "metric": "claim_supported_rate",
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
-          "n": 20,
-          "kg": 0.9708,
-          "direct": 0.968,
-          "difference": 0.0028,
+          "n": 19,
+          "kg": 0.9707,
+          "direct": 0.9675,
+          "difference": 0.0032,
           "ci95": [
-            -0.0051,
-            0.0116
+            -0.0053,
+            0.0129
           ],
+          "median_difference": 0.0,
           "kg_better": 8,
-          "direct_better": 9,
+          "direct_better": 8,
           "ties": 3,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
           "label": "Claims unsupported or contradicted",
           "higher_is_better": false,
-          "n": 20,
+          "n": 19,
           "kg": 0.0,
           "direct": 0.0,
           "difference": 0.0,
@@ -615,394 +901,440 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
-          "direct_better": 0,
-          "ties": 20,
-          "sign_test_p": null
-        },
-        {
-          "metric": "gold_fact_coverage",
-          "label": "OMIM per-paper facts conveyed",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.5336,
-          "direct": 0.554,
-          "difference": -0.0204,
-          "ci95": [
-            -0.0602,
-            0.0044
-          ],
-          "kg_better": 8,
-          "direct_better": 10,
-          "ties": 2,
-          "sign_test_p": 0.8145
-        },
-        {
-          "metric": "hpo_exact_f1",
-          "label": "Clinical synopsis HPO F1, exact",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.3348,
-          "direct": 0.3503,
-          "difference": -0.0155,
-          "ci95": [
-            -0.0504,
-            0.0166
-          ],
-          "kg_better": 6,
-          "direct_better": 11,
-          "ties": 3,
-          "sign_test_p": 0.3323
-        },
-        {
-          "metric": "hpo_hierarchical_f1",
-          "label": "Clinical synopsis HPO F1, hierarchical",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.5403,
-          "direct": 0.5572,
-          "difference": -0.0168,
-          "ci95": [
-            -0.0441,
-            0.0099
-          ],
-          "kg_better": 7,
-          "direct_better": 10,
-          "ties": 3,
-          "sign_test_p": 0.6291
-        },
-        {
-          "metric": "variant_recall",
-          "label": "OMIM allelic variants recovered",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.821,
-          "direct": 0.811,
-          "difference": 0.01,
-          "ci95": [
-            0.0,
-            0.03
-          ],
-          "kg_better": 1,
           "direct_better": 0,
           "ties": 19,
-          "sign_test_p": 1.0
-        },
-        {
-          "metric": "gene_f1",
-          "label": "Causal gene F1",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 1.0,
-          "direct": 1.0,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 20,
-          "sign_test_p": null
-        },
-        {
-          "metric": "inheritance_match",
-          "label": "Inheritance matches OMIM",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.95,
-          "direct": 0.95,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 20,
-          "sign_test_p": null
-        }
-      ]
-    },
-    "620000 onward": {
-      "n": 18,
-      "metrics": [
-        {
-          "metric": "claim_supported_rate",
-          "label": "Claims supported by cited paper",
-          "higher_is_better": true,
-          "n": 18,
-          "kg": 0.9646,
-          "direct": 0.9697,
-          "difference": -0.0052,
-          "ci95": [
-            -0.0221,
-            0.0106
-          ],
-          "kg_better": 9,
-          "direct_better": 9,
-          "ties": 0,
-          "sign_test_p": 1.0
-        },
-        {
-          "metric": "claim_error_rate",
-          "label": "Claims unsupported or contradicted",
-          "higher_is_better": false,
-          "n": 18,
-          "kg": 0.0,
-          "direct": 0.0,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 18,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
-          "n": 18,
-          "kg": 0.5201,
-          "direct": 0.5716,
-          "difference": -0.0515,
+          "n": 19,
+          "kg": 0.5362,
+          "direct": 0.5395,
+          "difference": -0.0033,
           "ci95": [
-            -0.1153,
-            -0.0102
+            -0.0146,
+            0.0071
           ],
+          "median_difference": 0.0,
+          "kg_better": 8,
+          "direct_better": 9,
+          "ties": 2,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.3426,
+          "direct": 0.3571,
+          "difference": -0.0145,
+          "ci95": [
+            -0.0509,
+            0.0209
+          ],
+          "median_difference": -0.019,
           "kg_better": 6,
-          "direct_better": 9,
+          "direct_better": 10,
           "ties": 3,
-          "sign_test_p": 0.6072
-        },
-        {
-          "metric": "hpo_exact_f1",
-          "label": "Clinical synopsis HPO F1, exact",
-          "higher_is_better": true,
-          "n": 18,
-          "kg": 0.3496,
-          "direct": 0.3443,
-          "difference": 0.0052,
-          "ci95": [
-            -0.0261,
-            0.0382
-          ],
-          "kg_better": 8,
-          "direct_better": 8,
-          "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 0.4545,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
           "label": "Clinical synopsis HPO F1, hierarchical",
           "higher_is_better": true,
-          "n": 18,
-          "kg": 0.5454,
-          "direct": 0.5425,
-          "difference": 0.0029,
+          "n": 19,
+          "kg": 0.5502,
+          "direct": 0.5591,
+          "difference": -0.0089,
           "ci95": [
-            -0.0228,
-            0.0345
+            -0.0311,
+            0.0159
           ],
-          "kg_better": 8,
-          "direct_better": 8,
-          "ties": 2,
-          "sign_test_p": 1.0
-        },
-        {
-          "metric": "variant_recall",
-          "label": "OMIM allelic variants recovered",
-          "higher_is_better": true,
-          "n": 18,
-          "kg": 0.6056,
-          "direct": 0.6681,
-          "difference": -0.0625,
-          "ci95": [
-            -0.1458,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 3,
-          "ties": 15,
-          "sign_test_p": 0.25
-        },
-        {
-          "metric": "gene_f1",
-          "label": "Causal gene F1",
-          "higher_is_better": true,
-          "n": 18,
-          "kg": 1.0,
-          "direct": 1.0,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 18,
-          "sign_test_p": null
-        },
-        {
-          "metric": "inheritance_match",
-          "label": "Inheritance matches OMIM",
-          "higher_is_better": true,
-          "n": 18,
-          "kg": 1.0,
-          "direct": 1.0,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 18,
-          "sign_test_p": null
-        }
-      ]
-    },
-    "classic (1xxxxx-5xxxxx)": {
-      "n": 20,
-      "metrics": [
-        {
-          "metric": "claim_supported_rate",
-          "label": "Claims supported by cited paper",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.9675,
-          "direct": 0.9537,
-          "difference": 0.0139,
-          "ci95": [
-            -0.0005,
-            0.0303
-          ],
-          "kg_better": 11,
-          "direct_better": 7,
-          "ties": 2,
-          "sign_test_p": 0.4807
-        },
-        {
-          "metric": "claim_error_rate",
-          "label": "Claims unsupported or contradicted",
-          "higher_is_better": false,
-          "n": 20,
-          "kg": 0.0,
-          "direct": 0.0,
-          "difference": 0.0,
-          "ci95": [
-            0.0,
-            0.0
-          ],
-          "kg_better": 0,
-          "direct_better": 0,
-          "ties": 20,
-          "sign_test_p": null
-        },
-        {
-          "metric": "gold_fact_coverage",
-          "label": "OMIM per-paper facts conveyed",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.409,
-          "direct": 0.4342,
-          "difference": -0.0251,
-          "ci95": [
-            -0.083,
-            0.0121
-          ],
-          "kg_better": 10,
-          "direct_better": 9,
-          "ties": 1,
-          "sign_test_p": 1.0
-        },
-        {
-          "metric": "hpo_exact_f1",
-          "label": "Clinical synopsis HPO F1, exact",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.2987,
-          "direct": 0.3236,
-          "difference": -0.0248,
-          "ci95": [
-            -0.0678,
-            0.0133
-          ],
-          "kg_better": 8,
+          "median_difference": 0.0,
+          "kg_better": 7,
           "direct_better": 9,
           "ties": 3,
-          "sign_test_p": 1.0
-        },
-        {
-          "metric": "hpo_hierarchical_f1",
-          "label": "Clinical synopsis HPO F1, hierarchical",
-          "higher_is_better": true,
-          "n": 20,
-          "kg": 0.5277,
-          "direct": 0.5525,
-          "difference": -0.0249,
-          "ci95": [
-            -0.0618,
-            0.0112
-          ],
-          "kg_better": 8,
-          "direct_better": 11,
-          "ties": 1,
-          "sign_test_p": 0.6476
+          "sign_test_p": 0.8036,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
-          "n": 20,
-          "kg": 0.4555,
-          "direct": 0.4555,
-          "difference": 0.0,
+          "n": 19,
+          "kg": 0.8116,
+          "direct": 0.8011,
+          "difference": 0.0105,
           "ci95": [
-            -0.1437,
-            0.15
+            0.0,
+            0.0316
           ],
-          "kg_better": 3,
-          "direct_better": 2,
-          "ties": 15,
-          "sign_test_p": 1.0
+          "median_difference": 0.0,
+          "kg_better": 1,
+          "direct_better": 0,
+          "ties": 18,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
           "label": "Causal gene F1",
           "higher_is_better": true,
           "n": 19,
-          "kg": 0.9649,
-          "direct": 0.9298,
-          "difference": 0.0351,
+          "kg": 1.0,
+          "direct": 1.0,
+          "difference": 0.0,
           "ci95": [
             0.0,
-            0.1053
+            0.0
           ],
-          "kg_better": 1,
+          "median_difference": 0.0,
+          "kg_better": 0,
           "direct_better": 0,
-          "ties": 18,
-          "sign_test_p": 1.0
+          "ties": 19,
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
           "label": "Inheritance matches OMIM",
           "higher_is_better": true,
-          "n": 20,
-          "kg": 0.95,
-          "direct": 0.9,
-          "difference": 0.05,
+          "n": 19,
+          "kg": 0.9474,
+          "direct": 0.9474,
+          "difference": 0.0,
           "ci95": [
             0.0,
-            0.15
+            0.0
           ],
-          "kg_better": 1,
+          "median_difference": 0.0,
+          "kg_better": 0,
           "direct_better": 0,
           "ties": 19,
-          "sign_test_p": 1.0
+          "sign_test_p": null,
+          "ci_unreliable": true
+        }
+      ]
+    },
+    "620000 onward": {
+      "n": 17,
+      "metrics": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 0.963,
+          "direct": 0.9692,
+          "difference": -0.0062,
+          "ci95": [
+            -0.0248,
+            0.0108
+          ],
+          "median_difference": -0.007,
+          "kg_better": 8,
+          "direct_better": 9,
+          "ties": 0,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "claim_error_rate",
+          "label": "Claims unsupported or contradicted",
+          "higher_is_better": false,
+          "n": 17,
+          "kg": 0.0,
+          "direct": 0.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "median_difference": 0.0,
+          "kg_better": 0,
+          "direct_better": 0,
+          "ties": 17,
+          "sign_test_p": null,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 0.5311,
+          "direct": 0.5549,
+          "difference": -0.0238,
+          "ci95": [
+            -0.0424,
+            -0.0064
+          ],
+          "median_difference": 0.0,
+          "kg_better": 6,
+          "direct_better": 8,
+          "ties": 3,
+          "sign_test_p": 0.7905,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 0.3407,
+          "direct": 0.3352,
+          "difference": 0.0055,
+          "ci95": [
+            -0.0269,
+            0.0397
+          ],
+          "median_difference": 0.0,
+          "kg_better": 8,
+          "direct_better": 8,
+          "ties": 1,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 0.5351,
+          "direct": 0.5294,
+          "difference": 0.0056,
+          "ci95": [
+            -0.0215,
+            0.0388
+          ],
+          "median_difference": 0.0,
+          "kg_better": 8,
+          "direct_better": 7,
+          "ties": 2,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 0.6118,
+          "direct": 0.6485,
+          "difference": -0.0368,
+          "ci95": [
+            -0.1029,
+            0.0
+          ],
+          "median_difference": 0.0,
+          "kg_better": 0,
+          "direct_better": 2,
+          "ties": 15,
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 1.0,
+          "direct": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "median_difference": 0.0,
+          "kg_better": 0,
+          "direct_better": 0,
+          "ties": 17,
+          "sign_test_p": null,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "n": 17,
+          "kg": 1.0,
+          "direct": 1.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "median_difference": 0.0,
+          "kg_better": 0,
+          "direct_better": 0,
+          "ties": 17,
+          "sign_test_p": null,
+          "ci_unreliable": true
+        }
+      ]
+    },
+    "classic (1xxxxx-5xxxxx)": {
+      "n": 19,
+      "metrics": [
+        {
+          "metric": "claim_supported_rate",
+          "label": "Claims supported by cited paper",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.9658,
+          "direct": 0.9533,
+          "difference": 0.0126,
+          "ci95": [
+            -0.0017,
+            0.0293
+          ],
+          "median_difference": 0.001,
+          "kg_better": 10,
+          "direct_better": 7,
+          "ties": 2,
+          "sign_test_p": 0.6291,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "claim_error_rate",
+          "label": "Claims unsupported or contradicted",
+          "higher_is_better": false,
+          "n": 19,
+          "kg": 0.0,
+          "direct": 0.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "median_difference": 0.0,
+          "kg_better": 0,
+          "direct_better": 0,
+          "ties": 19,
+          "sign_test_p": null,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "gold_fact_coverage",
+          "label": "OMIM per-paper facts conveyed",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.424,
+          "direct": 0.4242,
+          "difference": -0.0002,
+          "ci95": [
+            -0.0191,
+            0.0165
+          ],
+          "median_difference": 0.001,
+          "kg_better": 10,
+          "direct_better": 8,
+          "ties": 1,
+          "sign_test_p": 0.8145,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "hpo_exact_f1",
+          "label": "Clinical synopsis HPO F1, exact",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.3101,
+          "direct": 0.3304,
+          "difference": -0.0203,
+          "ci95": [
+            -0.0651,
+            0.0172
+          ],
+          "median_difference": 0.0,
+          "kg_better": 8,
+          "direct_better": 8,
+          "ties": 3,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "hpo_hierarchical_f1",
+          "label": "Clinical synopsis HPO F1, hierarchical",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.5278,
+          "direct": 0.5504,
+          "difference": -0.0226,
+          "ci95": [
+            -0.0616,
+            0.0146
+          ],
+          "median_difference": -0.007,
+          "kg_better": 8,
+          "direct_better": 10,
+          "ties": 1,
+          "sign_test_p": 0.8145,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "variant_recall",
+          "label": "OMIM allelic variants recovered",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.4795,
+          "direct": 0.4268,
+          "difference": 0.0526,
+          "ci95": [
+            -0.0263,
+            0.1711
+          ],
+          "median_difference": 0.0,
+          "kg_better": 3,
+          "direct_better": 1,
+          "ties": 15,
+          "sign_test_p": 0.625,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "gene_f1",
+          "label": "Causal gene F1",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.9123,
+          "direct": 0.8772,
+          "difference": 0.0351,
+          "ci95": [
+            0.0,
+            0.1053
+          ],
+          "median_difference": 0.0,
+          "kg_better": 1,
+          "direct_better": 0,
+          "ties": 18,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
+        },
+        {
+          "metric": "inheritance_match",
+          "label": "Inheritance matches OMIM",
+          "higher_is_better": true,
+          "n": 19,
+          "kg": 0.9474,
+          "direct": 0.8947,
+          "difference": 0.0526,
+          "ci95": [
+            0.0,
+            0.1579
+          ],
+          "median_difference": 0.0,
+          "kg_better": 1,
+          "direct_better": 0,
+          "ties": 18,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         }
       ]
     }
@@ -1020,13 +1352,15 @@
           "direct": 0.95,
           "difference": 0.0092,
           "ci95": [
-            -0.0051,
-            0.0257
+            -0.0056,
+            0.026
           ],
+          "median_difference": 0.0,
           "kg_better": 20,
           "direct_better": 21,
           "ties": 5,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "claim_error_rate",
@@ -1040,10 +1374,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 46,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "gold_fact_coverage",
@@ -1055,12 +1391,14 @@
           "difference": -0.0067,
           "ci95": [
             -0.0177,
-            0.0028
+            0.003
           ],
+          "median_difference": 0.0,
           "kg_better": 21,
           "direct_better": 21,
           "ties": 4,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_exact_f1",
@@ -1071,13 +1409,15 @@
           "direct": 0.2995,
           "difference": 0.0042,
           "ci95": [
-            -0.0246,
-            0.0327
+            -0.0252,
+            0.032
           ],
+          "median_difference": 0.0,
           "kg_better": 20,
           "direct_better": 15,
           "ties": 11,
-          "sign_test_p": 0.4996
+          "sign_test_p": 0.4996,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -1088,13 +1428,15 @@
           "direct": 0.5001,
           "difference": -0.0077,
           "ci95": [
-            -0.0273,
-            0.0093
+            -0.0266,
+            0.0094
           ],
+          "median_difference": 0.0,
           "kg_better": 19,
           "direct_better": 16,
           "ties": 11,
-          "sign_test_p": 0.7359
+          "sign_test_p": 0.7359,
+          "ci_unreliable": false
         },
         {
           "metric": "variant_recall",
@@ -1106,29 +1448,33 @@
           "difference": 0.0043,
           "ci95": [
             -0.0462,
-            0.0641
+            0.0625
           ],
+          "median_difference": 0.0,
           "kg_better": 4,
           "direct_better": 3,
           "ties": 39,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "gene_f1",
           "label": "Causal gene F1",
           "higher_is_better": true,
-          "n": 45,
-          "kg": 0.9852,
-          "direct": 0.9704,
-          "difference": 0.0148,
+          "n": 46,
+          "kg": 0.9638,
+          "direct": 0.9493,
+          "difference": 0.0145,
           "ci95": [
             0.0,
-            0.0445
+            0.0435
           ],
+          "median_difference": 0.0,
           "kg_better": 1,
           "direct_better": 0,
-          "ties": 44,
-          "sign_test_p": 1.0
+          "ties": 45,
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "inheritance_match",
@@ -1139,41 +1485,45 @@
           "direct": 0.913,
           "difference": -0.0217,
           "ci95": [
-            -0.087,
+            -0.1087,
             0.0435
           ],
+          "median_difference": 0.0,
           "kg_better": 1,
           "direct_better": 2,
           "ties": 43,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         }
       ]
     },
     "under half full text": {
-      "n": 27,
+      "n": 26,
       "metrics": [
         {
           "metric": "claim_supported_rate",
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.9731,
-          "direct": 0.9646,
-          "difference": 0.0084,
+          "n": 26,
+          "kg": 0.972,
+          "direct": 0.9647,
+          "difference": 0.0073,
           "ci95": [
-            -0.0014,
-            0.0176
+            -0.0026,
+            0.0166
           ],
-          "kg_better": 18,
+          "median_difference": 0.0105,
+          "kg_better": 17,
           "direct_better": 9,
           "ties": 0,
-          "sign_test_p": 0.1221
+          "sign_test_p": 0.1686,
+          "ci_unreliable": false
         },
         {
           "metric": "claim_error_rate",
           "label": "Claims unsupported or contradicted",
           "higher_is_better": false,
-          "n": 27,
+          "n": 26,
           "kg": 0.0,
           "direct": 0.0,
           "difference": 0.0,
@@ -1181,84 +1531,94 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 27,
-          "sign_test_p": null
+          "ties": 26,
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "gold_fact_coverage",
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.5449,
-          "direct": 0.5594,
-          "difference": -0.0145,
+          "n": 26,
+          "kg": 0.5611,
+          "direct": 0.5569,
+          "difference": 0.0042,
           "ci95": [
-            -0.0613,
-            0.0202
+            -0.0158,
+            0.0251
           ],
+          "median_difference": 0.009,
           "kg_better": 16,
-          "direct_better": 10,
+          "direct_better": 9,
           "ties": 1,
-          "sign_test_p": 0.3269
+          "sign_test_p": 0.2295,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_exact_f1",
           "label": "Clinical synopsis HPO F1, exact",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.3557,
-          "direct": 0.3932,
-          "difference": -0.0375,
+          "n": 26,
+          "kg": 0.3662,
+          "direct": 0.4008,
+          "difference": -0.0347,
           "ci95": [
-            -0.0629,
-            -0.013
+            -0.0604,
+            -0.0093
           ],
+          "median_difference": -0.0415,
           "kg_better": 7,
-          "direct_better": 18,
+          "direct_better": 17,
           "ties": 2,
-          "sign_test_p": 0.0433
+          "sign_test_p": 0.0639,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_hierarchical_f1",
           "label": "Clinical synopsis HPO F1, hierarchical",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.5866,
-          "direct": 0.6109,
-          "difference": -0.0243,
+          "n": 26,
+          "kg": 0.5889,
+          "direct": 0.6116,
+          "difference": -0.0227,
           "ci95": [
-            -0.0402,
-            -0.0085
+            -0.0391,
+            -0.0062
           ],
+          "median_difference": -0.0125,
           "kg_better": 7,
-          "direct_better": 19,
+          "direct_better": 18,
           "ties": 1,
-          "sign_test_p": 0.029
+          "sign_test_p": 0.0433,
+          "ci_unreliable": false
         },
         {
           "metric": "variant_recall",
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.7474,
-          "direct": 0.802,
-          "difference": -0.0546,
+          "n": 26,
+          "kg": 0.7762,
+          "direct": 0.7944,
+          "difference": -0.0182,
           "ci95": [
-            -0.136,
-            -0.0046
+            -0.0397,
+            0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
-          "direct_better": 4,
+          "direct_better": 3,
           "ties": 23,
-          "sign_test_p": 0.125
+          "sign_test_p": 0.25,
+          "ci_unreliable": false
         },
         {
           "metric": "gene_f1",
           "label": "Causal gene F1",
           "higher_is_better": true,
-          "n": 27,
+          "n": 26,
           "kg": 1.0,
           "direct": 1.0,
           "difference": 0.0,
@@ -1266,55 +1626,61 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 27,
-          "sign_test_p": null
+          "ties": 26,
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "inheritance_match",
           "label": "Inheritance matches OMIM",
           "higher_is_better": true,
-          "n": 27,
-          "kg": 0.9259,
-          "direct": 0.9259,
+          "n": 26,
+          "kg": 0.9231,
+          "direct": 0.9231,
           "difference": 0.0,
           "ci95": [
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 27,
-          "sign_test_p": null
+          "ties": 26,
+          "sign_test_p": null,
+          "ci_unreliable": false
         }
       ]
     },
     "half or more full text": {
-      "n": 22,
+      "n": 21,
       "metrics": [
         {
           "metric": "claim_supported_rate",
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
-          "n": 22,
-          "kg": 0.9689,
-          "direct": 0.9788,
-          "difference": -0.01,
+          "n": 21,
+          "kg": 0.9687,
+          "direct": 0.9789,
+          "difference": -0.0102,
           "ci95": [
-            -0.0185,
-            -0.0009
+            -0.0193,
+            -0.0011
           ],
+          "median_difference": -0.011,
           "kg_better": 6,
-          "direct_better": 15,
+          "direct_better": 14,
           "ties": 1,
-          "sign_test_p": 0.0784
+          "sign_test_p": 0.1153,
+          "ci_unreliable": false
         },
         {
           "metric": "claim_error_rate",
           "label": "Claims unsupported or contradicted",
           "higher_is_better": false,
-          "n": 22,
+          "n": 21,
           "kg": 0.0,
           "direct": 0.0,
           "difference": 0.0,
@@ -1322,84 +1688,94 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 22,
-          "sign_test_p": null
+          "ties": 21,
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "gold_fact_coverage",
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
-          "n": 22,
-          "kg": 0.6954,
-          "direct": 0.7369,
-          "difference": -0.0415,
+          "n": 21,
+          "kg": 0.7054,
+          "direct": 0.7325,
+          "difference": -0.0271,
           "ci95": [
-            -0.0791,
-            -0.0121
+            -0.0494,
+            -0.0062
           ],
+          "median_difference": -0.012,
           "kg_better": 6,
-          "direct_better": 14,
+          "direct_better": 13,
           "ties": 2,
-          "sign_test_p": 0.1153
+          "sign_test_p": 0.1671,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_exact_f1",
           "label": "Clinical synopsis HPO F1, exact",
           "higher_is_better": true,
-          "n": 22,
-          "kg": 0.3897,
-          "direct": 0.4111,
-          "difference": -0.0215,
+          "n": 21,
+          "kg": 0.3993,
+          "direct": 0.4201,
+          "difference": -0.0208,
           "ci95": [
-            -0.0611,
-            0.0209
+            -0.0619,
+            0.0224
           ],
+          "median_difference": -0.026,
           "kg_better": 7,
-          "direct_better": 14,
+          "direct_better": 13,
           "ties": 1,
-          "sign_test_p": 0.1892
+          "sign_test_p": 0.2632,
+          "ci_unreliable": false
         },
         {
           "metric": "hpo_hierarchical_f1",
           "label": "Clinical synopsis HPO F1, hierarchical",
           "higher_is_better": true,
-          "n": 22,
-          "kg": 0.5949,
-          "direct": 0.615,
-          "difference": -0.0202,
+          "n": 21,
+          "kg": 0.6063,
+          "direct": 0.6196,
+          "difference": -0.0132,
           "ci95": [
-            -0.059,
-            0.0188
+            -0.0515,
+            0.0244
           ],
+          "median_difference": 0.0,
           "kg_better": 10,
-          "direct_better": 11,
+          "direct_better": 10,
           "ties": 1,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": false
         },
         {
           "metric": "variant_recall",
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
-          "n": 22,
-          "kg": 0.8845,
-          "direct": 0.8943,
-          "difference": -0.0098,
+          "n": 21,
+          "kg": 0.879,
+          "direct": 0.8893,
+          "difference": -0.0103,
           "ci95": [
-            -0.0253,
+            -0.0265,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 2,
-          "ties": 20,
-          "sign_test_p": 0.5
+          "ties": 19,
+          "sign_test_p": 0.5,
+          "ci_unreliable": false
         },
         {
           "metric": "gene_f1",
           "label": "Causal gene F1",
           "higher_is_better": true,
-          "n": 22,
+          "n": 21,
           "kg": 1.0,
           "direct": 1.0,
           "difference": 0.0,
@@ -1407,16 +1783,18 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 22,
-          "sign_test_p": null
+          "ties": 21,
+          "sign_test_p": null,
+          "ci_unreliable": false
         },
         {
           "metric": "inheritance_match",
           "label": "Inheritance matches OMIM",
           "higher_is_better": true,
-          "n": 22,
+          "n": 21,
           "kg": 1.0,
           "direct": 1.0,
           "difference": 0.0,
@@ -1424,127 +1802,145 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 22,
-          "sign_test_p": null
+          "ties": 21,
+          "sign_test_p": null,
+          "ci_unreliable": false
         }
       ]
     },
     "all full text": {
-      "n": 2,
+      "n": 1,
       "metrics": [
         {
           "metric": "claim_supported_rate",
           "label": "Claims supported by cited paper",
           "higher_is_better": true,
-          "n": 2,
-          "kg": 0.992,
-          "direct": 0.9855,
-          "difference": 0.0065,
+          "n": 1,
+          "kg": 0.993,
+          "direct": 0.993,
+          "difference": 0.0,
           "ci95": null,
-          "kg_better": 1,
+          "median_difference": 0.0,
+          "kg_better": 0,
           "direct_better": 0,
           "ties": 1,
-          "sign_test_p": 1.0
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
           "label": "Claims unsupported or contradicted",
           "higher_is_better": false,
-          "n": 2,
+          "n": 1,
           "kg": 0.0,
           "direct": 0.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 2,
-          "sign_test_p": null
+          "ties": 1,
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
           "label": "OMIM per-paper facts conveyed",
           "higher_is_better": true,
-          "n": 2,
-          "kg": 0.5705,
-          "direct": 0.7775,
-          "difference": -0.207,
+          "n": 1,
+          "kg": 0.808,
+          "direct": 0.7,
+          "difference": 0.108,
           "ci95": null,
+          "median_difference": 0.108,
           "kg_better": 1,
-          "direct_better": 1,
+          "direct_better": 0,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
           "label": "Clinical synopsis HPO F1, exact",
           "higher_is_better": true,
-          "n": 2,
-          "kg": 0.4975,
-          "direct": 0.569,
-          "difference": -0.0715,
+          "n": 1,
+          "kg": 0.495,
+          "direct": 0.638,
+          "difference": -0.143,
           "ci95": null,
+          "median_difference": -0.143,
           "kg_better": 0,
           "direct_better": 1,
-          "ties": 1,
-          "sign_test_p": 1.0
+          "ties": 0,
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
           "label": "Clinical synopsis HPO F1, hierarchical",
           "higher_is_better": true,
-          "n": 2,
-          "kg": 0.699,
-          "direct": 0.7965,
-          "difference": -0.0975,
+          "n": 1,
+          "kg": 0.677,
+          "direct": 0.828,
+          "difference": -0.151,
           "ci95": null,
+          "median_difference": -0.151,
           "kg_better": 0,
-          "direct_better": 2,
+          "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 0.5
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
           "label": "OMIM allelic variants recovered",
           "higher_is_better": true,
-          "n": 2,
-          "kg": 0.75,
+          "n": 1,
+          "kg": 1.0,
           "direct": 1.0,
-          "difference": -0.25,
+          "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
-          "direct_better": 1,
+          "direct_better": 0,
           "ties": 1,
-          "sign_test_p": 1.0
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
           "label": "Causal gene F1",
           "higher_is_better": true,
-          "n": 2,
+          "n": 1,
           "kg": 1.0,
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 2,
-          "sign_test_p": null
+          "ties": 1,
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
           "label": "Inheritance matches OMIM",
           "higher_is_better": true,
-          "n": 2,
+          "n": 1,
           "kg": 1.0,
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
-          "ties": 2,
-          "sign_test_p": null
+          "ties": 1,
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     }
@@ -1552,38 +1948,20 @@
   "by_gold_text_content_level": {
     "abstract": {
       "kg": {
-        "n_facts": 3657,
-        "present": 1205,
-        "partial": 664,
+        "n_facts": 3645,
+        "present": 1204,
+        "partial": 660,
         "contradicted": 22,
-        "coverage": 0.4203,
+        "coverage": 0.4209,
         "contradiction_rate": 0.006
       },
       "direct": {
-        "n_facts": 3648,
-        "present": 1260,
-        "partial": 681,
+        "n_facts": 3636,
+        "present": 1257,
+        "partial": 678,
         "contradicted": 29,
-        "coverage": 0.4387,
-        "contradiction_rate": 0.0079
-      }
-    },
-    "fulltext": {
-      "kg": {
-        "n_facts": 1524,
-        "present": 1081,
-        "partial": 171,
-        "contradicted": 10,
-        "coverage": 0.7654,
-        "contradiction_rate": 0.0066
-      },
-      "direct": {
-        "n_facts": 1538,
-        "present": 1119,
-        "partial": 194,
-        "contradicted": 7,
-        "coverage": 0.7906,
-        "contradiction_rate": 0.0046
+        "coverage": 0.4389,
+        "contradiction_rate": 0.008
       }
     },
     "title": {
@@ -1602,6 +1980,24 @@
         "contradicted": 0,
         "coverage": 0.2311,
         "contradiction_rate": 0.0
+      }
+    },
+    "fulltext": {
+      "kg": {
+        "n_facts": 1415,
+        "present": 1044,
+        "partial": 160,
+        "contradicted": 8,
+        "coverage": 0.7943,
+        "contradiction_rate": 0.0057
+      },
+      "direct": {
+        "n_facts": 1419,
+        "present": 1028,
+        "partial": 176,
+        "contradicted": 5,
+        "coverage": 0.7865,
+        "contradiction_rate": 0.0035
       }
     }
   },

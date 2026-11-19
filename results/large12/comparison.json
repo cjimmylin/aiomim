@@ -1,6 +1,9 @@
 {
   "run": "large12",
   "n_entries": 11,
+  "left_out": [
+    "180300"
+  ],
   "overall": [
     {
       "metric": "claim_supported_rate",
@@ -14,10 +17,12 @@
         -0.0132,
         0.0002
       ],
+      "median_difference": -0.012,
       "kg_better": 2,
       "direct_better": 8,
       "ties": 1,
-      "sign_test_p": 0.1094
+      "sign_test_p": 0.1094,
+      "ci_unreliable": true
     },
     {
       "metric": "claim_error_rate",
@@ -31,10 +36,12 @@
         0.0,
         0.0008
       ],
+      "median_difference": 0.0,
       "kg_better": 0,
       "direct_better": 1,
       "ties": 10,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     },
     {
       "metric": "claim_error_rate_before_repair",
@@ -48,10 +55,50 @@
         -0.0021,
         0.0011
       ],
+      "median_difference": 0.0,
       "kg_better": 3,
       "direct_better": 3,
       "ties": 5,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "claim_unsupported_rate_before_repair",
+      "label": "\u2026 unsupported, before the repair round",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0014,
+      "direct": 0.0017,
+      "difference": -0.0003,
+      "ci95": [
+        -0.0018,
+        0.0012
+      ],
+      "median_difference": 0.0,
+      "kg_better": 3,
+      "direct_better": 3,
+      "ties": 5,
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "claim_contradicted_rate_before_repair",
+      "label": "\u2026 contradicted, before the repair round",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
     },
     {
       "metric": "gold_fact_coverage",
@@ -62,13 +109,15 @@
       "direct": 0.466,
       "difference": 0.0041,
       "ci95": [
-        -0.0296,
-        0.0365
+        -0.0285,
+        0.0369
       ],
+      "median_difference": 0.002,
       "kg_better": 6,
       "direct_better": 5,
       "ties": 0,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     },
     {
       "metric": "gold_fact_strict_coverage",
@@ -80,12 +129,14 @@
       "difference": 0.0009,
       "ci95": [
         -0.0366,
-        0.0365
+        0.0359
       ],
+      "median_difference": -0.001,
       "kg_better": 5,
       "direct_better": 6,
       "ties": 0,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     },
     {
       "metric": "gold_fact_contradiction_rate",
@@ -99,10 +150,12 @@
         -0.0027,
         0.0089
       ],
+      "median_difference": 0.0,
       "kg_better": 2,
       "direct_better": 2,
       "ties": 7,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     },
     {
       "metric": "hpo_exact_f1",
@@ -113,13 +166,15 @@
       "direct": 0.3315,
       "difference": -0.0437,
       "ci95": [
-        -0.0807,
-        -0.0042
+        -0.0803,
+        -0.0048
       ],
+      "median_difference": -0.055,
       "kg_better": 2,
       "direct_better": 8,
       "ties": 1,
-      "sign_test_p": 0.1094
+      "sign_test_p": 0.1094,
+      "ci_unreliable": true
     },
     {
       "metric": "hpo_exact_precision",
@@ -130,13 +185,15 @@
       "direct": 0.3492,
       "difference": -0.1265,
       "ci95": [
-        -0.1956,
-        -0.062
+        -0.1963,
+        -0.0622
       ],
+      "median_difference": -0.095,
       "kg_better": 2,
       "direct_better": 9,
       "ties": 0,
-      "sign_test_p": 0.0654
+      "sign_test_p": 0.0654,
+      "ci_unreliable": true
     },
     {
       "metric": "hpo_exact_recall",
@@ -147,13 +204,15 @@
       "direct": 0.4085,
       "difference": 0.1266,
       "ci95": [
-        0.0666,
-        0.1987
+        0.0651,
+        0.198
       ],
+      "median_difference": 0.12,
       "kg_better": 8,
       "direct_better": 0,
       "ties": 3,
-      "sign_test_p": 0.0078
+      "sign_test_p": 0.0078,
+      "ci_unreliable": true
     },
     {
       "metric": "hpo_hierarchical_f1",
@@ -164,13 +223,15 @@
       "direct": 0.5445,
       "difference": -0.0391,
       "ci95": [
-        -0.069,
-        -0.0065
+        -0.0692,
+        -0.0075
       ],
+      "median_difference": -0.052,
       "kg_better": 2,
       "direct_better": 9,
       "ties": 0,
-      "sign_test_p": 0.0654
+      "sign_test_p": 0.0654,
+      "ci_unreliable": true
     },
     {
       "metric": "hpo_semantic_f1",
@@ -181,13 +242,15 @@
       "direct": 0.6472,
       "difference": -0.0022,
       "ci95": [
-        -0.0262,
-        0.0231
+        -0.0265,
+        0.0232
       ],
+      "median_difference": 0.008,
       "kg_better": 6,
       "direct_better": 5,
       "ties": 0,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     },
     {
       "metric": "variant_recall",
@@ -198,13 +261,34 @@
       "direct": 0.5344,
       "difference": -0.0007,
       "ci95": [
-        -0.1198,
+        -0.119,
         0.0933
       ],
+      "median_difference": 0.0,
       "kg_better": 4,
       "direct_better": 2,
       "ties": 5,
-      "sign_test_p": 0.6875
+      "sign_test_p": 0.6875,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "variant_precision",
+      "label": "Generated variants that are OMIM variants (precision)",
+      "higher_is_better": true,
+      "n": 11,
+      "kg": 0.5116,
+      "direct": 0.6447,
+      "difference": -0.1331,
+      "ci95": [
+        -0.2148,
+        -0.0535
+      ],
+      "median_difference": -0.1691,
+      "kg_better": 0,
+      "direct_better": 6,
+      "ties": 5,
+      "sign_test_p": 0.0312,
+      "ci_unreliable": true
     },
     {
       "metric": "gene_f1",
@@ -218,10 +302,31 @@
         0.0,
         0.0
       ],
+      "median_difference": 0.0,
       "kg_better": 0,
       "direct_better": 0,
       "ties": 11,
-      "sign_test_p": null
+      "sign_test_p": null,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "gene_recall",
+      "label": "\u2026 recall",
+      "higher_is_better": true,
+      "n": 11,
+      "kg": 1.0,
+      "direct": 1.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
     },
     {
       "metric": "inheritance_match",
@@ -235,10 +340,88 @@
         0.0,
         0.0
       ],
+      "median_difference": 0.0,
       "kg_better": 0,
       "direct_better": 0,
       "ties": 11,
-      "sign_test_p": null
+      "sign_test_p": null,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "inheritance_error_none_stated",
+      "label": "Inheritance error: none stated",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "inheritance_error_mode_missing",
+      "label": "Inheritance error: a mode missing",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "inheritance_error_extra_mode",
+      "label": "Inheritance error: an extra mode",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
+    },
+    {
+      "metric": "inheritance_error_different_mode",
+      "label": "Inheritance error: a different mode",
+      "higher_is_better": false,
+      "n": 11,
+      "kg": 0.0,
+      "direct": 0.0,
+      "difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "median_difference": 0.0,
+      "kg_better": 0,
+      "direct_better": 0,
+      "ties": 11,
+      "sign_test_p": null,
+      "ci_unreliable": true
     },
     {
       "metric": "reference_recall",
@@ -250,12 +433,14 @@
       "difference": 0.0022,
       "ci95": [
         -0.0165,
-        0.0207
+        0.0206
       ],
+      "median_difference": 0.0,
       "kg_better": 3,
       "direct_better": 2,
       "ties": 6,
-      "sign_test_p": 1.0
+      "sign_test_p": 1.0,
+      "ci_unreliable": true
     }
   ],
   "pooled": {
@@ -269,6 +454,15 @@
         "supported_rate": 0.972,
         "error_rate": 0.0002
       },
+      "claims_before_repair": {
+        "n_claims": 4448,
+        "supported": 4319,
+        "partially_supported": 124,
+        "unsupported": 5,
+        "contradicted": 0,
+        "unsupported_rate": 0.0011,
+        "contradicted_rate": 0.0
+      },
       "gold_facts": {
         "n_facts": 1087,
         "present": 429,
@@ -277,6 +471,28 @@
         "contradicted": 6,
         "coverage": 0.4802,
         "contradiction_rate": 0.0055
+      },
+      "variants": {
+        "generated": 106,
+        "matched": 47,
+        "matched_scoped": 47,
+        "generated_scoped": 106,
+        "not_in_omim": 57,
+        "in_omim_via_other_paper": 2,
+        "precision": 0.4434
+      },
+      "inheritance": {
+        "scored": 11,
+        "match": 11,
+        "none_stated": 0,
+        "mode_missing": 0,
+        "extra_mode": 0,
+        "different_mode": 0
+      },
+      "empty_predictions": {
+        "genes": 0,
+        "synopsis": 0,
+        "variants": 0
       }
     },
     "direct": {
@@ -289,6 +505,15 @@
         "supported_rate": 0.9773,
         "error_rate": 0.0
       },
+      "claims_before_repair": {
+        "n_claims": 3292,
+        "supported": 3212,
+        "partially_supported": 76,
+        "unsupported": 4,
+        "contradicted": 0,
+        "unsupported_rate": 0.0012,
+        "contradicted_rate": 0.0
+      },
       "gold_facts": {
         "n_facts": 1089,
         "present": 420,
@@ -297,6 +522,28 @@
         "contradicted": 7,
         "coverage": 0.4692,
         "contradiction_rate": 0.0064
+      },
+      "variants": {
+        "generated": 68,
+        "matched": 44,
+        "matched_scoped": 44,
+        "generated_scoped": 68,
+        "not_in_omim": 22,
+        "in_omim_via_other_paper": 2,
+        "precision": 0.6471
+      },
+      "inheritance": {
+        "scored": 11,
+        "match": 11,
+        "none_stated": 0,
+        "mode_missing": 0,
+        "extra_mode": 0,
+        "different_mode": 0
+      },
+      "empty_predictions": {
+        "genes": 0,
+        "synopsis": 0,
+        "variants": 0
       }
     }
   },
@@ -313,10 +560,12 @@
           "direct": 0.971,
           "difference": -0.0025,
           "ci95": null,
+          "median_difference": -0.007,
           "kg_better": 1,
           "direct_better": 3,
           "ties": 0,
-          "sign_test_p": 0.625
+          "sign_test_p": 0.625,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -327,10 +576,12 @@
           "direct": 0.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 4,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -341,10 +592,12 @@
           "direct": 0.5463,
           "difference": 0.015,
           "ci95": null,
+          "median_difference": 0.0155,
           "kg_better": 3,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 0.625
+          "sign_test_p": 0.625,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -355,10 +608,12 @@
           "direct": 0.429,
           "difference": -0.1043,
           "ci95": null,
+          "median_difference": -0.1115,
           "kg_better": 0,
           "direct_better": 4,
           "ties": 0,
-          "sign_test_p": 0.125
+          "sign_test_p": 0.125,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -369,10 +624,12 @@
           "direct": 0.5968,
           "difference": -0.0815,
           "ci95": null,
+          "median_difference": -0.0845,
           "kg_better": 0,
           "direct_better": 4,
           "ties": 0,
-          "sign_test_p": 0.125
+          "sign_test_p": 0.125,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -383,10 +640,12 @@
           "direct": 0.753,
           "difference": 0.006,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 1,
           "direct_better": 1,
           "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -397,10 +656,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 4,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -411,10 +672,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 4,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     },
@@ -430,10 +693,12 @@
           "direct": 0.9823,
           "difference": -0.0063,
           "ci95": null,
+          "median_difference": -0.001,
           "kg_better": 0,
           "direct_better": 2,
           "ties": 1,
-          "sign_test_p": 0.5
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -444,10 +709,12 @@
           "direct": 0.0,
           "difference": 0.001,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -458,10 +725,12 @@
           "direct": 0.4277,
           "difference": 0.0273,
           "ci95": null,
+          "median_difference": -0.015,
           "kg_better": 1,
           "direct_better": 2,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -472,10 +741,12 @@
           "direct": 0.3927,
           "difference": -0.0633,
           "ci95": null,
+          "median_difference": -0.055,
           "kg_better": 0,
           "direct_better": 3,
           "ties": 0,
-          "sign_test_p": 0.25
+          "sign_test_p": 0.25,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -486,10 +757,12 @@
           "direct": 0.5863,
           "difference": 0.0073,
           "ci95": null,
+          "median_difference": -0.006,
           "kg_better": 1,
           "direct_better": 2,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -500,10 +773,12 @@
           "direct": 0.3417,
           "difference": 0.0417,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 1,
           "direct_better": 0,
           "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -514,10 +789,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -528,10 +805,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     },
@@ -547,10 +826,12 @@
           "direct": 0.976,
           "difference": -0.017,
           "ci95": null,
+          "median_difference": -0.017,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -561,10 +842,12 @@
           "direct": 0.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 1,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -575,10 +858,12 @@
           "direct": 0.524,
           "difference": -0.114,
           "ci95": null,
+          "median_difference": -0.114,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -589,10 +874,12 @@
           "direct": 0.043,
           "difference": 0.074,
           "ci95": null,
+          "median_difference": 0.074,
           "kg_better": 1,
           "direct_better": 0,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -603,10 +890,12 @@
           "direct": 0.289,
           "difference": -0.073,
           "ci95": null,
+          "median_difference": -0.073,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -617,10 +906,12 @@
           "direct": 0.75,
           "difference": -0.5,
           "ci95": null,
+          "median_difference": -0.5,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -631,10 +922,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 1,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -645,10 +938,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 1,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     },
@@ -664,10 +959,12 @@
           "direct": 0.9863,
           "difference": -0.0103,
           "ci95": null,
+          "median_difference": -0.012,
           "kg_better": 1,
           "direct_better": 2,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -678,10 +975,12 @@
           "direct": 0.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -692,10 +991,12 @@
           "direct": 0.378,
           "difference": 0.0057,
           "ci95": null,
+          "median_difference": 0.006,
           "kg_better": 2,
           "direct_better": 1,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -706,10 +1007,12 @@
           "direct": 0.2367,
           "difference": 0.0173,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 1,
           "direct_better": 1,
           "ties": 1,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -720,10 +1023,12 @@
           "direct": 0.5183,
           "difference": -0.0177,
           "ci95": null,
+          "median_difference": -0.016,
           "kg_better": 1,
           "direct_better": 2,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -734,10 +1039,12 @@
           "direct": 0.3637,
           "difference": 0.1143,
           "ci95": null,
+          "median_difference": 0.143,
           "kg_better": 2,
           "direct_better": 0,
           "ties": 1,
-          "sign_test_p": 0.5
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -748,10 +1055,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -762,10 +1071,12 @@
           "direct": 1.0,
           "difference": 0.0,
           "ci95": null,
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     }
@@ -786,10 +1097,12 @@
             -0.0156,
             0.0002
           ],
+          "median_difference": -0.001,
           "kg_better": 1,
           "direct_better": 3,
           "ties": 1,
-          "sign_test_p": 0.625
+          "sign_test_p": 0.625,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -803,10 +1116,12 @@
             0.0,
             0.0018
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 1,
           "ties": 4,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -820,10 +1135,12 @@
             -0.029,
             0.0618
           ],
+          "median_difference": -0.015,
           "kg_better": 2,
           "direct_better": 3,
           "ties": 0,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -837,10 +1154,12 @@
             -0.0678,
             0.0166
           ],
+          "median_difference": -0.041,
           "kg_better": 1,
           "direct_better": 3,
           "ties": 1,
-          "sign_test_p": 0.625
+          "sign_test_p": 0.625,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -852,12 +1171,14 @@
           "difference": -0.0178,
           "ci95": [
             -0.0602,
-            0.0168
+            0.0172
           ],
+          "median_difference": -0.008,
           "kg_better": 1,
           "direct_better": 4,
           "ties": 0,
-          "sign_test_p": 0.375
+          "sign_test_p": 0.375,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -871,10 +1192,12 @@
             0.0,
             0.1108
           ],
+          "median_difference": 0.0,
           "kg_better": 2,
           "direct_better": 0,
           "ties": 3,
-          "sign_test_p": 0.5
+          "sign_test_p": 0.5,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -888,10 +1211,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 5,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -905,10 +1230,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 5,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     },
@@ -925,12 +1252,14 @@
           "difference": -0.0065,
           "ci95": [
             -0.0148,
-            0.005
+            0.0048
           ],
+          "median_difference": -0.012,
           "kg_better": 1,
           "direct_better": 5,
           "ties": 0,
-          "sign_test_p": 0.2188
+          "sign_test_p": 0.2188,
+          "ci_unreliable": true
         },
         {
           "metric": "claim_error_rate",
@@ -944,10 +1273,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 6,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "gold_fact_coverage",
@@ -959,12 +1290,14 @@
           "difference": 0.0003,
           "ci95": [
             -0.0477,
-            0.0348
+            0.0367
           ],
+          "median_difference": 0.0155,
           "kg_better": 4,
           "direct_better": 2,
           "ties": 0,
-          "sign_test_p": 0.6875
+          "sign_test_p": 0.6875,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_exact_f1",
@@ -978,10 +1311,12 @@
             -0.1108,
             0.0042
           ],
+          "median_difference": -0.0845,
           "kg_better": 1,
           "direct_better": 5,
           "ties": 0,
-          "sign_test_p": 0.2188
+          "sign_test_p": 0.2188,
+          "ci_unreliable": true
         },
         {
           "metric": "hpo_hierarchical_f1",
@@ -993,12 +1328,14 @@
           "difference": -0.0568,
           "ci95": [
             -0.092,
-            -0.0078
+            -0.0085
           ],
+          "median_difference": -0.071,
           "kg_better": 1,
           "direct_better": 5,
           "ties": 0,
-          "sign_test_p": 0.2188
+          "sign_test_p": 0.2188,
+          "ci_unreliable": true
         },
         {
           "metric": "variant_recall",
@@ -1012,10 +1349,12 @@
             -0.246,
             0.1223
           ],
+          "median_difference": 0.0,
           "kg_better": 2,
           "direct_better": 2,
           "ties": 2,
-          "sign_test_p": 1.0
+          "sign_test_p": 1.0,
+          "ci_unreliable": true
         },
         {
           "metric": "gene_f1",
@@ -1029,10 +1368,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 6,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         },
         {
           "metric": "inheritance_match",
@@ -1046,10 +1387,12 @@
             0.0,
             0.0
           ],
+          "median_difference": 0.0,
           "kg_better": 0,
           "direct_better": 0,
           "ties": 6,
-          "sign_test_p": null
+          "sign_test_p": null,
+          "ci_unreliable": true
         }
       ]
     }

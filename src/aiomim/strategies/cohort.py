@@ -364,9 +364,11 @@ def _to_cases(paper: Paper, source: str, raw: XCases) -> PaperCases:
     return out
 
 
-def extract_cases(seed: Seed, papers: list[Paper], llm) -> list[PaperCases]:
+def extract_cases(seed: Seed, papers: list[Paper], llm, stage: str = "cases") -> list[PaperCases]:
+    """One case-extraction call per paper. `stage` picks the model and effort; the
+    matched ablations run the same prompts as "cases_matched", at the writer's effort."""
     built = [build_prompt(seed, p) for p in papers]
-    replies = llm.map("cases", CASES_SYSTEM, [b[0] for b in built], XCases)
+    replies = llm.map(stage, CASES_SYSTEM, [b[0] for b in built], XCases)
     out: list[PaperCases] = []
     for paper, (_, source, truncated), reply in zip(papers, built, replies):
         if isinstance(reply, Exception):
@@ -921,7 +923,10 @@ def _record_line(rec: CaseRecord, table: CaseTable) -> str:
     return "\n".join(lines)
 
 
-def cohort_context(table: CaseTable, inheritance: dict[str, Any]) -> str:
+def cohort_context(table: CaseTable, inheritance: dict[str, Any], call_inheritance: bool = True) -> str:
+    """The case table as the writer sees it. With `call_inheritance` false (the matched
+    ablations, where the writer chooses the mode), the rule's call is left out and its
+    per-record genotype tallies are shown as evidence only."""
     lines: list[str] = ["PAPERS"]
     for pmid in sorted(table.relevance, key=lambda p: ((table.papers[p].year or 9999) if p in table.papers else 9999, p)):
         if pmid not in table.papers or table.relevance[pmid] == "not_relevant":
@@ -939,8 +944,14 @@ def cohort_context(table: CaseTable, inheritance: dict[str, Any]) -> str:
                  f"{'; '.join(table.label(p) for p in s['pmids'])}" for g, s in table.genes.items())
     if not table.genes:
         lines.append("- none established")
-    lines.append("\nMODE OF INHERITANCE (computed from genotypes and stated family patterns, over all candidate genes)")
-    lines.append("- called: " + (", ".join(f"{m} ({INHERITANCE_HPO[m][1]})" for m in inheritance["chosen"]) or "none"))
+    if call_inheritance:
+        lines.append("\nMODE OF INHERITANCE (computed from genotypes and stated family patterns, over all candidate genes)")
+        lines.append("- called: " + (", ".join(f"{m} ({INHERITANCE_HPO[m][1]})" for m in inheritance["chosen"]) or "none"))
+    else:
+        lines.append("\nGENOTYPE PATTERNS (pooled records grouped by the mode their genotypes or stated family "
+                     "pattern suggest, over all candidate genes; evidence, not a call)")
+        if not inheritance["support"]:
+            lines.append("- none")
     for mode, s in inheritance["support"].items():
         lines.append(f"- {mode}: {s['individuals']} individuals in {len(s['records'])} records "
                      f"({'; '.join(f'{k}: {v}' for k, v in s['reasons'].items())})")

@@ -65,6 +65,26 @@ METRICS: list[tuple[str, str, str, bool]] = [
      "derived.inheritance_error_different_mode", False),
     ("reference_recall", "OMIM references used", "references.cited.recall", True),
 ]
+def _full_labels(metrics) -> dict[str, str]:
+    """'… precision' -> 'Clinical synopsis HPO F1, exact: precision', for tables where rows are reordered."""
+    out, parent = {}, ""
+    for key, label, *_ in metrics:
+        if label.startswith("…"):
+            out[key] = f"{parent}: {label.lstrip('… ').strip()}"
+        else:
+            parent = out[key] = label
+    return out
+
+
+FULL_LABELS = _full_labels(METRICS) | {
+    "claim_error_rate_before_repair": "Claims unsupported or contradicted, before the repair round",
+    "claim_unsupported_rate_before_repair": "Claims unsupported, before the repair round",
+    "claim_contradicted_rate_before_repair": "Claims contradicted, before the repair round",
+    "gold_fact_strict_coverage": "OMIM per-paper facts conveyed fully (no partial credit)",
+    "hpo_exact_precision": "Clinical synopsis HPO precision, exact",
+    "hpo_exact_recall": "Clinical synopsis HPO recall, exact",
+    "gene_recall": "Causal gene recall",
+}
 INHERITANCE_ERRORS = ("none_stated", "mode_missing", "extra_mode", "different_mode")
 PRIMARY = "gold_fact_coverage"
 SMALL_N = 20     # below this many entries a percentile bootstrap interval is unreliable
@@ -675,14 +695,44 @@ def _era_by_access(by_strategy: dict[str, list[dict]], strategies: list[str]) ->
     return out
 
 
+# Where no strategy has a draft for an entry, whether a measure has a gold set is read
+# from the stopped evaluation (which records the gold counts) or, for the synopsis, gold.json.
+_GOLD_INDICATOR = {
+    "claim_supported_rate": None,                     # needs no gold
+    "gold_fact_coverage": "gold_text.n_facts", "variant_recall": "variants.n_gold",
+    "gene_f1": "genes.n_gold", "inheritance_match": "inheritance.n_gold",
+}
+
+
+def _gold_defined(run_dir: Path | None, folder: str, metric: str) -> bool:
+    if run_dir is None:
+        return False
+    if metric in _GOLD_INDICATOR:
+        path = _GOLD_INDICATOR[metric]
+        if path is None:
+            return True
+        for eval_path in sorted((run_dir / folder).glob("eval.*.json")):
+            if (_get(json.loads(eval_path.read_text()), path) or 0) > 0:
+                return True
+        return False
+    if metric.startswith("hpo_"):
+        gold = run_dir / folder / "gold.json"
+        if gold.exists():
+            annotations = json.loads(gold.read_text()).get("hpo_annotations") or []
+            return any(a.get("aspect") == "P" and str(a.get("qualifier", "")).upper() != "NOT" for a in annotations)
+    return False
+
+
 def _intention_to_treat(evals: dict[str, dict[str, dict]], folders: list[str], baseline: str,
-                        rng: random.Random) -> dict[str, Any]:
+                        rng: random.Random, run_dir: Path | None = None) -> dict[str, Any]:
     """Headline measures over every entry: a missing draft counts as zero, incomplete drafts stay in.
 
     A missing draft scores 0 on a higher-is-better measure wherever that measure is
     defined for the entry (some other strategy has a value for it, so the gold
-    set exists). Lower-is-better measures cannot be zero-filled meaningfully (a
-    missing draft has no errors); they are averaged over the drafts that exist.
+    set exists; where no strategy drafted the entry, from the gold counts the stopped
+    evaluation records, or gold.json for the synopsis). Lower-is-better measures
+    cannot be zero-filled meaningfully (a missing draft has no errors); they are
+    averaged over the drafts that exist.
     """
     wanted = [m for m in METRICS if m[0] in HEADLINE]
     values: dict[str, dict[str, list[float | None]]] = {s: {} for s in evals}
@@ -694,7 +744,9 @@ def _intention_to_treat(evals: dict[str, dict[str, dict]], folders: list[str], b
                 if folder in evals[s]:
                     column.append(_get(evals[s][folder], path))
                     continue
-                defined = any(_get(other[folder], path) is not None for other in evals.values() if folder in other)
+                drafted = [other[folder] for other in evals.values() if folder in other]
+                defined = (any(_get(e, path) is not None for e in drafted) if drafted
+                           else _gold_defined(run_dir, folder, key))
                 column.append(0.0 if higher and defined else None)
             values[s][key] = column
     for s in evals:
@@ -814,7 +866,7 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
                             for s in evals if s != baseline},
         "intention_to_treat": _intention_to_treat(
             {s: {e: v for e, v in items.items() if e in set(all_folders)} for s, items in evals.items()},
-            all_folders, baseline, rng),
+            all_folders, baseline, rng, run_dir),
         "pooled": {s: _pooled(items) for s, items in by_strategy.items()},
         "by_content_level": levels,
         "by_content_level_vs_baseline": _level_differences(by_strategy, baseline, rng),
@@ -831,9 +883,10 @@ def _stopped_note(result: dict[str, Any]) -> str:
     labels = {s["name"]: s["label"] for s in result["strategies"]}
     all_stopped = sorted({e for v in result["stopped"].values() for e in v})
     per = "; ".join(f"{labels.get(s, s)} {len(v)}" for s, v in result["stopped"].items())
-    return (f"Left out: {len(all_stopped)} entries for which at least one strategy has no draft, because the model's "
+    return (f"No draft: {len(all_stopped)} entries for which at least one strategy wrote nothing, because the model's "
             f"safety filter stopped the writer's reply or the reply came back empty ({per}). "
-            f"Entries: {', '.join(all_stopped)}.")
+            f"Entries: {', '.join(all_stopped)}. They are left out of the comparison with the incomplete entries "
+            "listed under Completion.")
 
 
 def _completion_section(result: dict[str, Any], names: list[str], labels: dict[str, str]) -> list[str]:
@@ -949,9 +1002,10 @@ def strategies_markdown(result: dict[str, Any]) -> str:
         lines = ["| Metric | n | Strategy | Baseline | Mean diff | 95% CI | Median diff | Better / worse / tie | "
                  "Sign test p | Holm p |", "|---|---|---|---|---|---|---|---|---|---|"]
         for r in sorted(rows, key=lambda r: (not r.get("primary"), not r.get("headline"))):
+            label = FULL_LABELS.get(r["metric"], r["label"])
             ci = f"{_pp(r['ci95'][0])} to {_pp(r['ci95'][1])}" if r["ci95"] else "–"
             mark = " **(primary)**" if r.get("primary") else (" (headline)" if r.get("headline") else "")
-            lines.append(f"| {r['label']}{mark} {'↑' if r['higher_is_better'] else '↓'} | {r['n']} | {_pct(r['strategy'])} | "
+            lines.append(f"| {label}{mark} {'↑' if r['higher_is_better'] else '↓'} | {r['n']} | {_pct(r['strategy'])} | "
                          f"{_pct(r['baseline'])} | {_pp(r['difference'])} | {ci} | {_pp(r.get('median_difference'))} | "
                          f"{r['better']} / {r['worse']} / {r['ties']} | {_p(r['sign_test_p'])} | "
                          f"{_p(r.get('sign_test_p_holm')) if 'sign_test_p_holm' in r else '–'} |")
@@ -1097,7 +1151,8 @@ def strategies_markdown(result: dict[str, Any]) -> str:
             lines = ["| Paper readable as | " + " | ".join(eras) + " |", "|" + "---|" * (len(eras) + 1)]
             for level, cells in by_level.items():
                 lines.append(f"| {level} | " + " | ".join(
-                    (f"{_pct(cells[e]['coverage'])} ({cells[e]['n_facts']:,} facts, {cells[e]['n_entries']} entries)"
+                    (f"{_pct(cells[e]['coverage'])} ({cells[e]['n_facts']:,} facts, {cells[e]['n_entries']} "
+                     f"entr{'y' if cells[e]['n_entries'] == 1 else 'ies'})"
                      if e in cells else "–") for e in eras) + " |")
             out.append("\n".join(lines))
 

@@ -338,30 +338,86 @@ def check_run(source: str, run: str, mims: list[str] | None = None, limit: int |
                 log.exception("[%s] secondhand check failed", mim)
                 failures[mim] = f"{type(exc).__name__}: {exc}"
     results.sort(key=lambda r: r["mim"])
-    summary = pool_results(results)
+    summary = pool_results(results, fulltext_draft_missing(source_dir, [r["mim"] for r in results]))
     summary.update(source=source, run=run, failures=failures, usage=llm.usage.summary())
     _write(run_dir / "secondhand_check.json", summary)
     _write(run_dir / "secondhand_check.md", check_markdown(summary))
     return summary
 
 
-def pool_results(results: list[dict[str, Any]]) -> dict[str, Any]:
+def fulltext_draft_missing(source_dir: Path, mims: list[str]) -> list[str]:
+    """Entries whose full-text direct draft in the source run does not exist (writer stopped, or not scored).
+
+    Their "full text" coverage in `coverage.json` is the score of an empty draft, not
+    a measurement of full-text reading, so they must not be pooled as zeros.
+    """
+    missing = []
+    for mim in mims:
+        path = source_dir / mim / "eval.direct.json"
+        if not path.exists() or json.loads(path.read_text()).get("stopped"):
+            missing.append(mim)
+    return sorted(missing)
+
+
+def pool_results(results: list[dict[str, Any]], no_fulltext_draft: list[str] | None = None) -> dict[str, Any]:
+    """Pool the per-entry results.
+
+    Coverage is pooled, for all three conditions alike, only over entries that have
+    a full-text draft in the source run (`no_fulltext_draft` lists those that do
+    not), so the three rows compare the same paragraphs. Retrieval and the claim
+    audit do not depend on the full-text draft and are pooled over every entry.
+    """
     done = [r for r in results if "skipped" not in r]
+    left_out = sorted(set(no_fulltext_draft or []) & {r["mim"] for r in done})
+    with_full = [r for r in done if r["mim"] not in left_out]
     keys = ("hidden_with_citing", "hidden_with_open_access_citing", "hidden_with_passages", "hidden_passages",
             "hidden_chars", "papers_supplemented", "with_passages", "passages", "chars")
     retrieval = {k: sum(r["retrieval"].get(k, 0) for r in done) for k in keys}
     retrieval["hidden_papers"] = sum(len(r["hidden_papers"]) for r in done)
     retrieval["retrieval_seconds"] = round(sum(r["retrieval"].get("retrieval_seconds") or 0 for r in done), 1)
-    coverage = {}
-    for name in ("abstract", "secondhand", "fulltext"):
-        rows = [r["coverage"][name] for r in done if r["coverage"][name]["n_facts"]]
-        coverage[name] = _pool(rows) | {"paragraphs": sum(r["paragraphs"] for r in rows)}
-    same = [r["coverage_same_paragraphs"] for r in done]
+    def pooled(entries):
+        out = {}
+        for name in ("abstract", "secondhand", "fulltext"):
+            rows = [r["coverage"][name] for r in entries if r["coverage"][name]["n_facts"]]
+            out[name] = _pool(rows) | {"paragraphs": sum(r["paragraphs"] for r in rows)}
+        return out
+
+    coverage = pooled(with_full)
+    everything = pooled(done)
+    same = [r["coverage_same_paragraphs"] for r in with_full]
     claims: dict[str, Any] = {}
     for r in done:
         _add(claims, r["claims"])
     return {"n_entries": len(done), "entries": results, "retrieval": retrieval, "coverage": coverage,
+            "n_entries_coverage": len(with_full), "left_out_no_fulltext_draft": left_out,
+            # abstract and second-hand coverage over every entry, for reference (no full-text row: see above)
+            "coverage_all_entries": {k: everything[k] for k in ("abstract", "secondhand")},
             "coverage_same_paragraphs_n": sum(s["paragraphs"] for s in same), "claims": claims}
+
+
+def reaggregate(run: str, source: str | None = None) -> dict[str, Any]:
+    """Rebuild secondhand_check.json/.md from the per-entry result files, without any model call.
+
+    Reads runs/<run>/<mim>/secondhand_check/result.json and the source run's
+    eval.direct.json files; keeps the failures and usage recorded by the original run.
+    """
+    settings = get_settings()
+    run_dir = settings.runs / run
+    old_path = run_dir / "secondhand_check.json"
+    old = json.loads(old_path.read_text()) if old_path.exists() else {}
+    source = source or old.get("source")
+    if not source:
+        raise ValueError("name the source run: the old summary does not record it")
+    results = [json.loads(p.read_text()) for p in sorted(run_dir.glob("*/secondhand_check/result.json"))]
+    have = {r["mim"] for r in results}
+    results += [e for e in old.get("entries", []) if "skipped" in e and e["mim"] not in have]
+    results.sort(key=lambda r: r["mim"])
+    summary = pool_results(results, fulltext_draft_missing(settings.runs / source, [r["mim"] for r in results]))
+    summary.update(source=source, run=run, failures=old.get("failures", {}), usage=old.get("usage", {}),
+                   reaggregated_from_entry_files=True)
+    _write(run_dir / "secondhand_check.json", summary)
+    _write(run_dir / "secondhand_check.md", check_markdown(summary))
+    return summary
 
 
 def _pct(x) -> str:
@@ -388,6 +444,12 @@ def check_markdown(s: dict[str, Any]) -> str:
         "",
         "## OMIM-fact coverage of the gold paragraphs about the hidden papers",
         "",
+        f"Pooled over the {s.get('n_entries_coverage', s['n_entries'])} entries that have a full-text draft in the "
+        "source run, the same entries for all three conditions"
+        + (f"; left out: {len(s['left_out_no_fulltext_draft'])} entries whose full-text direct draft was not written "
+           f"(the writer's reply was stopped), so they have no full-text coverage to compare: "
+           f"{', '.join(s['left_out_no_fulltext_draft'])}" if s.get("left_out_no_fulltext_draft") else "") + ".",
+        "",
         "| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage |",
         "|---|---|---|---|---|---|---|---|",
     ]
@@ -397,6 +459,11 @@ def check_markdown(s: dict[str, Any]) -> str:
         x = c[name]
         lines.append(f"| {names[name]} | {x['paragraphs']} | {x['n_facts']} | {x['present']} | {x['partial']} | "
                      f"{x['absent']} | {x['contradicted']} | {_pct(x['coverage'])} |")
+    if s.get("left_out_no_fulltext_draft") and s.get("coverage_all_entries"):
+        a = s["coverage_all_entries"]
+        lines += ["", f"Over all {s['n_entries']} entries the two new conditions convey "
+                  f"{_pct(a['abstract']['coverage'])} (abstract only, {a['abstract']['n_facts']} facts) and "
+                  f"{_pct(a['secondhand']['coverage'])} (abstract + second-hand, {a['secondhand']['n_facts']} facts)."]
     lines += ["", "Facts are split from the gold paragraph separately for each condition, so the fact counts "
               "differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.",
               "", "## Claims about the hidden papers in the second-hand draft", "",
@@ -437,14 +504,16 @@ def check_markdown(s: dict[str, Any]) -> str:
               "| MIM | Hidden | With passages | Gold paragraphs | Abstract | Second-hand | Full text | "
               "Claims | On second-hand | of which not supported by full text |",
               "|---|---|---|---|---|---|---|---|---|---|"]
+    no_full = set(s.get("left_out_no_fulltext_draft") or [])
     for e in s["entries"]:
         if "skipped" in e:
             continue
+        full = "no draft" if e["mim"] in no_full else _pct(e['coverage']['fulltext']['coverage'])
         sec = e["claims"]["by_evidence_location"].get("secondhand", {"n": 0, "against_full_text": {}})
         bad = sum(sec["against_full_text"].get(v, 0) for v in ("unsupported", "contradicted"))
         lines.append(f"| {e['mim']} | {len(e['hidden_papers'])} | {e['retrieval']['hidden_with_passages']} | "
                      f"{e['gold_paragraphs']} | {_pct(e['coverage']['abstract']['coverage'])} | "
-                     f"{_pct(e['coverage']['secondhand']['coverage'])} | {_pct(e['coverage']['fulltext']['coverage'])} | "
+                     f"{_pct(e['coverage']['secondhand']['coverage'])} | {full} | "
                      f"{e['claims']['n_claims']} | {sec['n']} | {bad} |")
     if s.get("failures"):
         lines += ["", f"Failed: {s['failures']}"]
@@ -520,3 +589,14 @@ def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4
     return {"entries": len(mims), "failures": failures, "seconds": round(time.time() - started, 1),
             "total": yield_of(records),
             "by_content_level": {lv: yield_of([r for r in records if r["content_level"] == lv]) for lv in levels}}
+
+
+if __name__ == "__main__":
+    # python -m aiomim.secondhand reaggregate <run> [<source run>]: re-pool from the per-entry files; no model calls.
+    import sys
+
+    if len(sys.argv) >= 3 and sys.argv[1] == "reaggregate":
+        reaggregate(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+        print((get_settings().runs / sys.argv[2] / "secondhand_check.md").read_text())
+    else:
+        sys.exit("usage: python -m aiomim.secondhand reaggregate <run> [<source run>]")

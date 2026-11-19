@@ -108,6 +108,38 @@ def test_omim_variant_names():
     assert omim_variant_name("MT-ND1", ["m.3697G>A"]) == "MTND1, 3697G-A"
 
 
+def test_protein_key_keeps_frameshifts_apart_from_missense():
+    # The bug: a frameshift was reduced to the missense change at the same residue.
+    for text in ("Glu296LysfsTer12", "p.Glu296Lysfs*6", "GLU296LYSFSTER12", "E296KfsX12", "p.(Glu296LysfsTer12)"):
+        assert protein_key(text) == "p.E296Kfs", text
+    assert protein_key("p.(Pro216Argfs*14)") == "p.P216Rfs"
+    assert protein_key("p.Glu296Lysfs*6") != protein_key("p.Glu296Lys") == "p.E296K"
+    assert protein_key("R123fs") == protein_key("ARG123FS") == "p.R123fs"
+    # nonsense, missense, extension, delins and in-frame deletions keep their kind
+    assert protein_key("p.Arg123Ter") == protein_key("p.Arg123*") == protein_key("R123X") == "p.R123*"
+    assert protein_key("p.Gly131Ser") == "p.G131S"
+    assert protein_key("p.Ter110GlnextTer17") == "p.*110Qext"
+    assert protein_key("p.Met1ext-5") == "p.M1ext"
+    assert protein_key("p.Cys28delinsTrpVal") == "p.C28delinsWV"
+    assert protein_key("p.Cys28delinsTrpVal") != protein_key("p.Cys28del") == "p.C28del"
+    assert protein_key("p.Lys2_Met3del") == "p.K2_M3del"
+    assert protein_key("p.Phe508del") == "p.F508del"
+
+
+def test_frameshift_names_and_keys():
+    keys = variant_keys(VariantMention(gene="PNPLA8", as_reported="p.Glu296Lysfs*6"))
+    assert keys == {"p.E296Kfs", "p.E296fs"} and "p.E296K" not in keys
+    assert omim_variant_name("PNPLA8", keys) == "PNPLA8, GLU296LYSFS"
+    assert omim_variant_name("TYK2", ["p.P216fs"]) == "TYK2, PRO216FS"
+    assert omim_variant_name("X", ["p.R123*"]) == "X, ARG123TER"
+    assert omim_variant_name("X", ["p.*110Qext"]) == "X, TER110GLNEXT"
+    assert omim_variant_name("X", ["p.C28delinsWV"]) == "X, CYS28DELINSTRPVAL"
+    # a missense change at the same residue is a different variant: it must not merge or match
+    assert "E296K" not in _variant_keys(["PNPLA8, GLU296LYSFSTER12"], "PNPLA8")
+    assert "E296Kfs" in _variant_keys(["PNPLA8, GLU296LYSFSTER12"], "PNPLA8")
+    assert not (_variant_keys(["p.Glu296Lys"], "PNPLA8") & _variant_keys(["p.Glu296Lysfs*6"], "PNPLA8"))
+
+
 # --------------------------------------------------------------------------- #
 # Knowledge graph
 # --------------------------------------------------------------------------- #

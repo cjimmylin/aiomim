@@ -127,7 +127,7 @@ def test_comparison_leaves_stopped_entries_out(tmp_path):
     result = compare.compare_strategies(run)
     # Both strategies are compared on the one entry both of them wrote.
     assert result["n_entries"] == 1 and result["stopped"] == {"direct": ["100002"]}
-    assert "Left out: 1 entries" in compare.strategies_markdown(result)
+    assert "No draft: 1 entries" in compare.strategies_markdown(result)
 
 
 def test_run_summary_lists_stopped_entries_apart(tmp_path, monkeypatch):

@@ -50,6 +50,10 @@ class RunConfig:
     # gene is withheld and must be recovered from the literature. Open retrieval
     # needs the gene to search with, as a curator starting a new entry would have it.
     blind_gene: bool | None = None
+    # Score against frozen per-paragraph fact lists as well (aiomim.facts), and
+    # optionally against the whole draft rather than the text citing each paper.
+    frozen_facts: bool = True
+    frozen_whole: bool = False
 
     def gene_is_blind(self) -> bool:
         return self.retrieval == "oracle" if self.blind_gene is None else self.blind_gene
@@ -183,9 +187,25 @@ def run_entry(mim: str, cfg: RunConfig) -> dict[str, Any]:
         # judge still needs to know how much of them was readable.
         by_pmid = {p.pmid: p for p in papers}
         offered = [p.pmid for p in papers]
+        records = None
+        if cfg.frozen_facts and gold.scoped_paragraphs:
+            from .facts import frozen_facts, write_gold_facts
+
+            _phase(llm, "score")
+            records = frozen_facts(gold.scoped_paragraphs, llm)
+            write_gold_facts(out_dir, gold.mim, records, gold.scoped_paragraphs)
         for strategy, entry in entries.items():
             _phase(llms[strategy], "score")
             evaluation = evaluate_entry(entry, gold, by_pmid, llms[strategy], offered_pmids=offered)
+            if cfg.frozen_facts and not entry.meta.get("stopped"):
+                from .facts import eval_gold_text_frozen
+
+                levels = {p.pmid: p.content_level for p in papers}
+                evaluation["gold_text_frozen"] = eval_gold_text_frozen(
+                    entry, gold, levels, llms[strategy], records=records)
+                if cfg.frozen_whole:
+                    evaluation["gold_text_frozen_whole"] = eval_gold_text_frozen(
+                        entry, gold, levels, llms[strategy], whole=True, records=records)
             evaluation["retrieval"] = cfg.retrieval
             if entry.meta.get("stopped"):
                 # Scored like any entry so the file has the usual shape, but marked:
@@ -306,6 +326,8 @@ def _entry_row(e: dict[str, Any]) -> dict[str, Any]:
         "variant_recall": e["variants"]["recall"],
         "gold_facts": g.get("n_facts"), "gold_fact_coverage": g.get("coverage"),
         "gold_fact_contradicted": g.get("contradicted"),
+        "gold_facts_frozen": (e.get("gold_text_frozen") or {}).get("n_facts"),
+        "gold_fact_coverage_frozen": (e.get("gold_text_frozen") or {}).get("coverage"),
         "claims": e["faithfulness"]["n_claims"],
         "claim_supported_rate": e["faithfulness"]["supported_rate"],
         "claim_error_rate": e["faithfulness"]["error_rate"],

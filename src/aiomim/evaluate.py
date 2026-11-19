@@ -495,6 +495,11 @@ def summarize(evals: list[dict[str, Any]]) -> dict[str, Any]:
         "gold_fact_coverage": _mean(pick("gold_text.coverage")),
         "gold_fact_strict_coverage": _mean(pick("gold_text.strict_coverage")),
         "gold_fact_contradiction_rate": _mean(pick("gold_text.contradiction_rate")),
+        # The same against frozen fact lists (aiomim.facts), where present.
+        "gold_fact_coverage_frozen": _mean(pick("gold_text_frozen.coverage")),
+        "gold_fact_strict_coverage_frozen": _mean(pick("gold_text_frozen.strict_coverage")),
+        "gold_fact_contradiction_rate_frozen": _mean(pick("gold_text_frozen.contradiction_rate")),
+        "gold_fact_coverage_frozen_whole": _mean(pick("gold_text_frozen_whole.coverage")),
         "omim_text_coverage": _mean(pick("omim_text.coverage")),
         "claim_supported_rate": _mean(pick("faithfulness.supported_rate")),
         "claim_error_rate": _mean(pick("faithfulness.error_rate")),

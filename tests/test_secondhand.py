@@ -10,6 +10,7 @@ import json
 import sys
 import types
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -440,3 +441,32 @@ def test_naming_a_citing_paper_in_the_text_is_recorded():
     entry = GeneratedEntry(title="X", meta={"unknown_citations": ["Lee (2018)", "Nobody et al. (1990)"]})
     papers = [TARGET.model_copy(update={"secondhand": [PASSAGE.model_copy(update={"citing_label": "Lee (2018)"})]})]
     assert sh.named_citing_papers(entry, papers) == ["Lee (2018)"]
+
+
+def test_entries_without_a_full_text_draft_are_not_pooled_as_zero(tmp_path, monkeypatch):
+    from aiomim import secondhand
+
+    def entry(mim, full_present):
+        cov = lambda present: {"paragraphs": 1, "n_facts": 10, "present": present, "partial": 0,  # noqa: E731
+                               "absent": 10 - present, "contradicted": 0, "coverage": present / 10}
+        return {"mim": mim, "title": "T", "hidden_papers": ["1"], "gold_paragraphs": 1,
+                "retrieval": {"hidden_with_passages": 1}, "claims": {"n_claims": 0, "by_evidence_location": {}},
+                "coverage": {"abstract": cov(4), "secondhand": cov(5), "fulltext": cov(full_present)},
+                "coverage_same_paragraphs": {"paragraphs": 1}}
+
+    runs = tmp_path / "runs"
+    for mim, stopped in (("100001", False), ("100002", True)):
+        (runs / "src" / mim).mkdir(parents=True)
+        (runs / "src" / mim / "eval.direct.json").write_text(json.dumps({"stopped": "safety"} if stopped else {}))
+        (runs / "chk" / mim / "secondhand_check").mkdir(parents=True)
+        (runs / "chk" / mim / "secondhand_check" / "result.json").write_text(json.dumps(entry(mim, 0 if stopped else 8)))
+    (runs / "chk" / "secondhand_check.json").write_text(json.dumps({"source": "src", "usage": {"calls": 3}}))
+    monkeypatch.setattr(secondhand, "get_settings", lambda: SimpleNamespace(runs=runs))
+
+    summary = secondhand.reaggregate("chk")
+    assert summary["left_out_no_fulltext_draft"] == ["100002"] and summary["n_entries_coverage"] == 1
+    assert summary["coverage"]["fulltext"]["coverage"] == 0.8          # not (8 + 0) / 20
+    assert summary["coverage"]["abstract"]["n_facts"] == 10             # the same entries for every condition
+    assert summary["coverage_all_entries"]["abstract"]["n_facts"] == 20 and summary["usage"] == {"calls": 3}
+    md = (runs / "chk" / "secondhand_check.md").read_text()
+    assert "left out: 1 entries whose full-text direct draft was not written" in md and "| no draft |" in md

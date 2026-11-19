@@ -180,3 +180,168 @@ def test_all_strategies_side_by_side(tmp_path):
     text = strategies_markdown(result)
     assert "| Metric | Evidence graph | Direct reading | Agentic curator |" in text
     assert "| Generation: list price | $0.50 | $1.50 |" in text
+
+
+# --------------------------------------------------------------------------- #
+# Completion, empty predictions, new measures and statistics (review, section 2)
+# --------------------------------------------------------------------------- #
+
+
+def _full_eval(mim, coverage, *, genes_predicted=("GENE1",), inh_predicted=("AD",), inh_gold=("AD",),
+               n_generated=2, n_matched=1, not_in_omim=("X, NEW1",), before=(10, 1, 1)):
+    ev = _eval(mim, 95, coverage, 0.5, {"fulltext": 1, "abstract": 1})
+    ev["genes"] = {"f1": 1.0 if genes_predicted else None, "recall": 1.0 if genes_predicted else 0.0,
+                   "precision": 1.0 if genes_predicted else None,
+                   "n_predicted": len(genes_predicted), "n_gold": 1, "predicted": list(genes_predicted), "gold": ["GENE1"]}
+    ev["synopsis"]["exact"].update(n_predicted=3, n_gold=4)
+    ev["variants"] = {"recall": n_matched / 2, "n_gold": 2, "n_generated": n_generated, "n_matched": n_matched,
+                      "not_in_omim": list(not_in_omim), "in_omim_via_other_paper": []}
+    ev["inheritance"] = {"predicted": list(inh_predicted), "gold": list(inh_gold),
+                         "match": sorted(inh_predicted) == sorted(inh_gold)}
+    n, unsupported, contradicted = before
+    ev["faithfulness"]["before_repair"] = {"n_claims": n, "unsupported": unsupported, "contradicted": contradicted,
+                                           "error_rate": (unsupported + contradicted) / n}
+    return ev
+
+
+def _completion_run(tmp_path):
+    run = tmp_path / "run"
+    mims = [f"6100{i:02d}" for i in range(8)]
+    for i, mim in enumerate(mims):
+        d = run / mim
+        d.mkdir(parents=True)
+        (d / "eval.direct.json").write_text(json.dumps(_full_eval(mim, 0.6)))
+        (d / "eval.kg.json").write_text(json.dumps(_full_eval(mim, 0.5 + 0.01 * i)))
+        (d / "eval.cohort.json").write_text(json.dumps(_full_eval(mim, 0.5)))
+        (d / "eval.reconciled.json").write_text(json.dumps(_full_eval(mim, 0.5)))
+        (d / "entry.kg.json").write_text(json.dumps({"meta": {"extraction": {"papers_failed": []}}}))
+        (d / "entry.cohort.json").write_text(json.dumps({"meta": {"cohort": {"papers_failed": []}}}))
+        (d / "entry.reconciled.json").write_text(json.dumps({"meta": {"reconciled": {}}}))   # nothing recorded
+    # 610000: one paper's extraction failed in the graph; the entry is still scored, very low
+    (run / "610000" / "entry.kg.json").write_text(json.dumps({"meta": {"extraction": {"papers_failed": ["111"]}}}))
+    (run / "610000" / "eval.kg.json").write_text(json.dumps(_full_eval("610000", 0.0)))
+    # 610001: the case extraction failed; reconciled has no record and inherits the case table's
+    (run / "610001" / "entry.cohort.json").write_text(json.dumps({"meta": {"cohort": {"papers_failed": ["222"]}}}))
+    # 610002: direct reading was stopped
+    (run / "610002" / "eval.direct.json").write_text(json.dumps({"mim": "610002", "stopped": "safety filter"}))
+    return run
+
+
+def test_completion_is_the_same_rule_for_every_strategy(tmp_path):
+    from aiomim.compare import compare_strategies, completion_status, strategies_markdown
+
+    run = _completion_run(tmp_path)
+    status = completion_status(run)
+    assert status["kg"]["610000"] == {"status": "incomplete", "papers_failed": ["111"], "source": "entry.kg.json"}
+    assert status["cohort"]["610001"]["status"] == "incomplete"
+    assert status["reconciled"]["610001"]["status"] == "incomplete"
+    assert "cohort" in status["reconciled"]["610001"]["source"]
+    assert status["direct"]["610002"]["status"] == "no_draft"
+
+    result = compare_strategies(run, baseline="direct")
+    assert result["n_entries"] == 5 and result["left_out"] == ["610000", "610001", "610002"]
+    assert result["completion"]["kg"]["incomplete"] == {"610000": ["111"]}
+    assert result["completion"]["direct"]["no_draft"] == ["610002"]
+    assert result["stopped"] == {"direct": ["610002"]}               # the existing field is kept
+    coverage = next(r for r in result["versus_baseline"]["kg"] if r["metric"] == "gold_fact_coverage")
+    assert coverage["n"] == 5 and coverage["difference"] == round(sum(0.5 + 0.01 * i - 0.6 for i in range(3, 8)) / 5, 4)
+
+    # intention to treat: all 8 entries, the incomplete one kept, the missing draft counted as 0
+    itt = result["intention_to_treat"]
+    assert itt["n_entries"] == 8 and itt["missing_drafts_counted_as_zero"]["direct"] == 1
+    means = next(r for r in itt["means"] if r["metric"] == "gold_fact_coverage")
+    assert means["n"] == {"direct": 8, "kg": 8, "cohort": 8, "reconciled": 8}
+    assert means["values"]["direct"] == round(0.6 * 7 / 8, 4)
+    assert means["values"]["kg"] == round((0.0 + sum(0.5 + 0.01 * i for i in range(1, 8))) / 8, 4)
+    text = strategies_markdown(result)
+    assert "## Completion" in text and "| Evidence graph | 7 | 1: 610000 (1 paper) | 0 |" in text
+    assert "intention to treat" in text
+
+
+def test_empty_prediction_counts_as_zero(tmp_path):
+    from aiomim.compare import compare_strategies, prepare_eval, strategies_markdown
+
+    ev = prepare_eval(_full_eval("610000", 0.5, genes_predicted=()))
+    assert ev["genes"]["f1"] == 0.0 and ev["genes"]["recall"] == 0.0 and ev["genes"]["precision"] is None
+    assert ev["derived"]["empty_prediction"] == ["genes"]
+    syn = _full_eval("610000", 0.5)
+    syn["synopsis"] = {"exact": {"f1": None, "precision": None, "recall": 0.0, "n_predicted": 0, "n_gold": 4},
+                       "hierarchical": {"f1": None, "recall": 0.0, "n_predicted": 0, "n_gold": 9},
+                       "semantic": {"f1": None, "precision": None, "recall": None}}
+    syn = prepare_eval(syn)
+    assert [syn["synopsis"][k]["f1"] for k in ("exact", "hierarchical", "semantic")] == [0.0, 0.0, 0.0]
+    assert syn["synopsis"]["semantic"]["recall"] == 0.0 and syn["synopsis"]["exact"]["precision"] is None
+    # an empty gold set leaves the entry undefined, as before
+    no_gold = _full_eval("610000", 0.5, genes_predicted=())
+    no_gold["genes"]["n_gold"] = 0
+    no_gold["genes"]["recall"] = None
+    assert prepare_eval(no_gold)["genes"]["f1"] is None
+
+    run = tmp_path / "run"
+    for i in range(6):
+        d = run / f"61000{i}"
+        d.mkdir(parents=True)
+        (d / "eval.direct.json").write_text(json.dumps(_full_eval(d.name, 0.6)))
+        (d / "eval.closedbook.json").write_text(json.dumps(_full_eval(d.name, 0.2, genes_predicted=() if i < 2 else ("GENE1",))))
+    result = compare_strategies(run, baseline="direct")
+    gene = next(r for r in result["means"] if r["metric"] == "gene_f1")
+    assert gene["values"]["closedbook"] == round(4 / 6, 4) and gene["n"]["closedbook"] == 6
+    assert result["pooled"]["closedbook"]["empty_predictions"]["genes"] == 2
+    # nothing on disk changed
+    assert json.loads((run / "610000" / "eval.closedbook.json").read_text())["genes"]["f1"] is None
+    text = strategies_markdown(result)
+    assert "Empty predictions count as zero" in text and "Memory only (control): genes 2" in text
+
+
+def test_variant_precision_inheritance_errors_and_claims_before_repair(tmp_path):
+    from aiomim.compare import compare_strategies, prepare_eval, strategies_markdown
+
+    ev = prepare_eval(_full_eval("610000", 0.5, n_generated=4, n_matched=1, not_in_omim=("A", "B", "C"),
+                                 before=(20, 3, 1)))
+    d = ev["derived"]
+    assert d["variant_precision"] == 0.25 and d["variants_not_in_omim"] == 3
+    assert d["claim_unsupported_rate_before_repair"] == 0.15 and d["claim_contradicted_rate_before_repair"] == 0.05
+    kinds = {
+        ((), ("AD",)): "none_stated", (("AD",), ("AD", "AR")): "mode_missing",
+        (("AD", "AR"), ("AD",)): "extra_mode", (("AR",), ("AD",)): "different_mode", (("AD",), ("AD",)): None,
+    }
+    for (pred, gold), kind in kinds.items():
+        got = prepare_eval(_full_eval("610000", 0.5, inh_predicted=pred, inh_gold=gold))["derived"]
+        assert got["inheritance_error"] == kind
+        assert sum(got[f"inheritance_error_{k}"] for k in ("none_stated", "mode_missing", "extra_mode", "different_mode")) == (kind is not None)
+    assert prepare_eval(_full_eval("610000", 0.5, inh_gold=()))["derived"]["inheritance_error_none_stated"] is None
+
+    run = tmp_path / "run"
+    for i in range(6):
+        folder = run / f"61000{i}"
+        folder.mkdir(parents=True)
+        (folder / "eval.direct.json").write_text(json.dumps(_full_eval(folder.name, 0.6)))
+        (folder / "eval.kg.json").write_text(json.dumps(_full_eval(folder.name, 0.6, n_generated=4, n_matched=1,
+                                                                   not_in_omim=("A", "B", "C"), inh_predicted=())))
+    result = compare_strategies(run, baseline="direct")
+    pooled = result["pooled"]["kg"]
+    assert pooled["variants"]["not_in_omim"] == 18 and pooled["variants"]["precision"] == 0.25
+    assert pooled["inheritance"]["none_stated"] == 6
+    precision = next(r for r in result["means"] if r["metric"] == "variant_precision")
+    assert precision["values"] == {"kg": 0.25, "direct": 0.5}
+    text = strategies_markdown(result)
+    assert "## Allelic variants: precision and variants not in OMIM" in text
+    assert "| … none stated | 6 | 0 |" in text
+    assert "… unsupported, before the repair round" in text and "… contradicted, before the repair round" in text
+
+
+def test_paired_statistics_holm_and_small_samples(tmp_path):
+    from aiomim.compare import _holm, compare_strategies, strategies_markdown
+
+    assert _holm({"a": 0.01, "b": 0.04, "c": 0.03}) == {"a": 0.03, "c": 0.06, "b": 0.06}
+    result = compare_strategies(_completion_run(tmp_path), baseline="direct")
+    rows = {r["metric"]: r for r in result["versus_baseline"]["kg"]}
+    primary = rows["gold_fact_coverage"]
+    assert primary["primary"] and "sign_test_p_holm" not in primary
+    assert primary["median_difference"] == round(0.55 - 0.6, 4) and primary["ci_unreliable"]
+    assert (primary["better"], primary["worse"], primary["ties"]) == (0, 5, 0) and primary["sign_test_p"] == 0.0625
+    assert all("sign_test_p_holm" not in r for r in rows.values() if not r["headline"])
+    text = strategies_markdown(result)
+    assert "Fewer than 20 entries: the bootstrap interval is unreliable" in text
+    assert "**(primary)**" in text and "Holm p" in text
+    assert result["by_access_paired"]["half or more full text"]["n"] == 5

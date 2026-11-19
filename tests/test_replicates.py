@@ -99,3 +99,80 @@ def test_salted_run_calls_afresh_and_caches_apart(tmp_path):
     assert salted.backend.calls == 1          # cached under its own salt
     key = cache_key(MODEL, EFFORT, SYSTEM, PROMPT, SCHEMA, replicate="r2")
     assert salted.cache.path(key).exists() and base.cache.path(KEY_NO_TOOLS).exists()
+
+
+# --------------------------------------------------------------------------- #
+# Analysis
+# --------------------------------------------------------------------------- #
+
+from aiomim.replicates import analyse, completed_in_full, replicates_markdown, variance_components  # noqa: E402
+
+
+def test_variance_components_balanced_table():
+    # Entry effects 0 and 1; run noise of +-0.1 around them.
+    matrix = [[0.0, 0.1, -0.1], [1.0, 1.1, 0.9]]
+    c = variance_components(matrix)
+    assert c["within_sd"] == pytest.approx(0.1)
+    # MSB = 3 * var([0, 1]) = 1.5, MSW = 0.01 -> between = (1.5 - 0.01) / 3
+    assert c["between_sd"] == pytest.approx(((1.5 - 0.01) / 3) ** 0.5)
+    assert c["within_share"] == pytest.approx(0.01 / (0.01 + (1.5 - 0.01) / 3))
+    no_noise = variance_components([[0.2, 0.2], [0.4, 0.4]])
+    assert no_noise["within_sd"] == 0 and no_noise["within_share"] == 0
+
+
+def _eval(mim: str, coverage: float, stopped: str = "") -> dict:
+    e = {"mim": mim, "title": "T", "gold_text": {"coverage": coverage},
+         "faithfulness": {"supported_rate": 0.9, "before_repair": {"error_rate": 0.01}},
+         "synopsis": {"exact": {"f1": 0.3}}, "variants": {"recall": 0.5}, "genes": {"f1": 1.0},
+         "inheritance": {"match": True}}
+    if stopped:
+        e["stopped"] = stopped
+    return e
+
+
+def _write_run(root: Path, name: str, scores: dict[str, dict[str, float]], stopped=()) -> Path:
+    run = root / name
+    for strategy, by_mim in scores.items():
+        for mim, cov in by_mim.items():
+            d = run / mim
+            d.mkdir(parents=True, exist_ok=True)
+            why = "stopped" if (mim, strategy) in stopped else ""
+            (d / f"eval.{strategy}.json").write_text(json.dumps(_eval(mim, cov, why)))
+            (d / "usage.json").write_text(json.dumps({"total": {"calls": 4, "cached": 1, "list_price_usd": 0.5},
+                                                      "by_strategy": {}}))
+    return run
+
+
+def test_analyse_three_replicates(tmp_path):
+    mims = [str(100000 + i) for i in range(6)]
+    runs = []
+    for j, noise in enumerate((0.0, 0.02, -0.02)):
+        direct = {m: 0.4 + 0.05 * i + noise for i, m in enumerate(mims)}
+        kg = {m: v - 0.01 for m, v in direct.items()}
+        stopped = {(mims[0], "kg")} if j == 2 else set()
+        runs.append(_write_run(tmp_path, f"r{j + 1}", {"direct": direct, "kg": kg}, stopped))
+    r = analyse(runs)
+    cov = r["strategies"]["direct"]["gold_fact_coverage"]
+    assert cov["n_entries"] == 6 and cov["within_sd"] == pytest.approx(0.02)
+    assert cov["mean_range"] == pytest.approx(0.04)
+    assert r["entries"]["kg"] == 5 and r["paired_entries"] == 5   # the stopped draft is left out
+    paired = r["paired"]["gold_fact_coverage"]
+    assert all(x["difference"] == pytest.approx(-0.01) for x in paired["replicates"])
+    assert paired["difference_within_sd"] == pytest.approx(0.0, abs=1e-12)
+    assert r["usage"]["r1"]["fresh_calls"] == 6 * (4 - 1)
+    md = replicates_markdown(r)
+    assert "salts every model call" in md and "Evidence graph minus direct reading" in md
+
+
+def test_completed_in_full(tmp_path):
+    d = tmp_path / "100001"
+    d.mkdir()
+    for s in ("direct", "kg"):
+        (d / f"eval.{s}.json").write_text(json.dumps(_eval("100001", 0.5)))
+    (d / "entry.kg.json").write_text(json.dumps({"meta": {"extraction": {"papers_failed": []}}}))
+    assert completed_in_full(d)
+    (d / "entry.kg.json").write_text(json.dumps({"meta": {"extraction": {"papers_failed": ["1"]}}}))
+    assert not completed_in_full(d)
+    (d / "entry.kg.json").write_text(json.dumps({"meta": {"extraction": {"papers_failed": []}}}))
+    (d / "eval.direct.json").write_text(json.dumps(_eval("100001", 0.5, "stopped")))
+    assert not completed_in_full(d)

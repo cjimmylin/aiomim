@@ -9173,6 +9173,41 @@
   },
   "coverage": {
     "abstract": {
+      "paragraphs": 136,
+      "n_facts": 1783,
+      "present": 452,
+      "partial": 362,
+      "absent": 966,
+      "contradicted": 3,
+      "coverage": 0.355
+    },
+    "secondhand": {
+      "paragraphs": 136,
+      "n_facts": 1802,
+      "present": 565,
+      "partial": 362,
+      "absent": 864,
+      "contradicted": 11,
+      "coverage": 0.414
+    },
+    "fulltext": {
+      "paragraphs": 136,
+      "n_facts": 1767,
+      "present": 1268,
+      "partial": 243,
+      "absent": 246,
+      "contradicted": 10,
+      "coverage": 0.786
+    }
+  },
+  "n_entries_coverage": 46,
+  "left_out_no_fulltext_draft": [
+    "609296",
+    "620609",
+    "621068"
+  ],
+  "coverage_all_entries": {
+    "abstract": {
       "paragraphs": 142,
       "n_facts": 1876,
       "present": 468,
@@ -9189,18 +9224,9 @@
       "absent": 907,
       "contradicted": 11,
       "coverage": 0.411
-    },
-    "fulltext": {
-      "paragraphs": 142,
-      "n_facts": 1855,
-      "present": 1268,
-      "partial": 243,
-      "absent": 334,
-      "contradicted": 10,
-      "coverage": 0.749
     }
   },
-  "coverage_same_paragraphs_n": 142,
+  "coverage_same_paragraphs_n": 136,
   "claims": {
     "n_claims": 2308,
     "against_what_writer_saw": {
@@ -9554,5 +9580,6 @@
       "full_seconds": 13282.31,
       "turns": 1369
     }
-  }
+  },
+  "reaggregated_from_entry_files": true
 }

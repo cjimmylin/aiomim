@@ -241,13 +241,53 @@ def compare(run_name, baseline, entries_file, tag):
 @click.option("--strategy", default="direct", show_default=True)
 @click.option("--entries-file", type=click.Path(exists=True), default=None, help="Only these entries (first column).")
 @click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
-def gaps(run_name, strategy, entries_file, jobs):
+@click.option("--frozen", is_flag=True,
+              help="Use the frozen fact lists (after `rescore`): availability is judged once per paragraph and "
+                   "shared by every strategy; writes gaps.<strategy>.frozen.*.")
+def gaps(run_name, strategy, entries_file, jobs, frozen):
     """Split the OMIM facts a draft missed into ones the available text had (omission) and ones it lacked (access)."""
     from .gaps import gaps_markdown, gaps_run
 
     run_dir = get_settings().runs / run_name
-    result = gaps_run(run_dir, strategy, entries=_read_mims(entries_file) if entries_file else None, jobs=jobs)
+    result = gaps_run(run_dir, strategy, entries=_read_mims(entries_file) if entries_file else None, jobs=jobs,
+                      frozen=frozen)
     click.echo(gaps_markdown(result, run_name, strategy))
+
+
+@main.command()
+@click.argument("run_name")
+@click.option("--strategies", "strategies", default=None,
+              help="Comma-separated strategies (default: every strategy scored in the run).")
+@click.option("--whole-draft", is_flag=True,
+              help="Also mark the frozen facts against the whole draft (gold_text_frozen_whole).")
+@click.option("--entries-file", type=click.Path(exists=True), default=None, help="Only these entries (first column).")
+@click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
+def rescore(run_name, strategies, whole_draft, entries_file, jobs):
+    """Score a run's existing drafts against frozen per-paragraph fact lists, without regenerating anything.
+
+    Writes gold_text_frozen into eval.<strategy>.json (gold_text is left as it is).
+    Under AIOMIM_REPLICATE=<salt> the marks go to judge_<salt>.<strategy>.json
+    instead, and the fact lists are read from the store, not split again.
+    """
+    from .facts import rescore_run
+
+    run_dir = get_settings().runs / run_name
+    names = [s.strip() for s in strategies.split(",") if s.strip()] if strategies else None
+    result = rescore_run(run_dir, names, whole=whole_draft, jobs=jobs,
+                         entries=_read_mims(entries_file) if entries_file else None)
+    for strategy, m in result["means"].items():
+        click.echo(f"{strategy:12s} {m['n_entries']} entries  coverage: old {_fmt(m.get('gold_text_coverage_mean'))} "
+                   f"on {m.get('gold_text_n_facts')} facts, frozen {_fmt(m.get('gold_text_frozen_coverage_mean'))} "
+                   f"on {m.get('gold_text_frozen_n_facts')} facts"
+                   + (f", whole draft {_fmt(m.get('gold_text_frozen_whole_coverage_mean'))}"
+                      if "gold_text_frozen_whole_coverage_mean" in m else "")
+                   + f"; unjudged {m['unjudged']}")
+    u = result["usage"]
+    click.echo(f"Model calls: {int(u.get('calls', 0))} ({int(u.get('cached', 0))} from cache), "
+               f"{int(u.get('input_tokens', 0)):,} input / {int(u.get('output_tokens', 0)):,} output tokens spent now; "
+               f"{int(u.get('full_input_tokens', 0)):,} / {int(u.get('full_output_tokens', 0)):,} if made fresh.")
+    if result["failures"]:
+        click.echo(f"Failed entries: {result['failures']}")
 
 
 @main.command()
@@ -388,6 +428,21 @@ def backtest(mims, from_file, run_name, max_papers):
     click.echo(f"\n{result['n_entries']} entries: {result['found']} of {result['held_out']} later OMIM references "
                f"rediscovered (recall {result['recall']}); {result['proposals_not_in_omim']} further proposals "
                f"are papers OMIM does not cite.")
+
+
+@main.command()
+@click.argument("run_names", nargs=-1, required=True)
+def replicates(run_names):
+    """Run-to-run variation across replicate runs (AIOMIM_REPLICATE) of the same entries and strategies.
+
+    Writes replicates.json and replicates.md into the first run's folder.
+    """
+    from .replicates import replicates_markdown, write_replicates
+
+    if len(run_names) < 2:
+        raise click.UsageError("give at least two replicate runs")
+    result = write_replicates([get_settings().runs / name for name in run_names])
+    click.echo(replicates_markdown(result))
 
 
 @main.command()
