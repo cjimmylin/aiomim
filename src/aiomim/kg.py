@@ -59,13 +59,23 @@ _AA3 = {
 }
 _AA1_TO_3 = {v: k.upper() for k, v in _AA3.items() if k not in ("stop",)}
 _AA3_RE = re.compile("|".join(_AA3), re.I)
-_PROT = re.compile(r"^([A-Z*])(\d+)(fs|del|dup|ins|ext|[A-Z*=])?", re.I)
+# ref residue, position, optional range end, then the kind of change. A substituted
+# residue may be followed by "fs" (frameshift) or "ext" (extension), which must stay
+# part of the key: "E296Kfs" is a frameshift, not the missense change "E296K".
+_PROT = re.compile(
+    r"^([A-Z*])(\d+)(?:_([A-Z*])(\d+))?(?:(delins|del|dup|ins)([A-Z*]*)|(fs|ext)|([A-Z*=])(fs|ext)?)?", re.I)
 _NUC_HGVS = re.compile(r"^([-*]?\d+(?:[+-]\d+)?)([ACGT])\s*(?:>|-|→|->)\s*([ACGT])$", re.I)
 _NUC_LEGACY = re.compile(r"^([ACGT])(\d+)([ACGT])$", re.I)
 
 
 def protein_key(text: str) -> str:
-    """'p.Gly131Ser', 'G131S', 'gly131-to-ser', 'GLY131SER' -> 'p.G131S'."""
+    """'p.Gly131Ser', 'G131S', 'gly131-to-ser', 'GLY131SER' -> 'p.G131S'.
+
+    Other kinds of change keep their kind: 'Glu296LysfsTer12' and 'GLU296LYSFS' ->
+    'p.E296Kfs' (the length of the new reading frame is dropped, papers report it
+    inconsistently); 'Arg123Ter' -> 'p.R123*'; 'Ter110GlnextTer17' -> 'p.*110Qext';
+    'Cys28delinsTrpVal' -> 'p.C28delinsWV'; 'Lys2_Met3del' -> 'p.K2_M3del'.
+    """
     s = re.sub(r"^\s*p\.", "", (text or "").strip(), flags=re.I)
     s = re.sub(r"[()\s\[\]]", "", s)
     s = re.sub(r"-?to-?", "", s, flags=re.I) if re.search(r"\d-?to-?[a-z]", s, re.I) else s
@@ -74,9 +84,23 @@ def protein_key(text: str) -> str:
     m = _PROT.match(s)
     if not m:
         return ""
-    ref, pos, alt = m.group(1).upper(), m.group(2), (m.group(3) or "")
-    alt = alt.lower() if len(alt) > 1 else alt.upper()
-    return f"p.{ref}{pos}{alt}"
+    ref, pos = m.group(1).upper(), m.group(2)
+    span = f"_{m.group(3).upper()}{m.group(4)}" if m.group(3) else ""
+    if m.group(5):                                   # del, dup, ins, delins (+ inserted residues)
+        change = m.group(5).lower() + (m.group(6).upper() if m.group(5).lower() in ("ins", "delins") else "")
+    elif m.group(7):                                 # 'R123fs', 'M1ext'
+        change = m.group(7).lower()
+    elif m.group(8):                                 # a residue, '*' or '=', perhaps then fs / ext
+        change = m.group(8).upper() + (m.group(9) or "").lower()
+    else:
+        change = ""
+    return f"p.{ref}{pos}{span}{change}"
+
+
+def frameshift_short(key: str) -> str:
+    """'p.E296Kfs' -> 'p.E296fs', so a frameshift named with and without its first new residue still meet."""
+    m = re.match(r"^p\.([A-Z*]\d+)[A-Z*]fs$", key or "")
+    return f"p.{m.group(1)}fs" if m else ""
 
 
 _TRANSCRIPT = re.compile(r"^(?:NM|NR|NP|NC|NG|XM|XR|XP|ENST|ENSP|ENSG|LRG)_?\d[\w.]*:?", re.I)
@@ -131,22 +155,41 @@ def variant_keys(v: VariantMention) -> set[str]:
     for token in re.split(r"[\s,;()/]+", v.as_reported or ""):
         if len(token) >= 4:
             keys.add(nucleotide_key(token, mito) or protein_key(token) if re.search(r"\d", token) else "")
+    keys |= {short for k in keys if (short := frameshift_short(k))}
     keys.discard("")
     return keys
 
 
+def _aa3(residues: str) -> str:
+    return "".join(_AA1_TO_3.get(r, r) for r in residues)
+
+
 def omim_variant_name(gene: str, keys: Iterable[str]) -> str:
-    """OMIM's allelic-variant naming: 'SMAD3, ARG287TRP' or 'MTND1, 3697G-A'."""
+    """OMIM's allelic-variant naming: 'SMAD3, ARG287TRP', 'MTND1, 3697G-A' or 'PNPLA8, GLU296LYSFS'.
+
+    A substitution of one residue (missense, nonsense) is preferred, then a
+    nucleotide substitution, then any other protein change (frameshift, extension,
+    deletion, insertion) written in OMIM's three-letter style.
+    """
     keys = sorted(keys)
     gene_label = gene.replace("-", "") if is_mito_gene(gene) else gene
     for key in keys:
         m = re.match(r"^p\.([A-Z*])(\d+)([A-Z*])$", key)
         if m:
-            return f"{gene_label}, {_AA1_TO_3.get(m.group(1), m.group(1))}{m.group(2)}{_AA1_TO_3.get(m.group(3), m.group(3))}"
+            return f"{gene_label}, {_aa3(m.group(1))}{m.group(2)}{_aa3(m.group(3))}"
     for key in keys:
         m = re.match(r"^[cgmn]\.(.+?)([ACGT])>([ACGT])$", key)
         if m:
             return f"{gene_label}, {m.group(1)}{m.group(2)}-{m.group(3)}"
+    # Longest first, so 'p.E296Kfs' is named rather than its short form 'p.E296fs'.
+    for key in sorted(keys, key=lambda k: (-len(k), k)):
+        m = re.match(r"^p\.([A-Z*])(\d+)(?:_([A-Z*])(\d+))?(delins|del|dup|ins|fs|ext|[A-Z*](?:fs|ext))([A-Z*]*)$", key)
+        if m:
+            span = f"_{_aa3(m.group(3))}{m.group(4)}" if m.group(3) else ""
+            change = m.group(5)
+            change = (_aa3(change[0]) + change[1:].upper()) if change[0] in _AA1_TO_3 and change[1:] in ("fs", "ext") \
+                else change.upper()
+            return f"{gene_label}, {_aa3(m.group(1))}{m.group(2)}{span}{change}{_aa3(m.group(6))}"
     return f"{gene_label}, {keys[0].split('.', 1)[-1].upper()}" if keys else gene_label
 
 

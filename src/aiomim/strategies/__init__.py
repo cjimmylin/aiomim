@@ -75,6 +75,16 @@ STRATEGIES: dict[str, StrategySpec] = {s.name: s for s in (
                  "The case table after merging the same patient, family or variant across papers and settling conflicts."),
     StrategySpec("guided", "Learned curation guide",
                  "Direct reading with a guide to what OMIM includes, learned from the misses and extras of other entries."),
+    # Ablations of the two extract-then-write strategies (review, issue 2): what they
+    # lose to lower extraction effort and fixed rules, and what to never seeing the text.
+    StrategySpec("kg_matched", "Evidence graph, matched",
+                 "Evidence graph with extraction at the writer's effort and synopsis terms chosen by the writer, not by rule."),
+    StrategySpec("kg_hybrid", "Evidence graph plus text",
+                 "As the matched evidence graph, and the writer also reads the papers' text."),
+    StrategySpec("cohort_matched", "Case table, matched",
+                 "Case table with extraction at the writer's effort and synopsis terms and inheritance chosen by the writer."),
+    StrategySpec("cohort_hybrid", "Case table plus text",
+                 "As the matched case table, and the writer also reads the papers' text."),
 )}
 
 # What 'all' means on the command line: the strategies of the first comparison.

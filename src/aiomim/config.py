@@ -13,7 +13,7 @@ from pathlib import Path
 
 # Stages that call the LLM. Each can be pointed at a different model / effort.
 STAGES = ("plan", "triage", "extract", "normalize", "synthesize", "verify", "judge", "update",
-          "agent", "recall", "cases", "reconcile", "reflect")
+          "agent", "recall", "cases", "reconcile", "reflect", "extract_matched", "cases_matched")
 
 DEFAULT_MODEL = "claude-opus-5-5"
 
@@ -33,6 +33,9 @@ DEFAULT_EFFORT = {
     "cases": "medium",  # per-paper case-record extraction
     "reconcile": "high",  # deciding which records across papers are the same patient, family or variant
     "reflect": "high",    # turning a training split's misses and extras into a curation guide
+    # Per-paper extraction at the same effort as the writers, for the matched ablations.
+    "extract_matched": "high",
+    "cases_matched": "high",
 }
 
 
