@@ -20,8 +20,8 @@ Given a MIM number, the pipeline:
 ## What the study shows
 
 Nine ways of generating an entry were run on the same entries and scored against what OMIM's curators wrote. The full
-write-up, with methods, tables, figures and limitations, is the paper draft in
-[`docs/paper-draft.md`](docs/paper-draft.md); a survey of published approaches is in
+write-up is being prepared as a conference paper under [`paper/`](paper/) (the earlier markdown draft in
+[`docs/paper-draft.md`](docs/paper-draft.md) predates the corrected analysis); a survey of published approaches is in
 [`docs/approach-survey.md`](docs/approach-survey.md).
 
 **The entries.** 100 OMIM phenotype entries drawn at random (fixed seed, 20 from each of five creation-era bands, 2–12
@@ -44,57 +44,73 @@ larger entries.
 | Reconciled case database (`reconciled`) | The case table after merging the same patient, family or variant across papers. |
 | Learned curation guide (`guided`) | Direct reading with a guide learned from other entries' omissions and extras. |
 
-**Six strategies on 97 entries** (three entries are left out because the model's safety filter stopped a writer).
-Means over entries.
+**Six strategies on 93 entries.** An entry is compared only when every strategy completed it in full: seven entries
+are left out because the model's safety filter stopped a writer or a per-paper call. OMIM's per-paper text is scored
+against fact lists fixed in advance and reused for every strategy. Means over entries.
 
 | | Direct reading | Agentic curator | Evidence graph | Case table first | Recall, then verify | Memory only |
 |---|---|---|---|---|---|---|
-| Claims supported by the cited paper | 96.1% | 96.5% | 96.6% | 94.5% | 94.3% | 51.5% |
-| Unsupported or contradicted, before repair | 0.4% | 0.2% | 0.3% | 0.8% | 0.6% | 22.3% |
-| OMIM per-paper facts conveyed | 52.9% | 52.3% | 50.8% | 49.1% | 18.1% | 20.4% |
-| … paper readable in full | 79.1% | 77.9% | 76.5% | 68.2% | 17.1% | 17.5% |
-| … abstract only | 43.9% | 43.7% | 42.0% | 41.7% | 17.0% | 19.2% |
-| Clinical synopsis, exact HPO F1 | 35.6% | 35.3% | 34.2% | 33.9% | 26.1% | 30.4% |
-| OMIM allelic variants recovered | 67.6% | 67.1% | 65.6% | 63.4% | 11.7% | 15.6% |
-| Causal gene F1 | 98.6% | 98.6% | 99.3% | 96.1% | 97.6% | 97.6% |
-| Inheritance matches OMIM | 93.8% | 93.8% | 92.8% | 90.7% | 74.2% | 83.5% |
-| Generation cost per entry (list price) | $0.27 | $0.29 | $0.58 | $0.63 | $0.71 | $0.07 |
+| OMIM per-paper facts conveyed (primary measure) | 49.1% | 48.4% | 48.6% | 47.2% | 14.6% | 15.1% |
+| … paper readable in full (pooled over facts) | 77.6% | 76.7% | 78.8% | 71.7% | 13.3% | 11.5% |
+| … abstract only (pooled over facts) | 40.1% | 39.6% | 38.1% | 38.7% | 12.9% | 13.3% |
+| Claims judged supported by the cited paper | 96.1% | 96.4% | 96.5% | 94.7% | 94.2% | 50.8% |
+| Unsupported, before repair | 0.2% | 0.1% | 0.2% | 0.3% | 0.6% | 22.1% |
+| Clinical synopsis, exact HPO F1 | 35.9% | 35.6% | 34.6% | 34.0% | 24.9% | 30.6% |
+| OMIM allelic variants recovered | 66.5% | 65.9% | 65.9% | 64.3% | 11.6% | 15.2% |
+| Generated variants that are OMIM variants | 88.7% | 87.9% | 76.9% | 72.9% | 100.0% | 97.2% |
+| Causal gene F1 | 97.5% | 97.5% | 98.2% | 93.9% | 82.8% | 83.9% |
+| Inheritance matches OMIM | 93.5% | 93.5% | 92.5% | 91.4% | 73.1% | 82.8% |
+| Generation cost per entry (list price) | $0.26 | $0.28 | $0.56 | $0.61 | $0.70 | $0.07 |
 
-The full comparison, with paired differences, confidence intervals and breakdowns, is in
-[`results/omim100/strategies.md`](results/omim100/strategies.md).
+The full comparison, with paired differences, confidence intervals, completion and breakdowns, is in
+[`results/omim100/strategies.md`](results/omim100/strategies.md). One model wrote, audited and scored everything, and
+no curator has read any draft or judgement.
 
-1. **Reading the papers directly is the best and the cheapest for a typical entry.** Direct reading and the agent are
-   level. Extracting into a graph or a case table first conveys 2.1 and 3.8 points fewer OMIM facts (95% intervals
-   0.4–4.1 and 2.0–6.0) at twice the generation cost, with no gain in faithfulness.
-2. **The drafts are faithful to their sources.** About 96% of claims were fully supported by the cited paper and the
-   rest partly; after one repair round at most one unsupported claim remained in about 10,000. The audit flagged all
-   60 errors planted in paragraphs it had passed ([`audit_check.json`](results/omim100/audit_check.json)).
-3. **Access, not method, limits a replica of OMIM.** From a full text 79% of OMIM's facts are conveyed, from an
-   abstract 44%. Of all OMIM facts, 44% were conveyed, 5% were in the text we had and left out, 12% were partly there,
-   and 38% were in no text we could read ([`gaps.direct.md`](results/omim100/gaps.direct.md)).
-4. **The model's memory is not a source.** Written from memory, 22% of claims were unsupported or contradicted by the
-   cited papers, and for entries numbered 620000 onward memory conveyed 10% of OMIM's facts against 57% for reading.
-   Checking a memory draft against the papers left less than any reading strategy.
-5. **Second-hand evidence gives leads, not text.** Open-access papers describing the target were found for 473 of the
-   515 papers. With a paper's full text hidden, they closed about 6 points of a 43-point gap; claims taken from a later
-   paper's running text were unsupported or contradicted in 5% of cases and rows from review tables in 9 of 21. In use
-   it raised variant recall by 5 points and doubled contradictions with OMIM
-   ([`results/omim100_secondhand/`](results/omim100_secondhand/)).
-6. **Reconciliation fixes the database, not the entry.** It merged 40 re-reported patients or families in 26 of 100
-   entries (6% fewer individuals counted) and changed no entry-level score. The pooled case database is in
-   [`results/omim100_reconciled/casebase/`](results/omim100_reconciled/casebase/).
-7. **A learned curation guide changed nothing measurable** on 68 held-out entries
+1. **The reading strategies are close at today's open access.** Against direct reading, the agent conveys 0.6 points
+   fewer OMIM facts (95% interval −1.3 to 0.0), the evidence graph 0.5 fewer (−1.5 to +0.5) and the case table 1.9
+   fewer (−3.1 to −0.8). Repeating generation, audit and scoring moves a difference between two strategies by about
+   ±1.0 point over 93 entries. Structure costs about twice as much to generate and lowers variant precision.
+2. **Differences grow where more full text is readable.** Among the 21 entries with half or more of their papers in
+   full text, the case table is 6.1 points below direct reading (−8.3 to −3.6) and the agent 2.0 below (−3.4 to
+   −0.7); among the 46 entries with no full text all are within noise. This comparison across entries is
+   observational. In an ablation on 38 entries, running per-paper extraction at the writers' effort and letting the
+   writer choose the synopsis terms put the evidence graph 1.8 points above direct reading (+0.4 to +3.3) and the
+   case table level with it (−0.2, −2.4 to +2.2), so the deficit depends on how the strategies were implemented
+   ([`results/ablation40/`](results/ablation40/)).
+3. **Access, not method, limits a replica of OMIM.** With the same papers and their full text hidden, direct reading
+   conveyed 31.2% of OMIM's facts from the abstract and 77.4% from the full text (paired difference 43.9 points, 45 of
+   46 entries higher). Of all OMIM facts, 43% were conveyed, 4% were stated in the text we had and left out, 13% were
+   partly stated, and 40% were in no text we could read
+   ([`gaps.direct.frozen.md`](results/omim100/gaps.direct.frozen.md)).
+4. **The drafts are faithful to their sources, as far as the audit can see.** About 96% of claims were judged fully
+   supported by the cited paper and nearly all the rest partly; after one repair round one unsupported claim remained
+   among the reading strategies' drafts. The audit flagged all 60 errors planted in paragraphs it had passed
+   ([`audit_check.json`](results/omim100/audit_check.json)). It checks fidelity to the cited text, not correctness.
+5. **The model's memory is not a source.** Written from memory, 22% of claims were unsupported by the cited papers,
+   and for entries numbered 620000 onward memory conveyed 5.7% of OMIM's facts against 53.5% for reading. Checking a
+   memory draft against the papers left no more than memory alone.
+6. **Second-hand evidence gives leads, not text.** Open-access papers describing the target were found for 473 of the
+   515 papers. With a paper's full text hidden, they closed 4.9 points of the 43.9-point gap; claims taken from a later
+   paper's running text were unsupported or contradicted in 5 of 91 cases and rows from review tables were unsupported
+   in 9 of 21. In use it raised variant recall by 5.0 points and also raised unsupported claims before repair and
+   contradictions with OMIM ([`results/omim100_secondhand/`](results/omim100_secondhand/)).
+7. **Reconciliation changes the database, not the entry.** It merged 40 re-reported patient or family records in 27
+   of 100 entries (individuals counted fell from 2,580 to 2,413) and changed no entry-level score. The merges were not
+   checked by a person. The pooled case
+   database is in [`results/omim100_reconciled/casebase/`](results/omim100_reconciled/casebase/).
+8. **A learned curation guide changed nothing measurable** on 68 held-out entries
    ([`results/omim100_guided/`](results/omim100_guided/)).
-8. **With 30–75 papers the balance shifts a little.** The reading strategies stay level; the case table conveys 1.7
-   points more facts than direct reading but its rule-computed inheritance was wrong on 3 of 11 entries, structure
-   costs four times as much, and stopped replies become common ([`results/large12/`](results/large12/)).
-9. **Where a draft and OMIM disagree, the paper usually sides with the draft.** Of 43 facts on which an
-   evidence-graph draft contradicted OMIM's paragraph, the paper supported the draft in 29, OMIM in 1 and both in 5; 8
-   could not be decided. They are listed in
-   [`candidate_corrections.md`](results/omim100/candidate_corrections.md) as leads for a curator.
-10. **Updates can be proposed (stretch goal).** With ten entries rolled back to earlier references, a search found all
-    28 references OMIM later added and 21 became update proposals; of 165 drafted paragraphs the audit flagged 2.
-11. **The literature can be found without OMIM's reference list, in part.** For ten entries a search selected 56 of
+9. **Entries with 30–75 papers are exploratory.** Ten entries are comparable, nearly all their papers are abstracts,
+   and stopped replies are common. The case table conveyed 1.8 points more facts than direct reading there, with its
+   rule-computed inheritance wrong on two or three entries, at several times the cost
+   ([`results/large12/`](results/large12/)).
+10. **Disagreements with OMIM are leads for a curator.** Of 37 facts on which a direct-reading draft contradicted
+    OMIM's paragraph, the same model judged the paper to support the draft in 22, OMIM in 1 and both in 1; 13 could
+    not be decided. None has been confirmed by a person. An earlier list from the evidence-graph drafts is in
+    [`candidate_corrections.md`](results/omim100/candidate_corrections.md).
+11. **Updates can be proposed (stretch goal).** With ten entries rolled back to earlier references, a search found all
+    28 references OMIM later added and 21 became update proposals.
+12. **The literature can be found without OMIM's reference list, in part.** For ten entries a search selected 56 of
     the 85 references OMIM cites, and 47% of what it selected is in OMIM's list
     ([`results/open10/`](results/open10/)).
 
