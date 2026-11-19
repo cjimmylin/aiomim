@@ -1,0 +1,38 @@
+# Generated entries
+
+Machine-drafted and unreviewed. Each folder holds one draft per generation strategy (`entry.<strategy>.md` and `.json`, the latter with the audit's verdict on every claim), the evidence behind them (`extractions.json`, `kg.json`, `cohort.json` where the strategy produces them) and the scores against OMIM (`eval.<strategy>.json`).
+
+Strategies: `kg` = Evidence graph; `direct` = Direct reading; `agent` = Agentic curator; `closedbook` = Memory only (control); `cohort` = Case table first.
+
+| Entry | Title | Drafts |
+|---|---|---|
+| 301174 | Neurodevelopmental Disorder With Or Without Macrocephaly | [kg](301174/entry.kg.md) · [direct](301174/entry.direct.md) · [agent](301174/entry.agent.md) · [closedbook](301174/entry.closedbook.md) · [cohort](301174/entry.cohort.md) |
+| 621619 | Spermatogenic Failure 103 | [kg](621619/entry.kg.md) · [direct](621619/entry.direct.md) · [agent](621619/entry.agent.md) · [closedbook](621619/entry.closedbook.md) · [cohort](621619/entry.cohort.md) |
+| 621620 | Oocyte/Zygote/Embryo Maturation Arrest 26 | [kg](621620/entry.kg.md) · [direct](621620/entry.direct.md) · [agent](621620/entry.agent.md) · [closedbook](621620/entry.closedbook.md) · [cohort](621620/entry.cohort.md) |
+| 621629 | Acrofrontofacionasal Dysostosis 3 | [kg](621629/entry.kg.md) · [direct](621629/entry.direct.md) · [agent](621629/entry.agent.md) · [closedbook](621629/entry.closedbook.md) · [cohort](621629/entry.cohort.md) |
+| 621639 | Movement Disorder, Congenital Nonprogressive, With Ataxia And Eye Movement Abnormalities | [kg](621639/entry.kg.md) · [direct](621639/entry.direct.md) · [agent](621639/entry.agent.md) · [closedbook](621639/entry.closedbook.md) · [cohort](621639/entry.cohort.md) |
+| 621642 | Glycolic Aciduria, Isolated | [kg](621642/entry.kg.md) · [direct](621642/entry.direct.md) · [agent](621642/entry.agent.md) · [closedbook](621642/entry.closedbook.md) · [cohort](621642/entry.cohort.md) |
+| 621644 | Kyphomelic Dysplasia, Itai-Ikegawa Type | [kg](621644/entry.kg.md) · [direct](621644/entry.direct.md) · [agent](621644/entry.agent.md) · [closedbook](621644/entry.closedbook.md) · [cohort](621644/entry.cohort.md) |
+| 621654 | Hyposulfatemia With Skeletal Dysplasia | [kg](621654/entry.kg.md) · [direct](621654/entry.direct.md) · [agent](621654/entry.agent.md) · [closedbook](621654/entry.closedbook.md) · [cohort](621654/entry.cohort.md) |
+| 621655 | Congenital Fibrosis Of Extraocular Muscles 3A, Syndromic 1, With Anosmia And Developmental Delay | [kg](621655/entry.kg.md) · [direct](621655/entry.direct.md) · [agent](621655/entry.agent.md) · [closedbook](621655/entry.closedbook.md) · [cohort](621655/entry.cohort.md) |
+| 621666 | Congenital Fibrosis Of Extraocular Muscles 3A, Syndromic 2, With Joint Contractures, Developmental Delay, And Peripheral Neuropathy | [kg](621666/entry.kg.md) · [direct](621666/entry.direct.md) · [agent](621666/entry.agent.md) · [closedbook](621666/entry.closedbook.md) · [cohort](621666/entry.cohort.md) |
+| 621667 | Cortical Dysplasia, Complex, With Other Brain Malformations 17 | [kg](621667/entry.kg.md) · [direct](621667/entry.direct.md) · [agent](621667/entry.agent.md) · [closedbook](621667/entry.closedbook.md) · [cohort](621667/entry.cohort.md) |
+| 621671 | Immune Dysregulation With Autoimmunity, Autoinflammation, And Immunodeficiency | [kg](621671/entry.kg.md) · [direct](621671/entry.direct.md) · [agent](621671/entry.agent.md) · [closedbook](621671/entry.closedbook.md) · [cohort](621671/entry.cohort.md) |
+| 621678 | Multiple Endocrine Neoplasia, Type V | [kg](621678/entry.kg.md) · [direct](621678/entry.direct.md) · [agent](621678/entry.agent.md) · [closedbook](621678/entry.closedbook.md) · [cohort](621678/entry.cohort.md) |
+| 621687 | Pheochromocytoma/Paraganglioma Syndrome 8 | [kg](621687/entry.kg.md) · [direct](621687/entry.direct.md) · [agent](621687/entry.agent.md) · [closedbook](621687/entry.closedbook.md) · [cohort](621687/entry.cohort.md) |
+| 621692 | Developmental And Epileptic Encephalopathy 42B | [kg](621692/entry.kg.md) · [direct](621692/entry.direct.md) · [agent](621692/entry.agent.md) · [closedbook](621692/entry.closedbook.md) · [cohort](621692/entry.cohort.md) |
+| 621704 | Neurodegeneration, Infantile-Onset, With Optic Atrophy And Structural Brain Abnormalities 2 | [kg](621704/entry.kg.md) · [direct](621704/entry.direct.md) · [agent](621704/entry.agent.md) · [closedbook](621704/entry.closedbook.md) · [cohort](621704/entry.cohort.md) |
+| 621707 | Magis Syndrome | [kg](621707/entry.kg.md) · [direct](621707/entry.direct.md) · [agent](621707/entry.agent.md) · [closedbook](621707/entry.closedbook.md) · [cohort](621707/entry.cohort.md) |
+| 621721 | Hydatidiform Mole, Recurrent, 6 | [kg](621721/entry.kg.md) · [direct](621721/entry.direct.md) · [agent](621721/entry.agent.md) · [closedbook](621721/entry.closedbook.md) · [cohort](621721/entry.cohort.md) |
+| 621722 | Camptodactyly, Impaired Intellectual Development, And Facial Dysmorphism Syndrome | [kg](621722/entry.kg.md) · [direct](621722/entry.direct.md) · [agent](621722/entry.agent.md) · [closedbook](621722/entry.closedbook.md) · [cohort](621722/entry.cohort.md) |
+| 621728 | Deafness, Autosomal Dominant 55 | [kg](621728/entry.kg.md) · [direct](621728/entry.direct.md) · [agent](621728/entry.agent.md) · [closedbook](621728/entry.closedbook.md) · [cohort](621728/entry.cohort.md) |
+| 621729 | Neutropenia, Severe Congenital, 14, Autosomal Recessive | [kg](621729/entry.kg.md) · [direct](621729/entry.direct.md) · [agent](621729/entry.agent.md) · [closedbook](621729/entry.closedbook.md) · [cohort](621729/entry.cohort.md) |
+| 621730 | Oocyte/Zygote/Embryo Maturation Arrest 28 | [kg](621730/entry.kg.md) · [direct](621730/entry.direct.md) · [agent](621730/entry.agent.md) · [closedbook](621730/entry.closedbook.md) · [cohort](621730/entry.cohort.md) |
+| 621734 | Myopathy With Rigid Spine, Scoliosis, And Male-Limited Hypergonadotropic Hypogonadism | [kg](621734/entry.kg.md) · [direct](621734/entry.direct.md) · [agent](621734/entry.agent.md) · [closedbook](621734/entry.closedbook.md) · [cohort](621734/entry.cohort.md) |
+| 621749 | Ectodermal Dysplasia 19, Hypohidrotic/Tooth/Nail Type | [kg](621749/entry.kg.md) · [direct](621749/entry.direct.md) · [agent](621749/entry.agent.md) · [closedbook](621749/entry.closedbook.md) · [cohort](621749/entry.cohort.md) |
+| 621758 | Arthrogryposis Multiplex Congenita 9, With Immunodeficiency | [kg](621758/entry.kg.md) · [direct](621758/entry.direct.md) · [agent](621758/entry.agent.md) · [closedbook](621758/entry.closedbook.md) · [cohort](621758/entry.cohort.md) |
+| 621766 | Spermatogenic Failure 104 | [kg](621766/entry.kg.md) · [direct](621766/entry.direct.md) · [agent](621766/entry.agent.md) · [closedbook](621766/entry.closedbook.md) · [cohort](621766/entry.cohort.md) |
+| 621770 | Oocyte/Zygote/Embryo Maturation Arrest 29 | [kg](621770/entry.kg.md) · [direct](621770/entry.direct.md) · [agent](621770/entry.agent.md) · [closedbook](621770/entry.closedbook.md) · [cohort](621770/entry.cohort.md) |
+| 621777 | Developmental And Epileptic Encephalopathy 123 | [kg](621777/entry.kg.md) · [direct](621777/entry.direct.md) · [agent](621777/entry.agent.md) · [closedbook](621777/entry.closedbook.md) · [cohort](621777/entry.cohort.md) |
+| 621783 | Spermatogenic Failure 105 | [kg](621783/entry.kg.md) · [direct](621783/entry.direct.md) · [agent](621783/entry.agent.md) · [closedbook](621783/entry.closedbook.md) · [cohort](621783/entry.cohort.md) |
+| 621788 | Kruer Syndrome | [kg](621788/entry.kg.md) · [direct](621788/entry.direct.md) · [agent](621788/entry.agent.md) · [closedbook](621788/entry.closedbook.md) · [cohort](621788/entry.cohort.md) |

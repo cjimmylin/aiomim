@@ -1,0 +1,105 @@
+subject	predicate	object	pmids
+Reinson et al. (2016)	reports	Reinson et al. (2016) described 2 sibs, a sister and brother, who were normal at birth but developed daily recurrent seizures in early infancy with concomitant extreme muscular hypotonia, hypokinesia, and global developmental delay. Brain MRI showed progressive cerebral, cerebellar, and optic nerve atrophy. By 5 years of age, both were blind and bedridden with profound developmental delay; the elder sister died at that age.	
+Reinson et al. (2016)	reports	In 2 sibs with early-onset epileptic encephalopathy and progressive cerebral, cerebellar, and optic nerve atrophy, Reinson et al. (2016) identified compound heterozygous mutations in the CACNA1A gene by exome sequencing: a missense mutation c.4315T>A (p.Trp1439Arg) in exon 27 and a 7-bp deletion c.472_478delGCCTTCC (p.Ala158Thrfs*6) in exon 3. Their parents and 2 sibs were each heterozygous for one of the mutations.	
+CACNA1A c.4315T>A / p.W1439R	in_gene	CACNA1A	
+CACNA1A c.472_478delgccttcc / p.A158Tfs / p.A158fs	in_gene	CACNA1A	
+Reinson et al. (2016)	reports	Reinson et al. (2016) noted that the heterozygous carrier parents and 2 sibs of the affected children expressed a milder phenotype: both of them [as stated] had intellectual disability, and the mother additionally had adult-onset cerebellar ataxia with slowly progressive cerebellar atrophy.	
+Arteche-López et al. (2021)	reports	Arteche-López et al. (2021) reported the first patients with homozygous disease-related variants in three genes previously associated with dominant inheritance. One of these was a homozygous loss-of-function variant in the CACNA1A gene. The patient had a more severe clinical phenotype than the typical dominant form, and the authors suggested that codominant or recessive inheritance could explain the difference.	
+CACNA1A loss-of-function variant in the CACNA1A gene	in_gene	CACNA1A	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) reported a girl, born to nonconsanguineous White British parents, with a developmental and epileptic encephalopathy. She had hypotonia and a weak suck from birth. At 5 months she had an alternating convergent squint and delayed visual maturation. At 6 months, after low-grade fever, she developed tonic-clonic status epilepticus. Her seizures did not respond to multiple antiepileptic drugs, and she needed repeated admissions for intractable seizures, chest infections, and respiratory arrests. She also needed gastrostomy because of poor bulbar function.	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) reported that at 3 years the girl had secondary microcephaly, occasional myoclonus, and profound hypotonia, with no spasticity and no purposeful movement. By age 9 she had fixed flexion contractures and no distinctive dysmorphic features. At 9 to 10 years she still had generalized tonic-clonic seizures several times a week. At age 10, her Vineland composite score of 26 indicated severe intellectual disability, and she had impaired function across all social domains.	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) reported that the girl's brain MRI at 6 months showed mild cerebellar hypoplasia and a thin corpus callosum. By 3 years, MRI showed cerebellar volume loss involving both hemispheres, the vermis, and the middle cerebellar peduncles, along with mild cerebral volume loss. By age 8, EEG was dominated by continuous focal sharp and slow wave complexes over the posterior regions, with brief tonic seizures. Nerve conduction studies, EMG, electroretinography, and audiology were normal.	
+Wong-Spracklen et al. (2022)	reports	Using a next-generation sequencing panel for epileptic encephalopathy, Wong-Spracklen et al. (2022) found that the girl was compound heterozygous for 2 CACNA1A variants, which they confirmed by Sanger sequencing. One was a maternally inherited 2-bp deletion, c.2042_2043delAG (NM_001127221.2), predicted to cause a frameshift and premature termination (p.Gln681ArgfsTer100). This truncating variant had previously been reported as pathogenic in episodic ataxia type 2, with variable expressivity, and the authors classified it as pathogenic by ACMG/AMP criteria. The mother, who carried this variant, had no neurological symptoms.	
+CACNA1A c.2042_2043delag / p.Q681Rfs / p.Q681fs	in_gene	CACNA1A	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) reported that the girl's second CACNA1A variant was a paternally inherited c.1693G>A transition (NM_001127221.2), resulting in a glu565-to-lys (E565K) substitution. The variant was absent from gnomAD and lay within an ion transport domain in a missense-constrained region. It affected a highly conserved residue and was predicted deleterious by SIFT and MutationTaster, but it remained a variant of uncertain significance by ACMG/AMP criteria. The father, who carried this variant, had infrequent mild migraines without hemiplegia and was suspected of having mild learning difficulties.	
+CACNA1A c.1693G>A / p.E565K	in_gene	CACNA1A	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) noted that, unlike in previously reported biallelic families, the heterozygous carrier parents in this family showed no clear signs of a CACNA1A-associated syndrome. They suggested that the effect of calcium channel dysfunction is dose-dependent: monoallelic variants cause a highly variable spectrum, whereas biallelic variants cause severe, progressive neurologic disease. They also noted that this case shows the potential for a recessive diagnosis in an apparently sporadic disorder.	
+Wong-Spracklen et al. (2022)	reports	Wong-Spracklen et al. (2022) reviewed this case together with earlier reports of biallelic CACNA1A variants. They identified consistent features as infantile hypotonia, treatment-refractory seizures beginning in the first 6 months of life, cerebral visual impairment, profound developmental delay with prominent and persistent motor impairment, and progressive cerebellar changes on MRI.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) reported 3 brothers born to non-consanguineous parents with a rapidly progressive, fatal, early-onset developmental and epileptic encephalopathy. The leading features were severe muscular hypotonia from the newborn period (floppy infant), refractory early-onset seizures with deep apneic spells, and optic atrophy. The first child died at 5 months with suspected sudden infant death syndrome (SIDS) after neonatal-onset hypotonia; he was not investigated.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) described child II-2, who had hypotonia from the first week of life. At 5 months he was admitted with seizures, respiratory problems, dysphagia and severe hypotonia. EEG showed hypsarrhythmia, and PEHO syndrome was suspected; the table also lists blindness, edema, optic atrophy and cerebellar hypoplasia, while the text describes brain MRI as unrevealing. Multiple antiseizure drugs had no lasting effect, he needed tube feeding and transient ventilation, and he died at 14 months.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) described the index patient (II-4), who was hypotonic at birth and had his first seizures at 4 weeks. He went on to develop severe hypotonia with absent deep tendon reflexes, respiratory and swallowing insufficiency, and many seizures a day: bilateral clonic and myoclonic seizures with gaze rigidity and apneic spells. EEG showed burst suppression at 4 weeks and, by 5 months, generalized background slowing with multifocal sharp waves. MRI was normal, treatment helped only transiently, and he died of respiratory insufficiency at age 2 years (2.5 years in the table).	
+Mammadova et al. (2024)	reports	In the index patient (II-4), Mammadova et al. (2024) found compound heterozygous frameshift variants in CACNA1A (NM_001127222.1) by trio exome sequencing: c.2602delG (p.Ala868Profs*24), inherited from the mother, and c.5476delC (p.His1826Thrfs*30), inherited from the father. Exome sequencing of material from his deceased brother II-2 found the same 2 variants; no material was available from brother II-1. Neither variant was in gnomAD or ClinVar, both were predicted to cause loss of function, and both were classified as pathogenic under ACMG criteria.	
+CACNA1A c.2602delg / p.A868Pfs / p.A868fs	in_gene	CACNA1A	
+CACNA1A c.5476delc / p.H1826Tfs / p.H1826fs	in_gene	CACNA1A	
+Mammadova et al. (2024)	reports	In the same family, Mammadova et al. (2024) found that the mother and a maternal uncle carried c.2602delG (p.Ala868Profs*24) in the heterozygous state and had episodic ataxia type 2. The mother had chronic headache, ataxic gait, dizziness, hand tremor and mild intellectual deficits, and she had seizures at 2 to 3 years of age. The father was heterozygous for c.5476delC and had no neurological symptoms.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) described a fourth brother (II-3), who carried a single heterozygous CACNA1A variant and had a milder phenotype. He was evaluated at age 5 years for episodic unsteady gait, dizziness and decreased vigilance, and he had mild intellectual impairment, learning disability, ADHD and primary generalized epilepsy that responded to levetiracetam; MRI was normal. The text says he carried the maternal c.2602delG variant, whereas Table 1 lists the paternal c.5476delC variant.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) compared their patients with 9 previously reported individuals from 4 families who had biallelic CACNA1A variants. They concluded that biallelic truncating loss-of-function variants were associated with severe, early-onset, fatal epileptic encephalopathy, which supported a correlation between how deleterious the biallelic variants were and how severe the phenotype was. They noted that heterozygous relatives were either asymptomatic or had milder phenotypes, and they considered CACNA1A-related disease to show both autosomal dominant and autosomal recessive inheritance.	
+Mammadova et al. (2024)	reports	Mammadova et al. (2024) proposed that ictal apneic spells were the most likely cause of death in the 2 brothers with proven variants. They also suggested that the brother diagnosed with SIDS probably died of ictal apnea.	
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	caused_by	CACNA1A	27250579,34267336,36063114,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.1693G>A / p.E565K	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.2042_2043delag / p.Q681Rfs / p.Q681fs	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.2602delg / p.A868Pfs / p.A868fs	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.4315T>A / p.W1439R	27250579
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.472_478delgccttcc / p.A158Tfs / p.A158fs	27250579
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A c.5476delc / p.H1826Tfs / p.H1826fs	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_variant	CACNA1A loss-of-function variant in the CACNA1A gene	34267336
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	inheritance	Autosomal recessive	27250579,34267336,36063114,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	inheritance	Autosomal dominant	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	inheritance	Semidominant	27250579
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Generalized hypotonia	27250579,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Seizure	27250579,36063114,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Apnea	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Optic atrophy	27250579,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Sudden death	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Hypsarrhythmia	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Dysphagia	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Blindness	27250579,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Edema	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Cerebellar hypoplasia	36063114,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Global developmental delay	27250579,36063114,39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Death in infancy	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	EEG with burst suppression	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Areflexia	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Myoclonic seizure	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Clonic seizure	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Respiratory insufficiency	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Multifocal epileptiform discharges	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Episodic ataxia	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Tremor	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Mild intellectual disability	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Generalized-onset seizure	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Attention deficit hyperactivity disorder	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Atypical absence seizure	39416668
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Neonatal hypotonia	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Poor suck	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Status epilepticus	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Respiratory arrest	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Recurrent lower respiratory tract infections	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Feeding difficulties	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Esotropia	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Secondary microcephaly	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Myoclonus	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Flexion contracture	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Severe intellectual disability	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Bilateral tonic-clonic seizure with generalized onset	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Drooling	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Thin corpus callosum	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Cerebellar atrophy	27250579,36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Cerebral atrophy	27250579,36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Tonic seizure	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	EEG with focal sharp slow waves	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Migraine	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Floppy infant	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Cerebral visual impairment	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Profound global developmental delay	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Abnormal cerebellum morphology	36063114
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Hypokinesia	27250579
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Intellectual disability	27250579
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 42B	has_phenotype	Ataxia	27250579
+Generalized-onset seizure	is_a	Seizure	
+Status epilepticus	is_a	Seizure	
+Respiratory arrest	is_a	Respiratory insufficiency	
+Mild intellectual disability	is_a	Intellectual disability	
+Episodic ataxia	is_a	Ataxia	
+Poor suck	is_a	Feeding difficulties	
+Cerebellar hypoplasia	is_a	Abnormal cerebellum morphology	
+Tonic seizure	is_a	Seizure	
+Myoclonic seizure	is_a	Seizure	
+Clonic seizure	is_a	Seizure	
+Profound global developmental delay	is_a	Global developmental delay	
+Severe intellectual disability	is_a	Intellectual disability	
+Atypical absence seizure	is_a	Generalized-onset seizure	
+Atypical absence seizure	is_a	Seizure	
+Bilateral tonic-clonic seizure with generalized onset	is_a	Seizure	
+Bilateral tonic-clonic seizure with generalized onset	is_a	Generalized-onset seizure	
+Cerebellar atrophy	is_a	Abnormal cerebellum morphology	

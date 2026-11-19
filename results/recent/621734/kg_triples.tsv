@@ -1,0 +1,56 @@
+subject	predicate	object	pmids
+Badura-Stronka et al. (2025)	reports	Badura-Stronka et al. (2025) reported a 13-year-old Polish girl (P1) with no significant family history. She was born at term with normal birth weight, walked independently at 14 months and had slight speech delay. At age 6 she developed muscle weakness and limited cervical spine mobility with increased paraspinal muscle tone. The rigid spine progressed to involve the thoracic and lumbar segments, and thoracic scoliosis worsened from age 11. At 13 she had proximal muscle weakness, limb muscle atrophy, diminished tendon reflexes, waddling gait, weight and height below the 3rd percentile, and nocturnal hypoxemia with central and obstructive apneas that required nocturnal noninvasive ventilation. She also had osteoporosis (T-score -3.9), eosinophilia, neutropenia and platelet anisocytosis.	
+Badura-Stronka et al. (2025)	reports	Badura-Stronka et al. (2025) reported a 20-year-old Polish man (P2) with bilateral cryptorchidism, mildly delayed motor and speech development, febrile seizures from age 4 during recurrent pneumonia, and generalized muscle pain from age 5. At 11 he had contractures and distal limb paresis, and muscle biopsy showed mild, nonspecific myopathic changes. From 13 he had limited spine mobility, shoulder girdle atrophy and nocturnal hypoxemia that required noninvasive ventilation. MRI showed atrophy and fatty infiltration of the paraspinal, iliopsoas, gluteal and thigh muscles. He also had gynecomastia at 14, thoracic scoliosis, strabismus, a high palate, an inability to flex the thoracic and lumbar spine, and persistent eosinophilia and neutropenia from age 10. EMG showed moderate myogenic features.	
+Badura-Stronka et al. (2025)	reports	Badura-Stronka et al. (2025) reported an 18-year-old Ukrainian man (P3) with bilateral inguinal cryptorchidism, treated by orchidopexy at ages 3 and 4. He had recurrent respiratory infections, otitis and bronchitis from age 3. He underwent gonadectomy at ages 10 and 15, and histology showed atrophic and sclerotic testes with no spermatogenesis. He had intellectual disability, dysmorphic features and neutropenia, but motor development was normal.	
+Badura-Stronka et al. (2025)	reports	In 3 patients (2 Polish and 1 Ukrainian), Badura-Stronka et al. (2025) used whole-exome sequencing to identify a homozygous splice-site variant in the TBCE gene (c.100+1G>A) affecting the intron 2 donor splice site. All parents were confirmed to be heterozygous carriers. The variant had conflicting pathogenicity classifications in ClinVar and had not previously been reported in patients.	
+TBCE c.100+1G>A	in_gene	TBCE	
+Badura-Stronka et al. (2025)	reports	From a systematic review of 98 previously reported TBCE patients plus their own 3, Badura-Stronka et al. (2025) concluded that homozygosity for c.100+1G>A causes a milder course than other TBCE variants. These patients had later onset (mean age 5 years), normal motor development, eventual normal speech, normal calcium-phosphate metabolism and no significant CNS MRI changes. Distinctive features included cryptorchidism in males, rigid spine, proximal muscle atrophy, scoliosis, neutropenia, eosinophilia and nocturnal hypoxemia. By contrast, patients homozygous for c.155_166del had the HRDS/KCS1 phenotype, and those with c.464T>A had severe neurodevelopmental disease without genital abnormalities.	
+Badura-Stronka et al. (2025)	reports	Badura-Stronka et al. (2025) noted that the c.100+1G>A TBCE variant had so far been found only in patients of Central-Eastern European descent, and they suggested it may be a founder mutation in this population.	
+Sparber et al. (2025)	reports	Sparber et al. (2025) reported 7 patients with a novel, milder TBCE-associated phenotype presenting with amyotrophy, testicular failure, and mild intellectual disability, with or without short stature. Electron microscopy showed varying levels of acto-myosin degradation.	
+Sparber et al. (2025)	reports	In 7 patients with a milder TBCE-related phenotype, Sparber et al. (2025) identified homozygosity or compound heterozygosity for a splice site variant in the TBCE gene (NM_003193.5:c.100+1G>A) that causes a splicing alteration and early frameshift, as shown by deep sequencing of RT-PCR products.	
+Sparber et al. (2025)	reports	Sparber et al. (2025) found that the mild phenotype associated with the TBCE c.100+1G>A variant arises from translation from an alternative open reading frame, producing a partially functional protein. Patient dermal fibroblasts showed reduced Golgi compactness but normal microtubule dynamics.	
+Sparber et al. (2025)	reports	Sparber et al. (2025) found the TBCE c.100+1G>A variant to be 10 times more frequent in Slavic samples than in gnomAD, suggesting underdiagnosis of this phenotype.	
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	caused_by	TBCE	39153170,39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_variant	TBCE c.100+1G>A	39153170,39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	inheritance	Autosomal recessive	39153170,39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Skeletal muscle atrophy	39153170,39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Primary testicular failure	39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Mild intellectual disability	39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Short stature	39153170,39657131
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Spinal rigidity	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Thoracic scoliosis	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Proximal muscle weakness	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Generalized limb muscle atrophy	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Hyporeflexia	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Waddling gait	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Nocturnal hypoxemia	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Osteoporosis	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Increased total eosinophil count	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Decreased total neutrophil count	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Delayed speech and language development	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Bilateral cryptorchidism	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Scoliosis	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Joint contracture	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Shoulder girdle muscle atrophy	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Abnormal skeletal muscle morphology	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	EMG: myopathic abnormalities	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Gynecomastia	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Febrile seizure (within the age range of 3 months to 6 years)	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Recurrent pneumonia	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Esotropia	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	High palate	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Testicular atrophy	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Recurrent respiratory infections	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Intellectual disability	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Cryptorchidism	39153170
+MYOPATHY WITH RIGID SPINE, SCOLIOSIS, AND MALE-LIMITED HYPERGONADOTROPIC HYPOGONADISM	has_phenotype	Decreased body weight	39153170
+Generalized limb muscle atrophy	is_a	Skeletal muscle atrophy	
+Bilateral cryptorchidism	is_a	Cryptorchidism	
+Thoracic scoliosis	is_a	Scoliosis	
+EMG: myopathic abnormalities	is_a	Abnormal skeletal muscle morphology	
+Mild intellectual disability	is_a	Intellectual disability	
+Skeletal muscle atrophy	is_a	Abnormal skeletal muscle morphology	
+Recurrent pneumonia	is_a	Recurrent respiratory infections	
+Shoulder girdle muscle atrophy	is_a	Skeletal muscle atrophy	
+Shoulder girdle muscle atrophy	is_a	Abnormal skeletal muscle morphology	
+Joint contracture	is_a	Abnormal skeletal muscle morphology	

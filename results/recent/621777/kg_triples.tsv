@@ -1,0 +1,37 @@
+subject	predicate	object	pmids
+Krami et al. (2022)	reports	Krami et al. (2022) reported a proband from a consanguineous Moroccan family who had developmental delay, intellectual disability, hypotonia, generalized tonic-clonic seizures, and a persistent tilted head.	
+Krami et al. (2022)	reports	In a proband from a consanguineous Moroccan family with developmental delay, intellectual disability, hypotonia, and seizures, Krami et al. (2022) used whole-exome sequencing to identify a homozygous nonsense variant in the HECW2 gene (c.736C>T, p.Arg246Ter). The authors noted that this was the first homozygous HECW2 variant, in contrast to the de novo heterozygous variants reported earlier.	
+HECW2 c.736C>T / p.R246*	in_gene	HECW2	
+Krami et al. (2022)	reports	Krami et al. (2022) concluded that the homozygous HECW2 variant in their consanguineous Moroccan family was inherited in an autosomal recessive pattern.	
+Rodríguez-García et al. (2022)	reports	Rodríguez-García et al. (2022) reported a Caucasian girl with a severe neurodevelopmental disorder, drug-resistant epilepsy, hypotonia, severe gastroesophageal reflux, and brain MRI anomalies.	
+Rodríguez-García et al. (2022)	reports	In a Caucasian girl with a severe neurodevelopmental disorder and drug-resistant epilepsy, Rodríguez-García et al. (2022) found a novel homozygous variant in the HECW2 gene (g.197092814_197092824delinsC) by whole-exome sequencing. The variant disrupted the splice donor site of intron 22 and caused skipping of exon 22 (r.3766_3917+1del), which led to an in-frame deletion (p.Leu1256_Trp1306del). Functional studies showed a twofold increase in RNA expression but a 60% reduction in protein level. The authors suggested a partial loss-of-function mechanism and called this the first patient with NDHSAL caused by an autosomal recessive splicing variant in HECW2.	
+HECW2 g.197092814_197092824delinsc / p.L1256_W1306del	in_gene	HECW2	
+Rodríguez-García et al. (2022)	reports	Rodríguez-García et al. (2022) noted that de novo heterozygous missense variants in HECW2 had previously been associated with neurodevelopmental disorder with hypotonia, seizures, and absent language (NDHSAL). In contrast, their patient had an autosomal recessive splicing variant.	
+Dehghanzad et al. (2025)	reports	Dehghanzad et al. (2025) reported a 6-year-old girl, born to consanguineous parents of Afghan descent, who had severe microcephaly, hypotonia, failure to thrive, recurrent seizures, and global neurodevelopmental delay. Brain MRI showed significant cerebral and cerebellar atrophy.	
+Dehghanzad et al. (2025)	reports	In a 6-year-old Afghan girl with DEE born to consanguineous parents, Dehghanzad et al. (2025) used whole-exome sequencing to identify a novel homozygous frameshift variant in the HECW2 gene (c.3601_3602insT, p.Tyr1201LeufsTer7). Sanger sequencing confirmed the variant. Both parents were unaffected heterozygous carriers. The authors suggested that the variant likely causes nonsense-mediated mRNA decay, resulting in loss of function. They proposed that this mechanism is distinct from the one implicated for the missense variants that cause autosomal dominant disease.	
+HECW2 c.3601_3602inst / p.Y1201Lfs / p.Y1201fs	in_gene	HECW2	
+Dehghanzad et al. (2025)	reports	Dehghanzad et al. (2025) concluded that the homozygous HECW2 frameshift variant in a patient from a consanguineous family was inherited in an autosomal recessive pattern. Both heterozygous carrier parents were clinically unaffected. This contrasts with the usual autosomal dominant inheritance of HECW2-related NDHSAL.	
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	caused_by	HECW2	35487419,35753050,40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_variant	HECW2 c.3601_3602inst / p.Y1201Lfs / p.Y1201fs	40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_variant	HECW2 c.736C>T / p.R246*	35487419
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_variant	HECW2 g.197092814_197092824delinsc / p.L1256_W1306del	35753050
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	inheritance	Autosomal recessive	35487419,35753050,40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Microcephaly	40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Hypotonia	35487419,35753050,40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Failure to thrive	40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Seizure	35753050,40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Global developmental delay	35487419,40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Cerebral atrophy	40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Cerebellar atrophy	40812465
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Neurodevelopmental abnormality	35753050
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Gastroesophageal reflux	35753050
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Abnormal brain morphology	35753050
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Intellectual disability	35487419
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Bilateral tonic-clonic seizure with generalized onset	35487419
+DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 123	has_phenotype	Torticollis	35487419
+Intellectual disability	is_a	Neurodevelopmental abnormality	
+Bilateral tonic-clonic seizure with generalized onset	is_a	Seizure	
+Cerebellar atrophy	is_a	Abnormal brain morphology	
+Cerebral atrophy	is_a	Abnormal brain morphology	
+Microcephaly	is_a	Abnormal brain morphology	
+Global developmental delay	is_a	Neurodevelopmental abnormality	

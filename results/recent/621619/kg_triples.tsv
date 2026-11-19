@@ -1,0 +1,100 @@
+subject	predicate	object	pmids
+Nguyen et al. (2018)	reports	Nguyen et al. (2018) identified biallelic deleterious mutations in MEI1, TOP6BL/C11orf80, and REC114 in women with recurrent androgenetic complete hydatidiform moles. These genes have roles in forming meiotic double-strand breaks.	
+Nguyen et al. (2018)	reports	Nguyen et al. (2018) found that 8% of oocytes from Mei1-deficient female mice lost all their chromosomes by extruding them, together with the spindles, into the first polar body. Mei1-/- oocytes could be fertilized, and 5% produced androgenetic zygotes. The authors proposed that extrusion of all maternal chromosomes is a mechanism for producing androgenetic zygotes.	
+Malcher et al. (2022)	reports	Malcher et al. (2022) performed whole-genome sequencing in 39 men with nonobstructive azoospermia (NOA). Six of them had previously had uninformative whole-exome sequencing. All 39 had a normal karyotype and no Y chromosome microdeletions or CFTR mutations. Using a recessive model (hemizygous, homozygous or compound heterozygous) and filtering at gnomAD VAF < 0.01, the authors identified candidate NOA-associated variants in 29 of the 39 men, and in 5 of the 6 men with prior negative exome sequencing.	
+Malcher et al. (2022)	reports	Malcher et al. (2022) classified the testicular biopsies of the NOA patients by histopathology and Johnsen score: 16 showed postmeiotic arrest (Johnsen 6-9), 3 meiotic arrest (Johnsen 4-5), 3 premeiotic arrest (Johnsen 3), and 10 Sertoli cell-only syndrome (Johnsen 2).	
+Malcher et al. (2022)	reports	Malcher et al. (2022) identified 2 ultrarare variants in the X-linked TKTL1 gene (Xq28) in 2 men with NOA, both predicted to be disease causing. One was c.268_268delG (p.Asp90Metfs*35), found in a patient with meiotic arrest; the other was c.1601A>G (p.Glu534Gly), located in the C-terminal domain. Neither variant was found in gnomAD. Neither patient showed TKTL1 expression at the mRNA or protein level. Structural modeling suggested that the Glu534Gly change destabilizes the fold of the C-terminal domain, which helps mediate homodimerization.	
+TKTL1 c.268_268delg / p.D90M / p.D90Mfs / p.D90fs	in_gene	TKTL1	
+TKTL1 c.1601A>G / p.E534G	in_gene	TKTL1	
+Malcher et al. (2022)	reports	Malcher et al. (2022) identified 4 hemizygous variants in the X-linked IGSF1 gene (Xq26.1) in 4 of 39 men with NOA. These were c.758A>G (p.Tyr253Cys) in patient P31L, who had Sertoli cell-only syndrome; c.1184T>G (p.Leu395Arg) in P10L, who had postmeiotic arrest; c.2554T>G (p.Tyr838Asp) in P45L, who had postmeiotic arrest; and the intronic variant g.114567C>G in P41P, who had meiotic arrest. Three of the 4 variants had not been reported in ClinVar; c.1184T>G was listed there as benign. Homology modeling suggested that Leu395Arg would deform the Ig domain fold.	
+IGSF1 c.758A>G / p.Y253C	in_gene	IGSF1	
+IGSF1 c.1184T>G / p.L395R	in_gene	IGSF1	
+IGSF1 c.2554T>G / p.Y838D	in_gene	IGSF1	
+IGSF1 g.114567C>G	in_gene	IGSF1	
+Malcher et al. (2022)	reports	Malcher et al. (2022) identified compound heterozygous ZFPM2 variants, c.89A>G (p.Glu30Gly) and c.2287G>A (p.Val763Ile), in patient P10L, who had NOA with postmeiotic arrest. The c.2287G>A (p.Val763Ile) variant was also found in the homozygous state in a second patient with postmeiotic arrest (P9L). All of these variants were predicted in silico to be disease causing. The authors noted that c.89A>G had previously been associated with 46,XY sex reversal-3.	
+ZFPM2 c.89A>G / p.E30G	in_gene	ZFPM2	
+ZFPM2 c.2287G>A / p.V763I	in_gene	ZFPM2	
+Malcher et al. (2022)	reports	Malcher et al. (2022) identified an ultrarare hemizygous VCX3A variant, c.556G>A (p.Val186Met), in a man with NOA and Sertoli cell-only syndrome. VCX3A is located at Xp22.31 and is expressed only in the testis.	
+VCX3A c.556G>A / p.V186M	in_gene	VCX3A	
+Malcher et al. (2022)	reports	Malcher et al. (2022) found biallelic rare variants in autosomal genes previously linked to infertility in individual NOA patients. These were TEX14 c.2285_2288delAGAA (homozygous); and compound heterozygous variants in DNAH1 (c.8455G>A, c.11494_11495delinsAG), FANCM (g.19521G>A, c.2081T>G), FSIP2, PMFBP1, MEI1 (c.1546A>G, c.3542G>A), PIWIL1 and WDR66. A homozygous QRICH2 variant was also found.	
+TEX14 c.2285_2288delagaa / p.Q762Rfs / p.Q762fs	in_gene	TEX14	
+FANCM c.2081T>G / p.L694*	in_gene	FANCM	
+MEI1 c.1546A>G / c.3542G>A	in_gene	MEI1	
+Malcher et al. (2022)	reports	Malcher et al. (2022) found ultrarare ESX1 variants (c.1040C>G, c.1042C>G) and a TEX13A variant (c.596G>A) in NOA patients with postmeiotic arrest. The authors noted that the ESX1 variants resemble variants previously reported in Han Chinese men with NOA (c.1094C>G, c.1096C>G). They predicted that the ESX1 variants would destabilize cyclins.	
+ESX1 c.1040C>G / p.P347R	in_gene	ESX1	
+ESX1 c.1042C>G / p.L348V	in_gene	ESX1	
+TEX13A c.596G>A / p.G199E	in_gene	TEX13A	
+Malcher et al. (2022)	reports	Malcher et al. (2022) also found rare hemizygous variants in X-linked genes previously implicated in infertility. These included KCND1 c.1723T>G, KIAA1210 c.1214G>A, FAM47C c.1826A>G, ZMYM3 c.2367C>G and FANCB c.1769T>C. They also found a homozygous FAM50B variant, c.293G>A, in patient P9L, who had postmeiotic arrest.	
+KCND1 c.1723T>G	in_gene	KCND1	
+KIAA1210 c.1214G>A	in_gene	KIAA1210	
+FAM47C c.1826A>G	in_gene	FAM47C	
+FAM50B c.293G>A	in_gene	FAM50B	
+Malcher et al. (2022)	reports	Malcher et al. (2022) observed marked genetic heterogeneity among the NOA patients: of the 29 men with candidate variants, only 2 (in one case 3) shared the same variant. Sixteen of the 58 rare variants had not been reported before.	
+Chen et al. (2023)	reports	Chen et al. (2023) reported 2 Chinese brothers with infertility due to cryptozoospermia. The proband, a 30-year-old man with 5 years of infertility, had normal external genitalia, bilateral testicular volumes of about 12 ml, and normal semen volume and pH; no sperm were seen in the initial semen smear, but centrifuged sediment showed 0-1 sperm per high-power field (10-15 sperm in 20 HPF), few of them motile. Serum FSH, LH, testosterone, estradiol, prolactin, inhibin B, and AMH were normal, the karyotype was 46,XY, and there were no Y-chromosome AZF microdeletions. His brother had 3 years of infertility and also had cryptozoospermia, with normal physical examination, hormones, karyotype, and Y-microdeletion testing.	
+Chen et al. (2023)	reports	In 2 Chinese brothers with cryptozoospermia, Chen et al. (2023) identified compound heterozygous variants in the MEI1 gene: a c.529+5G>A splice site variant downstream of exon 5 (predicted to affect splicing) and a c.2071C>G transversion in exon 18 resulting in a gln691-to-glu (Q691E) substitution. The variants, found by whole-exome sequencing and confirmed by Sanger sequencing, were absent from ExAC and gnomAD. The father was heterozygous for the missense variant and the mother for the splice variant; the father had normal fertility. Testicular tissue and sperm were not available for functional study.	
+MEI1 c.2071C>G / p.Q691E	in_gene	MEI1	
+MEI1 c.529+5G>A	in_gene	MEI1	
+Chen et al. (2023)	reports	Chen et al. (2023) suggested that the combination of the two MEI1 variants may permit slight MEI1 expression, sometimes allowing meiosis to occur and resulting in cryptozoospermia rather than nonobstructive azoospermia.	
+Chen et al. (2023)	reports	Chen et al. (2023) stated that the MEI1 variants in the affected brothers were inherited from parents who were each heterozygous carriers, indicating autosomal recessive inheritance.	
+Zhang et al. (2023)	reports	Zhang et al. (2023) described 4 Chinese men with non-obstructive azoospermia (NOA). Testicular pathologic analysis and immunohistochemical staining showed that spermatogenesis was arrested at the spermatocyte stage. The patients also had defective homeostasis of programmed DNA double-strand breaks (DSBs) and defective meiotic chromosome synapsis.	
+Zhang et al. (2023)	reports	Using whole-exome sequencing, Zhang et al. (2023) identified bi-allelic deleterious variants in the MEI1 gene in 4 Chinese patients with non-obstructive azoospermia and meiotic arrest. The authors concluded that bi-allelic MEI1 variants could cause defective DSB homeostasis and meiotic chromosome synapsis, which lead to meiotic arrest and male infertility.	
+Zhang et al. (2023)	reports	Zhang et al. (2023) found a missense variant in MEI1, c.G186C, as one of the bi-allelic variants in their patients with NOA. In vitro, this variant reduced MEI1 expression.	
+MEI1 c.186G>C	in_gene	MEI1	
+Zhang et al. (2023)	reports	Zhang et al. (2023) found a frameshift variant in MEI1, c.251delT, in their patients with NOA. In vitro, this variant led to truncated MEI1 proteins.	
+MEI1 c.251delt	in_gene	MEI1	
+Zhang et al. (2023)	reports	Zhang et al. (2023) found a missense variant in MEI1, c.T1585A, in their patients with NOA. Based on bioinformatic analysis, the authors assumed that this variant affects the interaction between MEI1 and its partners.	
+MEI1 c.1585T>A	in_gene	MEI1	
+Liu et al. (2025)	reports	Liu et al. (2025) described a consanguineous family in which a male infertile patient had azoospermia and a female infertile patient had embryonic arrest. Preimplantation genetic testing of the female patient's arrested embryos showed high levels of chromosomal anomalies.	
+Liu et al. (2025)	reports	In the male patient with azoospermia and the female patient with embryonic arrest from a consanguineous family, Liu et al. (2025) used whole-exome sequencing, confirmed by Sanger sequencing, to identify a homozygous deletion of the whole of exon 19 of the MEI1 gene. Amplification and sequencing of cDNA confirmed that the exon was missing, and exon 19 expression was almost undetectable in the patients. Their mother was a heterozygous carrier. In transfected HEK293T cells, the deletion produced a truncated MEI1 protein, consistent with the predicted premature termination in exon 20. The authors stated that this was the first exon rearrangement reported in MEI1.	
+MEI1 homozygous whole exon deletion of exon 19 in MEI1	in_gene	MEI1	
+SPERMATOGENIC FAILURE 103	caused_by	ESX1	36017582
+SPERMATOGENIC FAILURE 103	has_variant	ESX1 c.1040C>G / p.P347R	36017582
+SPERMATOGENIC FAILURE 103	has_variant	ESX1 c.1042C>G / p.L348V	36017582
+SPERMATOGENIC FAILURE 103	caused_by	FAM47C	36017582
+SPERMATOGENIC FAILURE 103	has_variant	FAM47C c.1826A>G	36017582
+SPERMATOGENIC FAILURE 103	caused_by	FAM50B	36017582
+SPERMATOGENIC FAILURE 103	has_variant	FAM50B c.293G>A	36017582
+SPERMATOGENIC FAILURE 103	caused_by	FANCM	36017582
+SPERMATOGENIC FAILURE 103	has_variant	FANCM c.2081T>G / p.L694*	36017582
+SPERMATOGENIC FAILURE 103	caused_by	IGSF1	36017582
+SPERMATOGENIC FAILURE 103	has_variant	IGSF1 c.1184T>G / p.L395R	36017582
+SPERMATOGENIC FAILURE 103	has_variant	IGSF1 c.2554T>G / p.Y838D	36017582
+SPERMATOGENIC FAILURE 103	has_variant	IGSF1 c.758A>G / p.Y253C	36017582
+SPERMATOGENIC FAILURE 103	has_variant	IGSF1 g.114567C>G	36017582
+SPERMATOGENIC FAILURE 103	caused_by	KCND1	36017582
+SPERMATOGENIC FAILURE 103	has_variant	KCND1 c.1723T>G	36017582
+SPERMATOGENIC FAILURE 103	caused_by	KIAA1210	36017582
+SPERMATOGENIC FAILURE 103	has_variant	KIAA1210 c.1214G>A	36017582
+SPERMATOGENIC FAILURE 103	caused_by	MEI1	36017582,36348580,36759719,40164922
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.1546A>G / c.3542G>A	36017582
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.1585T>A	36759719
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.186G>C	36759719
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.2071C>G / p.Q691E	36348580
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.251delt	36759719
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 c.529+5G>A	36348580
+SPERMATOGENIC FAILURE 103	has_variant	MEI1 homozygous whole exon deletion of exon 19 in MEI1	40164922
+SPERMATOGENIC FAILURE 103	caused_by	TEX13A	36017582
+SPERMATOGENIC FAILURE 103	has_variant	TEX13A c.596G>A / p.G199E	36017582
+SPERMATOGENIC FAILURE 103	caused_by	TEX14	36017582
+SPERMATOGENIC FAILURE 103	has_variant	TEX14 c.2285_2288delagaa / p.Q762Rfs / p.Q762fs	36017582
+SPERMATOGENIC FAILURE 103	caused_by	TKTL1	36017582
+SPERMATOGENIC FAILURE 103	has_variant	TKTL1 c.1601A>G / p.E534G	36017582
+SPERMATOGENIC FAILURE 103	has_variant	TKTL1 c.268_268delg / p.D90M / p.D90Mfs / p.D90fs	36017582
+SPERMATOGENIC FAILURE 103	caused_by	VCX3A	36017582
+SPERMATOGENIC FAILURE 103	has_variant	VCX3A c.556G>A / p.V186M	36017582
+SPERMATOGENIC FAILURE 103	caused_by	ZFPM2	36017582
+SPERMATOGENIC FAILURE 103	has_variant	ZFPM2 c.2287G>A / p.V763I	36017582
+SPERMATOGENIC FAILURE 103	has_variant	ZFPM2 c.89A>G / p.E30G	36017582
+SPERMATOGENIC FAILURE 103	inheritance	Autosomal recessive	36017582,36348580,36759719,40164922
+SPERMATOGENIC FAILURE 103	inheritance	X-linked recessive	36017582
+SPERMATOGENIC FAILURE 103	has_phenotype	Azoospermia	40164922
+SPERMATOGENIC FAILURE 103	has_phenotype	Female infertility	40164922
+SPERMATOGENIC FAILURE 103	has_phenotype	Non-obstructive azoospermia	36017582,36759719
+SPERMATOGENIC FAILURE 103	has_phenotype	Spermatocyte maturation arrest	36759719
+SPERMATOGENIC FAILURE 103	has_phenotype	Male infertility	36348580,36759719
+SPERMATOGENIC FAILURE 103	has_phenotype	Cryptozoospermia	36348580
+SPERMATOGENIC FAILURE 103	has_phenotype	Sertoli cell-only phenotype	36017582
+SPERMATOGENIC FAILURE 103	has_phenotype	Spermatogenesis maturation arrest	36017582
+Sertoli cell-only phenotype	is_a	Abnormal external genitalia morphology	
+Non-obstructive azoospermia	is_a	Azoospermia	
+Spermatocyte maturation arrest	is_a	Spermatogenesis maturation arrest	

@@ -1,0 +1,94 @@
+subject	predicate	object	pmids
+Hamada et al. (2017)	reports	In an individual with periventricular nodular heterotopia and intellectual disability, Hamada et al. (2017) used whole-exome sequencing to identify a de novo heterozygous missense mutation (c.680C>T; p.Ala227Val) in the GNAI2 gene, which encodes Galphai2.	
+GNAI2 c.680C>T / p.A227V	in_gene	GNAI2	
+Hamada et al. (2017)	reports	Hamada et al. (2017) found that acute knockdown of Galphai2 by in utero electroporation in mice caused delayed radial migration of excitatory neurons during corticogenesis, possibly because of impaired morphology; an RNAi-resistant Galphai2 rescued the migration defect. Silencing Galphai2 did not affect axon elongation, dendritic arbor formation, or neurogenesis at the ventricular zone in vivo.	
+Hamada et al. (2017)	reports	Hamada et al. (2017) reported that mice with acute Galphai2 knockdown had defects in social interaction, novelty recognition, and active avoidance learning, along with increased anxiety. The authors suggested that impaired Galphai2 function might cause defects in neuronal function that lead to neurodevelopmental disorders.	
+Lecoquierre et al. (2019)	reports	Lecoquierre et al. (2019) searched their database of more than 1,200 solo exomes and the public denovo-db collection of de novo variants from patients with developmental disorders for the same missense variant in unrelated individuals with similar phenotypes. They found 30 variants with strong evidence of pathogenicity and identified FEM1B as a good candidate gene for syndromic intellectual disability.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) reviewed MAGIS syndrome, an inborn error of immunity caused by heterozygous germline activating mutations in GNAI2. They described it as an acronym for midline malformations of the brain, anterior pituitary gland dysfunction, growth retardation, immunodysregulation/immunodeficiency, and skeletal defects. They noted considerable phenotypic heterogeneity, with nearly all patients showing both immune and nonimmune features.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) summarized nonimmune features in their original cohort of 20 patients from 18 families with GNAI2 mutations. Features were: growth retardation in 90% (IUGR 53%, postnatal short stature 90%); low IGF1 in 8 of 11 tested; growth hormone deficiency in 7 of 7 formally tested; structural or functional anterior pituitary defects in 59%; midline brain malformations in 30% (including corpus callosum agenesis or hypoplasia, cerebellar and pons hypoplasia, and Chiari I malformation); skeletal dysostoses in 85%; and dysmorphism in 100%. They noted that rare features such as coloboma or subcortical band heterotopia should raise suspicion for MAGIS.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) reported immune-mediated disease in 95% of the cohort: immunodeficiency in 90% and immune dysregulation in 50% (systemic autoinflammation 15%, autoimmunity 35%, splenomegaly 35%). Infections were mainly sinopulmonary (respiratory tract 75%, middle ear 65%, sinuses 35%), cutaneous (25%) and invasive (meningitis 10%, bacteremia 20%, cutaneous abscess 15%). Autoimmunity included autoimmune hemolytic anemia (20%), thrombocytopenia (10%) and psoriasis (10%). Hypogammaglobulinemia was present in 20% and HPV warts in 25%. Myelokathexis was not observed.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) reported that lymphocyte immunophenotyping typically showed low or normal T cells that often improved with age, a low naive-to-memory T cell ratio, and low B cells with low serum IgM. Monocytes and neutrophils tended to be high or normal. Mitogen- and antigen-induced proliferation was normal or increased. One patient had an abnormal newborn SCID screen. Premature mortality was 10% in the original cohort.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) described intrafamilial variability in family XIII, in which a proband (P13) and his father (P14) both carried GNAI2 Arg179Cys. At 2 years P13 had IUGR, congenital heart valve abnormalities with hydrops fetalis, dysmorphism, hypospadias, severe congenital sensorineural hearing loss, neurodevelopmental delay, a small pons, a thin corpus callosum, and neonatal infections with pan-lymphocytopenia. His father had dysmorphism, osteoporosis, cryptorchidism, hearing loss, borderline intellectual disability, epilepsy, short stature, annular pancreas with bowel malrotation, recurrent infections and celiac disease.	
+GNAI2 p.R179C	in_gene	GNAI2	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) described family XVII, in which 2 brothers (P18, P19) carried GNAI2 Arg179His. P18 had dysmorphism, cryptorchidism, inguinal hernia, pelvic kidney, short stature, arthritis, sensorineural hearing loss, recurrent infections and dysgammaglobulinemia. His deceased brother had IUGR, short stature, neurodevelopmental delay, epilepsy, ataxia, autism, psychosis, mild splenomegaly, recurrent infections, dysgammaglobulinemia and T cell lymphopenia.	
+GNAI2 p.R179H	in_gene	GNAI2	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) noted that each of the 20 patients, who were of multiple ancestries, carried an extremely rare heterozygous missense GNAI2 variant. All variants were absent from population databases except Arg179His, which was found in 2 individuals in gnomAD v4.1.0 (MAF 0.000001281). Mutations recurred at Thr182 (Thr182Ala/Ile/Pro in 6 families) and Arg179 (Arg179His/Cys in 7 patients from 5 families). Most variants arose de novo.	
+GNAI2 p.T182A	in_gene	GNAI2	
+GNAI2 p.T182I	in_gene	GNAI2	
+GNAI2 p.T182P	in_gene	GNAI2	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) observed full penetrance. Most variants arose de novo, but transmission of Arg179Cys from father to son and the presence of Arg179His in 2 brothers were consistent with autosomal dominant inheritance.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) summarized that the mutant Gαi2 proteins bind GTP up to 20-fold faster and hydrolyze GTP up to 100-fold slower than wildtype, and that most are insensitive to RGS GAPs, making them constitutively active. The Arg179His and Arg179Cys mutants were less severely activating: they bound GTP more slowly and remained GAP-sensitive. The authors suggested this explained their transmission through generations.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) summarized that MAGIS T cells and neutrophils showed impaired chemotaxis and chemokine-induced calcium flux because the mutant Gαi2 stays decoupled from GPCRs, a mechanism functionally resembling CXCR4 signaling deficiency. Separately, mutant Gαi2 sequestered RASA2 and enhanced TCR-induced RAS, ERK/MAPK and PI3K/AKT/S6 signaling, causing T cell hyperresponsiveness that may underlie autoimmunity. Knocking out adenylyl cyclases AC3 and AC7 in T cells did not reproduce these defects, suggesting they were independent of cAMP.	
+Lamborn et al. (2025)	reports	Lamborn et al. (2025) reported one MAGIS patient who received HSCT from a fully matched unrelated donor and achieved full donor chimerism. The transplant eradicated granulomatous skin disease caused by vaccine-strain rubella and resolved recurrent infections. Autoimmune hemolytic anemia stayed in remission for more than 3 years, while nonimmune features were unaffected. In vitro, selective CRISPR deletion of the mutant allele or combined RAS/MAPK and PI3K/AKT inhibition corrected T cell hyperresponsiveness.	
+MAGIS SYNDROME	caused_by	GNAI2	27787898,40926810
+MAGIS SYNDROME	has_variant	GNAI2 c.680C>T / p.A227V	27787898
+MAGIS SYNDROME	has_variant	GNAI2 p.R179C	40926810
+MAGIS SYNDROME	has_variant	GNAI2 p.R179H	40926810
+MAGIS SYNDROME	has_variant	GNAI2 p.T182A	40926810
+MAGIS SYNDROME	has_variant	GNAI2 p.T182I	40926810
+MAGIS SYNDROME	has_variant	GNAI2 p.T182P	40926810
+MAGIS SYNDROME	inheritance	Autosomal dominant	27787898,40926810
+MAGIS SYNDROME	has_phenotype	Growth delay	40926810
+MAGIS SYNDROME	has_phenotype	Intrauterine growth retardation	40926810
+MAGIS SYNDROME	has_phenotype	Short stature	40926810
+MAGIS SYNDROME	has_phenotype	Abnormal circulating protein concentration	40926810
+MAGIS SYNDROME	has_phenotype	Reduced circulating growth hormone concentration	40926810
+MAGIS SYNDROME	has_phenotype	Abnormality of the anterior pituitary	40926810
+MAGIS SYNDROME	has_phenotype	Abnormal brain morphology	40926810
+MAGIS SYNDROME	has_phenotype	Abnormal corpus callosum morphology	40926810
+MAGIS SYNDROME	has_phenotype	Cerebellar hypoplasia	40926810
+MAGIS SYNDROME	has_phenotype	Chiari type I malformation	40926810
+MAGIS SYNDROME	has_phenotype	Abnormality of the skeletal system	40926810
+MAGIS SYNDROME	has_phenotype	Abnormal facial shape	40926810
+MAGIS SYNDROME	has_phenotype	Coloboma	40926810
+MAGIS SYNDROME	has_phenotype	Subcortical band heterotopia	40926810
+MAGIS SYNDROME	has_phenotype	Immunodeficiency	40926810
+MAGIS SYNDROME	has_phenotype	Autoimmunity	40926810
+MAGIS SYNDROME	has_phenotype	Splenomegaly	40926810
+MAGIS SYNDROME	has_phenotype	Recurrent respiratory infections	40926810
+MAGIS SYNDROME	has_phenotype	Recurrent otitis media	40926810
+MAGIS SYNDROME	has_phenotype	Recurrent sinusitis	40926810
+MAGIS SYNDROME	has_phenotype	Meningitis	40926810
+MAGIS SYNDROME	has_phenotype	Bacteremia	40926810
+MAGIS SYNDROME	has_phenotype	Autoimmune hemolytic anemia	40926810
+MAGIS SYNDROME	has_phenotype	Autoimmune thrombocytopenia	40926810
+MAGIS SYNDROME	has_phenotype	Psoriasiform dermatitis	40926810
+MAGIS SYNDROME	has_phenotype	Decreased circulating immunoglobulin concentration	40926810
+MAGIS SYNDROME	has_phenotype	Verrucae	40926810
+MAGIS SYNDROME	has_phenotype	Decreased total T cell count	40926810
+MAGIS SYNDROME	has_phenotype	Decreased total B cell count	40926810
+MAGIS SYNDROME	has_phenotype	Decreased circulating IgM concentration	40926810
+MAGIS SYNDROME	has_phenotype	Abnormal heart valve morphology	40926810
+MAGIS SYNDROME	has_phenotype	Hydrops fetalis	40926810
+MAGIS SYNDROME	has_phenotype	Hypospadias	40926810
+MAGIS SYNDROME	has_phenotype	Sensorineural hearing impairment	40926810
+MAGIS SYNDROME	has_phenotype	Thin corpus callosum	40926810
+MAGIS SYNDROME	has_phenotype	Cryptorchidism	40926810
+MAGIS SYNDROME	has_phenotype	Seizure	40926810
+MAGIS SYNDROME	has_phenotype	Annular pancreas	40926810
+MAGIS SYNDROME	has_phenotype	Intestinal malrotation	40926810
+MAGIS SYNDROME	has_phenotype	Celiac disease	40926810
+MAGIS SYNDROME	has_phenotype	Inguinal hernia	40926810
+MAGIS SYNDROME	has_phenotype	Chronic diarrhea	40926810
+MAGIS SYNDROME	has_phenotype	Abnormality of humoral immunity	40926810
+MAGIS SYNDROME	has_phenotype	Ataxia	40926810
+MAGIS SYNDROME	has_phenotype	Autism	40926810
+MAGIS SYNDROME	has_phenotype	Arthritis	40926810
+MAGIS SYNDROME	has_phenotype	Intellectual disability	27787898,31036916
+MAGIS SYNDROME	has_phenotype	Periventricular nodular heterotopia	27787898
+Abnormality of the anterior pituitary	is_a	Abnormal brain morphology	
+Recurrent sinusitis	is_a	Recurrent respiratory infections	
+Recurrent sinusitis	is_a	Abnormality of the skeletal system	
+Autoimmune thrombocytopenia	is_a	Autoimmunity	
+Intrauterine growth retardation	is_a	Growth delay	
+Short stature	is_a	Growth delay	
+Thin corpus callosum	is_a	Abnormal corpus callosum morphology	
+Decreased circulating immunoglobulin concentration	is_a	Abnormality of humoral immunity	
+Arthritis	is_a	Abnormality of the skeletal system	
+Chiari type I malformation	is_a	Abnormal brain morphology	
+Decreased circulating IgM concentration	is_a	Decreased circulating immunoglobulin concentration	
+Decreased circulating IgM concentration	is_a	Abnormality of humoral immunity	
+Abnormal corpus callosum morphology	is_a	Abnormal brain morphology	
+Cerebellar hypoplasia	is_a	Abnormal brain morphology	
+Subcortical band heterotopia	is_a	Abnormal brain morphology	
+Autoimmune hemolytic anemia	is_a	Autoimmunity	

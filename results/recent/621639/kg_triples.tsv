@@ -1,0 +1,32 @@
+subject	predicate	object	pmids
+Bresack et al. (2025)	reports	Bresack et al. (2025) described 8 individuals from 7 unrelated families with a non-progressive congenital movement disorder with ataxia. All had motor developmental delay, muscular hypotonia, eye movement disorders, and congenital ataxia or gait imbalance. Other features included joint hyperflexibility, dysarthria, myopia, and growth delay.	
+Bresack et al. (2025)	reports	Bresack et al. (2025) found heterozygous ESRRG variants, most of them de novo, in the affected individuals. This is consistent with autosomal dominant inheritance.	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous c.410G>A (p.Gly137Glu) variant in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay and failed to restore proliferation in ESRRG-knockout HEK293T cells.	
+ESRRG c.410G>A / p.G137E	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous c.446A>G (p.Lys149Arg) variant in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay.	
+ESRRG c.446A>G / p.K149R	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous c.539G>A (p.Cys180Tyr) variant in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay.	
+ESRRG c.539G>A / p.C180Y	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous c.550C>T (p.Arg184Cys) variant in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay.	
+ESRRG c.550C>T / p.R184C	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous c.1346T>G (p.Leu449Arg) variant in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay.	
+ESRRG c.1346T>G / p.L449R	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) identified a heterozygous 1-bp duplication, c.1352dup (p.Leu451Phefs*38), in ESRRG in a patient with a non-progressive congenital movement disorder with ataxia. The variant was absent from gnomAD v4.1, predicted deleterious in silico, and located in an intolerant segment of the protein. It showed reduced transcriptional activity in an ERRE reporter assay.	
+ESRRG c.1352dup / p.L451Ffs / p.L451fs	in_gene	ESRRG	
+Bresack et al. (2025)	reports	Bresack et al. (2025) found that ESRRG knockout significantly increased the proliferation rate of HEK293T cells. Wild-type ESRRG restored normal proliferation, but none of the patient variants did. All variants localized correctly to the nucleus but significantly reduced transcriptional activity in an ERRE reporter assay. Molecular modeling also suggested reduced protein function.	
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	caused_by	ESRRG	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.1346T>G / p.L449R	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.1352dup / p.L451Ffs / p.L451fs	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.410G>A / p.G137E	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.446A>G / p.K149R	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.539G>A / p.C180Y	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_variant	ESRRG c.550C>T / p.R184C	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	inheritance	Autosomal dominant	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Motor delay	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Hypotonia	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Abnormality of eye movement	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Ataxia	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Joint hypermobility	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Dysarthria	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Myopia	41265451
+MOVEMENT DISORDER, CONGENITAL NONPROGRESSIVE, WITH ATAXIA AND EYE MOVEMENT ABNORMALITIES	has_phenotype	Growth delay	41265451

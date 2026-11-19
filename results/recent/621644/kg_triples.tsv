@@ -1,0 +1,61 @@
+subject	predicate	object	pmids
+Itai et al. (2022)	reports	Itai et al. (2022) described 4 individuals with kyphomelic dysplasia. All 4 had sharp angulation of the femora and humeri, distinctive facial features, and neonatal respiratory distress. Three had short stature and 3 developed postnatal osteoporosis followed by fractures. Two had brachycephaly and 2 were diagnosed with optic atrophy.	
+Itai et al. (2022)	reports	In 2 of 4 individuals with kyphomelic dysplasia, Itai et al. (2022) used whole-exome sequencing to find a de novo heterozygous c.272A>G variant in the KIF5B gene, which results in a lys91-to-arg (K91R) substitution. The affected amino acid is conserved and lies in or close to the ATPase activity-related motifs of the catalytic motor domain.	
+KIF5B c.272A>G / p.K91R	in_gene	KIF5B	
+Itai et al. (2022)	reports	In 1 individual with kyphomelic dysplasia, Itai et al. (2022) used whole-exome sequencing to find a de novo heterozygous c.584C>A variant in the KIF5B gene, which results in a thr195-to-lys (T195K) substitution. The affected amino acid is conserved and lies in or near the ATPase-related motifs of the motor domain.	
+KIF5B c.584C>A / p.T195K	in_gene	KIF5B	
+Itai et al. (2022)	reports	In 1 individual with kyphomelic dysplasia, Itai et al. (2022) used whole-exome sequencing to find a de novo heterozygous c.701G>T variant in the KIF5B gene, which results in a gly234-to-val (G234V) substitution. The affected amino acid is conserved and lies in or near the ATPase-related motifs of the motor domain.	
+KIF5B c.701G>T / p.G234V	in_gene	KIF5B	
+Itai et al. (2022)	reports	Itai et al. (2022) described kyphomelic dysplasia as a heterogeneous group of skeletal dysplasias with severe bowing of the limbs and other variable features, such as a narrow thorax and abnormal facies. They suggested that heterozygous deleterious KIF5B variants cause a specific form of kyphomelic dysplasia, which extends the phenotypic spectrum of the kinesinopathies.	
+Flex et al. (2023)	reports	Flex et al. (2023) injected human KIF5B mRNA carrying the kyphomelic dysplasia-associated p.Thr195Lys (c.584C>A) missense variant into 1-cell zebrafish embryos. By 2 dpf, these embryos had a significant increase in mild and severe heart defects and heart edema. They also had a wider ceratohyal cartilage angle than embryos injected with wildtype KIF5B. Expressing the variant in motoneurons significantly reduced mitochondrial coverage along the axon and caused mitochondrial transport defects. The authors suggested that the variants act as dominant-negative alleles.	
+Flex et al. (2023)	reports	Flex et al. (2023) re-reviewed the 4 previously reported patients with KIF5B-related kyphomelic dysplasia, who carried de novo p.Thr195Lys, p.Gly234Val, or p.Lys91Arg variants. All 4 had neonatal distress and respiratory failure, and their hypotonia partially resolved with age. Single individuals had tracheomalacia, glossoptosis, or velopharyngeal insufficiency. Clubfoot was present in 3 of the 4 patients.	
+Flex et al. (2023)	reports	Flex et al. (2023) noted that the kyphomelic dysplasia-associated KIF5B variants affect residues Lys91, Thr195, and Gly234. These residues lie in the motor domain and cluster in the pocket that binds ATP/ADP. Joint contractures were seen only in patients with motor-domain variants, which suggested a correlation between altered motor-domain function and joint contractures or clubfoot.	
+Flex et al. (2023)	reports	Flex et al. (2023) identified 3 other dominantly acting KIF5B variants located further 3-prime than the kyphomelic dysplasia variants: p.Asn255del at the end of the motor domain, and p.Leu498Pro and p.Leu537Pro in the coiled-coil domain. These caused phenotypes ranging from a syndromic neurodevelopmental disorder to adult-onset dilated cardiomyopathy with ophthalmoplegia and skeletal myopathy, without kyphomelic dysplasia apart from scoliosis in 1 patient. The authors proposed grouping these conditions as KIF5B-related diseases.	
+Flex et al. (2023)	reports	Flex et al. (2023) described an Italian boy (subject 1), last evaluated at 8 years 3 months. He had a neurodevelopmental disorder with severe developmental delay and intellectual disability, early-onset refractory epilepsy, and severe hypotonia, and needed a gastrostomy for feeding. He also had progressive cortical atrophy, a thin corpus callosum, and dysmorphic features including bitemporal narrowing, hypertelorism, ptosis, and a short deep philtrum. Severe scoliosis was reported at 9 years.	
+Flex et al. (2023)	reports	Flex et al. (2023) used trio whole-exome sequencing in subject 1 and identified a de novo heterozygous c.1610T>C (p.Leu537Pro) variant in KIF5B. The variant was absent from gnomAD and affects a conserved leucine in the coiled-coil dimerization region. Fibroblasts from the patient showed abnormal cilia, enlarged and peripherally located lysosomes, and Golgi disorganization. Motoneurons derived from the patient's iPSCs had reduced mitochondrial coverage in the distal parts of their neurites.	
+KIF5B c.1610T>C / p.L537P	in_gene	KIF5B	
+Flex et al. (2023)	reports	Flex et al. (2023) described a family (family 2) with autosomal dominant, adult-onset dilated cardiomyopathy that required heart transplantation in 3 members. Affected members also had skeletal myopathy that worsened over time, ophthalmoplegia, elevated CPK, joint contractures, and peripheral neuropathy. A heterozygous in-frame deletion in KIF5B, c.765_767delCAA (p.Asn255del), segregated with the disorder; it was inherited from the father of a 67-year-old man (subject 2) and was carried by his 2 affected sisters. Zebrafish embryos injected with this variant developed heart defects.	
+KIF5B c.765_767delcaa / p.N255del	in_gene	KIF5B	
+Flex et al. (2023)	reports	Flex et al. (2023) described a 6-year-old girl (subject 3) with mild developmental delay, severe hypotonia that began prenatally, feeding difficulties requiring G-tube feeding, and mild dysmorphism. She carried a de novo heterozygous KIF5B variant, c.1493T>C (p.Leu498Pro), in the coiled-coil domain.	
+KIF5B c.1493T>C / p.L498P	in_gene	KIF5B	
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	caused_by	KIF5B	35342932,36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.1493T>C / p.L498P	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.1610T>C / p.L537P	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.272A>G / p.K91R	35342932,36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.584C>A / p.T195K	35342932,36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.701G>T / p.G234V	35342932,36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_variant	KIF5B c.765_767delcaa / p.N255del	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	inheritance	Autosomal dominant	35342932,36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Respiratory distress	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Hypotonia	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Tracheomalacia	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Glossoptosis	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Velopharyngeal insufficiency	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Talipes equinovarus	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Joint contracture	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Severe intellectual disability	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Seizure	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Cerebral cortical atrophy	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Thin corpus callosum	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Hypertelorism	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Ptosis	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Scoliosis	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Dilated cardiomyopathy	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Ophthalmoplegia	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Elevated circulating creatine kinase activity	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Feeding difficulties	36018820
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Femoral bowing	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Bowed humerus	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Abnormality of the face	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Neonatal respiratory distress	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Short stature	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Osteoporosis	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Recurrent fractures	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Brachycephaly	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Optic atrophy	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Bowing of the long bones	35342932
+KYPHOMELIC DYSPLASIA, ITAI-IKEGAWA TYPE	has_phenotype	Narrow chest	35342932
+Glossoptosis	is_a	Abnormality of the face	
+Velopharyngeal insufficiency	is_a	Abnormality of the face	
+Bowed humerus	is_a	Bowing of the long bones	
+Femoral bowing	is_a	Bowing of the long bones	

@@ -1,0 +1,47 @@
+subject	predicate	object	pmids
+Qu et al. (2023)	reports	Qu et al. (2023) described an infertile male with asthenozoospermia.	
+Qu et al. (2023)	reports	Qu et al. (2023) identified variants in the ADGB gene in an infertile man with asthenozoospermia. The variants disrupted the binding of ADGB to calmodulin.	
+Qu et al. (2023)	reports	Qu et al. (2023) found that male Adgb -/- mice were infertile because of reduced sperm concentration (less than 1 x 10(6)/mL) and reduced sperm motility. Spermatogenesis was abnormal, with malformed elongating and elongated spermatids, and the cauda epididymis had about twice as many apoptotic cells. ICSI with testicular spermatids led to fertilization and development to the blastocyst stage.	
+Qu et al. (2023)	reports	Using mass spectrometry, Qu et al. (2023) identified 42 candidate proteins that interact with ADGB and are involved in sperm assembly, flagella formation, and sperm motility. They confirmed that CFAP69 and SPEF2 bind to ADGB.	
+Gao et al. (2025)	reports	Gao et al. (2025) described 3 unrelated infertile Han Chinese men with severe asthenoteratozoospermia. Under light and electron microscopy, their spermatozoa showed multiple malformations of the acrosome and flagellum.	
+Gao et al. (2025)	reports	Gao et al. (2025) performed whole-exome sequencing in a cohort of 105 Han Chinese men with idiopathic asthenoteratozoospermia. In 1 infertile man they identified a homozygous frameshift variant in the ADGB gene (c.2801_2802del, p.K934Rfs*33; NM_024694.4), confirmed by Sanger sequencing. The variant was rare in the general population and was predicted to be damaging by multiple bioinformatics tools.	
+ADGB c.2801_2802del / p.K934Rfs / p.K934fs	in_gene	ADGB	
+Gao et al. (2025)	reports	In 1 infertile Han Chinese man with asthenoteratozoospermia, Gao et al. (2025) identified a homozygous missense variant in the ADGB gene (c.C3167T, p.T1056I; NM_024694.4). The variant was rare in the general population and was predicted to be damaging.	
+ADGB c.3167C>T / p.T1056I	in_gene	ADGB	
+Gao et al. (2025)	reports	In 1 infertile Han Chinese man with asthenoteratozoospermia, Gao et al. (2025) identified compound heterozygous missense variants in the ADGB gene (c.C3167T, p.T1056I and c.C3197T, p.A1066V; NM_024694.4). The variants were rare in the general population and were predicted to be damaging.	
+ADGB c.3197C>T / p.A1066V	in_gene	ADGB	
+Gao et al. (2025)	reports	In sperm from the patients, Gao et al. (2025) found through functional assays that the structural defects were associated with dysregulation of ADGB and of multiple spermatogenesis proteins. PLC-zeta was expressed normally, but calmodulin (CaM) was deficient.	
+Gao et al. (2025)	reports	Gao et al. (2025) reported that intracytoplasmic sperm injection (ICSI) led to successful fertilization in all 3 patients. Together with the CaM deficiency in the sperm, this suggested to the authors that ICSI rather than in vitro fertilization is the best treatment for ADGB-deficient patients.	
+Gao et al. (2025)	reports	Gao et al. (2025) noted that knockout of Adgb in male mice had previously been reported to cause male infertility, with spermatogenesis defects involving the flagella and acrosome.	
+Wang et al. (2026)	reports	Wang et al. (2026) described a Chinese man with primary infertility and severe idiopathic oligoasthenoteratozoospermia. His sperm concentration was 2.0 x 10(6)/mL, progressive motility was below 1%, vitality was 16%, and none of his sperm had normal morphology. He had normal reproductive hormones, a 46,XY karyotype and no Y chromosome microdeletion. Abnormal heads were seen in 76.5% of sperm and abnormal flagella in 62.5%.	
+Wang et al. (2026)	reports	Wang et al. (2026) reported that Papanicolaou staining of the patient's sperm showed head defects, including microcephalic and conical heads. Tail defects were also seen: short tails, acutely angled bent tails, coiled tails and tailless sperm. On transmission electron microscopy, the patient's sperm showed acrosome defects, a disorganized helix of the mitochondrial sheath, and disorganized or missing '9+2' axonemal microtubules.	
+Wang et al. (2026)	reports	Wang et al. (2026) performed whole exome sequencing in 781 Chinese men with primary infertility and identified 148 ADGB variants. Under ACMG criteria, 45 were classified as benign, 1 as likely benign, 96 as of uncertain significance and 6 as likely pathogenic. Two of the likely pathogenic missense variants were found in the same patient.	
+Wang et al. (2026)	reports	In the man with oligoasthenoteratozoospermia, Wang et al. (2026) identified compound heterozygous ADGB missense variants by whole exome sequencing and confirmed them by Sanger sequencing. One of the two variants was c.4859G>A (p.Arg1620Gln, NM_024694.4). Its frequencies were 0.0010 in 1000 Genomes, 0.0001 in ExAC and 0.00285 in gnomAD. SIFT, PolyPhen-2 and CADD (28.2) predicted it to be damaging, and Arg1620 is absolutely conserved across vertebrates.	
+ADGB c.4859G>A / p.R1620Q	in_gene	ADGB	
+Wang et al. (2026)	reports	The second ADGB variant that Wang et al. (2026) found in the same patient was c.4981A>G (p.Lys1661Glu). It was absent from 1000 Genomes and ExAC and had a frequency of 0.0006 in gnomAD. SIFT, PolyPhen-2 (possibly damaging) and CADD (20.4) predicted it to be deleterious. Lys1661 is conserved in mammals but not in birds, amphibians or fish.	
+ADGB c.4981A>G / p.K1661E	in_gene	ADGB	
+Wang et al. (2026)	reports	Wang et al. (2026) found by Western blot that ADGB protein was absent from the patient's sperm. On immunofluorescence, the patient's sperm showed clearly reduced ADGB and reduced PNA (acrosome marker) staining. In control sperm, ADGB was enriched in the acrosome and in the flagellar mitochondrial sheath. AlphaFold3 modeling predicted that the two variants alter the conformation of an alpha-helix and of a C-terminal loop, respectively.	
+Wang et al. (2026)	reports	Wang et al. (2026) used STRING analysis and identified the axoneme assembly proteins TTC29 and CFAP47 as candidate ADGB partners. Co-immunoprecipitation confirmed that both interact with ADGB in sperm. Levels of both proteins were clearly reduced in the patient's sperm. The authors suggested that ADGB may maintain acrosome function and flagellar axoneme assembly by binding TTC29 and CFAP47.	
+Wang et al. (2026)	reports	Wang et al. (2026) found that ADGB expression in human testis is low before puberty and peaks in adulthood. In both human and mouse spermatogenic cells, ADGB localized to the acrosome and the flagellum. In mice, Adgb mRNA was highly expressed in adult testis, expressed at low levels in lung and ovary, and peaked in testis at postnatal day 40.	
+Wang et al. (2026)	reports	Wang et al. (2026) reported that the patient's partner conceived with ICSI. 36 oocytes were retrieved and the normal 2PN fertilization rate was 70%. Transfer of a single frozen-thawed blastocyst led to a full-term delivery. The authors noted that all 5 reported couples with ADGB variants had achieved clinical pregnancy with ICSI.	
+SPERMATOGENIC FAILURE 105	caused_by	ADGB	38385883,41834962
+SPERMATOGENIC FAILURE 105	has_variant	ADGB c.2801_2802del / p.K934Rfs / p.K934fs	38385883
+SPERMATOGENIC FAILURE 105	has_variant	ADGB c.3167C>T / p.T1056I	38385883
+SPERMATOGENIC FAILURE 105	has_variant	ADGB c.3197C>T / p.A1066V	38385883
+SPERMATOGENIC FAILURE 105	has_variant	ADGB c.4859G>A / p.R1620Q	41834962
+SPERMATOGENIC FAILURE 105	has_variant	ADGB c.4981A>G / p.K1661E	41834962
+SPERMATOGENIC FAILURE 105	inheritance	Autosomal recessive	38385883,41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Oligozoospermia	41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Reduced sperm motility	36995441,41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Abnormal sperm head morphology	38385883,41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Abnormal sperm tail morphology	38385883,41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Male infertility	36995441,38385883,41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Short sperm flagella	41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Coiled sperm flagella	41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Absent sperm flagella	41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Bent sperm flagella	41834962
+SPERMATOGENIC FAILURE 105	has_phenotype	Abnormal cell morphology	41834962
+Short sperm flagella	is_a	Abnormal sperm tail morphology	
+Bent sperm flagella	is_a	Abnormal sperm tail morphology	
+Absent sperm flagella	is_a	Abnormal sperm tail morphology	
+Coiled sperm flagella	is_a	Abnormal sperm tail morphology	

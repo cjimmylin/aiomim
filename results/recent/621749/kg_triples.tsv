@@ -1,0 +1,57 @@
+subject	predicate	object	pmids
+Peschel et al. (2025)	reports	Peschel et al. (2025) reported a previously undescribed IRF6 variant that caused a new type of ectodermal dysplasia with natal teeth.	
+Zhang et al. (2026)	reports	Zhang et al. (2026) reported that gain-of-function variants in the IRF6 gene cause a syndrome of hidradenitis suppurativa, ectodermal dysplasia, and deafness.	
+Schneider et al. (2026)	reports	Schneider et al. (2026) described 2 unrelated male teenagers (P1, aged 17, and P2, aged 14) with ectodermal dysplasia who were born with natal teeth. P1 developed 7 deciduous teeth with delay and 12 permanent teeth (10 remaining), most with enamel defects and hypomineralization, and had a highly atrophic mandibular alveolar crest due to oligodontia; P2 developed only 9 permanent teeth. Both had overheating since infancy, anhidrosis with no sweat glands detectable on the palms, recurrent skin abscesses in the genital/gluteal area, behind the ears, axillae and mouth, very dry skin with plantar hyperkeratosis and blistering of the toes in winter, dysplastic thickened nails with distal onycholysis, thick nasal mucus, dry cerumen, and bilateral sensorineural hearing impairment since infancy; submucous cleft palate was excluded.	
+Schneider et al. (2026)	reports	In P1 and P2, 2 unrelated males with ectodermal dysplasia with natal teeth, Schneider et al. (2026) identified the same de novo heterozygous c.653T>A transition in exon 6 of the IRF6 gene, resulting in an ile218-to-asn (I218N) substitution, by exome sequencing (P1) and Sanger sequencing (P2, after negative EDA, EDAR, EDARADD and TP63 testing). The variant was absent from parental DNA and was predicted to be deleterious.	
+IRF6 c.653T>A / p.I218N	in_gene	IRF6	
+Schneider et al. (2026)	reports	Schneider et al. (2026) described a 22-year-old woman (P3) with anhidrosis, diffuse xerosis, dilated follicular ostia, heat intolerance, recurrent hidradenitis suppurativa-like abscesses of the groins, axillae and intergluteal fold, pincer nails of both great toes, bilateral acquired sensorineural hearing loss, epistaxis, crusted rhinitis, insufficient salivation, and bilateral superficial punctate keratitis with reduced tear film break-up time. Hair, lips, palate, breasts and nipples were normal and natal teeth were not remembered; she had 16 persisting deciduous teeth and only 2 permanent teeth after delayed eruption.	
+Schneider et al. (2026)	reports	In P3, Schneider et al. (2026) identified a de novo heterozygous c.658T>C transition in the IRF6 gene, resulting in a ser220-to-pro (S220P) substitution, by trio whole-genome sequencing; a variant allele frequency of 30.5% indicated mosaicism. In silico analyses supported pathogenicity, though the variant was formally classified as of unknown significance.	
+IRF6 c.658T>C / p.S220P	in_gene	IRF6	
+Schneider et al. (2026)	reports	Comparing their 3 patients with 2 previously reported patients carrying IRF6 Ile218Asn or Ile218_Ser220delins variants, Schneider et al. (2026) considered oligodontia, hypo- or anhidrosis, hidradenitis suppurativa-like abscesses, poikiloderma, onychodysplasia and bilateral hearing impairment to be syndrome-defining (5/5), whereas natal teeth (2/5) and sparse hair (2/5) were irregular; none had lip pits, clefting, pterygia or syndactyly, distinguishing the disorder from VWS1 and PPS.	
+Schneider et al. (2026)	reports	Schneider et al. (2026) recognized a common pattern of tooth agenesis in P1, P2 and P3: all had permanent upper incisors but no mandibular incisors or canines and no permanent premolars, with pronounced atrophy of the lower alveolar crest.	
+Schneider et al. (2026)	reports	Schneider et al. (2026) found focal subcorneal clefting, basal spongiosis and absent sweat glands in skin biopsies from P1 and P3; keratinocyte nuclei of P1 showed stronger IRF6 immunostaining than controls, while P3 showed patchy nuclear staining consistent with mosaicism, and keratin 17 staining was normal. Together with genotype-phenotype data, they suggested a gain-of-function mechanism; AlphaFold3 modeling placed both substitutions in a short alpha-helix at the end of the region between the DNA-binding and protein-binding domains.	
+Schneider et al. (2026)	reports	Schneider et al. (2026) noted that they initially referred to this disorder as ectodermal dysplasia with natal teeth (EDNAT), but that natal teeth appeared less typical than initially thought.	
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	caused_by	IRF6	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_variant	IRF6 c.653T>A / p.I218N	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_variant	IRF6 c.658T>C / p.S220P	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	inheritance	Autosomal dominant	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	inheritance	Somatic mosaicism	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Natal tooth	39902929,42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Oligodontia	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Enamel hypomineralization	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Atrophy of alveolar ridges	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Anhidrosis	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Aplasia of the sweat glands	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Recurrent cutaneous abscess formation	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Dry skin	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Plantar hyperkeratosis	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Nail dysplasia	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Bilateral sensorineural hearing impairment	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Heat intolerance	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Acne inversa	41046129,42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Abnormal nail morphology	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Xerostomia	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Punctate keratitis	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Persistence of primary teeth	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Delayed eruption of teeth	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Hypohidrosis	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Poikiloderma	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Sparse hair	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Agenesis of mandibular incisor	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Agenesis of premolar	42487474
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Abnormality of the integument	39902929,41046129
+ECTODERMAL DYSPLASIA 19, HYPOHIDROTIC/TOOTH/NAIL TYPE	has_phenotype	Hearing impairment	41046129
+Nail dysplasia	is_a	Abnormal nail morphology	
+Lower lip pit	is_a	Abnormality of the integument	
+Hypohidrosis	is_a	Abnormality of the integument	
+Plantar hyperkeratosis	is_a	Abnormality of the integument	
+Dry skin	is_a	Abnormality of the integument	
+Bilateral sensorineural hearing impairment	is_a	Hearing impairment	
+Aplasia of the sweat glands	is_a	Abnormality of the integument	
+Submucous cleft hard palate	is_a	Orofacial cleft	
+Sparse hair	is_a	Abnormality of the integument	
+Abnormal nail morphology	is_a	Abnormality of the integument	
+Recurrent cutaneous abscess formation	is_a	Abnormality of the integument	
+Anhidrosis	is_a	Abnormality of the integument	
+Poikiloderma	is_a	Abnormality of the integument	
+Acne inversa	is_a	Abnormality of the integument	

@@ -1,0 +1,18 @@
+subject	predicate	object	pmids
+Lieschke et al. (1994)	reports	Lieschke et al. (1994) made G-CSF-deficient mice by targeted disruption of the G-CSF gene in embryonal stem cells. The G-CSF-/- mice were viable, fertile and superficially healthy but had chronic neutropenia, with peripheral blood neutrophil levels at 20 to 30% of wildtype. Heterozygous mice had intermediate neutrophil levels, which the authors suggested pointed to a gene-dosage effect. In G-CSF-/- marrow, granulopoietic precursor cells were reduced by 50%, and granulocyte, macrophage and blast progenitor cells were also reduced. Mature neutrophils were still present in blood and marrow.	
+Lieschke et al. (1994)	reports	Lieschke et al. (1994) found that G-CSF-/- mice had fewer neutrophils available for rapid mobilization into the circulation by a single dose of G-CSF. Giving G-CSF reversed the defect: 1 day of treatment brought circulating neutrophils up to normal levels, and after 4 days the marrows of knockout and wildtype mice looked morphologically indistinguishable.	
+Lieschke et al. (1994)	reports	Lieschke et al. (1994) showed that G-CSF-/- mice had a markedly impaired ability to control Listeria monocytogenes infection. Their blood neutrophil increase was diminished, their monocyte increase was delayed, and infection-driven granulopoiesis was reduced. The authors concluded that G-CSF is indispensable for maintaining normal steady-state neutrophil production, and they also implicated it in emergency granulopoiesis during infection.	
+Khouj et al. (2023)	reports	Khouj et al. (2023) described 3 patients from 2 families with severe congenital neutropenia (SCN). Each family segregated a different biallelic inactivating variant in the CSF3 gene. Using skin fibroblast-derived RNA, RT-PCR showed complete deficiency of CSF3 caused by nonsense-mediated decay.	
+Khouj et al. (2023)	reports	Khouj et al. (2023) suggested that CSF3 deficiency in humans causes a novel autosomal recessive form of SCN. Before this report, biallelic inactivation of the receptor gene CSF3R was an established cause of SCN, but no Mendelian disease had been ascribed to CSF3.	
+Khouj et al. (2023)	reports	Khouj et al. (2023) noted that the phenotype in their patients with CSF3 deficiency mirrored the phenotype documented in mouse and zebrafish models of CSF3 deficiency.	
+Almannai et al. (2026)	reports	Almannai et al. (2026) reported severe congenital neutropenia caused by a homozygous pathogenic loss-of-function variant in the CSF3 gene. They described this as the first confirmatory report of a previously proposed CSF3-related SCN, supporting the gene-disease relationship in humans.	
+CSF3 homozygous pathogenic loss-of-function variant in CSF3	in_gene	CSF3	
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	caused_by	CSF3	42358053
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	has_variant	CSF3 homozygous pathogenic loss-of-function variant in CSF3	42358053
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	inheritance	Autosomal recessive	37612131,42358053,7521686
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	has_phenotype	Decreased total neutrophil count	37612131,42358053
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	has_phenotype	Persistently decreased total neutrophil count	7521686
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	has_phenotype	Abnormal myeloid leukocyte morphology	7521686
+NEUTROPENIA, SEVERE CONGENITAL, 14, AUTOSOMAL RECESSIVE	has_phenotype	Recurrent bacterial infections	7521686
+Persistently decreased total neutrophil count	is_a	Decreased total neutrophil count	
+Decreased total neutrophil count	is_a	Abnormal myeloid leukocyte morphology	

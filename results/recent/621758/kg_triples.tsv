@@ -1,0 +1,37 @@
+subject	predicate	object	pmids
+Samra et al. (2023)	reports	Samra et al. (2023) described a kindred with 4 affected infants who had congenital arthrogryposis, did not reach any developmental milestones, and had early respiratory failure, neutropenia, and recurrent infections. All 4 died within 4 months after birth.	
+Samra et al. (2023)	reports	In the 4 affected members of a kindred with fatal arthrogryposis multiplex congenita, early respiratory failure, and neutropenia, Samra et al. (2023) used exome sequencing and segregation studies to identify a homozygous stop-gain variant in the SENP7 gene (c.1474C>T, p.Gln492Ter), which they considered the probable cause. Fibroblasts from the proband showed reduced SENP7 mRNA expression.	
+SENP7 c.1474C>T / p.Q492*	in_gene	SENP7	
+Samra et al. (2023)	reports	Samra et al. (2023) found significant protein dysregulation in total cell lysates and in the chromatin fraction of fibroblasts from a patient homozygous for a SENP7 stop-gain variant. HP1-alpha, several histones, and H3K9me3 were reduced. The authors suggested that loss of SENP7 reduces heterochromatin condensation and leads to aberrant gene expression, and that SENP7 has a critical role in nervous system development, hematopoiesis, and immune function.	
+Kobayashi et al. (2024)	reports	Kobayashi et al. (2024) reported 4 children from 3 unrelated families who had neurodevelopmental abnormalities, dysmorphism, and immunodeficiency. Their clinical presentations were characterized by hypogammaglobulinemia and intermittent neutropenia, and all 4 patients died in infancy.	
+Kobayashi et al. (2024)	reports	Kobayashi et al. (2024), through international collaboration to evaluate a novel candidate disease gene, identified rare homozygous loss-of-function variants in the SENP7 gene in 4 children from 3 unrelated families with immunodeficiency and neurologic and muscular phenotypes.	
+Kobayashi et al. (2024)	reports	Kobayashi et al. (2024) noted that SENP7 is a sentrin-specific protease involved in deSUMOylation, a posttranslational modification of proteins essential for cell regulation, and proposed that deficiency of deSUMOylation may represent a novel mechanism of primary immunodeficiency.	
+Kotecha et al. (2025)	reports	Kotecha et al. (2025) reported a consanguineous family with multiple members affected by a severe, lethal form of arthrogryposis multiplex congenita.	
+Kotecha et al. (2025)	reports	In affected members of a consanguineous family with lethal arthrogryposis multiplex congenita, Kotecha et al. (2025) identified a recessive variant in the highly conserved splice donor site of SENP7 that resulted in mis-splicing of the affected exons. The authors stated that this was a noncoding splice site variant in SENP7.	
+SENP7 splice donor site variant	in_gene	SENP7	
+Kotecha et al. (2025)	reports	Kotecha et al. (2025) noted that SENP7 is a deSUMOylase that is critical for sarcomere assembly and skeletal muscle contraction by regulating the transcriptional program in skeletal muscle.	
+Saad et al. (2025)	reports	Saad et al. (2025) described a consanguineous Egyptian family with a history of 3 fetal deaths, all with multiple congenital anomalies. Ultrasound of the current fetus showed similar anomalies, including arthrogryposis multiplex congenita, CNS malformations, congenital heart disease, and renal anomalies. The authors described this as the first full prenatal description of a lethal syndrome linked to SENP7.	
+Saad et al. (2025)	reports	In fetal DNA from a consanguineous Egyptian family with recurrent lethal multiple congenital anomalies including arthrogryposis multiplex congenita, Saad et al. (2025) used singleton exome sequencing to identify a homozygous stop-gain variant in the SENP7 gene (c.745C>T, p.Arg249Ter). The resulting premature termination codon was predicted to cause nonsense-mediated decay of the mutant mRNA. The authors proposed that this impairs SENP7's isopeptidase activity in deconjugating polySUMO chains.	
+SENP7 c.745C>T / p.R249*	in_gene	SENP7	
+Pal et al. (2025)	reports	Pal et al. (2025) reported a novel missense variant in the SENP7 gene in a patient with fatal arthrogryposis multiplex congenita and immunodeficiency. They also compared the main clinical features and molecular findings of their case with those of previously reported cases of SENP7-associated disorder.	
+SENP7 novel missense variation	in_gene	SENP7	
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	caused_by	SENP7	37460201,39754459,39763084,41177942
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_variant	SENP7 c.1474C>T / p.Q492*	37460201
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_variant	SENP7 c.745C>T / p.R249*	39763084
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_variant	SENP7 novel missense variation	41177942
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_variant	SENP7 splice donor site variant	39754459
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	inheritance	Autosomal recessive	37460201,38972567,39754459,39763084
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Arthrogryposis multiplex congenita	37460201,39754459,39763084,41177942
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Immunodeficiency	38972567,41177942
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Morphological central nervous system abnormality	39763084
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Abnormal heart morphology	39763084
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Abnormal renal morphology	39763084
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Neurodevelopmental abnormality	38972567
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Abnormal facial shape	38972567
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Decreased circulating immunoglobulin concentration	38972567
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Decreased total neutrophil count	37460201,38972567
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Death in infancy	37460201,38972567
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Global developmental delay	37460201
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Respiratory failure	37460201
+ARTHROGRYPOSIS MULTIPLEX CONGENITA 9, WITH IMMUNODEFICIENCY	has_phenotype	Recurrent infections	37460201
+Global developmental delay	is_a	Neurodevelopmental abnormality	

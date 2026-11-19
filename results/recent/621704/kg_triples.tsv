@@ -1,0 +1,18 @@
+subject	predicate	object	pmids
+Charng et al. (2016)	reports	Charng et al. (2016) performed whole-exome sequencing in 31 mostly consanguineous Arab families from Saudi Arabia with neurologic disease, including brain malformations and/or developmental delay/intellectual disability. They proposed 12 novel candidate disease genes, including AAR2, in 11 families. Most variants in candidate genes mapped to regions of absence of heterozygosity and were homozygous. All variants in novel candidate genes were classified as variants of uncertain significance.	
+Fisher et al. (2025)	reports	Fisher et al. (2025) reported 2 sibs born to consanguineous Pakistani parents. Prenatal imaging showed cerebral ventriculomegaly and agenesis of the corpus callosum in both. Autopsies on both sibs showed similar abnormalities, including facial dysmorphism, osteopetrosis, and neuropathologic findings consistent with neuroaxonal dystrophy.	
+Fisher et al. (2025)	reports	In 2 sibs, born to consanguineous Pakistani parents, who had neuroaxonal dystrophy with osteopetrosis, Fisher et al. (2025) used trio exome sequencing to identify a homozygous nonsense variant in exon 3 of the BORCS5 gene (c.283C>T, p.Arg95Ter; NM_058169.4). Each parent was heterozygous for the variant.	
+BORCS5 c.283C>T / p.R95*	in_gene	BORCS5	
+Fisher et al. (2025)	reports	Fisher et al. (2025) found that 1 of the 2 affected sibs was also homozygous for a missense variant of uncertain significance in the SCYL2 gene (c.902G>A, p.Arg301His; NM_017988.5), for which both parents were heterozygous. Because the autopsy findings in the 2 sibs were identical, the authors raised the possibility that the SCYL2 variant did not contribute to the phenotype.	
+SCYL2 c.902G>A / p.R301H	in_gene	SCYL2	
+Fisher et al. (2025)	reports	Fisher et al. (2025) noted that neuroaxonal dystrophy with osteopetrosis was first reported in a consanguineous Moroccan Jewish family and that, until their report, no genetic variant had been linked to the disease.	
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	caused_by	BORCS5	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_variant	BORCS5 c.283C>T / p.R95*	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	caused_by	SCYL2	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_variant	SCYL2 c.902G>A / p.R301H	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	inheritance	Autosomal recessive	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_phenotype	Ventriculomegaly	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_phenotype	Agenesis of corpus callosum	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_phenotype	Abnormal facial shape	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_phenotype	Osteopetrosis	40621786
+NEURODEGENERATION, INFANTILE-ONSET, WITH OPTIC ATROPHY AND STRUCTURAL BRAIN ABNORMALITIES 2	has_phenotype	Cerebral degeneration	40621786

@@ -1,0 +1,191 @@
+subject	predicate	object	pmids
+Karaca et al. (2015)	reports	Karaca et al. (2015) described a male patient (BAB4453) with microcephaly, spasticity and intellectual disability. He had dysmorphic features resembling Coffin-Siris syndrome, including a coarse face, bushy eyebrows, facial hypertrichosis and long eyelashes. Brain imaging showed severe cortical atrophy. Family history was negative.	
+Karaca et al. (2015)	reports	In a male patient (BAB4453) with microcephaly, spasticity, intellectual disability and Coffin-Siris-like dysmorphic features, Karaca et al. (2015) used whole exome sequencing to identify a hemizygous null variant in the SMARCA1 gene (c.C7T, p.Q3X; NM_003069). SMARCA1 encodes a member of the SWI/SNF protein family and is part of the ATP-dependent CECR2-containing remodeling factor (CERF). A figure legend in the paper calls the same variant a homozygous stop gain.	
+SMARCA1 c.7C>T / p.Q3*	in_gene	SMARCA1	
+Lopes et al. (2016)	reports	Lopes et al. (2016) studied 19 Portuguese patients (16 girls and 3 boys) whose clinical presentation overlapped significantly with Rett syndrome. The patients were studied with array CGH, whole-exome sequencing, MRI and muscle biopsy.	
+Lopes et al. (2016)	reports	In a cohort of 19 Portuguese patients with Rett-like phenotypes, Lopes et al. (2016) used whole-exome sequencing to find variants in 5 novel candidate neurodevelopmental disorder genes (26% of patients). These were de novo variants in RHOBTB2, SMARCA1 and GABBR2, a homozygous variant in EIF4G1, and compound heterozygous variants in HTT. Network analysis showed that these genes interact through protein interactions with each other and with the known Rett syndrome genes.	
+RHOBTB2 de novo variant in RHOBTB2	in_gene	RHOBTB2	
+SMARCA1 de novo variant in SMARCA1	in_gene	SMARCA1	
+GABBR2 de novo variant in GABBR2	in_gene	GABBR2	
+EIF4G1 homozygous variant in EIF4G1	in_gene	EIF4G1	
+HTT compound heterozygous variant in HTT	in_gene	HTT	
+Lopes et al. (2016)	reports	Lopes et al. (2016) found variants in genes already linked to neurodevelopmental disorders in 6 of 19 patients (32%) with Rett-like phenotypes. Three patients had de novo variants in EEF1A2, STXBP1 or ZNF238. Two male patients had maternally inherited X-linked variants in SLC35A2, ZFX and SHROOM4. One patient had a homozygous EIF2B2 variant. Pathogenic genomic imbalances were found in 2 further patients: an 18q21.2 deletion that included 4 exons of TCF4, and mosaic uniparental disomy of chromosome 3.	
+Riazuddin et al. (2017)	reports	Riazuddin et al. (2017) carried out exome sequencing in 121 consanguineous Pakistani families with autosomal recessive intellectual disability. In a Siraiki Baloch family (PKMR213), they found a variant in the novel candidate gene TMEM222 (NM_032125.2), c.214G>A (p.Gly72Ser), that segregated with the phenotype. The variant had a CADD score of 34.0 and an ExAC allele frequency of 8.237 x 10(-6), and it was absent from 213 ethnically matched controls.	
+TMEM222 c.214G>A / p.G72S	in_gene	TMEM222	
+Nishimura et al. (2025)	reports	Nishimura et al. (2025) reported 2 unrelated male patients with X-linked intellectual disability. Patient 1 had macrocephaly, behavioral difficulty, and learning disability; patient 2 had ataxia and speech delay.	
+Nishimura et al. (2025)	reports	In a male patient (patient 1) with X-linked intellectual disability, macrocephaly, behavioral difficulty, and learning disability, Nishimura et al. (2025) identified by exome sequencing a hemizygous nonsense variant in the SMARCA1 gene (c.1795C-T, Gln599Ter; NM_003069.5) that led to nonsense-mediated decay. The variant was inherited from his unaffected mother.	
+SMARCA1 c.1795C>T / p.Q599*	in_gene	SMARCA1	
+Nishimura et al. (2025)	reports	In a male patient (patient 2) with X-linked intellectual disability, ataxia, and speech delay, Nishimura et al. (2025) identified by exome sequencing a hemizygous missense variant in the SMARCA1 gene (c.1343G-T, Arg448Leu; NM_003069.5), inherited from his unaffected mother. Structural modeling suggested that Arg448Leu might destabilize interactions between SMARCA1 and nucleosomal DNA.	
+SMARCA1 c.1343G>T / p.R448L	in_gene	SMARCA1	
+Nishimura et al. (2025)	reports	Nishimura et al. (2025) found that the SMARCA1 variants in both affected males were inherited from unaffected healthy mothers. They suggested that hemizygous variants impairing SMARCA1 function can cause XLID with variable features in males.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) described an X-linked neurodevelopmental disorder caused by de novo or maternally inherited SMARCA1 variants in 35 individuals from 26 families. Features ranged from mild to severe intellectual disability/developmental delay and included delayed or regressive speech, autism spectrum disorder features, facial dysmorphism and other variable features. Individuals with truncating variants had a high penetrance of macrocephaly.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) studied a 6-generation family with 4 affected individuals who had mild to severe ID/DD and brain overgrowth. The proband, a 12-year-old boy, had head circumference (OFC) +6 SD, severe ID without language, ASD, hydrocephalus treated with a shunt, hepatosplenomegaly, and height and weight +5 SD. His brother had OFC +4.3 SD, mild ID, hydrocephalus and splenomegaly. Two maternal cousins (a 14-year-old girl and an 8-year-old boy) had OFC +4.9 and +5.5 SD, mild learning disability, obesity and normal brain MRI. Their carrier mothers had OFC +1 and +1.5 SD and no learning disability.	
+Mirzaa et al. (2025)	reports	In the 4 affected members of the 6-generation family, Mirzaa et al. (2025) used exome sequencing to identify a hemizygous or heterozygous nonsense variant in SMARCA1, c.271C-T (p.Arg91Ter). Both mothers were heterozygous carriers, and the paternal grandfather and a maternal uncle did not carry the variant. The same variant was found in a second, unrelated family (family 2): a 6-year-old boy with macrocephaly, ASD and ADHD who had inherited it from his mother.	
+SMARCA1 c.271C>T / p.R91*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) reported 35 affected individuals (26 males, 9 females) aged 2 to 49 years. Features were ID/DD (27/35), speech delay and/or regression (29/35), OFC of +2 SD or more and/or reported macrocephaly (17/35), motor delay (20/34), seizures (8/35), hypotonia (15/35), behavioral difficulties (19/35), ASD (11/35) and dysmorphic facial features (19/35). Height of +2 SD or more was less frequent (29%), which the authors said argued against a generalized overgrowth syndrome. Common facial features were frontal bossing, a long face, slanted palpebral fissures, a flat nasal root with a short bulbous nose, anteverted nares and a thin upper lip.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) noted other recurring features in the cohort. These included urogenital/kidney anomalies (9 individuals), gastrointestinal problems (9), eye/vision deficits (8) and hepatomegaly/splenomegaly (3). Recurrent dysmorphic features included ear anomalies (11 individuals) and micrognathia (5).	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) reported that, of the 26 index cases, 17 had maternally inherited SMARCA1 variants and 4 had de novo variants. Segregation was not determined in 5, of which 4 were presumed maternal. Three-quarters of affected individuals were hemizygous males; heterozygous females made up 25% and often had milder phenotypes, consistent with X-linked inheritance.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified 9 affected females, 7 of whom had truncating variants; 3 of these 7 had macrocephaly and 4 did not. Macrocephaly was discordant in 2 mother-daughter pairs, and learning disabilities appeared milder in females. X-inactivation studies were available for only 3 females and did not match the phenotype.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) found macrocephaly in 70% of individuals with truncating variants. However, 3 individuals with truncating variants lacked brain overgrowth and 4 with missense variants had it, so the feature was not restricted to putative loss-of-function variants. Individuals with CNV deletions that included SMARCA1 did not have macrocephaly. Three of the 4 missense variants associated with macrocephaly were in the HSS domain.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified the SMARCA1 variants by trio exome sequencing (23 families) or genome sequencing (3 families), with families ascertained partly through MatchMaker Exchange. There were 25 unique variants: 7 nonsense, 3 frameshift and 15 missense. All were predicted deleterious, and each was very rare or absent in gnomAD (allele frequency 8.303 x 10(-7) or lower; p.Met432Thr was seen in 4 alleles). Sixteen variants were in the ATPase (12) or HSS (4) domains.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a de novo SMARCA1 missense variant, c.353C-T (p.Thr118Ile), in a 20-year-old woman (family 3). She had OFC +3.4 SD, motor and speech delay, ID, ASD, dysmorphic features and epilepsy.	
+SMARCA1 c.353C>T / p.T118I	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.407A-G (p.Gln136Arg), in a 5.5-year-old boy (family 4). He had normal OFC, motor and speech delay, ID, ASD and dysmorphic features.	
+SMARCA1 c.407A>G / p.Q136R	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a SMARCA1 frameshift variant, c.543dupG (p.Pro182AlafsTer18), in a 5-year-old girl (family 5); its inheritance was not determined. She had OFC +3.3 SD, ID, ASD, epilepsy and obesity. Her brother had ASD, epilepsy and hydrocephalus.	
+SMARCA1 c.543dupg / p.P182Afs / p.P182fs	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a de novo SMARCA1 nonsense variant, c.565C-T (p.Arg189Ter), in a 5-year-old boy (family 6). He had OFC +5.6 SD, motor and speech delay, ID, ADHD and dysmorphic features.	
+SMARCA1 c.565C>T / p.R189*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a de novo SMARCA1 missense variant, c.566G-A (p.Arg189Gln), in an 11-year-old boy (family 7). He had speech delay, behavioral issues, dysmorphic features, hepatosplenomegaly, an accessory spleen and cleft palate, without macrocephaly.	
+SMARCA1 c.566G>A / p.R189Q	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a SMARCA1 nonsense variant, c.685C-T (p.Arg229Ter), presumed maternally inherited, in a 12-year-old boy (family 8). He had OFC +7.6 SD, speech delay, tall stature and obesity. A brother with a similar phenotype was not tested.	
+SMARCA1 c.685C>T / p.R229*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 nonsense variant, c.757C-T (p.Arg253Ter), in a brother and sister (family 9). The boy had OFC +5.9 SD, mild ID and tall stature. His sister had normal OFC but was more severely affected, with severe vision problems, feeding difficulties, laryngeal palsy and facial palsy. Their carrier mother had OFC +5.6 SD, a mild learning disability and tall stature.	
+SMARCA1 c.757C>T / p.R253*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.775C-G (p.Arg259Gly), in a 5-year-old boy (family 10). He had normal OFC, developmental delay, ID, behavioral issues, dysmorphic features and constipation.	
+SMARCA1 c.775C>G / p.R259G	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 nonsense variant, c.916C-T (p.Arg306Ter), in a 14-year-old boy (family 11). He had OFC +4.1 SD, motor and speech delay, ID and subtle dysmorphic features.	
+SMARCA1 c.916C>T / p.R306*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 nonsense variant, c.1070T-G (p.Leu357Ter), in a 15-year-old boy and an 18-year-old female relative (family 12). Both had developmental delay, ID and epilepsy without macrocephaly; the boy also had ASD and ADHD.	
+SMARCA1 c.1070T>G / p.L357*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 frameshift variant, c.1071dupA (p.Leu358IlefsTer3), in a 9-year-old boy (family 13). He had OFC greater than +2 SD, ID, ASD, ADHD, Hirschsprung disease and Crohn disease.	
+SMARCA1 c.1071dupa / p.L358Ifs / p.L358fs	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.1295T-C (p.Met432Thr), in 2 brothers (family 14) aged 5 and 4 years. Both had speech delay and ASD without macrocephaly or ID. The variant was present in 4 alleles in gnomAD.	
+SMARCA1 c.1295T>C / p.M432T	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.1514T-C (p.Val505Ala), in a 2-year-old boy (family 15). He had developmental delay, ID, dysmorphic features and epilepsy, with OFC reported as normal.	
+SMARCA1 c.1514T>C / p.V505A	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a de novo SMARCA1 missense variant, c.1680T-A (p.Phe560Leu), in a 5-year-old girl (family 16). She had speech delay, ID, defiant behavior and epilepsy.	
+SMARCA1 c.1680T>A / p.F560L	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.1940T-C (p.Ile647Thr), in a 24-year-old man (family 17). He had developmental delay, ID and epilepsy, and he developed psychotic symptoms.	
+SMARCA1 c.1940T>C / p.I647T	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a SMARCA1 nonsense variant, c.1971dup (p.Asn658Ter), presumed maternally inherited, in a 12-year-old boy (family 18). He had OFC +2.4 SD, motor and speech delay and ID.	
+SMARCA1 c.1971dup / p.N658*	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.2161G-A (p.Asp721Asn), in a 5-year-old boy (family 19). He had developmental delay, ID, epilepsy and cortical blindness.	
+SMARCA1 c.2161G>A / p.D721N	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a SMARCA1 missense variant, c.2252G-A (p.Arg751Gln), presumed maternally inherited, in a 9-year-old boy (family 20). He had developmental delay, ID, behavioral issues, dysmorphic features and short stature; his sibs reportedly had similar features.	
+SMARCA1 c.2252G>A / p.R751Q	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.2311G-A (p.Glu771Lys), in a 7-year-old boy (family 21) with motor delay. The table lists his OFC as +0.25 SD, but the functional study text described this variant, located near the HSS domain, as associated with macrocephaly.	
+SMARCA1 c.2311G>A / p.E771K	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.2471C-T (p.Pro824Leu), in a 4-year-old boy (family 22). He had OFC +2.5 SD, motor and speech delay, ID and ASD.	
+SMARCA1 c.2471C>T / p.P824L	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.2681A-T (p.Glu894Val), in a 10-year-old boy (family 23) with speech delay, ASD and ADHD.	
+SMARCA1 c.2681A>T / p.E894V	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 missense variant, c.3007T-C (p.Phe1003Leu), in a 5-year-old boy (family 24). He had OFC +4.9 SD, motor and speech delay, ID and dysmorphic features.	
+SMARCA1 c.3007T>C / p.F1003L	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a maternally inherited SMARCA1 frameshift variant, c.3103_3106del (p.Arg1035GlnfsTer13), in a 4-year-old boy (family 25). He had OFC -1.2 SD, motor and speech delay, ID and dysmorphic features.	
+SMARCA1 c.3103_3106del / p.R1035Qfs / p.R1035fs	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) identified a SMARCA1 missense variant, c.3152C-T (p.Ser1039Leu), presumed maternally inherited, in a 13-year-old boy (family 26). He had speech delay, ID, behavioral issues and dysmorphic features, with OFC within normal limits.	
+SMARCA1 c.3152C>T / p.S1039L	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) considered SMARCA1 variants in 7 additional families likely non-causative. These included p.Val384Met (c.1150G-A) in 3 families; this variant had previously been reported in familial schizophrenia and was present in gnomAD in 16 alleles, including 7 hemizygotes. Others were p.Pro537Leu (c.1610C-T) in 2 families, which also had a high gnomAD frequency, and p.Gly38Val, found together with a de novo 5p15 duplication.	
+SMARCA1 c.1150G>A / p.V384M	in_gene	SMARCA1	
+SMARCA1 c.1610C>T / p.P537L	in_gene	SMARCA1	
+SMARCA1 c.113G>T / p.G38V	in_gene	SMARCA1	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) searched DECIPHER and found 72 CNVs encompassing SMARCA1 (44% deletions, 56% duplications). Carriers often had developmental delay, intellectual disability or delayed speech, but the phenotype was hard to attribute to SMARCA1 because most CNVs were larger than 10 Mb. Individuals with deletions did not have macrocephaly.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) performed genome-wide DNA methylation analysis of peripheral blood from 19 individuals with SMARCA1 variants and found a predominantly hypomethylated profile defined by 232 probes compared with controls. Males and females each also showed sex-specific hypomethylated profiles. The authors concluded that these changes were not robust enough to count as an episignature.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) expressed FLAG-tagged SMARCA1 variants in U2OS cells. The p.Arg253Ter, p.Arg259Gly, p.Arg751Gln and p.Glu771Lys variants all produced stable proteins that localized to the nucleus. The Arg253Ter variant produced a stable 35-kD truncated protein at a somewhat lower level, and it was also found in the cytoplasm. The authors suggested that some truncating variants generate truncated proteins with hypomorphic or dominant-negative activity.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) found that Smarca1-null mice were viable and had little change in brain size, only slight reductions in a few regions, with normal progenitor populations and cortical lamination. The mice were more active in the dark cycle but otherwise behaved normally on tests of locomotion, social interaction, anxiety, learning and memory. In Smarca1-null cerebellum, SMARCA5 co-immunoprecipitated with CECR2, which the authors suggested reflects functional compensation by SMARCA5.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) compared single and double knockouts of the NURF components Smarca1, Smarca5 and Bptf in mice. Bptf knockout caused the most severe cortical hypoplasia, and no double mutant was more severe. Smarca1ex6del mice, which express an internally truncated protein, had a total brain area 10% larger than controls, but this enlargement was lost when Smarca5 was also ablated. The authors proposed that Smarca5 compensates for complete loss of Smarca1 but not when a mutant SMARCA1 protein is produced, which may act as a dominant negative.	
+Mirzaa et al. (2025)	reports	Mirzaa et al. (2025) proposed that SMARCA1 variants associated with macrocephaly lack remodeling activity and act in a dominant-negative fashion, whereas variants not associated with macrocephaly may be functional hypomorphs. In their view, all of these variants alter NURF composition and function in the developing brain.	
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	EIF4G1	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	EIF4G1 homozygous variant in EIF4G1	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	GABBR2	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	GABBR2 de novo variant in GABBR2	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	HTT	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	HTT compound heterozygous variant in HTT	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	RHOBTB2	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	RHOBTB2 de novo variant in RHOBTB2	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	SMARCA1	26539891,26740508,40316778,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1070T>G / p.L357*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1071dupa / p.L358Ifs / p.L358fs	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.113G>T / p.G38V	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1150G>A / p.V384M	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1295T>C / p.M432T	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1343G>T / p.R448L	40316778
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1514T>C / p.V505A	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1610C>T / p.P537L	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1680T>A / p.F560L	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1795C>T / p.Q599*	40316778
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1940T>C / p.I647T	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.1971dup / p.N658*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.2161G>A / p.D721N	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.2252G>A / p.R751Q	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.2311G>A / p.E771K	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.2471C>T / p.P824L	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.2681A>T / p.E894V	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.271C>T / p.R91*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.3007T>C / p.F1003L	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.3103_3106del / p.R1035Qfs / p.R1035fs	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.3152C>T / p.S1039L	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.353C>T / p.T118I	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.407A>G / p.Q136R	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.543dupg / p.P182Afs / p.P182fs	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.565C>T / p.R189*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.566G>A / p.R189Q	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.685C>T / p.R229*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.757C>T / p.R253*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.775C>G / p.R259G	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.7C>T / p.Q3*	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 c.916C>T / p.R306*	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	SMARCA1 de novo variant in SMARCA1	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	caused_by	TMEM222	27457812
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_variant	TMEM222 c.214G>A / p.G72S	27457812
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	inheritance	X-linked	26539891,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	inheritance	X-linked recessive	40316778
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	inheritance	Autosomal recessive	27457812
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Intellectual disability	26539891,27457812,40316778,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Developmental regression	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Macrocephaly	40316778,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Hydrocephalus	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Hepatosplenomegaly	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Tall stature	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Obesity	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Autism	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Absent speech	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Delayed speech and language development	40316778,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Motor delay	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Seizure	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Hypotonia	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Atypical behavior	40316778,41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Frontal bossing	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Long face	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Slanting of the palpebral fissure	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Bulbous nose	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Anteverted nares	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Thin upper lip vermilion	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Abnormality of the genitourinary system	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Abnormality of the gastrointestinal tract	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Abnormality of vision	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Abnormality of the ear	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Micrognathia	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Attention deficit hyperactivity disorder	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Cleft palate	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Vocal cord paralysis	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Facial palsy	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Feeding difficulties	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Constipation	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Aganglionic megacolon	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Crohn's disease	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Psychosis	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Cerebral visual impairment	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Short stature	41213919
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Specific learning disability	40316778
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Ataxia	40316778
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Neurodevelopmental abnormality	26740508
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Microcephaly	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Spasticity	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Coarse facial features	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Thick eyebrow	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Facial hypertrichosis	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Long eyelashes	26539891
+NEURODEVELOPMENTAL DISORDER WITH OR WITHOUT MACROCEPHALY	has_phenotype	Cerebral cortical atrophy	26539891
+Specific learning disability	is_a	Neurodevelopmental abnormality	
+Developmental regression	is_a	Neurodevelopmental abnormality	
+Attention deficit hyperactivity disorder	is_a	Atypical behavior	
+Absent speech	is_a	Delayed speech and language development	
+Autism	is_a	Atypical behavior	
+Intellectual disability	is_a	Neurodevelopmental abnormality	
+Delayed speech and language development	is_a	Neurodevelopmental abnormality	
+Motor delay	is_a	Neurodevelopmental abnormality	
+Cerebral visual impairment	is_a	Abnormality of vision	
+Crohn's disease	is_a	Abnormality of the gastrointestinal tract	
+Aganglionic megacolon	is_a	Abnormality of the gastrointestinal tract	

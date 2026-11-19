@@ -1,0 +1,31 @@
+subject	predicate	object	pmids
+Sha et al. (2019)	reports	Sha et al. (2019) reported a man from a consanguineous family who had severe asthenozoospermia. Fewer than 1% of the spermatozoa in his ejaculate were motile, and his spermatozoa showed severely damaged morphology and ultrastructure.	
+Sha et al. (2019)	reports	In a man with severe asthenozoospermia from a consanguineous family, Sha et al. (2019) identified a novel homozygous variant in the CCDC9 gene (g.47763960C>T, NM_015603.3), which causes a ser109-to-leu (S109L) substitution. In silico analysis predicted the variant to be highly pathogenic. CCDC9 protein levels were significantly reduced in the patient's spermatozoa. The authors suggested that CCDC9 may be a novel pathogenic gene for severe asthenozoospermia.	
+CCDC9 g.47763960C>T / p.S109L	in_gene	CCDC9	
+Khan et al. (2025)	reports	Khan et al. (2025) performed whole genome sequencing on 26 individuals (3 to 5 per family) from 7 large families from rural Pakistan with clinically diagnosed male infertility, 5 of which had a history of consanguinity. They identified plausible genetic causes in 5 of the 7 families (71%): a homozygous 10-kb deletion of exon 2 of M1AP, biallelic missense substitutions in SPAG6, CCDC9, and TUBA3C, and an in-frame hemizygous deletion in TKTL1.	
+Khan et al. (2025)	reports	In a consanguineous Pakistani family with male infertility, Khan et al. (2025) identified biallelic missense substitutions in the SPAG6 gene by whole genome sequencing.	
+SPAG6 biallelic missense substitution	in_gene	SPAG6	
+Khan et al. (2025)	reports	In a Pakistani family with male infertility, Khan et al. (2025) identified biallelic missense substitutions in the CCDC9 gene by whole genome sequencing.	
+CCDC9 biallelic missense substitution	in_gene	CCDC9	
+Khan et al. (2025)	reports	In a Pakistani family with male infertility, Khan et al. (2025) identified biallelic missense substitutions in the TUBA3C gene by whole genome sequencing.	
+TUBA3C biallelic missense substitution	in_gene	TUBA3C	
+Khan et al. (2025)	reports	In a Pakistani family with male infertility, Khan et al. (2025) identified an in-frame hemizygous deletion in the X-linked TKTL1 gene by whole genome sequencing.	
+TKTL1 in-frame hemizygous deletion	in_gene	TKTL1	
+Khan et al. (2025)	reports	In a Pakistani family with male infertility, Khan et al. (2025) identified a homozygous 10-kb deletion that included exon 2 of the M1AP gene. They noted that this single-exon deletion would have been undetectable by whole exome sequencing.	
+M1AP homozygous 10 kb deletion of exon 2	in_gene	M1AP	
+SPERMATOGENIC FAILURE 104	caused_by	CCDC9	31502483,38073178
+SPERMATOGENIC FAILURE 104	has_variant	CCDC9 g.47763960C>T / p.S109L	31502483
+SPERMATOGENIC FAILURE 104	has_variant	CCDC9 biallelic missense substitution	38073178
+SPERMATOGENIC FAILURE 104	caused_by	M1AP	38073178
+SPERMATOGENIC FAILURE 104	has_variant	M1AP homozygous 10 kb deletion of exon 2	38073178
+SPERMATOGENIC FAILURE 104	caused_by	SPAG6	38073178
+SPERMATOGENIC FAILURE 104	has_variant	SPAG6 biallelic missense substitution	38073178
+SPERMATOGENIC FAILURE 104	caused_by	TKTL1	38073178
+SPERMATOGENIC FAILURE 104	has_variant	TKTL1 in-frame hemizygous deletion	38073178
+SPERMATOGENIC FAILURE 104	caused_by	TUBA3C	38073178
+SPERMATOGENIC FAILURE 104	has_variant	TUBA3C biallelic missense substitution	38073178
+SPERMATOGENIC FAILURE 104	inheritance	Autosomal recessive	31502483,38073178
+SPERMATOGENIC FAILURE 104	inheritance	X-linked recessive	38073178
+SPERMATOGENIC FAILURE 104	has_phenotype	Male infertility	38073178
+SPERMATOGENIC FAILURE 104	has_phenotype	Reduced sperm motility	31502483
+SPERMATOGENIC FAILURE 104	has_phenotype	Abnormal sperm morphology	31502483

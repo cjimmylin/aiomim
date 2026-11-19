@@ -1,0 +1,30 @@
+subject	predicate	object	pmids
+Fan et al. (2023)	reports	Fan et al. (2023) described 3 infertile women with female infertility characterized by oocyte maturation defects.	
+Fan et al. (2023)	reports	In 3 infertile women with oocyte maturation defects, Fan et al. (2023) identified homozygous missense variants in the CDC23 gene, a core subunit of the anaphase-promoting complex/cyclosome (APC/C). One variant was c.986A-G (p.Tyr329Cys). In vitro experiments showed that this variant led to a decrease in CDC23 protein level.	
+CDC23 c.986A>G / p.Y329C	in_gene	CDC23	
+Fan et al. (2023)	reports	Fan et al. (2023) identified a homozygous c.988C-T (p.Arg330Cys) missense variant in the CDC23 gene in women with female infertility characterized by oocyte maturation defects. The variant changed the localization of CDC23 in HeLa cells and mouse oocytes.	
+CDC23 c.988C>T / p.R330C	in_gene	CDC23	
+Fan et al. (2023)	reports	Fan et al. (2023) found that Cdc23 Y329C/Y329C knockin mice mimicked the patients' phenotype. Their oocytes had low expression of CDC23 and APC4 and accumulated securin and cyclin B1. Treatment with AZ3146 rescued the phenotype.	
+Cui et al. (2025)	reports	Cui et al. (2025) performed whole-exome sequencing in infertile women from 639 unrelated Chinese families. They identified 3 probands carrying APC/C gene variants. The infertility in these families was characterized by disturbed oocyte maturation, fertilization failure, and arrest of early embryonic development.	
+Cui et al. (2025)	reports	In 2 unrelated Chinese women with infertility (cases 1 and 2), Cui et al. (2025) identified compound heterozygous missense variants in the CDC23 gene: c.A1277G, c.A833G, c.C182T, and c.C301T. The variants were found by whole-exome sequencing and followed a recessive inheritance pattern. The affected residues were conserved across species, and prediction programs (MutationTaster, SIFT, PolyPhen-2) suggested the variants were deleterious. In vitro studies suggested that the CDC23 variants caused dysregulated protein expression.	
+CDC23 c.1277A>G	in_gene	CDC23	
+CDC23 c.833A>G	in_gene	CDC23	
+CDC23 c.182C>T	in_gene	CDC23	
+CDC23 c.301C>T	in_gene	CDC23	
+Cui et al. (2025)	reports	In an infertile Chinese woman (case 3), Cui et al. (2025) identified compound heterozygous variants in the APC13 (ANAPC13) gene: c.C6A and c.116_126del. The variants were found by whole-exome sequencing and followed a recessive pattern. In vitro studies suggested that the APC13 missense variant caused abnormal cellular localization of the protein. Structural modeling suggested that the APC/C variants may alter chemical bonds with other APC/C subunits.	
+ANAPC13 c.6C>A	in_gene	ANAPC13	
+ANAPC13 c.116_126del	in_gene	ANAPC13	
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	caused_by	ANAPC13	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	ANAPC13 c.116_126del	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	ANAPC13 c.6C>A	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	caused_by	CDC23	37768355,40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.1277A>G	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.182C>T	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.301C>T	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.833A>G	40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.986A>G / p.Y329C	37768355
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_variant	CDC23 c.988C>T / p.R330C	37768355
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	inheritance	Autosomal recessive	37768355,40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_phenotype	Female infertility	37768355,40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_phenotype	Oocyte maturation arrest	37768355,40238067
+OOCYTE/ZYGOTE/EMBRYO MATURATION ARREST 28	has_phenotype	Preimplantation lethality	40238067

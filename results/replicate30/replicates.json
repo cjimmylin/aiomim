@@ -1,0 +1,567 @@
+{
+  "runs": [
+    "replicate30_r1",
+    "replicate30_r2",
+    "replicate30_r3"
+  ],
+  "note": "A replicate salts every model call, so it re-runs generation, the claim audit and repair, and the model-judged scoring (OMIM fact coverage, variant matching) together: the variation below is that of the whole measurement, not of the writer alone. The gold standard (public OMIM-derived records) is the same in every replicate; the facts the judge splits each OMIM paragraph into are not.",
+  "n_target": 97,
+  "usage": {
+    "replicate30_r1": {
+      "calls": 943,
+      "from_cache": 851,
+      "fresh_calls": 92,
+      "input_tokens": 747192,
+      "output_tokens": 292311,
+      "list_price_usd": 10.98,
+      "full_list_price_usd": 78.08
+    },
+    "replicate30_r2": {
+      "calls": 1164,
+      "from_cache": 4,
+      "fresh_calls": 1160,
+      "input_tokens": 7105505,
+      "output_tokens": 2183292,
+      "list_price_usd": 84.78,
+      "full_list_price_usd": 84.87
+    },
+    "replicate30_r3": {
+      "calls": 1172,
+      "from_cache": 7,
+      "fresh_calls": 1165,
+      "input_tokens": 7238013,
+      "output_tokens": 2200089,
+      "list_price_usd": 81.25,
+      "full_list_price_usd": 81.36
+    }
+  },
+  "stopped": {
+    "replicate30_r1": [],
+    "replicate30_r2": [],
+    "replicate30_r3": []
+  },
+  "entries": {
+    "direct": 30,
+    "kg": 30
+  },
+  "strategies": {
+    "direct": {
+      "gold_fact_coverage": {
+        "label": "OMIM facts conveyed",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.04038811706430494,
+        "between_sd": 0.19010483496182326,
+        "within_share": 0.04318651651091275,
+        "sd_of_entry_means": 0.1915295841618088,
+        "replicate_means": [
+          0.4996333333333334,
+          0.46796666666666664,
+          0.4826
+        ],
+        "mean_range": 0.03166666666666673,
+        "mean_sd": 0.01584848397937309
+      },
+      "claim_supported_rate": {
+        "label": "Claims supported",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.028882328314886404,
+        "between_sd": 0.04050223650857664,
+        "within_share": 0.3370977651793237,
+        "sd_of_entry_means": 0.04380061786276127,
+        "replicate_means": [
+          0.9580333333333333,
+          0.9517,
+          0.9536333333333332
+        ],
+        "mean_range": 0.006333333333333302,
+        "mean_sd": 0.0032457379461094493
+      },
+      "claim_error_rate_before_repair": {
+        "label": "Claims unsupported or contradicted, before repair",
+        "higher_is_better": false,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.006483311910847212,
+        "between_sd": 0.004900764920617187,
+        "within_share": 0.6363785775883739,
+        "sd_of_entry_means": 0.0061667339749873346,
+        "replicate_means": [
+          0.0026333333333333334,
+          0.002,
+          0.0022333333333333333
+        ],
+        "mean_range": 0.0006333333333333334,
+        "mean_sd": 0.00032030078456443505
+      },
+      "hpo_exact_f1": {
+        "label": "Clinical synopsis, exact HPO F1",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.04195844505115879,
+        "between_sd": 0.2083560422872324,
+        "within_share": 0.038972855402234434,
+        "sd_of_entry_means": 0.20975957044825397,
+        "replicate_means": [
+          0.34646666666666665,
+          0.3283333333333333,
+          0.3308
+        ],
+        "mean_range": 0.018133333333333335,
+        "mean_sd": 0.009834858638762656
+      },
+      "variant_recall": {
+        "label": "OMIM allelic variants recovered",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.043892418986021316,
+        "between_sd": 0.3886028002967393,
+        "within_share": 0.012596842301937064,
+        "sd_of_entry_means": 0.3894281934836626,
+        "replicate_means": [
+          0.6041666666666666,
+          0.6014,
+          0.5930666666666667
+        ],
+        "mean_range": 0.011099999999999888,
+        "mean_sd": 0.005777959398854776
+      },
+      "gene_f1": {
+        "label": "Causal gene F1",
+        "higher_is_better": true,
+        "n_entries": 29,
+        "n_replicates": 3,
+        "within_sd": 2.5249737087137515e-17,
+        "between_sd": 0.19361384298919418,
+        "within_share": 1.7007516865308009e-32,
+        "sd_of_entry_means": 0.19361384298919418,
+        "replicate_means": [
+          0.9540344827586208,
+          0.9540344827586208,
+          0.9540344827586208
+        ],
+        "mean_range": 0.0,
+        "mean_sd": 0.0
+      },
+      "inheritance_match": {
+        "label": "Inheritance matches OMIM",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.10540925533894598,
+        "between_sd": 0.2690981105534713,
+        "within_share": 0.1330275229357798,
+        "sd_of_entry_means": 0.2758939955982224,
+        "replicate_means": [
+          0.9,
+          0.9,
+          0.9333333333333333
+        ],
+        "mean_range": 0.033333333333333326,
+        "mean_sd": 0.01924500897298752
+      }
+    },
+    "kg": {
+      "gold_fact_coverage": {
+        "label": "OMIM facts conveyed",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.04588318501005206,
+        "between_sd": 0.1993396614790183,
+        "within_share": 0.05031519616147845,
+        "sd_of_entry_means": 0.2010921584600582,
+        "replicate_means": [
+          0.5005666666666666,
+          0.4957333333333333,
+          0.4800333333333333
+        ],
+        "mean_range": 0.020533333333333292,
+        "mean_sd": 0.010735213775925212
+      },
+      "claim_supported_rate": {
+        "label": "Claims supported",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.02103225036831664,
+        "between_sd": 0.021373513406812948,
+        "within_share": 0.4919529585546688,
+        "sd_of_entry_means": 0.024582085493364162,
+        "replicate_means": [
+          0.9654333333333334,
+          0.9702666666666667,
+          0.9721
+        ],
+        "mean_range": 0.006666666666666599,
+        "mean_sd": 0.0034439963866286128
+      },
+      "claim_error_rate_before_repair": {
+        "label": "Claims unsupported or contradicted, before repair",
+        "higher_is_better": false,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.006965789418452314,
+        "between_sd": 0.005372533144453398,
+        "within_share": 0.6270127984024689,
+        "sd_of_entry_means": 0.006711049579784401,
+        "replicate_means": [
+          0.0045000000000000005,
+          0.0026666666666666666,
+          0.0038666666666666663
+        ],
+        "mean_range": 0.001833333333333334,
+        "mean_sd": 0.0009311482358019251
+      },
+      "hpo_exact_f1": {
+        "label": "Clinical synopsis, exact HPO F1",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.03431229128655406,
+        "between_sd": 0.193258178020097,
+        "within_share": 0.030559404050846502,
+        "sd_of_entry_means": 0.19427086198422025,
+        "replicate_means": [
+          0.3287333333333333,
+          0.32886666666666664,
+          0.33520000000000005
+        ],
+        "mean_range": 0.006466666666666732,
+        "mean_sd": 0.003695643080409428
+      },
+      "variant_recall": {
+        "label": "OMIM allelic variants recovered",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.11872545360340105,
+        "between_sd": 0.37742636777347294,
+        "within_share": 0.09004188953129688,
+        "sd_of_entry_means": 0.38360036609530845,
+        "replicate_means": [
+          0.6178,
+          0.6178,
+          0.5776666666666667
+        ],
+        "mean_range": 0.040133333333333354,
+        "mean_sd": 0.023170990803476996
+      },
+      "gene_f1": {
+        "label": "Causal gene F1",
+        "higher_is_better": true,
+        "n_entries": 29,
+        "n_replicates": 3,
+        "within_sd": 3.5708520634984804e-17,
+        "between_sd": 0.0858742780209287,
+        "within_share": 1.7290896804421686e-31,
+        "sd_of_entry_means": 0.08587427802092869,
+        "replicate_means": [
+          0.9770344827586207,
+          0.9770344827586207,
+          0.9770344827586207
+        ],
+        "mean_range": 0.0,
+        "mean_sd": 0.0
+      },
+      "inheritance_match": {
+        "label": "Inheritance matches OMIM",
+        "higher_is_better": true,
+        "n_entries": 30,
+        "n_replicates": 3,
+        "within_sd": 0.0,
+        "between_sd": 0.2537081317024624,
+        "within_share": 0.0,
+        "sd_of_entry_means": 0.2537081317024624,
+        "replicate_means": [
+          0.9333333333333333,
+          0.9333333333333333,
+          0.9333333333333333
+        ],
+        "mean_range": 0.0,
+        "mean_sd": 1.3597399555105182e-16
+      }
+    }
+  },
+  "paired": {
+    "gold_fact_coverage": {
+      "label": "OMIM facts conveyed",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": 0.0009333333333333323,
+          "ci95": [
+            -0.016033333333333344,
+            0.017966666666666666
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.02776666666666667,
+          "ci95": [
+            0.005133333333333327,
+            0.05453333333333333
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": -0.00256666666666667,
+          "ci95": [
+            -0.03536666666666667,
+            0.029700000000000004
+          ]
+        }
+      ],
+      "difference_within_sd": 0.05943352963138269,
+      "difference_between_sd": 0.04229152157270848,
+      "difference_within_share": 0.6638600610012071,
+      "difference_total_sd": 0.0726685942774262,
+      "noise_threshold_at_n": 0.011827738852749627,
+      "noise_threshold_at_30": 0.021268015436156532
+    },
+    "claim_supported_rate": {
+      "label": "Claims supported",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": 0.0073999999999999995,
+          "ci95": [
+            -0.010233333333333336,
+            0.02923333333333333
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.018566666666666672,
+          "ci95": [
+            0.004933333333333337,
+            0.03423333333333334
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": 0.018466666666666662,
+          "ci95": [
+            0.0014666666666666643,
+            0.036599999999999994
+          ]
+        }
+      ],
+      "difference_within_sd": 0.03120024928675339,
+      "difference_between_sd": 0.03940071830322014,
+      "difference_within_share": 0.38539383409870337,
+      "difference_total_sd": 0.04990978252817766,
+      "noise_threshold_at_n": 0.006209094479045526,
+      "noise_threshold_at_30": 0.011164865818304344
+    },
+    "claim_error_rate_before_repair": {
+      "label": "Claims unsupported or contradicted, before repair",
+      "higher_is_better": false,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": 0.0018666666666666666,
+          "ci95": [
+            -0.002733333333333333,
+            0.006533333333333334
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.0006666666666666668,
+          "ci95": [
+            -0.0018333333333333329,
+            0.0034666666666666665
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": 0.0016333333333333332,
+          "ci95": [
+            -0.0020333333333333336,
+            0.0051333333333333335
+          ]
+        }
+      ],
+      "difference_within_sd": 0.010163660757817529,
+      "difference_between_sd": 0.002237837854512848,
+      "difference_within_share": 0.9537622147724607,
+      "difference_total_sd": 0.010401700859668694,
+      "noise_threshold_at_n": 0.0020226482589371397,
+      "noise_threshold_at_30": 0.0036370192924059844
+    },
+    "hpo_exact_f1": {
+      "label": "Clinical synopsis, exact HPO F1",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": -0.017733333333333334,
+          "ci95": [
+            -0.057600000000000005,
+            0.021133333333333334
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.0005333333333333348,
+          "ci95": [
+            -0.04130000000000001,
+            0.038500000000000006
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": 0.004400000000000001,
+          "ci95": [
+            -0.029233333333333326,
+            0.0377
+          ]
+        }
+      ],
+      "difference_within_sd": 0.06178475180459622,
+      "difference_between_sd": 0.08727476466090059,
+      "difference_within_share": 0.33385301703002673,
+      "difference_total_sd": 0.10612763145054813,
+      "noise_threshold_at_n": 0.012295650518471729,
+      "noise_threshold_at_30": 0.02210938948518044
+    },
+    "variant_recall": {
+      "label": "OMIM allelic variants recovered",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": 0.013633333333333334,
+          "ci95": [
+            -0.05,
+            0.1
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.0164,
+          "ci95": [
+            -0.053033333333333335,
+            0.10503333333333333
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": -0.015399999999999999,
+          "ci95": [
+            -0.0742,
+            0.03333333333333333
+          ]
+        }
+      ],
+      "difference_within_sd": 0.12929316386500186,
+      "difference_between_sd": 0.14857311284184188,
+      "difference_within_share": 0.4309467381246504,
+      "difference_total_sd": 0.19569018323674534,
+      "noise_threshold_at_n": 0.025730354349231162,
+      "noise_threshold_at_30": 0.04626696448831459
+    },
+    "gene_f1": {
+      "label": "Causal gene F1",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 29,
+          "difference": 0.023,
+          "ci95": [
+            0.0,
+            0.069
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 29,
+          "difference": 0.023,
+          "ci95": [
+            0.0,
+            0.069
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 29,
+          "difference": 0.023,
+          "ci95": [
+            0.0,
+            0.069
+          ]
+        }
+      ],
+      "difference_within_sd": 2.5249737087137515e-17,
+      "difference_between_sd": 0.12385879056409362,
+      "difference_within_share": 4.155851789124356e-32,
+      "difference_total_sd": 0.12241009990249799,
+      "noise_threshold_at_n": 5.02489584952321e-18,
+      "noise_threshold_at_30": 9.189966595864194e-18
+    },
+    "inheritance_match": {
+      "label": "Inheritance matches OMIM",
+      "higher_is_better": true,
+      "replicates": [
+        {
+          "run": "replicate30_r1",
+          "n": 30,
+          "difference": 0.03333333333333333,
+          "ci95": [
+            0.0,
+            0.1
+          ]
+        },
+        {
+          "run": "replicate30_r2",
+          "n": 30,
+          "difference": 0.03333333333333333,
+          "ci95": [
+            0.0,
+            0.1
+          ]
+        },
+        {
+          "run": "replicate30_r3",
+          "n": 30,
+          "difference": 0.0,
+          "ci95": [
+            -0.1,
+            0.1
+          ]
+        }
+      ],
+      "difference_within_sd": 0.10540925533894598,
+      "difference_between_sd": 0.184660815708795,
+      "difference_within_share": 0.24576271186440676,
+      "difference_total_sd": 0.21081851067789195,
+      "noise_threshold_at_n": 0.020977269102885897,
+      "noise_threshold_at_30": 0.03772021758705555
+    }
+  },
+  "paired_entries": 30
+}

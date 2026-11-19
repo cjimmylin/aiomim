@@ -1,0 +1,68 @@
+subject	predicate	object	pmids
+Jin et al. (2020)	reports	Jin et al. (2020) described 2 unrelated patients (F218 and F699) from a cohort of 250 cerebral palsy trios. Both had spastic diplegic cerebral palsy, intellectual disability, expressive language disorder and attention-deficit/hyperactivity disorder. Patient F218 also had gut malrotation, constipation, cleft palate and strabismus, and brain MRI was normal. Patient F699 had strabismus, severe constipation, and ventricular dilation with a thin corpus callosum on MRI.	
+Jin et al. (2020)	reports	Jin et al. (2020) performed whole-exome sequencing of 250 cerebral palsy parent-offspring trios and found the same de novo heterozygous missense variant in FBXO31, p.Asp334Asn (D334N), in 2 unrelated patients. Sanger sequencing of the mothers, fathers and probands confirmed de novo inheritance. Asp334 is a conserved residue in the FBXO31 binding pocket that is thought to mediate hydrogen bonding to cyclin D1, and structural modeling predicted that the variant changes the surface electrostatic charge around the cyclin D1-binding site.	
+FBXO31 c.1000G>A / p.D334N	in_gene	FBXO31	
+Jin et al. (2020)	reports	Jin et al. (2020) found that fibroblasts from both patients carrying FBXO31 p.Asp334Asn had less cyclin D than control fibroblasts (P = 0.004). The authors concluded that the variant affects the cyclin D interaction site and causes an apparent gain of function in cyclin D degradation.	
+Jin et al. (2020)	reports	Jin et al. (2020) concluded that the de novo FBXO31 p.Asp334Asn variant causes a phenotype distinct from the nonsyndromic intellectual disability previously reported with an autosomal recessive homozygous truncating FBXO31 mutation. They suggested that their findings likely represent a phenotypic expansion.	
+Dzinovic et al. (2021)	reports	Dzinovic et al. (2021) reported a 9-year-old Slovakian boy, the first child of unrelated healthy parents, who had a complex, non-progressive movement disorder dominated by spasticity and dystonia. He had hypotonia and delayed development in infancy. He spoke single words at 12 months but lost speech at 18 months. By age 2 years his hypotonia had converted to limb spasticity, worse in the legs, and he had dystonic posturing of all four limbs. A working diagnosis of spastic-dystonic cerebral palsy was made. At age 9 years he had generalized dystonia, spasticity, hyperreflexia, leg clonus, an unsteady spastic-dystonic gait, no expressive language and moderate intellectual disability, without dysmorphic features. Brain MRI at age 3 years showed reduced parietal and occipital white matter volume and global white matter dysmyelination.	
+Dzinovic et al. (2021)	reports	Trio whole-exome sequencing by Dzinovic et al. (2021) found that the proband was heterozygous for a de novo c.1000G>A (p.Asp334Asn) missense variant in FBXO31. This is the same variant previously reported in 2 unrelated patients with spastic diplegic cerebral palsy. The variant was absent from gnomAD and in-house exomes. It affects a conserved residue in the domain that interacts with the substrate cyclin D1, and it was classified as pathogenic. No other potentially disease-relevant variants were found.	
+Dzinovic et al. (2021)	reports	Dzinovic et al. (2021) compared their patient with the 2 patients previously reported with the same variant. All 3 had motor and/or speech delay, mild to moderate intellectual disability, neonatal hypotonia and lower-limb-predominant spasticity, and each had been diagnosed with cerebral palsy. Dystonia was present only in their patient. The following were each found in 1 or 2 of the 3 patients: congenital malformations (cleft palate and intestinal malrotation in 1), ADHD (2), strabismus or esotropia (2), and brain MRI abnormalities.	
+Dzinovic et al. (2021)	reports	Dzinovic et al. (2021) suggested that the emerging hallmarks of FBXO31-related disease were delayed psychomotor development, dysfunction of both the pyramidal and extrapyramidal systems (spasticity and dystonia), impaired expressive and receptive language, and intellectual disability. They concluded that a recurrent de novo missense variant in FBXO31 causes an autosomal dominant neurodevelopmental syndrome with prominent motor dysfunction.	
+Galaz-Montoya et al. (2026)	reports	Galaz-Montoya et al. (2026) proposed the descriptive term 'autosomal dominant FBXO31-associated neurodevelopmental disorder' and the eponym 'Kruer syndrome' for the disorder caused by the recurrent de novo FBXO31 p.Asp334Asn variant.	
+Galaz-Montoya et al. (2026)	reports	Galaz-Montoya et al. (2026) reevaluated 3 previously published individuals and described 4 additional probands with the recurrent de novo FBXO31 p.Asp334Asn variant. The core phenotype comprised cerebral palsy (mixed hypotonia, spasticity, and dystonia), global developmental delay/intellectual disability, and speech impairment. Neuropsychiatric features, sometimes prominent, included ADHD, anxiety, stereotypies, autistic features, and behavioral dysregulation, and a subtle but consistent facial gestalt was noted.	
+Galaz-Montoya et al. (2026)	reports	Galaz-Montoya et al. (2026) found that neuroimaging in individuals with the FBXO31 p.Asp334Asn variant often showed a hypoplastic corpus callosum and posterior-predominant white matter changes; 1 individual also had gray matter heterotopias.	
+Galaz-Montoya et al. (2026)	reports	Galaz-Montoya et al. (2026) reported that all 7 individuals carried the recurrent de novo heterozygous FBXO31 c.1000G>A (p.Asp334Asn) variant, and concluded that this variant leads to a recognizable neurodevelopmental syndrome, recommending inclusion of FBXO31 in diagnostic algorithms for cerebral palsy and neurodevelopmental disorders.	
+Galaz-Montoya et al. (2026)	reports	Galaz-Montoya et al. (2026) noted that biallelic loss-of-function FBXO31 variants cause autosomal recessive intellectual disability, distinct from the autosomal dominant phenotype caused by the recurrent de novo p.Asp334Asn variant.	
+KRUER SYNDROME	caused_by	FBXO31	32989326,33675180,41858232
+KRUER SYNDROME	has_variant	FBXO31 c.1000G>A / p.D334N	32989326,33675180,41858232
+KRUER SYNDROME	inheritance	Autosomal dominant	32989326,33675180,41858232
+KRUER SYNDROME	has_phenotype	Cerebral palsy	41858232
+KRUER SYNDROME	has_phenotype	Hypotonia	41858232
+KRUER SYNDROME	has_phenotype	Spasticity	41858232
+KRUER SYNDROME	has_phenotype	Dystonia	33675180,41858232
+KRUER SYNDROME	has_phenotype	Global developmental delay	33675180,41858232
+KRUER SYNDROME	has_phenotype	Intellectual disability	32989326,33675180,41858232
+KRUER SYNDROME	has_phenotype	Delayed speech and language development	41858232
+KRUER SYNDROME	has_phenotype	Attention deficit hyperactivity disorder	32989326,33675180,41858232
+KRUER SYNDROME	has_phenotype	Anxiety	41858232
+KRUER SYNDROME	has_phenotype	Motor stereotypy	41858232
+KRUER SYNDROME	has_phenotype	Autistic behavior	41858232
+KRUER SYNDROME	has_phenotype	Atypical behavior	41858232
+KRUER SYNDROME	has_phenotype	Abnormal facial shape	41858232
+KRUER SYNDROME	has_phenotype	Hypoplasia of the corpus callosum	41858232
+KRUER SYNDROME	has_phenotype	Abnormal cerebral white matter morphology	41858232
+KRUER SYNDROME	has_phenotype	Gray matter heterotopia	41858232
+KRUER SYNDROME	has_phenotype	Neonatal hypotonia	33675180
+KRUER SYNDROME	has_phenotype	Loss of speech	33675180
+KRUER SYNDROME	has_phenotype	Lower limb spasticity	33675180
+KRUER SYNDROME	has_phenotype	Generalized dystonia	33675180
+KRUER SYNDROME	has_phenotype	Hyperreflexia	33675180
+KRUER SYNDROME	has_phenotype	Clonus	33675180
+KRUER SYNDROME	has_phenotype	Moderate intellectual disability	33675180
+KRUER SYNDROME	has_phenotype	Absent speech	33675180
+KRUER SYNDROME	has_phenotype	Reduced cerebral white matter volume	33675180
+KRUER SYNDROME	has_phenotype	Cerebral dysmyelination	33675180
+KRUER SYNDROME	has_phenotype	Increased circulating lactate concentration	33675180
+KRUER SYNDROME	has_phenotype	Strabismus	32989326,33675180
+KRUER SYNDROME	has_phenotype	Cleft palate	32989326,33675180
+KRUER SYNDROME	has_phenotype	Intestinal malrotation	32989326,33675180
+KRUER SYNDROME	has_phenotype	Thin corpus callosum	32989326,33675180
+KRUER SYNDROME	has_phenotype	Spastic diplegia	32989326
+KRUER SYNDROME	has_phenotype	Expressive language delay	32989326
+KRUER SYNDROME	has_phenotype	Constipation	32989326
+KRUER SYNDROME	has_phenotype	Ventriculomegaly	32989326
+Motor stereotypy	is_a	Atypical behavior	
+Cerebral dysmyelination	is_a	Abnormal cerebral white matter morphology	
+Thin corpus callosum	is_a	Abnormal cerebral white matter morphology	
+Spastic diplegia	is_a	Spasticity	
+Attention deficit hyperactivity disorder	is_a	Atypical behavior	
+Generalized dystonia	is_a	Dystonia	
+Absent speech	is_a	Delayed speech and language development	
+Expressive language delay	is_a	Delayed speech and language development	
+Reduced cerebral white matter volume	is_a	Abnormal cerebral white matter morphology	
+Autistic behavior	is_a	Atypical behavior	
+Neonatal hypotonia	is_a	Hypotonia	
+Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
+Clonus	is_a	Hyperreflexia	
+Moderate intellectual disability	is_a	Intellectual disability	
+Lower limb spasticity	is_a	Spasticity	

@@ -1,0 +1,10 @@
+subject	predicate	object	pmids
+Urquhart et al. (2016)	reports	Urquhart et al. (2016) reported a consanguineous family with 3 affected sibs who had a severe prenatal neurodevelopmental disorder. Features included fronto-parietal pachygyria, agenesis of the corpus callosum, and progressive severe microcephaly.	
+Urquhart et al. (2016)	reports	In the 3 affected sibs of a consanguineous family with CDCBM17, Urquhart et al. (2016) used autozygosity mapping and exome sequencing to identify a novel homozygous 1-bp deletion in the DMRTA2 gene (c.1197delT). The deletion was predicted to cause a frameshift (p.Pro400LeufsTer33). The authors stated that data from murine and zebrafish knockout models were consistent with the variant being responsible for the cortical phenotype. They suggested that loss of function of DMRTA2 leads to a novel disorder of cortical development.	
+DMRTA2 c.1197delt / p.P400Lfs / p.P400fs	in_gene	DMRTA2	
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	caused_by	DMRTA2	26757254
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	has_variant	DMRTA2 c.1197delt / p.P400Lfs / p.P400fs	26757254
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	inheritance	Autosomal recessive	26757254
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	has_phenotype	Pachygyria	26757254
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	has_phenotype	Agenesis of corpus callosum	26757254
+CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 17	has_phenotype	Progressive microcephaly	26757254

@@ -1,0 +1,5 @@
+subject	predicate	object	pmids
+Amali et al. (2024)	reports	Amali et al. (2024) described 2 patients with sequential or repeated invasive infections. One had hemophagocytic lymphohistiocytosis triggered by herpes simplex virus, together with tuberculosis. The other had Streptococcus pneumoniae bacteremia and candidemia.	
+Amali et al. (2024)	reports	Amali et al. (2024) identified new IRAK2 variants in 2 patients with severe invasive infections. The variants impaired the ability to ubiquitinate the signal adaptor TRAF6 and reduced TNF-alpha production. The authors suggested that IRAK2 may play a central role in host defense against infection.	
+Recurrent infections	is_a	Abnormality of the immune system	
+Tuberculosis infection	is_a	Abnormality of the immune system	

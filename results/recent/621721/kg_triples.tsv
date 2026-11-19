@@ -1,0 +1,56 @@
+subject	predicate	object	pmids
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) reported biallelic deleterious variants in 6 genes (FOXL2, MAJIN, KASH5, SYCP2, MEIOB, and HFM1) in patients with recurrent androgenetic hydatidiform moles. Five of these genes are essential for meiosis I, and deficiency of these genes leads to premature ovarian insufficiency.	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) described an Iranian proband (1802) with 2 hydatidiform moles. She was born to consanguineous parents (third-degree cousins), and her sister had had 3 hydatidiform moles. A maternal aunt had 1 hydatidiform mole at age 23, was then unable to conceive, and adopted a child. The CHM from the affected sister was confirmed morphologically, and STR genotyping showed it was androgenetic monospermic.	
+Rezaei et al. (2024)	reports	In the Iranian proband 1802, Rezaei et al. (2024) used exome sequencing to identify a novel homozygous protein-truncating HFM1 variant, c.3124dupT (p.Tyr1042LeufsTer7; NM_001017975), located in a 25-Mb run of homozygosity on chromosome 1. The variant was also homozygous in her affected sister and heterozygous in both parents, who are third-degree cousins. The ACMG criteria classified the variant as pathogenic.	
+HFM1 c.3124dupt / p.Y1042Lfs / p.Y1042fs	in_gene	HFM1	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) found that the affected maternal aunt in the HFM1 family carried the c.3124dupT variant in compound heterozygosity with a second novel HFM1 variant, c.1159-1G>A. The c.1159-1G>A variant is predicted to abolish the splice acceptor site of exon 8 (SpliceAI score 1, Pangolin score 0.9) and was classified as likely pathogenic.	
+HFM1 c.1159-1G>A	in_gene	HFM1	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) described an Italian patient (1824) born to parents who are second- or third-degree cousins. She had 2 hydatidiform moles followed by secondary infertility, and at age 25 her bilateral ovarian volumes were markedly reduced (1.1 and 2.5 cm3). Her 2 CHMs lacked p57 expression and were androgenetic monospermic. One of them retained a maternal allele at a chromosome 13 marker.	
+Rezaei et al. (2024)	reports	In the Italian patient 1824, Rezaei et al. (2024) identified a novel homozygous MAJIN splice donor variant in exon 6, c.349+1G>T (NM_001037225.3), located in a 48.3-Mb run of homozygosity. The variant segregated from both consanguineous parents and was classified as likely pathogenic.	
+MAJIN c.349+1G>T	in_gene	MAJIN	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) found that the mother of patient 1824, a heterozygous carrier of the MAJIN likely pathogenic variant, had 1 molar pregnancy at age 21 and had always had irregular menses. Her molar tissue was p57-positive and had a triploid dispermic genome, consistent with a partial hydatidiform mole. The authors suggested that monoallelic variants in MAJIN, and perhaps in other meiotic genes, may underlie milder phenotypes.	
+Rezaei et al. (2024)	reports	In patient 1690, of South Asian ancestry, Rezaei et al. (2024) identified a novel homozygous FOXL2 missense variant, c.500T>C (p.Phe167Ser; NM_023067), in a 10.5-Mb run of homozygosity. She had 5 CHMs, 3 miscarriages, 1 stillbirth, and 1 live birth. The variant was classified as a variant of uncertain significance. The authors stated that this single variant did not allow conclusions about a causal role for FOXL2. Three of her CHMs were androgenetic monospermic.	
+FOXL2 c.500T>C / p.F167S	in_gene	FOXL2	
+Rezaei et al. (2024)	reports	In a Jordanian patient (439) with 3 hydatidiform moles and 2 miscarriages, Rezaei et al. (2024) identified 2 KASH5 variants, c.1555C>T (p.Arg519Ter) and c.1604T>A (p.Leu535Gln; NM_144688). Only p.Arg519Ter was inherited from her mother, so the 2 variants were most likely on different parental chromosomes. L535Q had previously been reported in the homozygous state in 2 infertile Qatari brothers with azoospermia.	
+KASH5 c.1555C>T / p.R519*	in_gene	KASH5	
+KASH5 c.1604T>A / p.L535Q	in_gene	KASH5	
+Rezaei et al. (2024)	reports	In an Egyptian patient (1954), born to second-degree cousins, Rezaei et al. (2024) identified a homozygous SYCP2 canonical splice acceptor variant in exon 27, c.2530-2A>G (NM_014258.4), in a 19.7-Mb run of homozygosity on chromosome 20. She had 4 CHMs and primary and secondary infertility. The variant was classified as pathogenic. One of her CHMs was confirmed morphologically and lacked p57 expression.	
+SYCP2 c.2530-2A>G	in_gene	SYCP2	
+Rezaei et al. (2024)	reports	In an Egyptian patient (2136), whose parents had first-degree consanguinity, Rezaei et al. (2024) identified a homozygous MEIOB nonsense variant, c.814C>T (p.Arg272Ter; NM_001163560.3), in a 3.5-Mb run of homozygosity on chromosome 16. She had 6 early miscarriages, 3 failed ICSI cycles, 1 hydatidiform mole, and low anti-Mullerian hormone. The variant had previously been reported in a Chinese patient with primary infertility and premature ovarian insufficiency.	
+MEIOB c.814C>T / p.R272*	in_gene	MEIOB	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) compared 15 patients with androgenetic recurrent hydatidiform mole and biallelic pathogenic/likely pathogenic variants in 9 genes with 70 patients who were negative for such variants. The patients with biallelic variants had a more severe phenotype: they had only 1 live birth and 62 pregnancy losses, compared with 39 live births and 198 pregnancy losses in the negative group (P = 0.0007).	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) screened 310 patients with reproductive loss for monoallelic loss-of-function variants in 494 ovarian and meiosis genes. They found 77 pathogenic/likely pathogenic variants in 55 genes in 68 patients (21.8%). BRCA2 and ZP3 variants were significantly enriched compared with gnomAD, and genes in the DNA metabolism protein class were enriched (P = 0.003). The authors concluded that such monoallelic variants most likely confer genetic susceptibility.	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) found that Hfm1-null fetal oocytes had impaired meiotic synapsis. At 17.5 dpc only 18% reached pachytene, most retained gamma-H2AX clouds, and MLH1 crossover foci were absent. At 4 dpp, very few oocytes remained in both Hfm1-null and Majin-null ovaries. Hfm1-null ovaries at 21 to 25 dpp were small but occasionally contained follicles.	
+Rezaei et al. (2024)	reports	In in vitro maturation experiments, Rezaei et al. (2024) observed that oocytes from Hfm1-null mice progressed through meiosis, but their spindles were often positioned parallel to the ooplasmic membrane. Of the MII oocytes, 4 of 29 (14%) extruded all their chromosomes into the polar bodies. The authors noted that this resembles Mei1-null oocytes and proposed it as a mechanism for the formation of androgenetic complete moles.	
+Rezaei et al. (2024)	reports	Rezaei et al. (2024) suggested that meiosis I defects affecting synapsis and recombination have a major role in the genesis of androgenetic complete moles. They also suggested that recurrent androgenetic complete moles may be a sign of accelerated ovarian aging or a mild form of premature ovarian insufficiency, which would explain the increase in risk with advanced maternal age.	
+Saharan et al. (2026)	reports	In a woman with recurrent hydatidiform moles (RHM), Saharan et al. (2026) used whole-exome sequencing to identify a very rare homozygous variant in KASH5, p.(Arg196His). They confirmed the variant by Sanger sequencing. The authors concluded that their findings further support an association of KASH5 variants with RHM.	
+KASH5 p.R196H	in_gene	KASH5	
+Saharan et al. (2026)	reports	Saharan et al. (2026) reported a woman with recurrent hydatidiform moles and a homozygous KASH5 variant who had recurrent gestational trophoblastic neoplasia (GTN). Her sister also had recurrent moles and died of metastatic GTN. The authors highlighted the potential for severe, life-threatening progression to metastatic GTN.	
+Saharan et al. (2026)	reports	In a second woman with recurrent hydatidiform moles, Saharan et al. (2026) used whole-exome sequencing to identify a heterozygous deleterious variant in FOXL2, p.(Gly187Asp). This variant had previously been reported in patients with premature ovarian insufficiency.	
+FOXL2 p.G187D	in_gene	FOXL2	
+Saharan et al. (2026)	reports	Saharan et al. (2026) reviewed published rates of gestational trophoblastic neoplasia (GTN) in patients with recurrent hydatidiform moles and compared them between different genetic causes. They noted limitations in the current data that should be considered when interpreting overall risk.	
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	FOXL2	39545410,42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	FOXL2 c.500T>C / p.F167S	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	FOXL2 p.G187D	42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	HFM1	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	HFM1 c.1159-1G>A	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	HFM1 c.3124dupt / p.Y1042Lfs / p.Y1042fs	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	KASH5	39545410,42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	KASH5 c.1555C>T / p.R519*	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	KASH5 c.1604T>A / p.L535Q	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	KASH5 p.R196H	42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	MAJIN	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	MAJIN c.349+1G>T	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	MEIOB	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	MEIOB c.814C>T / p.R272*	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	caused_by	SYCP2	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_variant	SYCP2 c.2530-2A>G	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	inheritance	Autosomal recessive	39545410,42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Hydatidiform mole	39545410,42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Trophoblastic tumor	42503564
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Female infertility	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Abnormal ovarian morphology	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Irregular menstruation	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Miscarriage	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Recurrent spontaneous abortion	39545410
+HYDATIDIFORM MOLE, RECURRENT, 6	has_phenotype	Decreased circulating antimullerian hormone circulation	39545410

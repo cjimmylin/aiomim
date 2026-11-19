@@ -1,0 +1,13 @@
+subject	predicate	object	pmids
+Prontera et al. (2011)	reports	Prontera et al. (2011) reported acrofrontofacionasal dysostosis type 1 in 2 sisters of Indian origin.	
+Palagano et al. (2018)	reports	Palagano et al. (2018) studied an Indian family with 2 affected sibs diagnosed with acrofrontofacionasal dysostosis type 1. They described it as an extremely rare autosomal recessive syndrome with facial and skeletal abnormalities, short stature, and intellectual disability.	
+Palagano et al. (2018)	reports	In 2 affected sibs from an Indian family with acrofrontofacionasal dysostosis, Palagano et al. (2018) used exome sequencing to identify a novel homozygous truncating mutation in the NBAS gene. Overexpressing the truncated NBAS protein in HEK293T cells impaired both nonsense-mediated decay and Golgi-to-endoplasmic reticulum retrograde traffic.	
+NBAS novel homozygous truncating mutation	in_gene	NBAS	
+Palagano et al. (2018)	reports	Palagano et al. (2018) found by immunohistochemistry that NBAS protein was expressed in mouse embryos. Expression was seen in developing chondrogenic and osteogenic skeletal structures and in the cortex, hippocampus, and cerebellum. In zebrafish embryos, depleting endogenous z-nbas caused defective morphogenesis of chondrogenic cranial skeletal elements.	
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	caused_by	NBAS	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	has_variant	NBAS novel homozygous truncating mutation	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	inheritance	Autosomal recessive	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	has_phenotype	Abnormality of the face	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	has_phenotype	Abnormality of the skeletal system	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	has_phenotype	Short stature	29929043
+ACROFRONTOFACIONASAL DYSOSTOSIS 3	has_phenotype	Intellectual disability	29929043

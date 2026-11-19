@@ -1,0 +1,108 @@
+subject	predicate	object	pmids
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) reported a Dutch boy, the only child of nonconsanguineous parents, who presented at 4 months with enlarged knees that could not fully extend, with normal length and head circumference. Skeletal survey at 6 months showed ovoid vertebral bodies, spiky widening of the metaphyses, irregular tarsal bones, slight rib flaring and somewhat small epiphyses that were more noticeable at 4 years; skull and pelvis were normal, and serum calcium, phosphate, alkaline phosphatase, PTH and 25-hydroxyvitamin D3 were normal. The radiologic abnormalities improved with age, so that at 11 years only flattening of the cervical vertebral bodies and irregular lumbar vertebral endplates remained.	
+van de Kamp et al. (2023)	reports	At 12 years the patient reported by van de Kamp et al. (2023) had enlarged knees and elbows, reduced movement in the lumbar spine and knees, winged scapulae, finger hypermobility and flat feet; height was normal (+1 SDS) but the trunk was relatively short (sitting height/height ratio -2.0 SDS). He had a slightly abnormal gait and could not run easily, sustained a forearm fracture at 8 years, and DEXA at 13 years showed BMD Z-scores of 0.2 in the lumbar spine and -2.1 in the proximal femur. Puberty began at 11.5 years, when his bone age was more than 1 year advanced.	
+van de Kamp et al. (2023)	reports	The patient reported by van de Kamp et al. (2023) had above-average cognitive development without epilepsy, but autistic features including difficulty with social communication, restricted behaviors and interests, sensitivity to environmental changes and rigid thinking, frequently leading to panic attacks and school absenteeism. He had no joint pain, visual or hearing complaints, or skin abnormalities.	
+van de Kamp et al. (2023)	reports	By exome sequencing in the patient, van de Kamp et al. (2023) identified a homozygous c.34C>T (NM_022444.3) nonsense variant in exon 1 of the SLC13A1 gene, resulting in an arg12-to-ter (R12X) substitution, previously shown to cause total loss of function in Xenopus oocytes. The nonconsanguineous parents were heterozygous, and the patient had a 20-Mb region of homozygosity on chromosome 7q31.32, suggesting a common ancestor. The variant has a global allele frequency of 0.20%, and 1 homozygote is reported in gnomAD.	
+SLC13A1 c.34C>T / g.122839967G>A / p.R12 / p.R12*	in_gene	SLC13A1	
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) noted that their patient also had cystic fibrosis, an incidental exome finding, due to a homozygous founder CFTR variant (c.1364C>A, p.Ala455Glu) located 5.6 Mb from SLC13A1 within the same region of homozygosity; he had mild CF with a sweat chloride of 64 mmol/L and stable lung function.	
+CFTR c.1364C>A / g.117188849C>A / p.A455E	in_gene	CFTR	
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) found severely reduced plasma sulfate (over 80% reduction) in the patient and a fractional sulfate excretion close to 100% (reference 13-34%), consistent with complete loss of renal sulfate reabsorption. Both heterozygous parents had plasma sulfate below the control range, and the mother had a fractional sulfate excretion of 45%.	
+van de Kamp et al. (2023)	reports	In the patient, van de Kamp et al. (2023) found reduced serum cholesterol sulfate (443 ng/ml; reference 500-1236 ng/ml), whereas other serum steroid sulfates were normal and urinary steroid metabolome was age-appropriate. The percentage of chondroitin sulfate disaccharides in urinary glycosaminoglycans did not differ from parents and controls.	
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) administered intravenous N-acetylcysteine (133 mg/kg bolus over 60 minutes, then 133 mg/kg over 8 hours) to the patient; plasma sulfate normalized during the bolus and maintenance infusion but returned to baseline 15 hours after stopping. Erythema during the bolus resolved with clemastine. The authors advised avoidance of acetaminophen because of potential risk of hepatotoxicity.	
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) noted that SLC13A1 loss-of-function variants R12X and W48X have relatively high global allele frequencies (0.20% and 0.05%) and hypothesized that biallelic loss-of-function variants are more common than recognized and may present later in life with degenerative bone and joint disease, with mild presentations escaping diagnosis.	
+van de Kamp et al. (2023)	reports	van de Kamp et al. (2023) noted that homozygous SLC13A1 loss-of-function variants occur naturally in Texel sheep and miniature Poodles, both with skeletal dysplasia including stunted growth, enlarged joints, joint stiffness and early-onset osteoarthritis, while the Slc13a1-null mouse shows hyposulfatemia, hypersulfaturia, growth retardation, behavioral abnormalities and seizures.	
+Tise et al. (2025)	reports	Tise et al. (2025) reported 5 children from 4 families with biallelic SLC13A1 variants, identified by exome or genome sequencing and GeneMatcher. All of them came to medical attention because of concern about short stature, and all had scoliosis and/or skeletal dysplasia. Two of 2 probands tested had reduced plasma sulfate and/or increased urinary sulfate excretion. The authors concluded that biallelic loss-of-function variants in SLC13A1 are a novel cause of skeletal phenotypes in humans, with sulfate levels as a measurable biomarker.	
+Tise et al. (2025)	reports	Tise et al. (2025) described proband 1, a 3-year-old boy of European ancestry born to nonconsanguineous parents. He had bilateral developmental hip dysplasia that was braced until age 9 months and came to attention at age 2 years with increasing hip pain. He had proportionate short stature (z-score below -2 SD) and mild dysmorphic features: epicanthal folds, a flattened nasal bridge, and a short, anteverted nose. He also had tapered fingers and deep-set nails of the halluces. Pelvic x-rays showed delayed, stippled femoral ossification consistent with multiple epiphyseal dysplasia, and a spine x-ray showed mild anterior beaking of the lumbar vertebrae.	
+Tise et al. (2025)	reports	In proband 1, trio exome sequencing by Tise et al. (2025) found compound heterozygous SLC13A1 variants: a paternally inherited c.34C>T (p.Arg12*) nonsense variant and a maternally inherited c.1343G>A (p.Gly448Asp) missense variant. The p.Gly448Asp variant was absent in the homozygous state from gnomAD v4.1.0, with 221 heterozygous alleles. p.Arg12* was seen 3,884 times in the heterozygous state and 7 times in the homozygous state. In MDCK cells, p.Gly448Asp completely abolished sulfate transport.	
+SLC13A1 c.1343G>A / p.G448D	in_gene	SLC13A1	
+Tise et al. (2025)	reports	Tise et al. (2025) found that proband 1 excreted more sulfate in urine than normal: his sulfate/creatinine ratio was 10.96 (reference 0.5-6.0). His heterozygous parents had normal values (father 1.71, mother 3.81). Plasma sulfate could not be measured because of inadequate specimen transport.	
+Tise et al. (2025)	reports	Tise et al. (2025) described proband 2, a girl of Asian ancestry born to nonconsanguineous parents. Her legs were noted to be bowed when she began walking at about 14 months. At age 3 years she had tibial bowing and spondyloepiphyseal dysplasia, with small, fragmented proximal capital femoral epiphyses and wedge-shaped vertebral bodies. By age 11 the bowing had improved spontaneously, but she had developed mild scoliosis. At age 12 years her height was 137.7 cm (3rd percentile, z = -1.85) and her stature was proportionate.	
+Tise et al. (2025)	reports	Trio genome sequencing in proband 2 did not find a cause in any known disease gene. Tise et al. (2025) then searched SLC13A1 specifically and found a homozygous c.1744T>C (p.Tyr582His) missense variant inherited from both parents. The variant was absent in the homozygous state from gnomAD v4.1.0, with 3 heterozygous alleles. In MDCK cells, it completely abolished sulfate transport.	
+SLC13A1 c.1744T>C / p.Y582H	in_gene	SLC13A1	
+Tise et al. (2025)	reports	Tise et al. (2025) found that proband 2, who was homozygous for p.Tyr582His, had a plasma sulfate of 0.107 mM (reference 0.3-0.5 mM). Her fractional excretion index of sulfate was increased (reported as 0.38 in the text; reference 0.17-0.34). Her plasma level was lower than the mean of 0.25 mM reported in heterozygous carriers of SLC13A1 nonsense variants, and similar to the 0.065 mM reported in a child homozygous for p.Arg12*. The authors took this as consistent with the missense variant being a loss-of-function allele.	
+Tise et al. (2025)	reports	Tise et al. (2025) described fraternal twins (proband 3, male; proband 4, female) born at 34 weeks to nonconsanguineous parents. Their skeletal surveys showed spondyloepimetaphyseal dysplasia that had been interpreted as consistent with Kniest dysplasia. Proband 3 had exaggerated thoracic kyphosis and lumbar lordosis, anterior beaking of the vertebrae, short and broad femoral necks, and metaphyseal flaring. He developed scoliosis that progressed from 12 degrees at age 4 years to an S-shaped 28-degree thoracic curve at 13 years. He also had pectus carinatum, a type 1 Chiari malformation, an atrial septal defect, and broad toes. Proband 4 had ovoid vertebrae with anterior wedging and widened metaphyses, along with broad thumbs, 2-3 toe syndactyly, and short, broad halluces. At age 10 years their heights were 129.6 cm (z = -1.66) and 134.4 cm (z = -0.85), respectively.	
+Tise et al. (2025)	reports	In the twins (probands 3 and 4), quad exome sequencing by Tise et al. (2025) found compound heterozygous SLC13A1 variants: a paternally inherited c.1547T>C (p.Leu516Pro) missense variant and a maternally inherited c.144G>A (p.Trp48*) nonsense variant. Earlier COL2A1 sequencing had found no variant. p.Leu516Pro was absent in the homozygous state from gnomAD, with 7 heterozygous alleles. In MDCK cells, it completely abolished sulfate transport.	
+SLC13A1 c.1547T>C / p.L516P	in_gene	SLC13A1	
+SLC13A1 c.144G>A / p.W48 / p.W48*	in_gene	SLC13A1	
+Tise et al. (2025)	reports	Tise et al. (2025) described proband 5, a boy born to nonconsanguineous parents, who was evaluated for scoliosis at age 14 years. He had proportionate short stature (157.3 cm, z = -2.13). Imaging showed thoracolumbar scoliosis, reduced height of several mid and lower thoracic vertebral bodies, and concave endplates, reported as suggestive of osteogenesis imperfecta or metabolic bone disease. He also had mild to moderate neurocognitive impairment, an atypical developmental disorder, Asperger's disorder, and anxiety disorders.	
+Tise et al. (2025)	reports	In proband 5, trio genome sequencing by Tise et al. (2025) found a homozygous c.144G>A (p.Trp48*) nonsense variant in SLC13A1, inherited from both parents.	
+Tise et al. (2025)	reports	Tise et al. (2025) noted that in all families the SLC13A1 variants were biallelic, which they considered consistent with autosomal recessive inheritance. Heterozygous parents were healthy.	
+Tise et al. (2025)	reports	Tise et al. (2025) built a homology model of SLC13A1 based on the SLC13A5 structure. It predicted the following effects of the missense substitutions: p.Arg237Cys loses most contacts and hydrogen bonds at the intracellular end of transmembrane domain 5; p.Gly448Asp introduces clashes within transmembrane domain 9; p.Leu516Pro removes contacts and introduces clashes in transmembrane domain 10, part of the ligand recognition pocket; and p.Tyr582His removes nearly all contacts in the extracellular C terminus.	
+SLC13A1 c.709C>T / p.R237C	in_gene	SLC13A1	
+Tise et al. (2025)	reports	Tise et al. (2025) expressed SLC13A1 in stably transfected MDCK cells and measured [35S]-sulfate uptake. The missense variants p.Arg237Cys, p.Gly448Asp, p.Leu516Pro, and p.Tyr582His each abolished sulfate transport completely. However, each variant protein still reached the plasma membrane at levels similar to wildtype, suggesting the substitutions impair transport without abolishing trafficking.	
+Tise et al. (2025)	reports	Tise et al. (2025) reported gnomAD v4.1.0 counts for the SLC13A1 variants. p.Gly448Asp, p.Leu516Pro, and p.Tyr582His were not seen in the homozygous state, with 221, 7, and 3 heterozygous alleles, respectively. p.Arg12* was seen in 3,884 heterozygotes and 7 homozygotes, and p.Arg237Cys in 3,129 heterozygotes and 5 homozygotes.	
+Tise et al. (2025)	reports	Tise et al. (2025) noted that proband 5, who was homozygous for p.Trp48*, had a neurodevelopmental phenotype, and that a previously reported child homozygous for p.Arg12* had autistic features. They stated that more patients will be needed to determine whether SLC13A1 loss-of-function variants, or possibly only nonsense variants, are associated with a neurodevelopmental phenotype.	
+Tise et al. (2025)	reports	Tise et al. (2025) cited previous work showing that SLC13A1 is not expressed in cartilage or bone. On that basis, they proposed that the osteochondrodysplasia is secondary to the systemic metabolic disorder of sulfate homeostasis caused by loss of renal sulfate reabsorption, and that this disorder may affect other organ systems.	
+Tise et al. (2025)	reports	Tise et al. (2025) suggested that oral sulfate supplementation, given directly or through sulfate sources such as N-acetyl-L-cysteine, warrants evaluation in humans. Because Slc13a1-deficient mice show enhanced acetaminophen hepatotoxicity, they advised caution in giving acetaminophen and other drugs metabolized by sulfation to individuals with biallelic SLC13A1 loss-of-function variants.	
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	caused_by	SLC13A1	36175384,39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.1343G>A / p.G448D	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.144G>A / p.W48 / p.W48*	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.1547T>C / p.L516P	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.1744T>C / p.Y582H	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.34C>T / g.122839967G>A / p.R12 / p.R12*	36175384,39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_variant	SLC13A1 c.709C>T / p.R237C	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	inheritance	Autosomal recessive	36175384,39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Short stature	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Scoliosis	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Skeletal dysplasia	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Hip dysplasia	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Hip pain	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Proportionate short stature	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Epicanthus	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Depressed nasal bridge	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Anteverted nares	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Tapered finger	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Delayed femoral head ossification	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Anterior beaking of lumbar vertebrae	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Increased urinary sulfate	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Tibial bowing	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Spondyloepiphyseal dysplasia	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Hypoplasia of the capital femoral epiphysis	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Vertebral wedging	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Decreased circulating sulfate concentration	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Spondyloepimetaphyseal dysplasia	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Thoracic kyphosis	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Lumbar hyperlordosis	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Anterior beaking of thoracic vertebrae	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Short femoral neck	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Metaphyseal widening	36175384,39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Pectus carinatum	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Chiari type I malformation	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Atrial septal defect	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Broad thumb	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	2-3 toe syndactyly	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Broad hallux	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Platyspondyly	36175384,39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Abnormality of the vertebral endplates	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Mild intellectual disability	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Atypical behavior	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Anxiety	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Neurodevelopmental abnormality	39925707
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Large knee	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Limited knee extension	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Ovoid vertebral bodies	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Abnormal tarsal ossification	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Flaring of rib cage	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Small epiphyses	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Irregular vertebral endplates	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Enlarged joints	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Spinal rigidity	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Scapular winging	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Finger joint hypermobility	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Pes planus	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Gait disturbance	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Recurrent long bone fractures	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Reduced bone mineral density	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Accelerated skeletal maturation	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Autistic behavior	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Panic attack	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Chronic cough	36175384
+HYPOSULFATEMIA WITH SKELETAL DYSPLASIA	has_phenotype	Abnormal circulating lipid concentration	36175384
+Spondyloepimetaphyseal dysplasia	is_a	Skeletal dysplasia	
+Irregular vertebral endplates	is_a	Abnormality of the vertebral endplates	
+Spondyloepiphyseal dysplasia	is_a	Skeletal dysplasia	
+Panic attack	is_a	Anxiety	
+Proportionate short stature	is_a	Short stature	
+Autistic behavior	is_a	Atypical behavior	
+Intellectual disability	is_a	Neurodevelopmental abnormality	
+Mild intellectual disability	is_a	Intellectual disability	

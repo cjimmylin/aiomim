@@ -1,0 +1,137 @@
+subject	predicate	object	pmids
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) reported 3 unrelated children with a recognizable malformation syndrome. All three had impaired intellectual development and/or global developmental delay, delayed speech, autistic behavior, microcephaly, swallowing difficulty, postnatal growth retardation, skeletal abnormalities, camptodactyly/contractures, facial dysmorphism, and respiratory failure that needed ventilation therapy. Heart defects (ASD/PDA, ASD/VSD) were present in 2 patients, as were cleft palate, hearing impairment, and distinctive skin creases. Asplenia and an anal anomaly were each seen in 1 patient.	
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) noted that in 2 of the patients the skin folds were most pronounced right after birth, mainly affected the back rather than the arms and legs, and regressed with age. This pattern differs from congenital symmetric circumferential skin creases syndromes (CSCSC1 and CSCSC2). Other features included a pronounced neck fold, a flat occiput, dysplastic auricles, deep-set eyes, a round face, temporal indentations, contractures of the hands and fingers, and widely spaced teeth.	
+Ufartes et al. (2020)	reports	Trio exome sequencing by Ufartes et al. (2020) found a heterozygous de novo c.487C>T nonsense variant in FBRSL1 in patient 1, producing p.Gln163*. Sanger sequencing confirmed it, and both unaffected parents carried the wild-type sequence. The variant was absent from gnomAD and ExAC, and the transcript escaped nonsense-mediated decay. Pathogenic variants in TUBB, MAPRE2, and AUTS2 were excluded.	
+FBRSL1 c.487C>T / p.Q163*	in_gene	FBRSL1	
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) initially found no change in the canonical FBRSL1 transcript in patient 2. Manual inspection of intronic reads then revealed a heterozygous de novo 23-bp deletion (c.581_603del), which affects alternative exon 3 of the short N-terminal isoform 3.1 (XM_005266181.4). The deletion causes a frameshift and a premature stop at position 356 that disrupts the DNA translocase domain. Sanger sequencing and RT-PCR confirmed it, and both healthy parents were wild type.	
+FBRSL1 c.581_603del	in_gene	FBRSL1	
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) identified a heterozygous c.332G>A nonsense variant in FBRSL1, producing p.Trp111*, in patient 3 by single exome sequencing and reverse phenotyping. The variant was absent from the healthy mother; the father was not available for testing. It was not present in gnomAD or ExAC.	
+FBRSL1 c.332G>A / p.W111*	in_gene	FBRSL1	
+Ufartes et al. (2020)	reports	Using RT-PCR and Western blot, Ufartes et al. (2020) validated short N-terminal FBRSL1 isoforms 3.1 (about 66 kDa) and 3.2 (about 55 kDa) alongside the long isoform 1 (about 110 kDa). The short isoforms contain an FtsK DNA translocase domain, and isoform 1 instead contains an AUTS2 domain. All 3 patient variants affect the short isoforms. Isoform 3.1 was expressed mainly in fetal tissues. N-terminal isoforms localized to the cytoplasm and nucleus and associated with centrosomes and kinetochores.	
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) knocked down Fbrsl1 in Xenopus laevis embryos with a splice-blocking morpholino. Knockdown caused reduced craniofacial structures and eyes, cartilage hypoplasia (most severe in the branchial arches), reduced Ncam expression in the brain, and disturbed migration of cranial nerves and motor neurons. Human short isoform 3.1 rescued the craniofacial defects in a dose-dependent manner. Neither the long isoform 1 nor isoform 3.1 carrying p.Gln163* rescued them.	
+Ufartes et al. (2020)	reports	Ufartes et al. (2020) noted that the long FBRSL1 isoform appears tolerant to loss of function (pLI = 0.01), so haploinsufficiency of the long transcripts is unlikely. They suggested two possible mechanisms: haploinsufficiency of short isoform 3.2 causing an imbalance between isoforms, or a dominant-negative effect, because the truncated transcripts escaped nonsense-mediated decay.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) reviewed 3 unrelated children with truncating FBRSL1 variants. In the newborn period they had breathing failure needing ventilation and feeding difficulties. Later they showed intellectual disability with no active speech, postnatal microcephaly, growth retardation and contractures. Two of the 3 had cleft palate and heart defects (atrial septal defect with patent ductus arteriosus in one, atrial and ventricular septal defects in the other); 1 had asplenia and 1 had anal atresia. The 2 more severely affected children were born with marked skin creases that disappeared during the first year of life.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) compared the 3 FBRSL1 patients with AUTS2 syndrome using the features of the AUTS2 syndrome severity scoring system. All 3 had short stature, microcephaly, feeding difficulties, intellectual disability, autistic behavior, kyphosis/scoliosis and camptodactyly/contractures. Two of 3 had cerebral palsy/spasticity, high arched eyebrows, epicanthal folds, a deep/broad nasal bridge, a short/upturned philtrum, low-set ears, widely spaced teeth and hearing impairment. None had hypertelorism, ptosis, strabismus or hernias. The authors noted a large overlap with severe AUTS2 syndrome, but with a wider range and higher rate of congenital malformations.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) noted that all 3 reported patients carried truncating variants in the N-terminal part of FBRSL1 that affect the short N-terminal isoforms: stop variants in 2 patients and a frameshift causing a premature stop codon in 1. By contrast, severe AUTS2 syndrome is linked to variants affecting the AUTS2 C-terminus.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) summarized Xenopus work in which Fbrsl1 morpholino knockdown caused craniofacial defects with cartilage hypoplasia, smaller brain size, and impaired migration of cranial nerves and motor neurons. A human short N-terminal FBRSL1 isoform rescued the craniofacial defects. Neither a patient-variant version of this isoform nor the long isoform, both lacking the Ftsk domain, rescued them. The authors suggested that mutations in the short N-terminal isoforms cause the developmental phenotype.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) noted that FBRSL1, like AUTS2, interacts with the Polycomb subcomplexes PRC1.3 and PRC1.5 and competes with AUTS2 for binding to PRC1.5. In HEK293 cells and human fibroblasts, FBRSL1 was found in both the nucleus and the cytoplasm. An N-terminal antibody detected both nuclear and cytoplasmic signal, whereas a C-terminal antibody mainly detected nuclear signal, suggesting that different isoforms have nuclear versus cytoplasmic functions.	
+Pauli et al. (2021)	reports	Pauli et al. (2021) described a long 19-exon FBRSL1 transcript (NM_001142641.2) and 2 validated short N-terminal isoforms. The short isoforms use an alternative exon 3 that leads to a stop codon; they lack the AUTS2 family domain but include a predicted DNA translocase (Ftsk) domain.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) reported a girl, the third child of healthy nonconsanguineous Italian parents (father 46, mother 38 years old at her birth), with threatened miscarriage and poor fetal movements in pregnancy. At term she had low birth weight (2860 g) and length below the 3rd centile, neonatal feeding difficulties due to weak sucking, postnatal growth retardation, bilateral contractures of hands and fingers, bilateral congenital hip dislocation, and irregular bone growth fronts of the long bones; she was initially diagnosed with arthrogryposis multiplex congenita at 4 months of age.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) noted that the patient had global developmental delay (head control at 7 months, sitting at 14 months, walking unsupported at 46 months), no active speech and severe intellectual disability at 48 months (developmental quotient 22), and motor stereotypies without autism spectrum disorder. At 48 months she had short stature, low weight, microcephaly, and facial dysmorphism including flat occiput, frontal bossing, midface hypoplasia, short philtrum, micrognathia, and microstomia with 'whistling mouth'; later examination noted small forehead, bitemporal narrowing, sunken eyes, broad nasal bridge, unusual ears, and thick lips. She also had mild scoliosis, distal limb hypertonia with supinated varus feet, wide-based gait, and cerebral palsy/spasticity; hearing and heart were normal, and brain and spinal MRI at 2 months and 4 years and metabolic studies were normal.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) reported that at 46 months of age the patient developed epilepsy with daily drop tonic seizures and later myoclonic absences; ictal EEG showed a high-voltage slow wave followed by voltage attenuation and interictal EEG showed frontocentral spikes and spike-and-wave complexes and 2-Hz diffuse spike-and-wave complexes. Epilepsy, stereotypies, hip dislocation, and mastication problems were noted as features not previously reported in FBRSL1 patients, whereas respiratory insufficiency, cleft palate, heart defects, and hearing impairment reported by Ufartes et al. (2020) were absent.	
+Bukvic et al. (2024)	reports	In the Italian girl, Bukvic et al. (2024) identified by trio clinical exome sequencing a de novo heterozygous 1-bp duplication in exon 2 of the FBRSL1 gene (c.371dupC, NM_001142641.2), causing a frameshift and premature stop codon (p.Cys125Leufs*7) predicted to yield a 131-amino acid protein instead of 1045 residues; the variant was confirmed by Sanger sequencing and absent from the parents. No other variants explaining the phenotype were found.	
+FBRSL1 c.371dupc / p.C125Lfs / p.C125fs	in_gene	FBRSL1	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) found by SNP array in the patient a paternally inherited approximately 530-kb duplication at 7p11.2 and two maternally inherited duplications at 16p13.11 (about 470 kb and 1.1 Mb), all classified as variants of uncertain significance; STITCH analysis found no interactions attributable to these duplications that could be linked to the phenotype.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) found that genome-wide DNA methylation analysis (EpiSign) of the patient's peripheral blood showed a profile similar to controls for all episignatures tested, including the PRC2 episignature (MVP score of zero); FBRSL1 or PRC1.5 episignatures are undefined.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) used in silico modeling of the truncated 131-residue FBRSL1 protein and predicted a self-binding domain (residues 81 to 93) and 2 nuclear localization signals; they hypothesized that the truncated protein could localize to the nucleus and inactivate wildtype FBRSL1, suggesting a possible dominant-negative effect.	
+Bukvic et al. (2024)	reports	Bukvic et al. (2024) reported that the patient's seizures initially responded well to valproic acid but relapsed months later, with better but incomplete control after addition of ethosuximide and rufinamide. A percutaneous endoscopic gastrostomy was placed at 6 years for feeding difficulties and poor weight gain, and with multidisciplinary rehabilitation including augmentative and alternative communication she became able to sit and stand independently, walk with minimal support, and communicate basic needs.	
+Xu et al. (2026)	reports	Xu et al. (2026) described a patient with neurodevelopmental delay, epilepsy, congenital heart disease, and facial dysmorphism.	
+Xu et al. (2026)	reports	In a patient with neurodevelopmental delay, epilepsy, congenital heart disease, and facial dysmorphism, Xu et al. (2026) identified a de novo truncating variant in the FBRSL1 gene, p.Ala128Cysfs*5, by whole-exome sequencing.	
+FBRSL1 p.A128Cfs / p.A128fs	in_gene	FBRSL1	
+Xu et al. (2026)	reports	Xu et al. (2026) analyzed 4 patients with FBRSL1 variants and described an emerging syndromic neurodevelopmental disorder characterized by microcephaly, global developmental delay, autism, facial dysmorphism, and skeletal contractures.	
+Xu et al. (2026)	reports	Xu et al. (2026) found that fbrsl1 knockdown in zebrafish recapitulated neurodevelopmental abnormalities, epileptiform discharges, and cardiac dysfunction, consistent with the patient's phenotype.	
+Xu et al. (2026)	reports	Xu et al. (2026) found that FBRSL1 is highly expressed in the developing brain and heart, and single-cell RNA sequencing showed high expression in neural progenitors of 1-month-old organoids, suggesting a vital role in neurodevelopment.	
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	caused_by	FBRSL1	32424618,39062605,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_variant	FBRSL1 c.332G>A / p.W111*	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_variant	FBRSL1 c.371dupc / p.C125Lfs / p.C125fs	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_variant	FBRSL1 c.487C>T / p.Q163*	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_variant	FBRSL1 c.581_603del	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_variant	FBRSL1 p.A128Cfs / p.A128fs	41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	inheritance	Autosomal dominant	32424618,39062605,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Neurodevelopmental delay	41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Seizure	41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormal heart morphology	32424618,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormal facial shape	32424618,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Microcephaly	32424618,39062605,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Global developmental delay	32424618,39062605,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Autism	41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Joint contracture	34805182,41232796
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Small for gestational age	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Feeding difficulties	32424618,34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Postnatal growth retardation	32424618,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Camptodactyly of finger	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Congenital hip dislocation	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormal metaphysis morphology	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Decreased fetal movement	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Absent speech	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Severe intellectual disability	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Motor stereotypy	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Short stature	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Flat occiput	32424618,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Frontal bossing	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Midface retrusion	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Short philtrum	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Micrognathia	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Narrow mouth	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Narrow forehead	32424618,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Deeply set eye	32424618,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Wide nasal bridge	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Thick lower lip vermilion	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Scoliosis	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Hypertonia	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Spasticity	34805182,39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Broad-based gait	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Hearing impairment	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Tonic seizure	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Myoclonic absence seizure	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	EEG with spike-wave complexes	39062605
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Cleft palate	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Respiratory insufficiency	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Intellectual disability	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Secondary microcephaly	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Growth delay	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Atrial septal defect	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Patent ductus arteriosus	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Ventricular septal defect	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Asplenia	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Anal atresia	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormal skin morphology	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Autistic behavior	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Camptodactyly	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Highly arched eyebrow	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Epicanthus	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Low-set ears	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Prominent nasal tip	34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Widely spaced teeth	32424618,34805182
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Delayed speech and language development	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormality of the skeletal system	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Respiratory failure	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormality of the skin	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormality of the anus	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Redundant skin	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Redundant neck skin	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Abnormal pinna morphology	32424618
+CAMPTODACTYLY, IMPAIRED INTELLECTUAL DEVELOPMENT, AND FACIAL DYSMORPHISM SYNDROME	has_phenotype	Round face	32424618
+Abnormal skin morphology	is_a	Abnormality of the skin	
+Anal atresia	is_a	Abnormality of the anus	
+Frontal bossing	is_a	Abnormality of the skeletal system	
+Myoclonic absence seizure	is_a	Seizure	
+Secondary microcephaly	is_a	Microcephaly	
+Scoliosis	is_a	Abnormality of the skeletal system	
+Microcephaly	is_a	Abnormality of the skeletal system	
+Round face	is_a	Abnormal facial shape	
+Camptodactyly of finger	is_a	Camptodactyly	
+Camptodactyly of finger	is_a	Joint contracture	
+Camptodactyly of finger	is_a	Abnormality of the skeletal system	
+Respiratory failure	is_a	Respiratory insufficiency	
+Short stature	is_a	Growth delay	
+Micrognathia	is_a	Abnormality of the skeletal system	
+Abnormal metaphysis morphology	is_a	Abnormality of the skeletal system	
+Congenital hip dislocation	is_a	Abnormality of the skeletal system	
+Absent speech	is_a	Delayed speech and language development	
+Autism	is_a	Autistic behavior	
+Atrial septal defect	is_a	Abnormal heart morphology	
+Joint contracture	is_a	Abnormality of the skeletal system	
+Arthrogryposis multiplex congenita	is_a	Joint contracture	
+Delayed speech and language development	is_a	Neurodevelopmental delay	
+Flat occiput	is_a	Abnormality of the skeletal system	
+Redundant neck skin	is_a	Redundant skin	
+Spasticity	is_a	Hypertonia	
+Global developmental delay	is_a	Neurodevelopmental delay	
+Tonic seizure	is_a	Seizure	
+Severe intellectual disability	is_a	Intellectual disability	
+Camptodactyly	is_a	Joint contracture	
+Postnatal growth retardation	is_a	Growth delay	
+Ventricular septal defect	is_a	Abnormal heart morphology	
+Low-set ears	is_a	Abnormal pinna morphology	
+Redundant skin	is_a	Abnormal skin morphology	
