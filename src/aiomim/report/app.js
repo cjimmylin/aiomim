@@ -11,14 +11,19 @@
   const ENTRIES = Array.isArray(DATA.entries) ? DATA.entries : [];
   const RUN = String(DATA.run || 'run');
 
-  const STRATEGY = {
-    kg: { label: 'Evidence-graph draft', short: 'Evidence graph',
-      about: 'Facts were first extracted from each paper together with verbatim supporting quotes, then the entry was written from those facts.' },
-    direct: { label: 'Direct draft (baseline)', short: 'Direct (baseline)',
-      about: 'The model wrote the entry straight from the paper text, without the fact-extraction step. Kept as a baseline for comparison.' },
-  };
-  const stratLabel = (s) => (STRATEGY[s] ? STRATEGY[s].label : 'Draft “' + s + '”');
-  const stratShort = (s) => (STRATEGY[s] ? STRATEGY[s].short : s);
+  // Strategies come from the data (strategies.json, or the pipeline's registry at build time),
+  // so the page works for any number of them. A control is a yardstick, not a way to write entries.
+  const SINFO = new Map();
+  (Array.isArray(DATA.strategy_info) ? DATA.strategy_info : []).forEach((i) => { if (i && i.name) SINFO.set(i.name, i); });
+  const STRATS = Array.isArray(DATA.strategies) ? DATA.strategies : [];
+  const BASELINE = DATA.baseline && STRATS.indexOf(DATA.baseline) >= 0 ? DATA.baseline : null;
+  const stratInfo = (s) => SINFO.get(s) || { name: s, label: String(s), summary: '', control: false };
+  const stratLabel = (s) => stratInfo(s).label;
+  const stratAbout = (s) => stratInfo(s).summary || '';
+  const isControl = (s) => !!stratInfo(s).control;
+  // The label without a trailing "(control)", for places where a Control tag is shown beside it.
+  const stratName = (s) => stratLabel(s).replace(/\s*\(control\)\s*$/i, '') || stratLabel(s);
+  const draftName = (s) => 'the “' + stratName(s) + '” draft' + (isControl(s) ? ' (a control)' : '');
 
   const STATUS = {
     flagged: { cls: 'bad', icon: '✗', label: 'Flagged', help: 'At least one claim was found unsupported or contradicted by the cited paper.' },
@@ -175,6 +180,7 @@
     item.loaded = false;
     item.entries = {}; item.evals = {}; item.papers = []; item.extractions = [];
     item.paperBy = new Map(); item.findingBy = new Map(); item.extractionBy = new Map(); item.refBy = new Map();
+    item.recordBy = new Map();
     item.goldHpo = null;
   }
   function attach(item, payload) {
@@ -193,9 +199,39 @@
         .filter((a) => (a.aspect || 'P') === 'P' && String(a.qualifier || '').toUpperCase() !== 'NOT')
         .map((a) => a.hpo_id));
     }
-    for (const s of item.strategies) for (const r of get(item, 'entries.' + s + '.references') || []) item.refBy.set(String(r.pmid), r);
+    // The build stores some things once and leaves the rest to be filled in here:
+    // a reference that repeats the paper list keeps only its PMID,
+    for (const s of Object.keys(item.entries)) for (const r of item.entries[s].references || []) {
+      const p = item.paperBy.get(String(r.pmid));
+      if (p) {
+        if (r.citation === undefined && p.reference) r.citation = p.reference;
+        if (r.label === undefined && p.label) r.label = p.label;
+        if (r.content_level === undefined && p.content_level) r.content_level = p.content_level;
+      }
+      item.refBy.set(String(r.pmid), r);
+    }
+    // OMIM's paragraph text is kept once per entry (gold_refs), and per-paragraph tallies are recounted.
+    const refs = Array.isArray(item.gold_refs) ? item.gold_refs : [];
+    for (const s of Object.keys(item.evals)) for (const gp of get(item.evals[s], 'gold_text.paragraphs') || []) {
+      if (gp.reference === undefined && isNum(gp.ref)) gp.reference = refs[gp.ref] || '';
+      if (gp.n_facts === undefined && Array.isArray(gp.facts)) Object.assign(gp, tallyFacts(gp.facts));
+    }
+    // Case-table records and notes, for paragraphs of a "case table first" draft.
+    item.recordBy = new Map();
+    for (const r of get(item, 'cohort.records') || []) item.recordBy.set(r.id, r);
+    for (const n of get(item, 'cohort.notes') || []) item.recordBy.set(n.id, n);
     item.loaded = true;
     item.loadError = null;
+  }
+  // Same arithmetic as evaluate._tally.
+  function tallyFacts(facts) {
+    const c = { present: 0, partial: 0, absent: 0, contradicted: 0 };
+    for (const f of facts) if (c[f.status] !== undefined) c[f.status]++;
+    const n = facts.length;
+    const r3 = (v) => Math.round(v * 1000) / 1000;
+    return { n_facts: n, present: c.present, partial: c.partial, absent: c.absent, contradicted: c.contradicted,
+      coverage: n ? r3((c.present + 0.5 * c.partial) / n) : null, strict_coverage: n ? r3(c.present / n) : null,
+      contradiction_rate: n ? r3(c.contradicted / n) : null };
   }
   window.__aiomimRegister = function (file, payload) {
     const item = byFile.get(String(file));
@@ -203,12 +239,29 @@
   };
   if (DATA.payloads) for (const f of Object.keys(DATA.payloads)) window.__aiomimRegister(f, DATA.payloads[f]);
   delete DATA.payloads;
+  // A large single-file page carries each entry gzip-compressed (base64); it is unpacked when opened.
+  const PACKED = DATA.packed && typeof DATA.packed === 'object' ? DATA.packed : {};
+  function unpack(b64) {
+    if (typeof DecompressionStream !== 'function' || typeof Response !== 'function') {
+      return Promise.reject(new Error('This browser cannot unpack the entry data stored in this page. Open the page in a current version of Chrome, Edge, Firefox or Safari.'));
+    }
+    return Promise.resolve().then(() => {
+      const bin = atob(b64);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    }).then((text) => JSON.parse(text));
+  }
 
   const pending = new Map();
   function loadEntry(item) {
     if (item.loaded) return Promise.resolve(item);
     if (pending.has(item.key)) return pending.get(item.key);
-    const pr = new Promise((resolve, reject) => {
+    const pr = PACKED[item.file] ? unpack(PACKED[item.file]).then((payload) => {
+      attach(item, payload);
+      delete PACKED[item.file];
+      return item;
+    }, (e) => { throw new Error(e && e.message ? e.message : 'The entry data in this page could not be unpacked.'); }) : new Promise((resolve, reject) => {
       if (!item.file) { reject(new Error('This entry has no data file.')); return; }
       const el = document.createElement('script');
       el.src = DATA_DIR + '/' + encodeURIComponent(item.file);
@@ -319,7 +372,10 @@
 
   // ------------------------------------------------------------------ state + routing
   const state = {
-    overviewStrategy: (DATA.strategies && DATA.strategies[0]) || 'kg',
+    overviewStrategy: STRATS[0] || null,
+    overviewMode: 'strategy',   // 'strategy': every score of one strategy; 'metric': one score across strategies
+    overviewMetric: 'claim_supported_rate',
+    open: new Set(),            // disclosure blocks the reader opened, kept across re-renders
     selected: null,          // `${key}|${strategy}|${pid}`
     attentionOnly: false,
     hideReviewed: false,
@@ -331,7 +387,8 @@
   function parseHash() {
     let raw = '';
     try { raw = decodeURIComponent(location.hash.replace(/^#/, '')); } catch (e) { raw = ''; }
-    if (!raw || raw === 'overview' || raw === 'main') return { view: 'overview' };
+    if (!raw || raw === 'overview' || raw === 'main') return { view: 'overview', panel: 'scores' };
+    if (raw.indexOf('overview--') === 0) return { view: 'overview', panel: raw.slice(10) };
     if (raw === 'updates') return { view: 'updates' };
     if (raw.indexOf('entry-') === 0) {
       const parts = raw.slice(6).split('--');
@@ -342,7 +399,7 @@
       if (tab === 'review' && !strategy && item.has_updates) tab = 'updates';
       return { view: 'entry', item: item, tab: tab, strategy: strategy };
     }
-    return { view: 'overview' };
+    return { view: 'overview', panel: 'scores' };
   }
   function entryHash(item, tab, strategy) {
     let out = 'entry-' + item.key;
@@ -372,7 +429,7 @@
     if (route.view === 'entry') view = viewEntry(route);
     else if (route.view === 'updates') view = viewAllUpdates();
     else if (route.view === 'missing') view = h('div', { class: 'wrap' }, h('div', { class: 'empty' }, h('strong', null, 'This link points to an entry that is not in this run. '), h('a', { href: '#overview' }, 'Go to the run overview.')));
-    else view = viewOverview();
+    else view = viewOverview(route);
     main.replaceChildren(view);
     updateNav(route);
     const routeId = route.view + '|' + (route.item ? route.item.key : '') + '|' + (route.tab || '');
@@ -445,17 +502,54 @@
   function headerCell(m) { return h('th', { class: 'n', scope: 'col' }, h('abbr', { title: m.help }, m.label)); }
 
   // ------------------------------------------------------------------ overview
-  function viewOverview() {
+  const CMP_PANELS = [
+    { id: 'scores', label: 'Scores' },
+    { id: 'baseline', label: 'Against the baseline' },
+    { id: 'breakdowns', label: 'By paper access and entry type' },
+    { id: 'totals', label: 'Totals' },
+    { id: 'cost', label: 'Cost' },
+  ];
+  function tag(text, cls, title) { return h('span', { class: 'tag ' + (cls || ''), title: title || null }, text); }
+  const controlTag = () => tag('Control', 'tag-control', 'A control, not a method: it is there to compare against, not to produce entries.');
+  const baselineTag = () => tag('Baseline', 'tag-baseline', 'The strategy the others are compared against.');
+  // A strategy's name with its Control / Baseline tags, for table headers, buttons and lists.
+  function stratTitle(s, withBaseline) {
+    return [h('span', { class: 'strat-name' }, stratName(s)), isControl(s) ? controlTag() : null, withBaseline && s === BASELINE ? baselineTag() : null];
+  }
+  const ctl = (s, cls) => (cls || '') + (isControl(s) ? ' ctl' : '');
+  function listWords(words) {
+    if (words.length < 2) return words.join('');
+    return words.slice(0, -1).join(', ') + ' and ' + words[words.length - 1];
+  }
+  function strategyList(compared) {
+    const listed = new Map(((compared && compared.strategies) || []).map((x) => [x.name, x]));
+    return h('dl', { class: 'strat-list' }, STRATS.map((s) => {
+      const info = stratInfo(s);
+      const bits = [];
+      if (isNum(info.n_drafts)) bits.push('drafted for ' + plural(info.n_drafts, 'entry', 'entries'));
+      if (isNum(info.n_scored) && info.n_scored !== info.n_drafts) bits.push(info.n_scored + ' scored against OMIM');
+      return [h('dt', null, stratTitle(s, true)),
+        h('dd', null, stratAbout(s), bits.length ? h('span', { class: 'muted' }, (stratAbout(s) ? ' ' : '') + '(' + bits.join(', ') + ')') : null)];
+    }));
+  }
+
+  function viewOverview(route) {
     const wrap = h('div', { class: 'wrap' });
-    const strategies = DATA.strategies || [];
+    const strategies = STRATS;
     const n = ENTRIES.length;
     const dates = DATA.generated || [];
     const retrieval = DATA.retrieval === 'oracle'
       ? 'from the papers each OMIM entry already cites'
       : DATA.retrieval === 'open' ? 'from papers chosen by a literature search' : 'from the published literature';
-    const how = strategies.length > 1
-      ? 'Each entry was written ' + strategies.length + ' ways (' + strategies.map(stratLabel).join(' and ') + ') so the two can be compared.'
-      : strategies.length === 1 ? 'Each entry was written as an ' + stratLabel(strategies[0]).replace(/^Direct/, 'direct').replace(/^Evidence/, 'evidence') + '.' : '';
+    const methods = strategies.filter((s) => !isControl(s));
+    const controls = strategies.filter(isControl);
+    let how = '';
+    if (strategies.length === 1) how = 'Each entry was written one way: ' + stratName(strategies[0]) + '.';
+    else if (strategies.length > 1) {
+      how = 'Entries were written in ' + (methods.length === 1 ? 'one way' : methods.length + ' different ways') + ' (' + listWords(methods.map(stratName)) + ')' +
+        (controls.length ? ', plus ' + (controls.length === 1 ? 'a control' : controls.length + ' controls') + ' (' + listWords(controls.map(stratName)) + ')' : '') +
+        ', so the drafts can be compared.';
+    }
     const when = dates.length ? ' Drafted ' + (dates.length > 1 ? dates[0] + ' to ' + dates[dates.length - 1] : dates[0]) + '.' : '';
     wrap.append(h('div', { class: 'page-head' },
       h('div', { class: 'eyebrow' }, 'Run “' + RUN + '”'),
@@ -470,19 +564,11 @@
       return wrap;
     }
 
-    if (DATA.comparison) wrap.append(comparisonFromFile(DATA.comparison));
+    if (DATA.compared) wrap.append(comparedSection(DATA.compared, route && route.panel));
+    else if (DATA.comparison) wrap.append(comparisonFromFile(DATA.comparison));
     else if (strategies.length > 1) wrap.append(comparisonSection(strategies));
 
-    // score table
-    const s = strategies.indexOf(state.overviewStrategy) >= 0 ? state.overviewStrategy : strategies[0];
-    const sec = h('section', { class: 'section', 'aria-labelledby': 'scores-h' });
-    const head = h('div', { class: 'section-head' }, h('h2', { id: 'scores-h' }, 'Scores by entry'));
-    if (strategies.length > 1) head.append(strategySwitch(s, (v) => { state.overviewStrategy = v; render({ keepScroll: true, focus: 'ov-strat-' + v }); }, 'ov-strat-'));
-    sec.append(head);
-    if (strategies.length) sec.append(h('p', { class: 'small muted' }, 'Showing the ' + stratLabel(s).toLowerCase().replace('(baseline)', '(baseline)') + '. ' + (STRATEGY[s] ? STRATEGY[s].about : '') + ' Select an entry to review it.'));
-    sec.append(scoreTable(s));
-    sec.append(legend(false));
-    wrap.append(sec);
+    wrap.append(entriesSection(strategies));
 
     const failures = DATA.failures || {};
     const fk = Object.keys(failures);
@@ -498,53 +584,118 @@
       h('div', null, h('strong', null, 'Machine-drafted, not yet reviewed. '),
         'Every entry here was written by a language model from the cited papers. Nothing on this page has been checked by a curator; treat each paragraph as a draft until you accept it.'));
   }
-  function strategySwitch(current, onPick, fidPrefix) {
+  // One button per strategy; `list` is whatever strategies apply (the run's, or one entry's).
+  function strategySwitch(list, current, onPick, fidPrefix) {
     return h('div', { class: 'seg', role: 'group', 'aria-label': 'Which draft to show' },
-      (DATA.strategies || []).map((s) => h('button', { type: 'button', 'aria-pressed': String(s === current), 'data-fid': fidPrefix + s, onclick: () => onPick(s) }, stratLabel(s))));
+      list.map((s) => h('button', { type: 'button', 'aria-pressed': String(s === current), 'data-fid': fidPrefix + s, title: stratAbout(s) || null,
+        class: isControl(s) ? 'is-control' : null, onclick: () => onPick(s) }, stratTitle(s))));
   }
+
+  // Scores by entry: either every score of one strategy, or one score across all strategies.
+  function entriesSection(strategies) {
+    const s = strategies.indexOf(state.overviewStrategy) >= 0 ? state.overviewStrategy : strategies[0];
+    const sec = h('section', { class: 'section', 'aria-labelledby': 'scores-h', id: 'entries' });
+    sec.append(h('div', { class: 'section-head' }, h('h2', { id: 'scores-h' }, 'Scores by entry')));
+    const byMetric = strategies.length > 1 && state.overviewMode === 'metric';
+    if (strategies.length > 1) {
+      const controls = h('div', { class: 'entry-controls' },
+        h('div', { class: 'seg', role: 'group', 'aria-label': 'What the table shows' },
+          h('button', { type: 'button', 'aria-pressed': String(!byMetric), 'data-fid': 'ov-mode-strategy',
+            onclick: () => { state.overviewMode = 'strategy'; render({ keepScroll: true, focus: 'ov-mode-strategy' }); } }, 'All scores of one strategy'),
+          h('button', { type: 'button', 'aria-pressed': String(byMetric), 'data-fid': 'ov-mode-metric',
+            onclick: () => { state.overviewMode = 'metric'; render({ keepScroll: true, focus: 'ov-mode-metric' }); } }, 'One score, every strategy')));
+      if (byMetric) {
+        controls.append(h('label', { class: 'check' }, 'Score ',
+          h('select', { id: 'ov-metric', 'data-fid': 'ov-metric', onchange: (e) => { state.overviewMetric = e.target.value; render({ keepScroll: true, focus: 'ov-metric' }); } },
+            METRICS.map((m) => h('option', { value: m.key, selected: m.key === state.overviewMetric || null }, m.label)))));
+      } else {
+        controls.append(strategySwitch(strategies, s, (v) => { state.overviewStrategy = v; render({ keepScroll: true, focus: 'ov-strat-' + v }); }, 'ov-strat-'));
+      }
+      sec.append(controls);
+    }
+    if (byMetric) {
+      const m = METRICS.find((x) => x.key === state.overviewMetric) || METRICS[0];
+      sec.append(h('p', { class: 'small muted' }, m.label + ': ' + m.help + ' Select a number to open that draft of the entry.'));
+      sec.append(metricTable(strategies, m));
+    } else {
+      if (strategies.length) sec.append(h('p', { class: 'small muted' }, 'Showing ' + draftName(s) + '. ' + stratAbout(s) + ' Select an entry to review it.'));
+      sec.append(scoreTable(s, strategies.length > 1));
+    }
+    sec.append(legend(false));
+    return sec;
+  }
+  // Fallback comparison when the run has no comparison file: plain averages from the entry index.
   function comparisonSection(strategies) {
     const means = {};
     for (const s of strategies) means[s] = meanRow(ENTRIES.filter((it) => it.strategies.indexOf(s) >= 0).map((it) => rowFor(it, s)));
     const tbody = h('tbody');
     for (const m of METRICS) {
-      const vals = strategies.map((s) => means[s][m.key]);
-      const nums = vals.filter(isNum);
-      let best = null;
-      if (nums.length === strategies.length && nums.length > 1 && new Set(nums.map((v) => v.toFixed(4))).size > 1) best = m.better === 'low' ? Math.min.apply(null, nums) : Math.max.apply(null, nums);
-      tbody.append(h('tr', null, h('th', { scope: 'row' }, h('abbr', { title: m.help }, m.label)),
-        vals.map((v) => h('td', { class: 'n' + (best !== null && v === best ? ' better' : '') }, fmt(v, m.fmt)))));
+      tbody.append(h('tr', null, h('th', { scope: 'row' }, h('abbr', { title: m.help }, m.label), dirMark(m.better !== 'low')),
+        strategies.map((s) => h('td', { class: ctl(s, 'n') }, fmt(means[s][m.key], m.fmt)))));
     }
     return h('section', { class: 'section', 'aria-labelledby': 'cmp-h' },
-      h('h2', { id: 'cmp-h' }, 'The two drafts compared'),
-      h('p', { class: 'small muted' }, 'Averages over the entries of this run (facts contradicted is a total). ▲ marks the better value. ' +
-        strategies.map((s) => stratLabel(s) + ': ' + (STRATEGY[s] ? STRATEGY[s].about : '')).join(' ')),
-      h('div', { class: 'table-scroll compare' }, h('table', { class: 'data' },
-        h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Score'), strategies.map((s) => h('th', { class: 'n', scope: 'col' }, stratLabel(s))))),
+      h('h2', { id: 'cmp-h' }, strategies.length === 2 ? 'The two drafts compared' : 'The strategies compared'),
+      h('p', { class: 'small muted' }, 'Plain averages over the entries each strategy drafted in this run (facts contradicted is a total), so the columns may rest on different entries. ' +
+        '↑ higher is better, ↓ lower is better. Run “aiomim compare” for paired differences with confidence intervals.'),
+      strategyList(null),
+      h('div', { class: 'table-scroll' + (strategies.length <= 3 ? ' compare' : '') }, h('table', { class: 'data cmp' },
+        h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Score'), strategies.map((s) => h('th', { class: ctl(s, 'n'), scope: 'col' }, stratTitle(s))))),
         tbody)));
   }
-  function scoreTable(s) {
+  function draftCount(item) {
+    const have = item.strategies.filter((x) => (item.rows[x] || {}).has_draft !== false);
+    return h('span', { title: have.length ? have.map(stratName).join(', ') : null }, have.length + ' of ' + STRATS.length);
+  }
+  function entryCell(item, href, note) {
+    return h('td', { class: 'entry-cell' },
+      h('a', { href: href }, itemName(item)),
+      !item.mim ? h('div', { class: 'small muted' }, 'New entry, no OMIM entry to compare with') : null,
+      !item.strategies.length ? h('div', { class: 'small muted' }, 'No draft yet: still being written, or drafting failed') : note || null);
+  }
+  function scoreTable(s, showDrafts) {
     const rows = ENTRIES.map((it) => ({ item: it, row: rowFor(it, s) }));
     const tbody = h('tbody');
     for (const { item, row } of rows) {
       const href = entryHash(item, 'review', item.strategies.indexOf(s) >= 0 ? s : null);
       const tr = h('tr', { class: 'clickable', onclick: (e) => { if (!e.target.closest('a')) location.hash = href; } },
-        h('td', { class: 'entry-cell' },
-          h('a', { href: href }, itemName(item)),
-          !item.mim ? h('div', { class: 'small muted' }, 'New entry, no OMIM entry to compare with') : null,
-          !item.strategies.length ? h('div', { class: 'small muted' }, 'No draft yet: still being written, or drafting failed') :
-            !row.has ? h('div', { class: 'small muted' }, 'No ' + stratLabel(s).toLowerCase() + ' for this entry') : null),
-        h('td', null, item.strategies.indexOf(s) >= 0 ? progressEl(item, s) : '–'),
+        entryCell(item, href, !row.has ? h('div', { class: 'small muted' }, 'No “' + stratName(s) + '” draft for this entry') : null),
+        showDrafts ? h('td', { class: 'n' }, draftCount(item)) : null,
+        h('td', null, item.strategies.indexOf(s) >= 0 && (item.pids[s] || []).length ? progressEl(item, s) : '–'),
         METRICS.map((m) => h('td', { class: 'n' }, fmt(row[m.key], m.fmt))),
         h('td', null, accessEl(row.access)));
       tbody.append(tr);
     }
     const mean = meanRow(rows.map((r) => r.row));
-    tbody.append(h('tr', { class: 'mean' }, h('td', null, 'Mean of entries with a value'), h('td', null, ''),
+    tbody.append(h('tr', { class: 'mean' }, h('td', null, 'Mean of entries with a value'), showDrafts ? h('td', null, '') : null, h('td', null, ''),
       METRICS.map((m) => h('td', { class: 'n' }, fmt(mean[m.key], m.fmt))), h('td', null, '')));
     return h('div', { class: 'table-scroll' }, h('table', { class: 'data' },
       h('caption', { class: 'visually-hidden' }, 'Scores for each entry, ' + stratLabel(s)),
-      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Entry'), h('th', { scope: 'col' }, 'Your review'),
+      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Entry'),
+        showDrafts ? h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'How many of the run’s strategies have a draft of this entry' }, 'Drafts')) : null,
+        h('th', { scope: 'col' }, 'Your review'),
         METRICS.map(headerCell), h('th', { scope: 'col' }, h('abbr', { title: ACCESS_HELP }, 'OMIM refs readable')))),
+      tbody));
+  }
+  function metricTable(strategies, m) {
+    const tbody = h('tbody');
+    const cols = {};
+    for (const s of strategies) cols[s] = [];
+    for (const item of ENTRIES) {
+      const href = entryHash(item, 'review', null);
+      tbody.append(h('tr', null, entryCell(item, href),
+        strategies.map((s) => {
+          const has = item.strategies.indexOf(s) >= 0;
+          const v = has ? rowFor(item, s)[m.key] : null;
+          cols[s].push(rowFor(item, s));
+          const text = fmt(v, m.fmt);
+          return h('td', { class: ctl(s, 'n') }, has ? h('a', { href: entryHash(item, 'review', s), title: 'Open the “' + stratName(s) + '” draft of ' + itemName(item) }, text) : h('span', { class: 'muted', title: 'No “' + stratName(s) + '” draft for this entry' }, '–'));
+        })));
+    }
+    tbody.append(h('tr', { class: 'mean' }, h('td', null, m.key === 'gold_fact_contradicted' ? 'Total' : 'Mean of entries with a value'),
+      strategies.map((s) => h('td', { class: ctl(s, 'n') }, fmt(meanRow(cols[s])[m.key], m.fmt)))));
+    return h('div', { class: 'table-scroll' }, h('table', { class: 'data' },
+      h('caption', { class: 'visually-hidden' }, m.label + ' for each entry, by strategy'),
+      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Entry'), strategies.map((s) => h('th', { class: ctl(s, 'n'), scope: 'col' }, stratTitle(s))))),
       tbody));
   }
   function footer() {
@@ -554,34 +705,233 @@
     if (isNum(u.input_tokens) || isNum(u.output_tokens)) bits.push(((u.input_tokens || 0) + (u.output_tokens || 0)).toLocaleString('en-US') + ' tokens');
     if (isNum(u.list_price_usd)) bits.push('about $' + u.list_price_usd.toFixed(2) + ' at list price');
     return h('footer', { class: 'foot' },
-      bits.length ? h('div', null, 'Run cost: ' + bits.join(', ') + '.') : null,
+      bits.length ? h('div', null, 'Last pass of the run: ' + bits.join(', ') + ' (calls answered from cache cost nothing).') : null,
       h('div', null, 'Generated by aiomim. Your decisions are kept in this browser only' + (storageOk ? '' : ' (and this browser is not saving them)') + '; use the export buttons on each entry to keep them.'));
   }
 
-  // ------------------------------------------------------------------ comparison.json (aiomim compare)
+  // ------------------------------------------------------------------ strategies.json (aiomim compare, any number of strategies)
   const cmpKind = (metric) => (/f1/.test(metric) ? 'f1' : 'pct');
   function fmtCmp(v, kind) {
     if (!isNum(v)) return '–';
     return kind === 'f1' ? v.toFixed(2) : (100 * v).toFixed(1) + '%';
   }
+  // Differences: percentage points for percentages, F1 units (three decimals: they are small) for F1.
+  // The sign is taken from the rounded number, so nothing prints as "−0.0".
   function fmtDiff(v, kind) {
     if (!isNum(v)) return '–';
-    const a = Math.abs(v);
-    const sign = a < 5e-5 ? '' : v > 0 ? '+' : '−';
-    return kind === 'f1' ? sign + a.toFixed(2) : sign + (100 * a).toFixed(1) + ' pp';
+    const body = kind === 'f1' ? Math.abs(v).toFixed(3) : (100 * Math.abs(v)).toFixed(1);
+    const zero = Number(body) === 0;
+    return (zero ? '' : v > 0 ? '+' : '−') + body + (kind === 'f1' ? '' : ' pp');
   }
   function fmtCI(ci, kind) {
     if (!Array.isArray(ci) || ci.length !== 2) return null;
     return fmtDiff(ci[0], kind) + ' to ' + fmtDiff(ci[1], kind);
+  }
+  // True when the interval, as printed, lies wholly on one side of zero.
+  function ciExcludesZero(ci, kind) {
+    if (!Array.isArray(ci) || ci.length !== 2) return false;
+    const a = fmtDiff(ci[0], kind).charAt(0); const b = fmtDiff(ci[1], kind).charAt(0);
+    return (a === '+' && b === '+') || (a === '−' && b === '−');
   }
   function dirMark(higher) {
     return h('span', { class: 'dir', title: higher ? 'Higher is better' : 'Lower is better' }, higher ? ' ↑' : ' ↓');
   }
   function metricLabel(r) {
     const sub = /^…/.test(r.label || '');
-    return h('th', { scope: 'row', class: sub ? 'sub' : null }, (r.label || humanize(r.metric)), dirMark(r.higher_is_better !== false));
+    const dir = r.higher_is_better === true || r.higher_is_better === false ? dirMark(r.higher_is_better) : null;
+    return h('th', { scope: 'row', class: sub ? 'sub' : null }, (r.label || humanize(r.metric)), dir);
+  }
+  const usd = (v) => (isNum(v) ? '$' + v.toFixed(2) : '–');
+  const count = (v) => (isNum(v) ? v.toLocaleString('en-US') : '–');
+
+  function comparedSection(c, panel) {
+    const names = ((c.strategies || []).map((x) => x.name)).filter((x, i, a) => x && a.indexOf(x) === i);
+    const base = c.baseline && names.indexOf(c.baseline) >= 0 ? c.baseline : null;
+    const others = names.filter((x) => x !== base);
+    const n = c.n_entries || 0;
+    const active = CMP_PANELS.some((p) => p.id === panel) ? panel : 'scores';
+    const sec = h('section', { class: 'section', 'aria-labelledby': 'cmp-h' });
+    sec.append(h('div', { class: 'section-head' }, h('h2', { id: 'cmp-h' }, 'The strategies compared'),
+      h('button', { type: 'button', class: 'btn', 'data-fid': 'to-entries', onclick: () => { const el = document.getElementById('entries'); if (el) el.scrollIntoView(); } }, 'Skip to the entry list ↓')));
+    sec.append(h('p', { class: 'lede small' },
+      plural(n, 'entry', 'entries') + (n === 1 ? ' was' : ' were') + ' written by every one of the ' + names.length + ' strategies below from the same papers, then put through the same audit and the same scoring. ' +
+      'The comparison uses only those ' + n + (ENTRIES.length > n ? ' of the run’s ' + ENTRIES.length : '') + ' entries, so every column rests on the same entries. ' +
+      '↑ marks scores where higher is better, ↓ where lower is better.'));
+    sec.append(strategyList(c));
+    const controls = names.filter(isControl);
+    if (controls.length) {
+      sec.append(h('p', { class: 'small control-note' }, controlTag(), ' ', listWords(controls.map(stratName)) + (controls.length === 1 ? ' is a control, not a way of writing entries.' : ' are controls, not ways of writing entries.') +
+        ' Its columns are shaded: read them as a reference point for the other strategies.'));
+    }
+    sec.append(h('nav', { class: 'tabs', 'aria-label': 'Comparison tables' }, CMP_PANELS.map((p) => h('a', {
+      href: '#overview' + (p.id === 'scores' ? '' : '--' + p.id), 'aria-current': p.id === active ? 'page' : null, 'data-fid': 'cmp-' + p.id,
+    }, p.label))));
+
+    const head = (first, list, withBaseline) => h('thead', null, h('tr', null, h('th', { scope: 'col' }, first),
+      (list || names).map((s) => h('th', { class: ctl(s, 'n'), scope: 'col' }, stratTitle(s, withBaseline)))));
+    // rows of {label, higher_is_better, values:{strategy: v}, n:{strategy: n}}
+    const meansTable = (rows, caption, format, groupN) => h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+      h('caption', { class: 'visually-hidden' }, caption), head('Score', names, true),
+      h('tbody', null, (rows || []).map((r) => h('tr', null, metricLabel(r), names.map((s) => {
+        const v = (r.values || {})[s];
+        const k = (r.n || {})[s];
+        const expect = isNum(groupN) ? groupN : n;
+        return h('td', { class: ctl(s, 'n'), title: isNum(k) ? 'Mean over ' + plural(k, 'entry', 'entries') : null }, format(v, r),
+          isNum(k) && isNum(v) && k !== expect ? h('div', { class: 'cmp-pair' }, 'n = ' + k) : null);
+      }))))));
+    const pctOrF1 = (v, r) => fmtCmp(v, cmpKind(r.metric));
+
+    if (active === 'scores') {
+      sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'Scores'),
+        h('p', { class: 'small muted' }, 'Mean over the ' + n + ' entries. “n =” appears where a score exists for fewer entries (for example, OMIM lists no variants for some).'),
+        meansTable(c.means, 'Mean scores by strategy', pctOrF1)));
+      if ((c.volume || []).length) {
+        sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'How much each strategy writes'),
+          h('p', { class: 'small muted' }, 'Mean per entry. More text gives more chances both to convey a fact and to get one wrong, so read the scores above with these in mind.'),
+          meansTable(c.volume, 'Amount written per entry, by strategy', (v) => (isNum(v) ? v.toFixed(1) : '–'))));
+      }
+    }
+
+    if (active === 'baseline') {
+      const vs = c.versus_baseline || {};
+      const metrics = [];
+      for (const s of others) for (const r of vs[s] || []) if (!metrics.some((m) => m.metric === r.metric)) metrics.push(r);
+      const block = h('div', { class: 'cmp-block' }, h('h3', null, 'Differences from the baseline' + (base ? ' (' + stratName(base) + ')' : '')));
+      if (!base || !metrics.length) block.append(h('div', { class: 'empty' }, 'This comparison has no baseline to measure the other strategies against.'));
+      else {
+        block.append(h('p', { class: 'small muted' }, 'Each strategy is compared with the baseline entry by entry. The first line of a cell is the mean difference, strategy minus baseline, in percentage points (pp) for percentages and in F1 units for F1 scores. ' +
+          'The second line is the 95% interval: the range the true average difference plausibly lies in. When it spans zero, these ' + n + ' entries show no clear difference; ● marks intervals that do not include zero. ' +
+          'The third line counts the entries on which the strategy scored better, worse or the same as the baseline. Whether a positive difference is good depends on the arrow beside the score.'));
+        block.append(h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+          h('caption', { class: 'visually-hidden' }, 'Paired differences from the baseline'),
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Score'),
+            h('th', { class: ctl(base, 'n'), scope: 'col' }, stratTitle(base, true), h('div', { class: 'cmp-n' }, 'mean')),
+            others.map((s) => h('th', { class: ctl(s, 'n'), scope: 'col' }, stratTitle(s), h('div', { class: 'cmp-n' }, 'difference'))))),
+          h('tbody', null, metrics.map((m) => {
+            const k = cmpKind(m.metric);
+            const any = others.map((s) => (vs[s] || []).find((x) => x.metric === m.metric)).find(Boolean);
+            return h('tr', null, metricLabel(m), h('td', { class: ctl(base, 'n') }, fmtCmp(any ? any.baseline : null, k)),
+              others.map((s) => {
+                const r = (vs[s] || []).find((x) => x.metric === m.metric);
+                if (!r) return h('td', { class: ctl(s, 'n muted') }, '–');
+                const clear = ciExcludesZero(r.ci95, k);
+                return h('td', { class: ctl(s, 'n'), title: 'Over ' + plural(r.n || 0, 'entry', 'entries') + (isNum(r.sign_test_p) ? '; sign test p = ' + r.sign_test_p.toFixed(3) : '') },
+                  h('div', { class: 'strong' }, clear ? h('span', { class: 'ci-clear', title: 'The 95% interval does not include zero' }, '● ') : null, fmtDiff(r.difference, k)),
+                  h('div', { class: 'cmp-pair' }, fmtCI(r.ci95, k) || 'no interval'),
+                  h('div', { class: 'cmp-pair' }, (r.better || 0) + ' better · ' + (r.worse || 0) + ' worse · ' + (r.ties || 0) + ' same'));
+              }));
+          })))));
+      }
+      sec.append(block);
+    }
+
+    if (active === 'breakdowns') {
+      const lv = c.by_content_level || {};
+      const lk = ['fulltext', 'abstract', 'title', 'not_retrieved'].filter((k) => lv[k]).concat(Object.keys(lv).filter((k) => !LEVEL[k]));
+      if (lk.length) {
+        sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'OMIM facts conveyed, by how much of the paper was readable'),
+          h('p', { class: 'small muted' }, 'OMIM’s per-paper facts pooled over the ' + n + ' entries and grouped by how much of the paper they summarise could be read. Each cell: share of facts conveyed (partial counts ½), then the number of facts judged.'),
+          h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+            h('caption', { class: 'visually-hidden' }, 'OMIM-fact coverage by readable level of the paper'), head('Paper readable as'),
+            h('tbody', null, lk.map((k) => h('tr', null, h('th', { scope: 'row' }, (LEVEL[k] || { label: humanize(k) }).label),
+              names.map((s) => {
+                const cell = lv[k][s];
+                if (!cell) return h('td', { class: ctl(s, 'n muted') }, '–');
+                return h('td', { class: ctl(s, 'n'), title: (cell.present || 0) + ' present, ' + (cell.partial || 0) + ' partial, ' + (cell.contradicted || 0) + ' contradicted' },
+                  h('div', null, fmtCmp(cell.coverage, 'pct')), h('div', { class: 'cmp-pair' }, count(cell.n_facts) + ' facts'));
+              }))))))));
+      }
+      const grouped = (title, about, groups) => {
+        const keys = Object.keys(groups || {});
+        if (!keys.length) return null;
+        const body = h('tbody');
+        for (const g of keys) {
+          body.append(h('tr', { class: 'group' }, h('th', { scope: 'rowgroup', colspan: String(names.length + 1) }, humanize(g), h('span', { class: 'cmp-n' }, ' · ' + plural(groups[g].n || 0, 'entry', 'entries')))));
+          for (const r of groups[g].means || []) {
+            body.append(h('tr', null, metricLabel(r), names.map((s) => {
+              const v = (r.values || {})[s]; const k = (r.n || {})[s];
+              return h('td', { class: ctl(s, 'n'), title: isNum(k) ? 'Mean over ' + plural(k, 'entry', 'entries') : null }, pctOrF1(v, r),
+                isNum(k) && isNum(v) && k !== groups[g].n ? h('div', { class: 'cmp-pair' }, 'n = ' + k) : null);
+            })));
+          }
+        }
+        return h('details', { class: 'legend cmp-details', open: state.open.has(title) || null, ontoggle: (e) => { if (e.target.open) state.open.add(title); else state.open.delete(title); } },
+          h('summary', null, title, h('span', { class: 'muted small' }, ' · ' + keys.length + ' groups')),
+          h('div', { class: 'cmp-details-body' }, h('p', { class: 'small muted' }, about),
+            h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' }, h('caption', { class: 'visually-hidden' }, title), head('Score'), body))));
+      };
+      const small = ' Groups with few entries give unsteady averages; the group sizes are shown.';
+      add(sec, grouped('By share of the entry’s references readable as full text', 'Entries grouped by how many of OMIM’s references for them could be read in full rather than as abstract or title only.' + small, c.by_access));
+      add(sec, grouped('By size of the reference list', 'Entries grouped by how many papers OMIM cites for them.' + small, c.by_reference_count));
+      add(sec, grouped('By when the OMIM entry was created', 'OMIM numbers were assigned in ranges over time, so the number range stands for the era in which the entry was written.' + small, c.by_stratum));
+      if (!lk.length && !Object.keys(c.by_access || {}).length) sec.append(h('div', { class: 'empty' }, 'No breakdowns were computed for this comparison.'));
+    }
+
+    if (active === 'totals') {
+      const pooled = c.pooled || {};
+      const line = (label, path, kind, sub) => h('tr', null, h('th', { scope: 'row', class: sub ? 'sub' : null }, label),
+        names.map((s) => { const v = get(pooled[s], path); return h('td', { class: ctl(s, 'n') }, kind === 'pct' ? fmtCmp(v, 'pct') : count(v)); }));
+      sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'Pooled counts'),
+        h('p', { class: 'small muted' }, 'Totals over the ' + n + ' entries, so entries with many claims or facts weigh more here than in the averages.'),
+        h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' }, h('caption', { class: 'visually-hidden' }, 'Pooled claim and fact counts'), head(''),
+          h('tbody', null,
+            line('Claims audited', 'claims.n'), line('supported', 'claims.supported', null, true), line('partly supported', 'claims.partially_supported', null, true),
+            line('not supported', 'claims.unsupported', null, true), line('contradicted', 'claims.contradicted', null, true),
+            line('Share supported', 'claims.supported_rate', 'pct'), line('Share not supported or contradicted', 'claims.error_rate', 'pct'),
+            line('OMIM facts judged', 'gold_facts.n_facts'), line('present', 'gold_facts.present', null, true), line('partial', 'gold_facts.partial', null, true),
+            line('absent', 'gold_facts.absent', null, true), line('contradicted', 'gold_facts.contradicted', null, true),
+            line('Share conveyed (partial counts ½)', 'gold_facts.coverage', 'pct'), line('Share contradicted', 'gold_facts.contradiction_rate', 'pct'))))));
+      const edges = c.knowledge_graph_edges || {};
+      const en = names.filter((s) => edges[s]);
+      if (en.length) {
+        const rel = [['caused_by', 'Disease → causal gene'], ['inheritance', 'Disease → mode of inheritance'], ['has_phenotype', 'Disease → phenotype (exact HPO term)'], ['has_variant', 'Disease → allelic variant']];
+        const body = h('tbody');
+        for (const [key, label] of rel) {
+          if (!en.some((s) => edges[s][key])) continue;
+          body.append(h('tr', { class: 'group' }, h('th', { scope: 'rowgroup', colspan: String(en.length + 1) }, label)));
+          const row = (text, pick, sub) => body.append(h('tr', null, h('th', { scope: 'row', class: sub ? 'sub' : null }, text), en.map((s) => h('td', { class: ctl(s, 'n') }, pick(edges[s][key] || {})))));
+          row('Precision', (e) => fmtCmp(e.precision, 'pct'));
+          row('Recall', (e) => fmtCmp(e.recall, 'pct'));
+          row('F1', (e) => fmtCmp(e.f1, 'pct'));
+          row('in both / generated / in OMIM', (e) => count(e.in_both) + ' / ' + count(e.generated) + ' / ' + count(e.omim), true);
+        }
+        sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'Links to genes, inheritance, phenotypes and variants, against OMIM'),
+          h('p', { class: 'small muted' }, 'Every entry a strategy drafted in this run is reduced to its links and pooled (so these columns may rest on more entries than the tables above). Precision is the share of generated links OMIM also has; recall is the share of OMIM’s links that were generated. A generated link absent from OMIM is not necessarily wrong: it is one OMIM does not record.'),
+          h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' }, h('caption', { class: 'visually-hidden' }, 'Knowledge links against OMIM'), head('', en), body))));
+      }
+    }
+
+    if (active === 'cost') {
+      const cost = c.cost || {};
+      const cn = names.filter((s) => cost[s]);
+      const block = h('div', { class: 'cmp-block' }, h('h3', null, 'What each strategy costs to run, per entry'));
+      if (!cn.length) block.append(h('div', { class: 'empty' }, 'No usage was recorded for this comparison.'));
+      else {
+        const pe = (s, phase, key) => get(cost[s], phase + '.per_entry.' + key);
+        const row = (label, pick, sub) => h('tr', null, h('th', { scope: 'row', class: sub ? 'sub' : null }, label), cn.map((s) => h('td', { class: ctl(s, 'n') }, pick(s))));
+        block.append(h('p', { class: 'small muted' }, 'Mean per entry when run from scratch. List price is the API price of the tokens used: a measure of consumption, not necessarily what the run was billed. ' +
+          'Writing is the strategy itself. The audit and the scoring are the same procedure for every strategy and cost more or less with the amount of text produced.'));
+        block.append(h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' }, h('caption', { class: 'visually-hidden' }, 'Cost per entry by phase'), head('Per entry', cn),
+          h('tbody', null,
+            h('tr', { class: 'group' }, h('th', { scope: 'rowgroup', colspan: String(cn.length + 1) }, 'Writing the draft')),
+            row('List price', (s) => usd(pe(s, 'generate', 'list_price_usd'))),
+            row('Model calls', (s) => (isNum(pe(s, 'generate', 'calls')) ? pe(s, 'generate', 'calls').toFixed(1) : '–'), true),
+            row('Tokens in / out', (s) => count(pe(s, 'generate', 'input_tokens')) + ' / ' + count(pe(s, 'generate', 'output_tokens')), true),
+            row('Model time', (s) => (isNum(pe(s, 'generate', 'seconds')) ? Math.round(pe(s, 'generate', 'seconds')) + ' s' : '–'), true),
+            h('tr', { class: 'group' }, h('th', { scope: 'rowgroup', colspan: String(cn.length + 1) }, 'Checking it')),
+            row('Audit and repair: list price', (s) => usd(pe(s, 'audit', 'list_price_usd'))),
+            row('Scoring against OMIM: list price', (s) => usd(pe(s, 'score', 'list_price_usd'))),
+            h('tr', { class: 'group' }, h('th', { scope: 'rowgroup', colspan: String(cn.length + 1) }, 'Everything')),
+            row('List price', (s) => h('strong', null, usd(pe(s, 'total', 'list_price_usd')))),
+            row('Model time', (s) => (isNum(pe(s, 'total', 'seconds')) ? Math.round(pe(s, 'total', 'seconds')) + ' s' : '–'), true),
+            row('Entries with usage recorded', (s) => count(cost[s].entries), true)))));
+      }
+      sec.append(block);
+    }
+    return sec;
   }
 
+  // ------------------------------------------------------------------ comparison.json (older file: evidence graph against direct reading only)
   function comparisonFromFile(c) {
     const sec = h('section', { class: 'section', 'aria-labelledby': 'cmp-h' });
     const n = c.n_entries || 0;
@@ -642,7 +992,7 @@
         h('p', { class: 'small muted' }, 'All OMIM per-paper facts pooled across entries, grouped by how much of the paper they summarise could be read.'),
         h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
           h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Paper readable as'), h('th', { class: 'n', scope: 'col' }, 'Facts judged (graph / direct)'),
-            h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratShort('kg')), h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratShort('direct')),
+            h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratName('kg')), h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratName('direct')),
             h('th', { class: 'n', scope: 'col' }, 'Contradicted (graph / direct)'))),
           h('tbody', null, lk.map((k) => {
             const g = lv[k].kg || {}; const d = lv[k].direct || {};
@@ -891,7 +1241,7 @@
     if (item.loadError) {
       wrap.append(h('div', { class: 'empty load-error', role: 'alert', style: 'margin-top:18px' },
         h('strong', null, 'This entry could not be opened. '), item.loadError,
-        h('p', { style: 'margin-top:8px' }, 'The page keeps each entry in a separate file in the “' + DATA_DIR + '” folder. Keep that folder next to this page (copy or move them together), then try again.'),
+        DATA.split ? h('p', { style: 'margin-top:8px' }, 'The page keeps each entry in a separate file in the “' + DATA_DIR + '” folder. Keep that folder next to this page (copy or move them together), then try again.') : null,
         h('div', { class: 'btn-row', style: 'margin-top:10px' },
           h('button', { type: 'button', class: 'btn primary', 'data-fid': 'retry', onclick: () => { item.loadError = null; render({ keepScroll: true }); } }, 'Try again'),
           h('a', { class: 'btn', href: '#overview' }, 'Back to the overview'))));
@@ -927,14 +1277,27 @@
     wrap.append(head);
     wrap.append(h('div', { style: 'margin-top:12px' }, unreviewedNotice()));
 
+    if (s && isControl(s)) {
+      wrap.append(h('div', { class: 'notice control', role: 'note', style: 'margin-top:8px' }, h('span', { class: 'notice-icon', 'aria-hidden': 'true' }, '◇'),
+        h('div', null, h('strong', null, 'This draft is a control, not a candidate entry. '), stratAbout(s) || 'It is here to compare the other drafts against.',
+          ' Use it to see what the other drafts add; do not accept text from it.')));
+    }
     const controls = h('div', { class: 'entry-controls' });
     if (item.strategies.length > 1) {
-      controls.append(h('div', { class: 'seg', role: 'group', 'aria-label': 'Which draft to show' },
-        item.strategies.map((x) => h('button', { type: 'button', 'aria-pressed': String(x === s), 'data-fid': 'strat-' + x,
-          onclick: () => { state.selected = null; location.hash = entryHash(item, route.tab === 'updates' ? 'review' : route.tab, x); } }, stratLabel(x)))));
-    } else if (s) controls.append(h('span', { class: 'small muted' }, stratLabel(s)));
-    if (s) controls.append(progressEl(item, s));
+      controls.append(strategySwitch(item.strategies, s, (x) => { state.selected = null; location.hash = entryHash(item, route.tab === 'updates' ? 'review' : route.tab, x); }, 'strat-'));
+    } else if (s) controls.append(h('span', { class: 'small muted' }, stratTitle(s)));
+    if (s && (item.pids[s] || []).length) controls.append(progressEl(item, s));
     wrap.append(controls);
+    if (s && stratAbout(s) && item.strategies.length > 1) wrap.append(h('p', { class: 'small muted strat-about' }, h('strong', null, stratName(s) + ': '), stratAbout(s)));
+    const missing = STRATS.filter((x) => item.strategies.indexOf(x) < 0);
+    if (item.strategies.length > 1 && route.tab !== 'gold') {
+      wrap.append(h('details', { class: 'legend entry-scores', open: state.open.has('entry-scores') || null,
+        ontoggle: (e) => { if (e.target.open) state.open.add('entry-scores'); else state.open.delete('entry-scores'); } },
+      h('summary', { 'data-fid': 'entry-scores' }, 'Scores of this entry’s ' + item.strategies.length + ' drafts, side by side'),
+      h('div', { class: 'cmp-details-body' }, entryScores(item, s, route.tab))));
+    } else if (missing.length && STRATS.length > 1 && item.strategies.length === 1) {
+      wrap.append(h('p', { class: 'small muted' }, 'This entry has one draft. Not drafted for it: ' + listWords(missing.map(stratName)) + '.'));
+    }
 
     const tabs = [];
     if (s) tabs.push({ id: 'review', label: 'Review draft' });
@@ -950,9 +1313,29 @@
 
     if (tab === 'review') wrap.append(reviewTab(item, s, entry));
     else if (tab === 'gold') wrap.append(goldTab(item, s, entry, ev));
-    else if (tab === 'evidence') wrap.append(evidenceTab(item));
+    else if (tab === 'evidence') wrap.append(evidenceTab(item, s, entry));
     else if (tab === 'updates') wrap.append(h('div', { class: 'section' }, updatesBlock(item)));
     return wrap;
+  }
+  // One row per draft of this entry, so the strategies can be read against each other.
+  function entryScores(item, current, tab) {
+    const list = item.strategies;
+    const missing = STRATS.filter((x) => list.indexOf(x) < 0);
+    const tbody = h('tbody', null, list.map((x) => {
+      const row = rowFor(item, x);
+      return h('tr', { class: (x === current ? 'current' : '') + (isControl(x) ? ' ctl-row' : '') },
+        h('th', { scope: 'row' }, x === current ? h('span', { class: 'strat-current' }, stratTitle(x, true)) : h('a', { href: entryHash(item, tab === 'updates' ? 'review' : tab, x), title: 'Show this draft' }, stratTitle(x, true)),
+          x === current ? h('div', { class: 'cmp-n' }, 'shown now') : null),
+        h('td', null, (item.pids[x] || []).length ? progressEl(item, x) : '–'),
+        h('td', { class: 'n' }, fmt(row.claims, 'int')),
+        METRICS.map((m) => h('td', { class: 'n' }, fmt(row[m.key], m.fmt))));
+    }));
+    return [h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+      h('caption', { class: 'visually-hidden' }, 'Scores of each draft of this entry'),
+      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Draft'), h('th', { scope: 'col' }, 'Your review'),
+        h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'Number of individual claims the audit checked in this draft' }, 'Claims')), METRICS.map(headerCell))),
+      tbody)),
+    missing.length ? h('p', { class: 'small muted', style: 'margin-top:8px' }, 'Not drafted for this entry: ' + listWords(missing.map(stratName)) + '.') : null];
   }
   function prefixHelp(p) {
     return ({ '#': 'Phenotype description, molecular basis known', '*': 'Gene', '+': 'Gene and phenotype combined', '%': 'Phenotype or locus, molecular basis unknown', '^': 'Entry removed or moved' })[p] || null;
@@ -1108,6 +1491,7 @@
           h('span', { class: 'syn-label' }, it.hpo_label || it.feature, it.feature && it.hpo_label && it.feature.toLowerCase() !== it.hpo_label.toLowerCase() ? h('span', { class: 'syn-feature' }, ' (“' + it.feature + '”)') : null),
           it.hpo_id ? hpoLink(it.hpo_id) : h('span', { class: 'muted' }, 'no HPO term'),
           h('span', { class: 'muted', title: (it.pmids || []).map((p) => paperLabel(item, p)).join('; ') || null }, plural(n, 'paper')),
+          isNum(it.n_present) && isNum(it.n_assessed) ? h('span', { class: 'muted', title: 'Patients reported with the feature, out of those in whom the papers say it was assessed (pooled from the case table)' }, it.n_present + ' of ' + it.n_assessed + ' patients') : null,
           match);
       }))));
     }
@@ -1150,27 +1534,23 @@
     body.append(h('div', null, h('h4', null, 'What the audit found (' + plural(checks.length, 'claim') + ')'),
       checks.length ? claimList(item, checks) : h('p', { class: 'muted' }, 'The audit did not check this paragraph, so nothing here has been compared with the papers.')));
 
-    // findings
+    // findings (evidence-graph drafts) or case records and notes (case-table drafts)
     const fids = p.finding_ids || [];
+    const isCase = fids.some((f) => /^[RN]:/.test(f));
     if (fids.length) {
-      body.append(h('div', null, h('h4', null, 'Extracted facts it was written from (' + fids.length + ')'),
+      body.append(h('div', null, h('h4', null, (isCase ? 'Case records and notes it was written from' : 'Extracted facts it was written from') + ' (' + fids.length + ')'),
         h('ul', { class: 'findings' }, fids.map((fid) => {
           const f = item.findingBy.get(fid);
-          if (!f) return h('li', { class: 'muted' }, 'Fact ' + fid + ' is not in this run’s extraction file.');
-          return h('li', null,
-            h('div', { class: 'chips' }, plainChip(SECTION_HEADINGS[f.section] || humanize(f.section)), h('span', { class: 'small' }, ext(pubmedUrl(f.pmid), paperLabel(item, f.pmid))), h('span', { class: 'para-id' }, f.id)),
-            h('div', null, f.statement || ''),
-            (f.quotes || []).map((q, qi) => {
-              const g = (f.quote_grounding || [])[qi];
-              const found = isNum(g) && g >= 0.85;
-              return h('div', { class: 'quote-row' }, h('blockquote', { class: 'quote' }, q),
-                h('span', { class: 'small ' + (found ? '' : 'muted') }, isNum(g) ? (found ? '✓ Found in the paper' : '✗ Not found word for word in the paper') + ' (match ' + g.toFixed(2) + ')' : 'Not checked against the paper'));
-            }));
+          if (f) return findingItem(item, f);
+          const r = item.recordBy.get(fid);
+          if (r) return recordItem(item, r);
+          return h('li', { class: 'muted' }, (isCase ? 'Record ' + fid + ' is not included in this page (the case table was shortened to fit).' : 'Fact ' + fid + ' is not in this run’s extraction file.'));
         }))));
     } else {
-      body.append(h('div', null, h('h4', null, 'Extracted facts'), h('p', { class: 'muted' }, s === 'direct'
-        ? 'The direct draft is written straight from the papers, so it has no extracted facts to show. Rely on the audit and the papers.'
-        : 'This paragraph is not linked to extracted facts.')));
+      const linked = paragraphsOf(item.entries[s]).some((y) => (y.p.finding_ids || []).length);
+      body.append(h('div', null, h('h4', null, 'Extracted facts'), h('p', { class: 'muted' }, linked
+        ? 'This paragraph is not linked to extracted facts.'
+        : 'Drafts written this way do not record which extracted facts a paragraph rests on. Rely on the audit and the cited papers.')));
     }
 
     // papers
@@ -1181,8 +1561,54 @@
         return h('li', null, h('div', null, ext(pubmedUrl(pmid), paperLabel(item, pmid)), ' ', levelChip(paperLevel(item, pmid))),
           pp.title ? h('div', { class: 'small muted' }, pp.title) : null);
       })) : h('p', { class: 'muted' }, 'This paragraph cites no paper.')));
+    const extra = (p.audit_pmids || []).filter((x) => pmids.indexOf(x) < 0);
+    if (extra.length) {
+      body.append(h('div', null, h('h4', null, 'Also checked against'),
+        h('p', { class: 'small muted' }, 'The paragraph does not cite these papers. The audit checked it against them because it was written without a usable citation.'),
+        h('p', { class: 'small' }, citeLinks(item, extra))));
+    }
     panel.append(body);
     return panel;
+  }
+  function quoteRows(quotes, grounding) {
+    return (quotes || []).map((q, qi) => {
+      const g = (grounding || [])[qi];
+      const found = isNum(g) && g >= 0.85;
+      return h('div', { class: 'quote-row' }, h('blockquote', { class: 'quote' }, q),
+        h('span', { class: 'small ' + (found ? '' : 'muted') }, isNum(g) ? (found ? '✓ Found in the paper' : '✗ Not found word for word in the paper') + ' (match ' + g.toFixed(2) + ')' : 'Not checked against the paper'));
+    });
+  }
+  function findingItem(item, f) {
+    return h('li', null,
+      h('div', { class: 'chips' }, plainChip(SECTION_HEADINGS[f.section] || humanize(f.section)), h('span', { class: 'small' }, ext(pubmedUrl(f.pmid), paperLabel(item, f.pmid))), h('span', { class: 'para-id' }, f.id)),
+      h('div', null, f.statement || ''),
+      quoteRows(f.quotes, f.quote_grounding));
+  }
+  const RECORD_KIND = { individual: 'One patient', family: 'Family', group: 'Patient group' };
+  function recordSummary(r) {
+    const bits = [];
+    if (r.kind !== 'individual' && isNum(r.n_affected)) bits.push(plural(r.n_affected, 'affected person', 'affected people') + (isNum(r.n_families) && r.n_families ? ' in ' + plural(r.n_families, 'family', 'families') : ''));
+    if (r.sex) bits.push(r.sex);
+    if (r.ancestry) bits.push(r.ancestry);
+    if (r.onset) bits.push('onset ' + r.onset);
+    if (r.consanguinity && r.consanguinity !== 'not_stated') bits.push('consanguinity: ' + humanize(r.consanguinity).toLowerCase());
+    return bits.join(' · ');
+  }
+  // A case-table record (one patient, family or group) or note, as evidence for a paragraph.
+  function recordItem(item, r) {
+    if (r.statement !== undefined) {
+      return h('li', null,
+        h('div', { class: 'chips' }, plainChip('Note'), r.section ? plainChip(SECTION_HEADINGS[r.section] || humanize(r.section)) : null, h('span', { class: 'small' }, ext(pubmedUrl(r.pmid), paperLabel(item, r.pmid))), h('span', { class: 'para-id' }, r.id)),
+        h('div', null, r.statement || ''), quoteRows(r.quotes, r.quote_grounding));
+    }
+    const vars = (r.variants || []).map((v) => (v.gene ? v.gene + ' ' : '') + (v.as_reported || v.key || '') + (v.zygosity && v.zygosity !== 'unknown' ? ' (' + humanize(v.zygosity).toLowerCase() + ')' : ''));
+    return h('li', null,
+      h('div', { class: 'chips' }, plainChip(RECORD_KIND[r.kind] || humanize(r.kind || 'record')), r.followup_of ? plainChip('Follow-up of an earlier report') : null,
+        h('span', { class: 'small' }, ext(pubmedUrl(r.pmid), paperLabel(item, r.pmid))), h('span', { class: 'para-id' }, r.id)),
+      h('div', null, h('strong', null, r.label || 'Unnamed record'), recordSummary(r) ? h('span', { class: 'muted' }, ' · ' + recordSummary(r)) : null),
+      vars.length ? h('div', { class: 'small mono' }, vars.join('; ')) : null,
+      quoteRows(r.quotes, r.quote_grounding),
+      isNum(r.n_quotes) && r.n_quotes > (r.quotes || []).length ? h('div', { class: 'small muted' }, (r.n_quotes - r.quotes.length) + ' more quote(s) not included in this page.') : null);
   }
   // Problems first; with many claims, the supported ones fold away so the problems stay in view.
   const VERDICT_ORDER = { contradicted: 0, unsupported: 1, partially_supported: 2, not_checkable: 3, supported: 4 };
@@ -1317,7 +1743,7 @@
       out.push('### REFERENCES');
       out.push(entry.references.map((r, i) => (i + 1) + '. ' + (r.citation || r.label || 'PMID ' + r.pmid)).join('\n'));
     }
-    out.push('---\n*Machine-drafted from the cited literature (' + stratLabel(s).toLowerCase() + '), run “' + RUN + '”. Curator review: ' +
+    out.push('---\n*Machine-drafted from the cited literature (strategy: ' + stratLabel(s) + '), run “' + RUN + '”. Curator review: ' +
       tally.accept + ' accepted, ' + tally.edit + ' edited, ' + tally.reject + ' rejected and removed, ' + tally.none + ' not yet reviewed. Exported ' + new Date().toISOString().slice(0, 10) + '.*');
     download('entry-' + safeName(item.mim || item.dir) + '-' + safeName(s) + '-reviewed.md', out.join('\n\n') + '\n', 'text/markdown');
   }
@@ -1361,12 +1787,17 @@
   function goldTab(item, s, entry, ev) {
     const box = h('div', { class: 'section' });
     if (!ev) {
+      if (item.strategies.length > 1) box.append(h('section', { class: 'section', style: 'margin-top:0' }, h('h2', null, 'This entry’s drafts, side by side'), entryScores(item, s, 'gold')));
       box.append(h('div', { class: 'empty' }, h('strong', null, 'No comparison with OMIM for this draft. '),
         item.gold ? 'The OMIM gold standard was collected, but this draft was not scored against it.' : 'This is a new entry with no OMIM entry to compare against, or scoring was skipped for this run. The audit of each paragraph against its cited paper is still available under Review draft.'));
       return box;
     }
     const row = rowFor(item, s);
-    box.append(h('p', { class: 'source-note' }, 'This view compares the ' + stratLabel(s).toLowerCase() + ' with the real OMIM entry' + (item.mim ? ' ' + item.mim : '') +
+    if (item.strategies.length > 1) {
+      box.append(h('section', { class: 'section', style: 'margin-top:0' }, h('h2', null, 'This entry’s drafts, side by side'), entryScores(item, s, 'gold')));
+    }
+    box.append(h('h2', { style: 'margin-top:8px' }, stratTitle(s), ' against OMIM'));
+    box.append(h('p', { class: 'source-note' }, 'This view compares ' + draftName(s) + ' with the real OMIM entry' + (item.mim ? ' ' + item.mim : '') +
       '. OMIM’s reference paragraphs below are OMIM-authored text as distributed publicly through ClinVar (OMIM is a ClinVar submitter); HPO terms come from HPO’s annotation of the OMIM entry.'));
     box.append(h('div', { class: 'metric-grid' }, METRICS.map((m) => {
       let sub = null;
@@ -1466,89 +1897,335 @@
   }
 
   // ------------------------------------------------------------------ evidence tab
-  function evidenceTab(item) {
+  // What the selected draft rests on. The papers are common to every strategy; how they were
+  // used differs, so each strategy's own working record is shown only when its files have it.
+  const VERDICT_KEYS = ['supported', 'partially_supported', 'contradicted', 'unsupported', 'not_checkable'];
+  function kvList() {
+    const dl = h('dl', { class: 'kv' });
+    dl.row = (k, v) => { if (v !== null && v !== undefined && v !== '') dl.append(h('dt', null, k), h('dd', null, v)); return dl; };
+    return dl;
+  }
+  const yesNo = (v) => (v ? h('span', { class: 'yes' }, '✓ Yes') : h('span', { class: 'muted' }, 'No'));
+  const countMap = (m, label) => Object.keys(m || {}).filter((k) => m[k]).map((k) => (label ? label(k) : humanize(k)) + ': ' + m[k]).join(', ');
+  const share = (a, b) => (isNum(a) && isNum(b) && b ? a + ' of ' + b + ' (' + fmt(a / b, 'pct') + ')' : isNum(a) ? String(a) : '–');
+
+  function evidenceTab(item, s, entry) {
     const box = h('div', { class: 'section' });
+    const meta = (entry && entry.meta) || {};
     const r = item.retrieval;
+
+    // 1. how this draft was made
+    const how = h('section', { class: 'section', style: 'margin-top:0', 'aria-labelledby': 'how-h' },
+      h('h2', { id: 'how-h' }, s ? ['How ', draftName(s), ' was made'] : 'Evidence'));
+    if (s && stratAbout(s)) how.append(h('p', { class: 'lede small' }, stratAbout(s)));
+    if (s && !entry) how.append(h('div', { class: 'empty' }, 'No draft was written this way for this entry.'));
+    const used = get(item, 'usage.by_strategy.' + s);
+    if (meta.agent || meta.quote_check) add(how, agentBlock(item, meta, used));
+    if (meta.cohort || (s === 'cohort' && item.cohort)) add(how, cohortBlock(item, meta.cohort || {}));
+    if (meta.recall) add(how, recallBlock(item, meta.recall));
+    if (meta.closedbook) add(how, memoryBlock(item, meta.closedbook, 'What the model recalled without the papers'));
+    const x = meta.extraction;
+    const kg = item.kg;
+    const st = (s === 'kg' && kg && kg.stats) || meta.kg || null;
+    if (x || st) {
+      const kv = kvList();
+      if (x) {
+        kv.row('Facts kept', fmt(x.findings_kept, 'int'));
+        kv.row('Facts dropped (quote not found in paper)', fmt(x.findings_dropped_ungrounded, 'int'));
+        kv.row('Quote grounding rate', fmt(x.quote_grounding_rate, 'pct'));
+        if (x.papers_by_relevance) kv.row('Papers by relevance', countMap(x.papers_by_relevance, (k) => RELEVANCE[k] || k));
+        if ((x.papers_failed || []).length) kv.row('Papers that failed extraction', x.papers_failed.join(', '));
+        if (x.hpo_resolution && typeof x.hpo_resolution === 'object') kv.row('HPO term resolution', countMap(x.hpo_resolution));
+      }
+      if (st && st.nodes) kv.row('Graph nodes', Object.keys(st.nodes).map((k) => k + ' ' + st.nodes[k]).join(', '));
+      if (st && st.edges) kv.row('Graph links', Object.keys(st.edges).map((k) => humanize(k).toLowerCase() + ' ' + st.edges[k]).join(', '));
+      how.append(h('div', { class: 'cmp-block' }, h('h3', null, 'Fact extraction'), kv));
+    }
+    add(how, auditBlock(meta, used, item));
+    box.append(how);
+
+    // 2. papers
     if (r) {
       box.append(h('p', { class: 'source-note' }, r.mode === 'oracle' ? 'Papers: the references the OMIM entry already cites.' : r.mode === 'open' ? 'Papers: chosen by a literature search' + ((r.queries || []).length ? ' (' + plural(r.queries.length, 'query', 'queries') + ')' : '') + '.' : '',
         (r.missing || []).length ? ' ' + plural(r.missing.length, 'paper') + ' could not be retrieved: ' + r.missing.join(', ') + '.' : ''));
     }
     const papers = item.papers || [];
-    const sec = h('section', { class: 'section', 'aria-labelledby': 'pp-h' }, h('h2', { id: 'pp-h' }, 'Papers read (' + papers.length + ')'));
+    const sec = h('section', { class: 'section', 'aria-labelledby': 'pp-h' }, h('h2', { id: 'pp-h' }, 'Papers supplied (' + papers.length + ')'));
     if (!papers.length) sec.append(h('div', { class: 'empty' }, 'No paper list was saved for this entry.'));
     else {
+      // strategy-specific columns: [header cell, cell for a paper]
+      const cols = [];
+      const abbr = (text, title) => h('abbr', { title: title }, text);
+      if (s === 'kg' && item.extractionBy.size) {
+        cols.push([abbr('Relevance', 'How central the paper is to this entry, as judged when its facts were extracted'), (p, ex) => h('td', { title: ex && ex.relevance_reason ? ex.relevance_reason : null }, ex ? RELEVANCE[ex.relevance] || humanize(ex.relevance) : '–')]);
+        cols.push([abbr('Facts kept', 'Facts extracted with a supporting quote that was found in the paper'), (p, ex) => h('td', { class: 'n' }, ex ? String((ex.findings || []).length) : '–'), 'n']);
+        cols.push([abbr('Dropped', 'Facts discarded because their supporting quote could not be found in the paper'), (p, ex) => h('td', { class: 'n' }, ex ? String(ex.n_dropped || 0) : '–'), 'n']);
+      }
+      if (meta.agent) {
+        const read = new Set((meta.agent.papers_read || []).map(String));
+        cols.push([abbr('Opened by the agent', 'Whether the agent says it opened this paper while working'), (p) => h('td', null, yesNo(read.has(String(p.pmid))))]);
+      }
+      const cp = new Map((get(item, 'cohort.papers') || []).map((p) => [String(p.pmid), p]));
+      if (meta.cohort && cp.size) {
+        cols.push([abbr('Relevance', 'Only records from primary and supporting papers are pooled into the case table'), (p) => { const c = cp.get(String(p.pmid)); return h('td', null, c ? RELEVANCE[c.relevance] || humanize(c.relevance || '') || '–' : '–'); }]);
+        cols.push([abbr('Records', 'Patient, family or group records extracted from the paper'), (p) => { const c = cp.get(String(p.pmid)); return h('td', { class: 'n' }, c ? String(c.records || 0) + (c.dropped_records ? ' (+' + c.dropped_records + ' dropped)' : '') : '–'); }, 'n']);
+        cols.push([abbr('Notes', 'Citable results that are not about particular patients'), (p) => { const c = cp.get(String(p.pmid)); return h('td', { class: 'n' }, c ? String(c.notes || 0) + (c.dropped_notes ? ' (+' + c.dropped_notes + ' dropped)' : '') : '–'); }, 'n']);
+      }
+      const mem = meta.closedbook || (meta.recall && meta.recall.memory);
+      if (mem && Array.isArray(mem.supplied_papers_cited_pmids)) {
+        const cited = new Set(mem.supplied_papers_cited_pmids.map(String));
+        cols.push([abbr('Cited from memory', 'Whether the from-memory draft cited this paper before any paper was shown to the model'), (p) => h('td', null, yesNo(cited.has(String(p.pmid))))]);
+      }
+      const inDraft = new Set(entry ? citedByEntry(entry) : []);
       sec.append(h('div', { class: 'table-scroll' }, h('table', { class: 'data' },
         h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Paper'), h('th', { class: 'n', scope: 'col' }, 'Year'), h('th', { scope: 'col' }, 'Journal'),
-          h('th', { scope: 'col' }, h('abbr', { title: 'How central the paper is to this entry, as judged when its facts were extracted' }, 'Relevance')),
-          h('th', { scope: 'col' }, 'Readable'), h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'Facts extracted with a supporting quote that was found in the paper' }, 'Facts kept')),
-          h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'Facts discarded because their supporting quote could not be found in the paper' }, 'Dropped')), h('th', { scope: 'col' }, 'PubMed'))),
+          h('th', { scope: 'col' }, 'Readable'), entry ? h('th', { scope: 'col' }, abbr('Cited in this draft', 'Whether a paragraph of the draft shown now cites the paper')) : null,
+          cols.map((c) => h('th', { scope: 'col', class: c[2] || null }, c[0])), h('th', { scope: 'col' }, 'PubMed'))),
         h('tbody', null, papers.map((p) => {
           const ex = item.extractionBy.get(String(p.pmid));
           return h('tr', null,
-            h('td', { style: 'min-width:260px' }, h('strong', null, p.label || ('PMID ' + p.pmid)), p.title ? h('div', { class: 'small muted' }, p.title) : null, ex && ex.error ? h('div', { class: 'small', style: 'color:var(--bad)' }, 'Extraction failed: ' + ex.error) : null),
+            h('td', { style: 'min-width:260px' }, h('strong', null, p.label || ('PMID ' + p.pmid)), p.title ? h('div', { class: 'small muted' }, p.title) : null, s === 'kg' && ex && ex.error ? h('div', { class: 'small', style: 'color:var(--bad)' }, 'Extraction failed: ' + ex.error) : null),
             h('td', { class: 'n' }, p.year || '–'), h('td', null, p.journal || '–'),
-            h('td', { title: ex && ex.relevance_reason ? ex.relevance_reason : null }, ex ? RELEVANCE[ex.relevance] || humanize(ex.relevance) : '–'),
-            h('td', null, levelChip(p.content_level)),
-            h('td', { class: 'n' }, ex ? String((ex.findings || []).length) : '–'), h('td', { class: 'n' }, ex ? String(ex.n_dropped || 0) : '–'),
+            h('td', null, levelChip(p.content_level)), entry ? h('td', null, yesNo(inDraft.has(String(p.pmid)))) : null,
+            cols.map((c) => c[1](p, ex)),
             h('td', null, ext(pubmedUrl(p.pmid), p.pmid)));
         })))));
     }
     box.append(sec);
 
+    // 3. the evidence graph belongs to the evidence-graph draft
+    if (kg && (kg.entities || []).length) {
+      if (s === 'kg' || item.strategies.indexOf('kg') < 0) box.append(graphSection(item));
+      else box.append(h('p', { class: 'source-note' }, 'The evidence graph of this entry belongs to the “' + stratName('kg') + '” draft. ', h('a', { href: entryHash(item, 'evidence', 'kg') }, 'Show that draft’s evidence.')));
+    } else if (s === 'kg') {
+      box.append(h('section', { class: 'section' }, h('h2', null, 'What the evidence graph established'), h('div', { class: 'empty' }, 'No evidence graph was saved for this entry.')));
+    }
+    return box;
+  }
+
+  function graphSection(item) {
     const kg = item.kg;
     const ksec = h('section', { class: 'section', 'aria-labelledby': 'kg-h' }, h('h2', { id: 'kg-h' }, 'What the evidence graph established'),
       h('p', { class: 'small muted' }, 'Built from the extracted facts before the evidence-graph draft was written. Each row lists the papers that support linking it to this entry.'));
-    if (!kg || !(kg.entities || []).length) ksec.append(h('div', { class: 'empty' }, 'No evidence graph for this entry (only the evidence-graph draft builds one).'));
-    else {
-      add(ksec, evidenceGraph(item));
-      ksec.append(h('p', { class: 'small muted kg-phone-note' }, 'The graph picture is shown on wider screens. The tables below list the same links.'));
-      const groups = [
-        { rel: 'caused_by', title: 'Causal genes' }, { rel: 'has_variant', title: 'Variants' },
-        { rel: 'inheritance', title: 'Mode of inheritance' }, { rel: 'has_phenotype', title: 'Phenotypes' },
-      ];
-      for (const g of groups) {
-        const rows = kg.entities.filter((e) => e.rel === g.rel).sort((a, b) => (b.pmids || []).length - (a.pmids || []).length);
-        ksec.append(h('h3', { style: 'font-size:var(--fs-md);margin-top:8px' }, g.title + ' (' + rows.length + ')'));
-        if (!rows.length) { ksec.append(h('p', { class: 'small muted' }, 'None.')); continue; }
-        ksec.append(h('div', { class: 'table-scroll' }, h('table', { class: 'data' },
-          h('thead', null, h('tr', null, h('th', { scope: 'col' }, g.rel === 'has_phenotype' ? 'Feature' : 'Name'), g.rel === 'has_phenotype' ? h('th', { scope: 'col' }, 'HPO') : null,
-            h('th', { class: 'n', scope: 'col' }, 'Papers'), h('th', { scope: 'col' }, 'Supported by'), g.rel === 'has_phenotype' ? h('th', { scope: 'col' }, 'Reported absent in') : null)),
-          h('tbody', null, rows.map((e) => h('tr', null,
-            h('td', null, g.rel === 'inheritance' ? (e.label || e.id) : g.rel === 'has_variant' ? h('span', { class: 'mono' }, e.omim_name ? e.omim_name + ' · ' : '', e.label) : e.label || e.id),
-            g.rel === 'has_phenotype' ? h('td', null, hpoLink(e.hpo_id) || '–') : null,
-            h('td', { class: 'n' }, String((e.pmids || []).length)),
-            h('td', { class: 'small' }, (e.pmids || []).length ? citeLinks(item, e.pmids) : '–'),
-            g.rel === 'has_phenotype' ? h('td', { class: 'small' }, (e.absent_in || []).length ? citeLinks(item, e.absent_in) : '–') : null))))));
-      }
+    add(ksec, evidenceGraph(item));
+    ksec.append(h('p', { class: 'small muted kg-phone-note' }, 'The graph picture is shown on wider screens. The tables below list the same links.'));
+    const groups = [
+      { rel: 'caused_by', title: 'Causal genes' }, { rel: 'has_variant', title: 'Variants' },
+      { rel: 'inheritance', title: 'Mode of inheritance' }, { rel: 'has_phenotype', title: 'Phenotypes' },
+    ];
+    for (const g of groups) {
+      const rows = kg.entities.filter((e) => e.rel === g.rel).sort((a, b) => (b.pmids || []).length - (a.pmids || []).length);
+      ksec.append(h('h3', { style: 'font-size:var(--fs-md);margin-top:8px' }, g.title + ' (' + rows.length + ')'));
+      if (!rows.length) { ksec.append(h('p', { class: 'small muted' }, 'None.')); continue; }
+      ksec.append(h('div', { class: 'table-scroll' + (rows.length > 14 ? ' tall' : '') }, h('table', { class: 'data' },
+        h('thead', null, h('tr', null, h('th', { scope: 'col' }, g.rel === 'has_phenotype' ? 'Feature' : 'Name'), g.rel === 'has_phenotype' ? h('th', { scope: 'col' }, 'HPO') : null,
+          h('th', { class: 'n', scope: 'col' }, 'Papers'), h('th', { scope: 'col' }, 'Supported by'), g.rel === 'has_phenotype' ? h('th', { scope: 'col' }, 'Reported absent in') : null)),
+        h('tbody', null, rows.map((e) => h('tr', null,
+          h('td', null, g.rel === 'inheritance' ? (e.label || e.id) : g.rel === 'has_variant' ? h('span', { class: 'mono' }, e.omim_name ? e.omim_name + ' · ' : '', e.label) : e.label || e.id),
+          g.rel === 'has_phenotype' ? h('td', null, hpoLink(e.hpo_id) || '–') : null,
+          h('td', { class: 'n' }, String((e.pmids || []).length)),
+          h('td', { class: 'small' }, (e.pmids || []).length ? citeLinks(item, e.pmids) : '–'),
+          g.rel === 'has_phenotype' ? h('td', { class: 'small' }, (e.absent_in || []).length ? citeLinks(item, e.absent_in) : '–') : null))))));
     }
-    box.append(ksec);
+    return ksec;
+  }
 
-    const kgEntry = item.entries.kg || Object.values(item.entries).find((e) => e.meta && e.meta.extraction) || null;
-    const x = kgEntry && kgEntry.meta ? kgEntry.meta.extraction : null;
-    const st = (kg && kg.stats) || (kgEntry && kgEntry.meta && kgEntry.meta.kg) || null;
-    const ssec = h('section', { class: 'section' }, h('h2', null, 'Extraction statistics'));
-    if (!x && !st) ssec.append(h('div', { class: 'empty' }, 'No extraction statistics were saved for this entry.'));
-    else {
-      const kv = h('dl', { class: 'kv' });
-      const row = (k, v) => kv.append(h('dt', null, k), h('dd', null, v));
-      if (x) {
-        row('Facts kept', fmt(x.findings_kept, 'int'));
-        row('Facts dropped (quote not found in paper)', fmt(x.findings_dropped_ungrounded, 'int'));
-        row('Quote grounding rate', fmt(x.quote_grounding_rate, 'pct'));
-        if (x.papers_by_relevance) row('Papers by relevance', Object.keys(x.papers_by_relevance).map((k) => (RELEVANCE[k] || k) + ': ' + x.papers_by_relevance[k]).join(', '));
-        if ((x.papers_failed || []).length) row('Papers that failed extraction', x.papers_failed.join(', '));
-        if (x.hpo_resolution && typeof x.hpo_resolution === 'object') row('HPO term resolution', Object.keys(x.hpo_resolution).map((k) => humanize(k) + ': ' + x.hpo_resolution[k]).join(', '));
-      }
-      const plc = kgEntry && kgEntry.meta && kgEntry.meta.papers_by_content_level;
-      if (plc) row('Papers by readable level', Object.keys(plc).map((k) => (LEVEL[k] ? LEVEL[k].label : k) + ': ' + plc[k]).join(', '));
-      if (st && st.nodes) row('Graph nodes', Object.keys(st.nodes).map((k) => k + ' ' + st.nodes[k]).join(', '));
-      if (st && st.edges) row('Graph links', Object.keys(st.edges).map((k) => humanize(k).toLowerCase() + ' ' + st.edges[k]).join(', '));
-      ssec.append(kv);
+  // Audit, repair and model use: the same procedure for every strategy.
+  function auditBlock(meta, used, item) {
+    const kv = kvList();
+    const before = meta.audit_before_repair;
+    if (before && isNum(before.n_claims)) kv.row('Claims audited before repair', before.n_claims + ' (' + fmt(before.supported_rate, 'pct') + ' supported, ' + fmt(before.error_rate, 'pct') + ' not supported or contradicted)');
+    const rep = meta.repair;
+    if (rep) kv.row('Repair round', (rep.flagged || 0) + ' paragraph(s) flagged, ' + (rep.revised || 0) + ' revised, ' + (rep.deleted || 0) + ' deleted');
+    if (isNum(meta.dropped_ungrounded_count) && meta.dropped_ungrounded_count) kv.row('Paragraphs dropped before the audit (no usable source)', String(meta.dropped_ungrounded_count));
+    if ((meta.unknown_citations || []).length) kv.row('Citations that match no supplied paper', meta.unknown_citations.join('; '));
+    if (isNum(meta.truncated_papers_count) && meta.truncated_papers_count) kv.row('Papers cut short to fit the prompt', String(meta.truncated_papers_count));
+    if (meta.hpo_resolution && typeof meta.hpo_resolution === 'object') kv.row('HPO term resolution', countMap(meta.hpo_resolution));
+    const plc = meta.papers_by_content_level;
+    if (plc) kv.row('Papers by readable level', countMap(plc, (k) => (LEVEL[k] ? LEVEL[k].label : k)));
+    if (meta.model) kv.row('Model', meta.model);
+    if (used) {
+      const part = (label, b) => (b && (b.calls || b.usd) ? label + ' ' + plural(b.calls || 0, 'call') + (b.turns && b.turns !== b.calls ? ' (' + b.turns + ' turns)' : '') + ', ' + usd(b.usd) : null);
+      const bits = [part('writing', used.generate), part('audit and repair', used.audit), part('scoring against OMIM', used.score)].filter(Boolean);
+      if (bits.length) kv.row('Model use for this draft', bits.join('; ') + ' (list price)');
+    } else {
+      const u = item.usage && item.usage.total;
+      if (u && (u.calls || u.list_price_usd)) kv.row('Model use for this entry (all drafts, last pass)', plural(u.calls || 0, 'call') + ', ' + ((u.input_tokens || 0) + (u.output_tokens || 0)).toLocaleString('en-US') + ' tokens' + (isNum(u.list_price_usd) ? ', about ' + usd(u.list_price_usd) : ''));
     }
-    const u = item.usage && item.usage.total;
-    if (u) ssec.append(h('p', { class: 'small muted' }, 'Model use for this entry: ' + plural(u.calls || 0, 'call') + ', ' + ((u.input_tokens || 0) + (u.output_tokens || 0)).toLocaleString('en-US') + ' tokens' + (isNum(u.list_price_usd) ? ', about $' + u.list_price_usd.toFixed(2) : '') + (isNum(item.usage.wall_seconds) ? ', ' + Math.round(item.usage.wall_seconds) + ' s' : '') + '.'));
-    box.append(ssec);
-    return box;
+    if (!kv.children.length) return null;
+    return h('div', { class: 'cmp-block' }, h('h3', null, 'Audit, repair and model use'), kv);
+  }
+
+  function agentBlock(item, meta, used) {
+    const a = meta.agent || {};
+    const q = meta.quote_check || {};
+    const kv = kvList();
+    const read = a.papers_read || [];
+    if (isNum(a.papers_supplied)) kv.row('Papers opened by the agent', share(read.length, a.papers_supplied));
+    if ((a.papers_not_read || []).length) kv.row('Supplied but not opened', citeLinks(item, a.papers_not_read));
+    if ((a.papers_read_unknown || []).length) kv.row('Named as read but not among the supplied papers', a.papers_read_unknown.join(', '));
+    const turns = isNum(a.turns) ? a.turns : get(used, 'generate.turns');
+    if (isNum(turns) && turns) kv.row('Agent turns while writing', String(turns));
+    if (isNum(q.paragraphs_with_quotes)) kv.row('Paragraphs backed by quotes', String(q.paragraphs_with_quotes));
+    if (isNum(q.quotes)) kv.row('Quotes found word for word in the papers', share(q.quotes_found, q.quotes));
+    if (isNum(a.paragraphs_without_quotes)) kv.row('Paragraphs the agent gave no quote for', String(a.paragraphs_without_quotes));
+    if (isNum(q.paragraphs_dropped)) kv.row('Paragraphs dropped by the quote check', String(q.paragraphs_dropped));
+    return h('div', { class: 'cmp-block' }, h('h3', null, 'What the agent did'), kv,
+      a.process_note ? h('div', { class: 'process-note' }, h('div', { class: 'side-label' }, 'The agent’s own note on how it worked (its account, not checked)'), h('p', null, a.process_note)) : null);
+  }
+
+  // Shared by the memory-only control and by recall-then-verify (whose first step is the same memory draft).
+  function memoryBlock(item, m, title) {
+    const kv = kvList();
+    if (isNum(m.paragraphs)) kv.row('Paragraphs written from memory', String(m.paragraphs));
+    if (isNum(m.paragraphs_citing_supplied_papers)) kv.row('… citing a paper that was among those supplied', String(m.paragraphs_citing_supplied_papers));
+    if (isNum(m.paragraphs_checked_against_all_papers)) kv.row('… with no usable citation (audited against every paper)', String(m.paragraphs_checked_against_all_papers));
+    if (isNum(m.supplied_papers)) kv.row('Supplied papers the model cited from memory', share(m.supplied_papers_cited, m.supplied_papers));
+    if ((m.citations_matched || []).length) kv.row('Citations matched to supplied papers', m.citations_matched.join('; '));
+    if ((m.citations_unmatched || []).length) kv.row('Citations that match no supplied paper', m.citations_unmatched.join('; '));
+    if (isNum(m.pmids_offered) && m.pmids_offered) kv.row('PubMed IDs the model offered', m.pmids_offered + ' (' + (m.pmids_offered_matching_supplied || 0) + ' matching a supplied paper)');
+    if (!kv.children.length) return null;
+    return h('div', { class: 'cmp-block' }, h('h3', null, title), kv);
+  }
+
+  function recallBlock(item, rc) {
+    const mem = item.recall_memory || null;
+    const by = rc.memory_claims_by_verdict || (mem && mem.by_verdict) || {};
+    const omitted = rc.claims_omitted_by_verdict || {};
+    const total = isNum(rc.memory_claims) ? rc.memory_claims : (mem ? mem.claims : null);
+    const action = { supported: 'Kept, attributed to the paper that supports it', partially_supported: 'Restated to say what the quoted evidence says',
+      contradicted: 'Corrected to what the paper says', unsupported: 'Deleted', not_checkable: 'Deleted' };
+    const kv = kvList();
+    if (isNum(total)) kv.row('Claims in the from-memory draft', String(total));
+    if (isNum(total) && isNum(by.supported)) kv.row('Supported by the papers as written', share(by.supported, total));
+    if (isNum(rc.claims_survived_share)) kv.row('Claims carried into this draft (kept, restated or corrected)', fmt(rc.claims_survived_share, 'pct'));
+    if (isNum(rc.paragraphs_before)) kv.row('Paragraphs', rc.paragraphs_before + ' from memory → ' + (isNum(rc.paragraphs_after) ? rc.paragraphs_after : '–') + ' after the check');
+    if (isNum(rc.paragraphs_dropped_uncited) && rc.paragraphs_dropped_uncited) kv.row('Paragraphs dropped for having no supporting paper', String(rc.paragraphs_dropped_uncited));
+    const block = h('div', { class: 'cmp-block' }, h('h3', null, 'How much of the memory draft survived the check'), kv,
+      h('div', { class: 'table-scroll compare' }, h('table', { class: 'data' },
+        h('caption', { class: 'visually-hidden' }, 'Memory claims by audit verdict'),
+        h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'What the audit found'), h('th', { class: 'n', scope: 'col' }, 'Memory claims'), h('th', { scope: 'col' }, 'What the rewrite does with them'), h('th', { class: 'n', scope: 'col' }, 'Left out of this draft'))),
+        h('tbody', null, VERDICT_KEYS.filter((k) => by[k] || omitted[k]).map((k) => h('tr', null, h('td', null, chip(VERDICT[k])), h('td', { class: 'n' }, String(by[k] || 0)), h('td', null, action[k]), h('td', { class: 'n' }, String(omitted[k] || 0))))))));
+    if (mem && (mem.not_standing || []).length) {
+      const more = (mem.n_not_standing || 0) - mem.not_standing.length;
+      block.append(h('details', { class: 'more', open: state.open.has('memory-claims') || null, ontoggle: (e) => { if (e.target.open) state.open.add('memory-claims'); else state.open.delete('memory-claims'); } },
+        h('summary', { 'data-fid': 'memory-claims' }, 'Memory claims the papers did not fully support (' + (mem.n_not_standing || mem.not_standing.length) + ')'),
+        h('ul', { class: 'claims' }, mem.not_standing.map((c) => { const li = claimItem(item, c); if (c.where) li.prepend(h('div', { class: 'small muted' }, c.where)); return li; })),
+        more > 0 ? h('p', { class: 'small muted' }, more + ' more are not listed here; the run folder’s recall.memory_audit.json has them all.') : null));
+    }
+    const out = [block];
+    if (rc.memory) out.push(memoryBlock(item, rc.memory, 'What the model recalled before seeing the papers'));
+    return out;
+  }
+
+  function cohortBlock(item, mc) {
+    const c = item.cohort || {};
+    const t = c.totals || {};
+    const out = [];
+    const kv = kvList();
+    const ind = isNum(mc.individuals_pooled) ? mc.individuals_pooled : t.individuals;
+    const fam = isNum(mc.families_pooled) ? mc.families_pooled : t.families;
+    const rec = isNum(mc.records_pooled) ? mc.records_pooled : t.records;
+    if (isNum(ind)) kv.row('Patients pooled', ind + (isNum(fam) ? ' in ' + plural(fam, 'family', 'families') : ''));
+    if (isNum(rec)) kv.row('Case records pooled', String(rec));
+    const fu = isNum(mc.follow_up_records) ? mc.follow_up_records : t.follow_up_records;
+    const bg = isNum(mc.background_records) ? mc.background_records : t.background_records;
+    if (fu) kv.row('Follow-up records (same patients reported again; not counted twice)', String(fu));
+    if (bg) kv.row('Records from background papers (shown to the writer, never counted)', String(bg));
+    if (isNum(mc.records_kept)) kv.row('Records kept / dropped (quote not found in the paper)', mc.records_kept + ' / ' + (mc.records_dropped_ungrounded || 0));
+    if (isNum(mc.notes_kept)) kv.row('Notes kept / dropped', mc.notes_kept + ' / ' + (mc.notes_dropped_ungrounded || 0));
+    if (isNum(mc.quote_grounding_rate)) kv.row('Quote grounding rate', fmt(mc.quote_grounding_rate, 'pct'));
+    if (mc.papers_by_relevance) kv.row('Papers by relevance', countMap(mc.papers_by_relevance, (k) => RELEVANCE[k] || k));
+    if ((mc.papers_failed || []).length) kv.row('Papers that failed extraction', mc.papers_failed.join(', '));
+    if (mc.hpo_resolution && typeof mc.hpo_resolution === 'object') kv.row('HPO term resolution', countMap(mc.hpo_resolution));
+    out.push(h('div', { class: 'cmp-block' }, h('h3', null, 'The case table behind this draft'),
+      h('p', { class: 'small muted' }, 'Each paper was read once for the patients it reports: one record per patient, family or group, plus notes for results that are not about particular patients. The records were pooled into a table, and the synopsis, causal genes and inheritance were computed from it.'), kv));
+
+    // genes and inheritance decisions
+    const g = mc.genes || c.gene_decisions || {};
+    const inh = mc.inheritance || c.inheritance || {};
+    const kv2 = kvList();
+    if ((g.candidates || []).length) kv2.row('Candidate genes (patient variants in the records)', g.candidates.join(', '));
+    if ((g.confirmed || []).length) kv2.row('Confirmed as causing this disorder', g.confirmed.join(', '));
+    if ((g.not_confirmed || []).length) kv2.row('Not confirmed (left out of the entry)', g.not_confirmed.join(', '));
+    if ((g.dropped || []).length) kv2.row('Named by the writer but not a candidate (dropped)', g.dropped.join(', '));
+    if ((inh.chosen || []).length) kv2.row('Mode of inheritance called', inh.chosen.map((x) => INHERITANCE[x] || x).join(', '));
+    const sup = inh.support || {};
+    const supKeys = Object.keys(sup);
+    const dups = mc.possible_duplicates || c.possible_duplicates || [];
+    const recLabel = (id) => { const r = item.recordBy.get(id); return r ? (r.label || id) + ' (' + paperLabel(item, r.pmid) + ')' : id; };
+    kv2.row('Possible duplicate patients across papers', dups.length ? h('ul', { class: 'plain-list' }, dups.map((grp) => h('li', null, (Array.isArray(grp) ? grp : [grp]).map(recLabel).join(' and ')))) : 'None flagged');
+    out.push(h('div', { class: 'cmp-block' }, h('h3', null, 'Genes and inheritance worked out from the records'), kv2,
+      supKeys.length ? h('div', { class: 'table-scroll compare' }, h('table', { class: 'data' },
+        h('caption', { class: 'visually-hidden' }, 'Evidence for each mode of inheritance'),
+        h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Mode'), h('th', { class: 'n', scope: 'col' }, 'Patients'), h('th', { class: 'n', scope: 'col' }, 'Records'), h('th', { scope: 'col' }, 'Why (records)'), h('th', { scope: 'col' }, 'Papers'))),
+        h('tbody', null, supKeys.map((k) => h('tr', null, h('td', null, INHERITANCE[k] || k), h('td', { class: 'n' }, count(sup[k].individuals)),
+          h('td', { class: 'n' }, count(isNum(sup[k].n_records) ? sup[k].n_records : (sup[k].records || []).length)),
+          h('td', null, countMap(sup[k].reasons) || '–'), h('td', { class: 'small' }, (sup[k].pmids || []).length ? citeLinks(item, sup[k].pmids) : '–')))))) : null));
+
+    if (!item.cohort) {
+      out.push(h('p', { class: 'small muted' }, 'The case table itself (cohort.json) was not saved with this entry, so only the summary above is available.'));
+      return out;
+    }
+    const tr = c.trimmed || {};
+    const ph = c.phenotypes || [];
+    if (ph.length) {
+      out.push(h('div', { class: 'cmp-block' }, h('h3', null, 'Feature frequencies (' + (tr.phenotypes ? tr.phenotypes.shown + ' of ' + tr.phenotypes.of : ph.length) + ')'),
+        h('p', { class: 'small muted' }, 'Patients with the feature out of those in whom the papers say it was assessed. “At least” marks a lower bound: a paper said only that some patients had it.'),
+        h('div', { class: 'table-scroll' + (ph.length > 14 ? ' tall' : '') }, h('table', { class: 'data' },
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Feature'), h('th', { scope: 'col' }, 'HPO'), h('th', { class: 'n', scope: 'col' }, 'Present / assessed'), h('th', { class: 'n', scope: 'col' }, 'Reported absent'), h('th', { class: 'n', scope: 'col' }, 'Records'), h('th', { scope: 'col' }, 'Papers'))),
+          h('tbody', null, ph.map((p) => h('tr', null, h('td', null, p.label || p.hpo_id, p.from_follow_up ? h('span', { class: 'muted small' }, ' (from a follow-up report)') : null),
+            h('td', null, hpoLink(p.hpo_id) || '–'),
+            h('td', { class: 'n' }, (p.lower_bound ? 'at least ' : '') + count(p.present) + ' / ' + count(p.assessed)),
+            h('td', { class: 'n' }, count(p.absent || 0)), h('td', { class: 'n' }, count(p.n_records)),
+            h('td', { class: 'small' }, (p.pmids || []).length ? citeLinks(item, p.pmids) : '–'))))))));
+    }
+    const vs = c.variants || [];
+    if (vs.length) {
+      out.push(h('div', { class: 'cmp-block' }, h('h3', null, 'Variants in the case table (' + vs.length + ')'),
+        h('div', { class: 'table-scroll' + (vs.length > 14 ? ' tall' : '') }, h('table', { class: 'data' },
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Variant'), h('th', { scope: 'col' }, 'Gene'), h('th', { class: 'n', scope: 'col' }, 'Carriers'), h('th', { scope: 'col' }, 'Zygosity'), h('th', { scope: 'col' }, 'Origin'), h('th', { scope: 'col' }, 'Consequence'), h('th', { scope: 'col' }, 'Authors’ view'), h('th', { scope: 'col' }, 'Papers'))),
+          h('tbody', null, vs.map((v) => h('tr', null, h('td', { class: 'mono' }, v.omim_name || (v.keys || []).join(' / ') || v.id, v.omim_name && (v.keys || []).length ? h('div', { class: 'small muted' }, v.keys.join(' / ')) : null),
+            h('td', null, v.gene || '–'), h('td', { class: 'n' }, count(v.individuals)),
+            h('td', null, countMap(v.zygosity) || '–'), h('td', null, countMap(v.origin) || '–'), h('td', null, v.consequence ? humanize(v.consequence) : '–'), h('td', null, countMap(v.authors) || '–'),
+            h('td', { class: 'small' }, (v.pmids || []).length ? citeLinks(item, v.pmids) : '–'))))))));
+    }
+    const recs = c.records || [];
+    if (recs.length) {
+      out.push(h('div', { class: 'cmp-block' }, h('h3', null, 'Case records (' + (tr.records ? tr.records.shown + ' of ' + tr.records.of : recs.length) + ')'),
+        h('div', { class: 'table-scroll' + (recs.length > 10 ? ' tall' : '') }, h('table', { class: 'data records' },
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Record'), h('th', { scope: 'col' }, 'Paper'), h('th', { scope: 'col' }, 'Variants'), h('th', { scope: 'col' }, h('abbr', { title: 'The mode of inheritance this record’s genotype implies, with the rule that gave it' }, 'Mode from genotype')), h('th', { scope: 'col' }, 'Features recorded'))),
+          h('tbody', null, recs.map((r) => {
+            const feats = r.phenotypes || [];
+            const present = feats.filter((p) => p.present !== false);
+            const vars = (r.variants || []).map((v) => (v.gene ? v.gene + ' ' : '') + (v.as_reported || v.key || '') + (v.zygosity && v.zygosity !== 'unknown' ? ' (' + humanize(v.zygosity).toLowerCase() + ')' : ''));
+            return h('tr', null,
+              h('td', { style: 'min-width:220px' }, h('strong', null, r.label || 'Unnamed record'), ' ', plainChip(RECORD_KIND[r.kind] || humanize(r.kind || '')), r.followup_of ? [' ', plainChip('Follow-up')] : null,
+                recordSummary(r) ? h('div', { class: 'small muted' }, recordSummary(r)) : null,
+                (r.quotes || []).length ? h('details', { class: 'more' }, h('summary', null, plural(isNum(r.n_quotes) ? r.n_quotes : r.quotes.length, 'quote')), quoteRows(r.quotes, r.quote_grounding)) : null),
+              h('td', { class: 'small' }, ext(pubmedUrl(r.pmid), paperLabel(item, r.pmid))),
+              h('td', { class: 'small mono' }, vars.length ? vars.map((v) => h('div', null, v)) : '–'),
+              h('td', { class: 'small' }, r.genotype_mode ? [h('strong', null, INHERITANCE[r.genotype_mode] || r.genotype_mode), r.genotype_reason ? h('div', { class: 'muted' }, r.genotype_reason) : null] : (r.genotype_reason || '–')),
+              h('td', { class: 'small' }, feats.length ? [present.slice(0, 6).map((p) => p.hpo_label || p.text).join('; '), feats.length > 6 ? h('span', { class: 'muted' }, ' … ' + feats.length + ' in all') : null]
+                : isNum(r.n_phenotypes) ? plural(r.n_phenotypes, 'feature') : '–'));
+          }))))));
+    }
+    const notes = c.notes || [];
+    if (notes.length) {
+      out.push(h('details', { class: 'more', open: state.open.has('cohort-notes') || null, ontoggle: (e) => { if (e.target.open) state.open.add('cohort-notes'); else state.open.delete('cohort-notes'); } },
+        h('summary', { 'data-fid': 'cohort-notes' }, 'Notes: results not about particular patients (' + (tr.notes ? tr.notes.shown + ' of ' + tr.notes.of : notes.length) + ')'),
+        h('ul', { class: 'findings' }, notes.map((n) => recordItem(item, n)))));
+    }
+    if (Object.keys(tr).length) {
+      const bits = [];
+      if (tr.records) bits.push(tr.records.shown + ' of ' + tr.records.of + ' records');
+      if (tr.notes) bits.push(tr.notes.shown + ' of ' + tr.notes.of + ' notes');
+      if (tr.phenotypes) bits.push(tr.phenotypes.shown + ' of ' + tr.phenotypes.of + ' features (the most frequent)');
+      if (tr.record_features) bits.push('feature lists per record as counts only');
+      if (tr.quotes) bits.push('one quote per record and note');
+      out.push(h('p', { class: 'small muted' }, 'This case table was shortened to fit the page: ' + bits.join('; ') + '. The frequencies above were computed from the whole table; the run folder’s cohort.json has everything.'));
+    }
+    return out;
   }
 
   // ------------------------------------------------------------------ proposed updates
