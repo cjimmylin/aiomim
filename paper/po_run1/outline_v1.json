@@ -172,7 +172,7 @@
             "automatic prompt optimization from natural language feedback",
             "learning instructions from errors on training examples LLM"
           ],
-          "bridge_to_our_method": "Our learned curation guide is a deliberately small instance of this idea, tested on 70 held-out entries; its null result says nothing about better-resourced prompt optimisation (log Sec. 12).",
+          "bridge_to_our_method": "Our learned curation guide is a deliberately small instance of this idea, tested on held-out entries (68 of 70 compared); its null result says nothing about better-resourced prompt optimisation (log Sec. 12).",
           "citation_candidates": [
             "Pryzant2023AutomaticPrompt",
             "Opsahlong2024OptimizingInstructions",

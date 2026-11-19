@@ -1,0 +1,1015 @@
+\begin{thebibliography}{122}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Agrawal et~al.(2026)Agrawal, Tan, Soylu, Ziems, Khare, Opsahl-Ong,
+  Singhvi, Shandilya, Ryan, Jiang, et~al.]{agrawal2026gepa}
+Lakshya~A Agrawal, Shangyin Tan, Dilara Soylu, Noah Ziems, Rishi Khare, Krista
+  Opsahl-Ong, Arnav Singhvi, Herumb Shandilya, Michael~J Ryan, Meng Jiang,
+  et~al.
+\newblock {GEPA}: Reflective prompt evolution can outperform reinforcement
+  learning.
+\newblock In \emph{ICLR 2026}, 2026.
+
+\bibitem[Allot et~al.(2023)Allot, Wei, Phan, Hefferon, Landrum, Rehm, and
+  Lu]{allot2023tracking}
+A.~Allot, C.~H. Wei, L.~Phan, T.~Hefferon, M.~Landrum, H.~L. Rehm, and Z.~Lu.
+\newblock Tracking genetic variants in the biomedical literature using {LitVar}
+  2.0.
+\newblock \emph{Nature Genetics}, 55\penalty0 (6):\penalty0 901--903, 2023.
+\newblock \doi{10.1038/s41588-023-01414-x}.
+\newblock PMID: 37268776.
+
+\bibitem[Amberger et~al.(2019)Amberger, Bocchini, Scott, and
+  Hamosh]{amberger2019omim}
+J.~S. Amberger, C.~A. Bocchini, A.~F. Scott, and A.~Hamosh.
+\newblock {OMIM.org}: leveraging knowledge across phenotype-gene relationships.
+\newblock \emph{Nucleic Acids Research}, 47:\penalty0 D1038--D1043, 2019.
+\newblock \doi{10.1093/nar/gky1151}.
+\newblock PMID: 30445645.
+
+\bibitem[Amberger et~al.(2014)Amberger, Bocchini, Schiettecatte, Scott, and
+  Hamosh]{Amberger2014OmimorgOnline}
+Joanna~S. Amberger, Carol~A. Bocchini, François Schiettecatte, Alan~F. Scott,
+  and Ada Hamosh.
+\newblock {OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online
+  catalog of human genes and genetic disorders}.
+\newblock \emph{Nucleic Acids Research}, 43:\penalty0 D789--D798, 2014.
+\newblock \doi{10.1093/nar/gku1205}.
+
+\bibitem[Asai et~al.(2023)Asai, Wu, Wang, Sil, and
+  Hajishirzi]{Asai2023SelfragLearning}
+Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi.
+\newblock {Self-RAG: Learning to Retrieve, Generate, and Critique through
+  Self-Reflection}.
+\newblock arXiv preprint arXiv:2310.11511, 2023.
+
+\bibitem[Asai et~al.(2024)Asai, He, Shao, Shi, Singh, Chang, Lo, Soldaini,
+  Feldman, D'arcy, et~al.]{Asai2024OpenscholarSynthesizing}
+Akari Asai, Jacqueline He, Rulin Shao, Weijia Shi, Amanpreet Singh, Joseph~Chee
+  Chang, Kyle Lo, Luca Soldaini, Sergey Feldman, Mike D'arcy, et~al.
+\newblock {OpenScholar: Synthesizing Scientific Literature with
+  Retrieval-augmented LMs}.
+\newblock arXiv preprint arXiv:2411.14199, 2024.
+
+\bibitem[Balhoff \& Lapp(2026)Balhoff and Lapp]{balhoff2026frontier}
+James~P. Balhoff and Hilmar Lapp.
+\newblock Frontier {LLM}-based agents can overcome the ontology curation
+  bottleneck for natural phenotypes.
+\newblock arXiv, 2026.
+
+\bibitem[Cao et~al.(2025)Cao, Arora, Cento, Manta, Farahani, Cecere, Selemon,
+  Sang, Gong, Kloosterman, et~al.]{cao2025automation}
+C.~Cao, R.~Arora, P.~Cento, K.~Manta, E.~Farahani, M.~Cecere, A.~Selemon,
+  J.~Sang, L.~X. Gong, R.~Kloosterman, et~al.
+\newblock Automation of systematic reviews with large language models.
+\newblock medRxiv, 2025.
+
+\bibitem[Caufield et~al.(2024{\natexlab{a}})Caufield, Kroll, O'Neil, Reese,
+  Joachimiak, Hegde, Harris, Krishnamurthy, McLaughlin, Smedley,
+  et~al.]{caufield2024curategpt}
+Harry Caufield, Carlo Kroll, Shawn~T O'Neil, Justin~T Reese, Marcin~P
+  Joachimiak, Harshad Hegde, Nomi~L Harris, Madan Krishnamurthy, James~A
+  McLaughlin, Damian Smedley, et~al.
+\newblock {CurateGPT}: A flexible language-model assisted biocuration tool.
+\newblock arXiv, 2024{\natexlab{a}}.
+
+\bibitem[Caufield et~al.(2024{\natexlab{b}})Caufield, Hegde, Emonet, Harris,
+  Joachimiak, Matentzoglu, Kim, Moxon, Reese, Haendel, Robinson, and
+  Mungall]{caufield2024structured}
+J~Harry Caufield, Harshad Hegde, Vincent Emonet, Nomi~L Harris, Marcin~P
+  Joachimiak, Nicolas Matentzoglu, HyeongSik Kim, Sierra Moxon, Justin~T Reese,
+  Melissa~A Haendel, Peter~N Robinson, and Christopher~J Mungall.
+\newblock Structured prompt interrogation and recursive extraction of semantics
+  ({SPIRES}): a method for populating knowledge bases using zero-shot learning.
+\newblock \emph{Bioinformatics}, 40\penalty0 (3):\penalty0 btae104,
+  2024{\natexlab{b}}.
+\newblock \doi{10.1093/bioinformatics/btae104}.
+
+\bibitem[Chen et~al.(2025)Chen, Chen, Li, Jiang, Wan, He, Ran, Gu, Li, Xie,
+  et~al.]{Chen2025RecentAdvances}
+Simin Chen, Yiming Chen, Zexin Li, Yifan Jiang, Zhongwei Wan, Yixin He, Dezhi
+  Ran, Tianle Gu, Haizhou Li, Tao Xie, et~al.
+\newblock {Recent Advances in Large Langauge Model Benchmarks against Data
+  Contamination: From Static to Dynamic Evaluation}.
+\newblock arXiv preprint arXiv:2502.17521, 2025.
+
+\bibitem[Cheng et~al.(2025)Cheng, Chang, and Wu]{Cheng2025SurveyData}
+Yuxing Cheng, Yi~Chang, and Yuan Wu.
+\newblock {A Survey on Data Contamination for Large Language Models}.
+\newblock arXiv preprint arXiv:2502.14425, 2025.
+
+\bibitem[Clark et~al.(2025)Clark, Barton, Albarqouni, Byambasuren, Jowsey,
+  Keogh, Liang, Moro, O’Neill, and Jones]{Clark2025GenerativeArtificial}
+Justin Clark, Belinda Barton, Loai Albarqouni, Oyungerel Byambasuren, Tanisha
+  Jowsey, Justin Keogh, Tian Liang, Christian Moro, Hayley O’Neill, and Mark
+  Jones.
+\newblock {Generative artificial intelligence use in evidence synthesis: A
+  systematic review}.
+\newblock \emph{Research Synthesis Methods}, 16:\penalty0 601--619, 2025.
+\newblock \doi{10.1017/rsm.2025.16}.
+
+\bibitem[Cohen et~al.(2010)Cohen, Johnson, Verspoor, Roeder, and
+  Hunter]{Cohen2010StructuralContent}
+K~Bretonnel Cohen, Helen~L Johnson, Karin Verspoor, Christophe Roeder, and
+  Lawrence~E Hunter.
+\newblock {The structural and content aspects of abstracts versus bodies of
+  full text journal articles are different}.
+\newblock \emph{BMC Bioinformatics}, 11, 2010.
+\newblock \doi{10.1186/1471-2105-11-492}.
+
+\bibitem[Danis et~al.(2025)Danis, Bamshad, Bridges, Caballero-Oteyza, Cacheiro,
+  Carmody, Chimirri, Chong, Coleman, Dalgleish, et~al.]{danis2025corpus}
+D.~Danis, M.~J. Bamshad, Y.~Bridges, A.~Caballero-Oteyza, P.~Cacheiro, L.~C.
+  Carmody, L.~Chimirri, J.~X. Chong, B.~Coleman, R.~Dalgleish, et~al.
+\newblock A corpus of {GA4GH} phenopackets: Case-level phenotyping for genomic
+  diagnostics and discovery.
+\newblock \emph{HGG Advances}, 6\penalty0 (1):\penalty0 100371, 2025.
+\newblock \doi{10.1016/j.xhgg.2024.100371}.
+\newblock PMID: 39394689.
+
+\bibitem[Deng et~al.(2024)Deng, Zhao, Heng, Li, Cao, Tang, and
+  Cohan]{Deng2024UnveilingSpectrum}
+Chunyuan Deng, Yilun Zhao, Yuzhao Heng, Yitong Li, Jiannan Cao, Xiangru Tang,
+  and Arman Cohan.
+\newblock {Unveiling the Spectrum of Data Contamination in Language Models: A
+  Survey from Detection to Remediation}.
+\newblock arXiv preprint arXiv:2406.14644, 2024.
+
+\bibitem[Dhuliawala et~al.(2024)Dhuliawala, Komeili, Xu, Raileanu, Li,
+  Celikyilmaz, and Weston]{dhuliawala2024chainofverification}
+Shehzaad Dhuliawala, Mojtaba Komeili, Jing Xu, Roberta Raileanu, Xian Li, Asli
+  Celikyilmaz, and Jason Weston.
+\newblock Chain-of-verification reduces hallucination in large language models.
+\newblock In \emph{Findings of ACL 2024}, 2024.
+
+\bibitem[Edge et~al.(2024)Edge, Trinh, Cheng, Bradley, Chao, Mody, Truitt,
+  Metropolitansky, Ness, and Larson]{edge2024local}
+Darren Edge, Ha~Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody,
+  Steven Truitt, Dasha Metropolitansky, Robert~Osazuwa Ness, and Jonathan
+  Larson.
+\newblock From local to global: A {Graph RAG} approach to query-focused
+  summarization.
+\newblock arXiv, 2024.
+
+\bibitem[Fernando et~al.(2023)Fernando, Banarse, Michalewski, Osindero, and
+  Rocktäschel]{Fernando2023PromptbreederSelfreferential}
+Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, and Tim
+  Rocktäschel.
+\newblock {Promptbreeder: Self-Referential Self-Improvement Via Prompt
+  Evolution}.
+\newblock arXiv preprint arXiv:2309.16797, 2023.
+
+\bibitem[Furlan et~al.(2025)Furlan, Moran, Salazar, Rennie, Hoang, wan,
+  Mendes~de Aquino, Engchuan, Vorstman, and Scherer]{furlan2025eagleai}
+V.~Furlan, J.~Moran, N.~B. Salazar, O.~Rennie, N.~Hoang, A.~wan, M.~Mendes~de
+  Aquino, W.~Engchuan, J.~A.~S. Vorstman, and S.~W. Scherer.
+\newblock {EAGLE}-{AI}: A large language model workflow for automated
+  extraction and scoring of literature evidence linking genes to autism
+  spectrum disorder.
+\newblock medRxiv, 2025.
+
+\bibitem[Gao et~al.(2022)Gao, Dai, Pasupat, Chen, Chaganty, Fan, Zhao, Lao,
+  Lee, Juan, et~al.]{Gao2022RarrResearching}
+Luyu Gao, Zhuyun Dai, Panupong Pasupat, Anthony Chen, Arun~Tejasvi Chaganty,
+  Yicheng Fan, Vincent~Y. Zhao, Ni~Lao, Hongrae Lee, Da-Cheng Juan, et~al.
+\newblock {RARR: Researching and Revising What Language Models Say, Using
+  Language Models}.
+\newblock arXiv preprint arXiv:2210.08726, 2022.
+
+\bibitem[Gao et~al.(2023)Gao, Yen, Yu, and Chen]{gao2023enabling}
+Tianyu Gao, Howard Yen, Jiatong Yu, and Danqi Chen.
+\newblock Enabling large language models to generate text with citations.
+\newblock In \emph{EMNLP 2023}, 2023.
+
+\bibitem[Garcia et~al.(2025)Garcia, Westerfield, Yelemali, Gogate,
+  Rivera-Munoz, Du, Dawood, Jolly, Lupski, and Posey]{garcia2025improving}
+B.~T. Garcia, L.~Westerfield, P.~Yelemali, N.~Gogate, E.~A. Rivera-Munoz,
+  H.~Du, M.~Dawood, A.~Jolly, J.~R. Lupski, and J.~E. Posey.
+\newblock Improving automated deep phenotyping through large language models
+  using retrieval-augmented generation.
+\newblock \emph{Genome Medicine}, 17\penalty0 (1):\penalty0 91, 2025.
+\newblock \doi{10.1186/s13073-025-01521-w}.
+\newblock PMID: 40826123.
+
+\bibitem[Gargano et~al.(2024)Gargano, Matentzoglu, Coleman, Addo-Lartey,
+  Anagnostopoulos, Anderton, Avillach, Bagley, Bak{\v{s}}tein, Balhoff,
+  et~al.]{gargano2024human}
+M.~A. Gargano, N.~Matentzoglu, B.~Coleman, E.~B. Addo-Lartey, A.~V.
+  Anagnostopoulos, J.~Anderton, P.~Avillach, A.~M. Bagley, E.~Bak{\v{s}}tein,
+  J.~P. Balhoff, et~al.
+\newblock The {Human Phenotype Ontology} in 2024: phenotypes around the world.
+\newblock \emph{Nucleic Acids Research}, 52:\penalty0 D1333--D1346, 2024.
+\newblock \doi{10.1093/nar/gkad1005}.
+\newblock PMID: 37953324.
+
+\bibitem[Golchin \& Surdeanu(2024)Golchin and Surdeanu]{golchin2024time}
+Shahriar Golchin and Mihai Surdeanu.
+\newblock {Time Travel} in {LLMs}: Tracing data contamination in large language
+  models.
+\newblock In \emph{ICLR 2024}, 2024.
+
+\bibitem[Golchin \& Surdeanu(2025)Golchin and
+  Surdeanu]{Golchin2025DataContamination}
+Shahriar Golchin and Mihai Surdeanu.
+\newblock {Data Contamination Quiz: A Tool to Detect and Estimate Contamination
+  in Large Language Models}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  13:\penalty0 809--830, 2025.
+\newblock \doi{10.1162/tacl.a.20}.
+
+\bibitem[Groza et~al.(2024{\natexlab{a}})Groza, Caufield, Gration, Baynam,
+  Haendel, Robinson, Mungall, and Reese]{groza2024evaluation}
+T.~Groza, H.~Caufield, D.~Gration, G.~Baynam, M.~A. Haendel, P.~N. Robinson,
+  C.~J. Mungall, and J.~T. Reese.
+\newblock An evaluation of {GPT} models for phenotype concept recognition.
+\newblock \emph{BMC Medical Informatics and Decision Making}, 24\penalty0
+  (1):\penalty0 30, 2024{\natexlab{a}}.
+\newblock \doi{10.1186/s12911-024-02439-w}.
+\newblock PMID: 38297371.
+
+\bibitem[Groza et~al.(2024{\natexlab{b}})Groza, Gration, Baynam, and
+  Robinson]{groza2024fasthpocr}
+T.~Groza, D.~Gration, G.~Baynam, and P.~N. Robinson.
+\newblock {FastHPOCR}: pragmatic, fast, and accurate concept recognition using
+  the human phenotype ontology.
+\newblock \emph{Bioinformatics}, 40\penalty0 (7):\penalty0 btae406,
+  2024{\natexlab{b}}.
+\newblock \doi{10.1093/bioinformatics/btae406}.
+\newblock PMID: 38913850.
+
+\bibitem[Groza et~al.(2026)Groza, Marcello, Carlisle, Lim, Haendel, Karnani,
+  Robinson, Graessner, Chong, Baynam, and Jamuar]{groza2026systematic}
+T.~Groza, A.~J. Marcello, T.~Carlisle, W.~K. Lim, M.~Haendel, N.~Karnani, P.~N.
+  Robinson, H.~Graessner, J.~X. Chong, G.~Baynam, and S.~S. Jamuar.
+\newblock A systematic assessment of large language models' knowledge of rare
+  diseases: How much do large language models know about rare disease?
+\newblock \emph{HGG Advances}, 7\penalty0 (1):\penalty0 100558, 2026.
+\newblock \doi{10.1016/j.xhgg.2025.100558}.
+\newblock PMID: 41383021.
+
+\bibitem[Guo et~al.(2023)Guo, Wang, Guo, Li, Song, Tan, Liu, Bian, and
+  Yang]{Guo2023EvopromptConnecting}
+Qingyan Guo, Rui Wang, Junliang Guo, Bei Li, Kaitao Song, Xu~Tan, Guoqing Liu,
+  Jiang Bian, and Yujiu Yang.
+\newblock {EvoPrompt: Connecting LLMs with Evolutionary Algorithms Yields
+  Powerful Prompt Optimizers}.
+\newblock arXiv preprint arXiv:2309.08532, 2023.
+
+\bibitem[Gutiérrez et~al.(2024)Gutiérrez, Shu, Gu, Yasunaga, and
+  Su]{Gutirrez2024HipporagNeurobiologically}
+Bernal~Jiménez Gutiérrez, Yiheng Shu, Yu~Gu, Michihiro Yasunaga, and Yu~Su.
+\newblock {HippoRAG: Neurobiologically Inspired Long-Term Memory for Large
+  Language Models}.
+\newblock arXiv preprint arXiv:2405.14831, 2024.
+
+\bibitem[Hamosh et~al.(2021)Hamosh, Amberger, Bocchini, Scott, and
+  Rasmussen]{hamosh2021online}
+A.~Hamosh, J.~S. Amberger, C.~Bocchini, A.~F. Scott, and S.~A. Rasmussen.
+\newblock {Online Mendelian Inheritance in Man} ({OMIM}\textregistered{}):
+  {Victor McKusick's} magnum opus.
+\newblock \emph{American Journal of Medical Genetics. Part A}, 185\penalty0
+  (11):\penalty0 3259--3265, 2021.
+\newblock \doi{10.1002/ajmg.a.62407}.
+\newblock PMID: 34169650.
+
+\bibitem[Han et~al.(2025)Han, Ma, Wang, Shomer, Lei, Qi, Guo, Hua, Long, Liu,
+  Aggarwal, and Tang]{han2025rag}
+Haoyu Han, Li~Ma, Yu~Wang, Harry Shomer, Yongjia Lei, Zhisheng Qi, Kai Guo,
+  Zhigang Hua, Bo~Long, Hui Liu, Charu~C. Aggarwal, and Jiliang Tang.
+\newblock {RAG} vs. {GraphRAG}: A systematic evaluation and key insights.
+\newblock arXiv, 2025.
+
+\bibitem[Hier et~al.(2024)Hier, Munzir, Stahlfeld, Obafemi-Ajayi, and
+  Carrithers]{Hier2024HighthroughputPhenotyping}
+Daniel~B. Hier, S.~Ilyas Munzir, Anne Stahlfeld, Tayo Obafemi-Ajayi, and
+  Michael~D. Carrithers.
+\newblock {High-Throughput Phenotyping of Clinical Text Using Large Language
+  Models}.
+\newblock arXiv preprint arXiv:2408.01214, 2024.
+
+\bibitem[Hu et~al.(2025)Hu, Alkhairy, Lee, Pillich, Fong, Smith, Bachelder,
+  Ideker, and Pratt]{hu2025evaluation}
+M.~Hu, S.~Alkhairy, I.~Lee, R.~T. Pillich, D.~Fong, K.~Smith, R.~Bachelder,
+  T.~Ideker, and D.~Pratt.
+\newblock Evaluation of large language models for discovery of gene set
+  function.
+\newblock \emph{Nature Methods}, 22\penalty0 (1):\penalty0 82--91, 2025.
+\newblock \doi{10.1038/s41592-024-02525-x}.
+\newblock PMID: 39609565.
+
+\bibitem[Huang et~al.(2023)Huang, Chen, Mishra, Zheng, Yu, Song, and
+  Zhou]{Huang2023LargeLanguage}
+Jie Huang, Xinyun Chen, Swaroop Mishra, Huaixiu~Steven Zheng, Adams~Wei Yu,
+  Xinying Song, and Denny Zhou.
+\newblock {Large Language Models Cannot Self-Correct Reasoning Yet}.
+\newblock arXiv preprint arXiv:2310.01798, 2023.
+
+\bibitem[Jacobsen et~al.(2022)Jacobsen, Baudis, Baynam, Beckmann, Beltran,
+  Buske, Callahan, Chute, Courtot, Danis, et~al.]{jacobsen2022ga4gh}
+J.~O.~B. Jacobsen, M.~Baudis, G.~S. Baynam, J.~S. Beckmann, S.~Beltran, O.~J.
+  Buske, T.~J. Callahan, C.~G. Chute, M.~Courtot, D.~Danis, et~al.
+\newblock The {GA4GH} phenopacket schema defines a computable representation of
+  clinical data.
+\newblock \emph{Nature Biotechnology}, 40\penalty0 (6):\penalty0 817--820,
+  2022.
+\newblock \doi{10.1038/s41587-022-01357-4}.
+\newblock PMID: 35705716.
+
+\bibitem[Jain et~al.(2024)Jain, Han, Gu, Li, Yan, Zhang, Wang, Solar-Lezama,
+  Sen, and Stoica]{Jain2024LivecodebenchHolistic}
+Naman Jain, King Han, Alex Gu, Wen-Ding Li, Fanjia Yan, Tianjun Zhang, Sida
+  Wang, Armando Solar-Lezama, Koushik Sen, and Ion Stoica.
+\newblock {LiveCodeBench: Holistic and Contamination Free Evaluation of Large
+  Language Models for Code}.
+\newblock arXiv preprint arXiv:2403.07974, 2024.
+
+\bibitem[Jergas \& Baethge(2015)Jergas and Baethge]{jergas2015quotation}
+H.~Jergas and C.~Baethge.
+\newblock Quotation accuracy in medical journal articles-a systematic review
+  and meta-analysis.
+\newblock \emph{PeerJ}, 3:\penalty0 e1364, 2015.
+\newblock \doi{10.7717/peerj.1364}.
+\newblock PMID: 26528420.
+
+\bibitem[Jin et~al.(2023)Jin, Yang, Chen, and Lu]{Jin2023GenegptAugmenting}
+Qiao Jin, Yifan Yang, Qingyu Chen, and Zhiyong Lu.
+\newblock {GeneGPT: Augmenting Large Language Models with Domain Tools for
+  Improved Access to Biomedical Information}.
+\newblock arXiv preprint arXiv:2304.09667, 2023.
+
+\bibitem[Joshi et~al.(2026)Joshi, Shethia, Dao, and Lam]{joshi2026sliders}
+Harshit Joshi, Priyank Shethia, Jadelynn Dao, and Monica~S. Lam.
+\newblock {SLIDERS}: Evidence synthesis with autonomous database reconciliation
+  for systematic reviews.
+\newblock arXiv, 2026.
+
+\bibitem[Khattab et~al.(2023)Khattab, Singhvi, Maheshwari, Zhang, Santhanam,
+  Vardhamanan, Haq, Sharma, Joshi, Moazam, et~al.]{Khattab2023DspyCompiling}
+Omar Khattab, Arnav Singhvi, Paridhi Maheshwari, Zhiyuan Zhang, Keshav
+  Santhanam, Sri Vardhamanan, Saiful Haq, Ashutosh Sharma, Thomas~T. Joshi,
+  Hanna Moazam, et~al.
+\newblock {DSPy: Compiling Declarative Language Model Calls into Self-Improving
+  Pipelines}.
+\newblock arXiv preprint arXiv:2310.03714, 2023.
+
+\bibitem[Kim et~al.(2024{\natexlab{a}})Kim, Shrestha, Foty, DeLay, and
+  Seyfert-Margolis]{Kim2024StructuredExtraction}
+Edward Kim, Manil Shrestha, Richard Foty, Tom DeLay, and Vicki
+  Seyfert-Margolis.
+\newblock {Structured Extraction of Real World Medical Knowledge using LLMs for
+  Summarization and Search}.
+\newblock arXiv preprint arXiv:2412.15256, 2024{\natexlab{a}}.
+
+\bibitem[Kim et~al.(2024{\natexlab{b}})Kim, Wang, Weng, and
+  Liu]{Kim2024AssessingUtility}
+Junyoung Kim, Kai Wang, Chunhua Weng, and Cong Liu.
+\newblock {Assessing the utility of large language models for phenotype-driven
+  gene prioritization in the diagnosis of rare genetic disease}.
+\newblock \emph{The American Journal of Human Genetics}, 111:\penalty0
+  2190--2202, 2024{\natexlab{b}}.
+\newblock \doi{10.1016/j.ajhg.2024.08.010}.
+
+\bibitem[Konet et~al.(2024)Konet, Thomas, Gartlehner, Kahwati, Hilscher,
+  Kugley, Crotty, Viswanathan, and Chew]{Konet2024PerformanceTwo}
+Amanda Konet, Ian Thomas, Gerald Gartlehner, Leila Kahwati, Rainer Hilscher,
+  Shannon Kugley, Karen Crotty, Meera Viswanathan, and Robert Chew.
+\newblock {Performance of two large language models for data extraction in
+  evidence synthesis}.
+\newblock \emph{Research Synthesis Methods}, 15:\penalty0 818--824, 2024.
+\newblock \doi{10.1002/jrsm.1732}.
+
+\bibitem[Köhler et~al.(2009)Köhler, Schulz, Krawitz, Bauer, Dölken, Ott,
+  Mundlos, Horn, Mundlos, and Robinson]{Khler2009ClinicalDiagnostics}
+Sebastian Köhler, Marcel~H. Schulz, Peter Krawitz, Sebastian Bauer, Sandra
+  Dölken, Claus~E. Ott, Christine Mundlos, Denise Horn, Stefan Mundlos, and
+  Peter~N. Robinson.
+\newblock {Clinical Diagnostics in Human Genetics with Semantic Similarity
+  Searches in Ontologies}.
+\newblock \emph{The American Journal of Human Genetics}, 85:\penalty0 457--464,
+  2009.
+\newblock \doi{10.1016/j.ajhg.2009.09.003}.
+
+\bibitem[Landrum et~al.(2025)Landrum, Chitipiralla, Kaur, Brown, Chen, Hart,
+  Hoffman, Jang, Liu, Maddipatla, et~al.]{landrum2025clinvar}
+M.~J. Landrum, S.~Chitipiralla, K.~Kaur, G.~Brown, C.~Chen, J.~Hart,
+  D.~Hoffman, W.~Jang, C.~Liu, Z.~Maddipatla, et~al.
+\newblock {ClinVar}: updates to support classifications of both germline and
+  somatic variants.
+\newblock \emph{Nucleic Acids Research}, 53:\penalty0 D1313--D1321, 2025.
+\newblock \doi{10.1093/nar/gkae1090}.
+\newblock PMID: 39578691.
+
+\bibitem[Landrum et~al.(2017)Landrum, Lee, Benson, Brown, Chao, Chitipiralla,
+  Gu, Hart, Hoffman, Jang, et~al.]{Landrum2017ClinvarImproving}
+Melissa~J Landrum, Jennifer~M Lee, Mark Benson, Garth~R Brown, Chen Chao,
+  Shanmuga Chitipiralla, Baoshan Gu, Jennifer Hart, Douglas Hoffman, Wonhee
+  Jang, et~al.
+\newblock {ClinVar: improving access to variant interpretations and supporting
+  evidence}.
+\newblock \emph{Nucleic Acids Research}, 46:\penalty0 D1062--D1067, 2017.
+\newblock \doi{10.1093/nar/gkx1153}.
+
+\bibitem[Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  Küttler, Lewis, tau Yih, Rocktäschel,
+  et~al.]{Lewis2020RetrievalaugmentedGeneration}
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+  Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen tau Yih, Tim
+  Rocktäschel, et~al.
+\newblock {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}.
+\newblock arXiv preprint arXiv:2005.11401, 2020.
+
+\bibitem[Li et~al.(2025{\natexlab{a}})Li, Zhang, Jiang, Xie, Huang, Wang, and
+  Cheng]{Li2025LaraBenchmarking}
+Kuan Li, Liwen Zhang, Yong Jiang, Pengjun Xie, Fei Huang, Shuai Wang, and
+  Minhao Cheng.
+\newblock {LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context
+  LLMs -- No Silver Bullet for LC or RAG Routing}.
+\newblock arXiv preprint arXiv:2502.09977, 2025{\natexlab{a}}.
+
+\bibitem[Li et~al.(2025{\natexlab{b}})Li, Mathrani, and
+  Susnjak]{Li2025WhatLevel}
+Lingbo Li, Anuradha Mathrani, and Teo Susnjak.
+\newblock {What Level of Automation is ``Good Enough''? A Benchmark of Large
+  Language Models for Meta-Analysis Data Extraction}.
+\newblock arXiv preprint arXiv:2507.15152, 2025{\natexlab{b}}.
+
+\bibitem[Li et~al.(2025{\natexlab{c}})Li, Wang, Liu, Huang, Lam, and
+  Luo]{li2025autopm3}
+S.~Li, Y.~Wang, C.~M. Liu, Y.~Huang, T.~W. Lam, and R.~Luo.
+\newblock {AutoPM3}: enhancing variant interpretation via {LLM}-driven {PM3}
+  evidence extraction from scientific literature.
+\newblock \emph{Bioinformatics}, 41\penalty0 (7):\penalty0 btaf382,
+  2025{\natexlab{c}}.
+\newblock \doi{10.1093/bioinformatics/btaf382}.
+\newblock PMID: 40586923.
+
+\bibitem[Li et~al.(2025{\natexlab{d}})Li, Whan, McNeil, Andrew, Dai, Fechner,
+  Paris, and Suchecki]{Li2025GenewhispererEnhancing}
+Xiaomei Li, Alex Whan, Meredith McNeil, Samuel~C. Andrew, Xiang Dai, Madeline
+  Fechner, Cécile Paris, and Rad Suchecki.
+\newblock {GeneWhisperer: Enhancing manual genome annotation with large
+  language models}.
+\newblock In \emph{openRxiv}, 2025{\natexlab{d}}.
+\newblock \doi{10.1101/2025.03.30.646211}.
+
+\bibitem[Li et~al.(2024{\natexlab{a}})Li, Cao, Ma, and Sun]{Li2024LongContext}
+Xinze Li, Yixin Cao, Yubo Ma, and Aixin Sun.
+\newblock {Long Context vs. RAG for LLMs: An Evaluation and Revisits}.
+\newblock arXiv preprint arXiv:2501.01880, 2024{\natexlab{a}}.
+
+\bibitem[Li et~al.(2024{\natexlab{b}})Li, Li, Zhang, Mei, and
+  Bendersky]{li2024retrieval}
+Zhuowan Li, Cheng Li, Mingyang Zhang, Qiaozhu Mei, and Michael Bendersky.
+\newblock Retrieval augmented generation or long-context {LLMs}? a
+  comprehensive study and hybrid approach.
+\newblock In \emph{EMNLP 2024 Industry Track}, 2024{\natexlab{b}}.
+
+\bibitem[Liu et~al.(2023)Liu, Zhang, and Liang]{Liu2023EvaluatingVerifiability}
+Nelson~F. Liu, Tianyi Zhang, and Percy Liang.
+\newblock {Evaluating Verifiability in Generative Search Engines}.
+\newblock arXiv preprint arXiv:2304.09848, 2023.
+
+\bibitem[Liu et~al.(2024)Liu, Lin, Hewitt, Paranjape, Bevilacqua, Petroni, and
+  Liang]{liu2024lost}
+Nelson~F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua,
+  Fabio Petroni, and Percy Liang.
+\newblock {Lost in the Middle}: How language models use long contexts.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  2024.
+
+\bibitem[Liu et~al.(2026)Liu, Jiang, Farook, Sanchez, Pena, and
+  Lam]{liu2026datastorm}
+Shicheng Liu, Yucheng Jiang, Sajid Farook, Camila~Nicollier Sanchez, David
+  Fernando~Castro Pena, and Monica~S. Lam.
+\newblock {DataSTORM}: Deep research on large-scale databases using exploratory
+  data analysis and data storytelling.
+\newblock In \emph{COLM 2026}, 2026.
+
+\bibitem[Louden(2020)]{Louden2020MedgenNcbis}
+Diana~Nelson Louden.
+\newblock {MedGen: NCBI’s Portal to Information on Medical Conditions with a
+  Genetic Component}.
+\newblock \emph{Medical Reference Services Quarterly}, 39:\penalty0 183--191,
+  2020.
+\newblock \doi{10.1080/02763869.2020.1726152}.
+
+\bibitem[Luo et~al.(2021)Luo, Yan, Lai, Veltri, Oler, Xirasagar, Ghosh,
+  Similuk, Robinson, and Lu]{luo2021phenotagger}
+L.~Luo, S.~Yan, P.~T. Lai, D.~Veltri, A.~Oler, S.~Xirasagar, R.~Ghosh,
+  M.~Similuk, P.~N. Robinson, and Z.~Lu.
+\newblock {PhenoTagger}: a hybrid method for phenotype concept recognition
+  using human phenotype ontology.
+\newblock \emph{Bioinformatics}, 37\penalty0 (13):\penalty0 1884--1890, 2021.
+\newblock \doi{10.1093/bioinformatics/btab019}.
+\newblock PMID: 33471061.
+
+\bibitem[Lála et~al.(2023)Lála, O'Donoghue, Shtedritski, Cox, Rodriques, and
+  White]{Lla2023PaperqaRetrievalaugmented}
+Jakub Lála, Odhran O'Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel~G.
+  Rodriques, and Andrew~D. White.
+\newblock {PaperQA: Retrieval-Augmented Generative Agent for Scientific
+  Research}.
+\newblock arXiv preprint arXiv:2312.07559, 2023.
+
+\bibitem[Madaan et~al.(2023)Madaan, Tandon, Gupta, Hallinan, Gao, Wiegreffe,
+  Alon, Dziri, Prabhumoye, Yang, et~al.]{Madaan2023SelfrefineIterative}
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah
+  Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, et~al.
+\newblock {Self-Refine: Iterative Refinement with Self-Feedback}.
+\newblock arXiv preprint arXiv:2303.17651, 2023.
+
+\bibitem[Manakul et~al.(2023)Manakul, Liusie, and
+  Gales]{Manakul2023SelfcheckgptZeroresource}
+Potsawee Manakul, Adian Liusie, and Mark J.~F. Gales.
+\newblock {SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for
+  Generative Large Language Models}.
+\newblock arXiv preprint arXiv:2303.08896, 2023.
+
+\bibitem[Min et~al.(2023)Min, Krishna, Lyu, Lewis, Yih, Koh, Iyyer,
+  Zettlemoyer, and Hajishirzi]{min2023factscore}
+Sewon Min, Kalpesh Krishna, Xinxi Lyu, Mike Lewis, Wen-tau Yih, Pang~Wei Koh,
+  Mohit Iyyer, Luke Zettlemoyer, and Hannaneh Hajishirzi.
+\newblock {FActScore}: Fine-grained atomic evaluation of factual precision in
+  long form text generation.
+\newblock In \emph{EMNLP 2023}, 2023.
+
+\bibitem[Murphy et~al.(2024)Murphy, Schilder, and
+  Skene]{Murphy2024HarnessingGenerative}
+Kitty~B Murphy, Brian~M Schilder, and Nathan~G Skene.
+\newblock {Harnessing generative AI to annotate the severity of all phenotypic
+  abnormalities within the Human Phenotype Ontology}.
+\newblock In \emph{openRxiv}, 2024.
+\newblock \doi{10.1101/2024.06.10.24308475}.
+
+\bibitem[Nakano et~al.(2021)Nakano, Hilton, Balaji, Wu, Ouyang, Kim, Hesse,
+  Jain, Kosaraju, Saunders, et~al.]{Nakano2021WebgptBrowserassisted}
+Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina
+  Kim, Christopher Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders,
+  et~al.
+\newblock {WebGPT: Browser-assisted question-answering with human feedback}.
+\newblock arXiv preprint arXiv:2112.09332, 2021.
+
+\bibitem[Niyonkuru et~al.(2025)Niyonkuru, Caufield, Carmody, Gargano, Toro,
+  Whetzel, Blau, Soto~Gomez, Casiraghi, Chimirri,
+  et~al.]{niyonkuru2025leveraging}
+E.~Niyonkuru, J.~H. Caufield, L.~C. Carmody, M.~A. Gargano, S.~Toro, P.~L.
+  Whetzel, H.~Blau, M.~Soto~Gomez, E.~Casiraghi, L.~Chimirri, et~al.
+\newblock Leveraging generative {AI} to assist biocuration of medical actions
+  for rare disease.
+\newblock \emph{Bioinformatics Advances}, 5\penalty0 (1):\penalty0 vbaf141,
+  2025.
+\newblock \doi{10.1093/bioadv/vbaf141}.
+\newblock PMID: 40621601.
+
+\bibitem[Opsahl-Ong et~al.(2024)Opsahl-Ong, Ryan, Purtell, Broman, Potts,
+  Zaharia, and Khattab]{Opsahlong2024OptimizingInstructions}
+Krista Opsahl-Ong, Michael~J Ryan, Josh Purtell, David Broman, Christopher
+  Potts, Matei Zaharia, and Omar Khattab.
+\newblock {Optimizing Instructions and Demonstrations for Multi-Stage Language
+  Model Programs}.
+\newblock arXiv preprint arXiv:2406.11695, 2024.
+
+\bibitem[Oren et~al.(2024)Oren, Meister, Chatterji, Ladhak, and
+  Hashimoto]{oren2024proving}
+Yonatan Oren, Nicole Meister, Niladri Chatterji, Faisal Ladhak, and
+  Tatsunori~B. Hashimoto.
+\newblock Proving test set contamination in black box language models.
+\newblock In \emph{ICLR 2024}, 2024.
+
+\bibitem[Panickssery et~al.(2024)Panickssery, Bowman, and
+  Feng]{panickssery2024llm}
+Arjun Panickssery, Samuel~R. Bowman, and Shi Feng.
+\newblock {LLM} evaluators recognize and favor their own generations.
+\newblock In \emph{NeurIPS 2024}, 2024.
+
+\bibitem[Pryzant et~al.(2023)Pryzant, Iter, Li, Lee, Zhu, and
+  Zeng]{Pryzant2023AutomaticPrompt}
+Reid Pryzant, Dan Iter, Jerry Li, Yin~Tat Lee, Chenguang Zhu, and Michael Zeng.
+\newblock {Automatic Prompt Optimization with ``Gradient Descent'' and Beam
+  Search}.
+\newblock arXiv preprint arXiv:2305.03495, 2023.
+
+\bibitem[Queen et~al.(2025)Queen, Zhang, and Zou]{queen2025cgbench}
+Owen Queen, Harrison~G. Zhang, and James Zou.
+\newblock {CGBench}: Benchmarking language model scientific reasoning for
+  clinical genetics research.
+\newblock In \emph{NeurIPS 2025}, 2025.
+
+\bibitem[Rashkin et~al.(2021)Rashkin, Nikolaev, Lamm, Aroyo, Collins, Das,
+  Petrov, Tomar, Turc, and Reitter]{Rashkin2021MeasuringAttribution}
+Hannah Rashkin, Vitaly Nikolaev, Matthew Lamm, Lora Aroyo, Michael Collins,
+  Dipanjan Das, Slav Petrov, Gaurav~Singh Tomar, Iulia Turc, and David Reitter.
+\newblock {Measuring Attribution in Natural Language Generation Models}.
+\newblock arXiv preprint arXiv:2112.12870, 2021.
+
+\bibitem[Ravaut et~al.(2024)Ravaut, Ding, Jiao, Chen, Li, Zhao, Qin, Xiong, and
+  Joty]{Ravaut2024ComprehensiveSurvey}
+Mathieu Ravaut, Bosheng Ding, Fangkai Jiao, Hailin Chen, Xingxuan Li, Ruochen
+  Zhao, Chengwei Qin, Caiming Xiong, and Shafiq Joty.
+\newblock {A Comprehensive Survey of Contamination Detection Methods in Large
+  Language Models}.
+\newblock arXiv preprint arXiv:2404.00699, 2024.
+
+\bibitem[Roberts et~al.(2023)Roberts, Thakur, Herlihy, White, and
+  Dooley]{Roberts2023DataContamination}
+Manley Roberts, Himanshu Thakur, Christine Herlihy, Colin White, and Samuel
+  Dooley.
+\newblock {Data Contamination Through the Lens of Time}.
+\newblock arXiv preprint arXiv:2310.10628, 2023.
+
+\bibitem[Robinson et~al.(2008)Robinson, K{\"{o}}hler, Bauer, Seelow, Horn, and
+  Mundlos]{robinson2008human}
+P.~N. Robinson, S.~K{\"{o}}hler, S.~Bauer, D.~Seelow, D.~Horn, and S.~Mundlos.
+\newblock The {Human Phenotype Ontology}: a tool for annotating and analyzing
+  human hereditary disease.
+\newblock \emph{American Journal of Human Genetics}, 83\penalty0 (5):\penalty0
+  610--615, 2008.
+\newblock \doi{10.1016/j.ajhg.2008.09.017}.
+\newblock PMID: 18950739.
+
+\bibitem[Rosonovski et~al.(2024)Rosonovski, Levchenko, Bhatnagar,
+  Chandrasekaran, Faulk, Hassan, Jeffryes, Mubashar, Nassar,
+  Jayaprabha~Palanisamy, et~al.]{rosonovski2024europe}
+S.~Rosonovski, M.~Levchenko, R.~Bhatnagar, U.~Chandrasekaran, L.~Faulk,
+  I.~Hassan, M.~Jeffryes, S.~I. Mubashar, M.~Nassar, M.~Jayaprabha~Palanisamy,
+  et~al.
+\newblock {Europe PMC} in 2023.
+\newblock \emph{Nucleic Acids Research}, 52:\penalty0 D1668--D1676, 2024.
+\newblock \doi{10.1093/nar/gkad1085}.
+\newblock PMID: 37994696.
+
+\bibitem[Sainz et~al.(2024)Sainz, Campos, Garc{\'{\i}}a-Ferrero, Etxaniz,
+  de~Lacalle, and Agirre]{sainz2024nlp}
+Oscar Sainz, Jon~Ander Campos, Iker Garc{\'{\i}}a-Ferrero, Julen Etxaniz,
+  Oier~Lopez de~Lacalle, and Eneko Agirre.
+\newblock {NLP} evaluation in trouble: On the need to measure {LLM} data
+  contamination for each benchmark.
+\newblock In \emph{EMNLP 2024 Findings}, 2024.
+
+\bibitem[Sayers et~al.(2026)Sayers, Bolton, Fine, Kelly, Kim, Landrum, Lathrop,
+  Malheiro, Murphy, Phan, et~al.]{sayers2026database}
+E.~W. Sayers, E.~E. Bolton, A.~M. Fine, C.~Kelly, S.~Kim, M.~Landrum,
+  S.~Lathrop, A.~Malheiro, T.~D. Murphy, L.~Phan, et~al.
+\newblock Database resources of the {National Center for Biotechnology
+  Information} in 2026.
+\newblock \emph{Nucleic Acids Research}, 54:\penalty0 D20--D27, 2026.
+\newblock \doi{10.1093/nar/gkaf1060}.
+\newblock PMID: 41385079.
+
+\bibitem[Scherbakov et~al.(2025)Scherbakov, Hubig, Jansari, Bakumenko, and
+  Lenert]{scherbakov2025emergence}
+D.~Scherbakov, N.~Hubig, V.~Jansari, A.~Bakumenko, and L.~A. Lenert.
+\newblock The emergence of large language models as tools in literature
+  reviews: a large language model-assisted systematic review.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  32\penalty0 (6):\penalty0 1071--1086, 2025.
+\newblock \doi{10.1093/jamia/ocaf063}.
+\newblock PMID: 40332983.
+
+\bibitem[Seal et~al.(2023)Seal, Braschi, Gray, Jones, Tweedie, Haim-Vilmovsky,
+  and Bruford]{seal2023genenames}
+R.~L. Seal, B.~Braschi, K.~Gray, T.~E.~M. Jones, S.~Tweedie, L.~Haim-Vilmovsky,
+  and E.~A. Bruford.
+\newblock Genenames.org: the {HGNC} resources in 2023.
+\newblock \emph{Nucleic Acids Research}, 51:\penalty0 D1003--D1009, 2023.
+\newblock \doi{10.1093/nar/gkac888}.
+\newblock PMID: 36243972.
+
+\bibitem[Shankar et~al.(2024)Shankar, Zamfirescu-Pereira, Hartmann,
+  Parameswaran, and Arawjo]{shankar2024who}
+Shreya Shankar, J.~D. Zamfirescu-Pereira, Bj{\"{o}}rn Hartmann, Aditya~G.
+  Parameswaran, and Ian Arawjo.
+\newblock Who validates the validators? aligning {LLM}-assisted evaluation of
+  {LLM} outputs with human preferences.
+\newblock arXiv, 2024.
+
+\bibitem[Shankar et~al.(2025)Shankar, Chambers, Shah, Parameswaran, and
+  Wu]{shankar2025docetl}
+Shreya Shankar, Tristan Chambers, Tarak Shah, Aditya~G. Parameswaran, and
+  Eugene Wu.
+\newblock {DocETL}: Agentic query rewriting and evaluation for complex document
+  processing.
+\newblock \emph{Proceedings of the VLDB Endowment}, 18\penalty0 (9), 2025.
+
+\bibitem[Shao et~al.(2024)Shao, Jiang, Kanell, Xu, Khattab, and
+  Lam]{shao2024assisting}
+Yijia Shao, Yucheng Jiang, Theodore~A. Kanell, Peter Xu, Omar Khattab, and
+  Monica~S. Lam.
+\newblock Assisting in writing {Wikipedia}-like articles from scratch with
+  large language models.
+\newblock In \emph{NAACL 2024}, 2024.
+
+\bibitem[Shi et~al.(2023)Shi, Ajith, Xia, Huang, Liu, Blevins, Chen, and
+  Zettlemoyer]{Shi2023DetectingPretraining}
+Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra
+  Blevins, Danqi Chen, and Luke Zettlemoyer.
+\newblock {Detecting Pretraining Data from Large Language Models}.
+\newblock arXiv preprint arXiv:2310.16789, 2023.
+
+\bibitem[Shinn et~al.(2023)Shinn, Cassano, Berman, Gopinath, Narasimhan, and
+  Yao]{Shinn2023ReflexionLanguage}
+Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik
+  Narasimhan, and Shunyu Yao.
+\newblock {Reflexion: Language Agents with Verbal Reinforcement Learning}.
+\newblock arXiv preprint arXiv:2303.11366, 2023.
+
+\bibitem[Shyr et~al.(2024)Shyr, Hu, Bastarache, Cheng, Hamid, Harris, and
+  Xu]{Shyr2024IdentifyingExtracting}
+Cathy Shyr, Yan Hu, Lisa Bastarache, Alex Cheng, Rizwan Hamid, Paul Harris, and
+  Hua Xu.
+\newblock {Identifying and Extracting Rare Diseases and Their Phenotypes with
+  Large Language Models}.
+\newblock \emph{Journal of Healthcare Informatics Research}, 8:\penalty0
+  438--461, 2024.
+\newblock \doi{10.1007/s41666-023-00155-0}.
+
+\bibitem[Singh et~al.(2024)Singh, Kocyigit, Poulton, Esiobu, Lomeli, Szilvasy,
+  and Hupkes]{Singh2024EvaluationData}
+Aaditya~K. Singh, Muhammed~Yusuf Kocyigit, Andrew Poulton, David Esiobu, Maria
+  Lomeli, Gergely Szilvasy, and Dieuwke Hupkes.
+\newblock {Evaluation data contamination in LLMs: how do we measure it and
+  (when) does it matter?}
+\newblock arXiv preprint arXiv:2411.03923, 2024.
+
+\bibitem[Singh et~al.(2025)Singh, Chang, Anastasiades, Haddad, Naik, Tanaka,
+  Zamarron, Nguyen, Hwang, Dunkleberger, et~al.]{singh2025ai2}
+Amanpreet Singh, Joseph~Chee Chang, Chloe Anastasiades, Dany Haddad, Aakanksha
+  Naik, Amber Tanaka, Angele Zamarron, Cecile Nguyen, Jena~D. Hwang, Jason
+  Dunkleberger, et~al.
+\newblock {Ai2} scholar {QA}: Organized literature synthesis with attribution.
+\newblock In \emph{ACL 2025 System Demonstrations}, pp.\  513--523, 2025.
+
+\bibitem[Skarlinski et~al.(2024)Skarlinski, Cox, Laurent, Braza, Hinks,
+  Hammerling, Ponnapati, Rodriques, and White]{skarlinski2024language}
+Michael~D. Skarlinski, Sam Cox, Jon~M. Laurent, James~D. Braza, Michaela Hinks,
+  Michael~J. Hammerling, Manvitha Ponnapati, Samuel~G. Rodriques, and Andrew~D.
+  White.
+\newblock Language agents achieve superhuman synthesis of scientific knowledge.
+\newblock arXiv, 2024.
+
+\bibitem[Song et~al.(2024)Song, Kim, and Iyyer]{Song2024VeriscoreEvaluating}
+Yixiao Song, Yekyung Kim, and Mohit Iyyer.
+\newblock {VERISCORE: Evaluating the factuality of verifiable claims in
+  long-form text generation}.
+\newblock arXiv preprint arXiv:2406.19276, 2024.
+
+\bibitem[Stewart-Evans et~al.(2025)Stewart-Evans, Wilson, Langley, Prayle,
+  Hands, Exley, and Leonardi-Bee]{Stewartevans2025ExpeditingData}
+James Stewart-Evans, Emma Wilson, Tessa Langley, Andrew Prayle, Angela Hands,
+  Karen Exley, and Jo~Leonardi-Bee.
+\newblock {Expediting data extraction using a large language model (LLM) and
+  scoping review protocol: a methodological study within a complex scoping
+  review}.
+\newblock arXiv preprint arXiv:2507.06623, 2025.
+
+\bibitem[Strande et~al.(2017)Strande, Riggs, Buchanan, Ceyhan-Birsoy,
+  DiStefano, Dwight, Goldstein, Ghosh, Seifert, Sneddon,
+  et~al.]{strande2017evaluating}
+N.~T. Strande, E.~R. Riggs, A.~H. Buchanan, O.~Ceyhan-Birsoy, M.~DiStefano,
+  S.~S. Dwight, J.~Goldstein, R.~Ghosh, B.~A. Seifert, T.~P. Sneddon, et~al.
+\newblock Evaluating the clinical validity of gene-disease associations: An
+  evidence-based framework developed by the {Clinical Genome Resource}.
+\newblock \emph{American Journal of Human Genetics}, 100\penalty0 (6):\penalty0
+  895--906, 2017.
+\newblock \doi{10.1016/j.ajhg.2017.04.015}.
+\newblock PMID: 28552198.
+
+\bibitem[Sun et~al.(2024)Sun, Luo, Zhang, Li, Li, Niu, Kong, and
+  Liu]{Sun2024Docs2kgUnified}
+Qiang Sun, Yuanyi Luo, Wenxiao Zhang, Sirui Li, Jichunyang Li, Kai Niu,
+  Xiangrui Kong, and Wei Liu.
+\newblock {Docs2KG: Unified Knowledge Graph Construction from Heterogeneous
+  Documents Assisted by Large Language Models}.
+\newblock arXiv preprint arXiv:2406.02962, 2024.
+
+\bibitem[Toro et~al.(2024)Toro, Anagnostopoulos, Bello, Blumberg, Cameron,
+  Carmody, Diehl, Dooley, Duncan, Fey, et~al.]{toro2024dynamic}
+S.~Toro, A.~V. Anagnostopoulos, S.~M. Bello, K.~Blumberg, R.~Cameron,
+  L.~Carmody, A.~D. Diehl, D.~M. Dooley, W.~D. Duncan, P.~Fey, et~al.
+\newblock Dynamic retrieval augmented generation of ontologies using artificial
+  intelligence ({DRAGON}-{AI}).
+\newblock \emph{Journal of Biomedical Semantics}, 15\penalty0 (1):\penalty0 19,
+  2024.
+\newblock \doi{10.1186/s13326-024-00320-3}.
+\newblock PMID: 39415214.
+
+\bibitem[Twede et~al.(2026)Twede, Pais, Bryen, O'Heir, Smith, Paulsen,
+  Austin-Tse, Bloemendal, Simons, Hall, et~al.]{twede2026evidence}
+H.~Twede, L.~Pais, S.~Bryen, E.~O'Heir, G.~Smith, R.~Paulsen, C.~A. Austin-Tse,
+  A.~Bloemendal, C.~Simons, A.~K. Hall, et~al.
+\newblock The evidence aggregator: {AI} reasoning applied to rare disease
+  diagnostics.
+\newblock \emph{Genetics in Medicine}, 28\penalty0 (8):\penalty0 102612, 2026.
+\newblock \doi{10.1016/j.gim.2026.102612}.
+\newblock PMID: 42206490.
+
+\bibitem[Verspoor et~al.(2006)Verspoor, Cohn, Mniszewski, and
+  Joslyn]{Verspoor2006CategorizationApproach}
+Karin Verspoor, Judith Cohn, Susan Mniszewski, and Cliff Joslyn.
+\newblock {A categorization approach to automated ontological function
+  annotation}.
+\newblock \emph{Protein Science}, 15:\penalty0 1544--1549, 2006.
+\newblock \doi{10.1110/ps.062184006}.
+
+\bibitem[Wang \& Wang(2026)Wang and Wang]{wang2026pubmind}
+P.~Wang and K.~Wang.
+\newblock {PubMind}: literature-based genetic variant extraction and functional
+  annotation using large language models.
+\newblock \emph{Nature Communications}, 17\penalty0 (1), 2026.
+\newblock \doi{10.1038/s41467-026-76834-4}.
+\newblock PMID: 42754603.
+
+\bibitem[Wang et~al.(2025{\natexlab{a}})Wang, Cao, Danek, Jin, Lu, and
+  Sun]{wang2025accelerating}
+Z.~Wang, L.~Cao, B.~Danek, Q.~Jin, Z.~Lu, and J.~Sun.
+\newblock Accelerating clinical evidence synthesis with large language models.
+\newblock \emph{NPJ Digital Medicine}, 8\penalty0 (1):\penalty0 509,
+  2025{\natexlab{a}}.
+\newblock \doi{10.1038/s41746-025-01840-7}.
+\newblock PMID: 40775042.
+
+\bibitem[Wang et~al.(2025{\natexlab{b}})Wang, Jin, Wei, Tian, Lai, Zhu, Day,
+  Ross, Leaman, and Lu]{wang2025geneagent}
+Z.~Wang, Q.~Jin, C.~H. Wei, S.~Tian, P.~T. Lai, Q.~Zhu, C.~P. Day, C.~Ross,
+  R.~Leaman, and Z.~Lu.
+\newblock {GeneAgent}: self-verification language agent for gene-set analysis
+  using domain databases.
+\newblock \emph{Nature Methods}, 22\penalty0 (8):\penalty0 1677--1685,
+  2025{\natexlab{b}}.
+\newblock \doi{10.1038/s41592-025-02748-6}.
+\newblock PMID: 40721871.
+
+\bibitem[Wei et~al.(2024{\natexlab{a}})Wei, Allot, Lai, Leaman, Tian, Luo, Jin,
+  Wang, Chen, and Lu]{wei2024pubtator}
+C.~H. Wei, A.~Allot, P.~T. Lai, R.~Leaman, S.~Tian, L.~Luo, Q.~Jin, Z.~Wang,
+  Q.~Chen, and Z.~Lu.
+\newblock {PubTator} 3.0: an {AI}-powered literature resource for unlocking
+  biomedical knowledge.
+\newblock \emph{Nucleic Acids Research}, 52:\penalty0 W540--W546,
+  2024{\natexlab{a}}.
+\newblock \doi{10.1093/nar/gkae235}.
+\newblock PMID: 38572754.
+
+\bibitem[Wei et~al.(2019)Wei, Allot, Leaman, and Lu]{Wei2019PubtatorCentral}
+Chih-Hsuan Wei, Alexis Allot, Robert Leaman, and Zhiyong Lu.
+\newblock {PubTator central: automated concept annotation for biomedical full
+  text articles}.
+\newblock \emph{Nucleic Acids Research}, 47:\penalty0 W587--W593, 2019.
+\newblock \doi{10.1093/nar/gkz389}.
+
+\bibitem[Wei et~al.(2024{\natexlab{b}})Wei, Yang, Song, Lu, Hu, Huang, Tran,
+  Peng, Liu, Huang, Du, and Le]{wei2024longform}
+Jerry Wei, Chengrun Yang, Xinying Song, Yifeng Lu, Nathan Hu, Jie Huang, Dustin
+  Tran, Daiyi Peng, Ruibo Liu, Da~Huang, Cosmo Du, and Quoc~V. Le.
+\newblock Long-form factuality in large language models.
+\newblock In \emph{NeurIPS 2024}, 2024{\natexlab{b}}.
+
+\bibitem[Weng et~al.(2022)Weng, Zhu, Xia, Li, He, Liu, Sun, Liu, and
+  Zhao]{Weng2022LargeLanguage}
+Yixuan Weng, Minjun Zhu, Fei Xia, Bin Li, Shizhu He, Shengping Liu, Bin Sun,
+  Kang Liu, and Jun Zhao.
+\newblock {Large Language Models are Better Reasoners with Self-Verification}.
+\newblock arXiv preprint arXiv:2212.09561, 2022.
+
+\bibitem[Westergaard et~al.(2018)Westergaard, Stærfeldt, Tønsberg, Jensen,
+  and Brunak]{Westergaard2018ComprehensiveQuantitative}
+David Westergaard, Hans-Henrik Stærfeldt, Christian Tønsberg, Lars~Juhl
+  Jensen, and Søren Brunak.
+\newblock {A comprehensive and quantitative comparison of text-mining in 15
+  million full-text articles versus their corresponding abstracts}.
+\newblock \emph{PLOS Computational Biology}, 14:\penalty0 e1005962, 2018.
+\newblock \doi{10.1371/journal.pcbi.1005962}.
+
+\bibitem[White et~al.(2024)White, Dooley, Roberts, Pal, Feuer, Jain,
+  Shwartz-Ziv, Jain, Saifullah, Dey, et~al.]{White2024LivebenchChallenging}
+Colin White, Samuel Dooley, Manley Roberts, Arka Pal, Ben Feuer, Siddhartha
+  Jain, Ravid Shwartz-Ziv, Neel Jain, Khalid Saifullah, Sreemanti Dey, et~al.
+\newblock {LiveBench: A Challenging, Contamination-Limited LLM Benchmark}.
+\newblock arXiv preprint arXiv:2406.19314, 2024.
+
+\bibitem[Wu et~al.(2025)Wu, Wu, Wei, Zhang, Casasola, Nguyen, Riantawan, Shi,
+  Ho, and Zou]{wu2025automated}
+K.~Wu, E.~Wu, K.~Wei, A.~Zhang, A.~Casasola, T.~Nguyen, S.~Riantawan, P.~Shi,
+  D.~Ho, and J.~Zou.
+\newblock An automated framework for assessing how well {LLMs} cite relevant
+  medical references.
+\newblock \emph{Nature Communications}, 16\penalty0 (1):\penalty0 3615, 2025.
+\newblock \doi{10.1038/s41467-025-58551-6}.
+\newblock PMID: 40240349.
+
+\bibitem[Xiang et~al.(2025)Xiang, Wu, Zhang, Chen, Hong, Huang, and
+  Su]{xiang2025use}
+Zhishang Xiang, Chuanjie Wu, Qinggang Zhang, Shengyuan Chen, Zijin Hong, Xiao
+  Huang, and Jinsong Su.
+\newblock When to use graphs in {RAG}: A comprehensive analysis for graph
+  retrieval-augmented generation.
+\newblock arXiv, 2025.
+
+\bibitem[Xu et~al.(2024)Xu, Guan, Greene, and Kechadi]{Xu2024BenchmarkData}
+Cheng Xu, Shuhao Guan, Derek Greene, and M-Tahar Kechadi.
+\newblock {Benchmark Data Contamination of Large Language Models: A Survey}.
+\newblock arXiv preprint arXiv:2406.04244, 2024.
+
+\bibitem[Yan et~al.(2026)Yan, Su, Xin, Grabowska, Kerchberger, Borza, Wang,
+  Wang, Li, Lynn, et~al.]{yan2026genknowrd}
+C.~Yan, W.~C. Su, Y.~Xin, M.~E. Grabowska, V.~E. Kerchberger, V.~A. Borza,
+  J.~Wang, L.~Wang, R.~Li, J.~Lynn, et~al.
+\newblock {GEN}-{KnowRD}: Reframing {AI} for rare disease recognition.
+\newblock medRxiv, 2026.
+\newblock PMID: 41867212.
+
+\bibitem[Yang et~al.(2023)Yang, Wang, Lu, Liu, Le, Zhou, and
+  Chen]{Yang2023LargeLanguage}
+Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc~V. Le, Denny Zhou, and
+  Xinyun Chen.
+\newblock {Large Language Models as Optimizers}.
+\newblock arXiv preprint arXiv:2309.03409, 2023.
+
+\bibitem[Yang et~al.(2024)Yang, Liu, Deng, Wu, Weng, Zhou, and
+  Wang]{yang2024enhancing}
+J.~Yang, C.~Liu, W.~Deng, D.~Wu, C.~Weng, Y.~Zhou, and K.~Wang.
+\newblock Enhancing phenotype recognition in clinical notes using large
+  language models: {PhenoBCBERT} and {PhenoGPT}.
+\newblock \emph{Patterns}, 5\penalty0 (1):\penalty0 100887, 2024.
+\newblock \doi{10.1016/j.patter.2023.100887}.
+\newblock PMID: 38264716.
+
+\bibitem[Yin et~al.(2026)Yin, Leung, Pun, Chen, Kwon, Lin, and
+  Ho]{yin2026benchmarking}
+D.~Yin, M.~K.~S. Leung, D.~W.~H. Pun, F.~H. Chen, J.~Y. Kwon, X.~Lin, and
+  J.~W.~K. Ho.
+\newblock Benchmarking commercial large language models for
+  gene-disease-phenotype extraction from full-text human genetics literature.
+\newblock \emph{Quantitative Biology}, 14\penalty0 (4):\penalty0 e70050, 2026.
+\newblock \doi{10.1002/qub2.70050}.
+\newblock PMID: 42845883.
+
+\bibitem[Yu et~al.(2024)Yu, Xu, and Akkiraju]{Yu2024DefenseRag}
+Tan Yu, Anbang Xu, and Rama Akkiraju.
+\newblock {In Defense of RAG in the Era of Long-Context Language Models}.
+\newblock arXiv preprint arXiv:2409.01666, 2024.
+
+\bibitem[Yuksekgonul et~al.(2024)Yuksekgonul, Bianchi, Boen, Liu, Huang,
+  Guestrin, and Zou]{Yuksekgonul2024TextgradAutomatic}
+Mert Yuksekgonul, Federico Bianchi, Joseph Boen, Sheng Liu, Zhi Huang, Carlos
+  Guestrin, and James Zou.
+\newblock {TextGrad: Automatic ``Differentiation'' via Text}.
+\newblock arXiv preprint arXiv:2406.07496, 2024.
+
+\bibitem[Zhang et~al.(2025)Zhang, Hu, Upasani, Ma, Hong, Kamanuru, Rainton, Wu,
+  Ji, Li, et~al.]{Zhang2025AgenticContext}
+Qizheng Zhang, Changran Hu, Shubhangi Upasani, Boyuan Ma, Fenglu Hong,
+  Vamsidhar Kamanuru, Jay Rainton, Chen Wu, Mengmeng Ji, Hanchen Li, et~al.
+\newblock {Agentic Context Engineering: Evolving Contexts for Self-Improving
+  Language Models}.
+\newblock arXiv preprint arXiv:2510.04618, 2025.
+
+\bibitem[Zhang et~al.(2026)Zhang, Moylan, Xiong, Mei, Luo, and
+  Ma]{zhang2026flyaoc}
+Xingjian Zhang, Sophia Moylan, Ziyang Xiong, Qiaozhu Mei, Yichen Luo, and
+  Jiaqi~W. Ma.
+\newblock {FlyAOC}: Evaluating agentic ontology curation of {Drosophila}
+  scientific knowledge bases.
+\newblock In \emph{NeurIPS 2026 Evaluations \& Datasets}, 2026.
+
+\bibitem[Zhang et~al.(2024)Zhang, Sun, Chen, Pfister, Zhang, and
+  Arik]{Zhang2024ChainAgents}
+Yusen Zhang, Ruoxi Sun, Yanfei Chen, Tomas Pfister, Rui Zhang, and Sercan~Ö.
+  Arik.
+\newblock {Chain of Agents: Large Language Models Collaborating on Long-Context
+  Tasks}.
+\newblock arXiv preprint arXiv:2406.02818, 2024.
+
+\bibitem[Zhao et~al.(2023)Zhao, Huang, Xu, Lin, Liu, and
+  Huang]{Zhao2023ExpelLlm}
+Andrew Zhao, Daniel Huang, Quentin Xu, Matthieu Lin, Yong-Jin Liu, and Gao
+  Huang.
+\newblock {ExpeL: LLM Agents Are Experiential Learners}.
+\newblock arXiv preprint arXiv:2308.10144, 2023.
+
+\bibitem[Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
+  Li, Xing, et~al.]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao
+  Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric~P. Xing, et~al.
+\newblock Judging {LLM}-as-a-judge with {MT}-bench and {Chatbot Arena}.
+\newblock In \emph{NeurIPS 2023 Datasets and Benchmarks}, 2023.
+
+\bibitem[Zhou et~al.(2023)Zhou, Zhu, Chen, Chen, Zhao, Chen, Lin, Wen, and
+  Han]{Zhou2023DontMake}
+Kun Zhou, Yutao Zhu, Zhipeng Chen, Wentong Chen, Wayne~Xin Zhao, Xu~Chen,
+  Yankai Lin, Ji-Rong Wen, and Jiawei Han.
+\newblock {Don't Make Your LLM an Evaluation Benchmark Cheater}.
+\newblock arXiv preprint arXiv:2311.01964, 2023.
+
+\bibitem[Zhou et~al.(2022)Zhou, Muresanu, Han, Paster, Pitis, Chan, and
+  Ba]{Zhou2022LargeLanguage}
+Yongchao Zhou, Andrei~Ioan Muresanu, Ziwen Han, Keiran Paster, Silviu Pitis,
+  Harris Chan, and Jimmy Ba.
+\newblock {Large Language Models Are Human-Level Prompt Engineers}.
+\newblock arXiv preprint arXiv:2211.01910, 2022.
+
+\end{thebibliography}

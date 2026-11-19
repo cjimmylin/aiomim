@@ -1,0 +1,107 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2025_conference,times}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+%%%%%%%%% TITLE - PLEASE UPDATE TITLE HERE
+\title{My Title}
+
+\author{Ambitious AI Researcher\\
+AI Research Institute\\
+123 AI Avenue, ML City\\
+\texttt{researcher@institute.ai}
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+%%%%%%%%% ABSTRACT %%%%%%%%%
+Abstract here.
+%%%%%%%%% ABSTRACT %%%%%%%%%
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+%%%%%%%%% INTRODUCTION %%%%%%%%%
+Curated knowledge bases are written by experts who read papers and record, entry by entry, what each paper showed. Online Mendelian Inheritance in Man (OMIM), the reference catalogue of human genes and genetic disorders \citep{Amberger2014OmimorgOnline,amberger2019omim,hamosh2021online}, is built this way, and so, in part, are the resources that record variant interpretations \citep{Landrum2017ClinvarImproving,landrum2025clinvar}, phenotype annotations \citep{robinson2008human,gargano2024human} and the validity of gene--disease associations \citep{strande2017evaluating}. Automated text mining already annotates genes, variants and diseases across PubMed abstracts and open-access full text \citep{Wei2019PubtatorCentral,wei2024pubtator,allot2023tracking}, and language models can now read the papers themselves. Many system designs have been proposed for turning a set of documents into structured, cited text: retrieval-augmented or long-context reading \citep{Lewis2020RetrievalaugmentedGeneration,li2024retrieval}, extraction into a graph or a table before writing \citep{edge2024local,shankar2025docetl,joshi2026sliders}, agents that decide what to read \citep{Nakano2021WebgptBrowserassisted,Lla2023PaperqaRetrievalaugmented,skarlinski2024language}, drafting first and verifying afterwards \citep{Gao2022RarrResearching,dhuliawala2024chainofverification}, and prompts optimised from examples \citep{Khattab2023DspyCompiling,agrawal2026gepa}. Reviews of generative models for evidence synthesis and literature review document the spread of such tools \citep{Clark2025GenerativeArtificial,scherbakov2025emergence,cao2025automation,wang2025accelerating}.
+
+These designs have been evaluated on different tasks, with different models, retrieval stacks and scoring, so their results cannot be compared. The closest work in genetics and biology varies several of these at once or scores against something other than what curators wrote about each paper: FlyAOC compares memorisation, pipeline and agent harnesses against FlyBase curators \citep{zhang2026flyaoc}; GEN-KnowRD compares generated rare-disease profiles with curated reports \citep{yan2026genknowrd}; WikiCrow writes gene articles that are compared against Wikipedia \citep{skarlinski2024language}; and \citet{groza2026systematic} assess what models remember about rare-disease genes and phenotypes. Three questions therefore remain open for evidence-grounded knowledge-base writing. With the model, the sources, the guards and the scoring held fixed, how much does the generation strategy matter? What limits agreement with what experts wrote: the strategy, or what the strategy was given to read? And which errors does a claim-level audit against the cited source catch, and which can it not see?
+
+We answer them with a controlled benchmark in which the generation strategy is the only variable. Each of 100 OMIM phenotype entries with 2--12 references is written from its header and exactly the papers its curators cited, with the causal gene withheld; of the 515 cited papers, 96 (19\%) are readable in full through open access, 345 as an abstract only and 74 as a title only. One model writes every draft, under the same mechanical guards, and every draft passes through the same claim-level audit and the same scoring. The strategies form three paradigms (\emph{read and write}: direct reading and an agentic curator; \emph{extract, then write}: an evidence graph and a case table; \emph{memory first}: recall, then verify), one control (a memory-only draft with no papers), and three add-ons each tested against its parent (second-hand evidence and a learned curation guide on direct reading; reconciliation on the case table). The primary endpoint is \emph{OMIM facts conveyed}: coverage of the facts in OMIM's allelic-variant descriptions as deposited in ClinVar. These are curator-written, variant-centred paragraphs about individual cited papers, taken from OMIM's gene entries; 476 of them are in scope, and each was split once, without sight of any draft, into a fixed list of facts (6,652 in all) that is reused for every strategy. Secondary measures cover the clinical synopsis against Human Phenotype Ontology disease annotations, allelic variants, the causal gene and the mode of inheritance.
+
+\textbf{At current open access, the reading strategies are close, and access to the source bounds agreement.} On the 93 entries that every strategy completed, direct reading conveys 49.1\% of the curator-written facts, the evidence graph 48.6\%, the agentic curator 48.4\% and the case table 47.2\%. Paired against direct reading, the evidence graph differs by $-0.5$ points (95\% interval $-1.5$ to $+0.5$), the agentic curator by $-0.6$ ($-1.3$ to $+0.0$) and the case table by $-1.9$ ($-3.1$ to $-0.8$); replicate noise alone gives a 95\% half-width of 1.0 point on such a difference over 93 entries. The two memory-first strategies convey 15.1\% and 14.6\%. The clearest evidence on access comes from a within-paper experiment: when the full text of papers that have one is hidden and the same entries are rewritten from their abstracts, coverage of the same fixed facts (46 entries, 2,120 facts) falls from 77.4\% to 31.2\%, a paired difference of $+43.9$ points ($+38.5$ to $+49.3$) in favour of full text, better on 45 entries and tied on one. Passages from later open-access papers that describe the hidden papers recover part of the loss, to 36.7\% ($+4.9$ points, $+2.8$ to $+7.1$). Consistently, when the facts direct reading missed are checked against the text available for their papers, 40\% of all reference facts are not in that text, whereas 4\% were omitted although the text states them. Across entries, differences between strategies grow where more full text is readable: among the 46 entries with no full text, the other read-and-write and extract-then-write strategies lie within one point of direct reading ($-0.2$, $-0.1$ and $+0.6$), while among the 21 entries with at least half their papers in full text the case table trails direct reading by $-6.1$ points ($-8.3$ to $-3.6$) and the agentic curator by $-2.0$ ($-3.4$ to $-0.7$). This comparison across entries is observational and confounded with entry creation date and journal. The gap of our extract-then-write implementations also depends on implementation choices: in a matched ablation on 38 entries weighted towards full text, raising extraction effort moves the evidence graph to $+1.8$ points ($+0.4$ to $+3.3$) over direct reading and the case table from $-2.3$ to $-0.2$ ($-2.4$ to $+2.1$).
+
+The memory-only control serves as a contamination check. On 20 compared entries created in 2026, it conveys 7.0\% of facts against 52.2\% for direct reading and names the causal gene with an F1 of 30.0\% against 100.0\%, so memory contributes little for the newest entries. It does not show that the reading results are free of memorisation. The audit judges 94.7--96.5\% of the claims of the read-and-write and extract-then-write strategies supported by the cited paper, against 50.8\% for the memory-only control, whose flagged claims are mostly unsupported rather than contradicted; it is run by the same model that wrote the drafts, it checks fidelity to the cited text rather than correctness, and it passed claims supported only by a later paper's description of the cited paper.
+
+Our contributions are:
+\begin{enumerate}
+\item A benchmark and harness for evidence-grounded knowledge-base writing against curator-written references, built only from public resources \citep{sayers2026database,Louden2020MedgenNcbis,rosonovski2024europe,seal2023genenames}, with a claim-level audit, fixed fact lists, and per-entry release of every draft, verdict and score.
+\item A controlled comparison of three paradigms, a control and three add-ons under one model, reporting completion (replies stopped by the model's safety filter are an outcome, not an exclusion), variance between repeated runs, and matched ablations of the extract-then-write strategies.
+\item Evidence that, at current open access, what the strategy can read rather than the strategy itself bounds agreement with curators, led by a within-paper experiment that hides full text, and that differences between strategies grow where more full text is readable.
+\item A characterisation of what the audit can and cannot see: it removes unsupported claims and flags blunt planted errors, but it passes claims supported only by a later paper's description of the cited paper, and it checks fidelity to the source, not correctness.
+\item A memory-only control analysed by entry creation date as a contamination check, and negative results, at this scale, for recall-then-verify, for a small learned curation guide and for reconciliation of the case table.
+\end{enumerate}
+
+The study is scoped to what was run: one model family wrote, audited and judged everything; no curator has read any draft, verdict or fact judgement; only open-access text without supplementary material was available; and every strategy was given the curators' reference list. The generated entries are drafts for expert review, not clinical guidance.
+%%%%%%%%% INTRODUCTION %%%%%%%%%
+
+\section{Related Work}
+\label{sec:related_work}
+%%%%%%%%% RELATED WORK %%%%%%%%%
+We organise prior work along the axes our strategies vary, and close with evaluation. Published systems were not run here; the strategies we compare are our own implementations of the ideas below.
+
+\paragraph{Language models for literature curation in genetics and biology.}
+Concept recognition against the Human Phenotype Ontology has moved from dedicated taggers \citep{luo2021phenotagger,groza2024fasthpocr} to language models \citep{groza2024evaluation,yang2024enhancing,garcia2025improving}. GPT-4 has been used to phenotype OMIM clinical summaries with agreement close to that between manual annotators \citep{Hier2024HighthroughputPhenotyping}, and prompt learning has been compared with fine-tuning for extracting rare diseases and their phenotypes \citep{Shyr2024IdentifyingExtracting}. Case-level phenotype records have a computable schema and a public corpus \citep{jacobsen2022ga4gh,danis2025corpus}, which motivates our case-table strategy. For populating and maintaining knowledge bases, structured prompting and assistant tools have been proposed \citep{caufield2024structured,caufield2024curategpt,toro2024dynamic,niyonkuru2025leveraging}, as have an agent that assists manual gene function annotation \citep{Li2025GenewhispererEnhancing}, generative annotation of the severity of ontology phenotypes \citep{Murphy2024HarnessingGenerative}, and agents for ontology curation of natural phenotypes \citep{balhoff2026frontier}; assessing the accuracy of automated ontology annotation is a long-standing problem \citep{Verspoor2006CategorizationApproach}. Closer to clinical genetics, language models have been applied to extracting variant, gene--disease and gene--phenotype evidence from papers \citep{li2025autopm3,furlan2025eagleai,wang2026pubmind,yin2026benchmarking}, benchmarked on clinical-genetics reasoning \citep{queen2025cgbench}, given database tools for genomics questions \citep{Jin2023GenegptAugmenting}, and evaluated for gene-set function \citep{hu2025evaluation}, gene prioritisation \citep{Kim2024AssessingUtility} and rare-disease diagnostics \citep{twede2026evidence}. The four closest studies differ from ours in what is held fixed and what serves as the reference. FlyAOC scores memorisation, pipeline and agent harnesses against FlyBase curators \citep{zhang2026flyaoc}; GEN-KnowRD generates schema-guided rare-disease profiles, assesses their quality against curated knowledge and builds a knowledge base from them \citep{yan2026genknowrd}; WikiCrow writes gene articles compared against Wikipedia \citep{skarlinski2024language}; and \citet{groza2026systematic} measure model memory of rare-disease genes and phenotypes. In our benchmark the cited papers are fixed, the reference is the curators' own per-paper text and structured fields, and the generation strategy is the only variable.
+
+\paragraph{Intermediate representations versus long-context reading.}
+Retrieval augmentation supplies a model with selected passages \citep{Lewis2020RetrievalaugmentedGeneration}, possibly retrieving on demand and critiquing its own output \citep{Asai2023SelfragLearning}. Whether this beats placing all documents in a long context is contested: one re-evaluation finds long context generally ahead on question answering, especially for Wikipedia-based questions \citep{Li2024LongContext}; others argue that very long contexts dilute focus on relevant information \citep{Yu2024DefenseRag}, propose hybrids \citep{li2024retrieval}, report no single winner \citep{Li2025LaraBenchmarking}, or study how models use positions in long contexts \citep{liu2024lost}; multi-agent processing of long inputs is a further option \citep{Zhang2024ChainAgents}. Graph intermediates are used for query-focused summarisation \citep{edge2024local}, for retrieval inspired by hippocampal indexing \citep{Gutirrez2024HipporagNeurobiologically} and for knowledge-graph construction from heterogeneous documents \citep{Sun2024Docs2kgUnified} or patient records grounded to ontologies \citep{Kim2024StructuredExtraction}, and systematic comparisons ask when graphs help \citep{han2025rag,xiang2025use}. Table- and database-centred pipelines rewrite document-processing operations agentically \citep{shankar2025docetl}, reconcile extracted databases for systematic reviews \citep{joshi2026sliders} or carry out deep research over large databases \citep{liu2026datastorm}. Studies of extraction for evidence synthesis report high accuracy on simple, pre-specified items \citep{Konet2024PerformanceTwo,Stewartevans2025ExpeditingData} but lower accuracy on complex items and poor recall from omitted information \citep{Stewartevans2025ExpeditingData,Li2025WhatLevel}. Agentic and retrieval-augmented systems write cited answers or articles from the scientific literature \citep{Lla2023PaperqaRetrievalaugmented,Asai2024OpenscholarSynthesizing,shao2024assisting,singh2025ai2,skarlinski2024language}. These comparisons are on question answering, summarisation or open retrieval, where the model, the retrieval and the scoring change together. We hold the papers fixed, compare our extract-then-write implementations with direct reading and an agentic curator on knowledge-base writing, and report a matched ablation that separates the intermediate representation from extraction effort.
+
+\paragraph{Memory, verification and contamination.}
+Draft-then-verify methods plan verification questions \citep{dhuliawala2024chainofverification}, find attribution and post-edit unsupported content \citep{Gao2022RarrResearching}, detect hallucination from the consistency of sampled outputs \citep{Manakul2023SelfcheckgptZeroresource}, refine with self-feedback \citep{Madaan2023SelfrefineIterative}, verify answers to reasoning tasks \citep{Weng2022LargeLanguage}, or check gene-set analyses against domain databases \citep{wang2025geneagent}; intrinsic self-correction of reasoning without external feedback has been questioned \citep{Huang2023LargeLanguage}. Our recall-then-verify strategy checks a memory draft against the cited papers and may restate, correct or delete claims, but not add content from the papers. Because curated knowledge bases are public, memory is also a confound. Surveys catalogue contamination and its detection \citep{Xu2024BenchmarkData,Deng2024UnveilingSpectrum,Ravaut2024ComprehensiveSurvey,Cheng2025SurveyData,Chen2025RecentAdvances}; methods detect pretraining data or contamination from black-box access \citep{Shi2023DetectingPretraining,oren2024proving,golchin2024time,Golchin2025DataContamination}, argue for measuring it per benchmark \citep{sainz2024nlp,Singh2024EvaluationData}, warn against misleading benchmark use \citep{Zhou2023DontMake}, exploit training cut-offs as a natural experiment \citep{Roberts2023DataContamination}, or collect new test items over time \citep{Jain2024LivecodebenchHolistic,White2024LivebenchChallenging}. We adopt the time-based view within the task: a memory-only control analysed by entry creation date, and entries created in 2026.
+
+\paragraph{Supervision by prompt optimisation.}
+Instructions can be searched or optimised by language models \citep{Zhou2022LargeLanguage,Pryzant2023AutomaticPrompt,Yang2023LargeLanguage}, evolved \citep{Guo2023EvopromptConnecting,Fernando2023PromptbreederSelfreferential,agrawal2026gepa}, compiled with demonstrations in multi-stage programs \citep{Khattab2023DspyCompiling,Opsahlong2024OptimizingInstructions}, or updated from textual feedback \citep{Yuksekgonul2024TextgradAutomatic}; agents can also learn from verbal reflection, accumulated experience or evolving context playbooks \citep{Shinn2023ReflexionLanguage,Zhao2023ExpelLlm,Zhang2025AgenticContext}. Our learned curation guide is a deliberately small instance of this idea (two reflection rounds on 27 training entries, tested on held-out entries); its result says nothing about better-resourced prompt optimisation.
+
+\paragraph{Evaluating cited long-form text.}
+Attribution to identified sources was formalised as a human evaluation framework \citep{Rashkin2021MeasuringAttribution}. Factuality metrics decompose long-form text into atomic claims and verify each against a knowledge source \citep{min2023factscore,wei2024longform}, and VeriScore restricts this to verifiable claims \citep{Song2024VeriscoreEvaluating}. Citation quality has been measured for models that generate text with citations \citep{gao2023enabling}, in human audits of generative search engines that check whether statements are supported by their citations \citep{Liu2023EvaluatingVerifiability}, and for medical references \citep{wu2025automated}; the accuracy with which medical articles quote their sources has itself been reviewed systematically \citep{jergas2015quotation}, which bears on our second-hand evidence. Ontology-aware comparison of annotations credits near misses through the hierarchy or semantic similarity \citep{Verspoor2006CategorizationApproach,Khler2009ClinicalDiagnostics}. The validity of model judges is a concern in its own right: work studies model judges against human preferences \citep{zheng2023judging,shankar2024who} and reports that evaluators recognise and favour their own generations \citep{panickssery2024llm}. Our audit and fact judgements use the same model family that wrote the drafts, with no human validation; we therefore report judge and replicate variation, fixed fact lists shared by all strategies, and planted-error tests, and we describe audit verdicts as \emph{judged supported}. Text mining yields more from full text than from abstracts, whose structure and content differ \citep{Cohen2010StructuralContent,Westergaard2018ComprehensiveQuantitative}; our access experiments measure this effect for knowledge-base writing.
+%%%%%%%%% RELATED WORK %%%%%%%%%
+
+\section{Methodology}
+\label{sec:method}
+%%%%%%%%% METHOD %%%%%%%%%
+Methodology here.
+%%%%%%%%% METHOD %%%%%%%%%
+
+\section{Experiments}
+\label{sec:experiments}
+%%%%%%%%% EXPERIMENTS %%%%%%%%%
+Experimental setup, results, and analysis here.
+%%%%%%%%% EXPERIMENTS %%%%%%%%%
+
+\section{Conclusion}
+\label{sec:conclusion}
+%%%%%%%%% CONCLUSION %%%%%%%%%
+Conclusion here.
+%%%%%%%%% CONCLUSION %%%%%%%%%
+
+%%%%%%%%% REFERENCES %%%%%%%%%
+\bibliography{references}
+\bibliographystyle{iclr2025_conference}
+%%%%%%%%% REFERENCES %%%%%%%%%
+
+%%%%%%%%% Appendix %%%%%%%%%
+% If you want to add appendix, uncomment the following lines:
+% \appendix
+% \section{xxx}
+%%%%%%%%% Appendix %%%%%%%%%
+
+\end{document}
