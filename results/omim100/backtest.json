@@ -1,0 +1,130 @@
+{
+  "entries": [
+    {
+      "mim": "500001",
+      "title": "LEBER OPTIC ATROPHY AND DYSTONIA",
+      "as_of": 2006,
+      "n_baseline": 5,
+      "held_out": 3,
+      "found": 3,
+      "screened_recall": 1.0,
+      "n_screened": 15,
+      "n_proposals": 4,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "as_of": 2023,
+      "n_baseline": 7,
+      "held_out": 3,
+      "found": 0,
+      "screened_recall": 1.0,
+      "n_screened": 28,
+      "n_proposals": 2,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "607876",
+      "title": "EPILEPSY, FAMILIAL ADULT MYOCLONIC, 2",
+      "as_of": 2012,
+      "n_baseline": 7,
+      "held_out": 3,
+      "found": 3,
+      "screened_recall": 1.0,
+      "n_screened": 51,
+      "n_proposals": 7,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "607721",
+      "title": "NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1",
+      "as_of": 2014,
+      "n_baseline": 7,
+      "held_out": 4,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 59,
+      "n_proposals": 8,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "615710",
+      "title": "MITCHELL-RILEY SYNDROME",
+      "as_of": 2010,
+      "n_baseline": 7,
+      "held_out": 3,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 27,
+      "n_proposals": 8,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "614701",
+      "title": "CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS",
+      "as_of": 2020,
+      "n_baseline": 7,
+      "held_out": 3,
+      "found": 3,
+      "screened_recall": 1.0,
+      "n_screened": 26,
+      "n_proposals": 5,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "616326",
+      "title": "MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY",
+      "as_of": 2010,
+      "n_baseline": 8,
+      "held_out": 3,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 35,
+      "n_proposals": 6,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "618184",
+      "title": "NEUROPATHY, CONGENITAL HYPOMYELINATING, 2",
+      "as_of": 2004,
+      "n_baseline": 3,
+      "held_out": 2,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 34,
+      "n_proposals": 3,
+      "paragraphs_flagged": 0
+    },
+    {
+      "mim": "620022",
+      "title": "STICKLER SYNDROME, TYPE VI",
+      "as_of": 2021,
+      "n_baseline": 3,
+      "held_out": 2,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 32,
+      "n_proposals": 4,
+      "paragraphs_flagged": 2
+    },
+    {
+      "mim": "620249",
+      "title": "CONGENITAL MYOPATHY 10B, MILD VARIANT",
+      "as_of": 2018,
+      "n_baseline": 3,
+      "held_out": 2,
+      "found": 2,
+      "screened_recall": 1.0,
+      "n_screened": 45,
+      "n_proposals": 7,
+      "paragraphs_flagged": 0
+    }
+  ],
+  "n_entries": 10,
+  "held_out": 28,
+  "found": 21,
+  "recall": 0.75,
+  "n_proposals": 54,
+  "proposals_not_in_omim": 33
+}

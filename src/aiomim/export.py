@@ -11,7 +11,7 @@ COPY = ("seed.json", "retrieval.json", "papers.json", "extractions.json", "kg.js
         "entry.kg.json", "entry.kg.md", "entry.direct.json", "entry.direct.md", "usage.json",
         "updates.json", "updates.md")
 RUN_FILES = ("summary.json", "comparison.json", "comparison.md", "knowledge_graph.kg.tsv", "knowledge_graph.direct.tsv",
-             "backtest.json", "audit_check.json")
+             "backtest.json", "audit_check.json", "adjudication.json", "candidate_corrections.md")
 
 
 def _redact(evaluation: dict) -> dict:

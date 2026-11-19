@@ -1,0 +1,1385 @@
+{
+  "run": "omim100",
+  "by_strategy": {
+    "direct": {
+      "n": 37,
+      "draft": 22,
+      "reference": 1,
+      "both": 1,
+      "neither": 0,
+      "cannot_tell": 13,
+      "error": 0
+    },
+    "kg": {
+      "n": 43,
+      "draft": 29,
+      "reference": 1,
+      "both": 5,
+      "neither": 0,
+      "cannot_tell": 8,
+      "error": 0
+    }
+  },
+  "by_content_level": {
+    "direct": {
+      "abstract": {
+        "n": 29,
+        "draft": 16,
+        "reference": 0,
+        "both": 0,
+        "neither": 0,
+        "cannot_tell": 13,
+        "error": 0
+      },
+      "fulltext": {
+        "n": 8,
+        "draft": 6,
+        "reference": 1,
+        "both": 1,
+        "neither": 0,
+        "cannot_tell": 0,
+        "error": 0
+      },
+      "title": {
+        "n": 0,
+        "draft": 0,
+        "reference": 0,
+        "both": 0,
+        "neither": 0,
+        "cannot_tell": 0,
+        "error": 0
+      }
+    },
+    "kg": {
+      "abstract": {
+        "n": 28,
+        "draft": 19,
+        "reference": 0,
+        "both": 1,
+        "neither": 0,
+        "cannot_tell": 8,
+        "error": 0
+      },
+      "fulltext": {
+        "n": 13,
+        "draft": 9,
+        "reference": 1,
+        "both": 3,
+        "neither": 0,
+        "cannot_tell": 0,
+        "error": 0
+      },
+      "title": {
+        "n": 2,
+        "draft": 1,
+        "reference": 0,
+        "both": 1,
+        "neither": 0,
+        "cannot_tell": 0,
+        "error": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "mim": "118210",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2A1",
+      "strategy": "direct",
+      "pmids": [
+        "30126838"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Mutation was found by exome sequencing",
+      "difference": "Draft says the variant was found with a 33-gene neuropathy sequencing panel, not exome sequencing.",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "Coincidentally, we identified two hereditary neuropathy pedigrees carrying the same KIF1Bβ mutation Y1087C (Fig. 5, A and B; Table 1) by exome sequencing of 33 CMT2/neuropathy-related genes (Table 2).",
+      "explanation": "The paper says the variant was found \"by exome sequencing\" of a 33-gene CMT2/neuropathy panel, which it calls the Hereditary Neuropathy NextGen DNA Sequencing Panel. The reference's wording and the draft's wording both describe this one method, so they don't actually conflict.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "direct",
+      "pmids": [
+        "16954160"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation in the NR3C1 gene",
+      "difference": "Draft says NR3C2. The reference's NR3C1 is probably a curator error, since PHA1A is caused by NR3C2, but it is scored against the reference as written.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Six heterozygous NR3C2 mutations were detected.",
+      "explanation": "The paper attributes all six mutations, including E972G, to the NR3C2 gene (the mineralocorticoid receptor gene) and never mentions NR3C1. This supports the draft and not the reference's NR3C1.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "direct",
+      "pmids": [
+        "16954160",
+        "16611713"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation is in the NR3C1 gene (as written in the reference)",
+      "difference": "Draft says NR3C2. The reference's 'NR3C1' is probably a typo, since the mutation is S818L in the mineralocorticoid receptor.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Six heterozygous NR3C2 mutations were detected.",
+      "explanation": "The paper says all six mutations, S818L among them, are in NR3C2, the gene for the mineralocorticoid receptor. It never mentions NR3C1, so the reference's \"NR3C1\" looks like a curator's typo.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "direct",
+      "pmids": [
+        "16954160"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation is in the NR3C1 gene",
+      "difference": "The draft names NR3C2. NR3C2 is the usual PHA1A gene, so the reference's NR3C1 is probably a typo.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Mutations in the NR3C2 gene coding for the mineralocorticoid receptor (MR) cause autosomal dominant PHA1.",
+      "explanation": "The paper says all six PHA1 mutations, including the two nonsense mutations, are in NR3C2, the gene for the mineralocorticoid receptor. It never mentions NR3C1, so the reference's gene name looks like a typo.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "direct",
+      "pmids": [
+        "12788847"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation is a thymine insertion at nucleotide position 1345",
+      "difference": "Draft gives the position as insT1354, not 1345.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Two frameshift mutations in exon 2 (insT1354, del8bp537) and one nonsense mutation in exon 4 (C2157A, Cys645stop) generate truncated proteins due to premature stop codons.",
+      "explanation": "The abstract names the exon 2 thymine insertion as insT1354, which matches the draft. The reference's position 1345 appears to be a transposition of the digits.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "kg",
+      "pmids": [
+        "16954160"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation is in the NR3C1 gene",
+      "difference": "Draft places the mutation in NR3C2. The NR3C1 in the reference may be a curator error, since PHA1A is caused by NR3C2.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Six heterozygous NR3C2 mutations were detected.",
+      "explanation": "The paper places all six mutations, E972G among them, in NR3C2, the gene for the mineralocorticoid receptor. It never mentions NR3C1, so the reference's gene name looks like a curator slip.",
+      "quote_verified": true
+    },
+    {
+      "mim": "177735",
+      "title": "PSEUDOHYPOALDOSTERONISM, TYPE I, AUTOSOMAL DOMINANT",
+      "strategy": "kg",
+      "pmids": [
+        "12788847"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Insertion is at nucleotide position 1345",
+      "difference": "The draft gives position 1354, not 1345.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Two frameshift mutations in exon 2 (insT1354, del8bp537)",
+      "explanation": "The abstract names the exon 2 frameshift insertion as insT1354, which matches the draft's position 1354. The reference's 1345 does not appear in the paper and looks like a transposed-digit slip.",
+      "quote_verified": true
+    },
+    {
+      "mim": "241800",
+      "title": "PALLISTER-HALL-LIKE SYNDROME",
+      "strategy": "direct",
+      "pmids": [
+        "32413283"
+      ],
+      "content_level": "abstract",
+      "omim_states": "All 3 patients had preaxial polydactyly",
+      "difference": "Draft describes postaxial polydactyly.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "heart (atrioventricular septal defect), skeleton (postaxial polydactyly, narrow chest, and shortening of long bones)",
+      "explanation": "The abstract lists postaxial polydactyly among the skeletal anomalies in the SMO cohort and never mentions preaxial polydactyly, so it supports the draft. Only the abstract was available, so the full text could still describe patients 5–7 separately.",
+      "quote_verified": true
+    },
+    {
+      "mim": "241800",
+      "title": "PALLISTER-HALL-LIKE SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "32413283"
+      ],
+      "content_level": "abstract",
+      "omim_states": "All 3 patients had preaxial polydactyly",
+      "difference": "Draft says postaxial polydactyly",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract lists \"postaxial polydactyly\" as a feature across the whole 7-patient cohort, but it gives no per-patient details. Whether patients 5–7 specifically had preaxial polydactyly would be stated only in the full text, which was not supplied.",
+      "quote_verified": false
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "strategy": "direct",
+      "pmids": [
+        "29681094"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "The c.517G-T change is a transversion",
+      "difference": "The draft's Glu173Ter section calls it a 'transition'; G>T is a transversion.",
+      "ruling": "reference",
+      "model_ruling": "reference",
+      "quote": "In patient, 1 we identified a homozygous nonsense variant in PNPLA8 [(c.517G>T, p.(Glu173Ter), NM_001256007.1]",
+      "explanation": "The paper reports the variant as c.517G>T, a change from a purine to a pyrimidine, which is a transversion by definition and not a transition. The paper never uses either word, but its notation supports the reference over the draft.",
+      "quote_verified": true
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "strategy": "direct",
+      "pmids": [
+        "25512002"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Variant is c.1975delCT (NM_001256011.1)",
+      "difference": "Draft gives c.1975_1976delAG on NM_001256011.1 (same position, but AG deleted instead of CT); its heading says 2275CT",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "c.334_337delAATT (p.Asn112HisfsX29) and c.1975_1976delAG (p.Leu659AlafsX4) in PNPLA8 (MIM# 612123; nomenclature based on NM_001256011.1",
+      "explanation": "The paper names the second frameshift variant c.1975_1976delAG (p.Leu659AlafsX4) on NM_001256011.1, so the deleted bases are AG. It never calls it delCT.",
+      "quote_verified": true
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "strategy": "direct",
+      "pmids": [
+        "25512002",
+        "19840936"
+      ],
+      "content_level": "abstract",
+      "omim_states": "2-bp deletion c.1975_1976delCT",
+      "difference": "Draft gives c.1975_1976delAG, not delCT",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "the patient was compound heterozygous for two frameshift variants, c.334_337delAATT (p.Asn112HisfsX29) and c.1975_1976delAG (p.Leu659AlafsX4) in PNPLA8",
+      "explanation": "The paper names the 2-bp deletion c.1975_1976delAG (p.Leu659AlafsX4) on NM_001256011.1. That matches the draft. The reference's delCT does not appear anywhere in the paper.",
+      "quote_verified": true
+    },
+    {
+      "mim": "251950",
+      "title": "MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS",
+      "strategy": "kg",
+      "pmids": [
+        "25512002",
+        "19840936"
+      ],
+      "content_level": "abstract",
+      "omim_states": "2-bp deletion c.1975_1976delCT",
+      "difference": "Draft gives the deleted bases as AG (c.1975_1976delAG), not CT.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "the patient was compound heterozygous for two frameshift variants, c.334_337delAATT (p.Asn112HisfsX29) and c.1975_1976delAG (p.Leu659AlafsX4) in PNPLA8",
+      "explanation": "The paper names the 2-bp deletion as c.1975_1976delAG (NM_001256011.1), which matches the draft. The reference's c.1975_1976delCT does not appear in the paper.",
+      "quote_verified": true
+    },
+    {
+      "mim": "300148",
+      "title": "MEHMO SYNDROME",
+      "strategy": "direct",
+      "pmids": [
+        "27333055"
+      ],
+      "content_level": "abstract",
+      "omim_states": "DNA from the deceased affected relatives was not available",
+      "difference": "Draft states the deletion was found hemizygous in affected males (plural), which implies the relatives were tested",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract says only that both mutations were hemizygous in affected patients and heterozygous in obligate carrier females. It does not say which members of the frameshift family were tested or whether DNA from the deceased affected relatives was available, which would be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "300148",
+      "title": "MEHMO SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "27333055"
+      ],
+      "content_level": "abstract",
+      "omim_states": "DNA of deceased relatives not available",
+      "difference": "Draft says the deletion was identified in affected males, implying several were tested; reference says only one male was tested",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract says only that the mutations were found in hemizygous form in \"affected patients.\" It doesn't say how many males in the frameshift family were tested or whether DNA from deceased relatives was available, so the point would depend on the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "300148",
+      "title": "MEHMO SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "27333055"
+      ],
+      "content_level": "abstract",
+      "omim_states": "No functional studies of the variant or patient cells performed",
+      "difference": "Draft says zebrafish knockdown supports pathogenicity of the variants, implying functional support",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "Morpholino-based knockdown of the zebrafish EIF2S3 ortholog (eif2s3) recapitulates the human microcephaly and short stature phenotype, supporting the pathogenicity of the identified variants.",
+      "explanation": "The paper reports that knocking down the zebrafish gene reproduced the patients' microcephaly and short stature, and treats this as support for the variants' pathogenicity, as the draft says. This was a gene knockdown, not a test of the variants themselves or of patient cells, so the reference's statement that no such studies were done is also consistent with the abstract.",
+      "quote_verified": true
+    },
+    {
+      "mim": "600204",
+      "title": "EPIPHYSEAL DYSPLASIA, MULTIPLE, 2",
+      "strategy": "direct",
+      "pmids": [
+        "12244547"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Finger joints, ankles and elbows became symptomatic in early adult life",
+      "difference": "Draft says ankles, elbows and finger joints were affected from childhood, not from early adult life.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Beginning in childhood, the disease leads to pain and stiffness of knees, ankles, elbows and finger joints.",
+      "explanation": "The abstract says that, beginning in childhood, the disease causes pain and stiffness of the knees, ankles, elbows and finger joints. It does not say that these joints first became symptomatic in early adult life.",
+      "quote_verified": true
+    },
+    {
+      "mim": "600204",
+      "title": "EPIPHYSEAL DYSPLASIA, MULTIPLE, 2",
+      "strategy": "kg",
+      "pmids": [
+        "12244547"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Finger joints, ankles, and elbows became symptomatic during early adult life",
+      "difference": "Draft says ankles, elbows, and finger joints were affected from childhood, not early adult life.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Beginning in childhood, the disease leads to pain and stiffness of knees, ankles, elbows and finger joints.",
+      "explanation": "The abstract lists knees, ankles, elbows and finger joints together under childhood onset, which matches the draft. It says nothing about these joints becoming symptomatic in early adult life, though that could be in the full text, which was not supplied.",
+      "quote_verified": true
+    },
+    {
+      "mim": "607734",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F",
+      "strategy": "direct",
+      "pmids": [
+        "19158810"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Severely decreased motor NCV (13.8 m/s)",
+      "difference": "Draft says mildly to moderately delayed NCV for this patient",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "All patients had mildly to moderately delayed nerve conduction velocities, possibly caused by a loss of large diameter fibers.",
+      "explanation": "The abstract says all patients, including the one homozygous for Glu140Stop, had mildly to moderately delayed nerve conduction velocities. That matches the draft. The 13.8 m/s value and the \"severe\" description in the reference do not appear in the supplied abstract.",
+      "quote_verified": true
+    },
+    {
+      "mim": "607734",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F",
+      "strategy": "kg",
+      "pmids": [
+        "20039262"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Biopsy showed lack of immunostaining for NEFL",
+      "difference": "Draft says axons were immunoreactive with N-terminal NFL antiserum, negative only with C-terminal antiserum",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "an antiserum against the N-terminus labeled axons, as shown by the co-localization with βIII tubulin, an axon-specific tubulin, indicating that axons contained the E210X mutant protein. In contrast, an antiserum against the C-terminus of NFL (which was predicted to be absent in the E210X mutant protein), did not label the axons.",
+      "explanation": "The paper says the biopsy axons stained with the N-terminal NFL antiserum but not with the C-terminal one. That fits the draft. It contradicts the reference's statement that NEFL immunostaining was entirely absent.",
+      "quote_verified": true
+    },
+    {
+      "mim": "607734",
+      "title": "CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F",
+      "strategy": "kg",
+      "pmids": [
+        "19158810"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Severely decreased motor NCV (13.8 m/s)",
+      "difference": "Draft says all 6 patients, including this one, had mildly to moderately slowed NCVs.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "All patients had mildly to moderately delayed nerve conduction velocities, possibly caused by a loss of large diameter fibers.",
+      "explanation": "The abstract says all six patients, including the homozygous Glu140Stop patient, had mildly to moderately delayed nerve conduction velocities. It does not call any patient's slowing severe and gives no 13.8 m/s value, though the full text, which was not supplied, might.",
+      "quote_verified": true
+    },
+    {
+      "mim": "608133",
+      "title": "RETINITIS PIGMENTOSA 7",
+      "strategy": "direct",
+      "pmids": [
+        "1684223"
+      ],
+      "content_level": "abstract",
+      "omim_states": "One mutation found in a single patient",
+      "difference": "Draft says all 3 mutations cosegregated with adRP in separate families, not that one was found in a single patient",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "We report here three mutations of the human homologue of the rds gene (RDS) that cosegregate with autosomal dominant retinitis pigmentosa in separate families.",
+      "explanation": "The abstract says all three RDS mutations cosegregate with adRP in separate families, which is what the draft says. It never says that one mutation was found in only a single patient. Only the abstract was available, so the full text could still name one patient as the carrier of the codon 219 deletion.",
+      "quote_verified": true
+    },
+    {
+      "mim": "608133",
+      "title": "RETINITIS PIGMENTOSA 7",
+      "strategy": "direct",
+      "pmids": [
+        "23847139"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Nucleotide change c.673T-C",
+      "difference": "Draft gives c.637T-C, not c.673T-C.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Each patient carried a reported homozygous missense mutation in gene PRPH2: c.637T>C (p.C213R) and c.554T>C (p.L185P), respectively (table 7).",
+      "explanation": "Every time the paper names the C213R mutation (in the text, in Table 7 and in the Figure 4 legend), it writes c.637T>C. That matches the draft. The reference's c.673T-C looks like a transcription slip.",
+      "quote_verified": true
+    },
+    {
+      "mim": "608133",
+      "title": "RETINITIS PIGMENTOSA 7",
+      "strategy": "kg",
+      "pmids": [
+        "23847139"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Nucleotide change c.673T-C",
+      "difference": "Draft gives c.637T-C. The draft's number fits codon 213, so the reference may contain a typo.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Each patient carried a reported homozygous missense mutation in gene PRPH2: c.637T>C (p.C213R) and c.554T>C (p.L185P), respectively (table 7).",
+      "explanation": "Everywhere the paper mentions this variant (main text, Table 7 and the Figure 4 legend), it gives the nucleotide change for C213R as c.637T>C. The reference's c.673T-C looks like a transposition typo.",
+      "quote_verified": true
+    },
+    {
+      "mim": "608133",
+      "title": "RETINITIS PIGMENTOSA 7",
+      "strategy": "kg",
+      "pmids": [
+        "1684223"
+      ],
+      "content_level": "abstract",
+      "omim_states": "A single patient was studied",
+      "difference": "The draft says the mutations were found in separate families in which they cosegregated with the disease, not in a single patient.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "We report here three mutations of the human homologue of the rds gene (RDS) that cosegregate with autosomal dominant retinitis pigmentosa in separate families.",
+      "explanation": "The abstract says the three RDS mutations were found in separate families, where each one cosegregated with autosomal dominant RP, not in a single patient. Only the abstract was available, and it does not name P216L.",
+      "quote_verified": true
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "11152140",
+        "31409799"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Patient belongs to family 2",
+      "difference": "The draft assigns S483L to family 1 and gives family 2 the EE587E deletion.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The paper lists 'a de novo in-frame deletion c.1761_1763delAGA, p.EE587E, and a missense mutation c.1448C > T, p.S483L' found across families 1 and 2 without explicitly assigning either variant to a family number. Family assignment is presumably in the Fig. 1a pedigrees, which are not in the supplied text. The single-affected family 2 setup only indirectly suggests that the de novo EE587E belongs there.",
+      "quote_verified": false
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "11152140",
+        "31409799"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation is de novo",
+      "difference": "The draft says S483L was in family 1 and present only in affected family members, which implies inheritance. It calls the family 2 EE587E variant de novo instead.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "One gene, TOP2B, which encodes topoisomerase IIβ, was affected by a heterozygous variant in each family: a de novo in-frame deletion c.1761_1763delAGA, p.EE587E, and a missense mutation c.1448C > T, p.S483L.",
+      "explanation": "The paper calls the EE587E in-frame deletion de novo and describes S483L only as a missense mutation, never as de novo. This contradicts the reference's claim that S483L is de novo and matches the draft.",
+      "quote_verified": true
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "11152140",
+        "31409799"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation found by exome sequencing",
+      "difference": "The draft says S483L was found by whole-genome sequencing.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "We performed whole genome sequencing of affected and nonaffected persons in these families (Fig. 1a).",
+      "explanation": "The paper found the S483L and EE587E variants in families 1 and 2 by whole-genome sequencing; its Methods confirm Illumina HiSeq2000 at 30× depth. Exome sequencing was used only for family 3 (G633S), so the reference's 'exome sequencing' is wrong for S483L.",
+      "quote_verified": true
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "21204224",
+        "31409799"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation found in a mother and daughter (family 1)",
+      "difference": "Draft assigns c.1761_1763delAGA to family 2 as a de novo mutation in a single affected member; family 1 is given S483L.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The paper says that each family carried one TOP2B variant: 'a de novo in-frame deletion c.1761_1763delAGA, p.EE587E, and a missense mutation c.1448C > T, p.S483L'. It never says which family had which variant. The pedigree figure that would show this is not in the supplied text, so the paper supports neither the reference's family 1 nor the draft's family 2.",
+      "quote_verified": false
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "21204224",
+        "31409799"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Mutation found by exome sequencing",
+      "difference": "Draft says whole-genome sequencing.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "We performed whole genome sequencing of affected and nonaffected persons in these families (Fig. 1a).",
+      "explanation": "The paper found the c.1761_1763delAGA (EE587E) deletion by whole-genome sequencing of the two original families, and the Methods confirm whole-genome sequencing for families 1 and 2. Exome sequencing was used only for family 3, which carries a different variant (G633S).",
+      "quote_verified": true
+    },
+    {
+      "mim": "609296",
+      "title": "B-CELL IMMUNODEFICIENCY, DISTAL LIMB ANOMALIES, AND UROGENITAL MALFORMATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "33459963"
+      ],
+      "content_level": "title",
+      "omim_states": "Mutation is de novo",
+      "difference": "Draft says the mutation was inherited",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Inherited TOP2B Mutation: Possible Confirmation of Mutational Hotspots in the TOPRIM Domain.",
+      "explanation": "The paper's title calls the TOP2B mutation inherited, which matches the draft and contradicts the reference's 'de novo'.",
+      "quote_verified": true
+    },
+    {
+      "mim": "611521",
+      "title": "IMMUNODEFICIENCY 35",
+      "strategy": "direct",
+      "pmids": [
+        "34569645",
+        "32537443"
+      ],
+      "content_level": "abstract",
+      "omim_states": "This patient was previously reported by Wu et al. (2020)",
+      "difference": "Draft calls Lv's 5 patients 'additional' with 'novel' mutations, which implies none of them is the earlier Wu patient.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "Only the abstract of Lv et al. (2022) is supplied. It describes \"five more\" cases with \"novel\" mutations but does not say whether any patient (e.g., the G799R carrier) was reported earlier by Wu et al. (2020). That detail would be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "611521",
+      "title": "IMMUNODEFICIENCY 35",
+      "strategy": "direct",
+      "pmids": [
+        "27615517"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Patient was 8 years old",
+      "difference": "Draft says 5-year-old (per Wu et al., 2020).",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract describes a TYK2-deficient patient but doesn't give an age, so it can't settle 8 versus 5 years. The age may be in the full text, which wasn't supplied.",
+      "quote_verified": false
+    },
+    {
+      "mim": "611521",
+      "title": "IMMUNODEFICIENCY 35",
+      "strategy": "kg",
+      "pmids": [
+        "22402565"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Deletion is c.2303_2311del",
+      "difference": "Draft gives c.2302_2310del, one nucleotide off",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "The patient is homozygous for a 9bp deletion in exon 16 of TYK2, c.2302_2310del or 2302del9, which creates a premature termination codon at position 767.",
+      "explanation": "The paper gives the deletion as c.2302_2310del (2302del9). That matches the draft. The reference's c.2303_2311del does not appear in the paper.",
+      "quote_verified": true
+    },
+    {
+      "mim": "613730",
+      "title": "HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS",
+      "strategy": "direct",
+      "pmids": [
+        "21109224"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Family was of Saudi Arabian origin",
+      "difference": "Draft says the family was from the United Arab Emirates.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "we identified a homozygous mutation in the tight-junction protein gene JAM3 in a large consanguineous family from the United Arab Emirates.",
+      "explanation": "The abstract says the consanguineous family came from the United Arab Emirates, which matches the draft. It does not say the family was Saudi Arabian, as the reference states.",
+      "quote_verified": true
+    },
+    {
+      "mim": "613730",
+      "title": "HEMORRHAGIC DESTRUCTION OF THE BRAIN, SUBEPENDYMAL CALCIFICATION, AND CATARACTS",
+      "strategy": "kg",
+      "pmids": [
+        "21109224"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Family was of Saudi Arabian origin",
+      "difference": "Draft says the family was from the United Arab Emirates.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "we identified a homozygous mutation in the tight-junction protein gene JAM3 in a large consanguineous family from the United Arab Emirates.",
+      "explanation": "The abstract says the family was from the United Arab Emirates. It does not mention Saudi Arabia, so the paper supports the draft over the reference.",
+      "quote_verified": true
+    },
+    {
+      "mim": "613744",
+      "title": "SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE",
+      "strategy": "kg",
+      "pmids": [
+        "30127434",
+        "23472171"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "The patients had 2 unrelated genetic disorders",
+      "difference": "The draft attributes the mycobacterial disease to the AP4E1 mutation (dominant-negative or gain-of-function speculation) and never mentions a separate SPPL2A-related immunodeficiency.",
+      "ruling": "reference",
+      "model_ruling": "reference",
+      "quote": "Neither of the patients presented any other episodes of mycobacterial infection by the time of clinical evaluation at three years of age. In addition to MSMD, the patients displayed hereditary spastic paraplegia due to a homozygous p.R1105X mutation of the AP4E1 gene.",
+      "explanation": "Kong et al. (2018) attribute the twins' mycobacterial disease (MSMD) to homozygous SPPL2A c.733+1G>A loss-of-function. They describe the spastic paraplegia due to AP4E1 R1105X as a separate, additional disorder, so the twins have two distinct genetic conditions. The 2013 idea that AP4E1 caused the mycobacterial disease is replaced by this finding.",
+      "quote_verified": true
+    },
+    {
+      "mim": "613744",
+      "title": "SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE",
+      "strategy": "kg",
+      "pmids": [
+        "23472171"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "IMD86 caused by homozygous mutation in SPPL2A",
+      "difference": "Draft omits SPPL2A and says the AP4E1 mutation is the likely cause of the mycobacterial disease.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "No functional assays for AP-4 are currently available for further investigations of the potential differences between patients with AP-4 deficiencies. We thus propose that the AP4E1 mutation is the most likely cause of the mycobacterial disease in our patients.",
+      "explanation": "The 2013 paper does not mention SPPL2A. After finding no defect in known MSMD genes and no plausible candidate among the other homozygous variants, it proposes the AP4E1 R1105X mutation as the most likely cause of the twins' mycobacterial disease.",
+      "quote_verified": true
+    },
+    {
+      "mim": "614501",
+      "title": "NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES",
+      "strategy": "kg",
+      "pmids": [
+        "22279524"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Six heterozygous carriers among 203 Old Order Amish controls",
+      "difference": "Draft says 5 carriers among 203 controls",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "An unlabeled probe melting analysis for this variant identified 5 carriers among 203 Old Order Amish controls (2.5%) (Table 4).",
+      "explanation": "The paper contradicts itself. The results text reports 5 carriers among 203 Old Order Amish controls (2.5%), matching the draft. Table 4 gives the SNIP1 allele frequency as 1.48% (6/406), which implies 6 heterozygous carriers among 203 controls, matching the reference. The reference's statement that the Table 4 data are correct does not appear in the supplied text.",
+      "quote_verified": true
+    },
+    {
+      "mim": "614501",
+      "title": "NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, CRANIOFACIAL ABNORMALITIES, AND SEIZURES",
+      "strategy": "kg",
+      "pmids": [
+        "22279524"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Population-specific allele frequency of 1.48% (correct values are in Table 4; the text values are wrong)",
+      "difference": "Draft gives a 2.5% carrier frequency, which matches the incorrect text data",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "An unlabeled probe melting analysis for this variant identified 5 carriers among 203 Old Order Amish controls (2.5%) (Table 4).",
+      "explanation": "The paper is inconsistent with itself. The Results text reports 5 carriers among 203 Amish controls (2.5%), which is what the draft says, while Table 4 lists the SNIP1 allele frequency as 1.48% (6/406), which is what the reference says. The supplied text does not say which figure is correct, so it supports both.",
+      "quote_verified": true
+    },
+    {
+      "mim": "614651",
+      "title": "COENZYME Q10 DEFICIENCY, PRIMARY, 2",
+      "strategy": "direct",
+      "pmids": [
+        "17332895"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Nucleotide change 977T-G transversion",
+      "difference": "Draft gives the nucleotide change as c.924T-G (citing Nardecchia et al., 2021).",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports only a homozygous substitution causing D308E in PDSS1. It gives no nucleotide position, so it can't settle 977T-G versus c.924T-G; the full text may give it.",
+      "quote_verified": false
+    },
+    {
+      "mim": "614701",
+      "title": "CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS",
+      "strategy": "direct",
+      "pmids": [
+        "31334757"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Inheritance could not be determined because parental DNA was unavailable",
+      "difference": "Draft calls the deletion de novo.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract only says the authors report four individuals with SMC3 and RAD21 variants. It doesn't say whether the RAD21 8-bp deletion was de novo or whether parental DNA was unavailable, so the answer could only be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "614701",
+      "title": "CORNELIA DE LANGE SYNDROME 4 WITH OR WITHOUT MIDLINE BRAIN DEFECTS",
+      "strategy": "direct",
+      "pmids": [
+        "22633399"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Severe cognitive delay",
+      "difference": "Draft says children with RAD21 mutations had much milder cognitive impairment than classical CdLS; it gives only a CdLS clinical score of at least 10 for this patient",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract says RAD21 mutation carriers generally have milder cognitive impairment than in classical CdLS. It also says dominant missense mutations, such as P376R, cause worse cognitive findings. The cognitive status of this specific patient is not reported in the abstract and would be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "615268",
+      "title": "CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4",
+      "strategy": "direct",
+      "pmids": [
+        "22892528",
+        "18326629"
+      ],
+      "content_level": "abstract",
+      "omim_states": "3 affected family members carried the mutation",
+      "difference": "Draft says 4 family members were affected; it gives no number for mutation carriers.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports four affected individuals in the family. It does not say how many were genotyped or found to carry the homozygous p.I376M variant, so the reference's count of 3 carriers may come from the full text, which was not supplied.",
+      "quote_verified": false
+    },
+    {
+      "mim": "615268",
+      "title": "CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4",
+      "strategy": "kg",
+      "pmids": [
+        "22892528",
+        "18326629"
+      ],
+      "content_level": "abstract",
+      "omim_states": "3 affected family members",
+      "difference": "Draft says 4 members were affected.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "We investigated a consanguineous family from Turkey with four affected individuals exhibiting the condition.",
+      "explanation": "The abstract says the Turkish family had four affected individuals, matching the draft's count of 4 rather than the reference's 3. Only the abstract was available; it does not say whether all four were genotyped.",
+      "quote_verified": true
+    },
+    {
+      "mim": "615710",
+      "title": "MITCHELL-RILEY SYNDROME",
+      "strategy": "direct",
+      "pmids": [
+        "18512226",
+        "20148032"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Parents were first cousins",
+      "difference": "Draft says the S217P proband's parents were second cousins; the Chappell patient is described only as born to consanguineous parents",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "The disease locus was mapped using overlapping homozygosity in probands #1and #2 (see Supplementary material for pedigree information and references to previous clinical case reports) respectively the offspring of first and second cousins.",
+      "explanation": "Smith et al. say proband #1 was the child of first cousins and proband #2 the child of second cousins, and they report that proband #2 carried the homozygous S217P mutation. So the S217P patient's parents were second cousins, as the draft says, not first cousins as the reference says; Chappell et al.'s abstract says only that the parents were consanguineous.",
+      "quote_verified": true
+    },
+    {
+      "mim": "615710",
+      "title": "MITCHELL-RILEY SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "18512226",
+        "20148032"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Parents are first cousins",
+      "difference": "Draft says proband 2 (S217P) was the offspring of second cousins",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "The disease locus was mapped using overlapping homozygosity in probands #1and #2 (see Supplementary material for pedigree information and references to previous clinical case reports) respectively the offspring of first and second cousins.",
+      "explanation": "Smith et al. say probands #1 and #2 were the children of first cousins and second cousins, respectively. The paper also says proband #2 was homozygous for S217P, so this patient's parents were second cousins, not first cousins as the reference states.",
+      "quote_verified": true
+    },
+    {
+      "mim": "615972",
+      "title": "NANOPHTHALMOS 4",
+      "strategy": "direct",
+      "pmids": [
+        "26392740"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Deletion designated c.694_712del",
+      "difference": "Draft gives c.694_721del (with sequence), not c.694_712del",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "spans the last 28 bp of exon 4 and the first 6 bp of intron 4 (c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg)",
+      "explanation": "The paper names the 34-bp deletion c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg in both the Results and the Discussion, which matches the draft. Nowhere does it give c.694_712del, the designation in the reference.",
+      "quote_verified": true
+    },
+    {
+      "mim": "615972",
+      "title": "NANOPHTHALMOS 4",
+      "strategy": "kg",
+      "pmids": [
+        "26392740"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Deletion designated c.694_712del",
+      "difference": "Draft gives c.694_721del instead of c.694_712del",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "A novel 34 bp heterozygous deletion was detected in all affected family members that spans the last 28 bp of exon 4 and the first 6 bp of intron 4 (c.694_721delAGAATGAAGACTGGATCGAAGATGCCTCgtaagg).",
+      "explanation": "The paper names the 34-bp TMEM98 deletion as c.694_721del, in both the Results and the Discussion. This matches the draft, not the reference's c.694_712del.",
+      "quote_verified": true
+    },
+    {
+      "mim": "616151",
+      "title": "MACULAR DYSTROPHY, VITELLIFORM, 4",
+      "strategy": "direct",
+      "pmids": [
+        "32817297"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Ser320Arg (S320R) substitution",
+      "difference": "Draft describes the variant shared by 2 families as a splice variant, not a missense change",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract says a splice variant was shared by two more families, plus eight families had missense or nonsense variants. It never names c.960T>A/S320R or families F and G, so only the full text could show whether these are the same families or different ones.",
+      "quote_verified": false
+    },
+    {
+      "mim": "616151",
+      "title": "MACULAR DYSTROPHY, VITELLIFORM, 4",
+      "strategy": "direct",
+      "pmids": [
+        "23993198"
+      ],
+      "content_level": "abstract",
+      "omim_states": "The mutation causes a leu238-to-pro (L238P) substitution",
+      "difference": "The draft gives leu238-to-arg (L238R), not L238P.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "led to the identification of a c.713T>G (p.Leu238Arg) IMPG1 mutation, which was subsequently found in two other families with autosomal-dominant VMD and the same phenotype.",
+      "explanation": "The abstract names the c.713T>G mutation as p.Leu238Arg (L238R) twice. It never mentions leu238-to-pro (L238P).",
+      "quote_verified": true
+    },
+    {
+      "mim": "616151",
+      "title": "MACULAR DYSTROPHY, VITELLIFORM, 4",
+      "strategy": "kg",
+      "pmids": [
+        "23993198"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Results in leu238-to-pro (L238P) substitution",
+      "difference": "Draft states leu238-to-arg (L238R)",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "gene mapping and whole-exome sequencing led to the identification of a c.713T>G (p.Leu238Arg) IMPG1 mutation",
+      "explanation": "The abstract names the c.713T>G variant as p.Leu238Arg (L238R), which matches the draft. Nothing in the paper supports the reference's leu238-to-pro (L238P).",
+      "quote_verified": true
+    },
+    {
+      "mim": "616326",
+      "title": "MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY",
+      "strategy": "direct",
+      "pmids": [
+        "12651869",
+        "2245297"
+      ],
+      "content_level": "abstract",
+      "omim_states": "6 patients with CMS were studied",
+      "difference": "Draft says 7 patients (patients 2-8) carried the -38A-G mutation.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Patients 2-8 are of Oriental Jewish stock of Iraqi or Iranian origin with facial malformations, and harbor -38A-->G that changes another E-box at -40 to -35 from CAACTG to CAGCTG",
+      "explanation": "The abstract says patients 2 through 8 (7 patients) carry the -38A→G mutation, which matches the draft's count rather than the reference's 6. The abstract does not say whether the patients carry one or two copies of the mutation, so the reference's 6 homozygous patients cannot be confirmed from it.",
+      "quote_verified": true
+    },
+    {
+      "mim": "616326",
+      "title": "MYASTHENIC SYNDROME, CONGENITAL, 11, ASSOCIATED WITH ACETYLCHOLINE RECEPTOR DEFICIENCY",
+      "strategy": "kg",
+      "pmids": [
+        "12651869",
+        "2245297"
+      ],
+      "content_level": "abstract",
+      "omim_states": "6 patients were studied",
+      "difference": "Draft says 7 patients (patients 2 through 8).",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Patients 2-8 are of Oriental Jewish stock of Iraqi or Iranian origin with facial malformations, and harbor -38A-->G that changes another E-box at -40 to -35 from CAACTG to CAGCTG",
+      "explanation": "The abstract says patients 2 through 8 carry the -38A-G mutation, which is 7 patients (8 cases in total). This matches the draft, not the reference's 6. The abstract does not say whether each of the 7 is homozygous.",
+      "quote_verified": true
+    },
+    {
+      "mim": "617232",
+      "title": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21",
+      "strategy": "direct",
+      "pmids": [
+        "31897643"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "R183W expressed in HEK293T cells showed reduced secretion into culture media",
+      "difference": "Draft states R183W was secreted normally from HEK293T cells",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Among the mutants tested, the R183W and Y57C mutants were secreted to culture media similarly to WT POGLUT1, indicating that these mutations did not destabilize POGLUT1 proteins",
+      "explanation": "The paper says R183W was secreted into the culture media at about the same level as wild type, so the mutation did not destabilize the protein, but it had much lower enzyme activity. The reduced secretion was reported for I129T, R98W, C102F and W308L, not for R183W.",
+      "quote_verified": true
+    },
+    {
+      "mim": "617232",
+      "title": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21",
+      "strategy": "direct",
+      "pmids": [
+        "31897643"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Reduced secretion suggests destabilization of the protein",
+      "difference": "Draft attributes the defect to reduced enzymatic activity with normal secretion, not destabilization",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Among the mutants tested, the R183W and Y57C mutants were secreted to culture media similarly to WT POGLUT1, indicating that these mutations did not destabilize POGLUT1 proteins",
+      "explanation": "The paper says R183W was secreted normally and did not destabilize the protein, but it had much lower enzyme activity in vitro. Reduced secretion and destabilization are reported for I129T, R98W, C102F and W308L, not for R183W.",
+      "quote_verified": true
+    },
+    {
+      "mim": "617232",
+      "title": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21",
+      "strategy": "kg",
+      "pmids": [
+        "31897643"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "R183W expressed in HEK293T cells showed reduced secretion into the culture media",
+      "difference": "Draft says the R183W protein was secreted normally.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Among the mutants tested, the R183W and Y57C mutants were secreted to culture media similarly to WT POGLUT1, indicating that these mutations did not destabilize POGLUT1 proteins",
+      "explanation": "The paper reports that R183W expressed in HEK293T cells was secreted at levels similar to wild-type but had much lower enzymatic activity. Reduced secretion is reported only for I129T, R98W, C102F and W308L.",
+      "quote_verified": true
+    },
+    {
+      "mim": "617232",
+      "title": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21",
+      "strategy": "kg",
+      "pmids": [
+        "31897643"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Reduced secretion suggests the mutant protein is destabilized",
+      "difference": "Draft puts R183W in the group that is secreted normally but has reduced enzymatic activity, not in the destabilized group.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "Among the mutants tested, the R183W and Y57C mutants were secreted to culture media similarly to WT POGLUT1, indicating that these mutations did not destabilize POGLUT1 proteins",
+      "explanation": "The paper supports the draft. It reports that the R183W mutant was secreted from HEK293T cells about as well as wildtype, so the mutation did not destabilize the protein, but it had much lower enzymatic activity. The reduced secretion that suggested destabilization was found for I129T, R98W, C102F and W308L, not for R183W.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "direct",
+      "pmids": [
+        "12754703",
+        "11220739"
+      ],
+      "content_level": "abstract",
+      "omim_states": "A single infant was studied",
+      "difference": "Draft describes 3 affected sibs",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "causes complex I deficiency and early onset hypertrophic cardiomyopathy with trunk hypotonia in three affected sibs of a consanguineous family",
+      "explanation": "The abstract states that the NDUFV2 intron 2 deletion was found in three affected siblings from a consanguineous family, not in a single infant. This matches the draft and contradicts the reference's single-infant description.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "direct",
+      "pmids": [
+        "12754703",
+        "11220739"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Deleted bases are GTTA (IVS2+5_+8delGTTA)",
+      "difference": "Draft gives delGTAA",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "a 4-bp deletion in intron 2 (IVS2+5_+8delGTAA) of the NDUFV2 gene",
+      "explanation": "The abstract by Bénit et al. (2003) names the deleted bases as GTAA (IVS2+5_+8delGTAA), which matches the draft. It does not support the reference's GTTA.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "direct",
+      "pmids": [
+        "26008862"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Two sibs from another family were homozygous for c.IVS2+1delGTAA",
+      "difference": "The draft says 3 of 5 sibs in the second family were affected and homozygous, but the reference says 2 sibs.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports homozygosity for c.IVS2+1delGTAA in a second, consanguineous family where three of five siblings were affected. It does not say how many of those siblings were actually sequenced and found homozygous, so the count of two (reference) versus three (draft) can only be settled from the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "kg",
+      "pmids": [
+        "12754703",
+        "11220739"
+      ],
+      "content_level": "abstract",
+      "omim_states": "A single affected infant was studied",
+      "difference": "The draft describes 3 affected sibs, not one infant.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "causes complex I deficiency and early onset hypertrophic cardiomyopathy with trunk hypotonia in three affected sibs of a consanguineous family.",
+      "explanation": "The abstract says the homozygous NDUFV2 IVS2+5_+8delGTAA mutation was found in three affected sibs from a consanguineous family, not in one infant. This matches the draft.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "kg",
+      "pmids": [
+        "12754703",
+        "11220739"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Deleted sequence is GTTA (IVS2+5_+8delGTTA)",
+      "difference": "The draft gives the sequence as delGTAA.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "a 4-bp deletion in intron 2 (IVS2+5_+8delGTAA) of the NDUFV2 gene",
+      "explanation": "The paper's abstract gives the deletion as IVS2+5_+8delGTAA. That matches the draft. The reference's \"delGTTA\" doesn't match the paper and looks like a transcription slip.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618229",
+      "title": "MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7",
+      "strategy": "kg",
+      "pmids": [
+        "26008862"
+      ],
+      "content_level": "abstract",
+      "omim_states": "The second family had 2 affected sibs",
+      "difference": "The draft says 3 of 5 sibs were affected.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "revealed homozygosity for the intronic c.IVS2 + 1delGTAA mutation in a second, consanguineous family. In this family three of five siblings were affected.",
+      "explanation": "The abstract says that in the second, consanguineous family, which was homozygous for c.IVS2+1delGTAA, three of five siblings were affected. That matches the draft, not the reference's two affected sibs; only the abstract was available, and it does not say how many sibs were genotyped.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618343",
+      "title": "POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME",
+      "strategy": "direct",
+      "pmids": [
+        "28742248"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Nonsense variant c.1281C-T (NM_000090.3)",
+      "difference": "Draft gives c.1282C-T",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "In a 3-year-old female with developmental delay the nonsense variant c.1282C>T, p.(Arg428*) was detected in combination the c.2057delC, p.(Pro686Leufs*105) frame shift variant.",
+      "explanation": "The abstract gives the nonsense variant as c.1282C>T, p.(Arg428*). That matches the draft and not the reference's c.1281C-T. Codon 428 covers positions c.1282–1284, so c.1282 is also the position that fits Arg428.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618343",
+      "title": "POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME",
+      "strategy": "direct",
+      "pmids": [
+        "25205403"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "G1284E lies in a triple helical domain",
+      "difference": "The draft places G1284E in the carboxyl-terminal propeptide, not the triple helical domain.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "c.3851G>A, p.(Gly1284Glu) in exon 50, which encodes a portion of the carboxyl-terminal propeptide",
+      "explanation": "The paper places G1284E in the carboxyl-terminal propeptide, next to a cysteine involved in interchain disulfide bonding and inside a calcium-binding region. It does not place it in the triple helical domain, so the paper supports the draft.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618343",
+      "title": "POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "28742248"
+      ],
+      "content_level": "abstract",
+      "omim_states": "First variant: c.1281C-T transition (NM_000090.3)",
+      "difference": "Draft gives c.1282C-T",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "In a 3-year-old female with developmental delay the nonsense variant c.1282C>T, p.(Arg428*) was detected in combination the c.2057delC, p.(Pro686Leufs*105) frame shift variant.",
+      "explanation": "The abstract names the nonsense variant as c.1282C>T, p.(Arg428*), which matches the draft. It does not give c.1281C-T as the reference does.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618343",
+      "title": "POLYMICROGYRIA WITH OR WITHOUT VASCULAR-TYPE EHLERS-DANLOS SYNDROME",
+      "strategy": "kg",
+      "pmids": [
+        "25205403"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "G1284E lies in a triple helical domain",
+      "difference": "Draft places G1284E in the C-terminal propeptide.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "c.3851G>A, p.(Gly1284Glu) in exon 50, which encodes a portion of the carboxyl-terminal propeptide",
+      "explanation": "The paper places G1284E in the carboxyl-terminal propeptide. Figure 3 shows the propeptide spanning residues 1222 to 1466, which includes position 1284. The paper does not place the variant in a triple helical domain.",
+      "quote_verified": true
+    },
+    {
+      "mim": "618875",
+      "title": "SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS",
+      "strategy": "direct",
+      "pmids": [
+        "32197075"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Functional studies of these variants and of patient cells were not performed",
+      "difference": "Draft describes HEK293T and flow cytometry studies of the 'mutant proteins' without exempting these variants, which implies they were tested",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports HEK293T and flow cytometry studies of \"our mutant NRROS proteins\" but does not say which variants were tested. It therefore cannot show whether family 4's c.190delC and L10P variants were studied. That detail would be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "618875",
+      "title": "SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS",
+      "strategy": "direct",
+      "pmids": [
+        "32197075"
+      ],
+      "content_level": "abstract",
+      "omim_states": "4 patients",
+      "difference": "Draft says 6 patients from 4 families overall; doesn't specify this subset",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports six individuals from four families overall, which matches the draft. It does not say which or how many patients (from which families) carried the homozygous c.1981delC variant, so the reference's subset of 4 patients from 2 Iraqi families can't be checked without the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "618875",
+      "title": "SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "32197075"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Functional studies of these variants and of patient cells were not performed",
+      "difference": "Draft describes HEK293T functional studies of 'the mutant proteins' without excluding these variants, which implies they were tested.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports HEK293T confocal and flow-cytometry studies of \"our mutant NRROS proteins\" but does not say which variants were tested. It therefore cannot show whether family 4's c.190delC and L10P variants were among them; that detail would be in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "618875",
+      "title": "SEIZURES, EARLY-ONSET, WITH NEURODEGENERATION AND BRAIN CALCIFICATIONS",
+      "strategy": "kg",
+      "pmids": [
+        "32197075"
+      ],
+      "content_level": "abstract",
+      "omim_states": "4 patients studied",
+      "difference": "Draft says 6 individuals in total; it does not describe a subset of 4 patients from 2 families carrying this variant",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports six individuals from four families with biallelic NRROS variants but does not give the individual variants or families. Whether 4 patients from 2 Iraqi families carry c.1981delC (a possible subset, as the reference says) could only be checked in the full text.",
+      "quote_verified": false
+    },
+    {
+      "mim": "619124",
+      "title": "DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89",
+      "strategy": "kg",
+      "pmids": [
+        "32282878"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Deletion removes conserved residue Lys231 (Lys231del)",
+      "difference": "Draft gives the residue as Lys232del.",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "c.695_697delAGA (Fig. 1B and Supplementary Fig. 1B), leading to the deletion of a highly conserved lysine at position 232, p.(Lys232del)",
+      "explanation": "The paper is inconsistent. The Results, Methods and one Discussion passage repeatedly give the deleted residue as lysine 232, p.(Lys232del), which matches the draft. Table 1 lists the same c.695_697delAGA variant as p.(Lys231del), which matches the reference. Each summary therefore follows one part of the paper.",
+      "quote_verified": true
+    },
+    {
+      "mim": "619124",
+      "title": "DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 89",
+      "strategy": "kg",
+      "pmids": [
+        "32282878"
+      ],
+      "content_level": "fulltext",
+      "omim_states": "Analysis of patient cells confirmed splicing defects",
+      "difference": "Draft says the analysis used cDNA from parental lymphoblastoid cells, not patient cells",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "reverse transcription of RNA extracted with the RNeasy® Mini Kit (Qiagen) from Epstein-Barr virus–immortalized lymphoblastoid cells of both parents (Subjects A-II:1 and A-II:2) was performed",
+      "explanation": "The cDNA splicing analysis for c.1414-1G>C used RNA from immortalized lymphoblastoid cells of both parents, who carry the variant, not cells from the affected patients. That analysis showed no normal mRNA and three aberrant isoforms.",
+      "quote_verified": true
+    },
+    {
+      "mim": "620249",
+      "title": "CONGENITAL MYOPATHY 10B, MILD VARIANT",
+      "strategy": "direct",
+      "pmids": [
+        "29128256"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Came to attention at age 45 with respiratory insufficiency",
+      "difference": "The draft says respiratory failure developed in his fifties and describes adult onset with a 20-year history.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract says the 66-year-old had a 20-year history and developed respiratory failure requiring ventilation in his 50s, with onset in the 5th decade. It does not say whether he first came to attention at age 45 with respiratory insufficiency, which could be in the full text and is not necessarily incompatible.",
+      "quote_verified": false
+    },
+    {
+      "mim": "620249",
+      "title": "CONGENITAL MYOPATHY 10B, MILD VARIANT",
+      "strategy": "kg",
+      "pmids": [
+        "29128256"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Patient reported mild muscle weakness from childhood",
+      "difference": "The draft calls it adult-onset, with a 20-year history and onset in the fifth decade.",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract describes a 20-year history of progressive weakness and says the findings extend the phenotype to onset in the 5th decade. It does not say whether the patient had mild weakness in childhood, which could be in the full case report. The abstract alone does not settle the point.",
+      "quote_verified": false
+    },
+    {
+      "mim": "620718",
+      "title": "OROFACIODIGITAL SYNDROME XX",
+      "strategy": "direct",
+      "pmids": [
+        "37384395"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Functional analysis of E218K was not reported",
+      "difference": "Draft says functional studies showed loss of function for the mutant proteins in general, which implies all the variants were tested",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract only says the pathogenic variants in general show a strong loss of function. It doesn't name the variants that were tested, so whether E218K was studied would be in the full text, which wasn't supplied.",
+      "quote_verified": false
+    },
+    {
+      "mim": "620718",
+      "title": "OROFACIODIGITAL SYNDROME XX",
+      "strategy": "kg",
+      "pmids": [
+        "37384395"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Functional analysis of E218K was not reported",
+      "difference": "Draft states that functional studies showed loss of function for the mutant proteins in general, which suggests all mutants were tested",
+      "ruling": "cannot_tell",
+      "model_ruling": "cannot_tell",
+      "quote": "",
+      "explanation": "The abstract reports strong loss of function for the variants' protein products as a group, but it does not say which variants were tested or mention E218K. Whether E218K was studied would be in the full text, which was not supplied.",
+      "quote_verified": false
+    },
+    {
+      "mim": "621169",
+      "title": "MONILETHRIX 2",
+      "strategy": "kg",
+      "pmids": [
+        "9402962"
+      ],
+      "content_level": "abstract",
+      "omim_states": "Glu-to-Lys substitution at codon 413 (E413K)",
+      "difference": "Draft gives codon 403 (E403K) instead of 413. The Glu-to-Lys change is the same.",
+      "ruling": "draft",
+      "model_ruling": "draft",
+      "quote": "In the second family, we identified in affected individuals a lysine substitution of the corresponding glutamic acid residue, Glu 403, in the type II hair keratin hHb1",
+      "explanation": "The paper reports the hHb1 (KRT81) mutation as a Glu-to-Lys change at residue 403, which matches the draft's E403K. It never mentions codon 413. The reference's 413 may come from a later renumbering, but this paper does not state it.",
+      "quote_verified": true
+    },
+    {
+      "mim": "621214",
+      "title": "LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY",
+      "strategy": "kg",
+      "pmids": [
+        "38729262"
+      ],
+      "content_level": "title",
+      "omim_states": "Single patient studied",
+      "difference": "Draft refers to patients in the plural; the reference describes one patient",
+      "ruling": "both",
+      "model_ruling": "both",
+      "quote": "Chinese patients with adult onset leukodystrophy caused by CST3 variants.",
+      "explanation": "The title refers to several patients and CST3 variants, matching the draft's plural. The reference describes one patient but does not say she was the only one studied, so it most likely just leaves the others out.",
+      "quote_verified": true
+    }
+  ]
+}

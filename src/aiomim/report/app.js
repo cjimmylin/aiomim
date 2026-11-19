@@ -218,7 +218,11 @@
       document.head.append(el);
     });
     pending.set(item.key, pr);
-    pr.then(() => pending.delete(item.key), (e) => { pending.delete(item.key); item.loadError = e.message; });
+    // Re-render exactly once per load. Views call loadEntry() on every render while an
+    // entry is pending; attaching the re-render there would stack one more handler per
+    // render, and a view that loads several entries would re-render exponentially.
+    pr.then(() => { pending.delete(item.key); rerenderIfShowing(item); },
+            (e) => { pending.delete(item.key); item.loadError = e.message; rerenderIfShowing(item); });
     return pr;
   }
   const HAS_UPDATES = ENTRIES.some((it) => it.has_updates);
@@ -894,7 +898,7 @@
       return wrap;
     }
     wrap.append(h('div', { class: 'loading', role: 'status', 'aria-live': 'polite' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading the entry…'));
-    loadEntry(item).then(() => rerenderIfShowing(item), () => rerenderIfShowing(item));
+    loadEntry(item);
     return wrap;
   }
   function rerenderIfShowing(item) {
@@ -1597,7 +1601,7 @@
       else if (it.loadError) body = h('div', { class: 'empty load-error', role: 'alert' }, h('strong', null, 'Could not load this entry. '), it.loadError);
       else {
         body = h('div', { class: 'loading', role: 'status' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading…');
-        loadEntry(it).then(() => rerenderIfShowing(it), () => rerenderIfShowing(it));
+        loadEntry(it);
       }
       wrap.append(h('section', { class: 'section' }, h('h2', null, h('a', { href: entryHash(it, 'updates') }, itemName(it))), body));
     }

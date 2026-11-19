@@ -206,11 +206,14 @@ def export(run_name, out):
 @click.option("--split/--single", default=None,
               help="Put each entry's data in report_data/<entry>.js, or everything in one file "
                    "(default: split when the data exceeds about 5 MB).")
-def report(run_name, out, split):
+@click.option("--fragment", is_flag=True,
+              help="Also write report.fragment.html: the page without its <html>/<head>/<body> shell, for hosts "
+                   "that supply their own.")
+def report(run_name, out, split, fragment):
     """Build the curator review page for a run."""
     from .report.build import build_report
 
-    path = build_report(get_settings().runs / run_name, out, split)
+    path = build_report(get_settings().runs / run_name, out, split, fragment)
     click.echo(f"Report written to {path}")
 
 
@@ -265,9 +268,11 @@ def backtest(mims, from_file, run_name, max_papers):
 @click.argument("run_name")
 def adjudicate(run_name):
     """Where a draft and OMIM disagree, check the paper to see which one it supports."""
-    from .adjudicate import adjudicate_run
+    from .adjudicate import adjudicate_run, corrections_markdown
 
-    result = adjudicate_run(get_settings().runs / run_name)
+    run_dir = get_settings().runs / run_name
+    result = adjudicate_run(run_dir)
+    (run_dir / "candidate_corrections.md").write_text(corrections_markdown(result))
     for strategy, row in result["by_strategy"].items():
         click.echo(f"{strategy}: {row['n']} disagreements with OMIM - paper supports the draft in {row['draft']}, "
                    f"OMIM in {row['reference']}, both in {row['both']}, neither in {row['neither']}; "

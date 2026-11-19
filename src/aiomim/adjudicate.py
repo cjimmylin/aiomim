@@ -125,3 +125,35 @@ def adjudicate_run(run_dir: Path) -> dict[str, Any]:
     }
     (run_dir / "adjudication.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
     return result
+
+
+def corrections_markdown(result: dict[str, Any]) -> str:
+    """The disagreements the paper settled in the draft's favour, as a list for a curator to check."""
+    level_name = {"fulltext": "full text", "abstract": "abstract only", "title": "title only"}
+    seen: set[tuple[str, str]] = set()
+    cases = []
+    for case in sorted(result["cases"], key=lambda c: (c["content_level"] != "fulltext", c["mim"])):
+        key = (case["mim"], case["omim_states"].lower()[:60])
+        if case["ruling"] != "draft" or key in seen:
+            continue
+        seen.add(key)
+        cases.append(case)
+    out = [
+        f"# Candidate corrections to OMIM text — run `{result['run']}`",
+        "Points where a generated draft and OMIM's own paragraph about the same paper state incompatible things, "
+        "and the paper's text supports the draft. Each was decided by a judge model that had to quote the deciding "
+        "passage, and the quote was verified to be in the paper.",
+        "**These are leads, not findings.** The OMIM wording compared here is the copy OMIM deposited in ClinVar, "
+        "which may lag the live entry. Where only the abstract could be read, OMIM's version may come from the full "
+        "text. A curator should confirm each one against the paper and the current entry before anything is changed.",
+        f"{len(cases)} distinct points, full-text cases first.",
+        "| Entry | Paper | Read as | OMIM states | What the paper says | Deciding quote |",
+        "|---|---|---|---|---|---|",
+    ]
+    cell = lambda text: squash(text).replace("|", "\\|")  # noqa: E731
+    for case in cases:
+        papers = ", ".join(f"[{p}](https://pubmed.ncbi.nlm.nih.gov/{p}/)" for p in case["pmids"])
+        out.append(f"| [{case['mim']}](https://omim.org/entry/{case['mim']}) {cell(case['title'].title())} | {papers} | "
+                   f"{level_name.get(case['content_level'], case['content_level'])} | {cell(case['omim_states'])} | "
+                   f"{cell(case['explanation'])} | “{cell(case['quote'])}” |")
+    return "\n\n".join(out[:4]) + "\n\n" + "\n".join(out[4:]) + "\n"

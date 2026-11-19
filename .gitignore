@@ -15,3 +15,8 @@ data/
 runs/
 
 .env
+
+# Review pages are built on demand from the results (aiomim report), not stored.
+results/**/report.html
+results/**/report.fragment.html
+results/**/report_data/

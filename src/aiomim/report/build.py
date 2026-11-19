@@ -414,7 +414,7 @@ def entry_script(file: str, payload: dict) -> str:
     return f"window.{REGISTER}({json_for_script(file)},{json_for_script(payload)});\n"
 
 
-def build_report(run_dir: Path, out: str | None = None, split: bool | None = None) -> Path:
+def build_report(run_dir: Path, out: str | None = None, split: bool | None = None, fragment: bool = False) -> Path:
     """Write the review page for `run_dir` and return its path (default `run_dir/report.html`).
 
     split=None decides by size: one self-contained file while the embedded data stays under
@@ -441,5 +441,28 @@ def build_report(run_dir: Path, out: str | None = None, split: bool | None = Non
             (data_dir / f).write_text(text, encoding="utf-8")
     else:
         data["payloads"] = payloads
-    path.write_text(render_html(data), encoding="utf-8")
+    html = render_html(data)
+    path.write_text(html, encoding="utf-8")
+    if fragment:
+        path.with_name(path.stem + ".fragment.html").write_text(as_fragment(html), encoding="utf-8")
     return path
+
+
+_SKELETON = re.compile(
+    r"<!doctype html>\s*|</?html[^>]*>\s*|</?head>\s*|</?body>\s*|"
+    r"<meta (?:charset|name=\"viewport\"|http-equiv=\"Content-Security-Policy\"|name=\"referrer\")[^>]*>\s*",
+    re.I,
+)
+
+
+def as_fragment(html: str) -> str:
+    """The same page without its document skeleton and CSP tag.
+
+    Hosts that wrap a page in their own <html>/<head>/<body> and apply their own
+    content-security policy (a Claude Artifact, for one) take this form. Only the
+    part of the file before the embedded data is touched.
+    """
+    cut = html.index('<script type="application/json"')
+    head, rest = html[:cut], html[cut:]
+    rest = re.sub(r"\s*</body>\s*</html>\s*$", "\n", rest, flags=re.I)
+    return _SKELETON.sub("", head) + rest
