@@ -1,17 +1,22 @@
 [
- {
-  "round": 1,
-  "critic_suggestions": "Content: all nine points and intervals match log Sec. 2.9 (OMIM facts conveyed); off-scale values match; bands at +/-1.0 and +/-1.8 match Sec. 4.2; no caption text in image. Presentation: the legend in the lower left overlaps the case-table-first bar of the 'half or more full text' group (-6.1, -8.3 to -3.6); value labels use a hyphen while the note uses a true minus sign. Fix: move the legend above the axes in a 3-column row; use the Unicode minus in value labels.",
-  "changed": true
- },
- {
-  "round": 2,
-  "critic_suggestions": "Content unchanged and still matches Sec. 2.9 and 4.2. Presentation: the overlap is gone and minus signs are consistent, but the legend fills column-wise so the two noise-band entries are split across columns and the rows are ragged. Fix: reorder legend handles so row 1 holds the three strategies and row 2 the two noise bands.",
-  "changed": true
- },
- {
-  "round": 3,
-  "critic_suggestions": "No changes needed.",
-  "changed": false
- }
+  {
+    "round": 1,
+    "critic_suggestions": "Content: all nine points and intervals match log Sec. 2.9 (OMIM facts conveyed); off-scale values match; bands at +/-1.0 and +/-1.8 match Sec. 4.2; no caption text in image. Presentation: the legend in the lower left overlaps the case-table-first bar of the 'half or more full text' group (-6.1, -8.3 to -3.6); value labels use a hyphen while the note uses a true minus sign. Fix: move the legend above the axes in a 3-column row; use the Unicode minus in value labels.",
+    "changed": true
+  },
+  {
+    "round": 2,
+    "critic_suggestions": "Content unchanged and still matches Sec. 2.9 and 4.2. Presentation: the overlap is gone and minus signs are consistent, but the legend fills column-wise so the two noise-band entries are split across columns and the rows are ragged. Fix: reorder legend handles so row 1 holds the three strategies and row 2 the two noise bands.",
+    "changed": true
+  },
+  {
+    "round": 3,
+    "critic_suggestions": "No changes needed.",
+    "changed": false
+  },
+  {
+    "round": 4,
+    "critic_suggestions": "Reviewer: labels too small in print. Redesigned at printed width with all text >= 7 pt; checked at print size: no overlap, no clipping. 2.75 x 2.4 in (beside fig_memory_by_era, same height). Legend inside the empty upper left; noise bands labelled directly (±1.0, ±1.8) instead of legend entries; value labels in dark grey; off-scale note for memory only and recall, then verify removed from the image (values kept as a comment in plot.py, caption carries them); group label 'No full text' (was 'No full text (abstracts only)').",
+    "changed": true
+  }
 ]

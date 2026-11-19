@@ -48,3 +48,7 @@ Reference elements
 - Value labels to the right of each interval, with a true minus sign.
 - Off-scale values: small grey text box at the left of the plot.
 - No title inside the image; no caption text.
+
+## Legibility revision (print size)
+- 2.75 x 2.4 in (beside fig_memory_by_era, same height). Legend inside the empty upper left; noise bands labelled directly (±1.0, ±1.8) instead of legend entries; value labels in dark grey; off-scale note for memory only and recall, then verify removed from the image (values kept as a comment in plot.py, caption carries them); group label 'No full text' (was 'No full text (abstracts only)').
+- Font Liberation Sans in all five figures; every text element 7 pt at print size (panel headers 7.5 pt); figsize equals printed width; saved at dpi 300 without bbox cropping so the PNG is exactly the printed size. Strategy colours shared by all figures (Okabe-Ito): direct reading #0072B2, agentic curator #56B4E9, evidence graph #009E73, case table first #D55E00, recall then verify #E69F00, memory only #000000. Outcome categories (fig_hidden_fulltext, fig_missed_facts) use greys plus #F0E442 (missed although in text) and #CC79A7 (contradicted), so no strategy colour means anything else. Data values unchanged.

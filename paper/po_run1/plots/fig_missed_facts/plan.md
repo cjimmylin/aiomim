@@ -56,3 +56,7 @@ Segment shares (of OMIM facts, computed in plot.py):
   needs no down-scaling at column width.
 - Percent labels only inside segments >= 9.5% wide (8 pt if >= 12%, else 7 pt); the Full-text 7% / 7% segments and
   the thin segments are unlabelled.
+
+## Legibility revision (print size)
+- 2.4 x 2.3 in (beside fig_hidden_fulltext, same height). Access level and n on a line above each bar, 'in text: X% of missed' right-aligned on the same line. Legend labels shortened ('Missed, in text', 'Missed, partly in text', 'Missed, not in text').
+- Font Liberation Sans in all five figures; every text element 7 pt at print size (panel headers 7.5 pt); figsize equals printed width; saved at dpi 300 without bbox cropping so the PNG is exactly the printed size. Strategy colours shared by all figures (Okabe-Ito): direct reading #0072B2, agentic curator #56B4E9, evidence graph #009E73, case table first #D55E00, recall then verify #E69F00, memory only #000000. Outcome categories (fig_hidden_fulltext, fig_missed_facts) use greys plus #F0E442 (missed although in text) and #CC79A7 (contradicted), so no strategy colour means anything else. Data values unchanged.

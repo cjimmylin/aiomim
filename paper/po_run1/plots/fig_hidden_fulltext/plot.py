@@ -1,15 +1,19 @@
 """fig_hidden_fulltext: within-paper effect of access (hidden-full-text experiment).
 Data: experimental_log.md Sec. 6.2, table 'OMIM-fact coverage on the frozen fact lists (main measure)'
-and the paired-differences table under it. 46 entries, 136 paragraphs, 2,120 facts per condition."""
+and the paired-differences table under it. 46 entries, 136 paragraphs, 2,120 facts per condition.
+Print size: 3.0 in wide (beside fig_missed_facts, same height); all text >= 7 pt."""
 import os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-plt.rcParams.update({"font.family": "sans-serif", "font.size": 8,
-                     "font.sans-serif": ["DejaVu Sans", "Arial", "Helvetica"]})
+plt.rcParams.update({
+    "font.family": "sans-serif", "font.sans-serif": ["Liberation Sans", "Arial", "DejaVu Sans"],
+    "font.size": 7, "axes.labelsize": 7, "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 7,
+    "axes.linewidth": 0.6, "xtick.major.width": 0.6, "xtick.major.size": 2.5, "xtick.major.pad": 1.5,
+})
 
-conditions = ["Abstract only", "Abstract +\nsecond-hand passages", "Full text"]
+conditions = ["Abstract only", "Abstract + second-hand passages", "Full text"]
 present = [495, 629, 1513]
 partial = [331, 297, 254]
 absent = [1290, 1184, 343]
@@ -23,57 +27,47 @@ for i in range(3):
     assert present[i] + partial[i] + absent[i] + contradicted[i] == facts[i]
     assert f"{100 * (present[i] + partial[i] / 2) / facts[i]:.1f}%" == coverage[i]
 
-# colours matched to fig_missed_facts (conveyed / partly stated / not in text / contradicted)
+# outcome colours shared with fig_missed_facts; neutral greys so no strategy colour is reused
 segments = [
-    ("Present", present, "#009E73", "white"),
-    ("Partly present", partial, "#E69F00", "black"),
-    ("Absent", absent, "#BBBBBB", "black"),
-    ("Contradicted", contradicted, "#000000", "white"),
+    ("Present", present, "#555555", "white"),
+    ("Partly present", partial, "#A8A8A8", "black"),
+    ("Absent", absent, "#DEDEDE", "black"),
+    ("Contradicted", contradicted, "#CC79A7", "white"),
 ]
 
 N = 2120
-fig, ax = plt.subplots(figsize=(5.5, 3.1), layout="constrained")
+fig, ax = plt.subplots(figsize=(3.0, 2.3), layout="constrained")
+fig.get_layout_engine().set(w_pad=0.02, h_pad=0.02)
 ypos = [2, 1, 0]
+BH = 0.34
 left = [0, 0, 0]
 for label, vals, color, tcol in segments:
-    ax.barh(ypos, vals, left=left, color=color, height=0.6, label=label,
-            edgecolor="white", linewidth=0.5)
+    ax.barh(ypos, vals, left=left, color=color, height=BH, label=label, edgecolor="white", linewidth=0.4)
     for y, l, v in zip(ypos, left, vals):
         if v >= 200:
-            ax.text(l + v / 2, y, f"{v:,}", ha="center", va="center", color=tcol,
-                    fontsize=8 if v >= 300 else 7)
+            ax.text(l + v / 2, y, f"{v:,}", ha="center", va="center", color=tcol, fontsize=7)
     left = [l + v for l, v in zip(left, vals)]
 
-# coverage at bar end
-x_cov = N + 40
-for y, c in zip(ypos, coverage):
-    ax.text(x_cov, y, c, ha="left", va="center", fontsize=9, fontweight="bold", clip_on=False)
-ax.text(x_cov, 2.42, "Coverage", ha="left", va="bottom", fontsize=7.5, color="0.3", clip_on=False)
+# two text lines above each bar: condition + coverage, then paired difference from abstract only
+for y, name, c, d in zip(ypos, conditions, coverage, diff):
+    top = y + BH / 2
+    ax.annotate(name, (0, top), xytext=(0, 10.5), textcoords="offset points", ha="left", va="bottom",
+                fontweight="bold")
+    ax.annotate(f"coverage {c}", (N, top), xytext=(0, 10.5), textcoords="offset points", ha="right",
+                va="bottom", fontweight="bold")
+    sub = "reference for the paired differences" if d is None else f"{d.split(' ')[0]} pp vs abstract only (95% CI {d.split('(')[1]}"
+    ax.annotate(sub, (0, top), xytext=(0, 1.5), textcoords="offset points", ha="left", va="bottom",
+                color="0.25")
 
-# paired difference from abstract only
-x_d = N + 640
-ax.text(x_d, 2.42, "Paired difference from\nabstract only, pp (95% CI)", ha="left", va="bottom",
-        fontsize=7.5, color="0.3", linespacing=1.0, clip_on=False)
-for y, d, b in zip(ypos, diff, bwt):
-    if d is None:
-        ax.text(x_d, y, "reference", ha="left", va="center", fontsize=8, color="0.3", clip_on=False)
-    else:
-        ax.text(x_d, y + 0.11, d, ha="left", va="center", fontsize=8, clip_on=False)
-        ax.text(x_d, y - 0.17, f"entries: {b}", ha="left", va="center",
-                fontsize=7, color="0.3", clip_on=False)
-
-ax.set_yticks(ypos)
-ax.set_yticklabels(conditions)
-ax.set_xlim(0, N + 1950)
-ax.set_ylim(-0.45, 2.45)
-ax.spines["bottom"].set_bounds(0, N)
-ax.set_xticks([0, 500, 1000, 1500, 2000, N])
-ax.set_xticklabels(["0", "500", "1,000", "1,500", "", "2,120"])
-ax.set_xlabel("OMIM facts (the same 2,120 facts judged in each condition)", loc="left")
+ax.set_yticks([])
+ax.set_xlim(0, N)
+ax.set_ylim(-0.22, 2.74)
+ax.set_xticks([0, 500, 1000, 1500, N])
+ax.set_xticklabels(["0", "500", "1,000", "1,500", "2,120"])
+ax.set_xlabel("OMIM facts (the same 2,120 in each condition)")
 ax.spines[["top", "right", "left"]].set_visible(False)
-ax.tick_params(axis="y", length=0)
 handles, labels = ax.get_legend_handles_labels()
-fig.legend(handles, labels, loc="outside upper left", ncol=4, frameon=False, fontsize=8,
-           handlelength=1.0, handletextpad=0.4, columnspacing=1.2)
+fig.legend(handles, labels, loc="outside upper left", ncol=4, frameon=False,
+           handlelength=0.9, handleheight=0.9, handletextpad=0.35, columnspacing=0.8, borderaxespad=0.1)
 
-fig.savefig(os.environ["PO_OUT"], dpi=300, bbox_inches="tight", facecolor="white")
+fig.savefig(os.environ["PO_OUT"], dpi=300, facecolor="white")

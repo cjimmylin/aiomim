@@ -56,3 +56,7 @@ Three paradigm boxes, one control box; add-ons drawn as small dashed attachments
 - Round 2: add-on note reduced to one italic line "dashed = add-on to its parent" beside Agentic curator
   (two-line version touched the box edge); last reference line shortened to "causal gene; inheritance modes"
   (touched the right edge).
+
+## Legibility revision (print size)
+- 5.5 x 2.32 in (full text width). Paradigm groups now neutral grey boxes; each strategy pill has its strategy colour (edge and dot); add-ons dashed grey and stacked under their parent. Panel B header shortened to 'Strategy (the only variable)', panel A to 'Input (same for all)'. Removed from the image (caption carries them): the four-line guards band and the add-on note 'dashed = add-on to its parent'; the control pill reads 'Memory only' (was 'Memory only (no papers)'). Audit steps written as one chain on two lines.
+- Font Liberation Sans in all five figures; every text element 7 pt at print size (panel headers 7.5 pt); figsize equals printed width; saved at dpi 300 without bbox cropping so the PNG is exactly the printed size. Strategy colours shared by all figures (Okabe-Ito): direct reading #0072B2, agentic curator #56B4E9, evidence graph #009E73, case table first #D55E00, recall then verify #E69F00, memory only #000000. Outcome categories (fig_hidden_fulltext, fig_missed_facts) use greys plus #F0E442 (missed although in text) and #CC79A7 (contradicted), so no strategy colour means anything else. Data values unchanged.

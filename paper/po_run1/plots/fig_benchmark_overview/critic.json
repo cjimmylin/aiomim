@@ -1,5 +1,22 @@
 [
- {"round": 1, "critic_suggestions": "Presentation: 'Cited papers R = {d1,...,dn}' overflows the papers box; 'Memory only (no papers)' overflows its pill; guards-band lines run past the strategy panel into the reference box and overlap its last line; strike-through on 'causal gene' reads as a deletion rather than 'withheld'; the dashed add-on convention is not explained. Content: all labels and counts match log Sec. 1.1/1.3/1.4 and notes.md wording.", "changed": true},
- {"round": 2, "critic_suggestions": "Presentation: two-line add-on note is cramped against the Read-and-write box border; last reference line 'causal gene (gene map); inheritance modes' touches the right edge. Content unchanged and correct.", "changed": true},
- {"round": 3, "critic_suggestions": "No changes needed.", "changed": false}
+  {
+    "round": 1,
+    "critic_suggestions": "Presentation: 'Cited papers R = {d1,...,dn}' overflows the papers box; 'Memory only (no papers)' overflows its pill; guards-band lines run past the strategy panel into the reference box and overlap its last line; strike-through on 'causal gene' reads as a deletion rather than 'withheld'; the dashed add-on convention is not explained. Content: all labels and counts match log Sec. 1.1/1.3/1.4 and notes.md wording.",
+    "changed": true
+  },
+  {
+    "round": 2,
+    "critic_suggestions": "Presentation: two-line add-on note is cramped against the Read-and-write box border; last reference line 'causal gene (gene map); inheritance modes' touches the right edge. Content unchanged and correct.",
+    "changed": true
+  },
+  {
+    "round": 3,
+    "critic_suggestions": "No changes needed.",
+    "changed": false
+  },
+  {
+    "round": 4,
+    "critic_suggestions": "Reviewer: labels too small in print. Redesigned at printed width with all text >= 7 pt; checked at print size: no overlap, no clipping. 5.5 x 2.32 in (full text width). Paradigm groups now neutral grey boxes; each strategy pill has its strategy colour (edge and dot); add-ons dashed grey and stacked under their parent. Panel B header shortened to 'Strategy (the only variable)', panel A to 'Input (same for all)'. Removed from the image (caption carries them): the four-line guards band and the add-on note 'dashed = add-on to its parent'; the control pill reads 'Memory only' (was 'Memory only (no papers)'). Audit steps written as one chain on two lines.",
+    "changed": true
+  }
 ]

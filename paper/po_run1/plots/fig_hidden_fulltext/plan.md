@@ -51,3 +51,7 @@ caption, and the full-text row label carries a dagger explained in the caption..
 Right-hand column shows coverage (bold) and the paired difference from abstract only with its 95% CI, with the
 entry counts below as "entries: 33 better, 9 worse, 4 tied" / "45 better, 0 worse, 1 tied". Segment counts under 300
 facts are set at 7 pt. Contradicted counts (4 / 10 / 10) are stated in the caption because the segments are sub-pixel.
+
+## Legibility revision (print size)
+- 3.0 x 2.3 in (beside fig_missed_facts, same height). Condition name and coverage on a line above each bar, paired difference with 95% CI on a second line; no y tick labels. Entries better/worse/tied removed from the image.
+- Font Liberation Sans in all five figures; every text element 7 pt at print size (panel headers 7.5 pt); figsize equals printed width; saved at dpi 300 without bbox cropping so the PNG is exactly the printed size. Strategy colours shared by all figures (Okabe-Ito): direct reading #0072B2, agentic curator #56B4E9, evidence graph #009E73, case table first #D55E00, recall then verify #E69F00, memory only #000000. Outcome categories (fig_hidden_fulltext, fig_missed_facts) use greys plus #F0E442 (missed although in text) and #CC79A7 (contradicted), so no strategy colour means anything else. Data values unchanged.

@@ -40,3 +40,7 @@ No CIs are given in Sec. 2.11, so no error bars. Nothing else is plotted.
 - y labels name the measure: "OMIM facts conveyed (%)", "Causal gene F1 (%)"; y ticks 0/25/50/75/100.
 - No caption or figure number in the image.
 - No project, package or author names anywhere.
+
+## Legibility revision (print size)
+- 2.75 x 2.4 in (beside fig_access_strata, same height). Memory only now black (was #D55E00, which is case table first). Direct labels replace the legend; panel titles replace y labels; era ticks shortened to MIM-number thousands ('classic', '600–609', ..., '620+', '2026 set'); per-band n moved to the caption (already there).
+- Font Liberation Sans in all five figures; every text element 7 pt at print size (panel headers 7.5 pt); figsize equals printed width; saved at dpi 300 without bbox cropping so the PNG is exactly the printed size. Strategy colours shared by all figures (Okabe-Ito): direct reading #0072B2, agentic curator #56B4E9, evidence graph #009E73, case table first #D55E00, recall then verify #E69F00, memory only #000000. Outcome categories (fig_hidden_fulltext, fig_missed_facts) use greys plus #F0E442 (missed although in text) and #CC79A7 (contradicted), so no strategy colour means anything else. Data values unchanged.

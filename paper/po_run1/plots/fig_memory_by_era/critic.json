@@ -1,17 +1,22 @@
 [
- {
-  "round": 1,
-  "critic_suggestions": "All values match log Sec. 2.11 and Sec. 10. Presentation: x tick labels of the five era bands overlap each other in both side-by-side panels (unreadable); panel titles duplicate the y-axis labels; x-axis label sits under the left panel only. Fix: shorten tick labels to range + n, use a generic y label, centre a shared x label.",
-  "changed": true
- },
- {
-  "round": 2,
-  "critic_suggestions": "Values still correct. Second-line tick labels still collide ('-5xxxxx-609999'), and the 7 pt tick font is below the 8 pt minimum. Fix: switch to two vertically stacked panels sharing one full-width x axis so each band range fits on one line at 8 pt; restore measure-specific y labels; drop panel titles; y ticks every 25.",
-  "changed": true
- },
- {
-  "round": 3,
-  "critic_suggestions": "No changes needed. All 24 plotted values verified against the log; no overlapping or clipped text; separate set visibly set apart (dashed rule, hollow markers, unconnected, labelled 'separate set'); colours consistent; no caption in image. Noted, not changed: classic-band gene F1 markers (88.9 vs 87.0) nearly coincide, which is the data; adjacent era tick labels are close but do not touch.",
-  "changed": false
- }
+  {
+    "round": 1,
+    "critic_suggestions": "All values match log Sec. 2.11 and Sec. 10. Presentation: x tick labels of the five era bands overlap each other in both side-by-side panels (unreadable); panel titles duplicate the y-axis labels; x-axis label sits under the left panel only. Fix: shorten tick labels to range + n, use a generic y label, centre a shared x label.",
+    "changed": true
+  },
+  {
+    "round": 2,
+    "critic_suggestions": "Values still correct. Second-line tick labels still collide ('-5xxxxx-609999'), and the 7 pt tick font is below the 8 pt minimum. Fix: switch to two vertically stacked panels sharing one full-width x axis so each band range fits on one line at 8 pt; restore measure-specific y labels; drop panel titles; y ticks every 25.",
+    "changed": true
+  },
+  {
+    "round": 3,
+    "critic_suggestions": "No changes needed. All 24 plotted values verified against the log; no overlapping or clipped text; separate set visibly set apart (dashed rule, hollow markers, unconnected, labelled 'separate set'); colours consistent; no caption in image. Noted, not changed: classic-band gene F1 markers (88.9 vs 87.0) nearly coincide, which is the data; adjacent era tick labels are close but do not touch.",
+    "changed": false
+  },
+  {
+    "round": 4,
+    "critic_suggestions": "Reviewer: labels too small in print. Redesigned at printed width with all text >= 7 pt; checked at print size: no overlap, no clipping. 2.75 x 2.4 in (beside fig_access_strata, same height). Memory only now black (was #D55E00, which is case table first). Direct labels replace the legend; panel titles replace y labels; era ticks shortened to MIM-number thousands ('classic', '600–609', ..., '620+', '2026 set'); per-band n moved to the caption (already there).",
+    "changed": true
+  }
 ]
