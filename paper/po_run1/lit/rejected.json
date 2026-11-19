@@ -24,5 +24,36 @@
     "task_id": "T013",
     "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
     "reason": "arxiv_title_mismatch_17;s2_disabled;crossref_no_match_52;arxiv_no_match_0"
+  },
+  {
+    "candidate_title": "Claude Code overview",
+    "task_id": "T039",
+    "section": "3. Benchmark and Strategies - 3.2 Generation strategies",
+    "reason": "s2_disabled;crossref_no_match_61;arxiv_no_match_0"
+  },
+  {
+    "candidate_title": "Contexts are Never Long Enough",
+    "task_id": "T017",
+    "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+    "reason": "arxiv_title_mismatch_17;s2_disabled;crossref_no_match_59;arxiv_no_match_0"
+  },
+  {
+    "candidate_title": "Claude Opus 5.5 System Card",
+    "task_id": "T038",
+    "section": "3. Benchmark and Strategies - 3.2 Generation strategies",
+    "reason": "s2_disabled;crossref_no_match_35;arxiv_no_match_0"
+  },
+  {
+    "candidate_title": "A Comparative Analysis of Tools for Systematic Literature Reviews: A Survey",
+    "task_id": "T002",
+    "section": "Introduction",
+    "reason": "arxiv_title_mismatch_49;s2_disabled;crossref_no_match_68;arxiv_no_match_0"
+  },
+  {
+    "candidate_title": "PubMed Central: The GenBank of the life sciences?",
+    "task_id": "T037",
+    "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+    "reason": "no_abstract",
+    "matched_title": "PubMed Central: The GenBank of the published literature"
   }
 ]
