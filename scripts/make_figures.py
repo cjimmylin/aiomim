@@ -331,22 +331,21 @@ def fig3(s100: dict) -> list[Path]:
     lab = strat_labels(s100)
     bcl = s100["by_content_level"]
     order = ORDER
-    fig, ax = plt.subplots(figsize=(SINGLE, 2.9))
+    fig, ax = plt.subplots(figsize=(SINGLE, 3.3))
+    bh = 0.25
     for i, k in enumerate(order):
-        vals = [bcl[lv][k]["coverage"] for lv, *_ in LEVELS]
-        ax.plot([100 * min(vals), 100 * max(vals)], [i, i], color=GRID, lw=2.0,
-                zorder=1, solid_capstyle="round")
-        for (lv, name, col, mk) in LEVELS:
+        for j, (lv, name, col, mk) in enumerate(LEVELS):
             c = bcl[lv][k]
-            ax.plot(100 * c["coverage"], i, marker=mk, ms=6, color=col,
-                    mec=WHITE, mew=1.0, zorder=3, ls="none")
+            y = i + (j - 1) * (bh + 0.03)
+            ax.barh(y, 100 * c["coverage"], height=bh, color=col,
+                    edgecolor="none", zorder=2)
             print(f"  {lab[k]:24s} {name:14s} {pct(c['coverage']):>6s}  "
                   f"(facts {c['n_facts']}, present {c['present']}, "
                   f"partial {c['partial']}, contradicted {c['contradicted']})")
     names = [short_label(lab[k]) + ("\n(control)" if k == "closedbook" else "")
              for k in order]
     ax.set_yticks(range(len(order)), names)
-    ax.set_ylim(len(order) - 0.5, -0.6)
+    ax.set_ylim(len(order) - 0.5, -0.5)
     ax.set_xlim(0, 85)
     ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(
         lambda v, _: f"{v:.0f}%"))
@@ -355,13 +354,13 @@ def fig3(s100: dict) -> list[Path]:
     clean_axes(ax, "x")
     ax.spines["left"].set_visible(False)
     nf = {lv: bcl[lv]["direct"]["n_facts"] for lv, *_ in LEVELS}
-    handles = [Line2D([], [], marker=mk, color=col, mec=WHITE, ms=6, ls="none",
-                      label=f"{name}")
+    handles = [Patch(fc=col, ec="none", label=name)
                for lv, name, col, mk in LEVELS]
-    ax.legend(handles=handles, loc="lower left", bbox_to_anchor=(-0.02, 1.0),
-              ncol=3, handletextpad=0.2, columnspacing=1.0, borderaxespad=0.2)
+    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.01, 0.995),
+               ncol=3, handlelength=1.0, handleheight=1.0, columnspacing=1.2,
+               title="Paper readable as", title_fontsize=7, alignment="left")
     print("  OMIM facts per level (Direct reading):", nf)
-    fig.subplots_adjust(left=0.30, right=0.97, top=0.89, bottom=0.15)
+    fig.subplots_adjust(left=0.30, right=0.97, top=0.86, bottom=0.13)
     return save(fig, "fig3_access")
 
 
@@ -369,7 +368,7 @@ def fig3(s100: dict) -> list[Path]:
 # Figure 4: fate of OMIM's facts under direct reading
 # ---------------------------------------------------------------------------
 FATE = [
-    ("present", "Conveyed", BLUE[450], WHITE),
+    ("present", "Conveyed in full", BLUE[450], WHITE),
     ("yes", "Not conveyed, though stated in the text", RED, WHITE),
     ("partly", "Not conveyed, partly stated", RED_LIGHT, INK),
     ("no", "Not in the available text", NEUTRAL, INK),
@@ -421,7 +420,7 @@ def fig4(gaps: dict) -> list[Path]:
     fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.01, 0.0),
                ncol=2, handlelength=1.0, handleheight=1.0, columnspacing=1.0,
                fontsize=6.3, labelspacing=0.35)
-    fig.subplots_adjust(left=0.25, right=0.97, top=0.98, bottom=0.36)
+    fig.subplots_adjust(left=0.25, right=0.94, top=0.98, bottom=0.36)
     return save(fig, "fig4_gap")
 
 
@@ -443,7 +442,7 @@ def era_order(keys: list[str]) -> list[str]:
 
 def era_label(s: str) -> str:
     if s.startswith("classic"):
-        return "Classic\n(1xxxxx–5xxxxx)"
+        return "Classic\n1–5xxxxx"
     if "onward" in s:
         return s.replace(" onward", "\nonward")
     a, b = s.split("-")
@@ -490,7 +489,7 @@ def fig5(s100: dict) -> list[Path]:
     fig.text(0.99, 0.985, "Creation-era band of the MIM number, oldest left; "
              f"{min(ns)}–{max(ns)} entries per band",
              ha="right", va="top", fontsize=6.3, color=INK2)
-    fig.subplots_adjust(left=0.08, right=0.99, top=0.84, bottom=0.2, wspace=0.12)
+    fig.subplots_adjust(left=0.08, right=0.99, top=0.84, bottom=0.15, wspace=0.12)
     return save(fig, "fig5_memory_by_era")
 
 
@@ -506,7 +505,7 @@ VERDICTS = [
 ]
 
 
-def fig6(chk: dict) -> list[Path]:
+def fig6(chk: dict, stopped: frozenset = frozenset()) -> list[Path]:
     header("fig6_secondhand: hidden-full-text experiment "
            f"({chk['n_entries']} entries, "
            f"{chk['retrieval']['hidden_papers']} hidden papers)")
@@ -518,9 +517,20 @@ def fig6(chk: dict) -> list[Path]:
     conds = [("abstract", "Abstract\nonly"),
              ("secondhand", "Abstract +\nsecond-hand"),
              ("fulltext", "Full text")]
-    cov = chk["coverage"]
-    print("  (a) OMIM facts conveyed for the gold paragraphs about hidden papers "
-          f"({cov['abstract']['paragraphs']} paragraphs)")
+    # Pooled over entries, leaving out those whose full-text draft was never written
+    # (its writer was stopped): they have no full-text condition to compare with.
+    cov = {c: {k: 0 for k in ("paragraphs", "n_facts", "present", "partial", "absent", "contradicted")}
+           for c, _ in conds}
+    kept = [e for e in chk["entries"] if e["mim"] not in stopped]
+    for e in kept:
+        for c, _ in conds:
+            for k in cov[c]:
+                cov[c][k] += e["coverage"][c].get(k) or 0
+    for c in cov:
+        cov[c]["coverage"] = (cov[c]["present"] + 0.5 * cov[c]["partial"]) / cov[c]["n_facts"]
+    print(f"  (a) OMIM facts conveyed for the gold paragraphs about hidden papers: {len(kept)} of "
+          f"{len(chk['entries'])} entries ({cov['abstract']['paragraphs']} paragraphs); left out because the "
+          f"full-text draft was stopped: {sorted(e['mim'] for e in chk['entries'] if e['mim'] in stopped)}")
     for i, (c, name) in enumerate(conds):
         v = 100 * cov[c]["coverage"]
         axa.bar(i, v, width=0.5, color=BLUE[450], edgecolor="none")
@@ -596,9 +606,9 @@ def fig7(s100: dict) -> list[Path]:
     cost = s100["cost"]
     fig, ax = plt.subplots(figsize=(SINGLE, 2.7))
     # label offsets in points, chosen to avoid collisions
-    off = {"direct": (6, 4), "kg": (6, 4), "agent": (-6, -11),
-           "cohort": (6, -10), "recall": (-6, 6), "closedbook": (6, 4)}
-    ha = {"agent": "right", "recall": "right"}
+    off = {"direct": (-6, 7), "kg": (6, 7), "agent": (6, -10),
+           "cohort": (0, -14), "recall": (-6, 6), "closedbook": (6, 4)}
+    ha = {"direct": "right", "cohort": "center", "recall": "right"}
     for k in ORDER:
         x = cost[k]["generate"]["per_entry"]["list_price_usd"]
         y = 100 * cov[k]
@@ -624,7 +634,7 @@ def fig7(s100: dict) -> list[Path]:
     ax.text(0.99, 0.02, "Hollow marker: control (no papers)",
             transform=ax.transAxes, ha="right", va="bottom", fontsize=6.3,
             color=INK2)
-    fig.subplots_adjust(left=0.15, right=0.97, top=0.97, bottom=0.16)
+    fig.subplots_adjust(left=0.15, right=0.94, top=0.97, bottom=0.16)
     return save(fig, "fig7_cost")
 
 
@@ -641,7 +651,8 @@ def main() -> None:
     written += fig3(s100)
     written += fig4(gaps)
     written += fig5(s100)
-    written += fig6(chk)
+    # The hidden-full-text check compares against the source run's direct drafts.
+    written += fig6(chk, frozenset(s100.get("stopped", {}).get("direct", [])))
     written += fig7(s100)
     header("files written")
     for p in written:

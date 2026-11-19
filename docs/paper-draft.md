@@ -92,6 +92,11 @@ causal gene was withheld, so that naming it is part of the task.
 All strategies return the same entry structure: an introductory paragraph, sections of paragraphs each citing papers, a
 gene–phenotype table with inheritance, a clinical synopsis and a list of allelic variants.
 
+![Study design](figures/fig1_design.png)
+
+*Figure 1. Study design. Every strategy receives the same header and papers, and every draft goes through the same
+audit and the same scoring.*
+
 **Six strategies compared head to head**
 
 | Strategy | Intermediate representation | What it does |
@@ -202,6 +207,8 @@ entries, the agentic curator on two and the evidence graph on one.
 
 ![Paired differences from direct reading](figures/fig2_paired_differences.png)
 
+*Figure 2. Paired differences from direct reading with 95% intervals, 97 entries.*
+
 - **The three strategies that read the papers are faithful.** About 96% of their claims were fully supported and the
   rest partly; after one repair round at most one unsupported claim remained in roughly 10,000. Every one of the 1,833
   findings in the evidence graphs and all 2,600 quotes offered by the agent were found verbatim in the papers.
@@ -228,6 +235,8 @@ entries, the agentic curator on two and the evidence graph on one.
 
 ![Facts conveyed by access](figures/fig3_access.png)
 
+*Figure 3. OMIM facts conveyed, by how the cited paper was readable. A partly conveyed fact counts as half.*
+
 The difference between a full text and an abstract (35 points) is about nine times the largest overall difference
 between reading strategies (3.8 points). Variant recovery follows the same line: for direct reading, 48% in entries with no full-text paper and 89%
 where at least half the papers were readable in full.
@@ -245,7 +254,11 @@ The gap analysis makes the same point fact by fact (direct reading, 97 entries, 
 
 ![Where missed facts went](figures/fig4_gap.png)
 
-Thirty-eight percent of OMIM's facts were not in any text the writer was given, and only 5% were plainly there and left
+*Figure 4. What happened to OMIM's facts under direct reading. Here "conveyed" means fully conveyed; facts conveyed in
+part are counted with those that were not, which is why the shares are lower than in Table 3.*
+
+In Table 4 a fact counts as conveyed only when it is fully present, and a partly conveyed fact is assigned to whichever
+of the other columns describes the text. Thirty-eight percent of OMIM's facts were not in any text the writer was given, and only 5% were plainly there and left
 out. Even for full-text papers, 104 facts were not in the main text; supplementary tables are the likely source of
 many. A better writer could recover at most the 5–17% that was stated or partly stated.
 
@@ -265,6 +278,8 @@ OMIM is public and the model has seen it. The memory-only control measures how m
 
 ![Memory by era](figures/fig5_memory_by_era.png)
 
+*Figure 5. Memory only against direct reading, by when the entry was created.*
+
 - For the newest entries memory supplies almost nothing, while direct reading does as well there as anywhere (57%).
   The reading results therefore do not depend on memorised OMIM text.
 - For the oldest entries, memory alone scores higher on the clinical synopsis than reading does (37.5% against
@@ -276,13 +291,14 @@ OMIM is public and the model has seen it. The memory-only control measures how m
 Open-access papers that cite and describe the target were found for 473 of the 515 papers (326 of 345 abstract-only,
 53 of 74 title-only): 2,430 passages.
 
-**Accuracy, with the full text hidden** (49 entries, 91 papers, 142 OMIM paragraphs):
+**Accuracy, with the full text hidden** (49 entries, 91 papers). Coverage is over the 46 entries that have a
+full-text draft to compare with (136 OMIM paragraphs); the claim counts use all 49.
 
 | What the writer had | OMIM facts conveyed |
 |---|---|
-| Abstract only | 35.3% |
-| Abstract plus second-hand passages | 41.1% |
-| The real full text | 74.9% |
+| Abstract only | 35.5% |
+| Abstract plus second-hand passages | 41.4% |
+| The real full text | 78.6% |
 
 | The claim rested on | Claims | Supported by the full text | Partly | Unsupported | Contradicted |
 |---|---|---|---|---|---|
@@ -292,7 +308,10 @@ Open-access papers that cite and describe the target were found for 473 of the 5
 
 ![Second-hand evidence](figures/fig6_secondhand.png)
 
-Second-hand passages closed about 6 points of a 40-point gap. Claims taken from a later paper's running text were
+*Figure 6. The hidden-full-text experiment. (a) OMIM facts conveyed about the hidden papers. (b) Verdicts against the
+paper's full text, by the evidence a claim rested on.*
+
+Second-hand passages closed about 6 points of a 43-point gap. Claims taken from a later paper's running text were
 unsupported or contradicted in 5% of cases, against under 1% for claims from the abstract; rows from review tables
 were unsupported in 9 of 21. Our full texts exclude supplements, so "unsupported" is an upper bound. The ordinary audit
 does not catch these errors, because it checks the claim against the same second-hand text the writer saw.
@@ -371,6 +390,8 @@ $5–14 per entry per strategy. *To be replaced with the 12-entry result.*
 | Total | $1.23 | $1.20 | $1.56 | $1.62 | $1.16 | $0.73 |
 
 ![Cost against facts conveyed](figures/fig7_cost.png)
+
+*Figure 7. Generation cost per entry at list price against OMIM facts conveyed.*
 
 For the strategies that read the papers, the audit costs more than generation. The agent's input tokens are mostly cached re-reads, which is
 why it costs as little as direct reading. Scoring is needed only for evaluation.
