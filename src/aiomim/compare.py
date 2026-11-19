@@ -27,6 +27,8 @@ when the evaluation files are read, and none of them changes a file on disk:
 
 from __future__ import annotations
 
+from collections import Counter
+
 import json
 import math
 import random
@@ -48,6 +50,10 @@ METRICS: list[tuple[str, str, str, bool]] = [
     ("gold_fact_coverage", "OMIM per-paper facts conveyed", "gold_text.coverage", True),
     ("gold_fact_strict_coverage", "… fully (no partial credit)", "gold_text.strict_coverage", True),
     ("gold_fact_contradiction_rate", "OMIM per-paper facts contradicted", "gold_text.contradiction_rate", False),
+    ("gold_fact_coverage_whole", "… conveyed anywhere in the draft, not only where the paper is cited",
+     "gold_text_frozen_whole.coverage", True),
+    ("gold_fact_coverage_adaptive", "… facts split afresh for each draft (earlier scoring)",
+     "gold_text_adaptive.coverage", True),
     ("hpo_exact_f1", "Clinical synopsis HPO F1, exact", "synopsis.exact.f1", True),
     ("hpo_exact_precision", "… precision", "synopsis.exact.precision", True),
     ("hpo_exact_recall", "… recall", "synopsis.exact.recall", True),
@@ -146,6 +152,22 @@ def prepare_eval(evaluation: dict) -> dict:
     derived = evaluation.setdefault("derived", {})
     if derived.get("_prepared"):
         return evaluation
+    # OMIM facts conveyed: where the draft was scored against the frozen fact list
+    # (one split per OMIM paragraph, shared by every strategy), that is the measure.
+    # The earlier scoring, which split the paragraph afresh for each draft, is kept
+    # beside it. Unjudged facts are not in the denominator.
+    frozen = evaluation.get("gold_text_frozen")
+    if isinstance(frozen, dict) and frozen.get("n_judged"):
+        evaluation["gold_text_adaptive"] = evaluation.get("gold_text")
+        scored = dict(frozen)
+        scored["n_facts"] = frozen["n_judged"]
+        scored["by_content_level"] = {
+            level: {**v, "n_facts": v.get("n_judged", v.get("n_facts"))}
+            for level, v in (frozen.get("by_content_level") or {}).items()}
+        evaluation["gold_text"] = scored
+        derived["fact_list"] = "frozen"
+    else:
+        derived["fact_list"] = "per_draft"
     empty: list[str] = []
     genes = evaluation.get("genes")
     if isinstance(genes, dict) and genes.get("n_predicted") == 0 and (genes.get("n_gold") or 0) > 0:
@@ -852,6 +874,10 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
     return {
         "run": run_dir.name, "baseline": baseline, "n_entries": len(common),
         "primary_endpoint": PRIMARY,
+        # Which scoring of OMIM facts each strategy's compared entries carry: a frozen
+        # fact list per paragraph, or the earlier split made afresh for each draft.
+        "fact_list": {s: dict(Counter((e.get("derived") or {}).get("fact_list", "per_draft") for e in items))
+                      for s, items in by_strategy.items()},
         "stopped": stopped,
         "completion": completion,
         "n_entries_in_run": len(all_folders),
@@ -913,6 +939,21 @@ def _completion_section(result: dict[str, Any], names: list[str], labels: dict[s
     return text
 
 
+def _fact_list_note(result: dict[str, Any], labels: dict[str, str]) -> list[str]:
+    kinds = result.get("fact_list") or {}
+    seen = {k for c in kinds.values() for k in c}
+    if seen == {"frozen"}:
+        return ["- **OMIM facts conveyed** is scored against one fixed list of facts per OMIM paragraph, split without "
+                "sight of any draft and shared by every strategy. The earlier scoring, which split the paragraph "
+                "afresh for each draft, is shown as a secondary row."]
+    if "frozen" in seen:
+        mixed = "; ".join(f"{labels.get(s, s)}: " + ", ".join(f"{k} {v}" for k, v in c.items()) for s, c in kinds.items())
+        return [f"- **Warning: OMIM facts conveyed mixes two scorings** (fixed fact lists and per-draft splits): {mixed}. "
+                "Re-score the run before comparing strategies on this measure."]
+    return ["- **OMIM facts conveyed** is scored with a fact list split afresh for each draft (the fixed-list "
+            "scoring has not been run for this comparison)."]
+
+
 def strategies_markdown(result: dict[str, Any]) -> str:
     names = [s["name"] for s in result["strategies"]]
     labels = {s["name"]: s["label"] for s in result["strategies"]}
@@ -942,6 +983,7 @@ def strategies_markdown(result: dict[str, Any]) -> str:
            *([_stopped_note(result)] if result.get("stopped") else []),
            *_completion_section(result, names, labels),
            "## How the scores are counted",
+           *_fact_list_note(result, labels),
            "- **Empty predictions count as zero.** Where a strategy predicted nothing (no causal gene, no synopsis "
            "term, no variant) and OMIM's gold set is not empty, F1 and recall count as 0 rather than leaving the "
            "entry out of the mean; precision stays undefined. This is applied when the evaluation files are read, "
