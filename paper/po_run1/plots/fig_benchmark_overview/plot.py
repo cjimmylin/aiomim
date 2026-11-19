@@ -64,7 +64,7 @@ txt(AX0 + 0.14, 2.51, r"Header $h$", weight="bold")
 txt(AX0 + 0.14, 2.32, "number, title, alt. titles")
 # papers
 box(AX0 + 0.08, 1.06, AX1 - 0.08, 2.10, ec=GREY, fc="#F4F4F4", lw=0.6)
-txt(AX0 + 0.14, 1.98, r"Cited papers $R=\{d_1,\ldots,d_n\}$", weight="bold")
+txt(AX0 + 0.14, 1.98, r"Cited papers $R=\{d_i\}$", weight="bold")
 txt(AX0 + 0.14, 1.83, r"access level $a(d)$ of each:", color=INK)
 levels = [("full text", 3), ("abstract", 1.4), ("title", 0)]
 for i, (lab, nlines) in enumerate(levels):
@@ -78,8 +78,7 @@ for i, (lab, nlines) in enumerate(levels):
         yy = y0 + 0.21 - k * 0.032
         ax.plot([x0 + 0.04, x0 + 0.24], [yy, yy], color=GREY, lw=0.6)
     txt(cx, 1.20, lab, ha="center")
-txt(AX0 + 0.14, 0.86, "causal gene: withheld", weight="bold", color="#B23A00")
-ax.plot([AX0 + 0.14, AX0 + 0.14 + 0.66], [0.86, 0.86], color="#B23A00", lw=0.8)  # strike through "causal gene"
+txt(AX0 + 0.14, 0.86, "causal gene withheld", weight="bold", color="#B23A00")
 txt(AX0, 0.44, "100 entries; 515 papers:", color=INK)
 txt(AX0, 0.29, "96 full text, 345 abstract,", color=INK)
 txt(AX0, 0.14, "74 title only", color=INK)
@@ -100,6 +99,8 @@ pill(RX, BX1 - 0.08, 2.32, "Learned curation guide", C_RW, dashed=True, plus=Tru
 ax.plot([LX + LW, RX], [2.55, 2.55], color=C_RW, lw=0.8)
 ax.plot([LX + LW + 0.10, LX + LW + 0.10, RX], [2.55, 2.32, 2.32], color=C_RW, lw=0.8)
 pill(LX, LX + LW, 2.09, "Agentic curator", C_RW)
+txt(RX, 2.14, "dashed, +: add-on, tested", color=INK)
+txt(RX, 2.03, "against its parent", color=INK)
 
 # Extract, then write
 box(BX0, 1.24, BX1, 1.92, ec=C_EW, fc=light(C_EW))
@@ -110,20 +111,21 @@ pill(RX, BX1 - 0.08, 1.36, "Reconciled case database", C_EW, dashed=True, plus=T
 ax.plot([LX + LW, RX], [1.36, 1.36], color=C_EW, lw=0.8)
 
 # Memory first and control
-MID = (BX0 + BX1) / 2
-box(BX0, 0.76, MID - 0.04, 1.18, ec=C_MF, fc=light(C_MF, 0.18))
-txt(BX0 + 0.08, 1.07, "Memory first", weight="bold", color="#A86E00")
-pill(LX, MID - 0.12, 0.87, "Recall, then verify", C_MF)
-box(MID + 0.04, 0.76, BX1, 1.18, ec=C_CT, fc=light(C_CT, 0.18))
-txt(MID + 0.12, 1.07, "Control", weight="bold", color="#555555")
-pill(MID + 0.12, BX1 - 0.08, 0.87, "Memory only (no papers)", C_CT)
+MID = 3.085
+box(BX0, 0.80, MID - 0.04, 1.18, ec=C_MF, fc=light(C_MF, 0.18))
+txt(BX0 + 0.08, 1.09, "Memory first", weight="bold", color="#A86E00")
+pill(LX, MID - 0.12, 0.90, "Recall, then verify", C_MF)
+box(MID + 0.04, 0.80, BX1, 1.18, ec=C_CT, fc=light(C_CT, 0.18))
+txt(MID + 0.12, 1.09, "Control", weight="bold", color="#555555")
+pill(MID + 0.12, BX1 - 0.08, 0.90, "Memory only (no papers)", C_CT)
 
 # guards band
-box(BX0, 0.02, BX1, 0.68, ec=INK, fc="#EFEFEF", lw=0.7)
-txt(BX0 + 0.08, 0.58, "Guards applied to every strategy", weight="bold")
-txt(BX0 + 0.08, 0.43, "ontology IDs chosen only from ontology-search candidates;")
-txt(BX0 + 0.08, 0.28, "gene symbols normalised against HGNC; recalled")
-txt(BX0 + 0.08, 0.13, "cross-reference numbers removed; every paragraph cites a supplied paper")
+box(BX0, 0.02, BX1, 0.74, ec=INK, fc="#EFEFEF", lw=0.7)
+txt(BX0 + 0.08, 0.65, "Guards applied to every strategy", weight="bold")
+txt(BX0 + 0.08, 0.51, "ontology IDs chosen only from candidates returned")
+txt(BX0 + 0.08, 0.38, "by an ontology search; gene symbols normalised")
+txt(BX0 + 0.08, 0.25, "against HGNC; recalled cross-reference numbers")
+txt(BX0 + 0.08, 0.12, "removed; every paragraph cites a supplied paper")
 
 # ------------------------------------------------------------------ Panel C: audit, scoring, reference
 CX0, CX1 = 4.88, 7.15

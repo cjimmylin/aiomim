@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "candidate_title": "Evidence Aggregator",
+    "task_id": "T010",
+    "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+    "reason": "s2_disabled;crossref_no_match_61;arxiv_no_match_63"
+  }
+]
