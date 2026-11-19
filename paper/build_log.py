@@ -288,6 +288,12 @@ def build() -> str:
     gaps = read(RUNS / "omim100" / "gaps.direct.frozen.md")
     shc = read(ROOT / "results" / "omim100_secondhand" / "secondhand_check.md")
     lv = ev["levels"]
+    gj = json.load(open(RUNS / "omim100" / "gaps.direct.frozen.json"))
+    gl = gj["by_content_level"]
+    gap_contradicted = ("Facts contradicted by the draft (not in the columns above): "
+                        f"{gl['fulltext']['contradicted']} for full-text papers, {gl['abstract']['contradicted']} for "
+                        f"abstract-only papers, {gl['title']['contradicted']} for title-only papers, "
+                        f"{gj['overall']['contradicted']} in all.")
     # The check's own report, without its per-entry listing and with its headings demoted.
     shc_body = shc.split("\n", 1)[1].split("\n## Per entry")[0].strip()
     shc_body = re.sub(r"^### ", "##### ", shc_body, flags=re.M)
@@ -349,7 +355,7 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
 
 ### 1.3 Strategies
 
-Three paradigms, a control, and four add-ons each tested against its parent.
+Three paradigms, a control, and three add-ons each tested against its parent.
 
 | Strategy | Paradigm | What it does |
 |---|---|---|
@@ -482,6 +488,8 @@ Each fact direct reading did not fully convey was checked once against the text 
 quote that was verified in the text), partly stated, or not stated. The check is a model judgement.
 
 {gaps.split(chr(10) + chr(10), 2)[2].strip()}
+
+{gap_contradicted}
 
 ## 4. How much the measurement moves
 

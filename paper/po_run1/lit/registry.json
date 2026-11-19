@@ -1067,5 +1067,795 @@
     },
     "verified_by": "arxiv_id",
     "abstract_source": "index"
+  },
+  "enablinglargelanguagemodelstogeneratetextwithcitations": {
+    "citation_key": "Gao2023EnablingLarge",
+    "title": "Enabling Large Language Models to Generate Text with Citations",
+    "authors": [
+      "Tianyu Gao",
+      "Howard Yen",
+      "Jiatong Yu",
+      "Danqi Chen"
+    ],
+    "venue": "arXiv preprint arXiv:2305.14627",
+    "year": 2023,
+    "abstract": "Large language models (LLMs) have emerged as a widely-used tool for information seeking, but their generated outputs are prone to hallucination. In this work, our aim is to allow LLMs to generate text with citations, improving their factual correctness and verifiability. Existing work mainly relies on commercial search engines and human evaluation, making it challenging to reproduce and compare different modeling approaches. We propose ALCE, the first benchmark for Automatic LLMs' Citation Evaluation. ALCE collects a diverse set of questions and retrieval corpora and requires building end-to-end systems to retrieve supporting evidence and generate answers with citations. We develop automatic metrics along three dimensions -- fluency, correctness, and citation quality -- and demonstrate their strong correlation with human judgements. Our experiments with state-of-the-art LLMs and novel prompting strategies show that current systems have considerable room for improvement -- For example, on the ELI5 dataset, even the best models lack complete citation support 50% of the time. Our analyses further highlight promising future directions, including developing better retrievers, advancing long-context LLMs, and improving the ability to synthesize information from multiple sources.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Foundational work on generation with citations",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-05-24",
+    "external_ids": {
+      "ArXiv": "2305.14627"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "retrievalaugmentedgenerationforknowledgeintensivenlptasks": {
+    "citation_key": "Lewis2020RetrievalaugmentedGeneration",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [
+      "Patrick Lewis",
+      "Ethan Perez",
+      "Aleksandra Piktus",
+      "Fabio Petroni",
+      "Vladimir Karpukhin",
+      "Naman Goyal",
+      "Heinrich Küttler",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Tim Rocktäschel",
+      "Sebastian Riedel",
+      "Douwe Kiela"
+    ],
+    "venue": "arXiv preprint arXiv:2005.11401",
+    "year": 2020,
+    "abstract": "Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pre-trained models with a differentiable access mechanism to explicit non-parametric memory can overcome this issue, but have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) -- models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, the other can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledge-intensive NLP tasks and set the state-of-the-art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we f... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Foundational RAG",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2020-05-22",
+    "external_ids": {
+      "ArXiv": "2005.11401"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "measuringattributioninnaturallanguagegenerationmodels": {
+    "citation_key": "Rashkin2021MeasuringAttribution",
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [
+      "Hannah Rashkin",
+      "Vitaly Nikolaev",
+      "Matthew Lamm",
+      "Lora Aroyo",
+      "Michael Collins",
+      "Dipanjan Das",
+      "Slav Petrov",
+      "Gaurav Singh Tomar",
+      "Iulia Turc",
+      "David Reitter"
+    ],
+    "venue": "arXiv preprint arXiv:2112.12870",
+    "year": 2021,
+    "abstract": "With recent improvements in natural language generation (NLG) models for various applications, it has become imperative to have the means to identify and evaluate whether NLG output is only sharing verifiable information about the external world. In this work, we present a new evaluation framework entitled Attributable to Identified Sources (AIS) for assessing the output of natural language generation models, when such output pertains to the external world. We first define AIS and introduce a two-stage annotation pipeline for allowing annotators to appropriately evaluate model output according to AIS guidelines. We empirically validate this approach on generation datasets spanning three tasks (two conversational QA datasets, a summarization dataset, and a table-to-text dataset) via human evaluation studies that suggest that AIS could serve as a common framework for measuring whether model-generated statements are supported by underlying sources. We release guidelines for the human evaluation studies.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Attribution evaluation of generated text against sources",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2021-12-23",
+    "external_ids": {
+      "ArXiv": "2112.12870"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "evaluatingverifiabilityingenerativesearchengines": {
+    "citation_key": "Liu2023EvaluatingVerifiability",
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [
+      "Nelson F. Liu",
+      "Tianyi Zhang",
+      "Percy Liang"
+    ],
+    "venue": "arXiv preprint arXiv:2304.09848",
+    "year": 2023,
+    "abstract": "Generative search engines directly generate responses to user queries, along with in-line citations. A prerequisite trait of a trustworthy generative search engine is verifiability, i.e., systems should cite comprehensively (high citation recall; all statements are fully supported by citations) and accurately (high citation precision; every cite supports its associated statement). We conduct human evaluation to audit four popular generative search engines -- Bing Chat, NeevaAI, perplexity.ai, and YouChat -- across a diverse set of queries from a variety of sources (e.g., historical Google user queries, dynamically-collected open-ended questions on Reddit, etc.). We find that responses from existing generative search engines are fluent and appear informative, but frequently contain unsupported statements and inaccurate citations: on average, a mere 51.5% of generated sentences are fully supported by citations and only 74.5% of citations support their associated sentence. We believe that these results are concerningly low for systems that may serve as a primary tool for information-seeking users, especially given their facade of trustworthiness. We hope that our results further motivate the development of trustworthy generative search engines and help researchers and users better understand the shortcomings of existing commercial systems.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Audit of whether cited sources support generated claims",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-04-19",
+    "external_ids": {
+      "ArXiv": "2304.09848"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "webgptbrowserassistedquestionansweringwithhumanfeedback": {
+    "citation_key": "Nakano2021WebgptBrowserassisted",
+    "title": "WebGPT: Browser-assisted question-answering with human feedback",
+    "authors": [
+      "Reiichiro Nakano",
+      "Jacob Hilton",
+      "Suchir Balaji",
+      "Jeff Wu",
+      "Long Ouyang",
+      "Christina Kim",
+      "Christopher Hesse",
+      "Shantanu Jain",
+      "Vineet Kosaraju",
+      "William Saunders",
+      "Xu Jiang",
+      "Karl Cobbe",
+      "Tyna Eloundou",
+      "Gretchen Krueger",
+      "Kevin Button",
+      "Matthew Knight",
+      "Benjamin Chess",
+      "John Schulman"
+    ],
+    "venue": "arXiv preprint arXiv:2112.09332",
+    "year": 2021,
+    "abstract": "We fine-tune GPT-3 to answer long-form questions using a text-based web-browsing environment, which allows the model to search and navigate the web. By setting up the task so that it can be performed by humans, we are able to train models on the task using imitation learning, and then optimize answer quality with human feedback. To make human evaluation of factual accuracy easier, models must collect references while browsing in support of their answers. We train and evaluate our models on ELI5, a dataset of questions asked by Reddit users. Our best model is obtained by fine-tuning GPT-3 using behavior cloning, and then performing rejection sampling against a reward model trained to predict human preferences. This model's answers are preferred by humans 56% of the time to those of our human demonstrators, and 69% of the time to the highest-voted answer from Reddit.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Early cited long-form answer generation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2021-12-17",
+    "external_ids": {
+      "ArXiv": "2112.09332"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "lostinthemiddlehowlanguagemodelsuselongcontexts": {
+    "citation_key": "Liu2023LostMiddle",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "authors": [
+      "Nelson F. Liu",
+      "Kevin Lin",
+      "John Hewitt",
+      "Ashwin Paranjape",
+      "Michele Bevilacqua",
+      "Fabio Petroni",
+      "Percy Liang"
+    ],
+    "venue": "arXiv preprint arXiv:2307.03172",
+    "year": 2023,
+    "abstract": "While recent language models have the ability to take long contexts as input, relatively little is known about how well they use longer context. We analyze the performance of language models on two tasks that require identifying relevant information in their input contexts: multi-document question answering and key-value retrieval. We find that performance can degrade significantly when changing the position of relevant information, indicating that current language models do not robustly make use of information in long input contexts. In particular, we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models. Our analysis provides a better understanding of how language models use their input context and provides new evaluation protocols for future long-context language models.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Long-context reading limits",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-07-06",
+    "external_ids": {
+      "ArXiv": "2307.03172"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "selfraglearningtoretrievegenerateandcritiquethroughselfreflection": {
+    "citation_key": "Asai2023SelfragLearning",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [
+      "Akari Asai",
+      "Zeqiu Wu",
+      "Yizhong Wang",
+      "Avirup Sil",
+      "Hannaneh Hajishirzi"
+    ],
+    "venue": "arXiv preprint arXiv:2310.11511",
+    "year": 2023,
+    "abstract": "Despite their remarkable capabilities, large language models (LLMs) often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is necessary, or passages are relevant, diminishes LM versatility or can lead to unhelpful response generation. We introduce a new framework called Self-Reflective Retrieval-Augmented Generation (Self-RAG) that enhances an LM's quality and factuality through retrieval and self-reflection. Our framework trains a single arbitrary LM that adaptively retrieves passages on-demand, and generates and reflects on retrieved passages and its own generations using special tokens, called reflection tokens. Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. Experiments show that Self-RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, Self-RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form gener... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Retrieval-augmented generation with critique",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-17",
+    "external_ids": {
+      "ArXiv": "2310.11511"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "rarrresearchingandrevisingwhatlanguagemodelssayusinglanguagemodels": {
+    "citation_key": "Gao2022RarrResearching",
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [
+      "Luyu Gao",
+      "Zhuyun Dai",
+      "Panupong Pasupat",
+      "Anthony Chen",
+      "Arun Tejasvi Chaganty",
+      "Yicheng Fan",
+      "Vincent Y. Zhao",
+      "Ni Lao",
+      "Hongrae Lee",
+      "Da-Cheng Juan",
+      "Kelvin Guu"
+    ],
+    "venue": "arXiv preprint arXiv:2210.08726",
+    "year": 2022,
+    "abstract": "Language models (LMs) now excel at many tasks such as few-shot learning, question answering, reasoning, and dialog. However, they sometimes generate unsupported or misleading content. A user cannot easily determine whether their outputs are trustworthy or not, because most LMs do not have any built-in mechanism for attribution to external evidence. To enable attribution while still preserving all the powerful advantages of recent generation models, we propose RARR (Retrofit Attribution using Research and Revision), a system that 1) automatically finds attribution for the output of any text generation model and 2) post-edits the output to fix unsupported content while preserving the original output as much as possible. When applied to the output of several state-of-the-art LMs on a diverse set of generation tasks, we find that RARR significantly improves attribution while otherwise preserving the original input to a much greater degree than previously explored edit models. Furthermore, the implementation of RARR requires only a handful of training examples, a large language model, and standard web search.",
+    "citation_count": 0,
+    "sections": [
+      "Introduction"
+    ],
+    "reason": "Draft-then-verify with attribution",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2022-10-17",
+    "external_ids": {
+      "ArXiv": "2210.08726"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "reframingaiforrarediseaserecognition": {
+    "citation_key": "Wei2026ReframingAi",
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [
+      "Wei-Qi Wei",
+      "Chao Yan",
+      "Wu-Chen Su",
+      "Yi Xin",
+      "Monika Grabowska",
+      "Vern Kerchberger",
+      "Victor Borza",
+      "Jinlian Wang",
+      "Liwei Wang",
+      "Rui Li",
+      "Jacob Lynn",
+      "Alyson Dickson",
+      "Cathy Shyr",
+      "QiPing Feng",
+      "C Stein",
+      "Kai Wang",
+      "Peter Embí",
+      "Bradley Malin",
+      "Hongfang Liu"
+    ],
+    "venue": "Springer Science and Business Media LLC",
+    "year": 2026,
+    "abstract": "Abstract Rare diseases affect over 300 million people worldwide, yet patients often endure years-long diagnostic delays that limit timely intervention and trial opportunities. Computational rare disease recognition (RDR) remains constrained by knowledge resources that are often incomplete, heterogeneous, and dependent on extensive multi-disciplinary expert curation that cannot scale. Large language models (LLMs) applied directly for end-to-end diagnosis or disease discrimination face similar knowledge bottlenecks while also raising concerns around cost, reproducibility, and data governance. Here, we introduce GEN-KnowRD, a knowledge-layer-first framework that leverages LLMs to generate schema-guided rare disease profiles, systematically assesses their quality, and constructs a computable knowledge base (PheMAP-RD) for local deployment. GEN-KnowRD integrates this knowledge into lightweight inference pipelines for both general-purpose disease screening and specialized early discrimination from longitudinal electronic health records. In tests using six public benchmarks for general-purpose screening (9,290 patients spanning 798 rare diseases), GEN-KnowRD substantially improved disease ranking versus 1) a state-of-the-art, HPO-centered diagnostic framework (up to 345.8% improvement in top-1 success), 2) advanced end-to-end LLM reasoning (up to 129.1% improvement), and 3) a variant of GEN-KnowRD instantiated with expert-curated knowledge rather than LLM-generated profiles. In two ... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "GEN-KnowRD named in notes",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2026-04-02",
+    "external_ids": {
+      "DOI": "10.21203/rs.3.rs-9036259/v1"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "genewhispererenhancingmanualgenomeannotationwithlargelanguagemodels": {
+    "citation_key": "Li2025GenewhispererEnhancing",
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [
+      "Xiaomei Li",
+      "Alex Whan",
+      "Meredith McNeil",
+      "Samuel C. Andrew",
+      "Xiang Dai",
+      "Madeline Fechner",
+      "Cécile Paris",
+      "Rad Suchecki"
+    ],
+    "venue": "openRxiv",
+    "year": 2025,
+    "abstract": "Genome annotation is critical for understanding functional elements within genomes. Manual curation is a common practice for identifying the functions of genes, particularly those missed by automated annotation pipelines. However, this process is notoriously labour-intensive and time-consuming. In response to these challenges, we present GeneWhisperer, an innovative assistant system designed to facilitate the manual gene functional annotation process. Utilizing a large language model (LLM) agent, GeneWhisperer provides users access to tools appropriate for specific curation tasks in genome annotation. Featuring a conversational interface, GeneWhisperer fosters effective collaboration between human experts and AI. By synergizing the capabilities of AI with human expertise, GeneWhisperer offers a promising approach to advancing our understanding of gene functions and streamlining the gene annotation process.",
+    "citation_count": 2,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "LLM-assisted genome annotation curation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-04-01",
+    "external_ids": {
+      "DOI": "10.1101/2025.03.30.646211"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "highthroughputphenotypingofclinicaltextusinglargelanguagemodels": {
+    "citation_key": "Hier2024HighthroughputPhenotyping",
+    "title": "High-Throughput Phenotyping of Clinical Text Using Large Language Models",
+    "authors": [
+      "Daniel B. Hier",
+      "S. Ilyas Munzir",
+      "Anne Stahlfeld",
+      "Tayo Obafemi-Ajayi",
+      "Michael D. Carrithers"
+    ],
+    "venue": "arXiv preprint arXiv:2408.01214",
+    "year": 2024,
+    "abstract": "High-throughput phenotyping automates the mapping of patient signs to standardized ontology concepts and is essential for precision medicine. This study evaluates the automation of phenotyping of clinical summaries from the Online Mendelian Inheritance in Man (OMIM) database using large language models. Due to their rich phenotype data, these summaries can be surrogates for physician notes. We conduct a performance comparison of GPT-4 and GPT-3.5-Turbo. Our results indicate that GPT-4 surpasses GPT-3.5-Turbo in identifying, categorizing, and normalizing signs, achieving concordance with manual annotators comparable to inter-rater agreement. Despite some limitations in sign normalization, the extensive pre-training of GPT-4 results in high performance and generalizability across several phenotyping tasks while obviating the need for manually annotated training data. Large language models are expected to be the dominant method for automating high-throughput phenotyping of clinical text.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "LLM phenotype extraction from OMIM clinical text",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-08-02",
+    "external_ids": {
+      "ArXiv": "2408.01214"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "genegptaugmentinglargelanguagemodelswithdomaintoolsforimprovedaccesstobiomedicalinformation": {
+    "citation_key": "Jin2023GenegptAugmenting",
+    "title": "GeneGPT: Augmenting Large Language Models with Domain Tools for Improved Access to Biomedical Information",
+    "authors": [
+      "Qiao Jin",
+      "Yifan Yang",
+      "Qingyu Chen",
+      "Zhiyong Lu"
+    ],
+    "venue": "arXiv preprint arXiv:2304.09667",
+    "year": 2023,
+    "abstract": "While large language models (LLMs) have been successfully applied to various tasks, they still face challenges with hallucinations. Augmenting LLMs with domain-specific tools such as database utilities can facilitate easier and more precise access to specialized knowledge. In this paper, we present GeneGPT, a novel method for teaching LLMs to use the Web APIs of the National Center for Biotechnology Information (NCBI) for answering genomics questions. Specifically, we prompt Codex to solve the GeneTuring tests with NCBI Web APIs by in-context learning and an augmented decoding algorithm that can detect and execute API calls. Experimental results show that GeneGPT achieves state-of-the-art performance on eight tasks in the GeneTuring benchmark with an average score of 0.83, largely surpassing retrieval-augmented LLMs such as the new Bing (0.44), biomedical LLMs such as BioMedLM (0.08) and BioGPT (0.04), as well as GPT-3 (0.16) and ChatGPT (0.12). Our further analyses suggest that: (1) API demonstrations have good cross-task generalizability and are more useful than documentations for in-context learning; (2) GeneGPT can generalize to longer chains of API calls and answer multi-hop questions in GeneHop, a novel dataset introduced in this work; (3) Different types of errors are enriched in different tasks, providing valuable insights for future improvements.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.1 Language models for literature curation in genetics and biology"
+    ],
+    "reason": "LLMs using NCBI tools",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-04-19",
+    "external_ids": {
+      "ArXiv": "2304.09667"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "retrievalaugmentedgenerationorlongcontextllmsacomprehensivestudyandhybridapproach": {
+    "citation_key": "Li2024RetrievalAugmented",
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [
+      "Zhuowan Li",
+      "Cheng Li",
+      "Mingyang Zhang",
+      "Qiaozhu Mei",
+      "Michael Bendersky"
+    ],
+    "venue": "arXiv preprint arXiv:2407.16833",
+    "year": 2024,
+    "abstract": "Retrieval Augmented Generation (RAG) has been a powerful tool for Large Language Models (LLMs) to efficiently process overly lengthy contexts. However, recent LLMs like Gemini-1.5 and GPT-4 show exceptional capabilities to understand long contexts directly. We conduct a comprehensive comparison between RAG and long-context (LC) LLMs, aiming to leverage the strengths of both. We benchmark RAG and LC across various public datasets using three latest LLMs. Results reveal that when resourced sufficiently, LC consistently outperforms RAG in terms of average performance. However, RAG's significantly lower cost remains a distinct advantage. Based on this observation, we propose Self-Route, a simple yet effective method that routes queries to RAG or LC based on model self-reflection. Self-Route significantly reduces the computation cost while maintaining a comparable performance to LC. Our findings provide a guideline for long-context applications of LLMs using RAG and LC.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Systematic RAG vs long-context comparison",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-07-23",
+    "external_ids": {
+      "ArXiv": "2407.16833"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "longcontextvsragforllmsanevaluationandrevisits": {
+    "citation_key": "Li2024LongContext",
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [
+      "Xinze Li",
+      "Yixin Cao",
+      "Yubo Ma",
+      "Aixin Sun"
+    ],
+    "venue": "arXiv preprint arXiv:2501.01880",
+    "year": 2024,
+    "abstract": "Extending context windows (i.e., Long Context, LC) and using retrievers to selectively access relevant information (i.e., Retrieval-Augmented Generation, RAG) are the two main strategies to enable LLMs to incorporate extremely long external contexts. This paper revisits recent studies on this topic, highlighting their key insights and discrepancies. We then provide a more comprehensive evaluation by filtering out questions answerable without external context, identifying the most effective retrieval methods, and expanding the datasets. We show that LC generally outperforms RAG in question-answering benchmarks, especially for Wikipedia-based questions. Summarization-based retrieval performs comparably to LC, while chunk-based retrieval lags behind. However, RAG has advantages in dialogue-based and general question queries. These insights underscore the trade-offs between RAG and LC strategies, offering guidance for future optimization of LLMs with external knowledge sources. We also provide an in-depth discussion on this topic, highlighting the overlooked importance of context relevance in existing studies.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "RAG vs long-context comparison",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-12-27",
+    "external_ids": {
+      "ArXiv": "2501.01880"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "larabenchmarkingretrievalaugmentedgenerationandlongcontextllmsnosilverbulletforlcorragrouting": {
+    "citation_key": "Li2025LaraBenchmarking",
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [
+      "Kuan Li",
+      "Liwen Zhang",
+      "Yong Jiang",
+      "Pengjun Xie",
+      "Fei Huang",
+      "Shuai Wang",
+      "Minhao Cheng"
+    ],
+    "venue": "arXiv preprint arXiv:2502.09977",
+    "year": 2025,
+    "abstract": "Effectively incorporating external knowledge into Large Language Models (LLMs) is crucial for enhancing their capabilities and addressing real-world needs. Retrieval-Augmented Generation (RAG) offers an effective method for achieving this by retrieving the most relevant fragments into LLMs. However, the advancements in context window size for LLMs offer an alternative approach, raising the question of whether RAG remains necessary for effectively handling external knowledge. Several existing studies provide inconclusive comparisons between RAG and long-context (LC) LLMs, largely due to limitations in the benchmark designs. In this paper, we present LaRA, a novel benchmark specifically designed to rigorously compare RAG and LC LLMs. LaRA encompasses 2326 test cases across four practical QA task categories and three types of naturally occurring long texts. Through systematic evaluation of seven open-source and four proprietary LLMs, we find that the optimal choice between RAG and LC depends on a complex interplay of factors, including the model's parameter size, long-text capabilities, context length, task type, and the characteristics of the retrieved chunks. Our findings provide actionable guidelines for practitioners to effectively leverage both RAG and LC approaches in developing and deploying LLM applications. Our code and dataset is provided at: \\href{https://github.com/Alibaba-NLP/LaRA}{\\textbf{https://github.com/Alibaba-NLP/LaRA}}.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Benchmark comparing RAG and long context",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-02-14",
+    "external_ids": {
+      "ArXiv": "2502.09977"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "indefenseofragintheeraoflongcontextlanguagemodels": {
+    "citation_key": "Yu2024DefenseRag",
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [
+      "Tan Yu",
+      "Anbang Xu",
+      "Rama Akkiraju"
+    ],
+    "venue": "arXiv preprint arXiv:2409.01666",
+    "year": 2024,
+    "abstract": "Overcoming the limited context limitations in early-generation LLMs, retrieval-augmented generation (RAG) has been a reliable solution for context-based answer generation in the past. Recently, the emergence of long-context LLMs allows the models to incorporate much longer text sequences, making RAG less attractive. Recent studies show that long-context LLMs significantly outperform RAG in long-context applications. Unlike the existing works favoring the long-context LLM over RAG, we argue that the extremely long context in LLMs suffers from a diminished focus on relevant information and leads to potential degradation in answer quality. This paper revisits the RAG in long-context answer generation. We propose an order-preserve retrieval-augmented generation (OP-RAG) mechanism, which significantly improves the performance of RAG for long-context question-answer applications. With OP-RAG, as the number of retrieved chunks increases, the answer quality initially rises, and then declines, forming an inverted U-shaped curve. There exist sweet points where OP-RAG could achieve higher answer quality with much less tokens than long-context LLM taking the whole context as input. Extensive experiments on public benchmark demonstrate the superiority of our OP-RAG.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "RAG vs long-context",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-09-03",
+    "external_ids": {
+      "ArXiv": "2409.01666"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "fromlocaltoglobalagraphragapproachtoqueryfocusedsummarization": {
+    "citation_key": "Edge2024FromLocal",
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [
+      "Darren Edge",
+      "Ha Trinh",
+      "Newman Cheng",
+      "Joshua Bradley",
+      "Alex Chao",
+      "Apurva Mody",
+      "Steven Truitt",
+      "Dasha Metropolitansky",
+      "Robert Osazuwa Ness",
+      "Jonathan Larson"
+    ],
+    "venue": "arXiv preprint arXiv:2404.16130",
+    "year": 2024,
+    "abstract": "The use of retrieval-augmented generation (RAG) to retrieve relevant information from an external knowledge source enables large language models (LLMs) to answer questions over private and/or previously unseen document collections. However, RAG fails on global questions directed at an entire text corpus, such as \"What are the main themes in the dataset?\", since this is inherently a query-focused summarization (QFS) task, rather than an explicit retrieval task. Prior QFS methods, meanwhile, do not scale to the quantities of text indexed by typical RAG systems. To combine the strengths of these contrasting methods, we propose GraphRAG, a graph-based approach to question answering over private text corpora that scales with both the generality of user questions and the quantity of source text. Our approach uses an LLM to build a graph index in two stages: first, to derive an entity knowledge graph from the source documents, then to pregenerate community summaries for all groups of closely related entities. Given a question, each community summary is used to generate a partial response, before all partial responses are again summarized in a final response to the user. For a class of global sensemaking questions over datasets in the 1 million token range, we show that GraphRAG leads to substantial improvements over a conventional RAG baseline for both the comprehensiveness and diversity of generated answers.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "GraphRAG as intermediate representation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-04-24",
+    "external_ids": {
+      "ArXiv": "2404.16130"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "ragvsgraphragasystematicevaluationandkeyinsights": {
+    "citation_key": "Han2025RagVs",
+    "title": "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights",
+    "authors": [
+      "Haoyu Han",
+      "Li Ma",
+      "Yu Wang",
+      "Harry Shomer",
+      "Yongjia Lei",
+      "Zhisheng Qi",
+      "Kai Guo",
+      "Zhigang Hua",
+      "Bo Long",
+      "Hui Liu",
+      "Charu C. Aggarwal",
+      "Jiliang Tang"
+    ],
+    "venue": "arXiv preprint arXiv:2502.11371",
+    "year": 2025,
+    "abstract": "Retrieval-Augmented Generation (RAG) improves large language models (LLMs) by retrieving relevant information from external sources and has been widely adopted for text-based tasks. For structured data, such as knowledge graphs, Graph Retrieval-Augmented Generation (GraphRAG) retrieves and aggregates information along graph structures. More recently, GraphRAG has been extended to general text settings by organizing unstructured text into graph representations, showing promise for reasoning and grounding. Despite these advances, existing GraphRAG systems for text data are often tailored to specific tasks, datasets, and system designs, resulting in heterogeneous evaluation protocols. Consequently, a systematic understanding of the relative strengths, limitations, and trade-offs between RAG and GraphRAG on widely used text benchmarks remains limited. In this paper, we present a comprehensive benchmark study comparing RAG and GraphRAG on established text-based tasks, including question answering and query-based summarization. We introduce a unified evaluation protocol that standardizes data preprocessing, retrieval configurations, and generation settings, enabling fair and reproducible comparisons. Our results highlight the distinct strengths of RAG and GraphRAG across different tasks and evaluation perspectives. Building on these findings, we explore selection and integration strategies that combine the strengths of both paradigms, leading to consistent performance improvements.... [Truncated]",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Matched comparison of RAG and GraphRAG",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-02-17",
+    "external_ids": {
+      "ArXiv": "2502.11371"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "assistinginwritingwikipedialikearticlesfromscratchwithlargelanguagemodels": {
+    "citation_key": "Shao2024AssistingWriting",
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [
+      "Yijia Shao",
+      "Yucheng Jiang",
+      "Theodore A. Kanell",
+      "Peter Xu",
+      "Omar Khattab",
+      "Monica S. Lam"
+    ],
+    "venue": "arXiv preprint arXiv:2402.14207",
+    "year": 2024,
+    "abstract": "We study how to apply large language models to write grounded and organized long-form articles from scratch, with comparable breadth and depth to Wikipedia pages. This underexplored problem poses new challenges at the pre-writing stage, including how to research the topic and prepare an outline prior to writing. We propose STORM, a writing system for the Synthesis of Topic Outlines through Retrieval and Multi-perspective Question Asking. STORM models the pre-writing stage by (1) discovering diverse perspectives in researching the given topic, (2) simulating conversations where writers carrying different perspectives pose questions to a topic expert grounded on trusted Internet sources, (3) curating the collected information to create an outline. For evaluation, we curate FreshWiki, a dataset of recent high-quality Wikipedia articles, and formulate outline assessments to evaluate the pre-writing stage. We further gather feedback from experienced Wikipedia editors. Compared to articles generated by an outline-driven retrieval-augmented baseline, more of STORM's articles are deemed to be organized (by a 25% absolute increase) and broad in coverage (by 10%). The expert feedback also helps identify new challenges for generating grounded long articles, such as source bias transfer and over-association of unrelated facts.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Agentic cited article writing",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-02-22",
+    "external_ids": {
+      "ArXiv": "2402.14207"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "openscholarsynthesizingscientificliteraturewithretrievalaugmentedlms": {
+    "citation_key": "Asai2024OpenscholarSynthesizing",
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [
+      "Akari Asai",
+      "Jacqueline He",
+      "Rulin Shao",
+      "Weijia Shi",
+      "Amanpreet Singh",
+      "Joseph Chee Chang",
+      "Kyle Lo",
+      "Luca Soldaini",
+      "Sergey Feldman",
+      "Mike D'arcy",
+      "David Wadden",
+      "Matt Latzke",
+      "Minyang Tian",
+      "Pan Ji",
+      "Shengyan Liu",
+      "Hao Tong",
+      "Bohao Wu",
+      "Yanyu Xiong",
+      "Luke Zettlemoyer",
+      "Graham Neubig",
+      "Dan Weld",
+      "Doug Downey",
+      "Wen-tau Yih",
+      "Pang Wei Koh",
+      "Hannaneh Hajishirzi"
+    ],
+    "venue": "arXiv preprint arXiv:2411.14199",
+    "year": 2024,
+    "abstract": "Scientific progress depends on researchers' ability to synthesize the growing body of literature. Can large language models (LMs) assist scientists in this task? We introduce OpenScholar, a specialized retrieval-augmented LM that answers scientific queries by identifying relevant passages from 45 million open-access papers and synthesizing citation-backed responses. To evaluate OpenScholar, we develop ScholarQABench, the first large-scale multi-domain benchmark for literature search, comprising 2,967 expert-written queries and 208 long-form answers across computer science, physics, neuroscience, and biomedicine. On ScholarQABench, OpenScholar-8B outperforms GPT-4o by 5% and PaperQA2 by 7% in correctness, despite being a smaller, open model. While GPT4o hallucinates citations 78 to 90% of the time, OpenScholar achieves citation accuracy on par with human experts. OpenScholar's datastore, retriever, and self-feedback inference loop also improves off-the-shelf LMs: for instance, OpenScholar-GPT4o improves GPT-4o's correctness by 12%. In human evaluations, experts preferred OpenScholar-8B and OpenScholar-GPT4o responses over expert-written ones 51% and 70% of the time, respectively, compared to GPT4o's 32%. We open-source all of our code, models, datastore, data and a public demo.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Literature synthesis with citations",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-11-21",
+    "external_ids": {
+      "ArXiv": "2411.14199"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "hipporagneurobiologicallyinspiredlongtermmemoryforlargelanguagemodels": {
+    "citation_key": "Gutirrez2024HipporagNeurobiologically",
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [
+      "Bernal Jiménez Gutiérrez",
+      "Yiheng Shu",
+      "Yu Gu",
+      "Michihiro Yasunaga",
+      "Yu Su"
+    ],
+    "venue": "arXiv preprint arXiv:2405.14831",
+    "year": 2024,
+    "abstract": "In order to thrive in hostile and ever-changing natural environments, mammalian brains evolved to store large amounts of knowledge about the world and continually integrate new information while avoiding catastrophic forgetting. Despite the impressive accomplishments, large language models (LLMs), even with retrieval-augmented generation (RAG), still struggle to efficiently and effectively integrate a large amount of new experiences after pre-training. In this work, we introduce HippoRAG, a novel retrieval framework inspired by the hippocampal indexing theory of human long-term memory to enable deeper and more efficient knowledge integration over new experiences. HippoRAG synergistically orchestrates LLMs, knowledge graphs, and the Personalized PageRank algorithm to mimic the different roles of neocortex and hippocampus in human memory. We compare HippoRAG with existing RAG methods on multi-hop question answering and show that our method outperforms the state-of-the-art methods remarkably, by up to 20%. Single-step retrieval with HippoRAG achieves comparable or better performance than iterative retrieval like IRCoT while being 10-30 times cheaper and 6-13 times faster, and integrating HippoRAG into IRCoT brings further substantial gains. Finally, we show that our method can tackle new types of scenarios that are out of reach of existing methods. Code and data are available at https://github.com/OSU-NLP-Group/HippoRAG.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Graph-structured retrieval memory",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-05-23",
+    "external_ids": {
+      "ArXiv": "2405.14831"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "chainofagentslargelanguagemodelscollaboratingonlongcontexttasks": {
+    "citation_key": "Zhang2024ChainAgents",
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [
+      "Yusen Zhang",
+      "Ruoxi Sun",
+      "Yanfei Chen",
+      "Tomas Pfister",
+      "Rui Zhang",
+      "Sercan Ö. Arik"
+    ],
+    "venue": "arXiv preprint arXiv:2406.02818",
+    "year": 2024,
+    "abstract": "Addressing the challenge of effectively processing long contexts has become a critical issue for Large Language Models (LLMs). Two common strategies have emerged: 1) reducing the input length, such as retrieving relevant chunks by Retrieval-Augmented Generation (RAG), and 2) expanding the context window limit of LLMs. However, both strategies have drawbacks: input reduction has no guarantee of covering the part with needed information, while window extension struggles with focusing on the pertinent information for solving the task. To mitigate these limitations, we propose Chain-of-Agents (CoA), a novel framework that harnesses multi-agent collaboration through natural language to enable information aggregation and context reasoning across various LLMs over long-context tasks. CoA consists of multiple worker agents who sequentially communicate to handle different segmented portions of the text, followed by a manager agent who synthesizes these contributions into a coherent final output. CoA processes the entire input by interleaving reading and reasoning, and it mitigates long context focus issues by assigning each agent a short context. We perform comprehensive evaluation of CoA on a wide range of long-context tasks in question answering, summarization, and code completion, demonstrating significant improvements by up to 10% over strong baselines of RAG, Full-Context, and multi-agent LLMs.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.2 Intermediate representations versus long-context reading"
+    ],
+    "reason": "Multi-agent long-context reading",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-04",
+    "external_ids": {
+      "ArXiv": "2406.02818"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelsarebetterreasonerswithselfverification": {
+    "citation_key": "Weng2022LargeLanguage",
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [
+      "Yixuan Weng",
+      "Minjun Zhu",
+      "Fei Xia",
+      "Bin Li",
+      "Shizhu He",
+      "Shengping Liu",
+      "Bin Sun",
+      "Kang Liu",
+      "Jun Zhao"
+    ],
+    "venue": "arXiv preprint arXiv:2212.09561",
+    "year": 2022,
+    "abstract": "Recently, with the chain of thought (CoT) prompting, large language models (LLMs), e.g., GPT-3, have shown strong reasoning ability in several natural language processing tasks such as arithmetic, commonsense, and logical reasoning. However, LLMs with CoT require multi-step prompting and multi-token prediction, which is highly sensitive to individual mistakes and vulnerable to error accumulation. The above issues make the LLMs need the ability to verify the answers. In fact, after inferring conclusions in some thinking decision tasks, people often check them by re-verifying steps to avoid some mistakes. In this paper, we propose and prove that LLMs also have similar self-verification abilities. We take the conclusion obtained by CoT as one of the conditions for solving the original problem. By performing a backward verification of the answers that LLM deduced for itself, we can obtain interpretable answer validation scores to select the candidate answer with the highest score. Experimental results demonstrate that the proposed method can improve the reasoning performance on various arithmetic, commonsense, and logical reasoning datasets. Our code is publicly available at: https://github.com/WENGSYX/Self-Verification.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.3 Memory, verification and contamination"
+    ],
+    "reason": "Self-verification",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2022-12-19",
+    "external_ids": {
+      "ArXiv": "2212.09561"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelscannotselfcorrectreasoningyet": {
+    "citation_key": "Huang2023LargeLanguage",
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [
+      "Jie Huang",
+      "Xinyun Chen",
+      "Swaroop Mishra",
+      "Huaixiu Steven Zheng",
+      "Adams Wei Yu",
+      "Xinying Song",
+      "Denny Zhou"
+    ],
+    "venue": "arXiv preprint arXiv:2310.01798",
+    "year": 2023,
+    "abstract": "Large Language Models (LLMs) have emerged as a groundbreaking technology with their unparalleled text generation capabilities across various applications. Nevertheless, concerns persist regarding the accuracy and appropriateness of their generated content. A contemporary methodology, self-correction, has been proposed as a remedy to these issues. Building upon this premise, this paper critically examines the role and efficacy of self-correction within LLMs, shedding light on its true potential and limitations. Central to our investigation is the notion of intrinsic self-correction, whereby an LLM attempts to correct its initial responses based solely on its inherent capabilities, without the crutch of external feedback. In the context of reasoning, our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction. Drawing from these insights, we offer suggestions for future research and practical applications in this field.",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.3 Memory, verification and contamination"
+    ],
+    "reason": "Limits of post-hoc self-correction",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-03",
+    "external_ids": {
+      "ArXiv": "2310.01798"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "livecodebenchholisticandcontaminationfreeevaluationoflargelanguagemodelsforcode": {
+    "citation_key": "Jain2024LivecodebenchHolistic",
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [
+      "Naman Jain",
+      "King Han",
+      "Alex Gu",
+      "Wen-Ding Li",
+      "Fanjia Yan",
+      "Tianjun Zhang",
+      "Sida Wang",
+      "Armando Solar-Lezama",
+      "Koushik Sen",
+      "Ion Stoica"
+    ],
+    "venue": "arXiv preprint arXiv:2403.07974",
+    "year": 2024,
+    "abstract": "Large Language Models (LLMs) applied to code-related applications have emerged as a prominent field, attracting significant interest from both academia and industry. However, as new and improved LLMs are developed, existing evaluation benchmarks (e.g., HumanEval, MBPP) are no longer sufficient for assessing their capabilities. In this work, we propose LiveCodeBench, a comprehensive and contamination-free evaluation of LLMs for code, which continuously collects new problems over time from contests across three competition platforms, namely LeetCode, AtCoder, and CodeForces. Notably, our benchmark also focuses on a broader range of code related capabilities, such as self-repair, code execution, and test output prediction, beyond just code generation. Currently, LiveCodeBench hosts four hundred high-quality coding problems that were published between May 2023 and May 2024. We have evaluated 18 base LLMs and 34 instruction-tuned LLMs on LiveCodeBench. We present empirical findings on contamination, holistic performance comparisons, potential overfitting in existing benchmarks as well as individual model comparisons. We will release all prompts and model completions for further community analysis, along with a general toolkit for adding new scenarios and model",
+    "citation_count": 0,
+    "sections": [
+      "Related Work: 2.3 Memory, verification and contamination"
+    ],
+    "reason": "Time-based splits",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-03-12",
+    "external_ids": {
+      "ArXiv": "2403.07974"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
   }
 }

@@ -51,7 +51,7 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
 
 ### 1.3 Strategies
 
-Three paradigms, a control, and four add-ons each tested against its parent.
+Three paradigms, a control, and three add-ons each tested against its parent.
 
 | Strategy | Paradigm | What it does |
 |---|---|---|
@@ -352,6 +352,8 @@ By how much of the fact the draft conveyed (absent: not at all; partial: less pr
 | All papers | partial | 854 | 149 | 609 | 96 |
 
 Of all OMIM facts: 43% conveyed, 4% omitted though stated in the available text, 13% omitted and partly stated, 40% not in the available text; the remainder were contradicted. (Facts the draft conveyed partly are counted with the missed ones.)
+
+Facts contradicted by the draft (not in the columns above): 7 for full-text papers, 25 for abstract-only papers, 0 for title-only papers, 32 in all.
 
 ## 4. How much the measurement moves
 
@@ -820,5 +822,5 @@ on 2, and the evidence graph lost a paper on 7.
 
 ## 13. Total model usage
 
-All experiments, pilots and re-scoring: 37,769 cached model calls, 252 million input and
-69 million output tokens, about $2,831 at list price.
+All experiments, pilots and re-scoring: 37,812 cached model calls, 252 million input and
+69 million output tokens, about $2,832 at list price.

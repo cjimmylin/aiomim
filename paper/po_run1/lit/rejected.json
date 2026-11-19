@@ -11,5 +11,18 @@
     "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
     "reason": "no_abstract",
     "matched_title": "An Improved Sequentially Rejective Bonferroni Test Procedure"
+  },
+  {
+    "candidate_title": "Enhancing phenotype recognition in clinical notes using large language models: PhenoBCBERT and PhenoGPT",
+    "task_id": "T011",
+    "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+    "reason": "no_abstract",
+    "matched_title": "Enhancing phenotype recognition in clinical notes using large language models: PhenoBCBERT and PhenoGPT"
+  },
+  {
+    "candidate_title": "Contexts are Never Long Enough: Structured Reasoning for Scalable Question Answering over Long Document Sets",
+    "task_id": "T013",
+    "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+    "reason": "arxiv_title_mismatch_17;s2_disabled;crossref_no_match_52;arxiv_no_match_0"
   }
 ]
