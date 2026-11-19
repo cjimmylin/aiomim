@@ -705,6 +705,9 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
         "conflicts_settled": Counter(c["rule"] for c in rlog["conflicts"]),
         "conflicts_proposed_by_model": len(rlog["conflicts_proposed"]),
         "clusters": rlog.get("clusters", {}),
+        # Papers whose case extraction failed and were dropped, recorded as `cohort` records them,
+        # so an entry that lost a paper is marked incomplete in the comparison.
+        "papers_failed": [c.pmid for c in cases if c.error and not c.records and not c.notes],
         "hpo_resolution": hpo_stats,
         "genes": {k: gene_decisions[k] for k in ("candidates", "confirmed", "not_confirmed", "dropped")},
         "inheritance": inheritance["chosen"],

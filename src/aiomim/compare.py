@@ -1,10 +1,28 @@
-"""Paired comparison of the knowledge-graph strategy against the direct baseline.
+"""Paired comparison of generation strategies against a baseline.
 
-Both strategies are run on the same entries with the same papers, so each entry
-gives a matched pair of scores. For every metric this reports the two means, the
-mean paired difference with a bootstrap 95% confidence interval, how many entries
-each strategy won, and an exact sign test. Results are also broken down by the
-entry's creation-era stratum and by how much of its literature was readable.
+All strategies are run on the same entries with the same papers, so each entry
+gives a matched set of scores. For every metric this reports the means, the mean
+and median paired difference from the baseline with a bootstrap 95% confidence
+interval, how many entries each strategy won, an exact sign test and, for the
+headline measures other than the primary endpoint, Holm-adjusted p-values.
+Results are also broken down by the entry's creation-era stratum and by how much
+of its literature was readable.
+
+Three rules make the comparison fair between strategies; all are applied here,
+when the evaluation files are read, and none of them changes a file on disk:
+
+* Completion. An entry is *complete* for a strategy when its draft exists and
+  every per-paper call the strategy made succeeded; *incomplete* when a draft
+  exists but one or more per-paper extraction calls failed (the paper was
+  dropped); *no draft* when the writer was stopped or nothing was scored. The
+  comparison uses only the entries complete for every compared strategy, and an
+  intention-to-treat table repeats the headline measures over all entries.
+* Empty predictions. `evaluate.prf` leaves F1 undefined when nothing is
+  predicted, and a mean would then drop the entry. When a strategy predicted
+  nothing and the gold set is not empty, F1 and recall count as 0 here
+  (precision stays undefined): genes, the clinical synopsis (exact, hierarchical,
+  semantic) and allelic variants.
+* Every value carries the number of entries behind it.
 """
 
 from __future__ import annotations
@@ -12,16 +30,21 @@ from __future__ import annotations
 import json
 import math
 import random
+import statistics
 from pathlib import Path
 from typing import Any, Callable
 
-from .evalset import stratum_of
+from .evalset import STRATA, stratum_of
 
 # (key, label, path into eval json, higher_is_better)
 METRICS: list[tuple[str, str, str, bool]] = [
     ("claim_supported_rate", "Claims supported by cited paper", "faithfulness.supported_rate", True),
     ("claim_error_rate", "Claims unsupported or contradicted", "faithfulness.error_rate", False),
     ("claim_error_rate_before_repair", "… same, before the repair round", "faithfulness.before_repair.error_rate", False),
+    ("claim_unsupported_rate_before_repair", "… unsupported, before the repair round",
+     "derived.claim_unsupported_rate_before_repair", False),
+    ("claim_contradicted_rate_before_repair", "… contradicted, before the repair round",
+     "derived.claim_contradicted_rate_before_repair", False),
     ("gold_fact_coverage", "OMIM per-paper facts conveyed", "gold_text.coverage", True),
     ("gold_fact_strict_coverage", "… fully (no partial credit)", "gold_text.strict_coverage", True),
     ("gold_fact_contradiction_rate", "OMIM per-paper facts contradicted", "gold_text.contradiction_rate", False),
@@ -31,10 +54,20 @@ METRICS: list[tuple[str, str, str, bool]] = [
     ("hpo_hierarchical_f1", "Clinical synopsis HPO F1, hierarchical", "synopsis.hierarchical.f1", True),
     ("hpo_semantic_f1", "Clinical synopsis HPO F1, semantic", "synopsis.semantic.f1", True),
     ("variant_recall", "OMIM allelic variants recovered", "variants.recall", True),
+    ("variant_precision", "Generated variants that are OMIM variants (precision)", "derived.variant_precision", True),
     ("gene_f1", "Causal gene F1", "genes.f1", True),
+    ("gene_recall", "… recall", "genes.recall", True),
     ("inheritance_match", "Inheritance matches OMIM", "inheritance.match", True),
+    ("inheritance_error_none_stated", "Inheritance error: none stated", "derived.inheritance_error_none_stated", False),
+    ("inheritance_error_mode_missing", "Inheritance error: a mode missing", "derived.inheritance_error_mode_missing", False),
+    ("inheritance_error_extra_mode", "Inheritance error: an extra mode", "derived.inheritance_error_extra_mode", False),
+    ("inheritance_error_different_mode", "Inheritance error: a different mode",
+     "derived.inheritance_error_different_mode", False),
     ("reference_recall", "OMIM references used", "references.cited.recall", True),
 ]
+INHERITANCE_ERRORS = ("none_stated", "mode_missing", "extra_mode", "different_mode")
+PRIMARY = "gold_fact_coverage"
+SMALL_N = 20     # below this many entries a percentile bootstrap interval is unreliable
 
 
 def _get(node: Any, path: str) -> float | None:
@@ -67,24 +100,193 @@ def _sign_test(wins: int, losses: int) -> float | None:
     return min(1.0, 2 * tail)
 
 
+def _holm(pvalues: dict[str, float]) -> dict[str, float]:
+    """Holm step-down adjustment of a family of p-values."""
+    ordered = sorted(pvalues.items(), key=lambda kv: kv[1])
+    m, running, out = len(ordered), 0.0, {}
+    for i, (key, p) in enumerate(ordered):
+        running = max(running, min(1.0, (m - i) * p))
+        out[key] = running
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# Reading the evaluation files
+# --------------------------------------------------------------------------- #
+
+
+def prepare_eval(evaluation: dict) -> dict:
+    """Apply the empty-prediction rule and add the derived measures, in memory only.
+
+    Records what was changed under `derived.empty_prediction` (a list of the
+    fields whose F1 and recall were set to 0).
+    """
+    from .models import INHERITANCE_COARSE
+
+    derived = evaluation.setdefault("derived", {})
+    if derived.get("_prepared"):
+        return evaluation
+    empty: list[str] = []
+    genes = evaluation.get("genes")
+    if isinstance(genes, dict) and genes.get("n_predicted") == 0 and (genes.get("n_gold") or 0) > 0:
+        genes["f1"], genes["recall"] = 0.0, 0.0
+        empty.append("genes")
+    syn = evaluation.get("synopsis")
+    exact = (syn or {}).get("exact") if isinstance(syn, dict) else None
+    if isinstance(exact, dict) and exact.get("n_predicted") == 0 and (exact.get("n_gold") or 0) > 0:
+        for kind in ("exact", "hierarchical", "semantic"):
+            if isinstance(syn.get(kind), dict):
+                syn[kind]["f1"], syn[kind]["recall"] = 0.0, 0.0
+        empty.append("synopsis")
+    variants = evaluation.get("variants")
+    if isinstance(variants, dict) and variants.get("n_generated") == 0 and (variants.get("n_gold") or 0) > 0:
+        variants["recall"] = 0.0          # already 0 by construction; set for clarity
+        empty.append("variants")
+    derived["empty_prediction"] = empty
+
+    if isinstance(variants, dict) and "n_generated" in variants:
+        n_gen, n_gold = variants.get("n_generated") or 0, variants.get("n_gold") or 0
+        # Only where OMIM lists variants for the entry: elsewhere every generated
+        # variant would count as a miss whatever its merit.
+        derived["variant_precision"] = round(variants.get("n_matched", 0) / n_gen, 4) if n_gen and n_gold else None
+        derived["variants_generated"] = n_gen
+        derived["variants_not_in_omim"] = len(variants.get("not_in_omim") or [])
+        derived["variants_in_omim_via_other_paper"] = len(variants.get("in_omim_via_other_paper") or [])
+
+    inh = evaluation.get("inheritance")
+    if isinstance(inh, dict) and "gold" in inh:
+        coarse = lambda codes: {INHERITANCE_COARSE[c] for c in codes or [] if c in INHERITANCE_COARSE}  # noqa: E731
+        predicted, gold = coarse(inh.get("predicted")), coarse(inh.get("gold"))
+        kind = None
+        if gold and predicted != gold:
+            kind = ("none_stated" if not predicted else "mode_missing" if predicted < gold
+                    else "extra_mode" if predicted > gold else "different_mode")
+        for k in INHERITANCE_ERRORS:
+            derived[f"inheritance_error_{k}"] = None if not gold else float(kind == k)
+        derived["inheritance_error"] = kind
+
+    before = (evaluation.get("faithfulness") or {}).get("before_repair") or {}
+    n = before.get("n_claims") or 0
+    derived["claim_unsupported_rate_before_repair"] = round(before.get("unsupported", 0) / n, 4) if n else None
+    derived["claim_contradicted_rate_before_repair"] = round(before.get("contradicted", 0) / n, 4) if n else None
+    derived["_prepared"] = True
+    return evaluation
+
+
+def _read_eval(path: Path) -> dict:
+    return prepare_eval(json.loads(path.read_text()))
+
+
+def _papers_failed(meta: dict) -> list[str] | None:
+    """The PMIDs whose per-paper call failed, from whichever record the strategy keeps; None if none is kept."""
+    for value in meta.values():
+        if isinstance(value, dict) and isinstance(value.get("papers_failed"), list):
+            return value["papers_failed"]
+    return None
+
+
+def completion_status(run_dir: Path, entries: list[str] | None = None) -> dict[str, dict[str, dict[str, Any]]]:
+    """strategy -> {entry folder -> {"status": complete | incomplete | no_draft, ...}}.
+
+    `no_draft`: the evaluation is missing or marks the writer as stopped.
+    `incomplete`: a draft exists but a per-paper call failed and its paper was
+    dropped (evidence graph: meta.extraction.papers_failed; case table:
+    meta.cohort.papers_failed; reconciled: meta.reconciled.papers_failed, or for
+    entries written before that was recorded, the case table's record of the same
+    entry, since both run the same cached case extraction).
+    """
+    wanted = set(entries) if entries is not None else None
+    folders: dict[str, set[str]] = {}
+    for path in sorted(run_dir.glob("*/eval.*.json")):
+        if wanted is None or path.parent.name in wanted:
+            folders.setdefault(path.parent.name, set()).add(path.name.split(".")[1])
+    names = sorted({s for v in folders.values() for s in v})
+    out: dict[str, dict[str, dict[str, Any]]] = {s: {} for s in names}
+    for folder, present in sorted(folders.items()):
+        for s in names:
+            eval_path = run_dir / folder / f"eval.{s}.json"
+            if s not in present:
+                out[s][folder] = {"status": "no_draft", "reason": "no evaluation file"}
+                continue
+            stopped = json.loads(eval_path.read_text()).get("stopped")
+            if stopped:
+                out[s][folder] = {"status": "no_draft", "reason": stopped}
+                continue
+            entry_path = run_dir / folder / f"entry.{s}.json"
+            meta = (json.loads(entry_path.read_text()).get("meta") or {}) if entry_path.exists() else {}
+            failed, source = _papers_failed(meta), f"entry.{s}.json"
+            if failed is None and s == "reconciled":
+                cohort = run_dir / folder / "entry.cohort.json"
+                if cohort.exists():
+                    failed = ((json.loads(cohort.read_text()).get("meta") or {}).get("cohort") or {}).get("papers_failed")
+                    source = "entry.cohort.json (same case extraction)"
+            row: dict[str, Any] = {"status": "incomplete" if failed else "complete"}
+            if failed:
+                row.update(papers_failed=list(failed), source=source)
+            out[s][folder] = row
+    return out
+
+
+def load_evals(run_dir: Path) -> dict[str, dict[str, dict]]:
+    """strategy -> {entry folder -> evaluation}, strategies in registry order.
+
+    Drafts that were stopped are left out (see `stopped_entries`); incomplete ones
+    are kept here and set aside by `compare_strategies`. The empty-prediction rule
+    and the derived measures are applied (`prepare_eval`).
+    """
+    from .strategies import STRATEGIES
+
+    found: dict[str, dict[str, dict]] = {}
+    for path in sorted(run_dir.glob("*/eval.*.json")):
+        strategy = path.name.split(".")[1]
+        evaluation = json.loads(path.read_text())
+        if evaluation.get("stopped"):
+            continue    # no draft was written (see `stopped_entries`); not a draft that scored zero
+        found.setdefault(strategy, {})[path.parent.name] = prepare_eval(evaluation)
+    order = [n for n in STRATEGIES if n in found] + sorted(n for n in found if n not in STRATEGIES)
+    return {n: found[n] for n in order}
+
+
+def stopped_entries(run_dir: Path) -> dict[str, dict[str, str]]:
+    """strategy -> {entry folder -> why no draft was written}."""
+    out: dict[str, dict[str, str]] = {}
+    for path in sorted(run_dir.glob("*/eval.*.json")):
+        reason = json.loads(path.read_text()).get("stopped")
+        if reason:
+            out.setdefault(path.name.split(".")[1], {})[path.parent.name] = reason
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# Paired statistics
+# --------------------------------------------------------------------------- #
+
+
+def _pair_stats(values: list[tuple[float, float]], higher_better: bool, rng: random.Random) -> dict[str, Any]:
+    diffs = [a - b for a, b in values]
+    better = [d if higher_better else -d for d in diffs]
+    wins, losses = sum(1 for d in better if d > 1e-9), sum(1 for d in better if d < -1e-9)
+    ci = _bootstrap_ci(diffs, rng)
+    p = _sign_test(wins, losses)
+    return {
+        "n": len(values),
+        "difference": round(_mean(diffs), 4), "ci95": [round(ci[0], 4), round(ci[1], 4)] if ci else None,
+        "median_difference": round(statistics.median(diffs), 4),
+        "better": wins, "worse": losses, "ties": len(values) - wins - losses,
+        "sign_test_p": round(p, 4) if p is not None else None,
+        "ci_unreliable": len(values) < SMALL_N,
+    }
+
+
 def _paired(pairs: list[tuple[dict, dict]], rng: random.Random) -> list[dict[str, Any]]:
+    """Legacy two-way rows (evidence graph first, direct second) with kg/direct key names."""
     rows = []
-    for key, label, path, higher_better in METRICS:
-        values = [(a, b) for a, b in ((_get(k, path), _get(d, path)) for k, d in pairs) if a is not None and b is not None]
-        if not values:
-            continue
-        diffs = [a - b for a, b in values]
-        better = [d if higher_better else -d for d in diffs]
-        wins, losses = sum(1 for d in better if d > 1e-9), sum(1 for d in better if d < -1e-9)
-        ci = _bootstrap_ci(diffs, rng)
-        rows.append({
-            "metric": key, "label": label, "higher_is_better": higher_better, "n": len(values),
-            "kg": round(_mean([a for a, _ in values]), 4), "direct": round(_mean([b for _, b in values]), 4),
-            "difference": round(_mean(diffs), 4),
-            "ci95": [round(ci[0], 4), round(ci[1], 4)] if ci else None,
-            "kg_better": wins, "direct_better": losses, "ties": len(values) - wins - losses,
-            "sign_test_p": round(p, 4) if (p := _sign_test(wins, losses)) is not None else None,
-        })
+    for row in _paired_vs(pairs, rng, holm=False):
+        rows.append({"metric": row["metric"], "label": row["label"], "higher_is_better": row["higher_is_better"],
+                     "n": row["n"], "kg": row["strategy"], "direct": row["baseline"], "difference": row["difference"],
+                     "ci95": row["ci95"], "median_difference": row["median_difference"],
+                     "kg_better": row["better"], "direct_better": row["worse"], "ties": row["ties"],
+                     "sign_test_p": row["sign_test_p"], "ci_unreliable": row["ci_unreliable"]})
     return rows
 
 
@@ -94,13 +296,45 @@ def _pooled(evals: list[dict]) -> dict[str, Any]:
     facts = {k: sum(e["gold_text"].get(k, 0) or 0 for e in evals)
              for k in ("n_facts", "present", "partial", "absent", "contradicted")}
     n_claims = sum(claims.values())
+    before = {k: sum(((e["faithfulness"].get("before_repair") or {}).get(k, 0) or 0) for e in evals)
+              for k in ("n_claims", "supported", "partially_supported", "unsupported", "contradicted")}
+    variants = {"generated": 0, "matched": 0, "matched_scoped": 0, "generated_scoped": 0,
+                "not_in_omim": 0, "in_omim_via_other_paper": 0}
+    inheritance = {k: 0 for k in ("scored", "match", *INHERITANCE_ERRORS)}
+    empty = {"genes": 0, "synopsis": 0, "variants": 0}
+    for e in evals:
+        d = e.get("derived") or {}
+        v = e.get("variants") or {}
+        variants["generated"] += v.get("n_generated", 0) or 0
+        variants["matched"] += v.get("n_matched", 0) or 0
+        if v.get("n_gold"):
+            variants["generated_scoped"] += v.get("n_generated", 0) or 0
+            variants["matched_scoped"] += v.get("n_matched", 0) or 0
+        variants["not_in_omim"] += d.get("variants_not_in_omim", 0) or 0
+        variants["in_omim_via_other_paper"] += d.get("variants_in_omim_via_other_paper", 0) or 0
+        match = (e.get("inheritance") or {}).get("match")
+        if match is not None:
+            inheritance["scored"] += 1
+            inheritance["match"] += int(bool(match))
+        if d.get("inheritance_error"):
+            inheritance[d["inheritance_error"]] += 1
+        for field in d.get("empty_prediction") or []:
+            empty[field] += 1
+    variants["precision"] = (round(variants["matched_scoped"] / variants["generated_scoped"], 4)
+                             if variants["generated_scoped"] else None)
     return {
         "claims": {**claims, "n": n_claims,
                    "supported_rate": round(claims["supported"] / n_claims, 4) if n_claims else None,
                    "error_rate": round((claims["unsupported"] + claims["contradicted"]) / n_claims, 4) if n_claims else None},
+        "claims_before_repair": {**before,
+                                 "unsupported_rate": round(before["unsupported"] / before["n_claims"], 4) if before["n_claims"] else None,
+                                 "contradicted_rate": round(before["contradicted"] / before["n_claims"], 4) if before["n_claims"] else None},
         "gold_facts": {**facts,
                        "coverage": round((facts["present"] + 0.5 * facts["partial"]) / facts["n_facts"], 4) if facts["n_facts"] else None,
                        "contradiction_rate": round(facts["contradicted"] / facts["n_facts"], 4) if facts["n_facts"] else None},
+        "variants": variants,
+        "inheritance": inheritance,
+        "empty_predictions": empty,
     }
 
 
@@ -123,6 +357,8 @@ def access_group(evaluation: dict) -> str:
 
 ACCESS_ORDER = ["no full text (abstracts only)", "under half full text", "half or more full text", "all full text"]
 REFERENCE_ORDER = ["2-4 references", "5-8 references", "9 or more references"]
+LEVEL_ORDER = ("fulltext", "abstract", "title", "not_retrieved")
+STRATUM_ORDER = [label for label, _ in STRATA] + ["other"]
 
 
 def reference_group(evaluation: dict) -> str:
@@ -132,13 +368,19 @@ def reference_group(evaluation: dict) -> str:
 
 
 def compare_run(run_dir: Path, seed: int = 7) -> dict[str, Any]:
+    """The evidence graph against direct reading, over entries both completed in full."""
+    status = completion_status(run_dir)
+    complete = lambda s, folder: (status.get(s) or {}).get(folder, {}).get("status") == "complete"  # noqa: E731
     pairs: list[tuple[dict, dict]] = []
+    left_out: list[str] = []
     for kg_path in sorted(run_dir.glob("*/eval.kg.json")):
         direct_path = kg_path.with_name("eval.direct.json")
         if direct_path.exists():
-            pair = (json.loads(kg_path.read_text()), json.loads(direct_path.read_text()))
-            if not (pair[0].get("stopped") or pair[1].get("stopped")):
-                pairs.append(pair)
+            folder = kg_path.parent.name
+            if complete("kg", folder) and complete("direct", folder):
+                pairs.append((_read_eval(kg_path), _read_eval(direct_path)))
+            else:
+                left_out.append(folder)
     rng = random.Random(seed)
 
     def breakdown(group_of: Callable[[dict], str], order: list[str] | None = None) -> dict[str, Any]:
@@ -152,7 +394,7 @@ def compare_run(run_dir: Path, seed: int = 7) -> dict[str, Any]:
                     "metrics": [r for r in _paired(groups[g], rng) if r["metric"] in headline]} for g in keys}
 
     return {
-        "run": run_dir.name, "n_entries": len(pairs),
+        "run": run_dir.name, "n_entries": len(pairs), "left_out": left_out,
         "overall": _paired(pairs, rng),
         "pooled": {"kg": _pooled([k for k, _ in pairs]), "direct": _pooled([d for _, d in pairs])},
         "by_stratum": breakdown(lambda e: stratum_of(e["mim"])),
@@ -186,23 +428,41 @@ def _pp(value: float | None) -> str:
     return "–" if value is None else f"{100 * value:+.1f}"
 
 
+def _p(value: float | None) -> str:
+    return "–" if value is None else ("<0.001" if value < 0.001 else f"{value:.3f}")
+
+
+def _n_note(k: int | None, n: int) -> str:
+    return f" (n={k})" if k is not None and k != n else ""
+
+
+def _unreliable_note(n: int) -> str:
+    return (f"**Fewer than {SMALL_N} entries: the bootstrap interval is unreliable** (a percentile bootstrap over so "
+            "few entries is too narrow); read the sign test and the counts instead.")
+
+
 def comparison_markdown(result: dict[str, Any]) -> str:
-    def table(rows: list[dict[str, Any]]) -> str:
-        lines = ["| Metric | n | Evidence graph | Direct | Difference (pp) | 95% CI (pp) | Graph better / direct better / tie | Sign test p |",
-                 "|---|---|---|---|---|---|---|---|"]
+    def table(rows: list[dict[str, Any]], n_total: int) -> str:
+        lines = ["| Metric | n | Evidence graph | Direct | Difference (pp) | 95% CI (pp) | Median difference (pp) | "
+                 "Graph better / direct better / tie | Sign test p |",
+                 "|---|---|---|---|---|---|---|---|---|"]
         for r in rows:
             ci = f"{_pp(r['ci95'][0])} to {_pp(r['ci95'][1])}" if r["ci95"] else "–"
             arrow = "↑" if r["higher_is_better"] else "↓"
             p = "–" if r["sign_test_p"] is None else f"{r['sign_test_p']:.3f}"
             lines.append(f"| {r['label']} {arrow} | {r['n']} | {_pct(r['kg'])} | {_pct(r['direct'])} | {_pp(r['difference'])} | "
-                         f"{ci} | {r['kg_better']} / {r['direct_better']} / {r['ties']} | {p} |")
-        return "\n".join(lines)
+                         f"{ci} | {_pp(r.get('median_difference'))} | {r['kg_better']} / {r['direct_better']} / {r['ties']} | {p} |")
+        out = "\n".join(lines)
+        return (out + "\n\n" + _unreliable_note(n_total)) if 0 < n_total < SMALL_N else out
 
     out = [f"# Evidence-graph strategy vs direct baseline — run `{result['run']}`",
-           f"{result['n_entries']} entries, each written by both strategies from the same papers. Per-entry scores are "
-           "paired; the difference is graph minus direct in percentage points, with a bootstrap 95% confidence "
-           "interval over entries. ↑ higher is better, ↓ lower is better.",
-           "## All entries", table(result["overall"])]
+           f"{result['n_entries']} entries, each written in full by both strategies from the same papers. Per-entry "
+           "scores are paired; the difference is graph minus direct in percentage points, with a bootstrap 95% "
+           "confidence interval over entries. ↑ higher is better, ↓ lower is better. An entry with no draft, or one "
+           "for which a per-paper extraction call failed, is left out"
+           + (f" ({len(result.get('left_out') or [])}: {', '.join(result['left_out'])})" if result.get("left_out") else "")
+           + ". Where a strategy predicted nothing against a non-empty gold set, F1 and recall count as 0.",
+           "## All entries", table(result["overall"], result["n_entries"])]
     pooled = result["pooled"]
     out.append("## Pooled counts")
     lines = ["| | Evidence graph | Direct |", "|---|---|---|"]
@@ -220,7 +480,7 @@ def comparison_markdown(result: dict[str, Any]) -> str:
         out.append("## OMIM-fact coverage by how much of the paper was readable")
         lines = ["| Paper readable as | Facts | Evidence graph coverage | Direct coverage | Graph contradicted | Direct contradicted |",
                  "|---|---|---|---|---|---|"]
-        for level in ("fulltext", "abstract", "title", "not_retrieved"):
+        for level in LEVEL_ORDER:
             if level in levels:
                 kg, direct = levels[level].get("kg", {}), levels[level].get("direct", {})
                 lines.append(f"| {level} | {kg.get('n_facts', 0):,} | {_pct(kg.get('coverage'))} | {_pct(direct.get('coverage'))} | "
@@ -232,7 +492,7 @@ def comparison_markdown(result: dict[str, Any]) -> str:
         out.append(title)
         for group, block in result[key].items():
             out.append(f"### {group} — {block['n']} entries")
-            out.append(table(block["metrics"]))
+            out.append(table(block["metrics"], block["n"]))
     return "\n\n".join(out) + "\n"
 
 
@@ -245,6 +505,7 @@ VOLUME = [
     ("claims_not_checkable", "Claims that could not be audited per entry", "faithfulness.not_checkable"),
     ("synopsis_terms", "Clinical-synopsis HPO terms per entry", "synopsis.exact.n_predicted"),
     ("variants", "Allelic variants per entry", "variants.n_generated"),
+    ("variants_not_in_omim", "… of which not in OMIM", "derived.variants_not_in_omim"),
     ("references", "Papers cited per entry", "references.cited.n_predicted"),
     ("dropped_paragraphs", "Paragraphs dropped by the grounding guards per entry", "faithfulness.dropped_ungrounded_paragraphs"),
 ]
@@ -253,49 +514,33 @@ HEADLINE = ("claim_supported_rate", "claim_error_rate_before_repair", "gold_fact
 PHASES = ("generate", "audit", "score")
 
 
-def load_evals(run_dir: Path) -> dict[str, dict[str, dict]]:
-    """strategy -> {entry folder -> evaluation}, strategies in registry order."""
-    from .strategies import STRATEGIES
+def _paired_vs(pairs: list[tuple[dict, dict]], rng: random.Random, metrics=METRICS, holm: bool = True) -> list[dict[str, Any]]:
+    """Paired comparison of a strategy (first of each pair) against the baseline (second).
 
-    found: dict[str, dict[str, dict]] = {}
-    for path in sorted(run_dir.glob("*/eval.*.json")):
-        strategy = path.name.split(".")[1]
-        evaluation = json.loads(path.read_text())
-        if evaluation.get("stopped"):
-            continue    # no draft was written (see `stopped_entries`); not a draft that scored zero
-        found.setdefault(strategy, {})[path.parent.name] = evaluation
-    order = [n for n in STRATEGIES if n in found] + sorted(n for n in found if n not in STRATEGIES)
-    return {n: found[n] for n in order}
-
-
-def stopped_entries(run_dir: Path) -> dict[str, dict[str, str]]:
-    """strategy -> {entry folder -> why no draft was written}."""
-    out: dict[str, dict[str, str]] = {}
-    for path in sorted(run_dir.glob("*/eval.*.json")):
-        reason = json.loads(path.read_text()).get("stopped")
-        if reason:
-            out.setdefault(path.name.split(".")[1], {})[path.parent.name] = reason
-    return out
-
-
-def _paired_vs(pairs: list[tuple[dict, dict]], rng: random.Random, metrics=METRICS) -> list[dict[str, Any]]:
-    """Paired comparison of a strategy (first of each pair) against the baseline (second)."""
+    Each row has the mean and median difference, a bootstrap interval, the
+    better / worse / tie counts and the exact sign test. The primary endpoint is
+    marked; across the other headline measures the sign-test p-values are
+    Holm-adjusted (`sign_test_p_holm`).
+    """
     rows = []
     for key, label, path, higher_better in metrics:
         values = [(a, b) for a, b in ((_get(x, path), _get(y, path)) for x, y in pairs) if a is not None and b is not None]
         if not values:
             continue
-        diffs = [a - b for a, b in values]
-        better = [d if higher_better else -d for d in diffs]
-        wins, losses = sum(1 for d in better if d > 1e-9), sum(1 for d in better if d < -1e-9)
-        ci = _bootstrap_ci(diffs, rng)
+        stats = _pair_stats(values, higher_better, rng)
         rows.append({
-            "metric": key, "label": label, "higher_is_better": higher_better, "n": len(values),
+            "metric": key, "label": label, "higher_is_better": higher_better, "n": stats["n"],
             "strategy": round(_mean([a for a, _ in values]), 4), "baseline": round(_mean([b for _, b in values]), 4),
-            "difference": round(_mean(diffs), 4), "ci95": [round(ci[0], 4), round(ci[1], 4)] if ci else None,
-            "better": wins, "worse": losses, "ties": len(values) - wins - losses,
-            "sign_test_p": round(pv, 4) if (pv := _sign_test(wins, losses)) is not None else None,
+            **{k: v for k, v in stats.items() if k != "n"},
+            "primary": key == PRIMARY, "headline": key in HEADLINE,
         })
+    if holm:
+        family = {r["metric"]: r["sign_test_p"] for r in rows
+                  if r["headline"] and not r["primary"] and r["sign_test_p"] is not None}
+        adjusted = _holm(family)
+        for r in rows:
+            if r["metric"] in adjusted:
+                r["sign_test_p_holm"] = round(adjusted[r["metric"]], 4)
     return rows
 
 
@@ -353,9 +598,135 @@ def usage_by_strategy(run_dir: Path, entries: list[str]) -> dict[str, dict[str, 
     return out
 
 
+def _level_tallies(evaluation: dict) -> dict[str, tuple[float, int]]:
+    """content level -> (facts conveyed with partial as half, facts scored) for one entry."""
+    out = {}
+    for level, tally in ((evaluation.get("gold_text") or {}).get("by_content_level") or {}).items():
+        n = tally.get("n_facts", 0) or 0
+        out[level] = ((tally.get("present", 0) or 0) + 0.5 * (tally.get("partial", 0) or 0), n)
+    return out
+
+
+def _level_differences(by_strategy: dict[str, list[dict]], baseline: str, rng: random.Random,
+                       n_boot: int = 2000) -> dict[str, dict[str, Any]]:
+    """Paper-level coverage by readable level, pooled over facts, minus the baseline's.
+
+    The interval resamples entries (all of an entry's facts move together).
+    """
+    tallies = {s: [_level_tallies(e) for e in items] for s, items in by_strategy.items()}
+    levels = sorted({lv for items in tallies.values() for t in items for lv in t},
+                    key=lambda lv: LEVEL_ORDER.index(lv) if lv in LEVEL_ORDER else 99)
+    k = len(tallies[baseline])
+    out: dict[str, dict[str, Any]] = {}
+
+    def cov(items, idx, level):
+        got = sum(items[i].get(level, (0, 0))[0] for i in idx)
+        n = sum(items[i].get(level, (0, 0))[1] for i in idx)
+        return (got / n if n else None), n
+
+    for level in levels:
+        row: dict[str, Any] = {}
+        base_cov, base_n = cov(tallies[baseline], range(k), level)
+        row[baseline] = {"coverage": round(base_cov, 4) if base_cov is not None else None, "n_facts": base_n}
+        for s in by_strategy:
+            if s == baseline:
+                continue
+            s_cov, s_n = cov(tallies[s], range(k), level)
+            n_entries = sum(1 for i in range(k) if tallies[s][i].get(level, (0, 0))[1] and tallies[baseline][i].get(level, (0, 0))[1])
+            cell: dict[str, Any] = {"coverage": round(s_cov, 4) if s_cov is not None else None, "n_facts": s_n,
+                                    "n_entries": n_entries,
+                                    "difference": round(s_cov - base_cov, 4) if s_cov is not None and base_cov is not None else None,
+                                    "ci95": None}
+            if cell["difference"] is not None and n_entries >= 5:
+                diffs = []
+                for _ in range(n_boot):
+                    idx = rng.choices(range(k), k=k)
+                    a, _ = cov(tallies[s], idx, level)
+                    b, _ = cov(tallies[baseline], idx, level)
+                    if a is not None and b is not None:
+                        diffs.append(a - b)
+                diffs.sort()
+                if diffs:
+                    cell["ci95"] = [round(diffs[int(0.025 * len(diffs))], 4), round(diffs[int(0.975 * len(diffs)) - 1], 4)]
+            cell["ci_unreliable"] = n_entries < SMALL_N
+            row[s] = cell
+        out[level] = row
+    return out
+
+
+def _era_by_access(by_strategy: dict[str, list[dict]], strategies: list[str]) -> dict[str, Any]:
+    """OMIM facts conveyed by creation era within each readable level, pooled over facts."""
+    out: dict[str, Any] = {}
+    for s in strategies:
+        cells: dict[str, dict[str, dict[str, Any]]] = {}
+        for e in by_strategy[s]:
+            era = stratum_of(e["mim"])
+            for level, (got, n) in _level_tallies(e).items():
+                cell = cells.setdefault(level, {}).setdefault(era, {"n_facts": 0, "conveyed": 0.0, "n_entries": 0})
+                cell["n_facts"] += n
+                cell["conveyed"] += got
+                cell["n_entries"] += 1 if n else 0
+        for level in cells.values():
+            for cell in level.values():
+                cell["coverage"] = round(cell["conveyed"] / cell["n_facts"], 4) if cell["n_facts"] else None
+                cell["conveyed"] = round(cell["conveyed"], 1)
+        out[s] = {lv: {era: cells[lv][era] for era in STRATUM_ORDER if era in cells[lv]}
+                  for lv in sorted(cells, key=lambda x: LEVEL_ORDER.index(x) if x in LEVEL_ORDER else 99)}
+    return out
+
+
+def _intention_to_treat(evals: dict[str, dict[str, dict]], folders: list[str], baseline: str,
+                        rng: random.Random) -> dict[str, Any]:
+    """Headline measures over every entry: a missing draft counts as zero, incomplete drafts stay in.
+
+    A missing draft scores 0 on a higher-is-better measure wherever that measure is
+    defined for the entry (some other strategy has a value for it, so the gold
+    set exists). Lower-is-better measures cannot be zero-filled meaningfully (a
+    missing draft has no errors); they are averaged over the drafts that exist.
+    """
+    wanted = [m for m in METRICS if m[0] in HEADLINE]
+    values: dict[str, dict[str, list[float | None]]] = {s: {} for s in evals}
+    zero_filled: dict[str, int] = {s: 0 for s in evals}
+    for key, _, path, higher in wanted:
+        for s in evals:
+            column = []
+            for folder in folders:
+                if folder in evals[s]:
+                    column.append(_get(evals[s][folder], path))
+                    continue
+                defined = any(_get(other[folder], path) is not None for other in evals.values() if folder in other)
+                column.append(0.0 if higher and defined else None)
+            values[s][key] = column
+    for s in evals:
+        zero_filled[s] = sum(1 for f in folders if f not in evals[s])
+    means = []
+    for key, label, _, higher in wanted:
+        row = {"metric": key, "label": label, "higher_is_better": higher, "values": {}, "n": {}}
+        for s in evals:
+            got = [v for v in values[s][key] if v is not None]
+            row["values"][s] = round(_mean(got), 4) if got else None
+            row["n"][s] = len(got)
+        means.append(row)
+    versus = {}
+    for s in evals:
+        if s == baseline:
+            continue
+        rows = []
+        for key, label, _, higher in wanted:
+            pairs = [(a, b) for a, b in zip(values[s][key], values[baseline][key]) if a is not None and b is not None]
+            if pairs:
+                rows.append({"metric": key, "label": label, "higher_is_better": higher, "primary": key == PRIMARY,
+                             "strategy": round(_mean([a for a, _ in pairs]), 4),
+                             "baseline": round(_mean([b for _, b in pairs]), 4),
+                             **_pair_stats(pairs, higher, rng)})
+        versus[s] = rows
+    return {"n_entries": len(folders), "missing_drafts_counted_as_zero": zero_filled, "means": means,
+            "versus_baseline": versus}
+
+
 def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
                        entries: list[str] | None = None) -> dict[str, Any]:
-    """All strategies of a run side by side, over the entries every one of them completed.
+    """All strategies of a run side by side, over the entries every one of them completed in full.
 
     `entries` restricts the comparison to those entry folders (e.g. a held-out test split).
     """
@@ -367,12 +738,26 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
         evals = {s: kept for s, items in evals.items() if (kept := {e: v for e, v in items.items() if e in wanted})}
     if not evals:
         return {}
-    common = sorted(set.intersection(*(set(v) for v in evals.values())))
-    # Entries for which some strategy has no draft (its writer was stopped) are not in
-    # `common`, so every strategy is compared on the same entries. They are listed.
+    status = completion_status(run_dir, entries)
+    # An entry is compared only when every strategy wrote it and none of them lost a
+    # paper to a failed per-paper call: the same rule for one-call and multi-call strategies.
+    complete = {s: {e for e in v if (status.get(s) or {}).get(e, {}).get("status", "complete") == "complete"}
+                for s, v in evals.items()}
+    common = sorted(set.intersection(*complete.values()))
+    all_folders = sorted({e for v in status.values() for e in v})
     stopped = {s: sorted(e for e in v if entries is None or e in set(entries))
                for s, v in stopped_entries(run_dir).items()}
     stopped = {s: v for s, v in stopped.items() if v}
+    completion = {}
+    for s in evals:
+        rows = status.get(s) or {}
+        completion[s] = {
+            "complete": sorted(e for e, r in rows.items() if r["status"] == "complete"),
+            "incomplete": {e: r.get("papers_failed", []) for e, r in sorted(rows.items()) if r["status"] == "incomplete"},
+            "incomplete_source": {e: r.get("source") for e, r in sorted(rows.items()) if r["status"] == "incomplete"},
+            "no_draft": sorted(e for e, r in rows.items() if r["status"] == "no_draft"),
+        }
+    left_out = sorted(set(all_folders) - set(common))
     if baseline not in evals:
         baseline = next(iter(evals))
     rng = random.Random(seed)
@@ -387,6 +772,17 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
         return {g: {"n": len(groups[g]),
                     "means": _means({s: [evals[s][e] for e in groups[g]] for s in evals}, headline)} for g in keys}
 
+    def paired_breakdown(group_of: Callable[[dict], str], order: list[str], metrics: tuple[str, ...]) -> dict[str, Any]:
+        groups: dict[str, list[str]] = {}
+        for folder in common:
+            groups.setdefault(group_of(evals[baseline][folder]), []).append(folder)
+        chosen = [m for m in METRICS if m[0] in metrics]
+        return {g: {"n": len(groups[g]),
+                    "versus_baseline": {s: _paired_vs([(evals[s][e], evals[baseline][e]) for e in groups[g]], rng,
+                                                      chosen, holm=False)
+                                        for s in evals if s != baseline}}
+                for g in [g for g in order if g in groups]}
+
     levels: dict[str, dict[str, dict[str, Any]]] = {}
     for strategy, items in by_strategy.items():
         for e in items:
@@ -400,9 +796,14 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
             cell["coverage"] = round((cell["present"] + 0.5 * cell["partial"]) / n, 4) if n else None
             cell["contradiction_rate"] = round(cell["contradicted"] / n, 4) if n else None
 
+    controls = [s for s in evals if s in STRATEGIES and STRATEGIES[s].control]
     return {
         "run": run_dir.name, "baseline": baseline, "n_entries": len(common),
+        "primary_endpoint": PRIMARY,
         "stopped": stopped,
+        "completion": completion,
+        "n_entries_in_run": len(all_folders),
+        "left_out": left_out,
         "strategies": [{"name": s, "label": STRATEGIES[s].label if s in STRATEGIES else s,
                         "summary": STRATEGIES[s].summary if s in STRATEGIES else "",
                         "control": bool(s in STRATEGIES and STRATEGIES[s].control), "n_entries": len(evals[s])}
@@ -411,10 +812,16 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
         "volume": _means(by_strategy, VOLUME),
         "versus_baseline": {s: _paired_vs(list(zip(by_strategy[s], by_strategy[baseline])), rng)
                             for s in evals if s != baseline},
+        "intention_to_treat": _intention_to_treat(
+            {s: {e: v for e, v in items.items() if e in set(all_folders)} for s, items in evals.items()},
+            all_folders, baseline, rng),
         "pooled": {s: _pooled(items) for s, items in by_strategy.items()},
         "by_content_level": levels,
+        "by_content_level_vs_baseline": _level_differences(by_strategy, baseline, rng),
         "by_stratum": breakdown(lambda e: stratum_of(e["mim"])),
         "by_access": breakdown(access_group, ACCESS_ORDER),
+        "by_access_paired": paired_breakdown(access_group, ACCESS_ORDER, ("gold_fact_coverage", "variant_recall")),
+        "era_by_access": _era_by_access(by_strategy, [baseline, *[c for c in controls if c != baseline]]),
         "by_reference_count": breakdown(reference_group, REFERENCE_ORDER),
         "cost": usage_by_strategy(run_dir, common),
     }
@@ -429,68 +836,270 @@ def _stopped_note(result: dict[str, Any]) -> str:
             f"Entries: {', '.join(all_stopped)}.")
 
 
+def _completion_section(result: dict[str, Any], names: list[str], labels: dict[str, str]) -> list[str]:
+    comp = result.get("completion") or {}
+    if not comp:
+        return []
+    lines = ["| Strategy | Complete | Incomplete (a per-paper call failed) | No draft |", "|---|---|---|---|"]
+    for n in names:
+        c = comp.get(n) or {"complete": [], "incomplete": {}, "no_draft": []}
+        inc = ", ".join(f"{e} ({len(p)} paper{'s' if len(p) != 1 else ''})" for e, p in c["incomplete"].items())
+        lines.append(f"| {labels[n]} | {len(c['complete'])} | {len(c['incomplete'])}{': ' + inc if inc else ''} | "
+                     f"{len(c['no_draft'])}{': ' + ', '.join(c['no_draft']) if c['no_draft'] else ''} |")
+    fallback = sorted({e for n in names for e, src in ((comp.get(n) or {}).get("incomplete_source") or {}).items()
+                       if src and "cohort" in src and n != "cohort"})
+    text = ["## Completion",
+            f"An entry is compared only when every strategy below completed it in full: its draft exists and no "
+            f"per-paper call was lost. {result['n_entries']} of the run's {result.get('n_entries_in_run', result['n_entries'])} "
+            f"entries qualify; left out: {', '.join(result.get('left_out') or []) or 'none'}. One-call strategies "
+            "cannot be incomplete: a failed call there leaves no draft.", "\n".join(lines)]
+    if fallback:
+        text.append("For the reconciled case database the failed papers are read from the case table's record of the "
+                    "same entry (both run the same cached case extraction; drafts written before the reconciled "
+                    f"strategy recorded them itself): {', '.join(fallback)}.")
+    return text
+
+
 def strategies_markdown(result: dict[str, Any]) -> str:
     names = [s["name"] for s in result["strategies"]]
     labels = {s["name"]: s["label"] for s in result["strategies"]}
+    n_all = result["n_entries"]
     head = "| " + " | ".join(["Metric", *[labels[n] for n in names]]) + " |\n|" + "---|" * (len(names) + 1)
 
-    def means_table(rows: list[dict[str, Any]], as_pct: bool = True) -> str:
+    def means_table(rows: list[dict[str, Any]], as_pct: bool = True, n_total: int = n_all) -> str:
         lines = [head]
         for r in rows:
             arrow = {True: " ↑", False: " ↓", None: ""}[r.get("higher_is_better")]
-            cells = [(_pct(r["values"][n]) if as_pct else ("–" if r["values"][n] is None else f"{r['values'][n]:.1f}")) for n in names]
-            lines.append(f"| {r['label']}{arrow} | " + " | ".join(cells) + " |")
+            mark = " (primary endpoint)" if r["metric"] == PRIMARY else ""
+            cells = []
+            for n in names:
+                v = r["values"].get(n)
+                cell = _pct(v) if as_pct else ("–" if v is None else f"{v:.1f}")
+                cells.append(cell + (_n_note((r.get("n") or {}).get(n), n_total) if v is not None else ""))
+            lines.append(f"| {r['label']}{mark}{arrow} | " + " | ".join(cells) + " |")
         return "\n".join(lines)
 
+    empty_counts = {n: (result["pooled"].get(n) or {}).get("empty_predictions") or {} for n in names}
+    empty_text = "; ".join(f"{labels[n]}: " + ", ".join(f"{k} {v}" for k, v in c.items() if v)
+                           for n, c in empty_counts.items() if any(c.values()))
     out = [f"# Generation strategies compared — run `{result['run']}`",
-           f"{result['n_entries']} entries, each written by every strategy from the same papers and put through the same "
-           "audit and scoring. Means over entries; ↑ higher is better, ↓ lower is better.",
+           f"{n_all} entries, each written in full by every strategy from the same papers and put through the same "
+           "audit and scoring. Means over entries; ↑ higher is better, ↓ lower is better. "
+           f"The primary endpoint is **OMIM facts conveyed**; the other headline measures are secondary.",
            *([_stopped_note(result)] if result.get("stopped") else []),
+           *_completion_section(result, names, labels),
+           "## How the scores are counted",
+           "- **Empty predictions count as zero.** Where a strategy predicted nothing (no causal gene, no synopsis "
+           "term, no variant) and OMIM's gold set is not empty, F1 and recall count as 0 rather than leaving the "
+           "entry out of the mean; precision stays undefined. This is applied when the evaluation files are read, "
+           "for genes, the clinical synopsis (exact, hierarchical, semantic) and variants. Entries affected"
+           + (f": {empty_text}." if empty_text else ": none."),
+           f"- **n.** A value rests on all {n_all} entries unless marked (n=k): some measures are undefined for some "
+           "entries (OMIM lists no variants, no inheritance, or a draft made no auditable claim).",
+           "- **Variant precision** is the share of a draft's allelic variants that match one of OMIM's variants "
+           "for the entry, over entries for which OMIM lists any. A variant OMIM documents only from a paper outside "
+           "the entry's reference list counts as unmatched here and is shown apart below.",
+           "- **Inheritance errors** compare the modes stated with OMIM's (coarse modes): none stated; a mode "
+           "missing (a strict subset of OMIM's); an extra mode (a strict superset); a different mode (anything else).",
            "## The strategies",
            "\n".join(f"- **{s['label']}** (`{s['name']}`): {s['summary']}" for s in result["strategies"]),
            "## Scores", means_table(result["means"]),
            "## How much each strategy writes", means_table(result["volume"], as_pct=False)]
 
-    base = labels[result["baseline"]]
+    base_name = result["baseline"]
+    base = labels[base_name]
     out.append(f"## Paired differences from the baseline ({base})")
     out.append("Percentage points, strategy minus baseline, with a bootstrap 95% interval over entries; then the number "
-               "of entries on which the strategy scored better / worse / the same.")
+               "of entries on which the strategy scored better / worse / the same. The full statistics for every "
+               "measure follow per strategy.")
     wanted = [m for m in METRICS if m[0] in HEADLINE]
-    lines = ["| Metric | " + " | ".join(labels[n] for n in names if n != result["baseline"]) + " |",
+    lines = ["| Metric | " + " | ".join(labels[n] for n in names if n != base_name) + " |",
              "|" + "---|" * len(names)]
     for key, label, _, higher in wanted:
         cells = []
         for n in names:
-            if n == result["baseline"]:
+            if n == base_name:
                 continue
             row = next((r for r in result["versus_baseline"][n] if r["metric"] == key), None)
             if row is None:
                 cells.append("–")
                 continue
             ci = f" ({_pp(row['ci95'][0])} to {_pp(row['ci95'][1])})" if row["ci95"] else ""
-            cells.append(f"{_pp(row['difference'])}{ci}; {row['better']}/{row['worse']}/{row['ties']}")
-        lines.append(f"| {label} {'↑' if higher else '↓'} | " + " | ".join(cells) + " |")
+            cells.append(f"{_pp(row['difference'])}{ci}; {row['better']}/{row['worse']}/{row['ties']}"
+                         + _n_note(row["n"], n_all))
+        mark = " (primary)" if key == PRIMARY else ""
+        lines.append(f"| {label}{mark} {'↑' if higher else '↓'} | " + " | ".join(cells) + " |")
     out.append("\n".join(lines))
+    if 0 < n_all < SMALL_N:
+        out.append(_unreliable_note(n_all))
+
+    out.append("### Full paired statistics")
+    out.append("Mean and median paired difference (pp), bootstrap 95% interval, entries better / worse / tied, the "
+               "exact two-sided sign test (ties dropped) and, for the headline measures other than the primary "
+               "endpoint, the sign-test p-value after a Holm correction across those measures within the strategy. "
+               "OMIM facts conveyed is the primary endpoint and is not adjusted. Rows below the headline measures are "
+               "descriptive.")
+    for n in names:
+        if n == base_name:
+            continue
+        rows = result["versus_baseline"].get(n) or []
+        if not rows:
+            continue
+        out.append(f"#### {labels[n]} minus {base}")
+        lines = ["| Metric | n | Strategy | Baseline | Mean diff | 95% CI | Median diff | Better / worse / tie | "
+                 "Sign test p | Holm p |", "|---|---|---|---|---|---|---|---|---|---|"]
+        for r in sorted(rows, key=lambda r: (not r.get("primary"), not r.get("headline"))):
+            ci = f"{_pp(r['ci95'][0])} to {_pp(r['ci95'][1])}" if r["ci95"] else "–"
+            mark = " **(primary)**" if r.get("primary") else (" (headline)" if r.get("headline") else "")
+            lines.append(f"| {r['label']}{mark} {'↑' if r['higher_is_better'] else '↓'} | {r['n']} | {_pct(r['strategy'])} | "
+                         f"{_pct(r['baseline'])} | {_pp(r['difference'])} | {ci} | {_pp(r.get('median_difference'))} | "
+                         f"{r['better']} / {r['worse']} / {r['ties']} | {_p(r['sign_test_p'])} | "
+                         f"{_p(r.get('sign_test_p_holm')) if 'sign_test_p_holm' in r else '–'} |")
+        out.append("\n".join(lines))
+
+    itt = result.get("intention_to_treat")
+    if itt:
+        out.append("## Sensitivity: every entry, a missing draft counted as zero (intention to treat)")
+        zf = "; ".join(f"{labels[n]} {itt['missing_drafts_counted_as_zero'].get(n, 0)}" for n in names
+                       if itt["missing_drafts_counted_as_zero"].get(n))
+        out.append(f"All {itt['n_entries']} entries of the run. A strategy's missing draft scores 0 on each "
+                   "higher-is-better measure the entry has a gold set for; incomplete drafts are kept as scored. "
+                   "Lower-is-better measures cannot be zero-filled (a missing draft has no errors) and are averaged "
+                   "over the drafts that exist. Missing drafts counted as zero: " + (zf or "none") + ".")
+        out.append(means_table(itt["means"], n_total=itt["n_entries"]))
+        lines = ["| Metric | " + " | ".join(labels[n] for n in names if n != base_name) + " |",
+                 "|" + "---|" * len(names)]
+        for key, label, _, higher in wanted:
+            cells = []
+            for n in names:
+                if n == base_name:
+                    continue
+                row = next((r for r in itt["versus_baseline"].get(n, []) if r["metric"] == key), None)
+                if row is None:
+                    cells.append("–")
+                    continue
+                ci = f" ({_pp(row['ci95'][0])} to {_pp(row['ci95'][1])})" if row["ci95"] else ""
+                cells.append(f"{_pp(row['difference'])}{ci}; median {_pp(row['median_difference'])}; "
+                             f"{row['better']}/{row['worse']}/{row['ties']}; p {_p(row['sign_test_p'])}"
+                             + _n_note(row["n"], itt["n_entries"]))
+            mark = " (primary)" if key == PRIMARY else ""
+            lines.append(f"| {label}{mark} {'↑' if higher else '↓'} | " + " | ".join(cells) + " |")
+        out.append(f"Paired differences from {base} over all entries (mean, interval, median, better/worse/tie, sign test):")
+        out.append("\n".join(lines))
 
     out.append("## Pooled counts")
     lines = ["| | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
     for label, group, key in (("Claims audited", "claims", "n"), ("… supported", "claims", "supported"),
                               ("… partly supported", "claims", "partially_supported"),
                               ("… unsupported", "claims", "unsupported"), ("… contradicted", "claims", "contradicted"),
+                              ("Claims audited before repair", "claims_before_repair", "n_claims"),
+                              ("… unsupported before repair", "claims_before_repair", "unsupported"),
+                              ("… contradicted before repair", "claims_before_repair", "contradicted"),
                               ("OMIM facts scored", "gold_facts", "n_facts"), ("… conveyed", "gold_facts", "present"),
                               ("… partly conveyed", "gold_facts", "partial"), ("… missing", "gold_facts", "absent"),
                               ("… contradicted", "gold_facts", "contradicted")):
-        lines.append(f"| {label} | " + " | ".join(f"{result['pooled'][n][group][key]:,}" for n in names) + " |")
+        lines.append(f"| {label} | " + " | ".join(f"{(result['pooled'][n].get(group) or {}).get(key, 0):,}" for n in names) + " |")
+    out.append("\n".join(lines))
+
+    out.append("## Allelic variants: precision and variants not in OMIM")
+    lines = ["| | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
+    for label, key, fmt in (("Variants generated", "generated", "{:,}"), ("… matching an OMIM variant of the entry", "matched", "{:,}"),
+                            ("… listed by OMIM only from a paper outside the entry's references", "in_omim_via_other_paper", "{:,}"),
+                            ("… not in OMIM", "not_in_omim", "{:,}"),
+                            ("Pooled precision (entries where OMIM lists variants)", "precision", None)):
+        cells = []
+        for n in names:
+            v = (result["pooled"][n].get("variants") or {}).get(key)
+            cells.append(_pct(v) if fmt is None else fmt.format(v or 0))
+        lines.append(f"| {label} | " + " | ".join(cells) + " |")
+    out.append("\n".join(lines))
+
+    out.append("## Inheritance errors by kind")
+    lines = ["| | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
+    for label, key in (("Entries with an OMIM mode of inheritance", "scored"), ("… matched", "match"),
+                       ("… none stated", "none_stated"), ("… a mode missing", "mode_missing"),
+                       ("… an extra mode", "extra_mode"), ("… a different mode", "different_mode")):
+        lines.append(f"| {label} | " + " | ".join(str((result["pooled"][n].get("inheritance") or {}).get(key, 0))
+                                                  for n in names) + " |")
     out.append("\n".join(lines))
 
     if result["by_content_level"]:
         out.append("## OMIM-fact coverage by how much of the paper was readable")
+        out.append("Pooled over facts. Each cell: coverage, then the number of facts scored.")
         lines = ["| Paper readable as | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
-        for level in ("fulltext", "abstract", "title", "not_retrieved"):
+        for level in LEVEL_ORDER:
             cells = result["by_content_level"].get(level)
             if cells:
-                lines.append(f"| {level} | " + " | ".join(_pct((cells.get(n) or {}).get("coverage")) for n in names) + " |")
+                lines.append(f"| {level} | " + " | ".join(
+                    f"{_pct((cells.get(n) or {}).get('coverage'))} ({(cells.get(n) or {}).get('n_facts', 0):,})" for n in names) + " |")
         out.append("\n".join(lines))
+        diff = result.get("by_content_level_vs_baseline") or {}
+        if diff:
+            out.append(f"### Difference from {base}, by how the paper was readable")
+            out.append("Coverage pooled over the facts of all papers at that level, strategy minus baseline in "
+                       "percentage points, with a 95% interval from resampling entries (all of an entry's facts move "
+                       "together); n is the number of entries with facts at that level for both strategies. Facts "
+                       "are split from the gold paragraph separately for each draft, so the fact counts differ slightly.")
+            lines = ["| Paper readable as | " + " | ".join(labels[n] for n in names if n != base_name) + " |",
+                     "|" + "---|" * len(names)]
+            for level in LEVEL_ORDER:
+                row = diff.get(level)
+                if not row:
+                    continue
+                cells = []
+                for n in names:
+                    if n == base_name:
+                        continue
+                    c = row.get(n) or {}
+                    ci = f" ({_pp(c['ci95'][0])} to {_pp(c['ci95'][1])})" if c.get("ci95") else ""
+                    flag = " †" if c.get("ci_unreliable") and c.get("ci95") else ""
+                    cells.append(f"{_pp(c.get('difference'))}{ci}{flag}; n={c.get('n_entries', 0)}")
+                lines.append(f"| {level} | " + " | ".join(cells) + " |")
+            out.append("\n".join(lines))
+            if any((c or {}).get("ci_unreliable") and (c or {}).get("ci95") for row in diff.values() for c in row.values()
+                   if isinstance(c, dict)):
+                out.append(f"† fewer than {SMALL_N} entries: the interval is unreliable.")
+
+    paired = result.get("by_access_paired") or {}
+    if paired:
+        out.append(f"## Paired differences from {base} within each access stratum")
+        out.append("Entries grouped by the share of their references readable as full text (as in the breakdown "
+                   "below); within each group, the paired difference from the baseline in percentage points with its "
+                   f"bootstrap 95% interval and the number of entries. † fewer than {SMALL_N} entries: the interval "
+                   "is unreliable; no interval is computed below 5 entries.")
+        for key, label in (("gold_fact_coverage", "OMIM facts conveyed"), ("variant_recall", "OMIM allelic variants recovered")):
+            out.append(f"### {label}")
+            lines = ["| Access group | Entries | " + " | ".join(labels[n] for n in names if n != base_name) + " |",
+                     "|" + "---|" * (len(names) + 1)]
+            for group, block in paired.items():
+                cells = []
+                for n in names:
+                    if n == base_name:
+                        continue
+                    r = next((x for x in block["versus_baseline"].get(n, []) if x["metric"] == key), None)
+                    if r is None:
+                        cells.append("–")
+                        continue
+                    ci = f" ({_pp(r['ci95'][0])} to {_pp(r['ci95'][1])})" if r["ci95"] else ""
+                    flag = " †" if r["ci_unreliable"] else ""
+                    cells.append(f"{_pp(r['difference'])}{ci}{flag}; n={r['n']}")
+                lines.append(f"| {group} | {block['n']} | " + " | ".join(cells) + " |")
+            out.append("\n".join(lines))
+
+    era = result.get("era_by_access") or {}
+    if era:
+        out.append("## OMIM facts conveyed by creation era within each level of paper access")
+        out.append("Pooled over facts; each cell: coverage, then facts scored and entries contributing. The era is the "
+                   "MIM-number range of the entry; the level is how much of the paper the fact summarises was readable.")
+        eras = [e for e in STRATUM_ORDER if any(e in lv for s in era.values() for lv in s.values())]
+        for s, by_level in era.items():
+            out.append(f"### {labels.get(s, s)}")
+            lines = ["| Paper readable as | " + " | ".join(eras) + " |", "|" + "---|" * (len(eras) + 1)]
+            for level, cells in by_level.items():
+                lines.append(f"| {level} | " + " | ".join(
+                    (f"{_pct(cells[e]['coverage'])} ({cells[e]['n_facts']:,} facts, {cells[e]['n_entries']} entries)"
+                     if e in cells else "–") for e in eras) + " |")
+            out.append("\n".join(lines))
 
     for title, key in (("## By share of the entry's references readable as full text", "by_access"),
                        ("## By size of the reference list", "by_reference_count"),
@@ -498,7 +1107,7 @@ def strategies_markdown(result: dict[str, Any]) -> str:
         out.append(title)
         for group, block in result[key].items():
             out.append(f"### {group} — {block['n']} entries")
-            out.append(means_table(block["means"]))
+            out.append(means_table(block["means"], n_total=block["n"]))
 
     cost = result.get("cost") or {}
     if cost:

@@ -57,6 +57,9 @@ class Settings:
     ncbi_api_key: str | None = None
     ncbi_email: str | None = None
     omim_api_key: str | None = None
+    # A non-empty salt mixed into every LLM cache key (AIOMIM_REPLICATE): a run under a
+    # new salt makes fresh calls, so repeated runs measure run-to-run variation.
+    replicate: str = ""
 
     @property
     def http_cache(self) -> Path:
@@ -94,4 +97,5 @@ def get_settings() -> Settings:
         ncbi_api_key=_env("NCBI_API_KEY"),
         ncbi_email=_env("NCBI_EMAIL"),
         omim_api_key=_env("OMIM_API_KEY"),
+        replicate=_env("AIOMIM_REPLICATE", "") or "",
     )

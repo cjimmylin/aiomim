@@ -247,6 +247,24 @@ SAFETY_STOP = "the model's safety filter stopped this reply"
 EMPTY_REPLY = "the model returned an empty reply twice"
 
 
+def cache_key(
+    model: str, effort: str, system: str, prompt: str, schema: dict[str, Any],
+    tools: tuple[str, ...] = (), workspace_key: str = "", replicate: str = "",
+) -> str:
+    """The disk-cache key of one call.
+
+    Without a replicate salt the key is exactly what it has always been, so
+    existing caches stay valid. With one (AIOMIM_REPLICATE) the salt is hashed in
+    as well: the same call under a new salt misses the cache, is made afresh and is
+    cached under that salt, which is how repeated runs of a strategy are made.
+    """
+    parts: list[Any] = ([model, effort, system, prompt, schema, list(tools), workspace_key] if tools
+                        else [model, effort, system, prompt, schema])
+    if replicate:
+        parts.append({"replicate": replicate})
+    return stable_hash(*parts)
+
+
 class LLM:
     def __init__(self, settings: Settings | None = None):
         self.settings = settings or get_settings()
@@ -277,8 +295,8 @@ class LLM:
         model = self.settings.model_for(stage)
         effort = self.settings.effort_for(stage)
         schema = schema_for(output)
-        key = (stable_hash(model, effort, system, prompt, schema, list(tools), workspace_key) if tools
-               else stable_hash(model, effort, system, prompt, schema))
+        key = cache_key(model, effort, system, prompt, schema, tools, workspace_key,
+                        replicate=self.settings.replicate)
 
         if use_cache:
             hit = self.cache.get_json(key)
