@@ -679,6 +679,9 @@ this section are pooled over facts.
 
 {run_replicates()}
 
+Replicate 1 is the main run for these 30 entries (its direct-reading and evidence-graph drafts are the same text as
+the main run's, 60 of 60); replicates 2 and 3 were generated, audited and scored afresh.
+
 Reading: a difference between two strategies in OMIM facts conveyed of about one point or less on 93 entries is within
 replicate noise. One replicate is one sample; the main comparison is a single run per entry.
 

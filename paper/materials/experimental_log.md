@@ -549,6 +549,9 @@ Shares are of the facts judged in that row. The second check, by the paper's own
 - Evidence graph minus direct reading in replicates 1 / 2 / 3: +0.7 / +1.9 / +0.5 points.
 - Within-entry SD of that paired difference: 5.0 points. Replicate noise alone gives a 95% half-width of 1.0 points on a difference between two strategies over 93 entries, and 1.8 points over 30 entries.
 
+Replicate 1 is the main run for these 30 entries (its direct-reading and evidence-graph drafts are the same text as
+the main run's, 60 of 60); replicates 2 and 3 were generated, audited and scored afresh.
+
 Reading: a difference between two strategies in OMIM facts conveyed of about one point or less on 93 entries is within
 replicate noise. One replicate is one sample; the main comparison is a single run per entry.
 
