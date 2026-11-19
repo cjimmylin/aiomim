@@ -1,0 +1,484 @@
+[
+ {
+  "task_id": "T002",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "Generative artificial intelligence use in evidence synthesis: a systematic review",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Systematic review concluding current evidence does not support GenAI in evidence synthesis without human oversight.",
+    "reason": "Review of LLMs for evidence synthesis."
+   },
+   {
+    "title": "A Comparative Analysis of Tools for Systematic Literature Reviews: A Survey",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.08565",
+    "summary": "Survey of 21 systematic literature review tools with focus on AI features, screening and extraction.",
+    "reason": "Survey of SLR automation tools."
+   },
+   {
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2407.16833",
+    "summary": "Compares RAG with long-context LLMs and proposes Self-Route.",
+    "reason": "Strategy comparison with differing setups."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Graph-based RAG for corpus-level summarisation.",
+    "reason": "Extraction into graphs strategy."
+   },
+   {
+    "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.11495",
+    "summary": "Draft, plan verification questions, answer independently, revise.",
+    "reason": "Draft-then-verify design."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 and WikiCrow agents write cited gene articles compared with Wikipedia.",
+    "reason": "Agentic cited synthesis."
+   },
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "STORM pre-writing pipeline for cited Wikipedia-like articles.",
+    "reason": "Agentic article writing."
+   },
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of LLM agents curating FlyBase annotations from full-text papers.",
+    "reason": "LLM-based curation benchmark."
+   },
+   {
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2307.03172",
+    "summary": "Models use information in long contexts unevenly by position.",
+    "reason": "Long-context reading limits."
+   }
+  ]
+ },
+ {
+  "task_id": "T012",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Agents given gene symbol and 16,898 papers produce structured annotations, 100 genes, 7,397 curated annotations; agents mostly use retrieval to confirm parametric knowledge.",
+    "reason": "Closest prior work."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "WikiCrow gene articles vs Wikipedia: 3.5% uncited vs 13.6%; precision 86.1% vs 71.2% on 240 gene articles.",
+    "reason": "WikiCrow named in notes."
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "LLM recall of curated rare disease knowledge is low; gene associations better than phenotypes.",
+    "reason": "Tests what models remember."
+   },
+   {
+    "title": "Leveraging generative AI to assist biocuration of medical actions for rare disease",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "AutoMAxO uses LLMs to retrieve candidate curations from abstracts for 37 rare genetic diseases.",
+    "reason": "LLM-assisted curation of ontology annotations."
+   },
+   {
+    "title": "Harnessing generative AI to annotate the severity of all phenotypic abnormalities within the Human Phenotype Ontology",
+    "authors": [],
+    "year": 2024,
+    "doi": "10.1101/2024.06.10.24308475",
+    "arxiv_id": "",
+    "summary": "GPT-4 used to annotate HPO term severity.",
+    "reason": "LLMs for HPO annotation."
+   },
+   {
+    "title": "PhenoTagger: a hybrid method for phenotype concept recognition using human phenotype ontology",
+    "authors": [],
+    "year": 2021,
+    "doi": "10.1093/bioinformatics/btab019",
+    "arxiv_id": "",
+    "summary": "Hybrid dictionary and deep learning HPO concept recognition.",
+    "reason": "Phenotype concept-recognition baseline."
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2312.07559",
+    "summary": "RAG agent for question answering over scientific literature.",
+    "reason": "Underlies WikiCrow."
+   }
+  ]
+ },
+ {
+  "task_id": "T014",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.11371",
+    "summary": "Controlled comparison of RAG and GraphRAG on QA and summarisation; complementary strengths.",
+    "reason": "Systematic comparison."
+   },
+   {
+    "title": "When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2506.05690",
+    "summary": "GraphRAG-Bench; graphs help on some tasks, often underperform vanilla RAG elsewhere.",
+    "reason": "When graphs help."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Graph index with community summaries for global sensemaking questions.",
+    "reason": "Original GraphRAG."
+   },
+   {
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2407.16833",
+    "summary": "Long-context beats RAG on average given resources; Self-Route hybrid.",
+    "reason": "Long context vs RAG."
+   },
+   {
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2501.01880",
+    "summary": "Long context generally outperforms RAG on Wikipedia QA; RAG better on dialogue.",
+    "reason": "Long context vs RAG."
+   },
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs - No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.09977",
+    "summary": "Best choice depends on model, context length and task.",
+    "reason": "Task-dependent evidence."
+   },
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2405.14831",
+    "summary": "Knowledge-graph-based retrieval for multi-hop QA.",
+    "reason": "Graph intermediate."
+   }
+  ]
+ },
+ {
+  "task_id": "T016",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2406.02962",
+    "summary": "LLM-assisted knowledge graph construction from heterogeneous documents.",
+    "reason": "Document processing to structured intermediates."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Graph index of extracted entities and community summaries.",
+    "reason": "Extraction pipeline."
+   },
+   {
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2412.15256",
+    "summary": "LLM structured extraction of medical knowledge for summarisation and search.",
+    "reason": "Structured extraction pipeline."
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2312.07559",
+    "summary": "Agentic RAG with query rewriting-like iterative evidence gathering.",
+    "reason": "Agentic pipeline."
+   },
+   {
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2310.11511",
+    "summary": "Adaptive retrieval with self-critique.",
+    "reason": "Agentic retrieval."
+   }
+  ]
+ },
+ {
+  "task_id": "T018",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "STORM; articles judged better organised (+25%) and broader (+10%) than baseline.",
+    "reason": "Cited article writing."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "WikiCrow gene articles compared with Wikipedia.",
+    "reason": "Agentic scientific synthesis."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2411.14199",
+    "summary": "Retrieval-augmented LM synthesising cited answers from scientific literature.",
+    "reason": "Cited literature synthesis."
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2312.07559",
+    "summary": "RAG agent over scientific papers.",
+    "reason": "Agent."
+   },
+   {
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2305.14251",
+    "summary": "Atomic-fact evaluation of long-form generation.",
+    "reason": "Claim-level evaluation."
+   }
+  ]
+ },
+ {
+  "task_id": "T022",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.11495",
+    "summary": "CoVe: draft, plan verification questions, answer independently, revise; reduces hallucination.",
+    "reason": "Verify-after-recall."
+   },
+   {
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2303.08896",
+    "summary": "Black-box hallucination detection via sampling consistency.",
+    "reason": "Self-verification."
+   },
+   {
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2305.14251",
+    "summary": "Atomic-fact precision against knowledge source.",
+    "reason": "Verification against source."
+   },
+   {
+    "title": "A Comprehensive Survey of Contamination Detection Methods in Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2404.00699",
+    "summary": "Taxonomy of contamination detection methods by access level.",
+    "reason": "Contamination survey."
+   },
+   {
+    "title": "Benchmark Data Contamination of Large Language Models: A Survey",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2406.04244",
+    "summary": "Survey of benchmark contamination and detection.",
+    "reason": "Contamination survey."
+   },
+   {
+    "title": "Detecting Pretraining Data from Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2310.16789",
+    "summary": "Min-K% Prob black-box membership test.",
+    "reason": "Black-box test."
+   },
+   {
+    "title": "Proving Test Set Contamination in Black Box Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2310.17623",
+    "summary": "Black-box test of test set contamination via exchangeability.",
+    "reason": "Black-box test."
+   }
+  ]
+ },
+ {
+  "task_id": "T024",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2310.10628",
+    "summary": "Splits benchmarks by model training cutoffs to study contamination.",
+    "reason": "Time-based split."
+   },
+   {
+    "title": "Time Travel in LLMs: Tracing Data Contamination in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2308.08493",
+    "summary": "Guided-instruction method to detect contamination.",
+    "reason": "Contamination detection."
+   },
+   {
+    "title": "Unveiling the Spectrum of Data Contamination in Language Models: A Survey from Detection to Remediation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2406.14644",
+    "summary": "Survey of contamination detection and remediation.",
+    "reason": "Survey."
+   },
+   {
+    "title": "Benchmarking Large Language Models Under Data Contamination: A Survey from Static to Dynamic Evaluation",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.17521",
+    "summary": "Survey of dynamic benchmarks that update to avoid contamination.",
+    "reason": "Dynamic benchmarks."
+   },
+   {
+    "title": "A Comprehensive Survey of Contamination Detection Methods in Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2404.00699",
+    "summary": "Survey including performance-through-time methods.",
+    "reason": "Survey."
+   }
+  ]
+ },
+ {
+  "task_id": "T037",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": [
+   {
+    "title": "PubMed Central: The GenBank of the life sciences?",
+    "authors": [
+     "Richard J. Roberts"
+    ],
+    "year": 2001,
+    "doi": "10.1073/pnas.98.2.381",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Archive underlying the open-access subset."
+   }
+  ]
+ },
+ {
+  "task_id": "T059",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "The Statistical Sign Test",
+    "authors": [
+     "W. J. Dixon",
+     "A. M. Mood"
+    ],
+    "year": 1946,
+    "doi": "10.2307/2280577",
+    "arxiv_id": "",
+    "summary": "Presents the sign test for paired observations using signs of differences, with significance tables.",
+    "reason": "Primary source for sign test."
+   }
+  ]
+ }
+]

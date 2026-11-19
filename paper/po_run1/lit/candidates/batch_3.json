@@ -1,0 +1,504 @@
+[
+ {
+  "task_id": "T001",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "The Human Phenotype Ontology in 2024: phenotypes around the world",
+    "authors": [
+     "Michael A. Gargano",
+     "Nicolas Matentzoglu",
+     "Ben Coleman"
+    ],
+    "year": 2024,
+    "doi": "10.1093/nar/gkad1005",
+    "arxiv_id": "",
+    "summary": "Update on HPO reporting 2,239 new terms and 49,235 new annotations, and integration with GA4GH Phenopackets.",
+    "reason": "HPO as a resource underpinning rare-disease diagnosis."
+   },
+   {
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "authors": [
+     "Joanna S. Amberger",
+     "Carol A. Bocchini",
+     "François Schiettecatte",
+     "Alan F. Scott",
+     "Ada Hamosh"
+    ],
+    "year": 2015,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Describes OMIM.org, MIM-numbered gene and phenotype entries, the Morbid Map, and data access.",
+    "reason": "Describes OMIM, the expert-curated knowledge base."
+   },
+   {
+    "title": "ClinVar: updates to support classifications of both germline and somatic variants",
+    "authors": [
+     "Melissa J. Landrum"
+    ],
+    "year": 2025,
+    "doi": "10.1093/nar/gkae1090",
+    "arxiv_id": "",
+    "summary": "Describes ClinVar redesign to support multiple classification types.",
+    "reason": "ClinVar as a curated resource."
+   },
+   {
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "authors": [
+     "Melissa J. Landrum"
+    ],
+    "year": 2018,
+    "doi": "10.1093/nar/gkx1153",
+    "arxiv_id": "",
+    "summary": "ClinVar update on access to variant interpretations and evidence.",
+    "reason": "ClinVar as a curated resource."
+   },
+   {
+    "title": "Evidence Aggregator",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Microsoft Research report arguing no single resource (OMIM, ClinVar, ClinGen, GenCC) systematically captures all published literature on genes and variants.",
+    "reason": "Curation coverage gap."
+   }
+  ]
+ },
+ {
+  "task_id": "T004",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [
+     "Yijia Shao",
+     "Yucheng Jiang",
+     "Theodore Kanell",
+     "Peter Xu",
+     "Omar Khattab",
+     "Monica Lam"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "Introduces STORM, a pre-writing pipeline using perspective-guided question asking and retrieval to produce outlines and Wikipedia-like articles; evaluated on FreshWiki.",
+    "reason": "Foundational LLM pipeline writing encyclopedic articles from retrieved sources."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+     "Michael D. Skarlinski",
+     "Sam Cox",
+     "Jon M. Laurent",
+     "James D. Braza",
+     "Michaela Hinks",
+     "Michael J. Hammerling",
+     "Manvitha Ponnapati",
+     "Samuel G. Rodriques",
+     "Andrew D. White"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent and WikiCrow, which writes cited Wikipedia-style gene articles; fewer unsupported cited statements than human-written Wikipedia articles in the authors' evaluation.",
+    "reason": "Agentic cited article writing from scientific literature; closest prior work."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [
+     "Akari Asai",
+     "Jacqueline He",
+     "Rulin Shao",
+     "Weijia Shi",
+     "Amanpreet Singh",
+     "Joseph Chee Chang",
+     "Kyle Lo",
+     "Luca Soldaini",
+     "Sergey Feldman",
+     "Mike D'Arcy",
+     "David Wadden",
+     "Matt Latzke",
+     "Minyang Tian",
+     "Pan Ji",
+     "Shengyan Liu",
+     "Hao Tong",
+     "Bohao Wu",
+     "Yanyu Xiong",
+     "Luke Zettlemoyer",
+     "Graham Neubig",
+     "Dan Weld",
+     "Doug Downey",
+     "Wen-tau Yih",
+     "Pang Wei Koh",
+     "Hannaneh Hajishirzi"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2411.14199",
+    "summary": "Retrieval-augmented LM with iterative self-feedback for cited literature synthesis, evaluated on ScholarQABench with expert-written answers.",
+    "reason": "Cited scientific literature synthesis system."
+   }
+  ]
+ },
+ {
+  "task_id": "T006",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of 7,397 expert-curated FlyBase annotations over 100 genes with a 16,898-paper corpus; compares memorisation, pipeline, single- and multi-agent baselines.",
+    "reason": "Named closest prior work."
+   },
+   {
+    "title": "GEN-KnowRD: Reframing AI for Rare Disease Recognition",
+    "authors": [
+     "Chao Yan",
+     "Wu-Chen Su",
+     "Yi Xin",
+     "Monika E. Grabowska",
+     "Vern E. Kerchberger"
+    ],
+    "year": 2026,
+    "doi": "10.64898/2026.03.02.26347469",
+    "arxiv_id": "",
+    "summary": "LLM-generated schema-guided rare disease profiles assessed for quality and used to build the PheMAP-RD knowledge base.",
+    "reason": "Named closest prior work."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+     "Michael D. Skarlinski",
+     "Sam Cox",
+     "Jon M. Laurent",
+     "James D. Braza",
+     "Michaela Hinks",
+     "Michael J. Hammerling",
+     "Manvitha Ponnapati",
+     "Samuel G. Rodriques",
+     "Andrew D. White"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent and WikiCrow, which writes cited Wikipedia-style gene articles; fewer unsupported cited statements than human-written Wikipedia articles in the authors' evaluation.",
+    "reason": "Agentic cited article writing from scientific literature; closest prior work."
+   },
+   {
+    "title": "An evaluation of GPT models for phenotype concept recognition",
+    "authors": [
+     "Tudor Groza",
+     "Harry Caufield",
+     "Dylan Gration",
+     "Gareth Baynam",
+     "Melissa A Haendel",
+     "Peter N Robinson",
+     "Christopher J Mungall",
+     "Justin T Reese"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s12911-024-02439-w",
+    "arxiv_id": "2309.17169",
+    "summary": "Tests GPT-3.5 and GPT-4 on HPO concept recognition on two gold-standard corpora with seven prompts.",
+    "reason": "Groza et al. phenotype concept recognition with LLMs."
+   },
+   {
+    "title": "PhenoTagger: A Hybrid Method for Phenotype Concept Recognition using Human Phenotype Ontology",
+    "authors": [
+     "Ling Luo",
+     "Shankai Yan",
+     "Po-Ting Lai",
+     "Daniel Veltri",
+     "Andrew Oler",
+     "Sandhya Xirasagar",
+     "Rajarshi Ghosh",
+     "Morgan Similuk",
+     "Peter N. Robinson",
+     "Zhiyong Lu"
+    ],
+    "year": 2021,
+    "doi": "10.1093/bioinformatics/btab019",
+    "arxiv_id": "2009.08478",
+    "summary": "Hybrid dictionary and deep-learning tagger for HPO concepts in text, trained on distantly supervised data.",
+    "reason": "Phenotype concept-recognition baseline."
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Compares LLM recall of curated rare-disease knowledge mapped to HPO and HGNC; gene associations recalled better than phenotypes.",
+    "reason": "Tests what models remember."
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Evaluates LLMs for phenotype-driven gene prioritization; GPT-4 weaker than traditional tools.",
+    "reason": "LLM rare-disease gene knowledge."
+   },
+   {
+    "title": "CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2510.11985",
+    "summary": "Benchmark from ClinGen Evidence Repository for variant and gene curation tasks, including evidence extraction for gene-disease validity.",
+    "reason": "LLMs on ClinGen-style curation."
+   }
+  ]
+ },
+ {
+  "task_id": "T008",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Compares LLM recall of curated rare-disease knowledge mapped to HPO and HGNC; gene associations recalled better than phenotypes.",
+    "reason": "Tests what models remember."
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Evaluates LLMs for phenotype-driven gene prioritization; GPT-4 weaker than traditional tools.",
+    "reason": "LLM rare-disease gene knowledge."
+   }
+  ]
+ },
+ {
+  "task_id": "T015",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "authors": [
+     "Nelson F. Liu",
+     "Kevin Lin",
+     "John Hewitt",
+     "Ashwin Paranjape",
+     "Michele Bevilacqua",
+     "Fabio Petroni",
+     "Percy Liang"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2307.03172",
+    "summary": "Model accuracy is highest when relevant information is at the start or end of the context and degrades in the middle.",
+    "reason": "Position effects in long-context reading."
+   },
+   {
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2501.01880",
+    "summary": "Long-context models tend to beat RAG on self-contained material, RAG on fragmented information.",
+    "reason": "Long-context vs RAG comparison."
+   },
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs - No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.09977",
+    "summary": "2,326 test cases across four QA task types; best choice depends on model, context length and task.",
+    "reason": "Systematic LC vs RAG benchmark."
+   },
+   {
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2407.16833",
+    "summary": "Long-context outperforms RAG at higher cost; proposes Self-Route.",
+    "reason": "LC vs RAG comparison."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [
+     "Darren Edge",
+     "Ha Trinh",
+     "Jonathan Larson"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Entity knowledge graph with community summaries for corpus-wide questions; outperforms vector RAG.",
+    "reason": "GraphRAG as intermediate representation."
+   },
+   {
+    "title": "RAG vs. GraphRAG: A Systematic Evaluation and Key Insights",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.11371",
+    "summary": "Controlled comparison of RAG and GraphRAG on QA and summarisation; complementary strengths.",
+    "reason": "Comparison of graph intermediates."
+   },
+   {
+    "title": "When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2506.05690",
+    "summary": "GraphRAG-Bench analysing when graphs help over vanilla RAG.",
+    "reason": "Task-dependent evidence on graph intermediates."
+   }
+  ]
+ },
+ {
+  "task_id": "T017",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Contexts are Never Long Enough",
+    "authors": [
+     "Harshit Joshi",
+     "Priyank Shethia",
+     "Jadelynn Dao",
+     "Monica S. Lam"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2604.22294",
+    "summary": "SLIDERS extracts facts into relational tables, reconciles records, answers by SQL; outperforms baselines on long-context benchmarks.",
+    "reason": "Extract-to-database with reconciliation."
+   },
+   {
+    "title": "What Level of Automation is \"Good Enough\"? A Benchmark of Large Language Models for Meta-Analysis Data Extraction",
+    "authors": [
+     "Lingbo Li",
+     "Anuradha Mathrani",
+     "Teo Susnjak"
+    ],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2507.15152",
+    "summary": "Benchmarks LLM data extraction for meta-analysis; not yet reliable for full automation.",
+    "reason": "LLM evidence extraction."
+   },
+   {
+    "title": "Performance of two large language models for data extraction in evidence synthesis",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Compares Claude 2 and GPT-4 extraction from 10 articles; human validation needed.",
+    "reason": "LLM systematic review extraction."
+   },
+   {
+    "title": "Expediting data extraction using a large language model (LLM) and scoping review protocol: a methodological study within a complex scoping review",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2507.06623",
+    "summary": "Tests an LLM for extraction from 119 sources in a scoping review.",
+    "reason": "LLM evidence synthesis."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [
+     "Akari Asai",
+     "Jacqueline He",
+     "Rulin Shao",
+     "Weijia Shi",
+     "Amanpreet Singh",
+     "Joseph Chee Chang",
+     "Kyle Lo",
+     "Luca Soldaini",
+     "Sergey Feldman",
+     "Mike D'Arcy",
+     "David Wadden",
+     "Matt Latzke",
+     "Minyang Tian",
+     "Pan Ji",
+     "Shengyan Liu",
+     "Hao Tong",
+     "Bohao Wu",
+     "Yanyu Xiong",
+     "Luke Zettlemoyer",
+     "Graham Neubig",
+     "Dan Weld",
+     "Doug Downey",
+     "Wen-tau Yih",
+     "Pang Wei Koh",
+     "Hannaneh Hajishirzi"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2411.14199",
+    "summary": "Retrieval-augmented LM with iterative self-feedback for cited literature synthesis, evaluated on ScholarQABench with expert-written answers.",
+    "reason": "Cited scientific literature synthesis system."
+   }
+  ]
+ },
+ {
+  "task_id": "T034",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": [
+   {
+    "title": "MedGen: NCBI's Portal to Information on Medical Conditions with a Genetic Component",
+    "authors": [
+     "Diana Nelson Louden"
+    ],
+    "year": 2020,
+    "doi": "10.1080/02763869.2020.1726152",
+    "arxiv_id": "",
+    "summary": "Overview of MedGen, NCBI's portal to medical conditions with a genetic component.",
+    "reason": "Primary MedGen description."
+   }
+  ]
+ },
+ {
+  "task_id": "T038",
+  "section": "3. Benchmark and Strategies - 3.2 Generation strategies",
+  "candidates": [
+   {
+    "title": "Claude Opus 5.5 System Card",
+    "authors": [
+     "Anthropic"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "System card accompanying Claude Opus 5.5 released September 2026.",
+    "reason": "Model used."
+   }
+  ]
+ },
+ {
+  "task_id": "T061",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Clinical Diagnostics in Human Genetics with Semantic Similarity Searches in Ontologies",
+    "authors": [
+     "Sebastian Köhler",
+     "Sandra C. Doelken",
+     "Christopher J. Mungall",
+     "Sebastian Bauer",
+     "Helen V. Firth",
+     "Peter N. Robinson"
+    ],
+    "year": 2009,
+    "doi": "10.1016/j.ajhg.2009.09.003",
+    "arxiv_id": "",
+    "summary": "Adapts ontology semantic similarity to match patient phenotypes to HPO-annotated diseases, with p-values.",
+    "reason": "HPO semantic similarity."
+   }
+  ]
+ }
+]

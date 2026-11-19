@@ -1,0 +1,12 @@
+[
+ {
+  "round": 1,
+  "critic_suggestions": "Content: all nine points and intervals match log Sec. 2.9 (OMIM facts conveyed); off-scale values match; bands at +/-1.0 and +/-1.8 match Sec. 4.2; no caption text in image. Presentation: the legend in the lower left overlaps the case-table-first bar of the 'half or more full text' group (-6.1, -8.3 to -3.6); value labels use a hyphen while the note uses a true minus sign. Fix: move the legend above the axes in a 3-column row; use the Unicode minus in value labels.",
+  "changed": true
+ },
+ {
+  "round": 2,
+  "critic_suggestions": "Content unchanged and still matches Sec. 2.9 and 4.2. Presentation: the overlap is gone and minus signs are consistent, but the legend fills column-wise so the two noise-band entries are split across columns and the rows are ragged. Fix: reorder legend handles so row 1 holds the three strategies and row 2 the two noise bands.",
+  "changed": true
+ }
+]

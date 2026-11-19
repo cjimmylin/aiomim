@@ -1,0 +1,411 @@
+[
+ {
+  "task_id": "T005",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [],
+    "year": 2018,
+    "doi": "10.1371/journal.pcbi.1005962",
+    "arxiv_id": "",
+    "summary": "Compares text mining on about 15 million full-text articles with their abstracts and finds full text consistently yields more results.",
+    "reason": "Full text vs abstract for text mining."
+   },
+   {
+    "title": "The structural and content aspects of abstracts versus bodies of full text journal articles are different",
+    "authors": [],
+    "year": 2010,
+    "doi": "10.1186/1471-2105-11-492",
+    "arxiv_id": "",
+    "summary": "Shows abstracts and article bodies differ structurally and in content, affecting text-mining performance.",
+    "reason": "Abstract-only vs full-text consequences."
+   },
+   {
+    "title": "PubTator central: automated concept annotation for biomedical full text articles",
+    "authors": [],
+    "year": 2019,
+    "doi": "10.1093/nar/gkz389",
+    "arxiv_id": "",
+    "summary": "Describes annotation of PubMed abstracts and PMC full texts, including the open-access subset.",
+    "reason": "Open-access full-text resource for text mining."
+   }
+  ]
+ },
+ {
+  "task_id": "T007",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of 7,397 expert-curated FlyBase annotations over 100 genes with a 16,898-paper corpus; compares memorization, pipeline, single- and multi-agent baselines.",
+    "reason": "Named closest prior work."
+   },
+   {
+    "title": "GEN-KnowRD: Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "10.64898/2026.03.02.26347469",
+    "arxiv_id": "",
+    "summary": "Uses LLMs to generate schema-guided rare disease profiles and builds a computable knowledge base.",
+    "reason": "Named closest prior work."
+   },
+   {
+    "title": "Language Agents Achieve Superhuman Synthesis of Scientific Knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "WikiCrow (PaperQA2-based) writes Wikipedia-style gene articles compared with human-written ones.",
+    "reason": "WikiCrow named in notes."
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Compares LLM-generated rare disease gene and phenotype knowledge with Orphanet and HPOA; recall was generally low.",
+    "reason": "LLM profiles vs curated reports; tests memory."
+   },
+   {
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Evaluates LLMs for extracting rare diseases and phenotypes from text.",
+    "reason": "Phenotype extraction."
+   },
+   {
+    "title": "An evaluation of GPT models for phenotype concept recognition",
+    "authors": [
+     "Tudor Groza",
+     "Harry Caufield",
+     "Justin T. Reese"
+    ],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2309.17169",
+    "summary": "Tests GPT-3.5-turbo and GPT-4 on HPO phenotype concept recognition in abstracts and clinical notes; few-shot prompts competitive but inconsistent.",
+    "reason": "Phenotype concept-recognition baseline."
+   },
+   {
+    "title": "Frontier LLM-based agents can overcome the ontology curation bottleneck for natural phenotypes",
+    "authors": [
+     "James P. Balhoff",
+     "Hilmar Lapp"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2605.28965",
+    "summary": "Five frontier LLMs act as autonomous curators mapping trait descriptions to ontology terms; results fall within the spread of human curators.",
+    "reason": "Agentic phenotype curation evaluated against humans."
+   }
+  ]
+ },
+ {
+  "task_id": "T010",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "AutoPM3: enhancing variant interpretation via LLM-driven PM3 evidence extraction from scientific literature",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Automates ACMG PM3 evidence extraction with open-source LLMs on a 1,027-pair ClinGen-derived benchmark.",
+    "reason": "LLM variant evidence extraction."
+   },
+   {
+    "title": "PubMind: Literature-Based Genetic Variant Extraction and Functional Annotation Using Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "10.1101/2025.10.13.682183",
+    "arxiv_id": "",
+    "summary": "Extracts variant-disease-pathogenicity relations from papers using a BERT filter and an instruction-tuned LLM.",
+    "reason": "Variant extraction from literature."
+   },
+   {
+    "title": "CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2510.11985",
+    "summary": "Benchmarks LLMs on ClinGen-style evidence scoring, verification and extraction.",
+    "reason": "Benchmark against curator annotations."
+   },
+   {
+    "title": "Evidence Aggregator",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Microsoft Research tool for finding primary literature for gene-disease and variant questions.",
+    "reason": "Literature support for variant curation."
+   }
+  ]
+ },
+ {
+  "task_id": "T020",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.11495",
+    "summary": "Model drafts, plans verification questions, answers them independently, then revises; reduces hallucination on list, closed-book QA and long-form tasks.",
+    "reason": "Verify-after-recall."
+   },
+   {
+    "title": "GeneAgent: self-verification language agent for gene-set analysis using domain databases",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2405.16205",
+    "summary": "Agent verifies its generated claims against curated databases, labelling them supported, partially supported or refuted.",
+    "reason": "Self-verification against domain databases."
+   },
+   {
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2303.08896",
+    "summary": "",
+    "reason": "Consistency-based verification of generations."
+   },
+   {
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2305.14251",
+    "summary": "",
+    "reason": "Atomic-claim factual precision scoring."
+   }
+  ]
+ },
+ {
+  "task_id": "T021",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Proving Test Set Contamination in Black Box Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2310.17623",
+    "summary": "",
+    "reason": "Black-box contamination test."
+   },
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2310.10628",
+    "summary": "Longitudinal study of contamination using training cutoffs of GPT models and benchmark release dates.",
+    "reason": "Time-based contamination analysis."
+   },
+   {
+    "title": "A Survey on Data Contamination for Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.14425",
+    "summary": "Surveys contamination and white-, gray- and black-box detection.",
+    "reason": "Survey."
+   },
+   {
+    "title": "Evaluation data contamination in LLMs: how do we measure it and (when) does it matter?",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2411.03923",
+    "summary": "",
+    "reason": "Measuring contamination effect."
+   },
+   {
+    "title": "Benchmarking Large Language Models Under Data Contamination: A Survey from Static to Dynamic Evaluation",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.17521",
+    "summary": "",
+    "reason": "Contamination and dynamic benchmarks."
+   }
+  ]
+ },
+ {
+  "task_id": "T023",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Time Travel in LLMs: Tracing Data Contamination in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2308.08493",
+    "summary": "Detects contamination via guided instructions that ask the LLM to complete a dataset instance from its initial segment.",
+    "reason": "Black-box contamination tracing."
+   },
+   {
+    "title": "Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Follow-up contamination detection by the same authors."
+   },
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2310.10628",
+    "summary": "",
+    "reason": "Time-based splits."
+   }
+  ]
+ },
+ {
+  "task_id": "T026",
+  "section": "Related Work: 2.4 Supervision by prompt optimisation",
+  "candidates": [
+   {
+    "title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2507.19457",
+    "summary": "Reflective prompt evolution using natural-language reflection and Pareto selection; beats GRPO with up to 35x fewer rollouts.",
+    "reason": "Reflective prompt evolution."
+   },
+   {
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2305.03495",
+    "summary": "",
+    "reason": "Textual-gradient prompt optimisation."
+   },
+   {
+    "title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2406.11695",
+    "summary": "MIPRO jointly optimizes instructions and demonstrations of multi-stage LM programs.",
+    "reason": "Prompt optimiser with search budget."
+   },
+   {
+    "title": "Large Language Models Are Human-Level Prompt Engineers",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2211.01910",
+    "summary": "",
+    "reason": "Instruction induction/search."
+   },
+   {
+    "title": "Large Language Models as Optimizers",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.03409",
+    "summary": "",
+    "reason": "LLM-driven prompt optimisation."
+   },
+   {
+    "title": "TextGrad: Automatic \"Differentiation\" via Text",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2406.07496",
+    "summary": "",
+    "reason": "Text feedback optimisation."
+   },
+   {
+    "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2310.03714",
+    "summary": "",
+    "reason": "Framework for prompt optimisation."
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2303.11366",
+    "summary": "",
+    "reason": "Verbal feedback learning."
+   }
+  ]
+ },
+ {
+  "task_id": "T057",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Bootstrap Methods: Another Look at the Jackknife",
+    "authors": [
+     "B. Efron"
+    ],
+    "year": 1979,
+    "doi": "10.1214/aos/1176344552",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Primary bootstrap paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T058",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "authors": [
+     "Sture Holm"
+    ],
+    "year": 1979,
+    "doi": "10.2307/4615733",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Holm correction."
+   }
+  ]
+ },
+ {
+  "task_id": "T060",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "A categorization approach to automated ontological function annotation",
+    "authors": [
+     "Karin Verspoor",
+     "Judith Cohn",
+     "Susan Mniszewski",
+     "Cliff Joslyn"
+    ],
+    "year": 2006,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Introduces hierarchical precision and recall for GO-based function prediction.",
+    "reason": "Origin of hierarchical precision/recall for ontology terms."
+   }
+  ]
+ }
+]
