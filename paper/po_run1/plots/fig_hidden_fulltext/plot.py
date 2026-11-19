@@ -1,6 +1,9 @@
 """fig_hidden_fulltext: within-paper effect of access (hidden-full-text experiment).
-Data: experimental_log.md Sec. 6.2, table 'OMIM-fact coverage on the frozen fact lists (main measure)'
-and the paired-differences table under it. 46 entries, 136 paragraphs, 2,120 facts per condition.
+Data: experimental_log.md Sec. 6.2: the abstract-only and second-hand rows of 'OMIM-fact coverage on the frozen
+fact lists (main measure)', the full text before the repair round ('Repair parity'), the means over entries in the
+sentence 'OMIM facts conveyed on the fixed fact lists', and the paired differences (second-hand from the main table,
+full text before repair from the repair-parity table). No arm went through the repair round. Bars: fact counts pooled
+over 46 entries, 136 paragraphs, 2,120 facts per condition; printed percentages: means over the 46 entries.
 Print size: 3.0 in wide (beside fig_missed_facts, same height); all text >= 7 pt."""
 import os
 import matplotlib
@@ -13,19 +16,20 @@ plt.rcParams.update({
     "axes.linewidth": 0.6, "xtick.major.width": 0.6, "xtick.major.size": 2.5, "xtick.major.pad": 1.5,
 })
 
-conditions = ["Abstract only", "Abstract + second-hand passages", "Full text"]
-present = [495, 629, 1513]
-partial = [331, 297, 254]
-absent = [1290, 1184, 343]
+conditions = ["Abstract only", "Abstract + second-hand passages", "Full text, before repair"]
+present = [495, 629, 1511]
+partial = [331, 297, 255]
+absent = [1290, 1184, 344]
 contradicted = [4, 10, 10]
 facts = [2120, 2120, 2120]
-coverage = ["31.2%", "36.7%", "77.4%"]  # log values
-diff = [None, "+4.9 (+2.8 to +7.1)", "+43.9 (+38.5 to +49.3)"]  # pp, paired over 46 entries
+pooled = ["31.2%", "36.7%", "77.3%"]  # log, pooled over facts: checks the counts, not printed
+mean_over_entries = ["36.1%", "40.9%", "79.8%"]  # log, mean of per-entry coverage over 46 entries: printed
+diff = [None, "+4.9 (+2.8 to +7.1)", "+43.7 (+38.3 to +49.1)"]  # pp, paired over 46 entries
 bwt = [None, "33 better, 9 worse, 4 tied", "45 better, 0 worse, 1 tied"]  # entries, log
 
 for i in range(3):
     assert present[i] + partial[i] + absent[i] + contradicted[i] == facts[i]
-    assert f"{100 * (present[i] + partial[i] / 2) / facts[i]:.1f}%" == coverage[i]
+    assert f"{100 * (present[i] + partial[i] / 2) / facts[i]:.1f}%" == pooled[i]
 
 # outcome colours shared with fig_missed_facts; neutral greys so no strategy colour is reused
 segments = [
@@ -48,12 +52,12 @@ for label, vals, color, tcol in segments:
             ax.text(l + v / 2, y, f"{v:,}", ha="center", va="center", color=tcol, fontsize=7)
     left = [l + v for l, v in zip(left, vals)]
 
-# two text lines above each bar: condition + coverage, then paired difference from abstract only
-for y, name, c, d in zip(ypos, conditions, coverage, diff):
+# two text lines above each bar: condition + mean over entries, then paired difference from abstract only
+for y, name, c, d in zip(ypos, conditions, mean_over_entries, diff):
     top = y + BH / 2
     ax.annotate(name, (0, top), xytext=(0, 10.5), textcoords="offset points", ha="left", va="bottom",
                 fontweight="bold")
-    ax.annotate(f"coverage {c}", (N, top), xytext=(0, 10.5), textcoords="offset points", ha="right",
+    ax.annotate(f"mean over entries {c}", (N, top), xytext=(0, 10.5), textcoords="offset points", ha="right",
                 va="bottom", fontweight="bold")
     sub = "reference for the paired differences" if d is None else f"{d.split(' ')[0]} pp vs abstract only (95% CI {d.split('(')[1]}"
     ax.annotate(sub, (0, top), xytext=(0, 1.5), textcoords="offset points", ha="left", va="bottom",

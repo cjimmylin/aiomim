@@ -1229,6 +1229,35 @@ def strategies_markdown(result: dict[str, Any]) -> str:
 
 
 # --------------------------------------------------------------------------- #
+# The same entries in two runs
+# --------------------------------------------------------------------------- #
+
+
+def same_draft(entry_a: dict, entry_b: dict) -> bool:
+    """Two stored drafts (`entry.<strategy>.json`) are the same text and structure; run metadata is ignored."""
+    strip = lambda e: {k: v for k, v in e.items() if k != "meta"}  # noqa: E731
+    return strip(entry_a) == strip(entry_b)
+
+
+def same_fact_marks(eval_a: dict, eval_b: dict) -> bool:
+    """Two evaluations mark every frozen fact the same (fact id -> status), on the same facts."""
+    marks = lambda e: {f["id"]: f["status"] for p in (e.get("gold_text_frozen") or {}).get("paragraphs", [])  # noqa: E731
+                       for f in p.get("facts", [])}
+    a, b = marks(eval_a), marks(eval_b)
+    return bool(a) and a == b
+
+
+def paired_on(run_dir: Path, strategy: str, baseline: str, entries: list[str], metric: str = PRIMARY,
+              seed: int = 7) -> dict[str, Any]:
+    """`strategy` minus `baseline` on one metric over exactly these entries of a run (as in `compare`)."""
+    path = next(m[2] for m in METRICS if m[0] == metric)
+    higher = next(m[3] for m in METRICS if m[0] == metric)
+    pairs = [(_get(_read_eval(run_dir / e / f"eval.{strategy}.json"), path),
+              _get(_read_eval(run_dir / e / f"eval.{baseline}.json"), path)) for e in entries]
+    return _pair_stats([(a, b) for a, b in pairs if a is not None and b is not None], higher, random.Random(seed))
+
+
+# --------------------------------------------------------------------------- #
 # Edge-level comparison of the generated knowledge with OMIM's
 # --------------------------------------------------------------------------- #
 

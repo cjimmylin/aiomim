@@ -1,0 +1,2020 @@
+{
+  "run": "omim100",
+  "baseline": "direct",
+  "n_entries": 93,
+  "entries": [
+    "108770",
+    "166780",
+    "167400",
+    "177735",
+    "186100",
+    "205950",
+    "219900",
+    "225060",
+    "225300",
+    "236730",
+    "241800",
+    "248360",
+    "250220",
+    "251950",
+    "278750",
+    "301059",
+    "302905",
+    "500001",
+    "600204",
+    "600251",
+    "600501",
+    "600740",
+    "603552",
+    "603689",
+    "604307",
+    "604928",
+    "606763",
+    "606824",
+    "607602",
+    "607641",
+    "607721",
+    "607734",
+    "607876",
+    "608133",
+    "608885",
+    "609057",
+    "609220",
+    "611521",
+    "611880",
+    "612847",
+    "613581",
+    "613730",
+    "613744",
+    "613848",
+    "614501",
+    "614651",
+    "614701",
+    "614856",
+    "615073",
+    "615268",
+    "615425",
+    "615493",
+    "615582",
+    "615631",
+    "615710",
+    "615817",
+    "615972",
+    "616151",
+    "616294",
+    "616326",
+    "616482",
+    "616867",
+    "617153",
+    "617162",
+    "617927",
+    "618184",
+    "618229",
+    "618343",
+    "618400",
+    "618458",
+    "618808",
+    "618875",
+    "619124",
+    "619201",
+    "619681",
+    "619816",
+    "620022",
+    "620029",
+    "620098",
+    "620249",
+    "620402",
+    "620457",
+    "620481",
+    "620507",
+    "620528",
+    "620662",
+    "620670",
+    "620718",
+    "620851",
+    "621169",
+    "621214",
+    "621224",
+    "621313"
+  ],
+  "strategies": [
+    {
+      "name": "kg",
+      "label": "Evidence graph"
+    },
+    {
+      "name": "direct",
+      "label": "Direct reading"
+    },
+    {
+      "name": "agent",
+      "label": "Agentic curator"
+    },
+    {
+      "name": "closedbook",
+      "label": "Memory only (control)"
+    },
+    {
+      "name": "recall",
+      "label": "Recall, then verify"
+    },
+    {
+      "name": "cohort",
+      "label": "Case table first"
+    }
+  ],
+  "bootstrap": {
+    "seed": 7,
+    "resamples": 10000,
+    "interval": "percentile 95%, over entries"
+  },
+  "judgement": "availability: stored model judgement (gaps --frozen, stage judge); not checked by a curator",
+  "join": {
+    "kg": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    },
+    "direct": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    },
+    "agent": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    },
+    "closedbook": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    },
+    "recall": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    },
+    "cohort": {
+      "judged": 6239,
+      "joined": 6239,
+      "without_availability": 0,
+      "unjudged_marks": 0,
+      "entries_without_fact_file": []
+    }
+  },
+  "sanity": {
+    "kg": {
+      "main_comparison_mean": 0.4859,
+      "recomputed_mean": 0.4859,
+      "same_to_one_decimal": true
+    },
+    "direct": {
+      "main_comparison_mean": 0.4907,
+      "recomputed_mean": 0.4907,
+      "same_to_one_decimal": true
+    },
+    "agent": {
+      "main_comparison_mean": 0.4843,
+      "recomputed_mean": 0.4843,
+      "same_to_one_decimal": true
+    },
+    "closedbook": {
+      "main_comparison_mean": 0.1511,
+      "recomputed_mean": 0.1511,
+      "same_to_one_decimal": true
+    },
+    "recall": {
+      "main_comparison_mean": 0.1456,
+      "recomputed_mean": 0.1456,
+      "same_to_one_decimal": true
+    },
+    "cohort": {
+      "main_comparison_mean": 0.4716,
+      "recomputed_mean": 0.4716,
+      "same_to_one_decimal": true
+    }
+  },
+  "facts_by_availability": {
+    "fulltext": {
+      "yes": 1246,
+      "partly": 253,
+      "no": 140,
+      "unjudged": 0
+    },
+    "abstract": {
+      "yes": 1099,
+      "partly": 883,
+      "no": 2239,
+      "unjudged": 0
+    },
+    "title": {
+      "yes": 27,
+      "partly": 62,
+      "no": 290,
+      "unjudged": 0
+    },
+    "all": {
+      "yes": 2372,
+      "partly": 1198,
+      "no": 2669,
+      "unjudged": 0
+    }
+  },
+  "cells": {
+    "all": {
+      "all": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.4859,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 2562,
+              "partial": 811,
+              "absent": 2840,
+              "contradicted": 26,
+              "coverage": 0.4756
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.4907,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 2620,
+              "partial": 820,
+              "absent": 2771,
+              "contradicted": 28,
+              "coverage": 0.4857
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.4843,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 2593,
+              "partial": 796,
+              "absent": 2820,
+              "contradicted": 30,
+              "coverage": 0.4794
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.1511,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 502,
+              "partial": 578,
+              "absent": 5133,
+              "contradicted": 26,
+              "coverage": 0.1268
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.1456,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 502,
+              "partial": 553,
+              "absent": 5167,
+              "contradicted": 17,
+              "coverage": 0.1248
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.4716,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 6239,
+              "present": 2490,
+              "partial": 769,
+              "absent": 2948,
+              "contradicted": 32,
+              "coverage": 0.4607
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 93,
+            "difference": -0.0048,
+            "ci95": [
+              -0.015,
+              0.0051
+            ],
+            "median_difference": 0.0,
+            "better": 33,
+            "worse": 45,
+            "ties": 15,
+            "sign_test_p": 0.2127,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 93,
+            "difference": -0.0064,
+            "ci95": [
+              -0.0129,
+              0.0
+            ],
+            "median_difference": 0.0,
+            "better": 31,
+            "worse": 42,
+            "ties": 20,
+            "sign_test_p": 0.2416,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 93,
+            "difference": -0.3396,
+            "ci95": [
+              -0.3924,
+              -0.2873
+            ],
+            "median_difference": -0.3433,
+            "better": 7,
+            "worse": 85,
+            "ties": 1,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 93,
+            "difference": -0.3451,
+            "ci95": [
+              -0.3929,
+              -0.2998
+            ],
+            "median_difference": -0.3191,
+            "better": 2,
+            "worse": 89,
+            "ties": 2,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 93,
+            "difference": -0.0191,
+            "ci95": [
+              -0.0311,
+              -0.007
+            ],
+            "median_difference": -0.0076,
+            "better": 31,
+            "worse": 48,
+            "ties": 14,
+            "sign_test_p": 0.0712,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "fulltext": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.8076,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 1201,
+              "partial": 182,
+              "absent": 248,
+              "contradicted": 8,
+              "coverage": 0.7883
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.7987,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 1178,
+              "partial": 189,
+              "absent": 268,
+              "contradicted": 4,
+              "coverage": 0.7764
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.7929,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 1156,
+              "partial": 202,
+              "absent": 273,
+              "contradicted": 8,
+              "coverage": 0.7669
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.1136,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 108,
+              "partial": 162,
+              "absent": 1364,
+              "contradicted": 5,
+              "coverage": 0.1153
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.1362,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 133,
+              "partial": 171,
+              "absent": 1333,
+              "contradicted": 2,
+              "coverage": 0.1333
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.7323,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1639,
+              "present": 1098,
+              "partial": 155,
+              "absent": 377,
+              "contradicted": 9,
+              "coverage": 0.7172
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 40,
+            "difference": 0.0089,
+            "ci95": [
+              -0.0115,
+              0.0297
+            ],
+            "median_difference": 0.0,
+            "better": 19,
+            "worse": 18,
+            "ties": 3,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 40,
+            "difference": -0.0058,
+            "ci95": [
+              -0.0206,
+              0.0088
+            ],
+            "median_difference": -0.0052,
+            "better": 12,
+            "worse": 20,
+            "ties": 8,
+            "sign_test_p": 0.2153,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 40,
+            "difference": -0.6851,
+            "ci95": [
+              -0.7426,
+              -0.6229
+            ],
+            "median_difference": -0.7462,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 40,
+            "difference": -0.6625,
+            "ci95": [
+              -0.7243,
+              -0.5996
+            ],
+            "median_difference": -0.7236,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 40,
+            "difference": -0.0664,
+            "ci95": [
+              -0.0968,
+              -0.037
+            ],
+            "median_difference": -0.0814,
+            "better": 8,
+            "worse": 31,
+            "ties": 1,
+            "sign_test_p": 0.0003,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "abstract": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.416,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 1320,
+              "partial": 578,
+              "absent": 2305,
+              "contradicted": 18,
+              "coverage": 0.3812
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.4294,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 1404,
+              "partial": 574,
+              "absent": 2219,
+              "contradicted": 24,
+              "coverage": 0.4006
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.4253,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 1397,
+              "partial": 546,
+              "absent": 2256,
+              "contradicted": 22,
+              "coverage": 0.3956
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.1542,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 371,
+              "partial": 378,
+              "absent": 3454,
+              "contradicted": 18,
+              "coverage": 0.1327
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.1509,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 359,
+              "partial": 372,
+              "absent": 3476,
+              "contradicted": 14,
+              "coverage": 0.1291
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.4149,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 4221,
+              "present": 1355,
+              "partial": 557,
+              "absent": 2286,
+              "contradicted": 23,
+              "coverage": 0.387
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 85,
+            "difference": -0.0133,
+            "ci95": [
+              -0.0273,
+              -0.0014
+            ],
+            "median_difference": 0.0,
+            "better": 28,
+            "worse": 39,
+            "ties": 18,
+            "sign_test_p": 0.2215,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 85,
+            "difference": -0.0041,
+            "ci95": [
+              -0.0121,
+              0.0035
+            ],
+            "median_difference": 0.0,
+            "better": 30,
+            "worse": 34,
+            "ties": 21,
+            "sign_test_p": 0.708,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 85,
+            "difference": -0.2752,
+            "ci95": [
+              -0.3302,
+              -0.2228
+            ],
+            "median_difference": -0.2315,
+            "better": 11,
+            "worse": 73,
+            "ties": 1,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 85,
+            "difference": -0.2785,
+            "ci95": [
+              -0.3239,
+              -0.2335
+            ],
+            "median_difference": -0.2447,
+            "better": 5,
+            "worse": 78,
+            "ties": 2,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 85,
+            "difference": -0.0145,
+            "ci95": [
+              -0.0285,
+              -0.0018
+            ],
+            "median_difference": 0.0,
+            "better": 34,
+            "worse": 36,
+            "ties": 15,
+            "sign_test_p": 0.905,
+            "ci_unreliable": false
+          }
+        }
+      }
+    },
+    "stated": {
+      "all": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.9415,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 2144,
+              "partial": 121,
+              "absent": 106,
+              "contradicted": 1,
+              "coverage": 0.9294
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.9441,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 2114,
+              "partial": 128,
+              "absent": 129,
+              "contradicted": 1,
+              "coverage": 0.9182
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.9358,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 2099,
+              "partial": 134,
+              "absent": 139,
+              "contradicted": 0,
+              "coverage": 0.9132
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.233,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 251,
+              "partial": 233,
+              "absent": 1880,
+              "contradicted": 8,
+              "coverage": 0.1549
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.2878,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 378,
+              "partial": 209,
+              "absent": 1782,
+              "contradicted": 3,
+              "coverage": 0.2034
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.9097,
+            "n_entries": 89,
+            "pooled": {
+              "n_facts": 2372,
+              "present": 2016,
+              "partial": 118,
+              "absent": 235,
+              "contradicted": 3,
+              "coverage": 0.8748
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 89,
+            "difference": -0.0026,
+            "ci95": [
+              -0.0215,
+              0.0131
+            ],
+            "median_difference": 0.0,
+            "better": 25,
+            "worse": 21,
+            "ties": 43,
+            "sign_test_p": 0.6587,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 89,
+            "difference": -0.0083,
+            "ci95": [
+              -0.0256,
+              0.0037
+            ],
+            "median_difference": 0.0,
+            "better": 20,
+            "worse": 23,
+            "ties": 46,
+            "sign_test_p": 0.7608,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 89,
+            "difference": -0.7111,
+            "ci95": [
+              -0.7591,
+              -0.6596
+            ],
+            "median_difference": -0.7581,
+            "better": 0,
+            "worse": 85,
+            "ties": 4,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 89,
+            "difference": -0.6563,
+            "ci95": [
+              -0.7063,
+              -0.6019
+            ],
+            "median_difference": -0.6667,
+            "better": 0,
+            "worse": 84,
+            "ties": 5,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 89,
+            "difference": -0.0344,
+            "ci95": [
+              -0.0559,
+              -0.0164
+            ],
+            "median_difference": 0.0,
+            "better": 16,
+            "worse": 42,
+            "ties": 31,
+            "sign_test_p": 0.0009,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "fulltext": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.9017,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 1062,
+              "partial": 95,
+              "absent": 88,
+              "contradicted": 1,
+              "coverage": 0.8904
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.8851,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 1034,
+              "partial": 101,
+              "absent": 110,
+              "contradicted": 1,
+              "coverage": 0.8704
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.8826,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 1025,
+              "partial": 106,
+              "absent": 115,
+              "contradicted": 0,
+              "coverage": 0.8652
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.1094,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 72,
+              "partial": 116,
+              "absent": 1055,
+              "contradicted": 3,
+              "coverage": 0.1043
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.1361,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 102,
+              "partial": 119,
+              "absent": 1024,
+              "contradicted": 1,
+              "coverage": 0.1296
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.8007,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1246,
+              "present": 958,
+              "partial": 89,
+              "absent": 196,
+              "contradicted": 3,
+              "coverage": 0.8046
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 40,
+            "difference": 0.0166,
+            "ci95": [
+              -0.0067,
+              0.0403
+            ],
+            "median_difference": 0.0,
+            "better": 18,
+            "worse": 15,
+            "ties": 7,
+            "sign_test_p": 0.7283,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 40,
+            "difference": -0.0025,
+            "ci95": [
+              -0.0177,
+              0.0117
+            ],
+            "median_difference": 0.0,
+            "better": 13,
+            "worse": 15,
+            "ties": 12,
+            "sign_test_p": 0.8506,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 40,
+            "difference": -0.7757,
+            "ci95": [
+              -0.8249,
+              -0.7232
+            ],
+            "median_difference": -0.8301,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 40,
+            "difference": -0.749,
+            "ci95": [
+              -0.8019,
+              -0.6927
+            ],
+            "median_difference": -0.803,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 40,
+            "difference": -0.0844,
+            "ci95": [
+              -0.1434,
+              -0.0377
+            ],
+            "median_difference": -0.0714,
+            "better": 9,
+            "worse": 28,
+            "ties": 3,
+            "sign_test_p": 0.0026,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "abstract": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.9662,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 1055,
+              "partial": 26,
+              "absent": 18,
+              "contradicted": 0,
+              "coverage": 0.9718
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.9708,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 1053,
+              "partial": 27,
+              "absent": 19,
+              "contradicted": 0,
+              "coverage": 0.9704
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.9629,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 1048,
+              "partial": 28,
+              "absent": 23,
+              "contradicted": 0,
+              "coverage": 0.9663
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.2822,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 173,
+              "partial": 113,
+              "absent": 808,
+              "contradicted": 5,
+              "coverage": 0.2088
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.3651,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 268,
+              "partial": 87,
+              "absent": 742,
+              "contradicted": 2,
+              "coverage": 0.2834
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.9549,
+            "n_entries": 79,
+            "pooled": {
+              "n_facts": 1099,
+              "present": 1031,
+              "partial": 29,
+              "absent": 39,
+              "contradicted": 0,
+              "coverage": 0.9513
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 79,
+            "difference": -0.0046,
+            "ci95": [
+              -0.0255,
+              0.0123
+            ],
+            "median_difference": 0.0,
+            "better": 10,
+            "worse": 11,
+            "ties": 58,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 79,
+            "difference": -0.0079,
+            "ci95": [
+              -0.0264,
+              0.0046
+            ],
+            "median_difference": 0.0,
+            "better": 11,
+            "worse": 9,
+            "ties": 59,
+            "sign_test_p": 0.8238,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 79,
+            "difference": -0.6886,
+            "ci95": [
+              -0.7514,
+              -0.6226
+            ],
+            "median_difference": -0.7727,
+            "better": 0,
+            "worse": 74,
+            "ties": 5,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 79,
+            "difference": -0.6057,
+            "ci95": [
+              -0.6728,
+              -0.5347
+            ],
+            "median_difference": -0.6667,
+            "better": 0,
+            "worse": 71,
+            "ties": 8,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 79,
+            "difference": -0.0159,
+            "ci95": [
+              -0.0365,
+              0.0021
+            ],
+            "median_difference": 0.0,
+            "better": 12,
+            "worse": 21,
+            "ties": 46,
+            "sign_test_p": 0.1628,
+            "ci_unreliable": false
+          }
+        }
+      }
+    },
+    "stated_or_partly": {
+      "all": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.7752,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 2504,
+              "partial": 743,
+              "absent": 308,
+              "contradicted": 15,
+              "coverage": 0.8055
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.7753,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 2499,
+              "partial": 725,
+              "absent": 333,
+              "contradicted": 13,
+              "coverage": 0.8015
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.7687,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 2487,
+              "partial": 709,
+              "absent": 360,
+              "contradicted": 14,
+              "coverage": 0.7959
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.2333,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 398,
+              "partial": 452,
+              "absent": 2705,
+              "contradicted": 15,
+              "coverage": 0.1748
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.2602,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 488,
+              "partial": 506,
+              "absent": 2565,
+              "contradicted": 11,
+              "coverage": 0.2076
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.7544,
+            "n_entries": 93,
+            "pooled": {
+              "n_facts": 3570,
+              "present": 2409,
+              "partial": 675,
+              "absent": 468,
+              "contradicted": 18,
+              "coverage": 0.7693
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 93,
+            "difference": -0.0,
+            "ci95": [
+              -0.0145,
+              0.0137
+            ],
+            "median_difference": 0.0,
+            "better": 41,
+            "worse": 41,
+            "ties": 11,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 93,
+            "difference": -0.0066,
+            "ci95": [
+              -0.0197,
+              0.0045
+            ],
+            "median_difference": 0.0,
+            "better": 36,
+            "worse": 37,
+            "ties": 20,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 93,
+            "difference": -0.542,
+            "ci95": [
+              -0.5921,
+              -0.4889
+            ],
+            "median_difference": -0.5625,
+            "better": 4,
+            "worse": 88,
+            "ties": 1,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 93,
+            "difference": -0.5151,
+            "ci95": [
+              -0.5592,
+              -0.4708
+            ],
+            "median_difference": -0.52,
+            "better": 1,
+            "worse": 88,
+            "ties": 4,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 93,
+            "difference": -0.0209,
+            "ci95": [
+              -0.0361,
+              -0.0063
+            ],
+            "median_difference": -0.01,
+            "better": 27,
+            "worse": 48,
+            "ties": 18,
+            "sign_test_p": 0.0203,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "fulltext": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.8556,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 1187,
+              "partial": 177,
+              "absent": 129,
+              "contradicted": 6,
+              "coverage": 0.8509
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.8424,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 1160,
+              "partial": 184,
+              "absent": 152,
+              "contradicted": 3,
+              "coverage": 0.8352
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.8402,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 1142,
+              "partial": 195,
+              "absent": 157,
+              "contradicted": 5,
+              "coverage": 0.8269
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.1208,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 103,
+              "partial": 152,
+              "absent": 1240,
+              "contradicted": 4,
+              "coverage": 0.1194
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.1458,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 129,
+              "partial": 167,
+              "absent": 1201,
+              "contradicted": 2,
+              "coverage": 0.1418
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.7706,
+            "n_entries": 40,
+            "pooled": {
+              "n_facts": 1499,
+              "present": 1084,
+              "partial": 150,
+              "absent": 257,
+              "contradicted": 8,
+              "coverage": 0.7732
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 40,
+            "difference": 0.0132,
+            "ci95": [
+              -0.0071,
+              0.0343
+            ],
+            "median_difference": 0.0093,
+            "better": 20,
+            "worse": 17,
+            "ties": 3,
+            "sign_test_p": 0.7428,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 40,
+            "difference": -0.0022,
+            "ci95": [
+              -0.0176,
+              0.0133
+            ],
+            "median_difference": 0.0,
+            "better": 14,
+            "worse": 18,
+            "ties": 8,
+            "sign_test_p": 0.5966,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 40,
+            "difference": -0.7216,
+            "ci95": [
+              -0.772,
+              -0.6672
+            ],
+            "median_difference": -0.7596,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 40,
+            "difference": -0.6966,
+            "ci95": [
+              -0.7513,
+              -0.6399
+            ],
+            "median_difference": -0.7256,
+            "better": 0,
+            "worse": 40,
+            "ties": 0,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 40,
+            "difference": -0.0718,
+            "ci95": [
+              -0.1121,
+              -0.0378
+            ],
+            "median_difference": -0.0805,
+            "better": 9,
+            "worse": 29,
+            "ties": 2,
+            "sign_test_p": 0.0017,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "abstract": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.751,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 1278,
+              "partial": 522,
+              "absent": 173,
+              "contradicted": 9,
+              "coverage": 0.7765
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.7561,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 1303,
+              "partial": 493,
+              "absent": 176,
+              "contradicted": 10,
+              "coverage": 0.7818
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.7543,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 1308,
+              "partial": 471,
+              "absent": 194,
+              "contradicted": 9,
+              "coverage": 0.7788
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.2653,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 284,
+              "partial": 282,
+              "absent": 1406,
+              "contradicted": 10,
+              "coverage": 0.2144
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.3064,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 349,
+              "partial": 330,
+              "absent": 1295,
+              "contradicted": 8,
+              "coverage": 0.2593
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.752,
+            "n_entries": 85,
+            "pooled": {
+              "n_facts": 1982,
+              "present": 1290,
+              "partial": 478,
+              "absent": 204,
+              "contradicted": 10,
+              "coverage": 0.7714
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 85,
+            "difference": -0.005,
+            "ci95": [
+              -0.0203,
+              0.01
+            ],
+            "median_difference": 0.0,
+            "better": 31,
+            "worse": 36,
+            "ties": 18,
+            "sign_test_p": 0.6254,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 85,
+            "difference": -0.0017,
+            "ci95": [
+              -0.0174,
+              0.0124
+            ],
+            "median_difference": 0.0,
+            "better": 33,
+            "worse": 30,
+            "ties": 22,
+            "sign_test_p": 0.8013,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 85,
+            "difference": -0.4907,
+            "ci95": [
+              -0.5499,
+              -0.4285
+            ],
+            "median_difference": -0.5,
+            "better": 7,
+            "worse": 77,
+            "ties": 1,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 85,
+            "difference": -0.4496,
+            "ci95": [
+              -0.504,
+              -0.394
+            ],
+            "median_difference": -0.4677,
+            "better": 3,
+            "worse": 77,
+            "ties": 5,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 85,
+            "difference": -0.004,
+            "ci95": [
+              -0.0196,
+              0.0108
+            ],
+            "median_difference": 0.0,
+            "better": 32,
+            "worse": 31,
+            "ties": 22,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          }
+        }
+      }
+    },
+    "not_stated": {
+      "all": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.055,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 58,
+              "partial": 68,
+              "absent": 2532,
+              "contradicted": 11,
+              "coverage": 0.0345
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.0686,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 121,
+              "partial": 95,
+              "absent": 2438,
+              "contradicted": 15,
+              "coverage": 0.0631
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.0634,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 106,
+              "partial": 87,
+              "absent": 2460,
+              "contradicted": 16,
+              "coverage": 0.056
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.0817,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 104,
+              "partial": 126,
+              "absent": 2428,
+              "contradicted": 11,
+              "coverage": 0.0626
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.0209,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 14,
+              "partial": 47,
+              "absent": 2602,
+              "contradicted": 6,
+              "coverage": 0.0141
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.0589,
+            "n_entries": 90,
+            "pooled": {
+              "n_facts": 2669,
+              "present": 81,
+              "partial": 94,
+              "absent": 2480,
+              "contradicted": 14,
+              "coverage": 0.048
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 90,
+            "difference": -0.0136,
+            "ci95": [
+              -0.034,
+              0.0068
+            ],
+            "median_difference": 0.0,
+            "better": 16,
+            "worse": 28,
+            "ties": 46,
+            "sign_test_p": 0.0961,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 90,
+            "difference": -0.0052,
+            "ci95": [
+              -0.018,
+              0.0099
+            ],
+            "median_difference": 0.0,
+            "better": 16,
+            "worse": 27,
+            "ties": 47,
+            "sign_test_p": 0.1263,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 90,
+            "difference": 0.0131,
+            "ci95": [
+              -0.0142,
+              0.0458
+            ],
+            "median_difference": 0.0,
+            "better": 37,
+            "worse": 30,
+            "ties": 23,
+            "sign_test_p": 0.4638,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 90,
+            "difference": -0.0477,
+            "ci95": [
+              -0.0672,
+              -0.0297
+            ],
+            "median_difference": -0.0122,
+            "better": 11,
+            "worse": 50,
+            "ties": 29,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 90,
+            "difference": -0.0097,
+            "ci95": [
+              -0.0309,
+              0.0117
+            ],
+            "median_difference": 0.0,
+            "better": 27,
+            "worse": 26,
+            "ties": 37,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "fulltext": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.2636,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 14,
+              "partial": 5,
+              "absent": 119,
+              "contradicted": 2,
+              "coverage": 0.1179
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.2534,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 18,
+              "partial": 5,
+              "absent": 116,
+              "contradicted": 1,
+              "coverage": 0.1464
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.2256,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 14,
+              "partial": 7,
+              "absent": 116,
+              "contradicted": 3,
+              "coverage": 0.125
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.0546,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 5,
+              "partial": 10,
+              "absent": 124,
+              "contradicted": 1,
+              "coverage": 0.0714
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.0558,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 4,
+              "partial": 4,
+              "absent": 132,
+              "contradicted": 0,
+              "coverage": 0.0429
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.2041,
+            "n_entries": 25,
+            "pooled": {
+              "n_facts": 140,
+              "present": 14,
+              "partial": 5,
+              "absent": 120,
+              "contradicted": 1,
+              "coverage": 0.1179
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 25,
+            "difference": 0.0102,
+            "ci95": [
+              -0.052,
+              0.076
+            ],
+            "median_difference": 0.0,
+            "better": 3,
+            "worse": 3,
+            "ties": 19,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 25,
+            "difference": -0.0278,
+            "ci95": [
+              -0.0833,
+              0.0167
+            ],
+            "median_difference": 0.0,
+            "better": 1,
+            "worse": 3,
+            "ties": 21,
+            "sign_test_p": 0.625,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 25,
+            "difference": -0.1987,
+            "ci95": [
+              -0.3468,
+              -0.0694
+            ],
+            "median_difference": 0.0,
+            "better": 3,
+            "worse": 9,
+            "ties": 13,
+            "sign_test_p": 0.146,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 25,
+            "difference": -0.1976,
+            "ci95": [
+              -0.3232,
+              -0.0893
+            ],
+            "median_difference": 0.0,
+            "better": 0,
+            "worse": 11,
+            "ties": 14,
+            "sign_test_p": 0.001,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 25,
+            "difference": -0.0493,
+            "ci95": [
+              -0.1258,
+              0.021
+            ],
+            "median_difference": 0.0,
+            "better": 4,
+            "worse": 6,
+            "ties": 15,
+            "sign_test_p": 0.7539,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "abstract": {
+        "by_strategy": {
+          "kg": {
+            "mean_over_entries": 0.0485,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 42,
+              "partial": 56,
+              "absent": 2132,
+              "contradicted": 9,
+              "coverage": 0.0313
+            }
+          },
+          "direct": {
+            "mean_over_entries": 0.0697,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 101,
+              "partial": 81,
+              "absent": 2043,
+              "contradicted": 14,
+              "coverage": 0.0632
+            }
+          },
+          "agent": {
+            "mean_over_entries": 0.066,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 89,
+              "partial": 75,
+              "absent": 2062,
+              "contradicted": 13,
+              "coverage": 0.0565
+            }
+          },
+          "closedbook": {
+            "mean_over_entries": 0.0814,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 87,
+              "partial": 96,
+              "absent": 2048,
+              "contradicted": 8,
+              "coverage": 0.0603
+            }
+          },
+          "recall": {
+            "mean_over_entries": 0.0211,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 10,
+              "partial": 42,
+              "absent": 2181,
+              "contradicted": 6,
+              "coverage": 0.0138
+            }
+          },
+          "cohort": {
+            "mean_over_entries": 0.0562,
+            "n_entries": 83,
+            "pooled": {
+              "n_facts": 2239,
+              "present": 65,
+              "partial": 79,
+              "absent": 2082,
+              "contradicted": 13,
+              "coverage": 0.0467
+            }
+          }
+        },
+        "versus_baseline": {
+          "kg": {
+            "n": 83,
+            "difference": -0.0212,
+            "ci95": [
+              -0.0424,
+              0.0008
+            ],
+            "median_difference": 0.0,
+            "better": 14,
+            "worse": 26,
+            "ties": 43,
+            "sign_test_p": 0.0807,
+            "ci_unreliable": false
+          },
+          "agent": {
+            "n": 83,
+            "difference": -0.0037,
+            "ci95": [
+              -0.0173,
+              0.0131
+            ],
+            "median_difference": 0.0,
+            "better": 16,
+            "worse": 24,
+            "ties": 43,
+            "sign_test_p": 0.2682,
+            "ci_unreliable": false
+          },
+          "closedbook": {
+            "n": 83,
+            "difference": 0.0117,
+            "ci95": [
+              -0.0172,
+              0.047
+            ],
+            "median_difference": 0.0,
+            "better": 34,
+            "worse": 27,
+            "ties": 22,
+            "sign_test_p": 0.4426,
+            "ci_unreliable": false
+          },
+          "recall": {
+            "n": 83,
+            "difference": -0.0486,
+            "ci95": [
+              -0.0704,
+              -0.0295
+            ],
+            "median_difference": 0.0,
+            "better": 11,
+            "worse": 41,
+            "ties": 31,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          },
+          "cohort": {
+            "n": 83,
+            "difference": -0.0135,
+            "ci95": [
+              -0.0351,
+              0.0078
+            ],
+            "median_difference": 0.0,
+            "better": 23,
+            "worse": 23,
+            "ties": 37,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          }
+        }
+      }
+    }
+  }
+}

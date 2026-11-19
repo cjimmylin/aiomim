@@ -6,7 +6,14 @@ from __future__ import annotations
 import json
 
 from aiomim.auditcheck import control_tally
-from aiomim.gaps import classify_conveyed, headline_conveyed, tally_conveyed
+from aiomim.gaps import (
+    availability_by_fact,
+    classify_conveyed,
+    headline_conveyed,
+    join_marks,
+    restricted_tally,
+    tally_conveyed,
+)
 from aiomim.secondhand import cached_revisions, repair_tally
 
 
@@ -125,3 +132,34 @@ def test_pool_before_repair_pairs_unrounded_and_checks_unchanged_marks(tmp_path)
     rep = b["paired"]["after_minus_before_repair"]
     # Rounded per-entry values must not turn an unchanged entry into a "better" one.
     assert (rep["better"], rep["worse"], rep["ties"]) == (1, 0, 1)
+
+
+def test_availability_join_and_restricted_tally():
+    gold_facts = {"paragraphs": [
+        {"key": "a", "availability": {"rows": [{"id": "a.1", "in_text": "yes"}, {"id": "a.2", "in_text": "partly"},
+                                               {"id": "a.3", "in_text": "no"}]}},
+        {"key": "b", "availability": {"rows": [{"id": "b.1", "in_text": "yes"}]}},
+        {"key": "c"},   # no stored judgement for this paragraph
+    ]}
+    avail = availability_by_fact(gold_facts)
+    assert avail == {"a.1": "yes", "a.2": "partly", "a.3": "no", "b.1": "yes"}
+    frozen = {"paragraphs": [
+        {"content_level": "fulltext", "facts": [{"id": "a.1", "status": "present"}, {"id": "a.2", "status": "partial"},
+                                                {"id": "a.3", "status": "absent"}]},
+        {"content_level": "abstract", "facts": [{"id": "b.1", "status": "partial"}, {"id": "b.2", "status": "unjudged"}]},
+        {"content_level": "abstract", "facts": [{"id": "c.1", "status": "present"}]},
+    ]}
+    rows, counts = join_marks(frozen, avail)
+    # c.1 has no availability judgement and is excluded; b.2 was never marked, so it is in neither count.
+    assert counts == {"judged": 5, "joined": 4, "without_availability": 1, "unjudged_marks": 1}
+    assert [r["id"] for r in rows] == ["a.1", "a.2", "a.3", "b.1"]
+    everything = restricted_tally(rows, None)
+    assert everything["n_facts"] == 4 and everything["coverage"] == (1 + 0.5 * 2) / 4
+    stated = restricted_tally(rows, ("yes",))
+    assert stated["n_facts"] == 2 and stated["coverage"] == 0.75
+    assert restricted_tally(rows, ("yes",), "fulltext")["coverage"] == 1.0
+    assert restricted_tally(rows, ("yes",), "abstract")["coverage"] == 0.5
+    assert restricted_tally(rows, ("yes", "partly"))["n_facts"] == 3
+    assert restricted_tally(rows, ("no",))["coverage"] == 0.0
+    assert restricted_tally(rows, ("no",), "abstract") == {"n_facts": 0, "present": 0, "partial": 0, "absent": 0,
+                                                           "contradicted": 0, "coverage": None}

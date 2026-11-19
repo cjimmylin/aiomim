@@ -311,6 +311,83 @@ def recent_selection() -> str:
             "and reproduce the stored drafts exactly (recall, then verify was not run on these entries).")
 
 
+
+def _aiomim():
+    import sys
+    if str(ROOT / "src") not in sys.path:
+        sys.path.insert(0, str(ROOT / "src"))
+
+
+def by_availability() -> str:
+    """Section 2.10a: the strategies on facts stated (or not) in the available text (`compare --by-availability`)."""
+    md = read(RUNS / "omim100" / "strategies.by_availability.md")
+    body = md.split("\n", 1)[1].strip()
+    return re.sub(r"^## ", "#### ", body, flags=re.M)
+
+
+def ablation_vs_main() -> str:
+    """Section 5: how the ablation's graph-minus-direct difference relates to the main comparison's (per-entry files)."""
+    _aiomim()
+    from aiomim.compare import access_group, paired_on, same_draft, same_fact_marks
+
+    ab = json.load(open(RUNS / "ablation40" / "ablation_tables.json"))["common"]
+    main = json.load(open(RUNS / "omim100" / "strategies.json"))
+    folders = {e for c in main["completion"].values() for e in (*c["complete"], *c["incomplete"], *c["no_draft"])}
+    main93 = sorted(folders - set(main["left_out"]))
+    group = {m: access_group(json.load(open(RUNS / "omim100" / m / "eval.direct.json"))) for m in main93}
+    order = ["no full text (abstracts only)", "under half full text", "half or more full text", "all full text"]
+    split = ", ".join(f"{sum(group.get(m) == g for m in ab)} {g}" for g in order if any(group.get(m) == g for m in ab))
+    outside = [m for m in ab if m not in group]
+    same = {}
+    for s in ("direct", "kg", "cohort"):
+        drafts = marks = 0
+        for m in ab:
+            a, b = (json.load(open(RUNS / r / m / f"entry.{s}.json")) for r in ("ablation40", "omim100"))
+            ea, eb = (json.load(open(RUNS / r / m / f"eval.{s}.json")) for r in ("ablation40", "omim100"))
+            drafts += same_draft(a, b)
+            marks += same_fact_marks(ea, eb)
+        same[s] = (drafts, marks)
+    inside = [m for m in ab if m in group]
+    top = [m for m in main93 if group[m] == "half or more full text"]
+    top_in = [m for m in top if m in ab]
+    rest = [m for m in ab if m not in top]
+
+    def fmt(r: dict) -> str:
+        ci = f", {100 * r['ci95'][0]:+.1f} to {100 * r['ci95'][1]:+.1f}" if r["ci95"] else ""
+        return f"{100 * r['difference']:+.1f} ({r['n']} entries{ci}; better/worse/tied {r['better']}/{r['worse']}/{r['ties']})"
+
+    def both(run: str, entries: list[str]) -> str:
+        return (f"evidence graph {fmt(paired_on(RUNS / run, 'kg', 'direct', entries))}, case table "
+                f"{fmt(paired_on(RUNS / run, 'cohort', 'direct', entries))}")
+
+    names = {"direct": "direct reading", "kg": "evidence graph", "cohort": "case table"}
+    same_text = "; ".join(f"{names[s]} {d} of {len(ab)} drafts identical, fact marks identical on {k}"
+                          for s, (d, k) in same.items())
+    identical = all(d == len(ab) and k == len(ab) for d, k in same.values())
+    return (
+        "**The ablation set and the main comparison** (computed from the per-entry files of both runs; OMIM facts "
+        "conveyed, differences from direct reading in points with a bootstrap interval over entries as in the "
+        "comparison reports).\n\n"
+        f"- The {len(ab)} ablation entries by the main comparison's access groups: {split}; "
+        f"{len(outside)} outside the main comparison's {len(main93)} entries"
+        + (f" ({', '.join(outside)})" if outside else "") + ".\n"
+        f"- Stored drafts of run `ablation40` against run `omim100` for the same entries (run metadata aside): "
+        f"{same_text}.\n"
+        f"- Main run on the {len(inside)} ablation entries: {both('omim100', inside)}.\n"
+        f"- Main run on its {len(top)} entries with half or more of their papers in full text: {both('omim100', top)}. "
+        f"{len(top_in)} of them are in the ablation set (the other {len(top) - len(top_in)}, "
+        f"{', '.join(m for m in top if m not in ab)}, are among the entries a matched or plus-text variant did not "
+        f"complete); ablation run on those {len(top_in)}: {both('ablation40', top_in)}.\n"
+        f"- Ablation run on its other {len(rest)} entries (no full text, under half, or all full text): "
+        f"{both('ablation40', rest)}.\n\n"
+        + ("Reading: the three arms' drafts and fact scores in the ablation are the main run's, so the two estimates "
+           "differ only in the entries they average over: on the evidence graph against direct reading, "
+           f"{fmt(paired_on(RUNS / 'ablation40', 'kg', 'direct', top_in)).split(' (')[0]} points on the ablation's "
+           "entries with half or more full text and "
+           f"{fmt(paired_on(RUNS / 'ablation40', 'kg', 'direct', rest)).split(' (')[0]} on its other entries."
+           if identical else "Reading: the drafts were not all the same in the two runs; see the counts above."))
+
+
 # --------------------------------------------------------------------------- the log
 
 def build() -> str:
@@ -497,6 +574,14 @@ Volume per entry:
 
 {section(main, 'OMIM facts conveyed by creation era')}
 
+### 2.10a OMIM facts conveyed on the facts the available text states
+
+Do the reading strategies look close only because most facts were not in the text they had? Each fixed fact carries
+the stored judgement of section 3 (stated, partly stated or not stated in the text available for its paper; the same
+for every strategy), so the strategies can be compared on the facts a reader of that text could have conveyed.
+
+{by_availability()}
+
 ### 2.11 Memory-only control and direct reading by creation era (entry means)
 """)
 
@@ -581,12 +666,14 @@ choices that are not the intermediate representation. Variants:
 
 The two changes in "matched" were made together. Choosing synopsis terms cannot change which facts or variants are
 extracted, so on facts, claims and variants the matched step is the extraction effort; that attribution is an inference.
-The 40 entries are weighted towards entries with full text (25 have at least half their papers readable in full), so
+The 40 entries are weighted towards entries with full text (22 have at least half their papers readable in full and 29 have at least one; the others were drawn at random to bring each creation-era band to 8 entries), so
 absolute levels are higher than in the main comparison.
 
 {first_para(ab)}
 
 {ablation_tables()}
+
+{ablation_vs_main()}
 
 Generation cost per entry at list price (from the usage tallies): direct reading $0.32, evidence graph $0.65, matched
 $0.72, plus text $0.88, case table $0.72, matched $0.84, plus text $0.97. Total with audit and scoring: $1.59, $2.00,

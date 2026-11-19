@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 
-from aiomim.compare import _sign_test, access_group, compare_run, comparison_markdown
+from aiomim.compare import _sign_test, access_group, compare_run, comparison_markdown, same_draft, same_fact_marks
 from aiomim.export import export_run
 
 
@@ -345,3 +345,19 @@ def test_paired_statistics_holm_and_small_samples(tmp_path):
     assert "Fewer than 20 entries: the bootstrap interval is unreliable" in text
     assert "**(primary)**" in text and "Holm p" in text
     assert result["by_access_paired"]["half or more full text"]["n"] == 5
+
+
+def test_same_draft_and_same_fact_marks():
+    a = {"mim": "1", "sections": [{"heading": "x", "paragraphs": [{"text": "t"}]}], "meta": {"run": "a"}}
+    b = {"mim": "1", "sections": [{"heading": "x", "paragraphs": [{"text": "t"}]}], "meta": {"run": "b"}}
+    assert same_draft(a, b)
+    assert not same_draft(a, {**b, "sections": []})
+    e1 = {"gold_text_frozen": {"paragraphs": [{"facts": [{"id": "k.1", "status": "present", "note": "x"},
+                                                         {"id": "k.2", "status": "absent"}]}]}}
+    e2 = {"gold_text_frozen": {"paragraphs": [{"facts": [{"id": "k.1", "status": "present"},
+                                                         {"id": "k.2", "status": "absent"}]}]}}
+    assert same_fact_marks(e1, e2)
+    e3 = {"gold_text_frozen": {"paragraphs": [{"facts": [{"id": "k.1", "status": "partial"},
+                                                         {"id": "k.2", "status": "absent"}]}]}}
+    assert not same_fact_marks(e1, e3)
+    assert not same_fact_marks({}, {})          # nothing scored is not "the same scores"
