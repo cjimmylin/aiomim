@@ -280,6 +280,14 @@ def replicates_markdown(r: dict[str, Any]) -> str:
                   f"{r['n_target']} entries, each run once, would have to exceed for run-to-run noise alone to "
                   "produce it less than 5% of the time. It is a floor, not an interval: the usual bootstrap interval "
                   "over entries already contains this noise, since each entry's difference was measured once.", ""]
+        cov = r["paired"].get("gold_fact_coverage", {})
+        if cov.get("noise_threshold_at_n") is not None:
+            lines += [f"In plain terms: on {r['n_target']} entries run once, a difference between two strategies in "
+                      f"OMIM facts conveyed smaller than about {_pct(cov['noise_threshold_at_n'])} points could be run "
+                      f"noise alone (on these {r.get('paired_entries')} entries, about "
+                      f"{_pct(cov.get('noise_threshold_at_30'))} points). Larger differences are not thereby real "
+                      "differences between methods: the choice of entries adds its own, larger uncertainty, which the "
+                      "bootstrap interval over entries measures.", ""]
     lines += ["## Model usage of each pass", "", "| Run | Calls | From cache | Made afresh | List price |",
               "|---|---|---|---|---|"]
     for name, u in r["usage"].items():
