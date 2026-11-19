@@ -11,12 +11,11 @@ Given a MIM number, the pipeline:
 
 1. assembles a **gold standard** for that entry from public, OMIM-derived sources;
 2. **retrieves** the literature (OMIM's own reference list, or a search from scratch);
-3. **extracts** quote-backed findings from each paper and discards any whose quote is not in the paper;
-4. joins the findings into an **evidence knowledge graph** (papers, genes, variants, HPO phenotypes, inheritance);
-5. **writes** the entry from the graph in OMIM's layout and style;
-6. **audits** every claim against the cited paper, and revises what the audit flags;
-7. **scores** the entry against the gold standard;
-8. builds a **review page** where a curator accepts, edits or rejects each paragraph.
+3. **writes** the entry in OMIM's layout and style with one of nine generation strategies, from reading all the
+   papers in one prompt to building an evidence knowledge graph or a table of reported cases first;
+4. **audits** every claim against the cited paper, and revises what the audit flags;
+5. **scores** the entry against the gold standard;
+6. builds a **review page** where a curator accepts, edits or rejects each paragraph.
 
 ## What the study shows
 
