@@ -47,6 +47,7 @@ SEARCH_PAGE = 300
 MAX_IN_FLIGHT = 4         # requests in flight from this module, process-wide
 TIMEOUT_S = 90.0          # a `cites:` search through the proxy takes 25-55 s
 TRIES = 3
+SEARCH_RETRY_PAUSES_S = (30, 90)   # further rounds of TRIES after a failed search
 SEARCH_MAX_AGE_S = 90 * 86400
 MISS_TTL_S = 30 * 86400
 RESULT_VERSION = 1        # bump to invalidate cached per-target results
@@ -158,15 +159,21 @@ def citing_papers(pmid: str) -> list[CitingPaper] | None:
     Filtering to open access happens here, client-side: adding `open_access:y` to
     the query makes Europe PMC time out.
     """
-    try:
-        with _SLOTS:
-            data = _http().get_json(f"{EPMC}/search", {
-                "query": f"cites:{pmid}_MED", "resultType": "lite", "pageSize": SEARCH_PAGE, "format": "json",
-            }, max_age_s=SEARCH_MAX_AGE_S)
-    except (HttpError, OSError, ValueError) as exc:
-        log.warning("citing papers of %s: lookup failed: %s", pmid, exc)
-        return None
-    return parse_search(data)
+    params = {"query": f"cites:{pmid}_MED", "resultType": "lite", "pageSize": SEARCH_PAGE, "format": "json"}
+    for attempt, pause in enumerate((*SEARCH_RETRY_PAUSES_S, None)):
+        try:
+            with _SLOTS:
+                data = _http().get_json(f"{EPMC}/search", params, max_age_s=SEARCH_MAX_AGE_S)
+            return parse_search(data)
+        except (HttpError, OSError, ValueError) as exc:
+            # Europe PMC answers bursts of 503 for a minute or so; wait them out, outside the slots.
+            status = getattr(exc, "status", None)
+            if pause is None or (status is not None and status not in (429, 500, 502, 503, 504)):
+                log.warning("citing papers of %s: lookup failed: %s", pmid, exc)
+                return None
+            log.info("citing papers of %s: %s; retrying in %d s", pmid, exc, pause)
+            time.sleep(pause)
+    return None
 
 
 # --------------------------------------------------------------------------- #

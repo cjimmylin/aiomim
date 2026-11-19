@@ -28,7 +28,7 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 from .grounding import SourceIndex
-from .llm import LLM
+from .llm import LLM, LLMLimitReached
 from .models import ClaimCheck, EntryParagraph, GeneratedEntry, Paper, squash
 
 log = logging.getLogger(__name__)
@@ -86,7 +86,19 @@ def _decompose(paragraphs: list[EntryParagraph], papers: dict[str, Paper], llm: 
             for p in batch
         ))
     out: dict[str, list[XAttributedClaim]] = {}
-    for batch, reply in zip(batches, llm.map("verify", DECOMPOSE_SYSTEM, prompts, XClaimSets)):
+    replies = llm.map("verify", DECOMPOSE_SYSTEM, prompts, XClaimSets)
+    for i, (batch, reply) in enumerate(zip(batches, replies)):
+        # A reply that names none of the batch's paragraphs is a reply cut short,
+        # not a batch without claims. Ask once more, past the cache.
+        ids = {p.id for p in batch}
+        if not isinstance(reply, Exception) and not any(item.paragraph_id in ids for item in reply.paragraphs):
+            try:
+                replies[i] = llm.call("verify", DECOMPOSE_SYSTEM, prompts[i], XClaimSets, use_cache=False)
+            except LLMLimitReached:
+                raise
+            except Exception as exc:  # noqa: BLE001 - recorded like any other failed batch
+                replies[i] = exc
+    for batch, reply in zip(batches, replies):
         if isinstance(reply, Exception):
             log.warning("verify: claim extraction failed for %d paragraphs: %s", len(batch), reply)
             continue

@@ -455,7 +455,7 @@ def synthesize_from_graph(seed: Seed, kg: KnowledgeGraph, llm: LLM) -> Generated
         f"Reference data from HGNC (nomenclature only, not literature evidence):\n{gene_ref or 'none'}\n\n"
         f"<evidence>\n{context}\n</evidence>"
     )
-    raw = llm.call("synthesize", KG_SYSTEM, prompt, XEntry)
+    raw = llm.call("synthesize", KG_SYSTEM, prompt, XEntry, accept=has_content)
 
     label_to_pmid = _labels(kg.papers.values())
     dropped: list[str] = []
@@ -575,6 +575,13 @@ best-matching Human Phenotype Ontology term name and the PMIDs reporting it.\
 DIRECT_TOTAL_CHARS = 600_000
 
 
+def has_content(raw) -> bool:
+    """A writer's reply that holds at least one paragraph. An empty entry is what
+    comes back when the reply was cut short; it must not be mistaken for a draft."""
+    intro = getattr(raw, "intro", None)
+    return bool(getattr(raw, "sections", None)) or bool(intro is not None and getattr(intro, "text", "").strip())
+
+
 def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
                       strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
     """All papers in one prompt. `extra_rules` is appended to the system prompt, for
@@ -597,7 +604,7 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules:
         + "\n\n".join(blocks)
     )
     system = DIRECT_SYSTEM + (f"\n\n{extra_rules.strip()}" if extra_rules.strip() else "")
-    raw = llm.call("synthesize", system, prompt, DEntry)
+    raw = llm.call("synthesize", system, prompt, DEntry, accept=has_content)
     return draft_to_entry(seed, papers, raw, llm, strategy=strategy, gene_facts=gene_facts,
                           meta={"truncated_papers": truncated, **(meta or {})})
 

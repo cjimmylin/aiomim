@@ -986,7 +986,8 @@ def render_entry(seed: Seed, table: CaseTable, inheritance: dict[str, Any], gene
         f"Reference data from HGNC (nomenclature only, not literature evidence):\n{gene_ref or 'none'}\n\n"
         f"<case_table>\n{context}\n</case_table>"
     )
-    raw = llm.call("synthesize", COHORT_SYSTEM, prompt, CEntry)
+    from ..synthesize import has_content
+    raw = llm.call("synthesize", COHORT_SYSTEM, prompt, CEntry, accept=has_content)
 
     evidence: dict[str, str] = {**{i: r.pmid for i, r in table.records.items()},
                                 **{i: n.pmid for i, n in table.notes.items()}}

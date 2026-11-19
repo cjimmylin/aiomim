@@ -81,22 +81,35 @@ def needs_batching(papers: list[Paper], budget: int = DIRECT_TOTAL_CHARS) -> boo
 def plan_batches(papers: list[Paper], budget: int = BATCH_CHARS) -> list[list[Paper]]:
     """Consecutive date-ordered batches, each holding at most `budget` characters of paper text.
 
-    A paper longer than the budget on its own forms a batch by itself (and is
-    truncated to the budget when the prompt is built).
+    Batches are as even as the date order allows: with k the fewest batches that
+    can work, each is filled up to about 1/k of the text, so 650,000 characters
+    become two batches of about 325,000 rather than one full batch and a scrap.
+    k grows until every batch fits. A paper longer than the budget on its own
+    forms a batch by itself (and is truncated to the budget when the prompt is
+    built).
     """
-    batches: list[list[Paper]] = []
-    current: list[Paper] = []
-    size = 0
-    for p in _ordered(papers):
-        n = min(len(p.source_text()), budget)
-        if current and size + n > budget:
+    ordered = _ordered(papers)
+    sizes = [min(len(p.source_text()), budget) for p in ordered]
+    total = sum(sizes)
+    k = max(1, -(-total // budget))
+    while True:
+        target = total / k
+        batches: list[list[Paper]] = []
+        current: list[Paper] = []
+        size = 0
+        for p, n in zip(ordered, sizes):
+            # Close the batch when adding the paper would overshoot the target by
+            # more than leaving it out undershoots it, or would break the budget.
+            if current and (size + n > budget or (size + n - target > target - size and len(batches) < k - 1)):
+                batches.append(current)
+                current, size = [], 0
+            current.append(p)
+            size += n
+        if current:
             batches.append(current)
-            current, size = [], 0
-        current.append(p)
-        size += n
-    if current:
-        batches.append(current)
-    return batches
+        if len(batches) <= k or k >= len(ordered):
+            return batches
+        k += 1
 
 
 def batch_prompt(seed: Seed, papers: list[Paper], gene_ref: str, budget: int = BATCH_CHARS) -> tuple[str, list[str]]:
@@ -386,6 +399,21 @@ def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS)
              len(papers), source_chars(papers), len(batches))
     replies = llm.map("synthesize", DIRECT_SYSTEM, [b[0] for b in built], DEntry)
 
+    # A reply with no paragraph at all is what the CLI hands back when the model
+    # abandons a long structured answer (seen on large entries: the response is
+    # stopped, the model then submits an empty skeleton, and the call "succeeds").
+    # It would be cached like any other reply, so it is asked for once more afresh.
+    retried: list[int] = []
+    for i, reply in enumerate(replies):
+        if isinstance(reply, DEntry) and not any(squash(x.text) for x in _all_paragraphs(reply)):
+            retried.append(i + 1)
+            try:
+                replies[i] = llm.call("synthesize", DIRECT_SYSTEM, built[i][0], DEntry, use_cache=False)
+            except Exception as exc:  # noqa: BLE001 - recorded as a failed batch below
+                replies[i] = exc
+            if isinstance(replies[i], DEntry) and not any(squash(x.text) for x in _all_paragraphs(replies[i])):
+                replies[i] = RuntimeError("the model returned an empty partial entry twice")
+
     partials: list[tuple[list[Paper], DEntry]] = []
     failed: list[dict] = []
     for n, (batch, reply) in enumerate(zip(batches, replies), 1):
@@ -404,6 +432,9 @@ def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS)
         prompt, paragraphs, variants = _merge_prompt(seed, partials)
         try:
             plan = llm.call("synthesize", MERGE_SYSTEM, prompt, MEntry)
+            if not any(s.paragraphs for s in plan.sections):
+                merge_stats["empty_plan_retried"] = True
+                plan = llm.call("synthesize", MERGE_SYSTEM, prompt, MEntry, use_cache=False)
         except Exception as exc:  # noqa: BLE001 - fall back to concatenating the partial entries
             log.warning("direct: merge failed (%s); partial entries are concatenated", exc)
             plan = None
@@ -424,6 +455,7 @@ def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS)
                                max((p.year for p in b if p.year), default=None)],
                      "pmids": [p.pmid for p in _ordered(b)]} for b in batches],
         "failed_batches": failed,
+        "empty_batches_retried": retried,
         "merge": merge_stats,
     }}
     truncated = [pmid for _, t in built for pmid in t]

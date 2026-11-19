@@ -26,7 +26,7 @@ from pydantic import BaseModel, Field
 
 from ..cache import stable_hash
 from ..models import GeneratedEntry, InheritanceCode, Paper, SectionName, Seed
-from ..synthesize import INTRO_RULE, STYLE, DSynopsisItem, _gene_reference, _header, draft_to_entry
+from ..synthesize import INTRO_RULE, STYLE, DSynopsisItem, _gene_reference, _header, draft_to_entry, has_content
 
 log = logging.getLogger(__name__)
 
@@ -217,7 +217,7 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
         + "Read them, check your details, and write the entry."
     )
     raw = llm.call("agent", AGENT_SYSTEM, prompt, AEntry, tools=("Read", "Grep", "Glob"),
-                   workdir=str(workspace), workspace_key=key)
+                   workdir=str(workspace), workspace_key=key, accept=has_content)
 
     supplied = [p.pmid for p in sorted(papers, key=lambda p: (p.year or 9999, p.pmid))]
     read = [p for p in dict.fromkeys(str(i).strip() for i in raw.papers_read) if p in supplied]

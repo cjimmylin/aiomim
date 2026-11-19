@@ -136,7 +136,9 @@ def compare_run(run_dir: Path, seed: int = 7) -> dict[str, Any]:
     for kg_path in sorted(run_dir.glob("*/eval.kg.json")):
         direct_path = kg_path.with_name("eval.direct.json")
         if direct_path.exists():
-            pairs.append((json.loads(kg_path.read_text()), json.loads(direct_path.read_text())))
+            pair = (json.loads(kg_path.read_text()), json.loads(direct_path.read_text()))
+            if not (pair[0].get("stopped") or pair[1].get("stopped")):
+                pairs.append(pair)
     rng = random.Random(seed)
 
     def breakdown(group_of: Callable[[dict], str], order: list[str] | None = None) -> dict[str, Any]:
@@ -257,9 +259,22 @@ def load_evals(run_dir: Path) -> dict[str, dict[str, dict]]:
     found: dict[str, dict[str, dict]] = {}
     for path in sorted(run_dir.glob("*/eval.*.json")):
         strategy = path.name.split(".")[1]
-        found.setdefault(strategy, {})[path.parent.name] = json.loads(path.read_text())
+        evaluation = json.loads(path.read_text())
+        if evaluation.get("stopped"):
+            continue    # no draft was written (see `stopped_entries`); not a draft that scored zero
+        found.setdefault(strategy, {})[path.parent.name] = evaluation
     order = [n for n in STRATEGIES if n in found] + sorted(n for n in found if n not in STRATEGIES)
     return {n: found[n] for n in order}
+
+
+def stopped_entries(run_dir: Path) -> dict[str, dict[str, str]]:
+    """strategy -> {entry folder -> why no draft was written}."""
+    out: dict[str, dict[str, str]] = {}
+    for path in sorted(run_dir.glob("*/eval.*.json")):
+        reason = json.loads(path.read_text()).get("stopped")
+        if reason:
+            out.setdefault(path.name.split(".")[1], {})[path.parent.name] = reason
+    return out
 
 
 def _paired_vs(pairs: list[tuple[dict, dict]], rng: random.Random, metrics=METRICS) -> list[dict[str, Any]]:
@@ -352,6 +367,11 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
     if not evals:
         return {}
     common = sorted(set.intersection(*(set(v) for v in evals.values())))
+    # Entries for which some strategy has no draft (its writer was stopped) are not in
+    # `common`, so every strategy is compared on the same entries. They are listed.
+    stopped = {s: sorted(e for e in v if entries is None or e in set(entries))
+               for s, v in stopped_entries(run_dir).items()}
+    stopped = {s: v for s, v in stopped.items() if v}
     if baseline not in evals:
         baseline = next(iter(evals))
     rng = random.Random(seed)
@@ -381,6 +401,7 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
 
     return {
         "run": run_dir.name, "baseline": baseline, "n_entries": len(common),
+        "stopped": stopped,
         "strategies": [{"name": s, "label": STRATEGIES[s].label if s in STRATEGIES else s,
                         "summary": STRATEGIES[s].summary if s in STRATEGIES else "",
                         "control": bool(s in STRATEGIES and STRATEGIES[s].control), "n_entries": len(evals[s])}
@@ -396,6 +417,15 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7,
         "by_reference_count": breakdown(reference_group, REFERENCE_ORDER),
         "cost": usage_by_strategy(run_dir, common),
     }
+
+
+def _stopped_note(result: dict[str, Any]) -> str:
+    labels = {s["name"]: s["label"] for s in result["strategies"]}
+    all_stopped = sorted({e for v in result["stopped"].values() for e in v})
+    per = "; ".join(f"{labels.get(s, s)} {len(v)}" for s, v in result["stopped"].items())
+    return (f"Left out: {len(all_stopped)} entries for which at least one strategy has no draft, because the model's "
+            f"safety filter stopped the writer's reply or the reply came back empty ({per}). "
+            f"Entries: {', '.join(all_stopped)}.")
 
 
 def strategies_markdown(result: dict[str, Any]) -> str:
@@ -414,6 +444,7 @@ def strategies_markdown(result: dict[str, Any]) -> str:
     out = [f"# Generation strategies compared — run `{result['run']}`",
            f"{result['n_entries']} entries, each written by every strategy from the same papers and put through the same "
            "audit and scoring. Means over entries; ↑ higher is better, ↓ lower is better.",
+           *([_stopped_note(result)] if result.get("stopped") else []),
            "## The strategies",
            "\n".join(f"- **{s['label']}** (`{s['name']}`): {s['summary']}" for s in result["strategies"]),
            "## Scores", means_table(result["means"]),

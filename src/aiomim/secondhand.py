@@ -471,36 +471,37 @@ def fetch_entries(mims: list[str], include_fulltext: bool = False, jobs: int = 4
     from .sources import citing
 
     started = time.time()
-    targets: list[tuple[str, Paper, frozenset[str]]] = []
     failures: dict[str, str] = {}
-    for i, mim in enumerate(mims, 1):
-        try:
-            papers, _ = retrieve_oracle(build_gold(mim).cited_pmids)
-        except Exception as exc:  # noqa: BLE001 - one bad entry should not stop the rest
-            failures[mim] = f"{type(exc).__name__}: {exc}"
-            echo(f"[{i}/{len(mims)}] {mim}: could not load papers: {exc}")
-            continue
-        own = frozenset(p.pmid for p in papers)
-        chosen = [p for p in papers if include_fulltext or p.content_level != "fulltext"]
-        targets.extend((mim, p, own) for p in chosen)
-        echo(f"[{i}/{len(mims)}] {mim}: {len(chosen)} target papers of {len(papers)}")
-
     records: list[dict[str, Any]] = []
+    futures = []
 
-    def one(item):
-        mim, paper, own = item
+    def one(mim, paper, own):
         return mim, paper, citing.secondhand_for(paper, own)
 
+    def report(future, n):
+        mim, paper, r = future.result()
+        r = {**r, "mim": mim, "content_level": paper.content_level}
+        records.append(r)
+        echo(f"  ({n}/{len(futures)}) {mim} PMID {paper.pmid} [{paper.content_level}]: {r['n_citing']} citing, "
+             f"{r['n_open_access']} open access, {len(r['passages'])} passages, {r['n_chars']} chars, "
+             f"{'cached' if r.get('cached') else str(r['seconds']) + ' s'}"
+             + (f"  ERROR {r['error']}" if r["error"] else ""))
+
+    # Targets are submitted as each entry's papers load, so fetching starts at once.
     with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
-        futures = [pool.submit(one, t) for t in targets]
+        for i, mim in enumerate(mims, 1):
+            try:
+                papers, _ = retrieve_oracle(build_gold(mim).cited_pmids)
+            except Exception as exc:  # noqa: BLE001 - one bad entry should not stop the rest
+                failures[mim] = f"{type(exc).__name__}: {exc}"
+                echo(f"[{i}/{len(mims)}] {mim}: could not load papers: {exc}")
+                continue
+            own = frozenset(p.pmid for p in papers)
+            chosen = [p for p in papers if include_fulltext or p.content_level != "fulltext"]
+            futures.extend(pool.submit(one, mim, p, own) for p in chosen)
+            echo(f"[{i}/{len(mims)}] {mim}: {len(chosen)} target papers of {len(papers)}")
         for n, future in enumerate(as_completed(futures), 1):
-            mim, paper, r = future.result()
-            r = {**r, "mim": mim, "content_level": paper.content_level}
-            records.append(r)
-            echo(f"  ({n}/{len(targets)}) {mim} PMID {paper.pmid} [{paper.content_level}]: {r['n_citing']} citing, "
-                 f"{r['n_open_access']} open access, {len(r['passages'])} passages, {r['n_chars']} chars, "
-                 f"{'cached' if r.get('cached') else str(r['seconds']) + ' s'}"
-                 + (f"  ERROR {r['error']}" if r["error"] else ""))
+            report(future, n)
 
     def yield_of(rs):
         return {"targets": len(rs), "with_citing": sum(1 for r in rs if r["n_citing"]),

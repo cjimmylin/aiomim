@@ -311,3 +311,39 @@ def test_failed_merge_falls_back_to_the_partial_entries(tmp_path):
     entry = direct.run(SEED, papers, llm, tmp_path)
     assert "merge_failed" in entry.meta["direct_batching"]["merge"]
     assert set(entry.cited_pmids()) == {p.pmid for p in papers}
+
+
+def test_batches_are_even_not_a_full_batch_and_a_scrap():
+    # 650,000 characters in 26 papers: two batches of about half each, not 600,000 + 50,000.
+    papers = [make_paper(str(20_000 + i), 1990 + i, 25_000) for i in range(26)]
+    batches = direct.plan_batches(papers, 600_000)
+    sizes = [sum(len(p.source_text()) for p in b) for b in batches]
+    assert len(batches) == 2 and min(sizes) > 0.4 * sum(sizes)
+
+
+class EmptyOnceLLM(ScriptedLLM):
+    """Abandons the first batch once, the way a stopped long answer comes back: an empty skeleton."""
+
+    def __init__(self):
+        super().__init__()
+        self.fresh_calls = 0
+        self.emptied = False
+
+    def call(self, stage, system, prompt, output, use_cache=True, **kw):
+        if not use_cache:
+            self.fresh_calls += 1
+        if output.__name__ == "DEntry" and not self.emptied:
+            self.emptied = True
+            self.calls.append((stage, output.__name__, system, prompt))
+            return DEntry(intro=DParagraph(text="", pmids=[]), sections=[], relationships=[],
+                          allelic_variants=[], clinical_synopsis=[])
+        return super().call(stage, system, prompt, output)
+
+
+def test_an_empty_partial_entry_is_asked_for_again_without_the_cache(tmp_path):
+    papers = large_set()
+    llm = EmptyOnceLLM()
+    entry = direct.run(SEED, papers, llm, tmp_path)
+    meta = entry.meta["direct_batching"]
+    assert meta["empty_batches_retried"] == [1] and llm.fresh_calls == 1 and meta["failed_batches"] == []
+    assert set(entry.cited_pmids()) == {p.pmid for p in papers}

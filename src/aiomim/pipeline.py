@@ -26,7 +26,7 @@ from typing import Any
 
 from .config import get_settings
 from .evaluate import eval_faithfulness, evaluate_entry, summarize
-from .llm import LLM
+from .llm import LLM, LLMRefusal
 from .models import GeneratedEntry, GoldEntry, Paper, PaperExtraction, Seed
 from .render import entry_markdown
 from .retrieve import retrieve_open, retrieve_oracle
@@ -96,7 +96,19 @@ def build_entries(
         s_llm = (llms or {}).get(strategy, llm)
         _phase(s_llm, "generate")
         log.info("[%s] %s: generating from %d papers", name_, strategy, len(papers))
-        entry = run_strategy(strategy, seed, papers, s_llm, out_dir)
+        try:
+            entry = run_strategy(strategy, seed, papers, s_llm, out_dir)
+        except LLMRefusal as exc:
+            # The writer's reply was stopped (the model's safety filter) or came back
+            # empty. There is no draft: record that, and do not score it as a bad one.
+            log.warning("[%s] %s: no entry written: %s", name_, strategy, exc)
+            entry = GeneratedEntry(mim=seed.mim, entry_type=seed.entry_type, title=seed.title,
+                                   meta={"strategy": strategy, "stopped": str(exc)})
+            entry.meta["papers_by_content_level"] = _count(p.content_level for p in papers)
+            _write(out_dir / f"entry.{strategy}.json", entry.model_dump())
+            _write(out_dir / f"entry.{strategy}.md", f"# {seed.title}\n\nNo entry was written: {exc}.\n")
+            entries[strategy] = entry
+            continue
         entry.meta["papers_by_content_level"] = _count(p.content_level for p in papers)
         if cfg.verify and spec.audit:
             _phase(s_llm, "audit")
@@ -175,6 +187,10 @@ def run_entry(mim: str, cfg: RunConfig) -> dict[str, Any]:
             _phase(llms[strategy], "score")
             evaluation = evaluate_entry(entry, gold, by_pmid, llms[strategy], offered_pmids=offered)
             evaluation["retrieval"] = cfg.retrieval
+            if entry.meta.get("stopped"):
+                # Scored like any entry so the file has the usual shape, but marked:
+                # summaries and comparisons leave it out and count it separately.
+                evaluation["stopped"] = entry.meta["stopped"]
             _write(out_dir / f"eval.{strategy}.json", evaluation)
             result["evals"][strategy] = evaluation
 
@@ -249,9 +265,14 @@ def collect_summary(run_dir: Path, cfg: RunConfig | None = None, failures: dict[
     """Rebuild the run summary from the per-entry files on disk."""
     by_strategy: dict[str, list[dict[str, Any]]] = {}
     usage_total: dict[str, float] = {}
+    stopped: dict[str, list[str]] = {}
     for eval_path in sorted(run_dir.glob("*/eval.*.json")):
         strategy = eval_path.name.split(".")[1]
-        by_strategy.setdefault(strategy, []).append(json.loads(eval_path.read_text()))
+        evaluation = json.loads(eval_path.read_text())
+        if evaluation.get("stopped"):
+            stopped.setdefault(strategy, []).append(eval_path.parent.name)
+            continue
+        by_strategy.setdefault(strategy, []).append(evaluation)
     for usage_path in run_dir.glob("*/usage.json"):
         for key, value in json.loads(usage_path.read_text()).get("total", {}).items():
             usage_total[key] = round(usage_total.get(key, 0) + value, 4)
@@ -264,6 +285,8 @@ def collect_summary(run_dir: Path, cfg: RunConfig | None = None, failures: dict[
         },
         "usage_total": usage_total,
         "failures": failures or {},
+        # Entries for which a strategy's writer was stopped; they are in no mean above.
+        "stopped": stopped,
     }
     return summary
 

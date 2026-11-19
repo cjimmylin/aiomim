@@ -222,6 +222,9 @@ class ClaudeCode:
             "cost_usd": result.get("total_cost_usd", 0.0),
             "seconds": round(time.time() - started, 2),
             "turns": result.get("num_turns", 1),
+            # The CLI counts replies cut short by the model's safety filter. Such a
+            # reply still comes back as a success, with an empty structure.
+            "safety_stops": int(result.get("safety_stops") or 0),
         }
         return data, meta
 
@@ -240,6 +243,10 @@ def _classify(message: str) -> Exception:
 # --------------------------------------------------------------------------- #
 
 
+SAFETY_STOP = "the model's safety filter stopped this reply"
+EMPTY_REPLY = "the model returned an empty reply twice"
+
+
 class LLM:
     def __init__(self, settings: Settings | None = None):
         self.settings = settings or get_settings()
@@ -250,6 +257,7 @@ class LLM:
     def call(
         self, stage: str, system: str, prompt: str, output: type[T], *, use_cache: bool = True,
         tools: tuple[str, ...] = (), workdir: str | None = None, workspace_key: str = "",
+        accept: Callable[[T], bool] | None = None,
     ) -> T:
         """Run one structured completion for `stage` and validate it as `output`.
 
@@ -257,6 +265,14 @@ class LLM:
         `ClaudeCode.complete`); `workspace_key` must then identify the contents of
         the working directory, so that the cache distinguishes one library of papers
         from another.
+
+        `accept` says whether a valid reply is usable (a writer's reply must not be
+        an empty entry). A cached reply that fails it is asked again; a fresh one
+        that fails it twice raises `LLMRefusal`.
+
+        A reply the model's safety filter stopped raises `LLMRefusal`. The stop is
+        cached, so a rerun does not pay to be stopped again, and it is never retried
+        with a reworded prompt: the filter is not ours to work around.
         """
         model = self.settings.model_for(stage)
         effort = self.settings.effort_for(stage)
@@ -267,11 +283,14 @@ class LLM:
         if use_cache:
             hit = self.cache.get_json(key)
             if hit is not None:
+                if hit.get("meta", {}).get("safety_stops"):
+                    self.usage.add(stage, cached=True, meta=hit.get("meta", {}))
+                    raise LLMRefusal(SAFETY_STOP)
                 try:
                     parsed = output.model_validate(hit["data"])
                 except ValidationError:
                     parsed = None
-                if parsed is not None:
+                if parsed is not None and (accept is None or accept(parsed)):
                     self.usage.add(stage, cached=True, meta=hit.get("meta", {}))
                     return parsed
 
@@ -283,7 +302,16 @@ class LLM:
                     tools=tools, workdir=workdir,
                     timeout_s=self.settings.agent_timeout_s if tools else None,
                 )
+                if meta.get("safety_stops"):
+                    self.cache.put_json(key, {"data": data, "meta": meta})
+                    self.usage.add(stage, cached=False, meta=meta)
+                    raise LLMRefusal(SAFETY_STOP)
                 parsed = output.model_validate(data)
+                if accept is not None and not accept(parsed):
+                    self.usage.add(stage, cached=False, meta=meta)
+                    if attempt >= 1:
+                        raise LLMRefusal(EMPTY_REPLY)
+                    raise ValueError("the reply was empty")
             except (LLMRefusal, LLMLimitReached):
                 raise
             except (ConnectionError, TimeoutError) as exc:
