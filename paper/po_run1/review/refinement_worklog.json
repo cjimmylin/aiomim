@@ -1,0 +1,85 @@
+{
+  "v1": {
+    "round": 1,
+    "scores_before": {
+      "Originality": 2.0,
+      "Quality": 3.0,
+      "Clarity": 2.0,
+      "Significance": 2.0,
+      "Soundness": 3.0,
+      "Presentation": 2.0,
+      "Contribution": 2.0,
+      "Overall": 5.0,
+      "Confidence": 4.0
+    },
+    "scores_after": {
+      "Originality": 3.0,
+      "Quality": 3.0,
+      "Clarity": 2.0,
+      "Significance": 2.0,
+      "Soundness": 3.0,
+      "Presentation": 2.0,
+      "Contribution": 2.0,
+      "Overall": 5.0,
+      "Confidence": 4.0
+    },
+    "deltas": {
+      "Originality": 1.0,
+      "Quality": 0.0,
+      "Clarity": 0.0,
+      "Significance": 0.0,
+      "Soundness": 0.0,
+      "Presentation": 0.0,
+      "Contribution": 0.0
+    },
+    "total_gain": 1.0,
+    "total_drop": 0,
+    "outcome": "ACCEPTED_NEUTRAL_IMPROVEMENT",
+    "accept": true,
+    "continue": true,
+    "agent_plan": {
+      "addressed_weaknesses": [
+        "W1 (no human validation): not addressable without new work. Stated where the reader meets the first result (opening of Sec. 4), in the abstract, Introduction scope sentence, Limitation (i) and the Conclusion; no softening.",
+        "W2 (single model): not addressable without new work. Stated at the start of Sec. 4, Limitation (i) now says whether strategies stay close for other models is unknown; headline scoped to one model in abstract, Intro, Discussion, Conclusion.",
+        "W3 (access result expected; asymmetric arms): addressed in framing. Abstract, Intro bold finding, Related Work (Westergaard/Cohen) and Sec. 4.1 now say the direction is expected because curators wrote from full papers and that the contribution is the within-paper size plus attribution of missed facts. Asymmetry kept and sharpened: full-text coverage before repair was not scored; added main-run context (17 of 9,371 direct-reading claims unsupported before repair, 0 contradicted; pooled over 93 entries, not the 46-entry subset). Limitation (ix).",
+        "W4 (regime compresses differences): addressed. Headline scoped to 2-12 references, 19% full text, inputs within one prompt, one model in abstract, Intro, Discussion and Conclusion; each says the strategies separate where more full text is readable; Sec. 4.3 retitled.",
+        "W5 (cued recall): partly. No new analysis; Sec. 4.1 now states that the share of abstract-only facts conveyed that is actually stated in the abstract was not measured (40.1% pooled coverage) and that the memory-only control does not bound cued recall; Limitation (iv).",
+        "W6 (no development set): partly. Limitation kept; Sec. 4.2 and Limitation (vi) add that the 20 compared June-November 2026 entries reproduce the ordering and closeness (all within 2.8 points of direct reading's 52.2%), and that the agentic curator's interval excludes zero there (-1.1, -1.8 to -0.3). No claim about how that set was used in development.",
+        "W7 (planted-error test lacks controls): not addressable without new work; wording changed to 'false-flag rate was not measured' in abstract, Sec. 4.4 and Limitation (ix).",
+        "W8 (narrow reference; extra content unmeasured): partly. Limitation (ii) now adds that draft content beyond the reference is checked only by the audit.",
+        "W9 (novelty / generalisable lesson): addressed in framing. Novelty claim rewritten (citation check 2b): cited RAG/LC/GraphRAG comparisons are acknowledged as controlled; difference stated as task, fixed reference list, curator per-paper reference, paradigms under one audit/scoring, measured/manipulated access. Contribution (6) and a 'Measurement lessons' paragraph in the Discussion add the four lessons (asymmetric completion 2.1-point artefact; per-draft vs fixed fact lists; replicate noise as large as reading-strategy differences; matched ablation).",
+        "W10 (presentation): addressed. (a) New Appendix A Table (tab:app_experiments) with every experiment, entry set, n compared and dropout reasons, pointed to at the start of Sec. 4; (b) Table 1 caption fixed (memory-only control audited, not repaired); (c) agentic curator described as interval touching zero with 31/42 counts leaning negative; (d) missing-as-zero intervals described as wide and including zero for all three; (e) number-heavy sentences thinned in Secs. 4.2, 4.3, 4.5-4.7; (f) running header left unchanged (style file)."
+      ],
+      "integrated_answers": [
+        "Q5 (development): Limitation (vi) and Sec. 4.2 report the 2026 set reproducing ordering/closeness.",
+        "Q3 (full-text coverage before repair): stated as not scored; added main-run pooled pre-repair counts as context.",
+        "Q4 (cued recall): stated as not measured, with the 40.1% pooled figure.",
+        "Q6 (false-flag rate): stated as not measured.",
+        "Q8 (regime where strategies differ): Sec. 4.3 and Discussion point to the strata and ablation; larger inputs, other models and supplements stated as untested.",
+        "Q10 (why replicate noise is separate): one sentence in Sec. 3.3 - the main comparison is a single run and replicates exist only for 30 entries, so intervals resample entries of that run and replicate noise is reported beside them.",
+        "Q11 (reproducing the reference): Reproducibility statement says the reference can be rebuilt from public resources (ClinVar, HPO, MedGen) under rights holders' terms; score files carry fact identifiers and statuses, not wording."
+      ],
+      "actions_taken": [
+        "Applied all 10 citation-check corrections: cao2025automation and wang2025accelerating now cited for LLM workflows automating screening/data extraction (not as reviews); allot2023tracking limited to variant search across full text and supplements; shankar2025docetl removed from the Intro 'graph or table' list (kept in Related Work); GEN-KnowRD reworded (quality assessment, disease ranking on patient benchmarks); 'WikiCrow writes gene articles' replaced by PaperQA2 Wikipedia-style summaries; shao2024assisting split out as Wikipedia-like articles from Internet sources; contamination surveys now 'contamination, its detection and its mitigation'; Cohen2010 cited only for structure/content differences, Westergaard2018 for yield; novelty sentence (2b) rewritten.",
+        "Also from the citation check section 3: HPO concept recognition 'moved from taggers to LLMs' changed to 'uses taggers and, increasingly, language models'; Clark2025/scherbakov2025 now 'assess such tools' rather than 'document the spread'.",
+        "Agentic curator naming note citing balhoff2026frontier (its abstract uses the term for agents working with source publication PDFs in a workspace).",
+        "Abstract, Intro (para 2-5), Related Work closing sentences, Sec. 4 opening, 4.1, 4.2, 4.3, 4.5-4.7, Discussion, Limitations (now i-x) and Conclusion revised as above.",
+        "Figures 4 and 5 placed side by side and captions shortened; overview figure width 0.92 -> 0.86; matched-ablation Table 2 moved out of the main text (its numbers remain in Sec. 4.6 text and in existing Appendix tables tab:app_abl_means/tab:app_abl_diff) to keep the main text within 10 pages. All five figures kept.",
+        "Added label app:updates to the appendix subsection on updates/retrieval. references.bib, citation_map.json, style files and figures unchanged."
+      ],
+      "ignored_requests": [
+        "Human (curator/annotator) agreement study on fact splitting, fact judgements and audit verdicts (Q1) - not run.",
+        "Second model family as writer or judge (Q2) - not run.",
+        "Full-text coverage before repair / repaired abstract arms (Q3) - not available in the log.",
+        "Fraction of conveyed abstract-only facts stated in the abstract (Q4) - not available.",
+        "Unaltered-control re-audit for false-flag rate; omission/misattribution tests (Q6) - not run.",
+        "Correctness/relevance of draft content beyond reference facts (Q7) - not in the log.",
+        "Synopsis results restricted to the HPO team's own 1,835 annotations (Q9) - not in the log.",
+        "Hierarchical bootstrap over entries and replicates (Q10) - not run; only the explanatory sentence was added.",
+        "Re-running all strategies on a fresh held-out set (Q5) - beyond the existing 2026 set, not run.",
+        "Running-header 'ICLR 2025' comment - comes from the supplied style file; not edited per orchestrator.",
+        "Citation-check section 3 bibliographic items (bib entry types, key diacritics, preprint vs published versions, Li2024LongContext year) - would require editing references.bib/citation_map.json, which is forbidden."
+      ]
+    }
+  }
+}

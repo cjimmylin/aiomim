@@ -1,0 +1,67 @@
+{
+  "Summary": "The paper presents a controlled benchmark for writing whole OMIM phenotype entries from exactly the papers the curators cited (100 entries, 2-12 references, 515 papers of which 19% are open-access full text, causal gene withheld). One model (Claude Opus 5.5) writes, audits and judges every draft under shared guards (ontology-candidate-only HPO terms, HGNC normalisation, mandatory citation), a claim-level audit with one repair round, and shared scoring. Strategies: direct long-context reading and an agentic curator (read and write); evidence graph and case table (extract, then write); recall-then-verify (memory first); a memory-only control; and three add-ons (second-hand evidence, reconciled case database, learned curation guide). The primary endpoint is coverage of fixed fact lists split once, without sight of any draft, from OMIM allelic-variant paragraphs deposited in ClinVar. Main findings: hiding the full text of the same papers lowers coverage from 77.4% to 31.2% (46 entries); reading strategies lie within 47.2-49.1% on 93 entries, against a replicate-noise half-width of 1.0 point, with only the case table reliably lower, a gap partly removed by a matched ablation raising extraction effort; memory-based drafts convey about 15%; strategies separate observationally where more full text is readable; the audit catches 60/60 planted single-value substitutions but checks fidelity rather than correctness; and measurement choices (asymmetric handling of safety-filter stops, per-draft fact splitting) move differences by as much as the effects. No judgement is human-validated and only one model family is used.",
+  "Strengths": [
+    "Careful experimental control: same model, same papers, same guards, audit and scoring for every strategy, so the generation strategy is the only variable; add-ons are tested against their parent strategy (all three reviewers).",
+    "Fixed fact lists produced once without sight of any draft avoid denominator drift; the paper quantifies the 2-5 point level shift caused by per-draft splitting (all three reviewers).",
+    "Honest statistics: paired bootstrap intervals, better/worse/tied counts, sign tests, a replicate study (three runs on 30 entries) giving an explicit noise floor, judge variation, and an intention-to-treat sensitivity analysis; the paper explicitly declines to rank strategies inside the noise (all three).",
+    "The within-paper access manipulation (hiding full text of the same papers, scored on the same 2,120 facts) and the attribution of every missed fact to read versus unread text (Figure 3) give a clean decomposition of what bounds agreement with curators (all three).",
+    "Transferable measurement lessons: the asymmetric completion rule that produced a spurious 2.1-point deficit, the per-draft splitting level shift, and the demonstration that single-run comparisons cannot rank strategies at this sample size (R2, R3).",
+    "The matched ablation separating intermediate representation from extraction effort is good, rarely seen practice and changes the interpretation of the case-table deficit (all three).",
+    "Contamination addressed with a memory-only control by creation era and a set of entries created June-November 2026 that reproduces the ordering (all three).",
+    "Candid scoping and limitations; internal numbers reconcile (Figure 2 bar counts reproduce 77.4% and 31.2%; Figure 3 totals 6,498 facts) (R2, R3).",
+    "Built entirely from public resources with promised per-entry release of drafts, verdicts and scores, supporting reuse and extension (all three)."
+  ],
+  "Weaknesses": [
+    "No human validation of any judgement: fact splits, present/partly/absent/contradicted judgements, audit verdicts, missed-fact attribution, contradiction re-adjudication and non-normalising variant matching are all made by the same model family that wrote the drafts, despite the self-preference effect the paper cites (Section 2, Evaluating cited long-form text). At a 1-2 point resolution between strategies, style-dependent judge bias cannot be ruled out; a curator-annotated sample (100-200 fact judgements and audit verdicts with agreement statistics, stratified by strategy) is needed (all three reviewers).",
+    "Single model, single family: the central claim that reading strategies are close (Section 4.2, Table 1) may be a property of one strong long-context model; weaker or shorter-context models, where extract-then-write and agentic reading are usually motivated, are untested, as is a second judge (all three).",
+    "Main results are null or expected: the strategy comparison is largely within replicate noise, and the large access effect (Section 4.1, Figure 2) is, as the paper concedes, expected in direction; its magnitude is tied to this dataset's 19% open-access profile (all three).",
+    "Access-experiment asymmetry: only the full-text arm went through the repair round and its pre-repair coverage was not scored (Section 4.1, Figure 2, Table 19); the 17 of 9,371 unsupported-claims figure concerns claims, not fact coverage, and is from a different entry set. Scoring the cached pre-repair full-text drafts, or repairing the abstract arms, would remove this (all three).",
+    "Regime chosen makes separation unlikely: 2-12 references with inputs that fit one prompt favour direct reading; the 30-75-reference tier is exploratory (about ten entries), and the positive 'strategies separate where more full text is readable' result (Section 4.3, Figure 4) rests on 21 entries and is observational, confounded with creation date and journal, yet appears in the abstract and conclusion without that qualifier (all three).",
+    "Narrow, indirect reference: variant-centred allelic-variant paragraphs in ClinVar rather than the phenotype entries' narrative text, so coverage is a lower bound biased toward variant facts and only partly aligned with the 'writing a whole knowledge-base entry' framing of the title and abstract; drafts make about twice as many statements as the reference has facts, and the excess is checked only by the self-audit (all three).",
+    "Audit evaluation is limited (Section 4.4): 60 blunt single-value substitutions, no unaltered controls (false-flag rate unknown), omissions and misattributions untested; the 37-fact contradiction re-examination is adjudicated by the model that passed the claims (all three).",
+    "Strategies were developed on the evaluation entries with no held-out development set; the June-November 2026 set (20 compared entries) is small and depleted by safety-filter stops. Some strategies are weak by construction (recall-then-verify may not add content from the papers; the learned guide uses two reflection rounds on 27 entries), limiting what their negative results show (all three).",
+    "Reporting inconsistency: the primary endpoint is defined as the mean of per-entry coverage (Section 3.3, Eq. 1), but the headline 77.4% and 31.2% (abstract, Section 4.1, Figure 2, Table 19) are pooled over facts ((1513 + 254/2)/2120), while the paired +43.9 difference is per-entry (pooled levels differ by 46.2); the 40.1% abstract-only figure is also pooled. The text should state which aggregation each number uses and report the per-entry means for the headline (R3, verified by the area chair).",
+    "Fit and presentation for ICLR: no new learning method; the contribution is a domain benchmark plus measurement practice, which then needs stronger validity evidence. The main text is very dense with numbers and hedges and defers key results to a long appendix; wording issues include the abstract grouping the memory-only control with 'memory-first strategies' (15.1% and 14.6%), Section 4.4 reporting the never-repaired control's shares 'before repair', appendix text that reads as internal notes ('worker's report from the comparison', Appendix F), 'frozen' in Table 19 versus 'fixed' in the text, and small labels in Figure 4 (all three).",
+    "Reproducibility: the model is reached through a CLI with no temperature or seed, the training cut-off is unknown, and replies are cached, so the released drafts and judgements must serve as the fixed artifact for others to score new strategies (R1)."
+  ],
+  "Originality": 3,
+  "Quality": 3,
+  "Clarity": 2,
+  "Significance": 2,
+  "Questions": [
+    "Can you provide human (curator) validation on a random sample of fact splits, fact-presence judgements and audit verdicts, with agreement statistics stratified by strategy, and say what agreement would suffice to trust the coverage numbers?",
+    "Have you run any subset (e.g. the 30 replicate entries) with a second model family as writer and/or judge? Do the closeness of reading strategies and the access effect persist?",
+    "What is the full-text arm's coverage before repair in the hidden-full-text experiment (the drafts are cached), or the abstract arms' coverage after one repair round?",
+    "Are the 77.4% and 31.2% headline figures pooled over facts or per-entry means, as the endpoint definition states? Please report both consistently.",
+    "What is the audit's false-flag rate on unaltered paragraphs, and how does it behave on omissions, misattribution to the wrong paper and partial distortions?",
+    "Do the strategies separate on inputs that exceed one prompt? A scaled-up larger-reference tier with chunked direct reading versus extract-then-write would test where intermediate representations help.",
+    "How were the strategies' prompts and settings tuned on the evaluation entries, and was development effort comparable across strategies?",
+    "How often did the safety filter stop each strategy, and do stops correlate with entry content in a way that biases the 93-entry comparison set?",
+    "How sensitive are conclusions to the half-credit weight for partly present facts, and how does the primary endpoint correlate with the secondary measures across entries?",
+    "Why was recall-then-verify barred from adding content from the papers, and would a variant that may add content test the memory-first paradigm more fairly?",
+    "Can cued recall on abstract-only papers be estimated, e.g. with mismatched abstracts or restricting to facts verifiably absent from the abstract?",
+    "Will fact lists, drafts and judgements be released so others can score new strategies without the same model?"
+  ],
+  "Limitations": [
+    "All judgements by the generating model family; no human or second-family validation (acknowledged, not mitigated).",
+    "One writer model; no temperature or seed control; unknown training cut-off.",
+    "Reference restricted to variant-centred curator paragraphs, HPO annotations and gene/inheritance tables; narrative sections not compared.",
+    "Only open-access text without supplements; 81% of papers abstract- or title-only; small reference lists and inputs fitting one prompt.",
+    "Strategies developed on the evaluation entries; single run for the main comparison; held-out recent set small and depleted by stops.",
+    "Audit specificity unmeasured; repair asymmetric in the access experiment.",
+    "The authors discuss these limitations openly, and generated entries are framed as drafts for expert review, not clinical guidance, which is appropriate."
+  ],
+  "Ethical Concerns": false,
+  "Soundness": 3,
+  "Presentation": 2,
+  "Contribution": 2,
+  "Overall": 5,
+  "Confidence": 4,
+  "Decision": "Reject",
+  "Thought": "Three reviewers, all Overall 5 / Reject / confidence 4, converge on the same core issues: zero human validation of a same-family LLM instrument at a 1-2 point effect resolution, a single model, a regime that makes strategy differences unlikely, an expected headline access effect measured with asymmetric repair, a narrow variant-centred reference, and limited audit evaluation. All praise the experimental hygiene, fixed fact lists, noise floor, symmetric completion and matched ablation. I checked the main text: the repair asymmetry, the 21-entry observational basis for 'strategies separate', the abstract's grouping of the control with memory-first strategies, the 'before repair' wording for the unrepaired control and the 'worker's report' appendix phrase are all as described; and Table 19 confirms R3's point that 77.4%/31.2% are pooled over facts while Eq. 1 defines a per-entry mean and the +43.9 difference is per-entry. The paper is careful and honest but, for ICLR, its evidence base (no human validation, one model) does not yet support a benchmark contribution. Decision: Reject, persuadable with a human-validated sample, a second model and symmetric access arms.",
+  "_ensemble_sources": [
+    "/home/user/aiomim/paper/po_run1/review/v1_r1.json",
+    "/home/user/aiomim/paper/po_run1/review/v1_r2.json",
+    "/home/user/aiomim/paper/po_run1/review/v1_r3.json"
+  ]
+}
