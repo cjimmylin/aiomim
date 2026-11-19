@@ -1,0 +1,46 @@
+{
+  "round": 3,
+  "input_tex": "latex/refined_v2.tex",
+  "output_tex": "latex/refined_v3.tex",
+  "title_changed_to": "What Limits Evidence-Grounded Knowledge-Base Writing? A Controlled Comparison of Generation Strategies Against Curator-Written Text",
+  "addressed_weaknesses": [
+    "W1 (no human validation): not addressable without new work. Stated in abstract (last sentence), Intro scope, Sec. 4 opening, Table 2 caption, Limitation (i) (now includes the stated/not-stated judgement), Conclusion.",
+    "W2 (single model, no seed): not addressable without new work. Abstract scope sentence, Limitation (i), Reproducibility statement.",
+    "W3 (narrow regime): not addressable without new work; scope stated in Intro and Discussion; large-input tier remains exploratory (Limitation viii, App. I.1).",
+    "W4 (narrow endpoint): partly. Definitions paragraph (Sec. 3.3) states the reference covers a minority of the task (24% of statements have a counterpart); Limitation (ii).",
+    "W5 (access effect expected; stated-fact restriction requested): addressed. Sec. 4.1 opens with the decomposition (expected direction; contribution is size within same papers and attribution via three analyses). New Sec. 4.3 + main-text Table 2 compare strategies on facts the supplied text states (log 2.10a), with fact split 2,372/1,198/2,669, ceiling and model-judgement caveats, and the case table's larger deficit on stated full-text facts (-8.4). Used in Intro and Conclusion as the answer to what limits agreement.",
+    "W6 ('strategies separate where more full text is readable'): addressed. Claim removed from abstract, Intro, Discussion, Conclusion; Sec. 4.4 retitled 'Entries with more full text: an observational comparison', states what is consistent (case table) and what is not (evidence graph -1.8 vs +1.7 stated full-text vs +1.0 ablation; agentic curator), with the log-5 note (ablation reuses main-run drafts; -1.2 on its 19 top-group entries vs +3.1 on the other 19). Ablation text states the two changes were made together and that attribution to extraction effort is an inference; set composition corrected to 22/29.",
+    "W7 (replicate noise as threshold): addressed. 'within/exceeds the half-width' removed; Sec. 3.3 and 4.2 say the bootstrap interval is the test and the half-width a yardstick; replicate subset sign reversal (+0.7/+1.9/+0.5 vs -0.5 on 93) given as illustration; Figure 4 caption says yardstick, not a test; Appendix E adds the same.",
+    "W8 (audit validation weak): partly. Sec. 4.5 now says the planted-error test is not a sensitivity estimate (notes.md wording) next to 60/60 and the re-audit control; omissions/misattribution untested (Limitation ix).",
+    "W9 (venue fit / novelty): addressed in framing only. Intro states the paper is an evaluation and benchmark contribution with no new method and measurement lessons that apply to evaluating such systems generally. Published systems still not run (limitation).",
+    "W10 (presentation): addressed. New title; abstract 191 words, one paragraph, six numbers; definitions gathered in one paragraph in Sec. 3.3 (curator paragraph, fixed fact list, statuses, coverage formula, mean over entries vs pooled, judged supported, stated/partly/not stated); main text uses means over entries, pooled figures labelled; Figure 2 now shows means over entries before repair (new PNG) consistent with the text; pooled duplicates of stated-facts results moved to new Appendix Table tab:app_stated; Related Work shortened; add-ons and 2026 details moved to the appendix.",
+    "W11 (minor errors): addressed. Provenance sentence lists all five categories (1,061+222+102+11+24 = 1,420); '<0.001' written as $<$0.001 (PDF text has no stray glyphs); text and Fig. 4 caption say the one all-full-text entry is in no group; Table 1 caption notes variant precision rests on 23 (recall, then verify) and 30 (control) entries; experiments-table row for draft-reference disagreements reworded (13 undecidable is an outcome); process language searched (none found) and strategy names standardised to 'case table first'."
+  ],
+  "integrated_answers": [
+    "Q3 (ablation vs strata): Sec. 4.4 and Appendix F give the log-5 reconciliation (same drafts; entry mix explains -1.2 vs +3.1).",
+    "Q4 (half-width vs CI; why graph leads on 30): Sec. 3.3/4.2 and Appendix E.",
+    "Q5 (coverage restricted to stated facts / full-text papers): Sec. 4.3, Table 2, Appendix tab:app_stated.",
+    "Q8 (11 missing facts; entry outside strata): Sec. 4.1 provenance sentence; Sec. 4.4 and Fig. 4 caption."
+  ],
+  "actions_taken": [
+    "Title and abstract rewritten per brief (191 words, numbers: 100, 79.8, 36.1, nine in ten, 7, about a point).",
+    "Intro: venue-fit sentence; finding paragraph rebuilt around within-paper access effect and stated-facts comparison; scoped case-table statement; contributions compressed.",
+    "Related Work shortened (merged/condensed sentences; no change in what is said about any cited work; Clark/scherbakov/cao/wang2025 review sentence removed from the Intro).",
+    "Sec. 3.3: 'Definitions used throughout' paragraph; statistics paragraph states interval = test, replicate noise = yardstick.",
+    "Sec. 4.1 reframed; Figure 2 caption rewritten for the redrawn PNG (pooled counts, means over entries, before repair).",
+    "New Sec. 4.3 and Table 2 (stated / stated full-text / not stated; means over entries with n; differences with 95% CI).",
+    "Sec. 4.4 retitled and rewritten as observational; Sec. 4.5 planted-test wording; Secs. 4.6-4.8, Discussion, Limitations, Conclusion compressed.",
+    "Appendix: new Table tab:app_stated (fact split, means/pooled, differences with b/w/t); experiments table gains stated-facts row, corrected strata and disagreement rows, ablation-set composition; Appendix E yardstick note; Appendix F ablation-set composition, two-changes inference, and full log-5 note; 2026 appendix receives the moved main-text detail.",
+    "po.py check: no unknown keys, balanced environments. po.py compile: ok, 36 pages, 0 overfull boxes; main text (through Conclusion) ends on page 10."
+  ],
+  "ignored_requests": [
+    "Human/curator validation of fact, audit and availability judgements (Q1) - not run.",
+    "Second judge or generator model family (Q2) - not run.",
+    "Extra ablation arm separating extraction effort from writer-chosen synopsis terms (Q3) - not run; attribution stated as inference.",
+    "Mixed-effects model over replicates (Q4) - not in the log.",
+    "Sensitivity to dropping half credit for partly present (Q5) - not in the log (only 'fully, no partial credit' levels exist in appendix tables).",
+    "Larger-input tier with enough entries; published systems under the same guards (Q6) - not run.",
+    "Interaction of memory gene naming with strategy differences (Q7) - not in the log.",
+    "Matched-ablation table not returned to the main text: no room within 10 pages after adding the stated-facts table."
+  ]
+}

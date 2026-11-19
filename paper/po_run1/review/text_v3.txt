@@ -1,0 +1,6274 @@
+000
+001
+002
+003
+004
+005
+006
+007
+008
+009
+010
+011
+012
+013
+014
+015
+016
+017
+018
+019
+020
+021
+022
+023
+024
+025
+026
+027
+028
+029
+030
+031
+032
+033
+034
+035
+036
+037
+038
+039
+040
+041
+042
+043
+044
+045
+046
+047
+048
+049
+050
+051
+052
+053
+Under review as a conference paper at ICLR 2025
+WHAT LIMITS EVIDENCE-GROUNDED KNOWLEDGE-
+BASE WRITING?
+A CONTROLLED COMPARISON
+OF GENERATION STRATEGIES AGAINST CURATOR-
+WRITTEN TEXT
+Anonymous authors
+Paper under double-blind review
+ABSTRACT
+Many system designs turn a set of papers into cited, structured text, but they are
+rarely compared with the papers, the model and the scoring held fixed. We build
+such a comparison from 100 OMIM phenotype entries: each is drafted from ex-
+actly the papers its curators cited, by one model under one claim-level audit and
+one scoring, so the generation strategy is the only variable; the primary endpoint,
+OMIM facts conveyed, is coverage of fixed fact lists split from curator-written per-
+paper text. Hiding the full text of the same papers lowers coverage from 79.8% to
+36.1% (means over entries, no arm repaired). On facts the supplied text states, the
+strategies that read the papers convey more than nine in ten; on facts it does not
+state, under 7%. Three reading strategies are within about a point of one another,
+a case-table-first pipeline falls behind them, and drafting from memory conveys
+far less. Measurement choices matter at this resolution: a completion rule that
+treated stopped replies asymmetrically produced a spurious difference larger than
+those between the reading strategies. One model family wrote, audited and judged
+everything, and no human validated any judgement.
+1
+INTRODUCTION
+Curated knowledge bases are written by experts who read papers and record, entry by entry, what
+each paper showed. Online Mendelian Inheritance in Man (OMIM), the reference catalogue of
+human genes and genetic disorders (Amberger et al., 2014; 2019; Hamosh et al., 2021), is built
+this way, and so, in part, are the resources that record variant interpretations (Landrum et al., 2017;
+2025), phenotype annotations (Robinson et al., 2008; Gargano et al., 2024) and the validity of gene–
+disease associations (Strande et al., 2017). Text mining already annotates concepts across abstracts
+and open-access full text (Wei et al., 2019; 2024a), variants can be searched across full text and
+supplementary data (Allot et al., 2023), and language models can now read the papers. Many system
+designs have been proposed for turning a set of documents into structured, cited text: retrieval-
+augmented or long-context reading (Lewis et al., 2020; Li et al., 2024), extraction into a graph or a
+table before writing (Edge et al., 2024; Joshi et al., 2026), agents that decide what to read (Nakano
+et al., 2021; L´ala et al., 2023; Skarlinski et al., 2024), drafting first and verifying afterwards (Gao
+et al., 2023a; Dhuliawala et al., 2024), and prompts optimised from examples (Khattab et al., 2023;
+Agrawal et al., 2026).
+Comparisons between such designs exist, and several hold the model and settings fixed (Li et al.,
+2024; 2025a; Han et al., 2025); they concern question answering, summarisation or open retrieval
+scored against benchmark answers. The closest work in genetics and biology searches a corpus for
+its sources, measures memory alone, or scores against something other than what curators wrote
+about each paper (Section 2). The curator’s task itself, writing an entry from exactly the papers
+the curators cited and scoring what it says about each paper against what the curators wrote about
+that paper, has not been used to compare strategies. Three questions are open. With the model,
+the sources, the guards and the scoring held fixed, how much does the generation strategy matter?
+What limits agreement with what experts wrote: the strategy, or what the strategy was given to read?
+And which errors does a claim-level audit against the cited source catch, and which can it not see?
+1
+054
+055
+056
+057
+058
+059
+060
+061
+062
+063
+064
+065
+066
+067
+068
+069
+070
+071
+072
+073
+074
+075
+076
+077
+078
+079
+080
+081
+082
+083
+084
+085
+086
+087
+088
+089
+090
+091
+092
+093
+094
+095
+096
+097
+098
+099
+100
+101
+102
+103
+104
+105
+106
+107
+Under review as a conference paper at ICLR 2025
+This paper is an evaluation and benchmark contribution: it proposes no new method, but compares
+system designs for evidence-grounded generation under one control, and its measurement lessons
+apply to evaluating such systems generally.
+We answer the questions with a controlled benchmark in which the generation strategy is the only
+variable (Figure 1). Each of 100 OMIM phenotype entries with 2–12 references is written from
+its header and exactly the papers its curators cited, with the causal gene withheld; only 19% of the
+cited papers are readable in full through open access. The strategies form three paradigms (read and
+write; extract, then write; memory first), one control (a memory-only draft with no papers) and three
+add-ons, each tested against its parent. Each strategy writes a whole entry, but the primary endpoint,
+OMIM facts conveyed, scores only what the draft says about each cited paper against curator-written
+per-paper text: OMIM’s allelic-variant descriptions as deposited in ClinVar, each split once, without
+sight of any draft, into a fixed list of facts (6,652 over 476 paragraphs). Draft content beyond this
+reference is checked only by the audit.
+In the regime tested, what limits agreement is what the strategy was given to read, not how it
+reads. The direction is expected: curators wrote from full papers, so drafts written from less text
+must convey less. What we add is the size of the effect within the same papers and an attribution of
+what the drafts lack. When the full text of papers that have one is hidden and the same entries are
+rewritten from their abstracts, coverage of the same fixed facts falls from 79.8% to 36.1% (means
+over 46 entries, no arm repaired; paired difference +43.7 points, +38.3 to +49.1). Each fixed fact
+also carries a model judgement of whether the text supplied for its paper states it. On the 2,372
+facts it states, direct reading, the agentic curator and the evidence graph convey 93.6–94.4% (means
+over entries), with differences from direct reading under one point whose intervals include zero; on
+the 2,669 facts it does not state, they convey 5.5–6.9%. Between strategies, on the 93 entries every
+strategy completed, only case table first is clearly behind direct reading (−1.9 points, −3.1 to −0.8),
+most of all on facts stated in full-text papers (−8.4, −14.3 to −3.8), and part of its gap reflects the
+extraction effort of our implementation. These results hold for entries with 2–12 references, inputs
+that fit one prompt and one model.
+Our contributions are: (1) a benchmark and harness for evidence-grounded knowledge-base writing
+against curator-written references, built only from public resources (Sayers et al., 2026; Louden,
+2020; Rosonovski et al., 2024; Seal et al., 2023), with a claim-level audit, fixed fact lists and per-
+entry release of every draft, verdict and score; (2) a controlled comparison of three paradigms, a
+control and three add-ons under one model, reporting completion (stopped replies are an outcome,
+not an exclusion), run-to-run variation and a matched ablation; (3) a within-paper measurement
+of how much access bounds agreement, with missed and conveyed facts attributed and strategies
+compared on the facts the supplied text states; (4) a characterisation of what the audit can and
+cannot see; (5) a memory-only control by creation date, and negative results at this scale for recall-
+then-verify, a small learned guide and reconciliation; and (6) measurement lessons (Section 5). One
+model family wrote, audited and judged everything; no curator has read any draft, verdict or fact
+judgement; only open-access text without supplementary material was available; and every strategy
+was given the curators’ reference list. The generated entries are drafts for expert review, not clinical
+guidance.
+2
+RELATED WORK
+Language models for literature curation in genetics and biology.
+Concept recognition against
+the Human Phenotype Ontology uses dedicated taggers (Luo et al., 2021; Groza et al., 2024b) and,
+increasingly, language models (Groza et al., 2024a; Yang et al., 2024; Garcia et al., 2025). Structured
+prompting and assistant tools have been proposed for populating and maintaining knowledge bases
+(Caufield et al., 2024b;a; Toro et al., 2024; Niyonkuru et al., 2025), as have an agent that assists
+manual gene function annotation (Li et al., 2025c), generative annotation of the severity of ontology
+phenotypes (Murphy et al., 2024) and agents for ontology curation of natural phenotypes (Balhoff
+& Lapp, 2026). In clinical genetics, language models have been applied to extracting variant, gene–
+disease and gene–phenotype evidence from papers (Li et al., 2025b; Furlan et al., 2025; Wang &
+Wang, 2026; Yin et al., 2026), benchmarked on clinical-genetics reasoning (Queen et al., 2025),
+given database tools for genomics questions (Jin et al., 2024), and evaluated for gene-set function
+(Hu et al., 2025), gene prioritisation (Kim et al., 2024) and rare-disease diagnostics (Twede et al.,
+2
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+Under review as a conference paper at ICLR 2025
+2026). FlyAOC scores memorisation, pipeline and agent harnesses that search a paper corpus against
+FlyBase curators’ annotations (Zhang et al., 2026); GEN-KnowRD generates schema-guided rare-
+disease profiles, assesses their quality and builds a knowledge base from them, evaluated by disease
+ranking on patient benchmarks (Yan et al., 2026); PaperQA2 writes cited Wikipedia-style summaries
+of scientific topics, compared against existing Wikipedia articles (Skarlinski et al., 2024); and Groza
+et al. (2026) measure model memory of rare-disease genes and phenotypes. In our benchmark the
+cited papers are fixed, the reference is the curators’ own per-paper text and structured fields, and the
+generation strategy is the only variable.
+Intermediate representations versus long-context reading.
+Retrieval augmentation supplies a
+model with selected passages (Lewis et al., 2020), possibly retrieving on demand and critiquing
+its own output (Asai et al., 2023). Whether this beats placing all documents in a long context is
+contested: one re-evaluation finds long context generally ahead on question answering (Li et al.,
+2025d); others argue that very long contexts dilute focus on relevant information (Yu et al., 2024),
+propose hybrids (Li et al., 2024), or report no single winner (Li et al., 2025a). Graph intermediates
+are used for query-focused summarisation (Edge et al., 2024) and retrieval (Guti´errez et al., 2024),
+and systematic comparisons ask when graphs help (Han et al., 2025; Xiang et al., 2025). Table-
+and database-centred pipelines rewrite document-processing operations agentically (Shankar et al.,
+2025), reconcile extracted databases for systematic reviews (Joshi et al., 2026) or carry out deep
+research over large databases (Liu et al., 2026). Agentic and retrieval-augmented systems write
+cited answers or articles from the scientific literature (L´ala et al., 2023; Asai et al., 2024; Singh et al.,
+2025; Skarlinski et al., 2024), or Wikipedia-like articles from Internet sources (Shao et al., 2024).
+Here, by contrast, the papers are fixed to the curators’ reference list, the reference is the curators’
+own text, all paradigms share one audit and one scoring, and access is measured and manipulated.
+Memory, verification and contamination.
+Draft-then-verify methods plan verification questions
+(Dhuliawala et al., 2024), post-edit unsupported content (Gao et al., 2023a), use the consistency of
+sampled outputs (Manakul et al., 2023), or check against domain databases (Wang et al., 2025).
+Because curated knowledge bases are public, memory is also a confound. Surveys catalogue con-
+tamination, its detection and its mitigation (Xu et al., 2024; Deng et al., 2024; Ravaut et al., 2025;
+Cheng et al., 2025; Chen et al., 2025); methods detect pretraining data or contamination from black-
+box access (Shi et al., 2024; Oren et al., 2024; Golchin & Surdeanu, 2024; 2025), exploit training
+cut-offs (Roberts et al., 2023), or collect new test items over time (Jain et al., 2025; White et al.,
+2024). We adopt the time-based view: a memory-only control analysed by entry creation date, and
+entries created in 2026.
+Supervision by prompt optimisation.
+Instructions can be optimised by language models (Zhou
+et al., 2022; Pryzant et al., 2023; Yang et al., 2023), evolved (Guo et al., 2023; Fernando et al.,
+2024; Agrawal et al., 2026), compiled in multi-stage programs (Khattab et al., 2023; Opsahl-Ong
+et al., 2024), or updated from textual feedback (Yuksekgonul et al., 2024). Our learned guide is a
+deliberately small instance of this idea.
+Evaluating cited long-form text.
+Factuality metrics decompose long-form text into atomic claims
+and verify each against a knowledge source (Min et al., 2023; Wei et al., 2024b), and VeriScore
+restricts this to verifiable claims (Song et al., 2024). Citation quality has been measured for models
+that generate text with citations (Gao et al., 2023b), in human audits of generative search engines
+(Liu et al., 2023), and for medical references (Wu et al., 2025); the accuracy with which medical
+articles quote their sources has been reviewed systematically (Jergas & Baethge, 2015). Work studies
+model judges against human preferences (Zheng et al., 2023; Shankar et al., 2024) and reports that
+evaluators recognise and favour their own generations (Panickssery et al., 2024); our judges share
+the writer’s model family, with no human validation. Text mining yields more from full text than
+from abstracts (Westergaard et al., 2018), whose structure and content differ (Cohen et al., 2010);
+that drafts from abstracts convey less of what curators wrote from full papers is therefore expected,
+and we measure how much.
+3
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+Under review as a conference paper at ICLR 2025
+Figure 1: Overview of the benchmark. An entry e = (h, R) supplies its header and exactly the pa-
+pers the curators cited, each readable as full text, abstract or title only depending on open access; the
+causal gene is withheld. One model writes every draft and only the generation strategy varies: three
+paradigms, a memory-only control with no papers, and three add-ons (dashed, under their parent),
+each tested against its parent. The same claim-level audit, scoring and guards (Section 3.2) apply
+to every draft. The reference is curator-written per-paper text (OMIM allelic-variant descriptions in
+ClinVar), split once into fixed fact lists for the primary endpoint, plus HPO disease annotations, al-
+lelic variants, causal gene and inheritance for the secondary measures. Counts are for the 100-entry
+main set.
+3
+BENCHMARK AND STRATEGIES
+3.1
+TASK, ENTRIES AND REFERENCE
+An entry is e = (h, R) with header h (number, title and alternative titles) and references
+R = {d1, . . . , dn}, the papers its curators cited.
+Each paper has an access level a(d) ∈
+{full text, abstract, title} determined by open access. A strategy S maps (h, R) to a draft D: para-
+graphs, each citing a non-empty subset of R; a set of genes; a set of inheritance modes; a set of
+ontology terms; and a set of allelic variants. The causal gene is withheld, because naming it from
+the papers is part of the curator’s task.
+Entries and papers. We draw 100 OMIM phenotype entries at random with a fixed seed, 20
+from each of five bands of entry number that track when the entry was created (1xxxxx–5xxxxx,
+600000–609999, 610000–615999, 616000–619999, 620000 onward). Eligible entries have 2–12
+cited references, a causal gene in the gene map, at least five phenotype annotations and at least one
+curator paragraph in scope, so the sample selects well-annotated, molecularly characterised entries.
+Of the 515 cited papers, 96 (19%) are readable in full through PubMed Central or Europe PMC
+(Rosonovski et al., 2024), 345 as an abstract only and 74 as a title only; supplementary material was
+not retrieved.
+Reference. All parts come from public resources. The curator-written per-paper text is OMIM’s
+allelic-variant descriptions as deposited by OMIM in ClinVar (Landrum et al., 2025): variant-centred
+prose from OMIM’s gene entries about one or more cited papers. A paragraph is in scope for
+an entry when it is about a paper the entry cites; 476 are in scope. The narrative sections of the
+phenotype entries are not available publicly and are not compared. The clinical-synopsis reference
+is the Human Phenotype Ontology’s disease annotations (Gargano et al., 2024): 2,311 annotations,
+of which 1,835 are the HPO team’s own curation from papers and 476 are taken from OMIM. The
+causal gene comes from OMIM’s gene map via MedGen (Louden, 2020) and mim2gene; inheritance
+comes from HPO and MedGen modes, compared as coarse classes, with the sets required to be equal.
+The allelic-variant reference is the entry’s 427 in-scope OMIM-submitted ClinVar records.
+4
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+Under review as a conference paper at ICLR 2025
+3.2
+STRATEGIES
+The strategies are three paradigms, one control and three add-ons (Figure 1; Appendix Table 4).
+Read and write: direct reading puts all papers in one prompt and is the baseline; the agentic
+curator works in a folder of the papers with read and search tools and must give a verbatim quote
+for every paragraph. Extract, then write: the evidence graph extracts quote-backed findings per
+paper (discarding any whose quote is not in the paper; none was) into a graph of papers, genes,
+variants, phenotypes and inheritance; case table first extracts one record per reported patient or
+family per paper and pools them. In both, the writer sees only the intermediate, synopsis terms are
+computed by rule, and so is inheritance for the table. Memory first: recall, then verify writes from
+memory, audits the draft against the papers, and keeps supported claims, restates partly supported
+ones, corrects contradicted ones and deletes the rest; it may not add content from the papers. The
+memory-only control is the memory draft with no papers, audited but not repaired. The add-ons are
+second-hand evidence on direct reading (for a paper not readable in full, passages from later open-
+access papers that describe it), the reconciled case database on case table first (merging the same
+patient, family or variant across papers), and a learned curation guide on direct reading (rules
+learned in two reflection rounds from 27 training entries). These are our own implementations;
+published systems were not run. The four strategies that read the papers are the reading strategies.
+Guards and model. For every strategy, ontology identifiers are chosen by the model only from
+candidates returned by an ontology search, gene symbols are normalised against HGNC (Seal et al.,
+2023), entry cross-reference numbers recalled from memory are removed, and every paragraph must
+cite a supplied paper. One model, Claude Opus 5.5, does everything, called through a command-line
+interface in headless mode with schema-constrained output; the interface exposes no temperature or
+seed. Reasoning effort is high for writers and medium otherwise (Appendix B); no strategy has web
+access, and replies are cached. When the model’s safety filter stops a reply, it comes back empty,
+is recorded as stopped by the model’s safety filter and is never retried with a changed prompt; the
+reasons are not visible.
+3.3
+AUDIT, SCORING AND STATISTICS
+Completion. S completes e when its draft exists and no per-paper call failed. A one-call strategy
+whose reply is stopped loses the entry, whereas a per-paper strategy loses a paper; scoring the second
+and excluding the first would bias the comparison. Strategies are therefore compared on entries all
+of them completed, completion is an outcome, and a sensitivity analysis counts a missing draft as
+zero.
+Audit. Each paragraph is split into atomic claims c attributed to the papers R(c) ⊆R it cites. Each
+paper receives its claims and returns a verdict v(c, d) ∈{supported, partly supported, unsupported,
+contradicted} with a quote; a “supported” verdict whose quote is not found verbatim in the paper is
+downgraded. A claim’s verdict is the best over R(c). Flagged (unsupported or contradicted) claims
+get one repair round.
+Definitions used throughout. A curator paragraph g is an in-scope OMIM allelic-variant descrip-
+tion. Its fixed fact list Φ(g) was produced once, without sight of any draft, and is reused for every
+strategy; splitting afresh for each draft would let the split adapt to the draft and give strategies dif-
+ferent denominators. Each fact is marked present, partly present (stated less precisely), absent or
+contradicted in what D says about the paragraph’s papers, and
+coverage(D) = #present + 1
+2 #partly present
+#facts judged
+.
+(1)
+No fact went unjudged in any run. OMIM facts conveyed, the primary endpoint, is this coverage
+averaged over entries (the mean over entries); paired differences are means over entries of per-entry
+differences. Every level in the main text is a mean over entries unless it is marked pooled, i.e. the
+same ratio over all facts in a group, the only form in which the attributions of missed and conveyed
+facts exist. A claim is judged supported when the audit’s final verdict is “supported”; this is a
+judgement of fidelity to the cited text by the model family that wrote the draft, not of correctness,
+and unsupported is not wrong. Finally, each fixed fact carries a judgement of whether the text
+available for its paper states, partly states or does not state it (a “stated” verdict needs a quote
+verified in that text). It is a property of the supplied text, the same for every strategy, and a model
+5
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+Under review as a conference paper at ICLR 2025
+judgement. The reference covers a minority of the task: 24% of a direct-reading draft’s statements
+have a counterpart in the paragraph (Appendix H).
+Secondary measures. Precision, recall and F1 of synopsis terms against the HPO annotations,
+exactly, hierarchically (both sets expanded with all ancestors) and by Lin semantic similarity, an
+ontology-aware comparison in the spirit of K¨ohler et al. (2009); recall and precision of allelic vari-
+ants, matched on normalised protein or nucleotide change with a model judge for names that do not
+normalise (precision counts a variant OMIM does not list as a miss whether or not the paper reports
+it); causal-gene F1; and inheritance agreement. A strategy that predicts nothing where the reference
+is not empty scores zero.
+Statistics. We report paired differences from direct reading with a bootstrap 95% interval over
+entries (10,000 resamples; Efron, 1979), the number of entries better, worse and tied, the median
+difference and an exact sign test (Dixon & Mood, 1946), with Holm correction (Holm, 1979) across
+the secondary headline measures; the primary endpoint is not adjusted. The interval over entries is
+the test of a difference. The main comparison is one run per entry; as a yardstick for how much a
+difference moves when generation, audit and scoring are repeated, we report replicate noise from
+three replicates on 30 entries. “Points” are percentage points.
+4
+EXPERIMENTS
+Appendix Table 3 lists every experiment with its entry set and the number of entries compared.
+Every result rests on judgements by the model family that wrote the drafts; none was validated by a
+person.
+4.1
+WHAT LIMITS AGREEMENT: ACCESS TO THE SOURCE
+Curators wrote from full papers, so a draft written from an abstract must convey less of what they
+wrote; the direction of the access effect is expected. What we measure is its size within the same
+papers, and how much of what the drafts lack was in the text they were given, with three analyses: a
+within-paper manipulation, an attribution of missed facts and a provenance check of conveyed facts.
+Section 4.3 compares strategies on the facts the text states.
+Hiding the full text of the same papers. In 49 entries, the 91 papers readable in full were hidden
+and each entry was rewritten by direct reading from their abstracts, with and without second-hand
+passages from later open-access papers; all conditions are scored on the 46 entries with a full-text
+draft (136 paragraphs, the same 2,120 fixed facts). The full-text arm is the main run’s direct-reading
+draft taken before the audit’s repair round, so no arm is repaired (Figure 2). Coverage is 79.8%
+with the full text and 36.1% from the abstracts (paired difference +43.7 points, +38.3 to +49.1; 45
+entries higher, none lower, one tied); second-hand passages raise abstract-only coverage to 40.9%
+(+4.9, +2.8 to +7.1; 33 better, 9 worse, 4 tied). After repair the difference is +43.9 (Appendix
+Table 22).
+Where the missed facts went. Each fact that direct reading did not fully convey was checked
+against the text available for its paper (Figure 3; pooled). For full-text papers, 245 of 501 missed
+facts (49%) were stated in the text the model read; for abstract-only papers 46 of 2,837 (2%), and for
+title-only papers none of 341. Over all 6,498 facts, 43% were conveyed, 4% were omitted although
+stated in the available text, 13% were omitted and partly stated, and 40% were not in the available
+text.
+Where the conveyed facts came from. Every fact direct reading conveyed was checked against the
+writer’s text for its paper and, if not stated there, against the entry’s other supplied papers (pooled;
+Appendix Table 17). Of the 1,420 facts conveyed in full from abstract-only papers, 1,061 (74.7%)
+are stated in the paper’s own abstract, 222 (15.6%) are partly stated there, 102 (7.2%) are stated
+only in another supplied paper, 11 (0.8%) are partly stated only in another supplied paper, and 24
+(1.7%) are stated in no supplied text; over abstract- and title-only papers together, 24 of 1,458. Facts
+conveyed only in part are more often outside the text: 58 of 583 (10.0%) for abstract-only papers.
+A fact stated in no supplied text may have been recalled, inferred from what the text does state, or
+misjudged.
+6
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+Under review as a conference paper at ICLR 2025
+Figure 2: OMIM facts conveyed for the same papers
+with their full text hidden (46 entries, 136 paragraphs).
+Full-text arm: the direct-reading draft before the re-
+pair round, so no arm was repaired. Bars: fact counts
+pooled over the same 2,120 fixed facts in each condi-
+tion (contradicted facts, 4, 10 and 10, are too few to
+see). Printed: coverage as the mean over the 46 en-
+tries, and the paired difference from the abstract-only
+draft with its bootstrap 95% interval over entries.
+Figure 3:
+Where the facts direct read-
+ing did not fully convey went (97 en-
+tries, 466 paragraphs; pooled over facts).
+Each missed fact was checked once against
+the text available for its paper, a model
+judgement; partly conveyed facts count as
+missed. Above each bar: facts and the share
+of missed facts stated in the available text.
+Table 1: Main comparison on the 93 entries every strategy completed (means over entries). Facts:
+OMIM facts conveyed (primary endpoint). ∆: paired difference from direct reading in points,
+bootstrap 95% interval, and entries better/worse/tied. Secondary: claims judged supported (after
+repair, except for the memory-only control, which is audited but not repaired), synopsis HPO F1
+(exact), OMIM variants recovered, variant precision, causal-gene F1 and inheritance match (%).
+Subscripts give n where fewer than 93 entries contribute; variant precision rests on only 23 entries
+for recall, then verify and 30 for the memory-only control.
+Strategy
+Facts
+∆facts (95% CI); b/w/t
+Supp. HPO F1 Var. rec. Var. prec. Gene Inher.
+Read and write
+Direct reading
+49.1
+—
+96.1
+35.9
+66.5
+88.782
+97.5
+93.5
+Agentic curator
+48.4
+−0.6 (−1.3, +0.0); 31/42/20
+96.4
+35.6
+65.9
+87.982
+97.5
+93.5
+Extract, then write
+Evidence graph
+48.6
+−0.5 (−1.5, +0.5); 33/45/15
+96.5
+34.6
+65.9
+76.987
+98.2
+92.5
+Case table first
+47.2
+−1.9 (−3.1, −0.8); 31/48/14
+94.7
+34.0
+64.3
+72.988
+93.9
+91.4
+Memory first
+Recall, then verify 14.6 −34.5 (−39.2, −29.9); 2/89/2 94.292
+24.9
+11.6
+100.023
+82.8
+73.1
+Control
+Memory only
+15.1 −34.0 (−39.3, −28.7); 7/85/1
+50.8
+30.6
+15.2
+97.230
+83.9
+82.8
+4.2
+CONTROLLED COMPARISON OF THE STRATEGIES
+Completion. Of the 100 entries, 93 were completed by all six strategies; the memory-based strate-
+gies completed all 100, and the others lost one to three drafts or had incomplete entries (Appendix
+Table 5).
+Three reading strategies are close; case table first is behind. On the primary endpoint, direct
+reading, the evidence graph and the agentic curator lie within 0.7 points of one another (Table 1).
+The evidence graph’s difference from direct reading, −0.5, has an interval that includes zero; the
+agentic curator’s, −0.6, has one that touches zero (−1.3 to +0.0), with better/worse counts (31/42)
+that lean negative; case table first’s, −1.9 (−3.1 to −0.8), excludes zero. As a yardstick for how
+7
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+Under review as a conference paper at ICLR 2025
+Table 2: OMIM facts conveyed restricted by whether the supplied text states the fact (a model
+judgement, unchecked by a curator), on the 93 compared entries. Each level is a mean over the
+entries with facts in the restriction (n); ∆: paired difference from direct reading in points with
+bootstrap 95% interval over those entries.
+Stated (n = 89)
+Stated, full-text papers (n = 40)
+Not stated (n = 90)
+Strategy
+%
+∆(95% CI)
+%
+∆(95% CI)
+%
+∆(95% CI)
+Direct reading
+94.4
+—
+88.5
+—
+6.9
+—
+Agentic curator
+93.6
+−0.8 (−2.6, +0.4)
+88.3
+−0.2 (−1.8, +1.2)
+6.3 −0.5 (−1.8, +1.0)
+Evidence graph
+94.2
+−0.3 (−2.1, +1.3)
+90.2
++1.7 (−0.7, +4.0)
+5.5 −1.4 (−3.4, +0.7)
+Case table first
+91.0
+−3.4 (−5.6, −1.6)
+80.1
+−8.4 (−14.3, −3.8)
+5.9 −1.0 (−3.1, +1.2)
+Recall, then verify 28.8 −65.6 (−70.6, −60.2) 13.6
+−74.9 (−80.2, −69.3)
+2.1 −4.8 (−6.7, −3.0)
+Memory only
+23.3 −71.1 (−75.9, −66.0) 10.9
+−77.6 (−82.5, −72.3)
+8.2 +1.3 (−1.4, +4.6)
+much such differences move, repeating generation, audit and scoring three times on 30 entries gives
+a replicate-noise 95% half-width of 1.0 point on a difference between two strategies over 93 entries
+(1.8 over 30) (Appendix E). On those 30 entries the evidence graph’s difference from direct reading
+was +0.7, +1.9 and +0.5 points in the three replicates, opposite in sign to its −0.5 on the 93 entries,
+an illustration of that noise. On 20 entries created in 2026, not used in developing the strategies, the
+ordering is the same (Appendix I.2).
+Measurement choices move differences of this size. Excluding entries whose writer was stopped
+while scoring entries with a stopped per-paper call placed the evidence graph 2.1 points below direct
+reading; under a symmetric rule the difference is not distinguishable from zero. Splitting facts afresh
+for each draft gives levels 2–5 points higher, with the same ordering; counting missing drafts as zero
+gives intervals that include zero for all three other reading strategies (Appendix Tables 6 and 8).
+Secondary measures. Extract-then-write raises synopsis recall at lower precision and produces
+more variants OMIM does not list (111 and 130 against 36, pooled; Appendix Tables 6 and 10).
+Recall, then verify may not add content from the papers, so its low coverage is partly by construction.
+Everything costs $1.15–$1.18 per entry at list price for read-and-write and $1.72–$1.78 for extract-
+then-write (Appendix Table 11).
+4.3
+STRATEGIES COMPARED ON THE FACTS THE SUPPLIED TEXT STATES
+Of the 6,239 fixed facts of the 93 compared entries, the supplied text states 2,372, partly states 1,198
+and does not state 2,669 (for full-text papers 1,246 of 1,639 facts are stated, for abstract-only papers
+1,099 of 4,221, for title-only papers 27 of 379). Because this judgement is a property of the supplied
+text, every strategy is scored on the same facts in each restriction (Table 2; Appendix Table 18).
+On stated facts, direct reading conveys 94.4%, the evidence graph 94.2% and the agentic cura-
+tor 93.6%, and their differences from direct reading have intervals that include zero. On facts the
+text does not state, the reading strategies convey 5.5–6.9%, no more than the memory-only con-
+trol’s 8.2%. This contrast, with the within-paper experiment, is the evidence that access bounds
+agreement: on what was readable, three strategies convey nearly all of it. Two caveats apply. The
+judgement of what the text states is the model’s; and the restriction has a ceiling of its own: on facts
+stated in abstract-only papers the reading strategies convey 95.5–97.1% and most entries tie (58 of
+79 for the evidence graph). Case table first is the exception. Its deficit is larger on stated facts (−3.4;
+16 entries better, 42 worse, 31 tied) than overall (−1.9), and largest on facts stated in full-text papers
+(−8.4; 9/28/3), where it conveys 80.1% against 88.5%.
+4.4
+ENTRIES WITH MORE FULL TEXT: AN OBSERVATIONAL COMPARISON
+Grouping the 93 entries by the share of references readable in full gives 46 with none, 25 with under
+half and 21 with half or more; the one entry with all references in full text is in no group (Figure 4;
+Appendix Table 13). It is observational: across entries, few per group, confounded with creation
+date and journal. One pattern is consistent across analyses: case table first falls behind where full
+text is readable (−4.0 (−6.3 to −2.0) and −6.1 (−8.3 to −3.6) points in the groups with full text
+8
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+Under review as a conference paper at ICLR 2025
+Figure 4: Paired difference from direct reading
+in OMIM facts conveyed (points, means over en-
+tries, 95% intervals) by the share of an entry’s
+references readable in full; the one entry with all
+references in full text is in no group. Shaded:
+replicate-noise half-widths over 93 (±1.0) and 30
+entries (±1.8), a yardstick, not a test. Memory-
+based strategies are off scale (−18.1 to −59.6;
+Appendix Table 13). Observational.
+Figure 5:
+OMIM facts conveyed (top) and
+causal-gene F1 (bottom), memory-only control
+and direct reading, means over entries by cre-
+ation era (entries per band 18, 19, 20, 19, 17).
+Hollow markers:
+20 entries created June to
+November 2026.
+A contamination check, not
+proof that reading is free of memorisation.
+against +0.6 (−0.3 to +1.6) without; −8.4 on facts stated in full-text papers). The evidence graph
+is not consistent: −1.8 (−4.4 to +0.7) in the top group, but +1.7 on facts stated in full-text papers
+and +1.0 (−0.9 to +2.8) on the 38 entries of the matched ablation. The ablation reuses the main
+run’s drafts for direct reading, the evidence graph and case table first, so the estimates differ only
+in the entries averaged: on the ablation’s 19 entries with half or more full text the evidence graph’s
+difference is −1.2 (−3.8 to +1.3), and on its other 19 it is +3.1 (+1.0 to +5.6). The agentic curator,
+too, trails in the top group (−2.0, −3.4 to −0.7) but not on facts stated in full-text papers (−0.2). We
+therefore do not claim that the reading strategies in general separate where more full text is readable.
+4.5
+WHAT THE AUDIT CAN AND CANNOT SEE
+What it removes. The memory-only control, audited but never repaired, has 50.8% of claims
+judged supported, 22.1% unsupported and 0.6% contradicted; the other paradigms reach 94.2–
+96.5% judged supported. In 60 paragraphs the audit had passed, one fact was altered by rule (a
+count, a zygosity, a residue or a mode of inheritance); the audit flagged all 60, each on a claim with
+the altered value. This planted-error test is not a sensitivity estimate: it shows that blunt single-value
+substitutions in paragraphs the audit had passed are caught. Re-audited unaltered with fresh model
+calls, the same 60 paragraphs drew no flag (0 of 361 claims flagged; 6 partly supported, 3 not au-
+ditable): the rate at which a re-audit flags a paragraph that had passed once, not a false-flag rate on
+arbitrary paragraphs. Omissions and misattributed citations remain untested.
+What it cannot see. Of 112 claims about hidden papers whose supporting quote came from a later
+paper’s passage, the full text supports 74, partly supports 24, does not support 11 (an upper bound,
+as supplements are excluded) and contradicts 3; an audit against what the writer saw passes them.
+The audit checks fidelity, not correctness: a draft that copies a source’s error passes. Of 37 facts on
+which a direct-reading draft contradicted the reference, the same model judged the paper to support
+the draft in 22 (13 undecidable): unconfirmed leads.
+4.6
+THE MEMORY-ONLY CONTROL AS A CONTAMINATION CHECK
+The memory-only control conveys 5.7% of facts for entries from 620000 onward (12.6–24.1% for
+older bands) and 7.0% on the 2026 entries, against 52.2% for direct reading (Figure 5): memory
+9
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+Under review as a conference paper at ICLR 2025
+alone contributes little for the newest entries. This does not show that reading results are free of
+memorisation: a fact the abstract states may also be recalled, and within abstract-only papers direct-
+reading coverage declines from 49.8% (600000–609999) to 37.9% (620000 onward; pooled).
+4.7
+MATCHED ABLATION OF THE EXTRACT-THEN-WRITE IMPLEMENTATIONS
+On 40 entries weighted towards full text (22 with at least half their papers in full text, 29 with at
+least one; 38 compared), matched raises per-paper extraction to high effort and lets the writer choose
+synopsis terms (and, for case table first, inheritance); plus text also gives the writer the papers’ text.
+Matching moves case table first from −2.3 to −0.2 points against direct reading (matched minus
+original +2.1, +1.1 to +3.2) and the evidence graph from +1.0 (−0.9 to +2.8) to +1.8 (+0.4
+to +3.3; Appendix Tables 20–21). The two changes in matched were made together. Choosing
+synopsis terms cannot change which facts are extracted, so we attribute the gain in facts to extraction
+effort; that attribution is an inference, not a separate measurement. Adding the papers’ text raises
+claims judged supported but not facts.
+4.8
+ADD-ONS: ONE SMALL GAIN WITH COSTS, AND TWO NULLS
+Second-hand evidence raises OMIM facts conveyed by +1.8 points (+1.0 to +2.8; 96 entries)
+but also unsupported claims before repair (0.4% to 3.9%). The learned curation guide did not
+improve its own training entries and changed facts by +1.0 (+0.0 to +2.0) on 68 held-out entries.
+Reconciliation changed facts by +0.1 (−0.1 to +0.4) and no other score; the case database was not
+validated against per-patient ground truth (Appendices G–H).
+5
+DISCUSSION AND LIMITATIONS
+In the regime tested (2–12 references, 19% of papers readable in full, inputs that fit one prompt,
+one model), what the strategy was given to read limits agreement far more than how it reads. Case
+table first falls behind where full text is readable; whether the others separate there is not settled.
+Measurement lessons: handle stopped replies symmetrically; fix fact lists before scoring; compare
+strategies on the facts the supplied text states, to separate reading from access; report run-to-run
+noise beside intervals over entries; and match settings unrelated to the representation before blaming
+it.
+Limitations. (i) One model family wrote, audited and judged everything, including what the sup-
+plied text states; no human has read any draft, verdict or fact judgement, and whether the strategies
+stay close for other model families is unknown. (ii) The reference is indirect and narrow (variant-
+centred paragraphs, two-source ontology annotations, gene and inheritance tables; no narrative sec-
+tions); other draft content is checked only by the audit. (iii) Every strategy is given the curators’
+reference list (retrieval was tested on ten entries; Appendix I.3). (iv) Only open-access text with-
+out supplementary material was available; whether a conveyed fact the abstract states was read or
+recalled cannot be separated. (v) Variant names are not validated against sequences; inheritance is
+compared as coarse classes. (vi) Strategies were developed on the main entries; the 2026 set has 20
+compared entries and five strategies. (vii) Stopped replies remove entries unevenly. (viii) Entries
+with few references dominate, and inputs too large for one prompt were not tested (Appendix I.1).
+(ix) The audit was not tested on omissions or misattributed citations. (x) Cost is at list price for one
+model.
+6
+CONCLUSION
+On 100 OMIM entries drafted by one model from exactly the cited papers, what limits agreement
+with curator-written text is access to the source. Hiding the full text of the same papers lowers
+coverage from 79.8% to 36.1%; three reading strategies convey 93.6–94.4% of the facts the supplied
+text states and almost none of the rest. Case table first falls behind where full text is readable. No
+judgement was validated by a person.
+10
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+Under review as a conference paper at ICLR 2025
+ETHICS STATEMENT
+The benchmark is built from public resources (NCBI, ClinVar, HPO, MedGen, Europe PMC,
+HGNC). Curator-written text is used for scoring and is not redistributed; released score files carry
+fact identifiers and statuses, not wording, and rights holders’ terms of use for curated text apply to
+anyone rebuilding the reference. No human subjects were involved, and no patient-level data beyond
+what published papers report were used. Generated entries are drafts for expert review and are not
+clinical guidance; they must be marked as machine generated and not as OMIM content. No curator
+has checked any draft, and the disagreements between drafts and the reference reported here are
+unconfirmed.
+REPRODUCIBILITY STATEMENT
+Section 3 specifies the entry sampling (fixed seed, five creation-era bands, eligibility rules), the
+reference sources, the strategies, guards, audit, scoring and statistics; Appendix B lists the model
+settings and Appendix Table 3 the entry sets of every experiment. One model (Claude Opus 5.5) was
+used through a command-line interface in headless mode with schema-constrained output; it exposes
+no temperature or seed, so exact regeneration is not guaranteed, and we instead report replicate and
+judge variation (Appendix E). Replies are cached, so each call was made once. All experiments,
+pilots and repeated scoring used 38,505 cached model calls, 260 million input and 69 million output
+tokens, about $2,896 at list price. The curator-written text is not redistributed, but every part of
+the reference comes from public resources (ClinVar, HPO, MedGen), from which it can be rebuilt
+under the rights holders’ terms of use; the released score files carry fact identifiers and statuses,
+not wording. The harness and per-entry drafts, verdicts and scores are released with the paper as
+supplementary material.
+REFERENCES
+Lakshya A Agrawal, Shangyin Tan, Dilara Soylu, Noah Ziems, Rishi Khare, Krista Opsahl-Ong,
+Arnav Singhvi, Herumb Shandilya, Michael J Ryan, Meng Jiang, et al. GEPA: Reflective prompt
+evolution can outperform reinforcement learning. In ICLR 2026, 2026.
+A. Allot, C. H. Wei, L. Phan, T. Hefferon, M. Landrum, H. L. Rehm, and Z. Lu. Tracking genetic
+variants in the biomedical literature using LitVar 2.0. Nature Genetics, 55(6):901–903, 2023. doi:
+10.1038/s41588-023-01414-x. PMID: 37268776.
+J. S. Amberger, C. A. Bocchini, A. F. Scott, and A. Hamosh. OMIM.org: leveraging knowledge
+across phenotype-gene relationships.
+Nucleic Acids Research, 47:D1038–D1043, 2019.
+doi:
+10.1093/nar/gky1151. PMID: 30445645.
+Joanna S. Amberger, Carol A. Bocchini, Franc¸ois Schiettecatte, Alan F. Scott, and Ada Hamosh.
+OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes
+and genetic disorders. Nucleic Acids Research, 43:D789–D798, 2014. doi: 10.1093/nar/gku1205.
+Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi. Self-RAG: Learning
+to Retrieve, Generate, and Critique through Self-Reflection. arXiv preprint arXiv:2310.11511,
+2023.
+Akari Asai, Jacqueline He, Rulin Shao, Weijia Shi, Amanpreet Singh, Joseph Chee Chang, Kyle
+Lo, Luca Soldaini, Sergey Feldman, Mike D’arcy, et al. OpenScholar: Synthesizing Scientific
+Literature with Retrieval-augmented LMs. arXiv preprint arXiv:2411.14199, 2024.
+James P. Balhoff and Hilmar Lapp. Frontier LLM-based agents can overcome the ontology curation
+bottleneck for natural phenotypes. arXiv, 2026.
+Harry Caufield, Carlo Kroll, Shawn T O’Neil, Justin T Reese, Marcin P Joachimiak, Harshad Hegde,
+Nomi L Harris, Madan Krishnamurthy, James A McLaughlin, Damian Smedley, et al. CurateGPT:
+A flexible language-model assisted biocuration tool. arXiv, 2024a.
+11
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+Under review as a conference paper at ICLR 2025
+J Harry Caufield, Harshad Hegde, Vincent Emonet, Nomi L Harris, Marcin P Joachimiak, Nico-
+las Matentzoglu, HyeongSik Kim, Sierra Moxon, Justin T Reese, Melissa A Haendel, Peter N
+Robinson, and Christopher J Mungall.
+Structured prompt interrogation and recursive extrac-
+tion of semantics (SPIRES): a method for populating knowledge bases using zero-shot learning.
+Bioinformatics, 40(3):btae104, 2024b. doi: 10.1093/bioinformatics/btae104.
+Simin Chen, Yiming Chen, Zexin Li, Yifan Jiang, Zhongwei Wan, Yixin He, Dezhi Ran, Tianle Gu,
+Haizhou Li, Tao Xie, et al. Recent Advances in Large Langauge Model Benchmarks against Data
+Contamination: From Static to Dynamic Evaluation. arXiv preprint arXiv:2502.17521, 2025.
+Yuxing Cheng, Yi Chang, and Yuan Wu. A Survey on Data Contamination for Large Language
+Models. arXiv preprint arXiv:2502.14425, 2025.
+K Bretonnel Cohen, Helen L Johnson, Karin Verspoor, Christophe Roeder, and Lawrence E Hunter.
+The structural and content aspects of abstracts versus bodies of full text journal articles are differ-
+ent. BMC Bioinformatics, 11, 2010. doi: 10.1186/1471-2105-11-492.
+Chunyuan Deng, Yilun Zhao, Yuzhao Heng, Yitong Li, Jiannan Cao, Xiangru Tang, and Arman
+Cohan. Unveiling the Spectrum of Data Contamination in Language Models: A Survey from
+Detection to Remediation. arXiv preprint arXiv:2406.14644, 2024.
+Shehzaad Dhuliawala, Mojtaba Komeili, Jing Xu, Roberta Raileanu, Xian Li, Asli Celikyilmaz, and
+Jason Weston. Chain-of-verification reduces hallucination in large language models. In Findings
+of ACL 2024, 2024.
+W. J. Dixon and A. M. Mood. The Statistical Sign Test. Journal of the American Statistical Associ-
+ation, 41:557–566, 1946. doi: 10.1080/01621459.1946.10501898.
+Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt,
+Dasha Metropolitansky, Robert Osazuwa Ness, and Jonathan Larson. From local to global: A
+Graph RAG approach to query-focused summarization. arXiv, 2024.
+B. Efron. Bootstrap Methods: Another Look at the Jackknife. The Annals of Statistics, 7:1–26,
+1979. doi: 10.1214/aos/1176344552.
+Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, and Tim Rockt¨aschel.
+Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution. In International Con-
+ference on Machine Learning, 2024.
+V. Furlan, J. Moran, N. B. Salazar, O. Rennie, N. Hoang, A. wan, M. Mendes de Aquino, W. En-
+gchuan, J. A. S. Vorstman, and S. W. Scherer. EAGLE-AI: A large language model workflow for
+automated extraction and scoring of literature evidence linking genes to autism spectrum disorder.
+medRxiv, 2025.
+Luyu Gao, Zhuyun Dai, Panupong Pasupat, Anthony Chen, Arun Tejasvi Chaganty, Yicheng Fan,
+Vincent Y. Zhao, Ni Lao, Hongrae Lee, Da-Cheng Juan, et al. RARR: Researching and Revising
+What Language Models Say, Using Language Models. In Proceedings of the 61st Annual Meeting
+of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 16477–16508,
+2023a. doi: 10.18653/v1/2023.acl-long.910.
+Tianyu Gao, Howard Yen, Jiatong Yu, and Danqi Chen. Enabling large language models to generate
+text with citations. In EMNLP 2023, 2023b.
+B. T. Garcia, L. Westerfield, P. Yelemali, N. Gogate, E. A. Rivera-Munoz, H. Du, M. Dawood,
+A. Jolly, J. R. Lupski, and J. E. Posey. Improving automated deep phenotyping through large
+language models using retrieval-augmented generation. Genome Medicine, 17(1):91, 2025. doi:
+10.1186/s13073-025-01521-w. PMID: 40826123.
+M. A. Gargano, N. Matentzoglu, B. Coleman, E. B. Addo-Lartey, A. V. Anagnostopoulos, J. Ander-
+ton, P. Avillach, A. M. Bagley, E. Bakˇstein, J. P. Balhoff, et al. The Human Phenotype Ontology
+in 2024: phenotypes around the world. Nucleic Acids Research, 52:D1333–D1346, 2024. doi:
+10.1093/nar/gkad1005. PMID: 37953324.
+12
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+Under review as a conference paper at ICLR 2025
+Shahriar Golchin and Mihai Surdeanu. Time Travel in LLMs: Tracing data contamination in large
+language models. In ICLR 2024, 2024.
+Shahriar Golchin and Mihai Surdeanu. Data Contamination Quiz: A Tool to Detect and Estimate
+Contamination in Large Language Models. Transactions of the Association for Computational
+Linguistics, 13:809–830, 2025. doi: 10.1162/tacl.a.20.
+T. Groza, H. Caufield, D. Gration, G. Baynam, M. A. Haendel, P. N. Robinson, C. J. Mungall, and
+J. T. Reese. An evaluation of GPT models for phenotype concept recognition. BMC Medical
+Informatics and Decision Making, 24(1):30, 2024a. doi: 10.1186/s12911-024-02439-w. PMID:
+38297371.
+T. Groza, D. Gration, G. Baynam, and P. N. Robinson. FastHPOCR: pragmatic, fast, and accurate
+concept recognition using the human phenotype ontology. Bioinformatics, 40(7):btae406, 2024b.
+doi: 10.1093/bioinformatics/btae406. PMID: 38913850.
+T. Groza, A. J. Marcello, T. Carlisle, W. K. Lim, M. Haendel, N. Karnani, P. N. Robinson, H. Graess-
+ner, J. X. Chong, G. Baynam, and S. S. Jamuar. A systematic assessment of large language mod-
+els’ knowledge of rare diseases: How much do large language models know about rare disease?
+HGG Advances, 7(1):100558, 2026. doi: 10.1016/j.xhgg.2025.100558. PMID: 41383021.
+Qingyan Guo, Rui Wang, Junliang Guo, Bei Li, Kaitao Song, Xu Tan, Guoqing Liu, Jiang Bian,
+and Yujiu Yang. EvoPrompt: Connecting LLMs with Evolutionary Algorithms Yields Powerful
+Prompt Optimizers. arXiv preprint arXiv:2309.08532, 2023.
+Bernal Jim´enez Guti´errez, Yiheng Shu, Yu Gu, Michihiro Yasunaga, and Yu Su. HippoRAG: Neu-
+robiologically Inspired Long-Term Memory for Large Language Models. In Advances in Neural
+Information Processing Systems 37, pp. 59532–59569, 2024. doi: 10.52202/079017-1902.
+A. Hamosh, J. S. Amberger, C. Bocchini, A. F. Scott, and S. A. Rasmussen. Online Mendelian
+Inheritance in Man (OMIM®): Victor McKusick’s magnum opus. American Journal of Medical
+Genetics. Part A, 185(11):3259–3265, 2021. doi: 10.1002/ajmg.a.62407. PMID: 34169650.
+Haoyu Han, Li Ma, Yu Wang, Harry Shomer, Yongjia Lei, Zhisheng Qi, Kai Guo, Zhigang Hua,
+Bo Long, Hui Liu, Charu C. Aggarwal, and Jiliang Tang. RAG vs. GraphRAG: A systematic
+evaluation and key insights. arXiv, 2025.
+Sture Holm.
+A simple sequentially rejective multiple test procedure.
+Scandinavian Journal of
+Statistics, 6(2):65–70, 1979.
+M. Hu, S. Alkhairy, I. Lee, R. T. Pillich, D. Fong, K. Smith, R. Bachelder, T. Ideker, and D. Pratt.
+Evaluation of large language models for discovery of gene set function. Nature Methods, 22(1):
+82–91, 2025. doi: 10.1038/s41592-024-02525-x. PMID: 39609565.
+Naman Jain, King Han, Alex Gu, Wen-Ding Li, Fanjia Yan, Tianjun Zhang, Sida Wang, Armando
+Solar-Lezama, Koushik Sen, and Ion Stoica. LiveCodeBench: Holistic and Contamination Free
+Evaluation of Large Language Models for Code. In International Conference on Learning Rep-
+resentations, 2025.
+H. Jergas and C. Baethge. Quotation accuracy in medical journal articles-a systematic review and
+meta-analysis. PeerJ, 3:e1364, 2015. doi: 10.7717/peerj.1364. PMID: 26528420.
+Qiao Jin, Yifan Yang, Qingyu Chen, and Zhiyong Lu. GeneGPT: Augmenting Large Language
+Models with Domain Tools for Improved Access to Biomedical Information. Bioinformatics, 40:
+btae075, 2024. doi: 10.1093/bioinformatics/btae075.
+Harshit Joshi, Priyank Shethia, Jadelynn Dao, and Monica S. Lam. SLIDERS: Evidence synthesis
+with autonomous database reconciliation for systematic reviews. arXiv, 2026.
+Omar Khattab, Arnav Singhvi, Paridhi Maheshwari, Zhiyuan Zhang, Keshav Santhanam, Sri Vard-
+hamanan, Saiful Haq, Ashutosh Sharma, Thomas T. Joshi, Hanna Moazam, et al.
+DSPy:
+Compiling Declarative Language Model Calls into Self-Improving Pipelines.
+arXiv preprint
+arXiv:2310.03714, 2023.
+13
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+Under review as a conference paper at ICLR 2025
+Junyoung Kim, Kai Wang, Chunhua Weng, and Cong Liu. Assessing the utility of large language
+models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease. The
+American Journal of Human Genetics, 111:2190–2202, 2024. doi: 10.1016/j.ajhg.2024.08.010.
+Sebastian K¨ohler, Marcel H. Schulz, Peter Krawitz, Sebastian Bauer, Sandra D¨olken, Claus E. Ott,
+Christine Mundlos, Denise Horn, Stefan Mundlos, and Peter N. Robinson. Clinical Diagnostics
+in Human Genetics with Semantic Similarity Searches in Ontologies. The American Journal of
+Human Genetics, 85:457–464, 2009. doi: 10.1016/j.ajhg.2009.09.003.
+M. J. Landrum, S. Chitipiralla, K. Kaur, G. Brown, C. Chen, J. Hart, D. Hoffman, W. Jang, C. Liu,
+Z. Maddipatla, et al. ClinVar: updates to support classifications of both germline and somatic
+variants. Nucleic Acids Research, 53:D1313–D1321, 2025. doi: 10.1093/nar/gkae1090. PMID:
+39578691.
+Melissa J Landrum, Jennifer M Lee, Mark Benson, Garth R Brown, Chen Chao, Shanmuga Chi-
+tipiralla, Baoshan Gu, Jennifer Hart, Douglas Hoffman, Wonhee Jang, et al. ClinVar: improving
+access to variant interpretations and supporting evidence. Nucleic Acids Research, 46:D1062–
+D1067, 2017. doi: 10.1093/nar/gkx1153.
+Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal,
+Heinrich K¨uttler, Mike Lewis, Wen tau Yih, Tim Rockt¨aschel, et al. Retrieval-Augmented Genera-
+tion for Knowledge-Intensive NLP Tasks. In Advances in Neural Information Processing Systems,
+2020.
+Kuan Li, Liwen Zhang, Yong Jiang, Pengjun Xie, Fei Huang, Shuai Wang, and Minhao Cheng.
+LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs – No Silver
+Bullet for LC or RAG Routing. arXiv preprint arXiv:2502.09977, 2025a.
+S. Li, Y. Wang, C. M. Liu, Y. Huang, T. W. Lam, and R. Luo. AutoPM3: enhancing variant inter-
+pretation via LLM-driven PM3 evidence extraction from scientific literature. Bioinformatics, 41
+(7):btaf382, 2025b. doi: 10.1093/bioinformatics/btaf382. PMID: 40586923.
+Xiaomei Li, Alex Whan, Meredith McNeil, Samuel C. Andrew, Xiang Dai, Madeline Fechner,
+C´ecile Paris, and Rad Suchecki. GeneWhisperer: Enhancing manual genome annotation with
+large language models. In openRxiv, 2025c. doi: 10.1101/2025.03.30.646211.
+Xinze Li, Yixin Cao, Yubo Ma, and Aixin Sun. Long Context vs. RAG for LLMs: An Evaluation
+and Revisits. arXiv preprint arXiv:2501.01880, 2025d.
+Zhuowan Li, Cheng Li, Mingyang Zhang, Qiaozhu Mei, and Michael Bendersky. Retrieval aug-
+mented generation or long-context LLMs? a comprehensive study and hybrid approach.
+In
+EMNLP 2024 Industry Track, 2024.
+Nelson F. Liu, Tianyi Zhang, and Percy Liang. Evaluating Verifiability in Generative Search En-
+gines. In Findings of the Association for Computational Linguistics: EMNLP 2023, pp. 7001–
+7025, 2023. doi: 10.18653/v1/2023.findings-emnlp.467.
+Shicheng Liu, Yucheng Jiang, Sajid Farook, Camila Nicollier Sanchez, David Fernando Castro Pena,
+and Monica S. Lam. DataSTORM: Deep research on large-scale databases using exploratory data
+analysis and data storytelling. In COLM 2026, 2026.
+Diana Nelson Louden. MedGen: NCBI’s Portal to Information on Medical Conditions with a Ge-
+netic Component.
+Medical Reference Services Quarterly, 39:183–191, 2020.
+doi: 10.1080/
+02763869.2020.1726152.
+L. Luo, S. Yan, P. T. Lai, D. Veltri, A. Oler, S. Xirasagar, R. Ghosh, M. Similuk, P. N. Robinson, and
+Z. Lu. PhenoTagger: a hybrid method for phenotype concept recognition using human phenotype
+ontology. Bioinformatics, 37(13):1884–1890, 2021. doi: 10.1093/bioinformatics/btab019. PMID:
+33471061.
+Jakub L´ala, Odhran O’Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel G. Rodriques, and
+Andrew D. White. PaperQA: Retrieval-Augmented Generative Agent for Scientific Research.
+arXiv preprint arXiv:2312.07559, 2023.
+14
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+Under review as a conference paper at ICLR 2025
+Potsawee Manakul, Adian Liusie, and Mark J. F. Gales. SelfCheckGPT: Zero-Resource Black-Box
+Hallucination Detection for Generative Large Language Models. In Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing, pp. 9004–9017, 2023. doi:
+10.18653/v1/2023.emnlp-main.557.
+Sewon Min, Kalpesh Krishna, Xinxi Lyu, Mike Lewis, Wen-tau Yih, Pang Wei Koh, Mohit Iyyer,
+Luke Zettlemoyer, and Hannaneh Hajishirzi. FActScore: Fine-grained atomic evaluation of fac-
+tual precision in long form text generation. In EMNLP 2023, 2023.
+Kitty B Murphy, Brian M Schilder, and Nathan G Skene. Harnessing generative AI to annotate the
+severity of all phenotypic abnormalities within the Human Phenotype Ontology. In openRxiv,
+2024. doi: 10.1101/2024.06.10.24308475.
+Reiichiro Nakano, Jacob Hilton, Suchir Balaji, Jeff Wu, Long Ouyang, Christina Kim, Christopher
+Hesse, Shantanu Jain, Vineet Kosaraju, William Saunders, et al.
+WebGPT: Browser-assisted
+question-answering with human feedback. arXiv preprint arXiv:2112.09332, 2021.
+E. Niyonkuru, J. H. Caufield, L. C. Carmody, M. A. Gargano, S. Toro, P. L. Whetzel, H. Blau,
+M. Soto Gomez, E. Casiraghi, L. Chimirri, et al. Leveraging generative AI to assist biocuration
+of medical actions for rare disease. Bioinformatics Advances, 5(1):vbaf141, 2025. doi: 10.1093/
+bioadv/vbaf141. PMID: 40621601.
+Krista Opsahl-Ong, Michael J Ryan, Josh Purtell, David Broman, Christopher Potts, Matei Zaharia,
+and Omar Khattab. Optimizing Instructions and Demonstrations for Multi-Stage Language Model
+Programs. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language
+Processing, pp. 9340–9366, 2024. doi: 10.18653/v1/2024.emnlp-main.525.
+Yonatan Oren, Nicole Meister, Niladri Chatterji, Faisal Ladhak, and Tatsunori B. Hashimoto. Prov-
+ing test set contamination in black box language models. In ICLR 2024, 2024.
+Arjun Panickssery, Samuel R. Bowman, and Shi Feng. LLM evaluators recognize and favor their
+own generations. In NeurIPS 2024, 2024.
+Reid Pryzant, Dan Iter, Jerry Li, Yin Tat Lee, Chenguang Zhu, and Michael Zeng.
+Automatic
+Prompt Optimization with “Gradient Descent” and Beam Search. In Proceedings of the 2023
+Conference on Empirical Methods in Natural Language Processing, pp. 7957–7968, 2023. doi:
+10.18653/v1/2023.emnlp-main.494.
+Owen Queen, Harrison G. Zhang, and James Zou. CGBench: Benchmarking language model sci-
+entific reasoning for clinical genetics research. In NeurIPS 2025, 2025.
+Mathieu Ravaut, Bosheng Ding, Fangkai Jiao, Hailin Chen, Xingxuan Li, Ruochen Zhao, Chengwei
+Qin, Caiming Xiong, and Shafiq Joty. A Comprehensive Survey of Contamination Detection
+Methods in Large Language Models. Transactions on Machine Learning Research, 2025.
+Manley Roberts, Himanshu Thakur, Christine Herlihy, Colin White, and Samuel Dooley.
+Data
+Contamination Through the Lens of Time. arXiv preprint arXiv:2310.10628, 2023.
+P. N. Robinson, S. K¨ohler, S. Bauer, D. Seelow, D. Horn, and S. Mundlos. The Human Phenotype
+Ontology: a tool for annotating and analyzing human hereditary disease. American Journal of
+Human Genetics, 83(5):610–615, 2008. doi: 10.1016/j.ajhg.2008.09.017. PMID: 18950739.
+S. Rosonovski, M. Levchenko, R. Bhatnagar, U. Chandrasekaran, L. Faulk, I. Hassan, M. Jeffryes,
+S. I. Mubashar, M. Nassar, M. Jayaprabha Palanisamy, et al. Europe PMC in 2023. Nucleic Acids
+Research, 52:D1668–D1676, 2024. doi: 10.1093/nar/gkad1085. PMID: 37994696.
+E. W. Sayers, E. E. Bolton, A. M. Fine, C. Kelly, S. Kim, M. Landrum, S. Lathrop, A. Malheiro,
+T. D. Murphy, L. Phan, et al.
+Database resources of the National Center for Biotechnology
+Information in 2026. Nucleic Acids Research, 54:D20–D27, 2026. doi: 10.1093/nar/gkaf1060.
+PMID: 41385079.
+R. L. Seal, B. Braschi, K. Gray, T. E. M. Jones, S. Tweedie, L. Haim-Vilmovsky, and E. A. Bruford.
+Genenames.org: the HGNC resources in 2023. Nucleic Acids Research, 51:D1003–D1009, 2023.
+doi: 10.1093/nar/gkac888. PMID: 36243972.
+15
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+Under review as a conference paper at ICLR 2025
+Shreya Shankar, J. D. Zamfirescu-Pereira, Bj¨orn Hartmann, Aditya G. Parameswaran, and Ian
+Arawjo. Who validates the validators? aligning LLM-assisted evaluation of LLM outputs with
+human preferences. arXiv, 2024.
+Shreya Shankar, Tristan Chambers, Tarak Shah, Aditya G. Parameswaran, and Eugene Wu. Do-
+cETL: Agentic query rewriting and evaluation for complex document processing. Proceedings of
+the VLDB Endowment, 18(9), 2025.
+Yijia Shao, Yucheng Jiang, Theodore A. Kanell, Peter Xu, Omar Khattab, and Monica S. Lam.
+Assisting in writing Wikipedia-like articles from scratch with large language models. In NAACL
+2024, 2024.
+Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi
+Chen, and Luke Zettlemoyer.
+Detecting Pretraining Data from Large Language Models.
+In
+International Conference on Learning Representations, 2024.
+Amanpreet Singh, Joseph Chee Chang, Chloe Anastasiades, Dany Haddad, Aakanksha Naik, Amber
+Tanaka, Angele Zamarron, Cecile Nguyen, Jena D. Hwang, Jason Dunkleberger, et al. Ai2 scholar
+QA: Organized literature synthesis with attribution. In ACL 2025 System Demonstrations, pp.
+513–523, 2025.
+Michael D. Skarlinski, Sam Cox, Jon M. Laurent, James D. Braza, Michaela Hinks, Michael J.
+Hammerling, Manvitha Ponnapati, Samuel G. Rodriques, and Andrew D. White. Language agents
+achieve superhuman synthesis of scientific knowledge. arXiv, 2024.
+Yixiao Song, Yekyung Kim, and Mohit Iyyer. VERISCORE: Evaluating the factuality of verifiable
+claims in long-form text generation. In Findings of the Association for Computational Linguistics:
+EMNLP 2024, pp. 9447–9474, 2024. doi: 10.18653/v1/2024.findings-emnlp.552.
+N. T. Strande, E. R. Riggs, A. H. Buchanan, O. Ceyhan-Birsoy, M. DiStefano, S. S. Dwight, J. Gold-
+stein, R. Ghosh, B. A. Seifert, T. P. Sneddon, et al. Evaluating the clinical validity of gene-disease
+associations: An evidence-based framework developed by the Clinical Genome Resource. Ameri-
+can Journal of Human Genetics, 100(6):895–906, 2017. doi: 10.1016/j.ajhg.2017.04.015. PMID:
+28552198.
+S. Toro, A. V. Anagnostopoulos, S. M. Bello, K. Blumberg, R. Cameron, L. Carmody, A. D. Diehl,
+D. M. Dooley, W. D. Duncan, P. Fey, et al. Dynamic retrieval augmented generation of ontologies
+using artificial intelligence (DRAGON-AI). Journal of Biomedical Semantics, 15(1):19, 2024.
+doi: 10.1186/s13326-024-00320-3. PMID: 39415214.
+H. Twede, L. Pais, S. Bryen, E. O’Heir, G. Smith, R. Paulsen, C. A. Austin-Tse, A. Bloemendal,
+C. Simons, A. K. Hall, et al. The evidence aggregator: AI reasoning applied to rare disease
+diagnostics. Genetics in Medicine, 28(8):102612, 2026. doi: 10.1016/j.gim.2026.102612. PMID:
+42206490.
+P. Wang and K. Wang. PubMind: literature-based genetic variant extraction and functional an-
+notation using large language models.
+Nature Communications, 17(1), 2026.
+doi: 10.1038/
+s41467-026-76834-4. PMID: 42754603.
+Z. Wang, Q. Jin, C. H. Wei, S. Tian, P. T. Lai, Q. Zhu, C. P. Day, C. Ross, R. Leaman, and Z. Lu.
+GeneAgent: self-verification language agent for gene-set analysis using domain databases. Nature
+Methods, 22(8):1677–1685, 2025. doi: 10.1038/s41592-025-02748-6. PMID: 40721871.
+C. H. Wei, A. Allot, P. T. Lai, R. Leaman, S. Tian, L. Luo, Q. Jin, Z. Wang, Q. Chen, and Z. Lu.
+PubTator 3.0: an AI-powered literature resource for unlocking biomedical knowledge. Nucleic
+Acids Research, 52:W540–W546, 2024a. doi: 10.1093/nar/gkae235. PMID: 38572754.
+Chih-Hsuan Wei, Alexis Allot, Robert Leaman, and Zhiyong Lu.
+PubTator central: automated
+concept annotation for biomedical full text articles. Nucleic Acids Research, 47:W587–W593,
+2019. doi: 10.1093/nar/gkz389.
+Jerry Wei, Chengrun Yang, Xinying Song, Yifeng Lu, Nathan Hu, Jie Huang, Dustin Tran, Daiyi
+Peng, Ruibo Liu, Da Huang, Cosmo Du, and Quoc V. Le. Long-form factuality in large language
+models. In NeurIPS 2024, 2024b.
+16
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+Under review as a conference paper at ICLR 2025
+David Westergaard, Hans-Henrik Stærfeldt, Christian Tønsberg, Lars Juhl Jensen, and Søren
+Brunak. A comprehensive and quantitative comparison of text-mining in 15 million full-text
+articles versus their corresponding abstracts. PLOS Computational Biology, 14:e1005962, 2018.
+doi: 10.1371/journal.pcbi.1005962.
+Colin White, Samuel Dooley, Manley Roberts, Arka Pal, Ben Feuer, Siddhartha Jain, Ravid Shwartz-
+Ziv, Neel Jain, Khalid Saifullah, Sreemanti Dey, et al. LiveBench: A Challenging, Contamination-
+Limited LLM Benchmark. arXiv preprint arXiv:2406.19314, 2024.
+K. Wu, E. Wu, K. Wei, A. Zhang, A. Casasola, T. Nguyen, S. Riantawan, P. Shi, D. Ho, and J. Zou.
+An automated framework for assessing how well LLMs cite relevant medical references. Nature
+Communications, 16(1):3615, 2025. doi: 10.1038/s41467-025-58551-6. PMID: 40240349.
+Zhishang Xiang, Chuanjie Wu, Qinggang Zhang, Shengyuan Chen, Zijin Hong, Xiao Huang, and
+Jinsong Su. When to use graphs in RAG: A comprehensive analysis for graph retrieval-augmented
+generation. arXiv, 2025.
+Cheng Xu, Shuhao Guan, Derek Greene, and M-Tahar Kechadi. Benchmark Data Contamination of
+Large Language Models: A Survey. arXiv preprint arXiv:2406.04244, 2024.
+C. Yan, W. C. Su, Y. Xin, M. E. Grabowska, V. E. Kerchberger, V. A. Borza, J. Wang, L. Wang,
+R. Li, J. Lynn, et al. GEN-KnowRD: Reframing AI for rare disease recognition. medRxiv, 2026.
+PMID: 41867212.
+Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc V. Le, Denny Zhou, and Xinyun
+Chen. Large Language Models as Optimizers. arXiv preprint arXiv:2309.03409, 2023.
+J. Yang, C. Liu, W. Deng, D. Wu, C. Weng, Y. Zhou, and K. Wang. Enhancing phenotype recognition
+in clinical notes using large language models: PhenoBCBERT and PhenoGPT. Patterns, 5(1):
+100887, 2024. doi: 10.1016/j.patter.2023.100887. PMID: 38264716.
+D. Yin, M. K. S. Leung, D. W. H. Pun, F. H. Chen, J. Y. Kwon, X. Lin, and J. W. K. Ho. Bench-
+marking commercial large language models for gene-disease-phenotype extraction from full-text
+human genetics literature. Quantitative Biology, 14(4):e70050, 2026. doi: 10.1002/qub2.70050.
+PMID: 42845883.
+Tan Yu, Anbang Xu, and Rama Akkiraju. In Defense of RAG in the Era of Long-Context Language
+Models. arXiv preprint arXiv:2409.01666, 2024.
+Mert Yuksekgonul, Federico Bianchi, Joseph Boen, Sheng Liu, Zhi Huang, Carlos Guestrin, and
+James Zou. TextGrad: Automatic “Differentiation” via Text. arXiv preprint arXiv:2406.07496,
+2024.
+Xingjian Zhang, Sophia Moylan, Ziyang Xiong, Qiaozhu Mei, Yichen Luo, and Jiaqi W. Ma. Fly-
+AOC: Evaluating agentic ontology curation of Drosophila scientific knowledge bases. In NeurIPS
+2026 Evaluations & Datasets, 2026.
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang,
+Zi Lin, Zhuohan Li, Dacheng Li, Eric P. Xing, et al. Judging LLM-as-a-judge with MT-bench
+and Chatbot Arena. In NeurIPS 2023 Datasets and Benchmarks, 2023.
+Yongchao Zhou, Andrei Ioan Muresanu, Ziwen Han, Keiran Paster, Silviu Pitis, Harris Chan,
+and Jimmy Ba. Large Language Models Are Human-Level Prompt Engineers. arXiv preprint
+arXiv:2211.01910, 2022.
+17
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+Under review as a conference paper at ICLR 2025
+A
+EXPERIMENTS AND ENTRY SETS
+Table 3: Every experiment, its entry set, the entries compared and why others dropped out.
+“Stopped”: the writer’s reply was stopped by the model’s safety filter (no draft); “per-paper call
+failed”: a per-paper call was lost (incomplete draft). Entries are compared only when every strategy
+in the comparison completed them.
+Experiment
+Entry set
+Com-
+pared
+Why entries dropped out
+Where
+Main comparison (six
+strategies)
+100 main entries (2–12
+references, five creation-era
+bands)
+93
+7 entries: no draft (direct reading 3,
+agentic curator 2, evidence graph 1);
+per-paper call failed (evidence graph 3,
+case table first 3)
+Sec. 4.2,
+App. C
+Missing drafts as zero
+100 main entries
+100
+none; missing drafts scored zero
+App. C
+Groups by access
+(observational)
+the 93 compared entries
+46 / 25 /
+21
+none; the one entry with all references
+readable in full is in no group
+Sec. 4.4,
+App. D
+Facts the supplied text
+states
+the 93 compared entries
+89 / 40 /
+90
+none; an entry contributes to a
+restriction only if it has facts in it
+(stated / stated in full-text papers / not
+stated)
+Sec. 4.3,
+App. D
+Missed-fact attribution
+100 main entries, direct reading
+97
+3 without a draft (writer stopped)
+Sec. 4.1
+Conveyed-fact provenance
+100 main entries, direct reading
+97
+3 without a draft (writer stopped)
+Sec. 4.1,
+App. D
+Hidden full text (full-text
+arm scored before and after
+repair)
+49 main entries with papers
+readable in full (91 papers
+hidden)
+46
+3 whose full-text direct-reading draft
+was stopped
+Sec. 4.1,
+App. G
+Judge variation
+30-entry replicate subset (six per
+band)
+30
+none
+App. E
+Run-to-run replicates
+30-entry replicate subset, three
+replicates
+30
+none
+App. E
+Matched ablation
+40 entries weighted to full text
+(22 with at least half their papers
+in full text, 29 with at least one)
+38
+high-effort extraction stopped (graph
+variants 1 each, table variants 2 each)
+Sec. 4.7,
+App. F
+Second-hand evidence
+100 main entries
+96
+not completed by both strategies
+Sec. 4.8,
+App. G
+Reconciled case database
+100 main entries
+97
+not completed by both strategies
+Sec. 4.8,
+App. H
+Learned curation guide
+70 held-out main entries (guide
+learned on 27 of 30 training
+entries)
+68
+not completed by both strategies
+Sec. 4.8,
+App. H
+Entries created
+June–November 2026 (five
+strategies)
+30 newest of 53 eligible 2026
+entries, chosen by creation date
+alone
+20
+stopped (agentic curator 6, direct
+reading 2); per-paper call failed
+(evidence graph 7, case table first 10)
+Sec. 4.2,
+App. I.2
+30–75 references
+(exploratory)
+12 entries
+10
+2 entries: no draft (direct reading 1,
+evidence graph 1); per-paper call failed
+(case table first, both)
+App. I.1
+Planted errors
+60 paragraphs the audit had
+passed
+60
+none
+Sec. 4.5
+Audit control (unaltered
+re-audit)
+the same 60 paragraphs,
+unaltered
+60
+none (3 of 361 claims could not be
+audited)
+Sec. 4.5
+Draft–reference
+disagreements
+37 facts a direct-reading draft
+contradicted
+37
+none (outcome: 13 of the 37 could not
+be decided from the readable text)
+Sec. 4.5
+Updates; retrieval without
+a reference list
+10 entries each (evidence graph
+only)
+10
+none
+App. I.3
+B
+STRATEGIES AND SETTINGS
+Table 4 describes each strategy.
+Settings:
+one model for everything, Claude Opus 5.5
+(claude-opus-5-5), called through the Claude Code command-line interface in headless mode
+with schema-constrained output; no temperature or seed is exposed. Reasoning effort is high for
+writers (direct reading, the graph and table writers, the agent, the memory draft) and medium for
+per-paper extraction in the evidence graph and case table first, for the audit and for all judging; the
+matched ablation raises per-paper extraction to high. The agentic strategy has read and search tools
+over a folder of the papers and nothing else. The agentic curator reports which papers it opened (self-
+reported; tool calls are not logged): in the 98 entries it wrote it reported opening every paper, and all
+2,600 quotes it gave were found verbatim in the papers. The memory drafts that recall, then verify
+starts from are the memory-only control’s drafts. Synopsis terms are assigned by a lexical search
+over the ontology’s labels and synonyms that returns candidates, from which the model chooses; Lin
+18
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021
+1022
+1023
+1024
+1025
+Under review as a conference paper at ICLR 2025
+similarity uses information content computed from the ontology’s disease annotations, averaged in
+each direction to give precision and recall.
+Table 4: The strategies: three paradigms, a control and three add-ons each tested against its parent.
+Strategy
+Paradigm
+What it does
+Direct reading
+Read and write
+All papers in one prompt; the model writes the
+entry. Baseline.
+Agentic curator
+Read and write
+The model works in a folder of the papers with read
+and search tools and must give a verbatim quote for
+every paragraph.
+Evidence graph
+Extract, then write
+Quote-backed findings are extracted per paper
+(findings whose quote is not in the paper are
+discarded) and joined into a graph of papers, genes,
+variants, phenotypes and inheritance; the writer sees
+only the graph. Synopsis terms are computed from
+the graph by rule; inheritance is written by the
+writer.
+Case table first
+Extract, then write
+One record per reported patient or family is
+extracted per paper and pooled; synopsis terms and
+inheritance are computed by rule, candidate genes
+are confirmed by the writer; the writer sees only the
+table.
+Recall, then verify
+Memory first
+The model writes from memory; the draft is audited
+against the papers; a rewriter keeps supported
+claims, restates partly supported ones, corrects
+contradicted ones and deletes the rest. It may not
+add content from the papers.
+Memory only
+Control
+The memory draft, with no papers. Audited, not
+repaired.
+Second-hand evidence
+Add-on to direct reading
+For a paper not readable in full, passages from later
+open-access papers that cite and describe it are
+added, marked as second-hand, for the writer and
+the audit.
+Reconciled case
+database
+Add-on to case table first
+A propose, verify, apply step merges the same
+patient, family or variant reported in several papers
+and settles conflicts.
+Learned curation guide
+Add-on to direct reading
+A guide of general rules, learned in two reflection
+rounds from 27 training entries’ omissions and
+extras, is appended to the writer’s prompt; tested on
+70 held-out entries.
+C
+MAIN COMPARISON: FULL RESULTS
+Table 5: Completion on the 100 main entries. An entry is compared only when every strategy com-
+pleted it in full; 93 qualify (left out: 118210, 300148, 609296, 617232, 620609, 621030, 621068).
+Strategy
+Complete
+Incomplete (a per-paper call
+failed)
+No draft
+Evidence graph
+96
+3: 118210 (1 paper), 617232 (1
+paper), 621030 (1 paper)
+1: 620609
+Direct reading
+97
+0
+3: 609296, 620609, 621068
+Agentic curator
+98
+0
+2: 609296, 620609
+Memory only (control)
+100
+0
+0
+Recall, then verify
+100
+0
+0
+Case table first
+97
+3: 300148 (1 paper), 617232 (2
+papers), 621068 (1 paper)
+0
+19
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+Under review as a conference paper at ICLR 2025
+Table 6: All measures, means over the 93 compared entries (↑higher is better, ↓lower is better).
+The primary endpoint is OMIM facts conveyed; the others are secondary. The row “facts split afresh
+for each draft” is the earlier scoring, which runs 2–5 points higher and gives the same ordering. The
+memory-only control is audited but never repaired, so its before-repair rows are as audited.
+Metric
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall,
+then verify
+Case table
+first
+Claims judged supported by cited paper ↑
+96.5%
+96.1%
+96.4%
+50.8%
+94.2%
+(n=92)
+94.7%
+. . . unsupported, before the repair round ↓
+0.2%
+0.2%
+0.1%
+22.1%
+0.6%
+(n=92)
+0.3%
+. . . contradicted, before the repair round ↓
+0.1%
+0.0%
+0.0%
+0.6%
+0.1%
+(n=92)
+0.0%
+OMIM per-paper facts conveyed (primary
+endpoint) ↑
+48.6%
+49.1%
+48.4%
+15.1%
+14.6%
+47.2%
+. . . fully (no partial credit) ↑
+42.0%
+42.4%
+41.9%
+10.2%
+10.1%
+40.8%
+OMIM per-paper facts contradicted ↓
+0.4%
+0.4%
+0.4%
+0.5%
+0.3%
+0.5%
+. . . facts split afresh for each draft (earlier
+scoring) ↑
+51.5%
+52.1%
+51.3%
+20.4%
+18.2%
+49.3%
+Clinical synopsis HPO F1, exact ↑
+34.6%
+35.9%
+35.6%
+30.6%
+24.9%
+34.0%
+. . . precision ↑
+40.6%
+44.1%
+45.5%
+53.5%
+(n=92)
+53.6%
+(n=87)
+40.7%
+. . . recall ↑
+37.4%
+36.2%
+34.2%
+24.1%
+18.4%
+37.7%
+Clinical synopsis HPO F1, hierarchical ↑
+54.7%
+56.1%
+56.2%
+48.2%
+40.5%
+53.7%
+OMIM allelic variants recovered ↑
+65.9%
+66.5%
+65.9%
+15.2%
+11.6%
+64.3%
+Generated variants that are OMIM
+variants (precision) ↑
+76.9%
+(n=87)
+88.7%
+(n=82)
+87.9%
+(n=82)
+97.2%
+(n=30)
+100.0%
+(n=23)
+72.9%
+(n=88)
+Causal gene F1 ↑
+98.2%
+97.5%
+97.5%
+83.9%
+82.8%
+93.9%
+. . . recall ↑
+98.4%
+97.3%
+97.3%
+83.9%
+82.8%
+94.1%
+Inheritance matches OMIM ↑
+92.5%
+93.5%
+93.5%
+82.8%
+73.1%
+91.4%
+OMIM references used ↑
+94.6%
+94.4%
+93.3%
+33.6%
+65.2%
+94.6%
+Metric
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall,
+then verify
+Case table
+first
+Claims audited per entry
+113.5
+101.0
+97.3
+28.2
+26.3
+117.9
+Claims that could not be audited per entry
+1.2
+0.6
+0.3
+0.0
+0.0
+0.4
+Clinical-synopsis HPO terms per entry
+19.2
+15.4
+13.8
+6.2
+4.4
+21.0
+Allelic variants per entry
+3.9
+3.2
+3.2
+0.4
+0.3
+4.1
+Table 7: Paired differences from direct reading on the 93 compared entries: points (means over
+entries), bootstrap 95% interval, entries better/worse/same.
+Metric
+Evidence graph
+Agentic curator
+Memory only
+(control)
+Recall, then
+verify
+Case table first
+Claims judged supported by
+cited paper ↑
++0.4 (−0.4 to
++1.3); 41/45/7
++0.3 (−0.4 to
++1.0); 53/33/7
+−45.3 (−50.3 to
+−40.3); 2/90/1
+−1.9 (−3.5 to
+−0.4); 34/53/5
+(n=92)
+−1.4 (−2.7 to
+−0.4); 34/56/3
+. . . unsupported, before the
+repair round ↓
++0.0 (−0.3 to
++0.2); 10/12/71
+−0.1 (−0.4 to
++0.1); 11/8/74
++22.4 (+18.3 to
++26.7); 1/79/13
++0.4 (−0.0 to
++0.9); 10/10/72
+(n=92)
++0.1 (−0.2 to
++0.4); 12/18/63
+OMIM per-paper facts
+conveyed (primary) ↑
+−0.5 (−1.5 to
++0.5); 33/45/15
+−0.6 (−1.3 to
++0.0); 31/42/20
+−34.0 (−39.3 to
+−28.7); 7/85/1
+−34.5 (−39.2 to
+−29.9); 2/89/2
+−1.9 (−3.1 to
+−0.8); 31/48/14
+OMIM per-paper facts
+contradicted ↓
++0.0 (−0.1 to
++0.2); 8/5/80
++0.0 (−0.1 to
++0.2); 3/5/85
++0.1 (−0.2 to
++0.5); 17/14/62
+−0.1 (−0.2 to
++0.2); 16/7/70
++0.1 (−0.1 to
++0.3); 5/8/80
+Clinical synopsis HPO F1,
+exact ↑
+−1.3 (−3.3 to
++0.6); 34/45/14
+−0.3 (−1.5 to
++0.8); 38/32/23
+−5.3 (−9.2 to
+−1.5); 41/52/0
+−11.0 (−14.4 to
+−7.6); 25/63/5
+−2.0 (−3.9 to
+−0.1); 39/45/9
+Clinical synopsis HPO F1,
+hierarchical ↑
+−1.4 (−2.8 to
+−0.1); 36/44/13
++0.0 (−1.0 to
++1.1); 40/35/18
+−7.9 (−12.3 to
+−3.5); 38/54/1
+−15.7 (−19.9 to
+−11.5); 21/68/4
+−2.5 (−4.1 to
+−0.9); 34/51/8
+OMIM allelic variants
+recovered ↑
+−0.5 (−3.1 to
++2.5); 4/8/81
+−0.6 (−2.2 to
++0.7); 3/3/87
+−51.3 (−60.0 to
+−42.4); 3/69/21
+−54.9 (−62.8 to
+−47.0); 0/71/22
+−2.2 (−4.9 to
++0.3); 6/11/76
+Causal gene F1 ↑
++0.7 (+0.0 to
++2.1); 1/0/92
++0.0 (+0.0 to
++0.0); 0/0/93
+−13.6 (−21.5 to
+−6.1); 2/15/76
+−14.7 (−22.6 to
+−7.5); 1/15/77
+−3.6 (−8.6 to
++0.4); 1/4/88
+Inheritance matches OMIM ↑
+−1.1 (−5.4 to
++2.1); 1/2/90
++0.0 (−3.2 to
++3.2); 1/1/91
+−10.8 (−19.4 to
+−2.1); 3/13/77
+−20.4 (−29.0 to
+−11.8); 1/20/72
+−2.1 (−8.6 to
++4.3); 4/6/83
+20
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+1128
+1129
+1130
+1131
+1132
+1133
+Under review as a conference paper at ICLR 2025
+Table 8: Sensitivity analysis (intention to treat): all 100 entries, a missing draft counted as zero
+on each higher-is-better measure with a reference; incomplete drafts kept as scored; lower-is-better
+measures averaged over existing drafts. Missing drafts: evidence graph 1, direct reading 3, agentic
+curator 2. Bottom: paired differences from direct reading with interval, median, better/worse/tie and
+exact sign-test p.
+Metric
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+Claims judged supported by cited
+paper ↑
+95.7%
+93.2%
+94.5%
+(n=99)
+51.5%
+94.4%
+(n=98)
+94.5%
+(n=99)
+. . . unsupported, before the repair
+round ↓
+0.3% (n=99)
+0.4% (n=97)
+0.2% (n=97)
+22.8%
+0.7% (n=98)
+0.7% (n=99)
+OMIM per-paper facts conveyed
+(primary endpoint) ↑
+48.4%
+48.5%
+48.9%
+14.8%
+14.2%
+47.1%
+OMIM per-paper facts
+contradicted ↓
+0.5% (n=99)
+0.4% (n=97)
+0.4% (n=98)
+0.5%
+0.3%
+0.5%
+Clinical synopsis HPO F1, exact ↑
+33.8%
+34.6%
+34.8%
+29.4%
+23.9%
+33.3%
+Clinical synopsis HPO F1,
+hierarchical ↑
+54.1%
+54.6%
+55.3%
+46.7%
+39.4%
+52.9%
+OMIM allelic variants recovered
+↑
+65.8%
+65.6%
+66.1%
+15.1%
+11.3%
+63.9%
+Causal gene F1 ↑
+97.3%
+94.7%
+95.7%
+83.0%
+82.0%
+92.3%
+Inheritance matches OMIM ↑
+91.0%
+91.0%
+91.0%
+82.0%
+73.0%
+90.0%
+Metric
+Evidence graph
+Agentic curator
+Memory only
+(control)
+Recall, then verify
+Case table first
+Claims judged supported
+by cited paper ↑
++2.4 (+0.1 to +5.6);
+median +0.0;
+46/46/8; p 1.000
++0.3 (−0.4 to +1.0);
+median +0.7;
+56/34/9; p 0.026
+(n=99)
+−41.8 (−47.5 to
+−35.8); median
+−44.5; 4/94/2; p
+<0.001
++0.2 (−2.5 to +3.7);
+median −1.2;
+38/55/5; p 0.097
+(n=98)
++0.3 (−2.2 to +3.6);
+median −1.0;
+36/60/3; p 0.018
+(n=99)
+... unsupported, before
+the repair round ↓
+−0.1 (−0.4 to +0.2);
+median +0.0;
+11/12/74; p 1.000
+(n=97)
+−0.2 (−0.5 to +0.1);
+median +0.0;
+12/9/76; p 0.664
+(n=97)
++21.9 (+18.0 to
++26.1); median
++17.2; 1/82/14; p
+<0.001 (n=97)
++0.3 (−0.2 to +0.8);
+median +0.0;
+11/10/75; p 1.000
+(n=96)
++0.4 (−0.3 to +1.3);
+median +0.0;
+13/19/65; p 0.377
+(n=97)
+OMIM per-paper facts
+conveyed (primary) ↑
+−0.2 (−3.0 to +3.1);
+median +0.0;
+36/48/16; p 0.230
++0.4 (−1.0 to +2.7);
+median +0.0;
+34/43/23; p 0.362
+−33.7 (−38.9 to
+−28.5); median
+−34.4; 9/89/2; p
+<0.001
+−34.3 (−39.2 to
+−29.6); median
+−32.9; 4/93/3; p
+<0.001
+−1.4 (−4.2 to +1.4);
+median −0.7;
+34/51/15; p 0.082
+OMIM per-paper facts
+contradicted ↓
++0.0 (−0.1 to +0.2);
+median +0.0; 9/6/82;
+p 0.607 (n=97)
++0.0 (−0.1 to +0.1);
+median +0.0; 4/5/88;
+p 1.000 (n=97)
++0.1 (−0.3 to +0.4);
+median +0.0;
+19/14/64; p 0.487
+(n=97)
+−0.1 (−0.3 to +0.1);
+median +0.0;
+18/8/71; p 0.075
+(n=97)
++0.1 (−0.1 to +0.3);
+median +0.0; 7/8/82;
+p 1.000 (n=97)
+Clinical synopsis HPO
+F1, exact ↑
+−0.8 (−2.8 to +1.3);
+median +0.0;
+36/48/16; p 0.230
++0.2 (−1.2 to +1.8);
+median +0.0;
+40/35/25; p 0.644
+−5.2 (−8.9 to
+−1.5); median −2.7;
+44/55/1; p 0.315
+−10.6 (−14.1 to
+−7.3); median −8.6;
+27/67/6; p <0.001
+−1.3 (−3.5 to +0.9);
+median +0.0;
+42/48/10; p 0.598
+Clinical synopsis HPO
+F1, hierarchical ↑
+−0.5 (−2.4 to +1.8);
+median +0.0;
+38/48/14; p 0.332
++0.7 (−0.8 to +2.5);
+median +0.0;
+44/36/20; p 0.434
+−7.9 (−12.3 to
+−3.6); median −5.0;
+40/58/2; p 0.085
+−15.3 (−19.5 to
+−11.1); median
+−11.6; 23/72/5; p
+<0.001
+−1.7 (−4.1 to +1.0);
+median −0.7;
+36/55/9; p 0.059
+OMIM allelic variants
+recovered ↑
++0.2 (−4.0 to +4.9);
+median +0.0;
+7/10/83; p 0.629
++0.5 (−1.6 to +3.1);
+median +0.0; 4/3/93;
+p 1.000
+−50.5 (−58.7 to
+−41.9); median
+−50.0; 3/73/24; p
+<0.001
+−54.3 (−62.1 to
+−46.4); median
+−60.0; 0/75/25; p
+<0.001
+−1.7 (−6.0 to +2.7);
+median +0.0;
+8/14/78; p 0.286
+Causal gene F1 ↑
++2.7 (+0.0 to +6.0);
+median +0.0; 3/0/97;
+p 0.250
++1.0 (+0.0 to +3.0);
+median +0.0; 1/0/99;
+p 1.000
+−11.7 (−19.7 to
+−4.0); median +0.0;
+3/15/82; p 0.007
+−12.7 (−20.0 to
+−5.7); median +0.0;
+2/15/83; p 0.002
+−2.3 (−8.0 to +3.0);
+median +0.0; 3/5/92;
+p 0.727
+Inheritance matches
+OMIM ↑
++0.0 (−4.0 to +4.0);
+median +0.0; 2/2/96;
+p 1.000
++0.0 (−3.0 to +3.0);
+median +0.0; 1/1/98;
+p 1.000
+−9.0 (−17.0 to
+−1.0); median +0.0;
+4/13/83; p 0.049
+−18.0 (−27.0 to
+−10.0); median
++0.0; 2/20/78; p
+<0.001
+−1.0 (−8.0 to +6.0);
+median +0.0; 6/7/87;
+p 1.000
+21
+1134
+1135
+1136
+1137
+1138
+1139
+1140
+1141
+1142
+1143
+1144
+1145
+1146
+1147
+1148
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159
+1160
+1161
+1162
+1163
+1164
+1165
+1166
+1167
+1168
+1169
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177
+1178
+1179
+1180
+1181
+1182
+1183
+1184
+1185
+1186
+1187
+Under review as a conference paper at ICLR 2025
+Table 9: Pooled counts of audited claims and OMIM facts on the 93 compared entries.
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+Claims audited
+10,552
+9,390
+9,051
+2,624
+2,448
+10,969
+. . . supported
+10,227
+9,069
+8,802
+1,343
+2,308
+10,497
+. . . partly supported
+325
+321
+248
+687
+140
+472
+. . . unsupported
+0
+0
+1
+576
+0
+0
+. . . contradicted
+0
+0
+0
+18
+0
+0
+Claims audited before repair
+10,526
+9,371
+9,056
+2,624
+2,448
+10,945
+. . . unsupported before repair
+20
+17
+10
+576
+13
+21
+. . . contradicted before repair
+8
+0
+2
+18
+4
+4
+OMIM facts scored
+6,239
+6,239
+6,239
+6,239
+6,239
+6,239
+. . . conveyed
+2,562
+2,620
+2,593
+502
+502
+2,490
+. . . partly conveyed
+811
+820
+796
+578
+553
+769
+. . . missing
+2,840
+2,771
+2,820
+5,133
+5,167
+2,948
+. . . contradicted
+26
+28
+30
+26
+17
+32
+Table 10: Allelic-variant precision (pooled) and inheritance errors by kind on the 93 compared
+entries. Precision counts a variant OMIM does not list as a miss whether or not the paper reports it.
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+Variants generated
+365
+295
+300
+40
+28
+381
+. . . matching an OMIM variant of the
+entry
+253
+258
+259
+38
+28
+250
+. . . listed by OMIM only from a paper
+outside the entry’s references
+1
+1
+1
+1
+0
+1
+. . . not in OMIM
+111
+36
+40
+1
+0
+130
+Pooled precision (entries where
+OMIM lists variants)
+69.3%
+87.5%
+86.3%
+95.0%
+100.0%
+65.6%
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+Entries with an OMIM mode of
+inheritance
+93
+93
+93
+93
+93
+93
+. . . matched
+86
+87
+87
+77
+68
+85
+. . . none stated
+3
+2
+3
+13
+22
+2
+. . . a mode missing
+0
+0
+0
+0
+0
+1
+. . . an extra mode
+3
+4
+3
+1
+1
+4
+. . . a different mode
+1
+0
+0
+2
+2
+1
+Table 11: Cost per entry, from scratch, at API list prices for one model (a measure of consumption).
+Generation is the strategy itself; audit and scoring are the same procedure for every strategy and
+scale with the text produced.
+Per entry
+Evidence
+graph
+Direct
+reading
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+Generation: model calls
+7.1
+1.8
+1.8
+1.6
+9.2
+7.1
+Generation: list price
+$0.56
+$0.26
+$0.28
+$0.07
+$0.70
+$0.61
+Generation: input / output tokens
+53,475 /
+15,321
+20,241 /
+6,185
+57,445 /
+8,735
+6,187 /
+2,286
+56,342 /
+18,505
+62,392 /
+17,152
+Generation: model time (s)
+124
+50
+73
+24
+174
+142
+Audit and repair: list price
+$0.78
+$0.72
+$0.68
+$0.50
+$0.30
+$0.77
+Scoring against OMIM: list price
+$0.39
+$0.20
+$0.19
+$0.15
+$0.14
+$0.39
+Everything: list price
+$1.72
+$1.18
+$1.15
+$0.72
+$1.13
+$1.78
+22
+1188
+1189
+1190
+1191
+1192
+1193
+1194
+1195
+1196
+1197
+1198
+1199
+1200
+1201
+1202
+1203
+1204
+1205
+1206
+1207
+1208
+1209
+1210
+1211
+1212
+1213
+1214
+1215
+1216
+1217
+1218
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1226
+1227
+1228
+1229
+1230
+1231
+1232
+1233
+1234
+1235
+1236
+1237
+1238
+1239
+1240
+1241
+Under review as a conference paper at ICLR 2025
+D
+ACCESS LEVEL, CREATION ERA AND MISSED FACTS
+Table 12: OMIM facts conveyed by how the paper was readable, pooled over facts (coverage, facts
+scored); bottom: difference from direct reading in points with a 95% interval from resampling entries
+(n = entries with facts at that level).
+Paper readable as
+Evidence
+graph
+Direct reading
+Agentic
+curator
+Memory only
+(control)
+Recall, then
+verify
+Case table
+first
+full text
+78.8% (1,639)
+77.6% (1,639)
+76.7% (1,639)
+11.5% (1,639)
+13.3% (1,639)
+71.7% (1,639)
+abstract
+38.1% (4,221)
+40.1% (4,221)
+39.6% (4,221)
+13.3% (4,221)
+12.9% (4,221)
+38.7% (4,221)
+title
+17.5% (379)
+17.5% (379)
+16.9% (379)
+11.1% (379)
+4.0% (379)
+17.3% (379)
+Paper readable as
+Evidence graph
+Agentic curator
+Memory only
+(control)
+Recall, then
+verify
+Case table first
+full text
++1.2 (−1.8 to
++3.8); n=40
+−0.9 (−2.5 to
++0.4); n=40
+−66.1 (−73.2 to
+−58.6); n=40
+−64.3 (−72.4 to
+−56.5); n=40
+−5.9 (−9.0 to
+−2.9); n=40
+abstract
+−1.9 (−3.6 to
+−0.6); n=85
+−0.5 (−1.2 to
++0.1); n=85
+−26.8 (−31.4 to
+−22.2); n=85
+−27.2 (−31.2 to
+−22.9); n=85
+−1.4 (−2.8 to
+−0.1); n=85
+title
++0.0 (−2.1 to
++2.0); n=21
+−0.7 (−1.8 to
++0.3); n=21
+−6.5 (−13.7 to
++0.9); n=21
+−13.6 (−18.2 to
+−9.4); n=21
+−0.3 (−1.7 to
++1.1); n=21
+Table 13: Paired differences from direct reading within strata of entries by the share of references
+readable in full: OMIM facts conveyed (top) and allelic variants recovered (bottom). † Fewer than
+20 entries: the interval is unreliable; none is computed below 5 entries.
+Access group
+Entries
+Evidence
+graph
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+no full text (abstracts only)
+46
+−0.2 (−1.1
+to +0.8);
+n=46
+−0.1 (−1.1
+to +0.7);
+n=46
+−18.1
+(−23.9 to
+−12.3);
+n=46
+−19.1
+(−23.2 to
+−15.2);
+n=46
++0.6 (−0.3
+to +1.6);
+n=46
+under half full text
+25
+−0.7 (−2.6
+to +1.3);
+n=25
+−0.4 (−1.6
+to +0.8);
+n=25
+−41.7
+(−49.3 to
+−34.4);
+n=25
+−42.5
+(−49.6 to
+−35.5);
+n=25
+−4.0 (−6.3
+to −2.0);
+n=25
+half or more full text
+21
+−1.8 (−4.4
+to +0.7);
+n=21
+−2.0 (−3.4
+to −0.7);
+n=21
+−59.6
+(−68.1 to
+−51.0);
+n=21
+−58.7
+(−66.6 to
+−51.0);
+n=21
+−6.1 (−8.3
+to −3.6);
+n=21
+all full text
+1
++17.8 †; n=1
++0.0 †; n=1
+−32.2 †;
+n=1
+−33.9 †;
+n=1
++21.4 †; n=1
+Access group
+Entries
+Evidence
+graph
+Agentic
+curator
+Memory
+only
+(control)
+Recall, then
+verify
+Case table
+first
+no full text (abstracts only)
+46
++0.4 (−4.6
+to +6.4);
+n=46
+−0.4 (−3.0
+to +1.6);
+n=46
+−32.6
+(−45.4 to
+−20.1);
+n=46
+−38.7
+(−49.5 to
+−28.1);
+n=46
+−0.4 (−4.1
+to +3.3);
+n=46
+under half full text
+25
+−1.9 (−4.2
+to +0.0);
+n=25
+−0.1 (−2.0
+to +1.7);
+n=25
+−64.2
+(−76.3 to
+−51.1);
+n=25
+−66.0
+(−78.1 to
+−52.8);
+n=25
+−5.5 (−12.7
+to +0.0);
+n=25
+half or more full text
+21
+−1.0 (−2.6
+to +0.0);
+n=21
+−1.6 (−4.8
+to +0.0);
+n=21
+−79.5
+(−91.7 to
+−65.4);
+n=21
+−79.9
+(−92.1 to
+−65.6);
+n=21
+−2.2 (−5.2
+to +0.0);
+n=21
+all full text
+1
++0.0 †; n=1
++0.0 †; n=1
++0.0 †; n=1
++0.0 †; n=1
++0.0 †; n=1
+23
+1242
+1243
+1244
+1245
+1246
+1247
+1248
+1249
+1250
+1251
+1252
+1253
+1254
+1255
+1256
+1257
+1258
+1259
+1260
+1261
+1262
+1263
+1264
+1265
+1266
+1267
+1268
+1269
+1270
+1271
+1272
+1273
+1274
+1275
+1276
+1277
+1278
+1279
+1280
+1281
+1282
+1283
+1284
+1285
+1286
+1287
+1288
+1289
+1290
+1291
+1292
+1293
+1294
+1295
+Under review as a conference paper at ICLR 2025
+Table 14: OMIM facts conveyed by creation era within each access level, pooled over facts (cover-
+age, facts scored, entries): direct reading (top) and the memory-only control (bottom).
+Paper readable as
+classic
+(1xxxxx-5xxxxx)
+600000-609999
+610000-615999
+616000-619999
+620000 onward
+full text
+88.6% (22 facts, 1
+entry)
+79.8% (225 facts,
+10 entries)
+74.1% (526 facts,
+11 entries)
+71.2% (450 facts,
+10 entries)
+87.4% (416 facts,
+8 entries)
+abstract
+33.0% (1,022
+facts, 18 entries)
+49.8% (656 facts,
+19 entries)
+42.0% (1,055
+facts, 18 entries)
+40.2% (859 facts,
+15 entries)
+37.9% (629 facts,
+15 entries)
+title
+23.2% (41 facts, 3
+entries)
+14.9% (67 facts, 4
+entries)
+23.7% (57 facts, 4
+entries)
+19.9% (83 facts, 5
+entries)
+13.0% (131 facts,
+5 entries)
+Paper readable as
+classic
+(1xxxxx-5xxxxx)
+600000-609999
+610000-615999
+616000-619999
+620000 onward
+full text
+0.0% (22 facts, 1
+entry)
+14.2% (225 facts,
+10 entries)
+14.6% (526 facts,
+11 entries)
+11.3% (450 facts,
+10 entries)
+7.0% (416 facts, 8
+entries)
+abstract
+12.8% (1,022
+facts, 18 entries)
+22.9% (656 facts,
+19 entries)
+14.0% (1,055
+facts, 18 entries)
+10.8% (859 facts,
+15 entries)
+6.0% (629 facts,
+15 entries)
+title
+9.8% (41 facts, 3
+entries)
+15.7% (67 facts, 4
+entries)
+14.0% (57 facts, 4
+entries)
+12.7% (83 facts, 5
+entries)
+6.9% (131 facts, 5
+entries)
+Table 15: Memory-only control and direct reading by creation era (entry means over the compared
+entries).
+Creation era
+Entries
+Facts
+conveyed:
+memory /
+direct
+Claims judged
+supported:
+memory
+Gene F1:
+memory /
+direct
+Inheritance
+match:
+memory /
+direct
+Synopsis
+exact F1:
+memory /
+direct
+classic
+(1xxxxx-5xxxxx)
+18
+14.5% /
+34.9%
+40.4%
+88.9% /
+87.0%
+88.9% /
+88.9%
+38.2% /
+33.4%
+600000-609999
+19
+24.1% /
+53.9%
+52.4%
+94.7% /
+100.0%
+94.7% /
+89.5%
+38.4% /
+40.0%
+610000-615999
+20
+17.5% /
+51.2%
+53.5%
+100.0% /
+100.0%
+100.0% /
+95.0%
+31.6% /
+36.5%
+616000-619999
+19
+12.6% /
+51.4%
+59.0%
+89.5% /
+100.0%
+84.2% /
+94.7%
+27.5% /
+35.7%
+620000 onward
+17
+5.7% / 53.5%
+47.8%
+41.2% /
+100.0%
+41.2% /
+100.0%
+16.3% /
+33.5%
+Table 16: Where the facts direct reading did not fully convey went (97 entries, 466 paragraphs, 437
+judge calls, none failed; left out: 3 entries whose writer was stopped). Each missed fact was checked
+once against the text available for its paper; the check is a model judgement. Bottom: by whether
+the draft conveyed the fact not at all (absent) or less precisely (partial). Facts contradicted by the
+draft (7 full text, 25 abstract, 0 title; 32 in all) are not in the columns.
+Paper read as
+OMIM
+facts
+Conveyed
+Not fully
+conveyed
+. . . in text
+. . . partly
+in text
+. . . not in
+text
+Unjudged
+In text,
+share of
+missed
+Full text
+1,837
+1,329
+501
+245
+134
+122
+0
+49%
+Abstract only
+4,282
+1,420
+2,837
+46
+632
+2,159
+0
+2%
+Title only
+379
+38
+341
+0
+53
+288
+0
+0%
+All papers
+6,498
+2,787
+3,679
+291
+819
+2,569
+0
+8%
+Paper read as
+Draft
+Missed
+. . . in text
+. . . partly
+. . . not in text
+Full text
+absent
+287
+123
+47
+117
+Full text
+partial
+214
+122
+87
+5
+Abstract only
+absent
+2,254
+19
+158
+2,077
+Abstract only
+partial
+583
+27
+474
+82
+Title only
+absent
+284
+0
+5
+279
+Title only
+partial
+57
+0
+48
+9
+All papers
+absent
+2,825
+142
+210
+2,473
+All papers
+partial
+854
+149
+609
+96
+24
+1296
+1297
+1298
+1299
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313
+1314
+1315
+1316
+1317
+1318
+1319
+1320
+1321
+1322
+1323
+1324
+1325
+1326
+1327
+1328
+1329
+1330
+1331
+1332
+1333
+1334
+1335
+1336
+1337
+1338
+1339
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1347
+1348
+1349
+Under review as a conference paper at ICLR 2025
+Table 17: Where the facts direct reading conveyed came from (97 entries, 466 paragraphs; pooled
+over facts; left out: 3 entries whose writer was stopped). Each fact the draft conveyed in full or
+in part was checked against the text the writer had for the paragraph’s paper(s); a fact not stated
+there, or stated only partly, was checked once more against the text of the entry’s other supplied
+papers, since a later paper may describe an earlier one. No fact went unjudged. A fact stated in no
+supplied text may have been recalled from memory, inferred from what the text states (for example
+an inheritance mode from zygosity), or misjudged; these are model judgements. Shares are of the
+facts in the row; “either”: conveyed in full or in part.
+Paper read as
+Con-
+veyed
+Facts
+Stated in its paper’s
+text
+Partly stated in its
+paper’s text
+Stated only in
+another supplied
+paper
+Partly stated only
+in another supplied
+paper
+In no supplied text
+Full text
+in full
+1,329
+1,174 (88.3%)
+122 (9.2%)
+22 (1.7%)
+4 (0.3%)
+7 (0.5%)
+Full text
+in part
+214
+122 (57.0%)
+86 (40.2%)
+1 (0.5%)
+1 (0.5%)
+4 (1.9%)
+Full text
+either
+1,543
+1,296 (84.0%)
+208 (13.5%)
+23 (1.5%)
+5 (0.3%)
+11 (0.7%)
+Abstract only
+in full
+1,420
+1,061 (74.7%)
+222 (15.6%)
+102 (7.2%)
+11 (0.8%)
+24 (1.7%)
+Abstract only
+in part
+583
+27 (4.6%)
+462 (79.2%)
+15 (2.6%)
+21 (3.6%)
+58 (10.0%)
+Abstract only
+either
+2,003
+1,088 (54.3%)
+684 (34.2%)
+117 (5.8%)
+32 (1.6%)
+82 (4.1%)
+Title only
+in full
+38
+27 (71.0%)
+8 (21.1%)
+3 (7.9%)
+0 (0.0%)
+0 (0.0%)
+Title only
+in part
+57
+0 (0.0%)
+47 (82.5%)
+1 (1.8%)
+1 (1.8%)
+8 (14.0%)
+Title only
+either
+95
+27 (28.4%)
+55 (57.9%)
+4 (4.2%)
+1 (1.1%)
+8 (8.4%)
+All papers
+in full
+2,787
+2,262 (81.2%)
+352 (12.6%)
+127 (4.6%)
+15 (0.5%)
+31 (1.1%)
+All papers
+in part
+854
+149 (17.4%)
+595 (69.7%)
+17 (2.0%)
+23 (2.7%)
+70 (8.2%)
+All papers
+either
+3,641
+2,411 (66.2%)
+947 (26.0%)
+144 (4.0%)
+38 (1.0%)
+101 (2.8%)
+Table 18: OMIM facts conveyed restricted by whether the supplied text states the fact (93 compared
+entries). Each fixed fact carries one judgement of whether the text available for its paper states it,
+partly states it or does not state it (a model judgement; a “stated” verdict needs a quote verified in
+the text; not checked by a curator); it is the same for every strategy. Top: the facts by how the
+paragraph’s paper could be read (pooled; identical for every strategy). Middle: coverage as mean
+over entries / pooled over facts; n = entries with facts in the restriction. Bottom: paired differences
+from direct reading in points (means over entries), bootstrap 95% interval, entries better/worse/tied.
+The unrestricted means reproduce Table 1; the intervals here come from a separate bootstrap and
+can differ from it by 0.1.
+Paper read as
+Facts
+Stated
+Partly stated
+Not stated
+Full text
+1,639
+1,246
+253
+140
+Abstract only
+4,221
+1,099
+883
+2,239
+Title only
+379
+27
+62
+290
+All papers
+6,239
+2,372
+1,198
+2,669
+Strategy
+All facts
+Stated
+Stated or
+partly
+Not stated
+Stated,
+full-text
+papers
+Stated,
+abstract-only
+papers
+Direct reading
+49.1 / 48.6
+94.4 / 91.8
+77.5 / 80.2
+6.9 / 6.3
+88.5 / 87.0
+97.1 / 97.0
+Agentic curator
+48.4 / 47.9
+93.6 / 91.3
+76.9 / 79.6
+6.3 / 5.6
+88.3 / 86.5
+96.3 / 96.6
+Evidence graph
+48.6 / 47.6
+94.2 / 92.9
+77.5 / 80.5
+5.5 / 3.5
+90.2 / 89.0
+96.6 / 97.2
+Case table first
+47.2 / 46.1
+91.0 / 87.5
+75.4 / 76.9
+5.9 / 4.8
+80.1 / 80.5
+95.5 / 95.1
+Recall, then verify
+14.6 / 12.5
+28.8 / 20.3
+26.0 / 20.8
+2.1 / 1.4
+13.6 / 13.0
+36.5 / 28.3
+Memory only (control)
+15.1 / 12.7
+23.3 / 15.5
+23.3 / 17.5
+8.2 / 6.3
+10.9 / 10.4
+28.2 / 20.9
+Entries (n) / facts
+93 / 6,239
+89 / 2,372
+93 / 3,570
+90 / 2,669
+40 / 1,246
+79 / 1,099
+Difference from direct
+reading
+All facts
+Stated
+Stated or partly
+Not stated
+Stated, full-text
+papers
+Stated,
+abstract-only
+papers
+Agentic curator
+−0.6 (−1.3 to
++0.0); 31/42/20
+−0.8 (−2.6 to
++0.4); 20/23/46
+−0.7 (−2.0 to
++0.4); 36/37/20
+−0.5 (−1.8 to
++1.0); 16/27/47
+−0.2 (−1.8 to
++1.2); 13/15/12
+−0.8 (−2.6 to
++0.5); 11/9/59
+Evidence graph
+−0.5 (−1.5 to
++0.5); 33/45/15
+−0.3 (−2.1 to
++1.3); 25/21/43
+−0.0 (−1.5 to
++1.4); 41/41/11
+−1.4 (−3.4 to
++0.7); 16/28/46
++1.7 (−0.7 to
++4.0); 18/15/7
+−0.5 (−2.5 to
++1.2); 10/11/58
+Case table first
+−1.9 (−3.1 to
+−0.7); 31/48/14
+−3.4 (−5.6 to
+−1.6); 16/42/31
+−2.1 (−3.6 to
+−0.6); 27/48/18
+−1.0 (−3.1 to
++1.2); 27/26/37
+−8.4 (−14.3 to
+−3.8); 9/28/3
+−1.6 (−3.6 to
++0.2); 12/21/46
+Recall, then verify
+−34.5 (−39.3 to
+−30.0); 2/89/2
+−65.6 (−70.6 to
+−60.2); 0/84/5
+−51.5 (−55.9 to
+−47.1); 1/88/4
+−4.8 (−6.7 to
+−3.0); 11/50/29
+−74.9 (−80.2 to
+−69.3); 0/40/0
+−60.6 (−67.3 to
+−53.5); 0/71/8
+Memory only (control)
+−34.0 (−39.2 to
+−28.7); 7/85/1
+−71.1 (−75.9 to
+−66.0); 0/85/4
+−54.2 (−59.2 to
+−48.9); 4/88/1
++1.3 (−1.4 to
++4.6); 37/30/23
+−77.6 (−82.5 to
+−72.3); 0/40/0
+−68.9 (−75.1 to
+−62.3); 0/74/5
+25
+1350
+1351
+1352
+1353
+1354
+1355
+1356
+1357
+1358
+1359
+1360
+1361
+1362
+1363
+1364
+1365
+1366
+1367
+1368
+1369
+1370
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385
+1386
+1387
+1388
+1389
+1390
+1391
+1392
+1393
+1394
+1395
+1396
+1397
+1398
+1399
+1400
+1401
+1402
+1403
+Under review as a conference paper at ICLR 2025
+E
+MEASUREMENT STABILITY
+Judge variation: the same drafts and fact lists judged three times (top). Evidence graph minus direct
+reading in the three judgings: +0.7/+0.5/+1.3 points; per-fact agreement between two judgings of
+the same draft: 3,498 of 3,654 statuses (95.7%). Run-to-run variation: generation, audit and scoring
+repeated three times on 30 entries (bottom). Evidence graph minus direct reading in replicates 1/2/3:
++0.7/+1.9/+0.5 points; within-entry SD of that paired difference 5.0 points, giving a replicate-noise
+95% half-width of 1.0 point over 93 entries and 1.8 points over 30. One replicate is one sample; the
+main comparison is a single run per entry. The half-width is a yardstick for how much a difference of
+this kind moves when generation, audit and scoring are repeated; the bootstrap interval over entries
+is the test of a difference. On these 30 entries the evidence graph is ahead of direct reading in all three
+replicates and all three judgings, whereas on the 93 entries of the main comparison its difference is
+−0.5 (−1.5 to +0.5). Crediting a fact anywhere in the draft rather than only in text citing its paper
+(same 30 entries): direct reading 46% against 47%, evidence graph 46% against 46%, case table
+first 45% against 45%, so strategies that pool across papers do not lose credit under another citation.
+Table 19: Judge variation (top) and run-to-run variation (bottom) in OMIM facts conveyed on 30
+entries.
+Strategy
+Entries
+Mean OMIM facts conveyed in
+three judgings (%)
+Mean within-entry SD across
+judgings (points)
+Direct reading
+30
+45.6 / 45.7 / 45.3
+0.9
+Evidence graph
+30
+46.3 / 46.2 / 46.6
+0.8
+Strategy
+30-entry mean in
+replicates 1 / 2 / 3 (%)
+Within-entry SD
+(points)
+Between-entry SD
+(points)
+Share of variance
+within entries
+Direct reading
+45.6 / 44.7 / 45.9
+2.5
+21.0
+1%
+Evidence graph
+46.3 / 46.6 / 46.4
+4.0
+22.1
+3%
+F
+ABLATION OF THE EXTRACT-THEN-WRITE STRATEGIES
+The 40-entry subset contains every entry with at least half its papers readable in full that all reading
+strategies completed, filled to 40 with entries drawn at random to bring each creation-era band to
+8 entries; 22 of the 40 have at least half their papers readable in full and 29 have at least one, so
+absolute levels are higher than in the main comparison. 38 were completed by all seven strategies.
+The two changes in matched (high-effort extraction; writer-chosen synopsis terms and, for the ta-
+ble, inheritance) were made together; since choosing synopsis terms cannot change which facts or
+variants are extracted, attributing the change in facts, claims and variants to extraction effort is an
+inference.
+The ablation set and the main comparison. The ablation reuses the main run’s drafts for direct
+reading, the evidence graph and case table first: on all 38 entries the drafts and fact marks are
+identical. By the main comparison’s access groups the 38 entries comprise 11 with no full text,
+7 with under half, 19 with half or more and 1 with all papers in full text; all are among the main
+comparison’s 93 entries. Main run on the 38 ablation entries: evidence graph +1.0 (−0.8 to +2.9;
+better/worse/tied 19/15/4), case table first −2.3 (−4.5 to +0.0; 13/24/1). Main run on its 21 entries
+with half or more full text: evidence graph −1.8 (−4.4 to +0.6; 7/12/2), case table first −6.1 (−8.3
+to −3.7; 3/18/0); 19 of them are in the ablation set (the other two are among the entries a matched
+or plus-text variant did not complete), and on those 19 the evidence graph is at −1.2 (−3.8 to +1.3;
+7/10/2) and case table first at −6.2 (−8.6 to −3.5; 3/16/0). On the ablation’s other 19 entries (no
+full text, under half, or all full text): evidence graph +3.1 (+1.0 to +5.6; 12/5/2), case table first
++1.5 (−1.1 to +4.7; 10/8/1). Because the drafts are the same, the estimates differ only in the entries
+they average over; intervals here come from a separate bootstrap and can differ slightly from those
+of Table 21 and Table 13.
+Completion: direct reading, the evidence graph and case table first completed all 40; the matched
+and plus-text graph variants each lost one entry and the matched and plus-text table variants two,
+because the safety filter stopped a high-effort extraction call for a paper that had gone through at
+medium effort. Generation cost per entry at list price: direct reading $0.32, evidence graph $0.65,
+matched $0.72, plus text $0.88, case table first $0.72, matched $0.84, plus text $0.97; with audit
+26
+1404
+1405
+1406
+1407
+1408
+1409
+1410
+1411
+1412
+1413
+1414
+1415
+1416
+1417
+1418
+1419
+1420
+1421
+1422
+1423
+1424
+1425
+1426
+1427
+1428
+1429
+1430
+1431
+1432
+1433
+1434
+1435
+1436
+1437
+1438
+1439
+1440
+1441
+1442
+1443
+1444
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453
+1454
+1455
+1456
+1457
+Under review as a conference paper at ICLR 2025
+and scoring: $1.59, $2.00, $2.14, $2.25, $2.07, $2.26, $2.29. Variant precision (share of a draft’s
+variants that are OMIM’s) in this ablation: direct reading 87.8%, evidence graph 81.4%, graph plus
+text 84.4%, case table first matched 76.5%, case table first plus text 85.0%.
+Table 20: Ablation: means over the 38 entries completed by all seven strategies.
+Measure
+Direct
+reading
+Evidence
+graph
+Evidence
+graph,
+matched
+Evidence
+graph plus
+text
+Case table
+first
+Case table
+first,
+matched
+Case table
+first plus
+text
+OMIM facts conveyed (%)
+58.4
+59.4
+60.2
+60.2
+56.1
+58.3
+59.1
+. . . on papers readable in full
+(%)
+80.4
+(n=25)
+82.7
+(n=25)
+83.7
+(n=25)
+83.0
+(n=25)
+75.4
+(n=25)
+78.8
+(n=25)
+79.9
+(n=25)
+Claims judged supported (%)
+97.9
+97.1
+96.8
+98.3
+96.0
+97.0
+98.1
+Synopsis precision (%)
+45.2
+40.5
+39.4
+42.6
+40.6
+41.2
+42.0
+Synopsis recall (%)
+43.8
+44.5
+44.9
+44.1
+46.3
+44.1
+44.4
+Synopsis exact F1 (%)
+40.1
+37.6
+37.8
+39.5
+37.3
+38.3
+39.4
+Synopsis terms per entry
+19.0
+25.2
+24.0
+21.2
+29.9
+22.5
+20.3
+Inheritance matches (%)
+97.4
+94.7
+94.7
+94.7
+94.7
+97.4
+97.4
+Variants recovered (%)
+77.3
+76.8
+77.0
+77.4
+74.4
+73.7
+72.7
+Table 21: Ablation: each step against the one before it (top) and each strategy against direct reading
+(bottom); difference, 95% bootstrap interval, entries better/worse. Points except synopsis terms.
+Measure
+Graph matched −
+graph
+Graph plus text −
+graph matched
+Table matched −table
+Table plus text −table
+matched
+OMIM facts conveyed
++0.8 (−0.5 to +2.1);
+18/12
++0.0 (−0.8 to +0.9);
+16/16
++2.1 (+1.1 to +3.2);
+25/8
++0.8 (−0.8 to +2.6);
+21/13
+. . . on papers readable in
+full
++1.0 (−1.0 to +3.0);
+13/8
+−0.7 (−1.9 to +0.6);
+8/15
++3.3 (+1.6 to +5.1);
+17/4
++1.1 (−1.6 to +3.8);
+13/9
+Claims judged supported
+−0.3 (−0.9 to +0.4);
+15/22
++1.5 (+0.9 to +2.1);
+31/6
++0.9 (−0.3 to +2.4);
+22/15
++1.2 (+0.3 to +2.2);
+23/12
+Synopsis precision
+−1.1 (−3.7 to +1.5);
+12/19
++3.2 (+1.2 to +5.4);
+21/7
++0.6 (−3.9 to +4.8);
+17/11
++0.8 (−1.9 to +3.2);
+17/10
+Synopsis recall
++0.4 (−2.8 to +3.6);
+10/14
+−0.8 (−3.2 to +1.6);
+6/10
+−2.3 (−5.6 to +0.8);
+9/10
++0.3 (−2.1 to +3.2);
+7/10
+Synopsis exact F1
++0.2 (−2.2 to +2.8);
+15/18
++1.7 (−0.1 to +3.6);
+17/11
++1.0 (−2.0 to +3.5);
+18/11
++1.1 (−0.8 to +3.1);
+15/12
+Synopsis terms per entry
+−1.2 (−3.6 to +0.8);
+16/14
+−2.8 (−5.4 to −0.5);
+9/20
+−7.4 (−13.7 to −2.2);
+10/18
+−2.2 (−3.7 to −0.7);
+8/17
+Inheritance matches
++0.0 (+0.0 to +0.0); 0/0
++0.0 (+0.0 to +0.0); 0/0
++2.6 (+0.0 to +7.9); 1/0
++0.0 (+0.0 to +0.0); 0/0
+Variants recovered
++0.2 (+0.0 to +0.7); 1/0
++0.4 (+0.0 to +1.1); 1/0
+−0.7 (−3.9 to +2.0);
+1/1
+−1.0 (−6.3 to +3.6);
+4/3
+Measure
+Evidence
+graph
+Graph
+matched
+Graph plus
+text
+Case table
+first
+Table
+matched
+Table plus
+text
+OMIM facts conveyed
++1.0 (−0.9 to
++2.8); 19/15
++1.8 (+0.4 to
++3.3); 24/10
++1.8 (+0.5 to
++3.2); 24/10
+−2.3 (−4.5
+to +0.1);
+13/24
+−0.2 (−2.4
+to +2.1);
+16/20
++0.6 (−1.1 to
++2.6); 18/15
+. . . on papers readable in
+full
++2.3 (−0.2 to
++5.0); 13/11
++3.3 (+1.2 to
++5.6); 17/6
++2.7 (+0.5 to
++5.0); 16/5
+−4.9 (−8.0
+to −1.4);
+6/19
+−1.6 (−4.8
+to +1.9); 7/16
+−0.5 (−3.7
+to +2.8); 11/9
+Claims judged supported
+−0.8 (−1.4
+to −0.1);
+8/25
+−1.0 (−1.8
+to −0.2);
+12/24
++0.4 (−0.3 to
++1.2); 20/11
+−1.8 (−3.3
+to −0.6);
+11/25
+−0.9 (−2.1
+to +0.2);
+14/22
++0.3 (−0.4 to
++1.1); 21/14
+Synopsis precision
+−4.6 (−8.3
+to −1.1);
+9/24
+−5.7 (−9.2
+to −2.1);
+7/29
+−2.6 (−5.5
+to +0.4);
+12/22
+−4.5 (−8.5
+to −0.5);
+9/26
+−3.9 (−8.1
+to −0.1);
+13/24
+−3.1 (−7.2
+to +0.3);
+14/19
+Synopsis recall
++0.8 (−3.9 to
++5.0); 15/8
++1.1 (−2.3 to
++4.5); 15/10
++0.3 (−3.0 to
++3.1); 12/9
++2.6 (−2.4 to
++7.7); 17/12
++0.3 (−3.9 to
++4.4); 15/11
++0.6 (−2.0 to
++3.3); 11/9
+Synopsis exact F1
+−2.5 (−5.1
+to +0.1);
+10/24
+−2.3 (−4.5
+to −0.1);
+11/24
+−0.6 (−2.6
+to +1.2);
+14/20
+−2.8 (−5.6
+to +0.2);
+15/21
+−1.8 (−4.8
+to +1.0);
+16/21
+−0.7 (−3.2
+to +1.6);
+17/16
+Synopsis terms per entry
++6.2 (+3.1 to
++9.8); 25/7
++5.0 (+2.3 to
++8.1); 27/8
++2.2 (+0.7 to
++3.8); 21/12
++10.8 (+4.6 to
++18.1); 22/10
++3.5 (+1.5 to
++5.8); 24/10
++1.3 (−0.0 to
++2.6); 19/11
+Inheritance matches
+−2.6 (−7.9
+to +0.0); 0/1
+−2.6 (−7.9
+to +0.0); 0/1
+−2.6 (−7.9
+to +0.0); 0/1
+−2.6 (−7.9
+to +0.0); 0/1
++0.0 (+0.0 to
++0.0); 0/0
++0.0 (+0.0 to
++0.0); 0/0
+Variants recovered
+−0.6 (−1.5
+to +0.0); 0/2
+−0.3 (−1.0
+to +0.0); 0/1
++0.0 (−1.0 to
++1.1); 1/1
+−3.0 (−7.2
+to −0.2); 0/4
+−3.6 (−8.2
+to −0.2); 0/4
+−4.7 (−10.9
+to −0.3); 1/4
+27
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484
+1485
+1486
+1487
+1488
+1489
+1490
+1491
+1492
+1493
+1494
+1495
+1496
+1497
+1498
+1499
+1500
+1501
+1502
+1503
+1504
+1505
+1506
+1507
+1508
+1509
+1510
+1511
+Under review as a conference paper at ICLR 2025
+G
+HIDDEN-FULL-TEXT EXPERIMENT AND SECOND-HAND EVIDENCE
+Open-access papers that cite and describe each target paper were searched for all 515 papers through
+Europe PMC; passages (paragraphs or table rows whose citation points at the target paper) were
+found for 473 papers (326 of 345 abstract-only, 53 of 74 title-only, 94 of 96 full-text): 2,430 pas-
+sages. For the hidden-full-text experiment (49 entries), hidden papers: 91, all with citing papers, 89
+with open-access citing papers and at least one passage; 523 passages for the hidden papers. Over
+all 49 entries the two new conditions convey 35.3% (abstract only) and 41.1% (abstract plus second-
+hand) under the earlier scoring, pooled over facts. Under the earlier scoring facts are split separately
+for each condition, so the fact counts differ slightly.
+Table 22: Hidden-full-text experiment, 46 entries and 136 paragraphs in every condition. Top: fixed
+fact lists (main measure), coverage pooled over facts and as a mean over entries, with the earlier
+per-draft scoring (pooled) beside it. The full-text draft is the main run’s direct-reading draft; it went
+through the repair round and was also scored before repair; the two abstract drafts were not repaired.
+Before repair the audit flagged 13 of 6,609 audited claims (13 unsupported, 0 contradicted) in 11
+paragraphs of 8 entries; repair revised those 11 paragraphs and deleted none. The draft before repair
+was reconstructed from the stored writer and audit replies without new generation (taking it through
+the repair round reproduces the final draft exactly). Middle: paired differences, means over entries.
+Bottom: earlier scoring, pooled over facts.
+Condition
+Entries
+Paragraphs
+Facts
+judged
+Present
+Partial
+Absent
+Contra-
+dicted
+Coverage,
+pooled over
+facts
+Coverage,
+mean over
+entries
+Earlier
+scoring,
+pooled
+Abstract only
+46
+136
+2,120
+495
+331
+1,290
+4
+31.2%
+36.1%
+35.5%
+Abstract + second-hand
+46
+136
+2,120
+629
+297
+1,184
+10
+36.7%
+40.9%
+41.4%
+Full text, before repair
+46
+136
+2,120
+1,511
+255
+344
+10
+77.3%
+79.8%
+—
+Full text, after repair
+46
+136
+2,120
+1,513
+254
+343
+10
+77.4%
+79.9%
+78.6%
+Difference (mean over entries)
+Entries
+Fixed lists: mean
+(95% CI)
+better / worse /
+tied
+Earlier scoring:
+mean (95% CI)
+better / worse /
+tied
+Abstract + second-hand minus abstract
+only
+46
++4.9 (+2.8 to +7.1)
+33 / 9 / 4
++5.3 (+3.6 to +7.2)
+36 / 7 / 3
+Full text before repair minus abstract
+only
+46
++43.7 (+38.3 to
++49.1)
+45 / 0 / 1
+—
+—
+Full text after repair minus abstract only
+46
++43.9 (+38.5 to
++49.3)
+45 / 0 / 1
++41.7 (+36.7 to
++46.6)
+46 / 0 / 0
+Full text after minus before repair
+46
++0.2 (−0.1 to
++0.4)
+6 / 2 / 38
+—
+—
+Condition
+Paragraphs
+Facts
+Present
+Partial
+Absent
+Contradicted
+Coverage
+Abstract only
+136
+1783
+452
+362
+966
+3
+35.5%
+Abstract + second-hand
+136
+1802
+565
+362
+864
+11
+41.4%
+Full text, after repair
+136
+1767
+1268
+243
+246
+10
+78.6%
+28
+1512
+1513
+1514
+1515
+1516
+1517
+1518
+1519
+1520
+1521
+1522
+1523
+1524
+1525
+1526
+1527
+1528
+1529
+1530
+1531
+1532
+1533
+1534
+1535
+1536
+1537
+1538
+1539
+1540
+1541
+1542
+1543
+1544
+1545
+1546
+1547
+1548
+1549
+1550
+1551
+1552
+1553
+1554
+1555
+1556
+1557
+1558
+1559
+1560
+1561
+1562
+1563
+1564
+1565
+Under review as a conference paper at ICLR 2025
+Table 23: Claims about the hidden papers in the second-hand draft (2,308 claims; 2,208 after col-
+lapsing a statement repeated in two paragraphs), audited against what the writer saw and against the
+full text. own: the auditor’s quote is in the paper’s title or abstract; second-hand: in a later paper’s
+passage; none: no quote (judged unsupported or contradicted against what the writer saw). Middle
+and bottom: second-hand claims by passage kind and by the number of other references the passage
+cites (few = at most 2). Full texts exclude supplementary material, so “unsupported” is an upper
+bound on error; “contradicted” is not affected in the same way.
+Evidence (audit of what the writer saw)
+Claims
+(collapsed)
+Full text:
+supported
+partial
+unsupported
+contradicted
+no verdict
+none
+340 (338)
+191 (191)
+59 (59)
+55 (55)
+8 (8)
+27 (25)
+own
+1856 (1764)
+1688 (1598)
+136 (134)
+8 (8)
+6 (6)
+18 (18)
+second-hand
+112 (106)
+74 (68)
+24 (24)
+11 (11)
+3 (3)
+0 (0)
+Passage kind
+Claims
+(collapsed)
+Full text:
+supported
+partial
+unsupported
+contradicted
+no verdict
+paragraph
+91 (86)
+68 (63)
+18 (18)
+2 (2)
+3 (3)
+0 (0)
+table
+21 (20)
+6 (5)
+6 (6)
+9 (9)
+0 (0)
+0 (0)
+Other references cited by the passage
+(few = at most 2)
+Claims
+(collapsed)
+Full text:
+supported
+partial
+unsupported
+contradicted
+no verdict
+few
+87 (83)
+55 (51)
+20 (20)
+11 (11)
+1 (1)
+0 (0)
+many
+25 (23)
+19 (17)
+4 (4)
+0 (0)
+2 (2)
+0 (0)
+29
+1566
+1567
+1568
+1569
+1570
+1571
+1572
+1573
+1574
+1575
+1576
+1577
+1578
+1579
+1580
+1581
+1582
+1583
+1584
+1585
+1586
+1587
+1588
+1589
+1590
+1591
+1592
+1593
+1594
+1595
+1596
+1597
+1598
+1599
+1600
+1601
+1602
+1603
+1604
+1605
+1606
+1607
+1608
+1609
+1610
+1611
+1612
+1613
+1614
+1615
+1616
+1617
+1618
+1619
+Under review as a conference paper at ICLR 2025
+Table 24: Second-hand evidence in use on the 96 entries both strategies completed: means over
+entries (top), paired difference from direct reading (middle), and coverage by access level pooled
+over facts (bottom). 361 of the 401 papers not readable in full received passages (1,808); 240 of
+10,597 audited claims, in 92 paragraphs, rested only on second-hand text, were labelled as not
+checked against the cited paper and leave the denominator of claims judged supported. The writer
+did not name a later paper in any entry.
+Metric
+Direct reading
+Second-hand evidence
+Claims judged supported by cited paper
+↑
+96.2%
+94.4%
+. . . unsupported, before the repair round
+↓
+0.4%
+3.9%
+. . . contradicted, before the repair round
+↓
+0.0%
+0.0%
+OMIM per-paper facts conveyed
+(primary endpoint) ↑
+50.4%
+52.2%
+. . . fully (no partial credit) ↑
+43.7%
+45.9%
+OMIM per-paper facts contradicted ↓
+0.4%
+0.7%
+. . . facts split afresh for each draft
+(earlier scoring) ↑
+53.2%
+54.0%
+Clinical synopsis HPO F1, exact ↑
+35.9%
+37.0%
+. . . precision ↑
+43.7%
+43.2%
+. . . recall ↑
+36.2%
+37.5%
+Clinical synopsis HPO F1, hierarchical
+↑
+56.7%
+58.9%
+OMIM allelic variants recovered ↑
+68.2%
+73.2%
+Generated variants that are OMIM
+variants (precision) ↑
+88.4% (n=85)
+86.8% (n=89)
+Causal gene F1 ↑
+97.6%
+97.6%
+. . . recall ↑
+97.4%
+97.4%
+Inheritance matches OMIM ↑
+93.8%
+95.8%
+OMIM references used ↑
+94.6%
+94.5%
+Metric
+Second-hand evidence
+Claims judged supported by cited paper
+↑
+−1.8 (−2.9 to −0.8); 31/60/5
+. . . unsupported, before the repair round
+↓
++3.6 (+2.2 to +5.1); 8/51/37
+OMIM per-paper facts conveyed
+(primary) ↑
++1.8 (+1.0 to +2.8); 49/31/16
+OMIM per-paper facts contradicted ↓
++0.2 (+0.0 to +0.5); 4/11/81
+Clinical synopsis HPO F1, exact ↑
++1.1 (−0.7 to +3.0); 42/36/18
+Clinical synopsis HPO F1, hierarchical
+↑
++2.2 (+0.4 to +4.3); 50/36/10
+OMIM allelic variants recovered ↑
++5.0 (+1.3 to +9.2); 13/2/81
+Causal gene F1 ↑
++0.0 (+0.0 to +0.0); 0/0/96
+Inheritance matches OMIM ↑
++2.1 (+0.0 to +5.2); 2/0/94
+Paper readable as
+Direct reading
+Second-hand evidence
+full text
+78.2% (1,837)
+78.0% (1,837)
+abstract
+40.4% (4,205)
+41.7% (4,205)
+title
+17.5% (379)
+26.7% (379)
+30
+1620
+1621
+1622
+1623
+1624
+1625
+1626
+1627
+1628
+1629
+1630
+1631
+1632
+1633
+1634
+1635
+1636
+1637
+1638
+1639
+1640
+1641
+1642
+1643
+1644
+1645
+1646
+1647
+1648
+1649
+1650
+1651
+1652
+1653
+1654
+1655
+1656
+1657
+1658
+1659
+1660
+1661
+1662
+1663
+1664
+1665
+1666
+1667
+1668
+1669
+1670
+1671
+1672
+1673
+Under review as a conference paper at ICLR 2025
+H
+RECONCILED CASE DATABASE AND LEARNED CURATION GUIDE
+Reconciliation. Over the 100 entries, reconciliation proposed 57 merges of patient or family records
+and accepted 40 (17 rejected by the verifier) in 27 entries; it merged 11 variant names and found
+57 conflicts between papers. Counted individuals went from 2,580 to 2,413 (net; counts rose in a
+few entries where a re-report gave a larger family size) and families from 1,126 to 1,092. A planted
+test on six entries merged 10 of 10 copied reports with their originals and no unrelated records. The
+accepted merges were not checked by a person. Cost: one or two extra calls per entry. None of the
+entry-level measures uses patient counts, so no change in them is expected. Agreement of the table’s
+patient-count fractions with those in the HPO annotations (about 560 terms) was 48% before and
+after, with a mean absolute difference of 0.26; each reference fraction comes from one source while
+the table pools all papers.
+Learned guide. Training (27 of 30 training entries had a direct-reading draft; scored without the
+audit, with the earlier per-draft fact splitting): baseline OMIM facts conveyed 53.8% and synopsis
+exact F1 36.6%. Round 1 changed facts by +0.14 points and synopsis F1 by +1.29; round 2 by
+−1.41 and +3.57. The text rules of round 1 and the synopsis rules of round 2 were selected by a rule
+fixed in advance. The final guide, run once more on the training entries: facts +0.06 points, synopsis
+F1 +1.28 points. A first guide, learned before stopped replies were recorded, had treated three empty
+drafts as omissions and was discarded. On the held-out entries, a draft makes about twice as many
+statements about a paper as the OMIM paragraph has facts (direct reading 24.0 statements per paper,
+with the guide 22.2, against 11.9 facts), and 24% (direct) and 25% (guide) of a draft’s statements
+have a counterpart in that paragraph; the paragraph is variant-centred, so this is a lower bound on
+agreement with the entry.
+Table 25: Reconciled case database: paired difference from case table first on the 97 entries both
+completed (points, 95% interval, better/worse/same).
+Metric
+Reconciled case database
+Claims judged supported by cited paper
+↑
++0.0 (−0.4 to +0.4); 15/13/69
+. . . unsupported, before the repair round
+↓
++0.1 (−0.0 to +0.3); 4/12/81
+OMIM per-paper facts conveyed
+(primary) ↑
++0.1 (−0.1 to +0.4); 12/10/75
+OMIM per-paper facts contradicted ↓
++0.1 (−0.0 to +0.2); 2/4/91
+Clinical synopsis HPO F1, exact ↑
+−0.1 (−0.4 to +0.3); 6/5/86
+Clinical synopsis HPO F1, hierarchical
+↑
++0.0 (−0.0 to +0.1); 2/1/94
+OMIM allelic variants recovered ↑
++0.1 (+0.0 to +0.3); 1/0/96
+Causal gene F1 ↑
++0.0 (+0.0 to +0.0); 0/0/97
+Inheritance matches OMIM ↑
++0.0 (+0.0 to +0.0); 0/0/97
+31
+1674
+1675
+1676
+1677
+1678
+1679
+1680
+1681
+1682
+1683
+1684
+1685
+1686
+1687
+1688
+1689
+1690
+1691
+1692
+1693
+1694
+1695
+1696
+1697
+1698
+1699
+1700
+1701
+1702
+1703
+1704
+1705
+1706
+1707
+1708
+1709
+1710
+1711
+1712
+1713
+1714
+1715
+1716
+1717
+1718
+1719
+1720
+1721
+1722
+1723
+1724
+1725
+1726
+1727
+Under review as a conference paper at ICLR 2025
+Table 26: Learned curation guide on the 68 held-out entries both strategies completed (of 70): means
+(top) and paired difference from direct reading (bottom).
+Metric
+Direct reading
+Learned curation guide
+Claims judged supported by cited paper
+↑
+96.2%
+96.1%
+. . . unsupported, before the repair round
+↓
+0.2%
+0.2%
+. . . contradicted, before the repair round
+↓
+0.0%
+0.0%
+OMIM per-paper facts conveyed
+(primary endpoint) ↑
+49.3%
+50.3%
+. . . fully (no partial credit) ↑
+42.5%
+43.9%
+OMIM per-paper facts contradicted ↓
+0.4%
+0.4%
+. . . facts split afresh for each draft
+(earlier scoring) ↑
+52.2%
+51.9%
+Clinical synopsis HPO F1, exact ↑
+35.7%
+36.5%
+. . . precision ↑
+43.8%
+43.0%
+. . . recall ↑
+37.1%
+40.0%
+Clinical synopsis HPO F1, hierarchical
+↑
+55.4%
+55.4%
+OMIM allelic variants recovered ↑
+66.6%
+65.0%
+Generated variants that are OMIM
+variants (precision) ↑
+86.8% (n=57)
+87.9% (n=57)
+Causal gene F1 ↑
+98.0%
+98.0%
+. . . recall ↑
+97.8%
+97.8%
+Inheritance matches OMIM ↑
+94.1%
+94.1%
+OMIM references used ↑
+94.5%
+93.7%
+Metric
+Learned curation guide
+Claims judged supported by cited paper
+↑
+−0.1 (−1.0 to +1.0); 29/35/4
+. . . unsupported, before the repair round
+↓
+−0.0 (−0.4 to +0.3); 6/7/55
+OMIM per-paper facts conveyed
+(primary) ↑
++1.0 (+0.0 to +2.0); 30/25/13
+OMIM per-paper facts contradicted ↓
++0.1 (−0.1 to +0.2); 3/3/62
+Clinical synopsis HPO F1, exact ↑
++0.8 (−0.8 to +2.4); 34/22/12
+Clinical synopsis HPO F1, hierarchical
+↑
++0.1 (−1.3 to +1.4); 27/31/10
+OMIM allelic variants recovered ↑
+−1.6 (−3.7 to +0.0); 0/3/65
+Causal gene F1 ↑
++0.0 (+0.0 to +0.0); 0/0/68
+Inheritance matches OMIM ↑
++0.0 (+0.0 to +0.0); 0/0/68
+32
+1728
+1729
+1730
+1731
+1732
+1733
+1734
+1735
+1736
+1737
+1738
+1739
+1740
+1741
+1742
+1743
+1744
+1745
+1746
+1747
+1748
+1749
+1750
+1751
+1752
+1753
+1754
+1755
+1756
+1757
+1758
+1759
+1760
+1761
+1762
+1763
+1764
+1765
+1766
+1767
+1768
+1769
+1770
+1771
+1772
+1773
+1774
+1775
+1776
+1777
+1778
+1779
+1780
+1781
+Under review as a conference paper at ICLR 2025
+I
+EXPLORATORY AND SUPPLEMENTARY ANALYSES
+I.1
+ENTRIES WITH 30–75 REFERENCES (EXPLORATORY)
+Twelve entries, 536 papers (29 readable in full, 407 abstracts, 100 titles), not drawn exactly as the
+main set (one creation-era band has no entry). Only one entry exceeded the single-prompt budget
+used for direct reading (600,000 characters); direct reading split it into two batches, one of which
+was stopped, so that entry has no direct-reading draft. OMIM paragraphs exist for a minority of each
+entry’s references (3–19 papers per entry). Ten entries were compared (left out: 180300, 607060).
+With so few entries the bootstrap intervals are unreliable (a percentile bootstrap over so few entries
+is too narrow); read the counts instead. This tier tests many papers, not much text, and we draw no
+findings from it.
+33
+1782
+1783
+1784
+1785
+1786
+1787
+1788
+1789
+1790
+1791
+1792
+1793
+1794
+1795
+1796
+1797
+1798
+1799
+1800
+1801
+1802
+1803
+1804
+1805
+1806
+1807
+1808
+1809
+1810
+1811
+1812
+1813
+1814
+1815
+1816
+1817
+1818
+1819
+1820
+1821
+1822
+1823
+1824
+1825
+1826
+1827
+1828
+1829
+1830
+1831
+1832
+1833
+1834
+1835
+Under review as a conference paper at ICLR 2025
+Table 27: Exploratory tier: completion, means over the 10 compared entries, volume per entry,
+paired differences from direct reading (intervals unreliable), and cost per entry at list price.
+Strategy
+Complete
+Incomplete (a per-paper call failed)
+No draft
+Evidence graph
+11
+0
+1: 607060
+Direct reading
+11
+0
+1: 180300
+Agentic curator
+12
+0
+0
+Case table first
+10
+2: 180300 (9 papers), 607060 (2
+papers)
+0
+Reconciled case database
+10
+2: 180300 (9 papers), 607060 (2
+papers)
+0
+Metric
+Evidence graph
+Direct reading
+Agentic curator
+Case table first
+Reconciled case
+database
+Claims judged supported by cited paper ↑
+97.5%
+97.9%
+98.1%
+96.7%
+96.3%
+... unsupported, before the repair round ↓
+0.2%
+0.1%
+0.2%
+0.4%
+0.5%
+... contradicted, before the repair round ↓
+0.0%
+0.0%
+0.0%
+0.0%
+0.0%
+OMIM per-paper facts conveyed (primary
+endpoint) ↑
+46.3%
+45.5%
+44.9%
+46.0%
+47.8%
+... fully (no partial credit) ↑
+39.5%
+38.6%
+37.9%
+39.2%
+41.2%
+OMIM per-paper facts contradicted ↓
+0.4%
+0.3%
+0.2%
+0.1%
+0.2%
+... facts split afresh for each draft (earlier
+scoring) ↑
+47.4%
+47.4%
+47.4%
+48.6%
+49.7%
+Clinical synopsis HPO F1, exact ↑
+26.7%
+30.3%
+29.6%
+28.1%
+28.1%
+... precision ↑
+21.2%
+33.7%
+33.9%
+26.5%
+26.5%
+... recall ↑
+48.9%
+35.9%
+34.5%
+46.7%
+46.7%
+Clinical synopsis HPO F1, hierarchical ↑
+48.9%
+52.5%
+50.6%
+48.4%
+48.4%
+OMIM allelic variants recovered ↑
+55.8%
+54.5%
+56.2%
+58.1%
+56.1%
+Generated variants that are OMIM
+variants (precision) ↑
+52.1%
+64.9%
+66.2%
+39.0%
+46.7%
+Causal gene F1 ↑
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+... recall ↑
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+Inheritance matches OMIM ↑
+100.0%
+100.0%
+100.0%
+80.0%
+80.0%
+OMIM references used ↑
+96.6%
+97.2%
+89.6%
+94.8%
+94.5%
+Metric
+Evidence graph
+Direct reading
+Agentic curator
+Case table first
+Reconciled case
+database
+Claims audited per entry
+406.4
+303.0
+285.4
+407.7
+395.4
+Claims that could not be audited per entry
+0.0
+0.0
+0.0
+0.0
+0.0
+Clinical-synopsis HPO terms per entry
+42.8
+20.3
+18.5
+40.8
+40.8
+Allelic variants per entry
+10.3
+6.3
+6.6
+14.5
+12.8
+Metric
+Evidence graph
+Agentic curator
+Case table first
+Reconciled case database
+Claims judged supported by cited
+paper ↑
+−0.4 (−1.1 to +0.2);
+2/7/1
++0.2 (−0.5 to +0.9);
+5/5/0
+−1.2 (−2.2 to −0.1);
+1/9/0
+−1.6 (−2.5 to −0.6);
+2/8/0
+... unsupported, before the repair
+round ↓
++0.0 (−0.1 to +0.2);
+2/5/3
++0.0 (−0.2 to +0.2);
+2/3/5
++0.2 (−0.1 to +0.8);
+2/6/2
++0.4 (−0.1 to +1.1);
+2/6/2
+OMIM per-paper facts conveyed
+(primary) ↑
++0.7 (−2.7 to +3.4);
+6/3/1
+−0.6 (−2.1 to +0.7);
+2/6/2
++0.4 (−1.4 to +2.3);
+5/4/1
++2.3 (+0.4 to +4.2); 7/3/0
+OMIM per-paper facts contradicted
+↓
++0.1 (−0.2 to +0.4);
+1/2/7
+−0.1 (−0.7 to +0.3);
+2/2/6
+−0.2 (−0.7 to +0.2);
+2/1/7
+−0.1 (−0.7 to +0.4);
+2/2/6
+Clinical synopsis HPO F1, exact ↑
+−3.6 (−7.3 to +0.4);
+2/7/1
+−0.7 (−2.9 to +1.0);
+3/4/3
+−2.1 (−6.0 to +2.1);
+4/6/0
+−2.1 (−6.0 to +2.0);
+4/6/0
+Clinical synopsis HPO F1,
+hierarchical ↑
+−3.6 (−6.9 to −0.2);
+2/8/0
+−1.9 (−6.3 to +1.0);
+4/5/1
+−4.1 (−7.7 to −0.3);
+3/7/0
+−4.1 (−7.7 to −0.3);
+3/7/0
+OMIM allelic variants recovered ↑
++1.4 (−11.7 to +10.8);
+4/1/5
++1.7 (−1.4 to +5.7);
+2/1/7
++3.6 (−0.7 to +8.5);
+3/1/6
++1.6 (−4.9 to +7.8);
+3/2/5
+Causal gene F1 ↑
++0.0 (+0.0 to +0.0);
+0/0/10
++0.0 (+0.0 to +0.0);
+0/0/10
++0.0 (+0.0 to +0.0);
+0/0/10
++0.0 (+0.0 to +0.0);
+0/0/10
+Inheritance matches OMIM ↑
++0.0 (+0.0 to +0.0);
+0/0/10
++0.0 (+0.0 to +0.0);
+0/0/10
+−20.0 (−50.0 to +0.0);
+0/2/8
+−20.0 (−50.0 to +0.0);
+0/2/8
+Per entry
+Evidence graph
+Direct reading
+Agentic curator
+Case table first
+Reconciled case
+database
+Generation: model calls
+43.9
+2.0
+2.0
+44.0
+45.9
+Generation: list price
+$2.38
+$0.59
+$0.90
+$2.55
+$2.81
+Generation: input / output tokens
+273,265 / 67,321
+34,086 / 17,083
+169,973 / 27,350
+338,163 / 72,294
+362,469 / 76,857
+Generation: model time (s)
+577
+132
+213
+639
+686
+Audit and repair: list price
+$2.83
+$2.32
+$2.19
+$2.88
+$2.84
+Scoring against OMIM: list price
+$0.68
+$0.33
+$0.33
+$0.68
+$0.67
+Everything: list price
+$5.89
+$3.24
+$3.42
+$6.11
+$6.32
+34
+1836
+1837
+1838
+1839
+1840
+1841
+1842
+1843
+1844
+1845
+1846
+1847
+1848
+1849
+1850
+1851
+1852
+1853
+1854
+1855
+1856
+1857
+1858
+1859
+1860
+1861
+1862
+1863
+1864
+1865
+1866
+1867
+1868
+1869
+1870
+1871
+1872
+1873
+1874
+1875
+1876
+1877
+1878
+1879
+1880
+1881
+1882
+1883
+1884
+1885
+1886
+1887
+1888
+1889
+Under review as a conference paper at ICLR 2025
+I.2
+ENTRIES CREATED JUNE TO NOVEMBER 2026
+107 phenotype entries were created in 2026 (creation dates from NCBI); 53 have at least two cited
+references and one in-scope paragraph, and the 30 newest were run, chosen by creation date alone
+(newest qualifying entries by creation month, then entry number). They were used in no other exper-
+iment, and nothing that shapes how drafts are written, audited or repaired changed after their drafts
+were generated: rerun with the final implementation, the five strategies issue only the original model
+calls and reproduce the stored drafts exactly. They are therefore a sample not used in developing the
+strategies, though small: recall, then verify was not run on them, stopped replies are frequent (the
+agentic curator’s writer was stopped on 6 of 30, direct reading’s on 2, and the evidence graph lost a
+paper on 7), and 20 entries are compared. Phenotype annotations exist for only one of them, so syn-
+opsis and inheritance scores are not reported. On the 20 compared entries the ordering is that of the
+main comparison: all reading strategies lie within 2.8 points of direct reading’s 52.2% (means over
+entries), and the agentic curator’s interval excludes zero (−1.1, −1.8 to −0.3); the memory-only
+control conveys 7.0% (paired difference −45.2, −52.4 to −38.0) and names the causal gene with
+an F1 of 30.0%. The model’s training cut-off is not known to us; the memory-only control is the
+empirical test. Twenty entries were compared (left out: 301174, 621639, 621644, 621667, 621671,
+621687, 621704, 621707, 621722, 621728).
+Table 28: Entries created June to November 2026: completion (top), means over the 20 compared
+entries (middle) and paired differences from direct reading (bottom).
+Strategy
+Complete
+Incomplete (a per-paper call
+failed)
+No draft
+Evidence graph
+23
+7: 621639 (1 paper), 621644 (1
+paper), 621667 (1 paper),
+621671 (1 paper), 621704 (1
+paper), 621707 (1 paper),
+621728 (1 paper)
+0
+Direct reading
+28
+0
+2: 621639, 621728
+Agentic curator
+24
+0
+6: 621639, 621644, 621667,
+621704, 621707, 621728
+Memory only (control)
+30
+0
+0
+Case table first
+20
+10: 301174 (1 paper), 621639 (1
+paper), 621644 (1 paper),
+621667 (1 paper), 621671 (1
+paper), 621687 (1 paper),
+621704 (1 paper), 621707 (1
+paper), 621722 (1 paper),
+621728 (1 paper)
+0
+Metric
+Evidence graph
+Direct reading
+Agentic curator
+Memory only
+(control)
+Case table first
+Claims judged supported by cited
+paper ↑
+95.7%
+95.5%
+95.8%
+26.2%
+94.5%
+. . . unsupported, before the repair
+round ↓
+0.0%
+0.0%
+0.1%
+35.3%
+0.4%
+. . . contradicted, before the repair
+round ↓
+0.1%
+0.0%
+0.0%
+0.5%
+0.0%
+OMIM per-paper facts conveyed
+(primary endpoint) ↑
+51.5%
+52.2%
+51.1%
+7.0%
+49.4%
+OMIM allelic variants recovered ↑
+70.9%
+65.5%
+62.5%
+5.0%
+68.9%
+Generated variants that are OMIM
+variants (precision) ↑
+79.8%
+87.4% (n=18)
+88.0% (n=18)
+100.0% (n=1)
+83.3% (n=19)
+Causal gene F1 ↑
+100.0%
+100.0%
+100.0%
+30.0%
+100.0%
+OMIM references used ↑
+99.6%
+98.6%
+99.6%
+10.0%
+99.6%
+Metric
+Evidence graph
+Agentic curator
+Memory only
+(control)
+Case table first
+Claims judged supported by cited
+paper ↑
++0.2 (−1.1 to +1.7);
+10/10/0
++0.2 (−1.1 to +1.6);
+9/10/1
+−69.3 (−83.1 to
+−54.4); 0/20/0
+−1.1 (−3.1 to
++1.1); 7/13/0
+OMIM per-paper facts conveyed
+(primary) ↑
+−0.7 (−2.4 to
++1.0); 5/11/4
+−1.1 (−1.8 to
+−0.3); 2/12/6
+−45.2 (−52.4 to
+−38.0); 0/20/0
+−2.8 (−5.4 to
+−0.7); 5/11/4
+OMIM allelic variants recovered ↑
++5.4 (−1.9 to
++14.3); 4/1/15
+−3.1 (−7.8 to
++0.0); 0/2/18
+−60.6 (−75.5 to
+−45.5); 0/17/3
++3.3 (−3.3 to
++11.7); 2/1/17
+Causal gene F1 ↑
++0.0 (+0.0 to +0.0);
+0/0/20
++0.0 (+0.0 to +0.0);
+0/0/20
+−70.0 (−90.0 to
+−50.0); 0/14/6
++0.0 (+0.0 to +0.0);
+0/0/20
+35
+1890
+1891
+1892
+1893
+1894
+1895
+1896
+1897
+1898
+1899
+1900
+1901
+1902
+1903
+1904
+1905
+1906
+1907
+1908
+1909
+1910
+1911
+1912
+1913
+1914
+1915
+1916
+1917
+1918
+1919
+1920
+1921
+1922
+1923
+1924
+1925
+1926
+1927
+1928
+1929
+1930
+1931
+1932
+1933
+1934
+1935
+1936
+1937
+1938
+1939
+1940
+1941
+1942
+1943
+Under review as a conference paper at ICLR 2025
+I.3
+UPDATES AND RETRIEVAL WITHOUT A REFERENCE LIST
+Both analyses use the evidence-graph strategy only. Updates. Ten entries were rolled back to an
+earlier reference list. A literature search found all 28 references OMIM later added; all passed
+screening and 21 (75%) became update proposals. The same run proposed 33 papers OMIM does
+not cite. Retrieval. Given a title and the causal gene, a search capped at 12 papers selected 56 of the
+85 references OMIM cites for ten entries (66%); 47% of what it selected is in OMIM’s list (entry
+mean).
+I.4
+ANALYSES THAT WERE CORRECTED
+The first analysis excluded entries whose writer was stopped but scored entries in which a per-paper
+call was stopped; under it the evidence graph appeared 2.1 points below direct reading on OMIM
+facts conveyed, and with completion treated the same way for every strategy the difference is not
+distinguishable from zero. A bug in variant naming wrote frameshifts as missense changes in the
+evidence-graph and case-table-first drafts (39 and 44 variant headings in 19 entries); it was fixed and
+the drafts regenerated before the results reported here.
+36
