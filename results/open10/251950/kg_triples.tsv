@@ -1,0 +1,237 @@
+subject	predicate	object	pmids
+Mancuso et al. (2007)	reports	Mancuso et al. (2007) generated mice null for iPLA2-gamma (Pnpla8) by eliminating the enzyme's active site through homologous recombination. The null mice had multiple bioenergetic dysfunctional phenotypes: growth retardation, cold intolerance, reduced exercise endurance, and greatly increased mortality from cardiac stress after transverse aortic constriction. They also had abnormal mitochondrial function, with a 65% decrease in ascorbate-induced complex IV-mediated oxygen consumption, and reduced myocardial cardiolipin content with an altered mix of cardiolipin molecular species. The authors concluded that iPLA2-gamma is essential for efficient mitochondrial bioenergetic function because it shapes mitochondrial membrane lipid metabolism and composition.	
+Song et al. (2010)	reports	Song et al. (2010) found that iPLA2gamma-knockout mice fed a high-fat Western diet were resistant to diet-induced increases in body weight, adiposity, and blood cholesterol, glucose, and insulin, compared with wildtype mice. This occurred even though knockout and wildtype mice ate similar amounts of food and digested and absorbed dietary fat similarly. Knockout mice were also relatively resistant to diet-induced insulin resistance, glucose intolerance, and changes in fat versus carbohydrate fuel use.	
+Song et al. (2010)	reports	Song et al. (2010) showed that skeletal muscle from iPLA2gamma-knockout mice had impaired mitochondrial beta-oxidation of fatty acids. On a Western diet, knockout muscle and liver accumulated more long-chain acylcarnitine species than wildtype tissue. Knockout mice also excreted more long-chain acylcarnitine in urine and deposited much less triacylglycerol in the liver. The authors concluded that iPLA2gamma deficiency leads to impaired mitochondrial oxidation of fatty acids.	
+Yoda et al. (2010)	reports	Yoda et al. (2010) found that mice with a knockout of iPLA2-gamma (Pnpla8) were born at the expected Mendelian ratio and looked normal and healthy at 1 month of age. Growth retardation began at 2 months, and kyphosis and significant muscle weakness were present by 4 months. Electron microscopy of knockout skeletal muscle showed swollen mitochondria, fewer mitochondria, and atrophy of myofilaments. The knockout muscle also had increased lipid peroxidation and induction of several oxidative stress-related genes. The authors concluded that loss of iPLA2-gamma causes mitochondrial dysfunction and increased oxidative stress, leading to loss of skeletal muscle structure and function.	
+Yoda et al. (2010)	reports	In skeletal muscle from iPLA2-gamma-knockout mice, Yoda et al. (2010) found that the composition of cardiolipin and of other phospholipid subclasses was altered. Levels of myoprotective prostanoids were also reduced. The authors suggested that, besides helping maintain mitochondrial membrane homeostasis, iPLA2-gamma may contribute to modulating the production of lipid mediators in vivo.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) reported a 7-year-old girl (CMH193) with suspected mitochondrial myopathy. She was asymptomatic and met developmental milestones in her first year, apart from toe-walking. She had a positive Gowers sign at age 2 and could no longer walk by age 3. Her course was progressive: proximal muscle weakness, decline of fine motor skills, dysarthria, dysmetria, dystonia, hypotonia that progressed to spasticity, complex partial seizures with left temporal lobe spikes on EEG, a very lean body habitus without weight gain, and significant lactic acidosis requiring bicarbonate supplementation.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) found that the patient had a consistently elevated anion gap from age 5, and at age 7 had elevated blood lactate (3.8-5.6 mmol/L) and pyruvate with a lactate:pyruvate ratio of 17.5-21.1. Her plasma acylcarnitines and creatine phosphokinase were normal. CSF showed deficiency of 5-methyltetrahydrofolate. Muscle SDH and COX activities and electron transport chain function were normal, and the authors suggested mitochondrial dysfunction rather than an electron transport chain defect.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) reported that a muscle biopsy taken at age 4 showed variable fiber size with isolated small atrophic fibers but no ragged red fibers. Electron microscopy showed mitochondria with marked disarray of cristae, globular dense osmiophilic inclusions, and subsarcolemmal aggregates of abnormal mitochondria with concentric lamellar membranes, suggestive of degenerating mitochondria. Secondary lysosomes were increased. A brain MRI at 33 months showed subtle increased signal in the medial globus pallidus bilaterally, which was no longer seen two years later.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) performed trio exome sequencing and found that the patient was compound heterozygous for a frameshift variant in PNPLA8, c.334_337delAATT (p.Asn112HisfsX29), confirmed by Sanger sequencing. The variant was inherited from a carrier parent, and two healthy siblings did not carry it. It was absent from EVS and from an internal database of 1913 samples.	
+PNPLA8 c.334_337delaatt / p.N112H	in_gene	PNPLA8	
+Saunders et al. (2015)	reports	Saunders et al. (2015) identified a second frameshift variant in PNPLA8 in the same patient, c.1975_1976delAG (p.Leu659AlafsX4), in compound heterozygous state. The variant was inherited from a carrier parent and was absent from EVS and an internal database.	
+PNPLA8 c.1975_1976delag / p.L659A	in_gene	PNPLA8	
+Saunders et al. (2015)	reports	Saunders et al. (2015) showed by Western blot that the patient's muscle had a dramatic decrease in the 88-, 63- and 52-kD iPLA2-gamma (PNPLA8) bands compared with 3 control muscles. A 110-kD band was also absent; mass spectrometry identified this band as HSPA4 reacting nonspecifically with the antibody. The authors speculated that losing this chaperone might contribute to the disease.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) noted that the patient's phenotype resembled that of Pnpla8-null mice. These mice show mitochondrial dysfunction, impaired learning, decreased exercise endurance, enhanced insulin sensitivity, a thin body habitus and cold intolerance. They also have dysmorphic mitochondria similar to those seen in the patient's muscle.	
+Saunders et al. (2015)	reports	Saunders et al. (2015) suggested that in PNPLA8-related disease, as in PLA2G6-related disease, the primary mechanism may be degeneration of the mitochondrial inner membrane. In their view, electron transport proteins would be affected only secondarily, through altered membrane homeostasis.	
+Shukla et al. (2018)	reports	Shukla et al. (2018) described a female infant from India, born to consanguineous parents, who had congenital microcephaly (head circumference 29 cm, -4 SD at birth) and multifocal clonic seizures that began on day 2 of life, along with spasticity of all 4 limbs. Brain MRI showed microcephaly with a simplified gyral pattern, hypoplasia of the corpus callosum, a prominent cisterna magna with a hypoplastic cerebellum, and brainstem atrophy. MRS showed an elevated lipid-lactate peak. TORCH testing was negative.	
+Shukla et al. (2018)	reports	Shukla et al. (2018) described a girl of India/Fiji origin, born to nonconsanguineous parents, who developed normally until about 13 months of age and then regressed, with episodes of epilepsia partialis continua and focal seizures. She stayed at an 8-month developmental level, did not speak, needed a gastrostomy tube, and developed acquired microcephaly (head circumference -4.7 SD at 15 years). Other features were hypotonia, proximal muscle weakness, absent reflexes, choreiform movements, dystonia, contractures, hypertrophic cardiomyopathy with subaortic stenosis, obstructive sleep apnea, and visual evoked potentials with severely reduced amplitudes. Serial MRI showed progressive atrophy of the cerebellum, brainstem, and cerebrum with corpus callosum thinning. MRS showed a persistent lipid-lactate peak, blood lactate was elevated, and GDF15 was elevated (1293 pg/ml).	
+Shukla et al. (2018)	reports	Shukla et al. (2018) reported that electron microscopy of the muscle biopsy in patient 2 showed enlarged, irregularly shaped mitochondria with surrounding membrane whorls, disrupted cristae, electron-dense deposits, lipid droplets, and pools of glycogen. Activities of electron transport chain complexes I to IV were in the normal range. Mitochondrial DNA sequencing found no variation.	
+Shukla et al. (2018)	reports	Whole exome sequencing by Shukla et al. (2018) identified a homozygous nonsense variant in PNPLA8, c.517G>T (p.Glu173Ter; NM_001256007.1), in patient 1, the child of consanguineous parents. Sanger sequencing showed that both parents were heterozygous for the variant.	
+PNPLA8 c.517G>T / p.E173*	in_gene	PNPLA8	
+Shukla et al. (2018)	reports	Shukla et al. (2018) found compound heterozygous variants in PNPLA8 in patient 2 by trio whole exome sequencing: a 2-bp deletion, c.2275_2276delCT (p.Leu759AlafsTer4), and a nonsense variant, c.419C>A (p.Ser140Ter). The variants were confirmed by Sanger sequencing, and segregation analysis showed that each was inherited from a carrier parent.	
+PNPLA8 c.2275_2276del / c.2275_2276delct / p.L759A	in_gene	PNPLA8	
+PNPLA8 c.419C>A / p.S140*	in_gene	PNPLA8	
+Shukla et al. (2018)	reports	Shukla et al. (2018) noted that segregation of biallelic PNPLA8 variants from carrier parents was consistent with autosomal recessive inheritance.	
+Shukla et al. (2018)	reports	Shukla et al. (2018) noted that all of the reported PNPLA8 variants introduce premature stop codons and were likely to cause truncated protein or nonsense-mediated decay. They also noted that the abnormal mitochondria with concentric lamellar membranes seen in patient 2 matched findings in Pnpla8-null mice, which develop a mitochondrial neurodegenerative disorder.	
+Shukla et al. (2018)	reports	Shukla et al. (2018) noted that the clinical picture in the 3 known patients with PNPLA8 variants was similar but variable. They stated that, because so few individuals had been reported, a genotype-phenotype correlation could not yet be made.	
+Masih et al. (2021)	reports	Masih et al. (2021) reported a patient with prenatal-onset severe and progressive neurodegeneration who died in infancy.	
+Masih et al. (2021)	reports	In a patient with prenatal-onset severe neurodegeneration, Masih et al. (2021) used whole-exome sequencing to identify a novel homozygous missense variant (c.1874A>G) in the patatin domain of the PNPLA8 gene.	
+PNPLA8 c.1874A>G	in_gene	PNPLA8	
+Hirabayashi et al. (2023)	reports	Hirabayashi et al. (2023) found that PNPLA8-deficient mice reproduced most of the phenotypes of PNPLA7-deficient mice. These included growth retardation, hypoglycemia, hypolipidemia, increased energy consumption, reduced adiposity, increased FGF21, and an altered histone/DNA methylation landscape, which the authors attributed to methionine insufficiency. Unlike wildtype mice fed a methionine/choline-deficient diet, the knockout mice had decreased hepatic triglyceride. The authors suggested this was likely due to reduced lipogenesis and reduced GPC-derived glycerol flux.	
+Hirabayashi et al. (2023)	reports	Hirabayashi et al. (2023) reported that the phospholipase/lysophospholipase pathway formed by PNPLA8 and PNPLA7 breaks down membrane phosphatidylcholine into water-soluble glycerophosphocholine (GPC) in the liver. This process makes choline stored in hepatic phosphatidylcholine available for methyl metabolism and for replenishing the methionine cycle.	
+Burnyte et al. (2023)	reports	Burnyte et al. (2023) described 2 adult Lithuanian siblings (a brother and a sister) whose slowly progressive ataxia began between ages 10 and 14 years. The ataxia was accompanied by progressive sensorimotor axonal polyneuropathy and cognition was preserved. The brother's symptoms started at age 14 years with lower limb weakness, distal muscle atrophy, ataxia, and gait disturbance. He could not walk without assistance from age 17 years. Later he showed tetraparesis, absent lower limb reflexes, bilateral Babinski signs, foot deformities, dysmetria, and distal hypoesthesia. At age 45 he had mild dysarthria and horizontal nystagmus, a normal MMSE score, and mild cerebellar atrophy on brain MRI.	
+Burnyte et al. (2023)	reports	Burnyte et al. (2023) reported that the sister developed walking difficulty and weakness in both lower limbs at age 14 years. When examined at age 21 she had distal limb muscle atrophy, absent lower limb reflexes, bilateral Babinski signs, severe axial ataxia, and appendicular dysmetria, and she could not keep an upright posture. Her cranial nerves and cognition were normal. Nerve conduction studies showed axonal sensorimotor polyneuropathy, and EMG showed no myopathic changes.	
+Burnyte et al. (2023)	reports	In 2 Lithuanian siblings with adolescent-onset ataxia and neuropathy, Burnyte et al. (2023) used whole-exome sequencing to identify compound heterozygous frameshift variants in exon 11 of PNPLA8. One was a novel deletion, c.2269del (p.Thr757GlnfsTer10), which was absent from ExAC, 1000 Genomes, and gnomAD. The other was a previously reported 2-bp deletion, c.2275_2276del (p.Leu759AlafsTer4), inherited from the mother. The father's DNA was not available, but the sequencing data showed that the 2 variants were in trans. Sanger sequencing confirmed both variants in the affected sister.	
+PNPLA8 c.2269del / p.T757Q	in_gene	PNPLA8	
+Burnyte et al. (2023)	reports	Burnyte et al. (2023) noted that c.2275_2276del had previously been reported, together with another truncating variant, in a patient with severe early-childhood neurodegeneration, whereas their siblings had a milder phenotype. Both truncating variants in the siblings lie in the last coding exon of PNPLA8. The authors suggested that these transcripts may escape nonsense-mediated decay and possibly retain partial enzyme activity.	
+Moon et al. (2023)	reports	Moon et al. (2023) generated a skeletal muscle-specific iPLA2gamma (PNPLA8) knockout mouse (SKMiPLA2gammaKO) by crossing mice carrying loxP sites flanking exon 5 of the iPLA2gamma gene, which encodes the enzyme active site, with transgenic mice expressing Cre recombinase driven by the human alpha-actin promoter; western blot analysis of mitochondria from white adipose tissue, liver and skeletal muscle confirmed that ablation of iPLA2gamma was restricted to skeletal muscle.	
+Moon et al. (2023)	reports	Moon et al. (2023) reported that genetic ablation of skeletal muscle iPLA2gamma in the mouse produced pronounced muscle weakness, muscle atrophy, and increased blood lactate resulting from defects in mitochondrial function that impaired metabolic processing of pyruvate and caused bioenergetic inefficiency; the authors concluded that these findings established a multicomponent myopathy with pathophysiologic effects on skeletal muscle bioenergetics, mechanical function, and whole-body energy metabolism.	
+Moon et al. (2023)	reports	Moon et al. (2023) found that tibialis anterior and quadriceps muscle mass was decreased by 30% in male SKMiPLA2gammaKO mice, with a greater loss of tibialis anterior mass in females; transmission electron microscopy of tibialis anterior muscle from 7-month-old knockout mice showed a prevalence of mitochondria with severe ultrastructural damage including irregular cristae and electron dense inclusions, accompanied by disruption of normal striated muscle structure.	
+Moon et al. (2023)	reports	Moon et al. (2023) showed that mitochondrial DNA copy number, assessed as ND1 relative to nuclear HK2 by qPCR, was significantly decreased in SKMiPLA2gammaKO tibialis anterior muscle, and that protein levels of the mitochondrial fusion/fission proteins DRP1, OPA1 and MFN1 were dramatically diminished despite only modest decreases in their mRNA levels, whereas the ratio of recoverable mitochondrial protein to muscle mass and the mitochondrial markers VDAC, ANT and citrate synthase were unchanged.	
+Moon et al. (2023)	reports	Moon et al. (2023) reported that protein synthesis through the Akt/mTOR muscle growth pathway involving S6 ribosomal protein was significantly impaired in SKMiPLA2gammaKO muscle, with marked decreases in phosphorylation of these proteins despite compensatory upregulation of Akt and S6 protein mass and prominent cleavage of mTOR, while autophagic flux monitored by LC3B-I/II and p62 was unchanged; they concluded that reduced net protein synthesis in the setting of bioenergetic inefficiency likely underlay the muscle atrophy.	
+Moon et al. (2023)	reports	Moon et al. (2023) found in grip and treadmill tests of 7- to 8-month-old mice that SKMiPLA2gammaKO mice had weaker grip force and fatigued more rapidly during treadmill exercise, irrespective of diet type or sex, and that serum lactate after treadmill exercise rose more in knockout than wild-type mice despite a shorter average exercise duration.	
+Moon et al. (2023)	reports	Moon et al. (2023) reported that in high-intensity treadmill exercise at 18 m/min for 4 min, 3 of 6 SKMiPLA2gammaKO female mice were completely exhausted within 1 to 2.5 min, and blood lactate accumulation markedly increased with a corresponding decline in blood glucose in the knockout compared with wild-type counterparts.	
+Moon et al. (2023)	reports	Moon et al. (2023) found that histology of tibialis anterior muscle from SKMiPLA2gammaKO mice showed internalization of nuclei and smaller myocyte diameter, with quadriceps showing irregularly sized myocytes and increased numbers of markedly smaller myofibers; myogenin expression was markedly increased while MyoD was unchanged, indicating more active regenerative myogenesis, and fast-twitch tibialis anterior muscle was further shifted toward a fast-twitch type II fiber phenotype.	
+Moon et al. (2023)	reports	Moon et al. (2023) showed by ex vivo isometric force measurement of extensor digitorum longus muscle from 4 wild-type and 4 SKMiPLA2gammaKO mice that EDL muscle weight and total body weight were lower in knockouts, giving a smaller physiological cross-sectional area, but that specific tetanic peak tension after normalization to cross-sectional area did not differ between genotypes; the authors noted this limited the ability to exclude neurological or behavioral contributions to the weakness.	
+Moon et al. (2023)	reports	Moon et al. (2023) used high-resolution respirometry of saponin-permeabilized tibialis anterior muscle and found that mitochondria from normal-chow-fed male SKMiPLA2gammaKO mice consumed 50% less oxygen than wild-type controls with glutamate/pyruvate/malate as substrate, with an even larger difference in females; protein levels of complex IV and cytochrome c were dramatically reduced, and although complex I and II protein levels were unchanged, their catalytic activities were decreased by about 50% and 25%, respectively.	
+Moon et al. (2023)	reports	Moon et al. (2023) measured mitochondrial membrane potential with a tetraphenylphosphonium electrode in mitochondria isolated from tibialis anterior muscle of 5 wild-type and 5 knockout mice and found it significantly lower in SKMiPLA2gammaKO mice with either complex I (glutamate/pyruvate/malate) or complex II (succinate) substrates, and that hydrogen peroxide production from forward and reverse electron transfer was greatly attenuated in the knockout.	
+Moon et al. (2023)	reports	Moon et al. (2023) used multidimensional mass spectrometry-based shotgun lipidomics and found that SKMiPLA2gammaKO tibialis anterior muscle had significantly lower levels of tetra-18:2 cardiolipin, the most abundant mature cardiolipin species in skeletal muscle, and decreased 22:6-containing cardiolipin species during normal-chow feeding; the authors suggested that loss of tetra-18:2 cardiolipin contributes to inefficient respiration by disrupting the stability and association of electron transport chain proteins.	
+Moon et al. (2023)	reports	Moon et al. (2023) found that SKMiPLA2gammaKO mice were resistant to high-fat diet-induced weight gain, gaining on average about 8 g versus about 16 g in wild-type mice after 3 months of high-fat feeding, and showed improved glucose clearance with a lower peak glucose (about 240 versus about 320 mg/dL) and decreased area under the curve during glucose challenge, without significant differences in insulin tolerance or serum insulin levels.	
+Moon et al. (2023)	reports	Moon et al. (2023) reported that high-fat-fed SKMiPLA2gammaKO mice had dramatically less hepatic lipid droplet content, significantly lower hepatic triacylglycerol and diacylglycerol molecular species, no increase in liver-to-body weight ratio, diminished high-fat diet-induced fibrosis, and higher hepatic glycogen content than wild-type controls, while high-fat diet-induced increases in white adipose tissue mass were significantly more prominent in the knockout.	
+Moon et al. (2023)	reports	Moon et al. (2023) concluded that iPLA2gamma mediates skeletal muscle bioenergetic function through preservation of mitochondrial structural and functional integrity, maintenance of an appropriate membrane environment for assembly of protein complexes, and concerted signaling of skeletal muscle with the liver, and that the compromised bioenergetic and physiologic phenotype of the skeletal muscle iPLA2gamma knockout mouse was due to multifactorial mitochondrial dysfunction for which no single precipitating cause could be identified.	
+Moon et al. (2023)	reports	Moon et al. (2023), reviewing prior work motivating their study, noted that the relevance of iPLA2gamma-mediated pathologies in humans was underscored by the discovery through exome sequencing of a severely ill patient null for both iPLA2gamma alleles due to a premature stop codon in both alleles, who demonstrated marked mitochondrial morphologic alterations, muscle weakness, and lactic acidosis, and that a subsequent study reported two more unrelated patients with loss-of-function variants in PNPLA8 and similar pathologic alterations.	
+PNPLA8 premature stop codon for iPLA2γ in both alleles	in_gene	PNPLA8	
+Abdel-Hamid et al. (2024)	reports	Abdel-Hamid et al. (2024) reported 3 patients from 2 families with PNPLA8-related mitochondriopathy. Patient 1 had the congenital form of the disease. Previously reported congenital-onset patients had congenital microcephaly, early-onset epileptic encephalopathy and early death.	
+Abdel-Hamid et al. (2024)	reports	Abdel-Hamid et al. (2024) described 2 patients (Patients 2 and 3) with progressive microcephaly, seizures beginning in infancy, progressive cortical atrophy, white matter loss, bilateral basal ganglia degeneration, and cystic encephalomalacia. The authors proposed infantile onset as a new, distinct phenotype of PNPLA8-related disease.	
+Abdel-Hamid et al. (2024)	reports	In Family I, Abdel-Hamid et al. (2024) used exome sequencing to identify a loss-of-function variant in the PNPLA8 gene, c.1231C>T (p.Arg411Ter).	
+PNPLA8 c.1231C>T / p.R411*	in_gene	PNPLA8	
+Abdel-Hamid et al. (2024)	reports	In Family II, Abdel-Hamid et al. (2024) used exome sequencing to identify a missense variant in the PNPLA8 gene, c.1559T>A (p.Val520Asp).	
+PNPLA8 c.1559T>A / p.V520D	in_gene	PNPLA8	
+Abdel-Hamid et al. (2024)	reports	Abdel-Hamid et al. (2024) suggested that age at disease onset in PNPLA8-related disorders correlates strongly with where the variant lies, not with the variant type. They described the congenital, infantile, childhood-onset and adult-onset forms as overlapping parts of a single spectrum.	
+Abdel-Hamid et al. (2024)	reports	Abdel-Hamid et al. (2024) summarized earlier reports of PNPLA8 variants. These described a congenital-onset form, a childhood neurodegeneration form with progressive microcephaly, and an adult-onset form with cerebellar ataxia and peripheral neuropathy. Only 6 patients with biallelic PNPLA8 variants had been reported before.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) identified biallelic ultra-rare PNPLA8 variants by exome or genome sequencing in 14 individuals (6 male, 8 female; aged 3 days to 33 years) from 12 unrelated families with neurological manifestations. The 14 variants (12 novel) comprised 4 nonsense, 5 frameshift, 3 intronic variants near exon-intron boundaries, and 2 missense variants. Each had a population frequency below 0.001%. Pedigrees were consistent with autosomal recessive inheritance.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) reported that common features in their 14 patients were central hypotonia (13/13), dystonia (8/12), seizures (10/14) and cerebellar atrophy (12/12). Eight patients (Families 1-8) were severely affected. They had congenital microcephaly (5/7), global developmental delay with no milestones attained (7/7), peripheral spasticity (7/8) and seizure onset within 7 months of age (8/8). Neuroimaging in this group showed a simplified gyral pattern (6/6), pontocerebellar hypoplasia (7/7) and severe progressive cerebral atrophy (5/5).	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) described 4 patients from Families 11 and 12 who had a relatively mild phenotype. All attained walking (4/4) and all had regression of milestones (4/4). Ataxia was present in 3/4, intellectual disability was mild or absent in 3/4, and seizures were unique or absent in all 4. Brain MRI showed little or no cerebral volume loss but progressive cerebellar atrophy. Two patients (Families 9 and 10) were of intermediate severity.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) combined their patients with 11 previously reported individuals from 8 families (25 individuals from 20 families in total). The PNPLA8-related disorder formed a continuum from developmental and/or degenerative epileptic-dyskinetic encephalopathy to childhood-onset neurodegeneration. Biallelic loss-of-function variants affecting three or four PNPLA8 protein isoforms were found specifically in the severe group with congenital microcephaly. Patients of intermediate severity carried a loss-of-function variant, missense variants or the recurrent C-terminal frameshift p.Leu759Alafs*4. All mildly affected patients, who had late-onset movement disorders, carried biallelic C-terminal frameshift variants (p.Thr757Glnfs*10 or p.Leu759Alafs*4).	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) found that the PNPLA8 c.1625+3_1625+6del variant in Patient 1 (Family 1, a Japanese boy) caused skipping of exons 6-8 in patient lymphoblastoid cells. Skin fibroblasts from this patient showed a significant reduction of the 77-kDa PNPLA8 protein, which the authors interpreted as a null effect.	
+PNPLA8 c.1625+3_1625+6del	in_gene	PNPLA8	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) identified the PNPLA8 splice variants c.2075-2A>G in Patient 2 and c.1684-2A>G in Patient 5. No patient cells were available for testing, but SpliceAI predicted loss of the splice acceptor site for each variant (delta scores 0.97 and 0.93).	
+PNPLA8 c.2075-2A>G	in_gene	PNPLA8	
+PNPLA8 c.1684-2A>G	in_gene	PNPLA8	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) studied PNPLA8 protein in patient skin fibroblasts. The p.Glu296Lysfs*6 variant from severely affected Patient 6 had a null effect. Fibroblasts from Patient 12 (mild, p.Leu759Alafs*4) and Patient 14 (non-neuronal, p.Val7*) showed weak expression of the 77-kDa protein, suggesting residual function. Fibroblasts from a previously reported, severely affected patient homozygous for the missense variant p.Val520Asp expressed PNPLA8 at levels similar to controls.	
+PNPLA8 p.E296K	in_gene	PNPLA8	
+PNPLA8 p.V7*	in_gene	PNPLA8	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) identified two individuals from two unrelated Iranian families in a non-neurological cohort who were homozygous for distinct N-terminal PNPLA8 frameshift variants affecting only the 88-kDa isoform. One had optic atrophy and the other had nonsyndromic hearing loss. In the optic atrophy family, an affected sibling was only heterozygous for the variant. The authors therefore considered the significance of these variants undetermined.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) found that cardiolipin and monolysocardiolipin levels appeared lower in patient skin fibroblasts than in controls, without a significant correlation with severity. Patient 1 fibroblasts had normal mitochondrial morphology on electron microscopy but significantly reduced maximal respiration.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) generated cerebral organoids from CRISPR/Cas9 PNPLA8 knockout iPSCs. At 12 weeks, these organoids had a smaller subventricular zone-like region, fewer PAX6+HOPX+ basal radial glial cells and fewer SATB2+ upper-layer neurons. Basal intermediate progenitors and deep-layer neurons were unchanged. BrdU+ cells were increased, suggesting an altered S phase.	
+Nakamura et al. (2024)	reports	Nakamura et al. (2024) found that cerebral organoids from Patient 1 iPSCs reproduced the knockout organoid findings, with fewer basal radial glial cells and fewer upper-layer neurons. Spatial transcriptomics showed altered fate specification of apical radial glia and enrichment of lysophospholipid pathway genes. PNPLA8 knockout neural progenitor cells had reduced LPA, LPE and PA, with normal mitochondrial function. Adding LPA increased basal radial glial cell numbers in patient organoids.	
+Chen et al. (2024)	reports	Chen et al. (2024) reported a 27-year-old Chinese woman whose gait became abnormal at age 11. At age 17 she still had amenorrhea and an infantile uterus, and at age 21 she developed head and limb tremors. Brain MRI suggested mild cerebellar atrophy. A biceps muscle biopsy showed mild myopathic changes on light microscopy and mitochondrial inclusions on electron microscopy.	
+Chen et al. (2024)	reports	In a 27-year-old Chinese woman with cerebellar ataxia, tremors, and primary ovarian insufficiency, Chen et al. (2024) used whole-exome sequencing to identify compound heterozygous variants in the PNPLA8 gene: c.1777T>G (p.Tyr593Asp), a missense variant, and c.1515-1516delTT (p.Tyr506Serfs*27), a frameshift variant. She inherited the variants from her parents.	
+PNPLA8 c.1777T>G / p.Y593D	in_gene	PNPLA8	
+PNPLA8 c.1515-1516deltt / p.Y506S	in_gene	PNPLA8	
+Chen et al. (2024)	reports	Chen et al. (2024) reviewed 25 patients from 21 families with PNPLA8 variants. They concluded that age of onset is a very important factor in the clinical phenotype and prognosis. They also observed that adult females with PNPLA8 variants may present with primary ovarian dysfunction, and they suggested that mitochondrial inclusion bodies may be a pathologic hallmark.	
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	caused_by	PNPLA8	25512002,29681094,34177434,37057294,37275531,37671596,39082157,39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1231C>T / p.R411*	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1515-1516deltt / p.Y506S	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1559T>A / p.V520D	37671596,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1625+3_1625+6del	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1684-2A>G	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1777T>G / p.Y593D	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1874A>G	34177434
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.1975_1976delag / p.L659A	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.2075-2A>G	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.2269del / p.T757Q	37057294,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.2275_2276del / c.2275_2276delct / p.L759A	29681094,37057294,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.334_337delaatt / p.N112H	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.419C>A / p.S140*	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 c.517G>T / p.E173*	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 p.E296K	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 p.V7*	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_variant	PNPLA8 premature stop codon for iPLA2γ in both alleles	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	inheritance	Autosomal recessive	17923475,20625036,25512002,29681094,34177434,37057294,37275531,37671596,39082157,39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Tip-toe gait	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Gowers sign	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Loss of ambulation	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Proximal muscle weakness	25512002,29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Dysarthria	25512002,37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Dysmetria	25512002,37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Dystonia	25512002,29681094,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypotonia	25512002,29681094,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Spasticity	25512002,29681094,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Focal impaired awareness seizure	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Achilles tendon contracture	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased body mass index	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Lactic acidosis	25512002,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Fatigue	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Increased circulating lactate concentration	25512002,29681094,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Increased circulating pyruvate concentration	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Elevated serum anion gap	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased CSF 5-methyltetrahydrofolate concentration	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Increased variability in muscle fiber diameter	25512002,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormal mitochondrial morphology	25512002,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Subsarcolemmal accumulations of abnormally shaped mitochondria	25512002
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Primary microcephaly	29681094,37671596,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Clonic seizure	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Simplified gyral pattern	29681094,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypoplasia of the corpus callosum	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Cerebellar hypoplasia	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Atrophy/Degeneration affecting the brainstem	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Elevated brain lactate level by MRS	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormality of cranial sutures	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Developmental regression	29681094,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Epilepsia partialis continua	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Focal-onset seizure	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Progressive microcephaly	29681094,37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Severe global developmental delay	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Absent speech	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Areflexia	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Chorea	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Joint contracture	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Cerebellar atrophy	29681094,37057294,39082157,39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Thin corpus callosum	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Delayed CNS myelination	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypertrophic cardiomyopathy	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Subvalvular aortic stenosis	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Obstructive sleep apnea	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Restrictive ventilatory defect	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormality of visual evoked potentials	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Feeding difficulties	29681094
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormal mitochondria in muscle tissue	17923475,20625036,29681094,37275531,39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased activity of mitochondrial respiratory chain	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Growth delay	17923475,20625036,36719796
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Cold intolerance	17923475
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Exercise intolerance	17923475,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased activity of mitochondrial complex IV	17923475,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Kyphosis	20625036
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Muscle weakness	20625036,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Skeletal muscle atrophy	20625036,37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Gait disturbance	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Primary amenorrhea	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypoplasia of the uterus	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Tremor	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Myopathy	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Premature ovarian insufficiency	39680195
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Seizure	37671596,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Global developmental delay	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Cerebral atrophy	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Ataxia	37057294,37671596,39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Optic atrophy	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hearing impairment	39082157
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Neurodegeneration	34177434,37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Death in infancy	34177434
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Epileptic encephalopathy	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Cerebral cortical atrophy	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Reduced cerebral white matter volume	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormal basal ganglia morphology	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Encephalomalacia	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Peripheral neuropathy	37671596
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypoglycemia	36719796
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hypolipidemia	36719796
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased adipose tissue	36719796
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Sensorimotor neuropathy	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Distal muscle weakness	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Hyporeflexia of lower limbs	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Babinski sign	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Tetraparesis	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormal foot morphology	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Horizontal nystagmus	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Truncal ataxia	37057294
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Mitochondrial myopathy	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Depletion of mitochondrial DNA in muscle tissue	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Weak grip	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Muscle fiber atrophy	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Type 2 muscle fiber predominance	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Mitochondrial respiratory chain defects	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased activity of mitochondrial complex I	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased activity of mitochondrial complex II	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormality of the mitochondrion	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Decreased body weight	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Abnormal glucose homeostasis	37275531
+MITOCHONDRIAL MYOPATHY WITH LACTIC ACIDOSIS	has_phenotype	Increased hepatic glycogen content	37275531
+Hypoplasia of the corpus callosum	is_a	Thin corpus callosum	
+Proximal muscle weakness	is_a	Muscle weakness	
+Tip-toe gait	is_a	Gait disturbance	
+Decreased body mass index	is_a	Decreased body weight	
+Truncal ataxia	is_a	Ataxia	
+Hypotonia	is_a	Abnormal muscle physiology	
+Mitochondrial myopathy	is_a	Abnormal muscle physiology	
+Sensorimotor neuropathy	is_a	Peripheral neuropathy	
+Abnormal mitochondria in muscle tissue	is_a	Abnormality of the mitochondrion	
+EMG: myopathic abnormalities	is_a	Myopathy	
+EMG: myopathic abnormalities	is_a	Abnormal muscle physiology	
+Clonic seizure	is_a	Seizure	
+Subsarcolemmal accumulations of abnormally shaped mitochondria	is_a	Abnormal muscle physiology	
+Decreased activity of mitochondrial complex II	is_a	Decreased activity of mitochondrial respiratory chain	
+Abnormal mitochondrial morphology	is_a	Abnormality of the mitochondrion	
+Hypoglycemia	is_a	Abnormal glucose homeostasis	
+Cerebral cortical atrophy	is_a	Cerebral atrophy	
+Focal-onset seizure	is_a	Seizure	
+Decreased activity of mitochondrial complex IV	is_a	Decreased activity of mitochondrial respiratory chain	
+Dysmetria	is_a	Ataxia	
+Spasticity	is_a	Abnormal muscle physiology	
+Epilepsia partialis continua	is_a	Seizure	
+Gowers sign	is_a	Proximal muscle weakness	
+Severe global developmental delay	is_a	Global developmental delay	
+Muscle weakness	is_a	Abnormal muscle physiology	
+Distal muscle weakness	is_a	Muscle weakness	
+Depletion of mitochondrial DNA in muscle tissue	is_a	Abnormal muscle physiology	
+Depletion of mitochondrial DNA in muscle tissue	is_a	Abnormality of the mitochondrion	
+Loss of ambulation	is_a	Gait disturbance	
+Mitochondrial respiratory chain defects	is_a	Abnormality of the mitochondrion	
+Achilles tendon contracture	is_a	Abnormal foot morphology	
+Achilles tendon contracture	is_a	Joint contracture	
+Focal impaired awareness seizure	is_a	Focal-onset seizure	
+Focal impaired awareness seizure	is_a	Seizure	
+Decreased activity of mitochondrial complex I	is_a	Decreased activity of mitochondrial respiratory chain	
+Decreased activity of mitochondrial respiratory chain	is_a	Abnormality of the mitochondrion	

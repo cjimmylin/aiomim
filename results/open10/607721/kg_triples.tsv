@@ -1,0 +1,165 @@
+subject	predicate	object	pmids
+Mazzanti et al. (2003)	reports	Mazzanti et al. (2003) described 3 children with short stature, the same facial phenotype, macrocephaly, enlarged cerebrospinal fluid spaces, and a short neck with redundant skin. They also had severe growth hormone (GH) deficiency, mild psychomotor delay with attention deficit-hyperactivity disorder (ADHD), and a unique combination of ectodermal abnormalities, including darkly pigmented, hairless skin and hair defined as loose anagen hair. Two of the 3 children had mild dilatation of the pulmonary root.	
+Mazzanti et al. (2003)	reports	Mazzanti et al. (2003) noted that the appearance of their 3 patients was not completely typical of Noonan syndrome. Together with the behavioral phenotype, GH deficiency, and ectodermal findings, this did not fit any known condition. They postulated that the patients may represent a distinct, previously unreported syndrome, which they named 'Noonan-like syndrome with loose anagen hair.'	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) selected SHOC2 as a candidate gene using an in silico protein-interaction network analysis seeded with known RAS-MAPK disease proteins. In 96 Noonan syndrome patients without mutations in the known genes, they found a heterozygous 4A-G transition in SHOC2, predicting a ser2-to-gly (S2G) substitution, in 4 unrelated sporadic patients. In the 3 patients whose parents were available, the mutation was de novo. It was present in several tissues, which pointed to germline origin.	
+SHOC2 c.4A>G / p.S2G	in_gene	SHOC2	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) then screened 410 mutation-negative patients with Noonan syndrome or a related phenotype. They found the same SHOC2 4A>G (S2G) change in 21 of them and showed it was de novo in the 12 families where parental DNA was available. They found no other disease-associated SHOC2 variant, which they said strongly suggested a specific pathogenic role for S2G. In total, 25 patients carried the mutation.	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) found that the 25 patients with the SHOC2 mutation shared a consistent phenotype, previously termed Noonan-like syndrome with loose anagen hair. Facial features looked typical of Noonan syndrome. Patients had reduced growth, often with proven growth hormone deficiency, cognitive deficits, and hyperactive behavior that improved with age. Hair was easily pluckable, sparse, thin and slow-growing, and loose anagen hair was confirmed by microscopy in 12. Most patients also had darkly pigmented skin with eczema or ichthyosis. Cardiac anomalies were present in most, with mitral valve dysplasia and septal defects overrepresented. The voice was hypernasal. Several patients had been thought as infants to have features suggestive of Costello or cardiofaciocutaneous syndrome.	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) showed that the S2G substitution creates an N-myristoylation site in SHOC2. In Cos-1 cells, SHOC2 S2G took up [3H]-myristic acid, but wildtype SHOC2 and the disease-unrelated S2A mutant did not. Wildtype SHOC2 was spread through the cytoplasm and nucleus and moved to the nucleus after EGF stimulation. In contrast, S2G was targeted to the plasma membrane and did not move to the nucleus. An inhibitor of N-myristoyltransferase reduced or abolished the membrane localization of the mutant.	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) found that SHOC2 S2G did not form heterodimers with wildtype SHOC2 and did not block the wildtype protein from moving to the nucleus, which ruled out a dominant-negative effect. In Neuro2A neuroblastoma cells, but not in Cos-1 or 293T cells, the mutant increased EGF-dependent ERK phosphorylation compared with wildtype. The authors proposed that constant membrane localization of SHOC2 S2G prolongs PP1C-mediated dephosphorylation of RAF1 at ser259, which would sustain MAPK activation.	
+Cordeddu et al. (2009)	reports	Cordeddu et al. (2009) showed in C. elegans that wildtype human SHOC2 could functionally replace sur-8, but SHOC2 S2G could not. When induced in wildtype worms at the early L3 stage, S2G caused protruding vulva, reduced egg laying and a bag-of-worms phenotype. Wildtype SHOC2 with an added N-myristoylation sequence gave the same result, but untagged wildtype SHOC2 did not. These new (neomorphic) defects came from abnormal vulval morphogenesis rather than a change in how vulval cell fate was specified.	
+Komatsuzaki et al. (2010)	reports	Komatsuzaki et al. (2010) analyzed SHOC2 in 92 patients with Noonan syndrome and related disorders who had no mutations in PTPN11, KRAS, HRAS, BRAF, MAP2K1/2, SOS1, or RAF1, and found the previously identified p.S2G mutation in 8 patients.	
+Komatsuzaki et al. (2010)	reports	Komatsuzaki et al. (2010) reported that all 8 patients with the SHOC2 p.S2G mutation had short stature, sparse hair, and atopic skin; 6 had severe mental retardation and easily pluckable hair, and 1 had leukocytosis. The authors concluded that clinical manifestations partially overlap with typical Noonan or CFC syndrome and that easily pluckable/loose anagen hair is distinctive in SHOC2 mutation-positive patients.	
+Komatsuzaki et al. (2010)	reports	Komatsuzaki et al. (2010) developed a rapid detection system for the SHOC2 p.S2G mutation using melting curve analysis, useful for screening for this apparently common mutation.	
+Komatsuzaki et al. (2010)	reports	Komatsuzaki et al. (2010) identified no SHOC2 mutations in leukemia cells from 82 leukemia patients.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) reported a patient with molecularly confirmed Noonan-like syndrome with loose anagen hair (NS/LAH) who had severe short stature associated with growth hormone insensitivity and chronic complex tics. The authors said tics had never been described before in this syndrome. The most common causes of secondary tics in childhood were excluded.	
+Capalbo et al. (2012)	reports	In the NS/LAH patient reported by Capalbo et al. (2012), an IGF1 generation test showed only a blunted increase in IGF1 after exogenous GH treatment. This indicated mild GH insensitivity, with STAT5 activation that was normal.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) noted that NS/LAH has been related to the invariant c.4A>G missense change in SHOC2 and has features reminiscent of Noonan syndrome. Common features include ectodermal involvement, short stature with growth hormone deficiency, and cognitive deficits.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) described a girl (patient 1) born at 34 weeks to nonconsanguineous parents after a pregnancy complicated by polyhydramnios. She was referred at age 7 years for severe short stature (height -5.7 SDS) and had a bone age delayed by 3 years. She had macrocephaly, high forehead, epicanthic folds, palpebral ptosis, hypertelorism, a high narrow palate, pterygium colli, pectus excavatum with widely spaced nipples, deep palmar and plantar creases, mild psychomotor delay (IQ 52) and a hypoplastic corpus callosum. Over time she developed ectodermal abnormalities (nail dystrophy, sparse and easily pulled hair, and dark hairless skin). At 9 years she developed complex motor and vocal tics, then a generalized seizure; MRI also showed a diffuse reduction in white matter.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) described a second girl (patient 2), born at term to nonconsanguineous parents with a head circumference above the 90th centile and a large atrial septal defect. She was referred at age 9 years for short stature (height -3.21 SDS) and had a bone age delayed by 2 years. She had macrocephaly, high forehead, epicanthic folds, a low-set ear, hypertelorism, short neck with redundant skin, pectus excavatum, fine sparse hair, darkly pigmented skin with cafe-au-lait spots, hyperextensible joints, mild scoliosis, mild psychomotor delay (IQ 65) with behavioral problems that later improved, and Chiari type I malformation. Puberty was delayed, and she started hormone replacement at age 16.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) found the SHOC2 c.4A>G (p.Ser2Gly) mutation in both patients, confirming the diagnosis of NS/LAH. Patient 1 had first been screened for mutations in PTPN11, KRAS, SOS1, MEK1 and BRAF, and none were found.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) found that patient 1 had low serum IGF1, a normal GH peak after arginine stimulation, and only a mild IGF1 rise on an IGF1 generation test, which they interpreted as GH insensitivity. Her GHR gene was normal, and GH-induced tyrosine phosphorylation of STAT5 was normal. Patient 2 had a low GH peak after clonidine and arginine stimulation, with IGF1 at the lower limit of normal, which indicated partial GH deficiency. The authors noted that GH insensitivity had not previously been described in NS/LAH.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) reported that recombinant human GH therapy did not significantly improve linear growth in patient 1, who had GH insensitivity. Her growth velocity stopped when treatment was withdrawn, and after 6 years of treatment her height remained -5 SDS. Patient 2, who had partial GH deficiency, showed only a blunted response to GH therapy.	
+Capalbo et al. (2012)	reports	Capalbo et al. (2012) noted that their 2 patients with the same SHOC2 mutation had different phenotypes. Patient 1 had more pronounced features, epilepsy, and chronic tics, which had not previously been reported with SHOC2 mutations, while patient 2's mild delay improved over time. The authors suggested that the SHOC2 mutation may alter GHR signaling through RAS-MAPK dysregulation. They also speculated that modifier genes and environmental factors could explain the clinical heterogeneity.	
+Gargano et al. (2014)	reports	Gargano et al. (2014) reported severe hydrops fetalis in a preterm newborn heterozygous for the c.4A>G missense change in SHOC2. They concluded that hydrops is a clinically relevant complication of Noonan-like syndrome with loose anagen hair, as it is in other RASopathies such as Noonan, cardiofaciocutaneous, and Costello syndromes.	
+Gargano et al. (2014)	reports	Gargano et al. (2014) found that a preterm newborn with severe hydrops fetalis was heterozygous for the recurrent ('invariant') c.4A>G missense mutation in SHOC2, the change that underlies Noonan-like syndrome with loose anagen hair.	
+Choi et al. (2015)	reports	Choi et al. (2015) reported a girl diagnosed at age 6 years with Noonan-like syndrome with loose anagen hair, based on profound short stature and ectodermal anomalies including sparse, easily pluckable hair. At age 10 years she had recurrent left hemiplegia from transient ischemic attacks. Cerebrovascular imaging showed occlusion or narrowing of both internal carotid arteries and both middle cerebral arteries, with distal moyamoya-like vessels. The authors stated that this was the first reported case of NSLH with moyamoya syndrome.	
+Choi et al. (2015)	reports	Choi et al. (2015) found a heterozygous c.4A>G (p.S2G) mutation in the SHOC2 gene in a girl with NSLH and moyamoya syndrome.	
+Choi et al. (2015)	reports	Choi et al. (2015) started recombinant human growth hormone in their patient with NSLH at 8 years of age. After moyamoya syndrome developed, she was treated with aspirin and a calcium channel blocker.	
+Garavelli et al. (2015)	reports	Garavelli et al. (2015) reported a child with molecularly confirmed Noonan syndrome-like disorder with loose anagen hair (NSLH) who developed a neuroblastoma, first suspected at 3 months of age by abdominal ultrasound examination. The authors noted this was the second instance of neuroblastoma in NSLH and suggested a possible predisposition to this malignancy in individuals heterozygous for the SHOC2 c.4A>G mutation.	
+Garavelli et al. (2015)	reports	Following this observation, Garavelli et al. (2015) scanned the SHOC2 coding sequence encompassing the c.4A>G change in selected pediatric cohorts of malignancies documented to occur in RASopathies (neuroblastoma, brain tumors, rhabdomyosarcoma, acute lymphoblastic leukemia, and myeloid leukemia) but did not identify a functionally relevant cancer-associated variant, concluding that the results do not support a major role for somatic SHOC2 mutations in these pediatric cancers.	
+Garavelli et al. (2015)	reports	Garavelli et al. (2015) described NSLH (Mazzanti syndrome) as a RASopathy characterized by Noonan syndrome-like craniofacial features, cardiac defects, cognitive deficits and behavioral issues, reduced growth generally associated with GH deficit, darkly pigmented skin, and a unique combination of ectodermal anomalies, virtually always caused by the invariant SHOC2 c.4A>G (p.Ser2Gly) mutation.	
+Lo et al. (2015)	reports	Lo et al. (2015) described 2 individuals with Noonan-like syndrome with loose anagen hair (NSLH) who also had moyamoya disease, a chronic cerebrovascular condition caused by progressive stenosis of the arteries around the circle of Willis with prominent arterial collateral circulation.	
+Lo et al. (2015)	reports	In 2 individuals with NSLH and moyamoya disease, Lo et al. (2015) identified a heterozygous germline mutation in the SHOC2 gene.	
+SHOC2 heterozygous germline mutation in SHOC2	in_gene	SHOC2	
+Motta et al. (2016)	reports	Motta et al. (2016) found that leucine-rich repeats 1 to 13 of SHOC2 form a structurally recognizable domain. This domain was required for SHOC2 import into the nucleus and for the constitutive plasma membrane targeting of the SHOC2 S2G mutant. The N-terminal region rich in KEKE motifs was needed for efficient SHOC2 export from the nucleus.	
+Motta et al. (2016)	reports	Motta et al. (2016) found that the Mazzanti syndrome-associated SHOC2 S2G mutant localized to both raft and non-raft membrane domains and moved to non-raft domains after stimulation. Trapping SHOC2 at different subcellular sites affected the strength and timing of ERK signalling in different ways. The authors suggested that SHOC2 plays a dual, counteracting role in controlling ERK signalling from different intracellular compartments.	
+Uehara et al. (2018)	reports	Uehara et al. (2018) reported a 28-year-old man with Noonan syndrome-like disorder with loose anagen hair who had intellectual disability, short stature, dysmorphic facial features, and thin hair. He developed hypertrophic cardiomyopathy at age 7 years and afebrile generalized seizures at age 18 years. At age 24 years, he presented with 3 days of intermittent fever, right chest pain, and a malar butterfly rash; he fulfilled both the ACR and SLICC criteria for systemic lupus erythematosus (SLE).	
+Uehara et al. (2018)	reports	In a man with NSLH1 and SLE, Uehara et al. (2018) identified a de novo SHOC2 variant (c.4A>G, p.S2G) by medical exome sequencing.	
+Uehara et al. (2018)	reports	The SLE in the patient with NSLH1 reported by Uehara et al. (2018) was successfully treated with prednisolone.	
+Uehara et al. (2018)	reports	Uehara et al. (2018) noted that SLE had been reported in 5 patients with RASopathies (3 with SHOC2 variants, 1 with PTPN11, 1 with KRAS) and suggested that the association between SHOC2 variants and SLE represents more than a chance association; they recommended that SLE be suspected in patients with constitutional SHOC2 pathogenic variants who have fever of unknown origin.	
+Couser et al. (2018)	reports	Couser et al. (2018) reported a female patient with NSLH1 who was born with a posterior cleft palate, micrognathia, and mild hypotonia. In childhood and young adulthood she developed hearing loss, strabismus, and hypopituitarism with growth hormone, thyroid-stimulating hormone (TSH), and gonadotropin deficiencies. The authors noted that true cleft palate did not appear to have been reported before in NS or NSLH, and that endocrine abnormalities other than growth hormone deficiency are rarely documented. They suggested that the SHOC2 mutation may be responsible for the cleft palate and hypopituitarism.	
+Couser et al. (2018)	reports	Couser et al. (2018) stated that every NSLH1 case reported to date, including their patient, carried the SHOC2 c.4A>G (p.Ser2Gly) mutation.	
+Couser et al. (2018)	reports	Couser et al. (2018) described Noonan-like syndrome with loose anagen hair as having the typical features of Noonan syndrome plus macrocephaly and loose anagen hair. Some patients have growth hormone deficiency, and intellectual disability is more common than in Noonan syndrome.	
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	caused_by	SHOC2	19684605,20882035,22995099,24458587,25563136,25846317,25858597,29737035,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 c.4A>G / p.S2G	19684605,20882035,22419608,22995099,24458587,25563136,25846317,27466182,29737035,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_variant	SHOC2 heterozygous germline mutation in SHOC2	25858597
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	inheritance	Autosomal dominant	19684605,24458587,25563136,25846317,25858597,29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	inheritance	Somatic mutation	25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hydrops fetalis	24458587
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Premature birth	24458587
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Neuroblastoma	25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormality of the face	25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal heart morphology	25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Intellectual disability	19684605,22419608,25846317,29737035,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Atypical behavior	22995099,25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Reduced circulating growth hormone concentration	12673660,19684605,22419608,22995099,25846317,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hyperpigmentation of the skin	12673660,19684605,25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormality of the integument	22419608,25846317
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Short stature	12673660,19684605,20882035,22419608,22995099,29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hyperactivity	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Sparse scalp hair	19684605,20882035,22995099,25563136
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Loose anagen hair	12673660,19684605,20882035,25563136,25858597,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Eczematoid dermatitis	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Ichthyosis	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal mitral valve morphology	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal cardiac septum morphology	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypernasal speech	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Macrocephaly	12673660,19684605,22995099,30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	High forehead	19684605,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypertelorism	19684605,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Ptosis	19684605,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Low-set ears	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Webbed neck	19684605,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal sternum morphology	19684605
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Severe short stature	22419608,22995099,25563136
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal circulating growth hormone concentration	22419608,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Motor tics	22419608
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Cleft soft palate	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Micrognathia	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypotonia	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hearing impairment	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Strabismus	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Panhypopituitarism	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Central hypothyroidism	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypogonadotropic hypogonadism	30240112
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hemiplegia	25563136
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Transient ischemic attack	25563136
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Moyamoya phenomenon	25563136,25858597
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Widened subarachnoid space	12673660
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Short neck	12673660
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Redundant neck skin	12673660,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Global developmental delay	12673660,22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Attention deficit hyperactivity disorder	12673660
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Pulmonary artery dilatation	12673660
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Sparse body hair	12673660
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Atopic dermatitis	20882035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Severe intellectual disability	20882035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Increased total leukocyte count	20882035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal facial shape	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Fine hair	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypertrophic cardiomyopathy	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Generalized-onset seizure	22995099,29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Recurrent fever	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Chest pain	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Malar rash	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Systemic lupus erythematosus	29737035
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Polyhydramnios	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Delayed skeletal maturation	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Epicanthus	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	High, narrow palate	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Pectus excavatum	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Wide intermamillary distance	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Deep palmar crease	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Deep plantar creases	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypoplasia of the corpus callosum	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Nail dystrophy	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Generalized hyperpigmentation	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Tics	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Reduced cerebral white matter volume	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Atrial septal defect	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Posteriorly rotated ears	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Cafe-au-lait spot	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Joint hypermobility	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Scoliosis	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Chiari type I malformation	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Delayed puberty	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Hypothyroidism	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Abnormal circulating protein concentration	22995099
+NOONAN SYNDROME-LIKE DISORDER WITH LOOSE ANAGEN HAIR 1	has_phenotype	Seizure	22995099
+Sparse body hair	is_a	Abnormality of the integument	
+Attention deficit hyperactivity disorder	is_a	Hyperactivity	
+Reduced circulating growth hormone concentration	is_a	Abnormal circulating growth hormone concentration	
+Abnormal mitral valve morphology	is_a	Abnormal heart morphology	
+Ichthyosis	is_a	Abnormality of the integument	
+Hypertrophic cardiomyopathy	is_a	Abnormal heart morphology	
+Cleft soft palate	is_a	Abnormality of the face	
+Redundant neck skin	is_a	Abnormality of the integument	
+Motor tics	is_a	Tics	
+High, narrow palate	is_a	Abnormality of the face	
+Epicanthus	is_a	Abnormality of the face	
+Tics	is_a	Atypical behavior	
+Hyperactivity	is_a	Atypical behavior	
+Central hypothyroidism	is_a	Hypothyroidism	
+Cafe-au-lait spot	is_a	Hyperpigmentation of the skin	
+Cafe-au-lait spot	is_a	Abnormality of the integument	
+Deep palmar crease	is_a	Abnormality of the integument	
+Malar rash	is_a	Abnormality of the integument	
+Loose anagen hair	is_a	Abnormality of the integument	
+Generalized hyperpigmentation	is_a	Hyperpigmentation of the skin	
+Eczematoid dermatitis	is_a	Abnormality of the integument	
+Atopic dermatitis	is_a	Eczematoid dermatitis	
+High forehead	is_a	Abnormality of the face	
+Deep plantar creases	is_a	Abnormality of the integument	
+Severe intellectual disability	is_a	Intellectual disability	
+Fine hair	is_a	Abnormality of the integument	
+Generalized-onset seizure	is_a	Seizure	
+Sparse scalp hair	is_a	Abnormality of the integument	
+Hyperpigmentation of the skin	is_a	Abnormality of the integument	
+Abnormal cardiac septum morphology	is_a	Abnormal heart morphology	
+Severe short stature	is_a	Short stature	
+Pectus excavatum	is_a	Abnormal sternum morphology	
+Nail dystrophy	is_a	Abnormality of the integument	
+Abnormal facial shape	is_a	Abnormality of the face	
+Atrial septal defect	is_a	Abnormal heart morphology	
+Atrial septal defect	is_a	Abnormal cardiac septum morphology	

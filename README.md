@@ -79,10 +79,11 @@ literature was searched. All 28 references that OMIM's curators went on to add w
 them (75%) came through screening and were turned into update proposals; of 165 drafted paragraphs the audit flagged
 2. The same run proposed 33 papers OMIM does not cite.
 
-<!-- OPEN-RETRIEVAL -->
-**6. Finding the literature without OMIM's reference list** (`--retrieval open`) is being measured on ten entries;
-the result will be recorded here.
-<!-- /OPEN-RETRIEVAL -->
+**6. The literature can be found without OMIM's reference list, in part.** For ten entries the pipeline was given
+only the title and the causal gene and searched PubMed and Europe PMC itself (`--retrieval open`, capped at 12 papers
+per entry). It selected 56 of the 85 references OMIM cites (66%), and just under half of what it selected (47%) is in
+OMIM's list. Entries written from that literature were as faithful as the rest (97% of claims supported) and matched
+OMIM's mode of inheritance in all ten ([`results/open10/`](results/open10/)).
 
 A curator reviews a run on a single page: the draft in OMIM's layout, the audit's verdict and evidence for every
 claim, the comparison with OMIM, the evidence graph, and accept / edit / reject for each paragraph. To browse the

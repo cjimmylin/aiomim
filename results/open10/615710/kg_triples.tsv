@@ -1,0 +1,152 @@
+subject	predicate	object	pmids
+Martínez-Frías et al. (1992)	reports	Martínez-Frías et al. (1992) described 2 sibs born to consanguineous parents with a multiple congenital anomaly pattern that included low birth weight, tracheoesophageal fistula, duodenal atresia, extrahepatic biliary atresia, hypoplastic pancreas, and hypospadias.	
+Martínez-Frías et al. (1992)	reports	Martínez-Frías et al. (1992) suggested that the constellation of anomalies seen in 2 sibs born to consanguineous parents represented a previously unreported autosomal recessive syndrome.	
+Martínez-Frías et al. (1992)	reports	A computerized search of the Spanish Collaborative Study of Congenital Malformations (ECEMC) by Martínez-Frías et al. (1992) found 3 other unrelated infants with intestinal atresias, hypospadias, and low birth weight. The authors suggested that these infants might represent a milder expression of the same syndrome.	
+Mitchell et al. (2004)	reports	Mitchell et al. (2004) described 5 infants from 3 families (2 sibling pairs and an isolated case) with neonatal diabetes, hypoplastic or annular pancreas, jejunal atresia, duodenal atresia, and gallbladder aplasia or hypoplasia. The parents of one sibling pair were consanguineous. Four children died in the first year of life despite aggressive medical management. One patient with a milder form was surviving without insulin.	
+Mitchell et al. (2004)	reports	Mitchell et al. (2004) performed pancreatic immunohistochemistry on 3 of the infants and found a few scattered chromogranin A-positive cell clusters but complete absence of insulin, glucagon, and somatostatin; exocrine histology was variable.	
+Mitchell et al. (2004)	reports	Mitchell et al. (2004) concluded that the combination of anomalies probably represented a new autosomal recessive syndrome. They based this on the affected sibling pairs and parental consanguinity in one family, and suggested a genetic abnormality that interferes with normal islet development.	
+Mitchell et al. (2004)	reports	In one patient from the consanguineous family, Mitchell et al. (2004) found no duplication or uniparental isodisomy of PLAGL1 at 6q24, no contiguous gene deletion involving the glucokinase gene, and no mutation in the coding sequence or splice sites of PDX1.	
+Ashraf et al. (2005)	reports	Ashraf et al. (2005) reported an infant with neonatal diabetes due to pancreatic agenesis. The infant also had cardiac septal defects, gallbladder agenesis, and duodenal malrotation. The infant survived after treatment with insulin, exocrine pancreatic supplements, and surgical repair of the heart and intestinal anomalies.	
+Ashraf et al. (2005)	reports	In the infant with pancreatic agenesis, Ashraf et al. (2005) sequenced both coding exons of IPF1 and found no mutation. They suggested that the disturbance happened before the dorsal pancreatic bud appears, around embryonic day 25, which is before IPF1 is expressed.	
+Chappell et al. (2008)	reports	Chappell et al. (2008) reported a patient born to consanguineous parents with neonatal diabetes, intestinal atresias, and gallbladder agenesis, as a further example of a recently described phenotype. They stated that this was the first such case with neonatal diabetes without a demonstrable structural pancreatic abnormality, showing that a deficit in pancreatic function is involved.	
+Chappell et al. (2008)	reports	Chappell et al. (2008) proposed that cases reported elsewhere with overlapping features, including malrotation, biliary atresia, and pancreatic hypoplasia (e.g., as described by Martinez-Frias), may represent variations of the same syndrome.	
+Chappell et al. (2008)	reports	Because the patient was born to consanguineous parents, Chappell et al. (2008) concluded that the disorder is likely inherited as an autosomal recessive trait.	
+Chappell et al. (2008)	reports	In their patient, Chappell et al. (2008) sequenced genes with a known role in monogenic diabetes (KCNJ11, ABCC8, GCK, IPF1, HNF1-beta, NeuroD1, and TCF7L2). They also sequenced a new candidate gene, HNF6, which is involved in hepatobiliary and pancreatic development. They found no mutations in any of these genes.	
+Smith et al. (2010)	reports	Smith et al. (2010) described human patients with neonatal diabetes and small bowel obstruction due to bowel atresia. Pancreas size was somewhat reduced, but exocrine pancreatic enzymes were not deficient. Autopsy in 2 cases showed normal-appearing exocrine pancreas with clusters of chromogranin A-positive cells but no cells staining for insulin, glucagon, or somatostatin. The syndrome also included a hypoplastic gallbladder and intractable diarrhea that did not respond to pancreatic enzyme replacement.	
+Smith et al. (2010)	reports	Smith et al. (2010) noted that OMIM listed their patients under Martinez-Frias syndrome. They considered the cases distinct, because the original Martinez-Frias patients had esophageal atresia and hypospadias without diabetes, and no RFX6 mutation was found in the parents of 1 Martinez-Frias case. They proposed the name Mitchell-Riley syndrome, after the 2 clinicians who first described the condition.	
+Smith et al. (2010)	reports	Smith et al. (2010) performed high-resolution homozygosity mapping in 2 probands whose parents were first and second cousins, respectively. They found 10 homozygosity-by-descent (HBD) segments larger than 500 kb in proband 1 and 25 in proband 2. Only 3 HBD regions, totaling 24 Mb, were shared (2p15-16, 6q21-22, and 6q23). Of the 194 RefSeq genes in these regions, only RFX6, in the largest segment at 6q21-22, had pancreas-enriched expression.	
+Smith et al. (2010)	reports	In proband 2, the child of consanguineous parents, Smith et al. (2010) used array capture and deep sequencing of the exons within the 3 shared HBD regions. Of 30 novel variants, the only nonsynonymous change was a homozygous ser217-to-pro (S217P) substitution in RFX6, and direct sequencing confirmed it. The patient was alive at age 4.5 years. The variant lies between the DNA-binding and dimerization domains. In EMSA it only modestly reduced DNA binding, and it did not affect dimer formation.	
+RFX6 p.S217P	in_gene	RFX6	
+Smith et al. (2010)	reports	Smith et al. (2010) found a homozygous splice donor mutation in intron 2 of RFX6 (IVS2+2T-C) in proband 1, the child of first cousins, who died in the first few months of life. RT-PCR of RNA from the patient's autopsy pancreas detected no properly spliced RFX6 transcript. No RNA was detected from exons 1 and 2, which the authors attributed probably to nonsense-mediated decay.	
+RFX6 IVS2+2 t>c	in_gene	RFX6	
+Smith et al. (2010)	reports	Smith et al. (2010) found a homozygous out-of-frame deletion in exon 7 of RFX6 in proband 4, who died in the first few months of life. The mutation was inherited from carrier parents.	
+RFX6 out-of-frame deletion in exon 7	in_gene	RFX6	
+Smith et al. (2010)	reports	Smith et al. (2010) found a homozygous arg181-to-gln (R181Q) missense mutation in RFX6 in proband 5, who died in the first few months of life. The mutation affects a highly conserved arginine in the DNA-binding domain. In EMSA, the mutation completely abolished DNA binding by RFX6.	
+RFX6 p.R181Q	in_gene	RFX6	
+Smith et al. (2010)	reports	Smith et al. (2010) found that proband 3 was compound heterozygous for 2 RFX6 splice mutations: loss of the donor site in intron 6 (IVS6+2T-G) and disruption of the acceptor site in intron 1 (IVS1-12A-G). The patient was alive at age 9 years and intermittently off insulin. The mutations were inherited from carrier parents.	
+RFX6 IVS6+2 t>g	in_gene	RFX6	
+RFX6 IVS1-12 a>g	in_gene	RFX6	
+Smith et al. (2010)	reports	Smith et al. (2010) sequenced the 19 exons and splice junctions of RFX6 directly and found missense, splicing, or frameshift mutations in 5 of 6 available probands with the syndrome. All mutations were inherited from carrier parents.	
+Smith et al. (2010)	reports	Smith et al. (2010) reported a genotype-phenotype correlation. The 3 probands homozygous for a splice donor loss, a frameshift deletion, or the R181Q mutation (which abolished DNA binding) all died in the first few months of life. The 2 longer survivors were the patient homozygous for S217P, which only modestly reduced DNA binding (alive at 4.5 years), and the compound heterozygote for 2 splice-site mutations (alive at 9 years and intermittently off insulin).	
+Smith et al. (2010)	reports	Smith et al. (2010) found no RFX6 mutation in proband 6. Proband DNA was unavailable; neither parent carried a point mutation in RFX6 or NEUROG3, and long-range PCR showed no RFX6 deletion. The authors could not rule out a de novo mutation but considered the case most likely a phenocopy. They also found no RFX6 mutation in a case of Martinez-Frias syndrome.	
+Smith et al. (2010)	reports	Smith et al. (2010) generated Rfx6-null mice by replacing the first 5 exons, which include the DNA-binding domain, with an eGFP-cre cassette. Homozygous mice were born at the expected Mendelian ratio but fed poorly, had gross bowel distension from small bowel obstruction, and died within 2 days of birth; some had a reduced pancreas size. At embryonic day 17.5, mutant pancreata contained many chromogranin A-positive endocrine cells, but none expressed insulin, glucagon, somatostatin, or ghrelin. Pancreatic polypeptide-expressing cells were increased.	
+Smith et al. (2010)	reports	Smith et al. (2010) found that Rfx6 is expressed broadly in the definitive endoderm and later becomes restricted to the gut and pancreatic bud. It acts downstream of neurogenin-3 (Neurog3) and upstream of many islet transcription factors, and is required for the differentiation of 4 of the 5 islet cell types. Both RFX6 and NEUROG3 mutations cause diarrhea and diabetes. The authors attributed the small bowel atresia and biliary abnormalities seen only with RFX6 mutation to Rfx6 expression in the early gut endoderm, where neurogenin-3 is not expressed.	
+Spiegel et al. (2011)	reports	Spiegel et al. (2011) reported a new patient with the neonatal diabetes syndrome. The syndrome includes intestinal atresia and hepatobiliary abnormalities. The patient carried a novel homozygous splice site mutation in the RFX6 gene. The authors also gave an update on the clinical outcome of a previously reported patient.	
+RFX6 novel homozygous splice site mutation	in_gene	RFX6	
+Spiegel et al. (2011)	reports	Spiegel et al. (2011) reviewed the clinical and molecular features of all patients with RFX6 mutations; six patients had been reported before their study. They suggested that, despite a fulminant course early after birth, patients who survive may have a relatively favorable prognosis.	
+Concepcion et al. (2014)	reports	Concepcion et al. (2014) described a male infant born at 34 weeks' gestation to nonconsanguineous Vietnamese parents. Prenatally he had intrauterine growth restriction and duodenal atresia. He was small for gestational age (birth weight 1375 g) and had severe hyperglycemia (446 mg/dL) within 24 hours of birth, which needed an insulin infusion. He had low C-peptide, low amylase and lipase, and low stool pancreatic elastase. Laparotomy on day 5 confirmed duodenal atresia, intestinal malrotation, and jejunal perforation, and ultrasound suggested an annular pancreas.	
+Concepcion et al. (2014)	reports	Concepcion et al. (2014) reported that the patient's course included cholestatic jaundice, recurrent infections, feeding intolerance, and severe chronic diarrhea that needed intermittent parenteral nutrition and did not improve with pancreatic enzymes. Laparotomy at 3 months showed gallbladder agenesis. A hepatobiliary scan did not visualize the gallbladder or common bile duct, and liver biopsy showed bile ductular proliferation. He developed liver failure and died of sepsis at 5 months of age while awaiting liver transplantation.	
+Concepcion et al. (2014)	reports	In a Vietnamese boy with Mitchell-Riley syndrome, Concepcion et al. (2014) used whole-exome sequencing and found a novel homozygous missense mutation in RFX6, c.779A>C (p.Lys260Thr; K260T). Sanger sequencing confirmed the mutation, and both parents were heterozygous carriers. The variant was absent from dbSNP and 1000 Genomes. It affects a highly conserved lysine and was predicted to be damaging. It also changes the consensus 5-prime splice donor site of intron 7, which was predicted to disrupt splicing. Runs of homozygosity suggested that the parents might be distantly related.	
+RFX6 c.779A>C / p.K260T	in_gene	RFX6	
+Concepcion et al. (2014)	reports	In a review of 8 patients with RFX6 mutations, Concepcion et al. (2014) noted that the 2 longest survivors were a compound heterozygote with 2 splice site mutations and a patient with a homozygous missense mutation that reduced but did not abolish DNA binding. These 2 patients also had the highest birth weights. In contrast, the authors' patient had disease as severe as patients with homozygous splice site, frameshift, or DNA-binding-abolishing mutations. They noted that chronic diarrhea had been reported in most patients with RFX6 mutations.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) generated a floxed Rfx6 allele and deleted it in endocrine progenitors with Ngn3-Cre (Rfx6-deltaEndo mice); like the full-body knockout, mutant pups were diabetic and died between 2 and 3 days after birth, with insulin-, glucagon-, somatostatin- and ghrelin-expressing cells nearly absent while PP cells were spared, and with chromogranin A-positive, hormone-negative cells present in the pancreas. The authors concluded that Rfx6 function downstream of Ngn3 is essential for beta cell generation and that impaired beta cell development does not result from defective endoderm.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) inactivated Rfx6 in adult beta cells of 8- to 10-week-old mice (Rfx6fl/fl;Ins1-CreERT2, Rfx6-deltaBeta) by tamoxifen treatment, achieving 95% deletion within 5 days; the mutant mice did not develop overt diabetes and insulin, c-peptide 1 and c-peptide 2 remained detectable, although Ins1 transcripts were reduced by approximately 54% to 65% while Ins2 was unchanged. The authors concluded that induced inactivation of Rfx6 in a mature beta cell does not preclude insulin production.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) found that Rfx6-deltaBeta mice had normal fasting and fed blood glucose but significant glucose intolerance on both intraperitoneal and oral glucose tolerance testing, with markedly reduced first- and second-phase glucose-induced insulin secretion in vivo and reduced glucose- and KCl-stimulated insulin secretion from isolated islets; beta cell mass, alpha cell mass and beta cell proliferation were unaffected.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) showed that islets of Rfx6-deltaBeta mice had strongly reduced Gck (glucokinase) and Abcc8/SUR1 transcripts, together with reduced Ucn3, NeuroD1 and Pax6, while Slc2a2/Glut2, Pcsk1 and Kcnj11/Kir6.2 were unaltered; ChIP-seq and quantitative ChIP in Min6B1 beta cells demonstrated that endogenous Rfx6 binds X-boxes in the Gck promoter and in intron 10 of Abcc8, suggesting that Rfx6 is a direct positive transcriptional regulator of these genes.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) found by multicellular imaging of intact islets that glucose-induced intracellular calcium responses were reduced by 50% to 60% and glucose-induced cytosolic ATP/ADP increases by about 60% in Rfx6-deleted beta cells; RNA sequencing showed downregulation of eight voltage-dependent calcium channel transcripts (including Cacna1a, Cacnb2, Cacna1d and Cacna1c), and ChIP studies showed Rfx6 binding to X-boxes in intron 1 of Cacna1c and Cacnb2.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) reported that 54 of the 68 known "disallowed" genes, normally selectively repressed in mature mouse beta cells, were upregulated in Rfx6-deltaBeta islets, including Slc16a1, Ldha, Pdgfra and Igfbp4, and that Rfx6 bound a conserved region about 10 kb upstream of Ldha; the authors proposed that Rfx6 acts as a master repressor contributing to the maintenance of beta cell maturity and functional identity.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) noted that in humans mutations in RFX6 have been reported to cause Mitchell-Riley syndrome, an autosomal recessive syndrome of neonatal diabetes and small bowel atresia, often associated with intestinal malabsorption, and that clusters of chromogranin A-positive, hormone-negative cells have been reported in the pancreas of several patients, suggesting a critical role for RFX6 in the formation of islet and beta cells in humans.	
+Piccand et al. (2014)	reports	Piccand et al. (2014) suggested, on the basis of their mouse findings, that patients with neonatal diabetes carrying RFX6 mutations are likely to have functional defects in their remaining beta cells in addition to having fewer beta cells, and that it might be worth investigating whether such individuals are susceptible to pharmacologic treatments including sulphonylureas or GLP-1 analogs that could prompt insulin release from the remaining beta cells.	
+Chandra et al. (2014)	reports	Chandra et al. (2014) identified a previously unreported homozygous missense mutation in RFX6 (p.V506G) associated with neonatal diabetes. The mutant protein could not activate the insulin promoter or increase calcium-channel expression.	
+RFX6 p.V506G	in_gene	RFX6	
+Chandra et al. (2014)	reports	Chandra et al. (2014) showed that RFX6 is present in adult human pancreatic endocrine cells. In the human beta-cell line EndoC-betaH2, RFX6 regulated insulin gene transcription, insulin content, and insulin secretion. Knocking down RFX6 lowered expression of calcium-channel genes and reduced L-type calcium-channel activity, which suppressed depolarization-evoked insulin exocytosis.	
+Sansbury et al. (2015)	reports	Sansbury et al. (2015) reported 2 Turkish double first cousins with Mitchell-Riley syndrome whose diabetes was diagnosed at ages 3 and 6 years rather than in the neonatal period. The first was a girl born at 32 weeks' gestation with duodenal atresia, jejunal web and Meckel diverticulum. She had hyperglycemia at age 2 and presented with diabetic ketoacidosis at age 3, with very low insulin and C-peptide and negative autoantibodies. She also had an absent gallbladder and gastrointestinal bleeding due to gastric heterotopia in the small bowel. Her cousin, a boy born at 34 weeks with duodenal atresia and midgut malrotation, had asymptomatic fasting hyperglycemia at age 5 and was diagnosed with diabetes at age 6. He also had chronic iron deficiency anemia. Neither child had liver disease, and both were alive at age 9 years.	
+Sansbury et al. (2015)	reports	In the 2 Turkish double first cousins with Mitchell-Riley syndrome and childhood-onset diabetes, Sansbury et al. (2015) used targeted next-generation sequencing of neonatal diabetes genes, with Sanger confirmation, to identify compound heterozygous RFX6 nonsense mutations. One was c.2176C>T (p.Arg726X) in exon 17, which the authors predicted to be subject to nonsense-mediated decay. The fathers were heterozygous for p.Arg726X, and the mutations were traced back to the grandmothers.	
+RFX6 c.2176C>T / p.R726*	in_gene	RFX6	
+Sansbury et al. (2015)	reports	The second RFX6 mutation in the double first cousins described by Sansbury et al. (2015) was c.2596C>T (p.Arg866X) in exon 18, inherited from the mothers. Because it lies within 50 nucleotides of the last exon-exon boundary, the authors predicted that it escapes nonsense-mediated decay and yields a partially truncated protein that keeps the entire DNA-binding domain and may retain some function. These were the first RFX6 mutations reported in exons 9 to 19.	
+RFX6 c.2596C>T / p.R866*	in_gene	RFX6	
+Sansbury et al. (2015)	reports	Sansbury et al. (2015) noted that the 8 previously reported molecularly confirmed cases had splicing or frameshift mutations in exons 2 to 8, or missense mutations in or near the DNA-binding domain. They suggested a possible genotype-phenotype correlation in which escape from nonsense-mediated decay of the 3-prime p.Arg866X allele might preserve some RFX6 function, leading to later-onset diabetes and an otherwise milder phenotype.	
+Sansbury et al. (2015)	reports	In the family reported by Sansbury et al. (2015), several heterozygous relatives had adult-onset diabetes, but C-peptide levels in heterozygotes did not differ between those with and without diabetes. HbA1c also did not differ between non-diabetic heterozygotes and relatives without the familial mutation. The authors concluded that the data did not support heterozygosity for either RFX6 mutation as a risk factor for diabetes, although carriers of 5-prime mutations might still have an increased risk.	
+Sansbury et al. (2015)	reports	Sansbury et al. (2015) reviewed 8 previously reported cases of Mitchell-Riley syndrome confirmed by biallelic RFX6 mutations. All had duodenal atresia, 7 of 8 had gallbladder agenesis, and all had liver involvement, with intrahepatic cholestasis in 7. Diabetes had begun within the first 2 weeks of life in all 8, and 5 had died within the first year of life.	
+Sansbury et al. (2015)	reports	Sansbury et al. (2015) recommended considering genetic testing for RFX6 mutations in patients who present with intestinal atresias even when neonatal diabetes is absent, especially when there is evidence suggesting autosomal recessive inheritance.	
+Sansbury et al. (2015)	reports	Sansbury et al. (2015) reported that biallelic mutations in RFX6 can cause diabetes mellitus that starts in childhood as well as diabetes that starts in the neonatal period.	
+Zegre Amorim et al. (2015)	reports	Zegre Amorim et al. (2015) reported a girl born to first-cousin Gipsy parents. Prenatal ultrasound showed intrauterine growth restriction and a 'double bubble'. She was born at 35 weeks with weight, length, and head circumference below the 3rd centile. She developed hyperglycemia on day 2 and needed continuous insulin. On day 3, insulin and C-peptide levels were very low, and GAD, islet cell, and IA-2 autoantibodies were negative. Laparotomy on day 4 confirmed type II duodenal atresia with annular pancreas, malrotation, and gallbladder agenesis.	
+Zegre Amorim et al. (2015)	reports	Zegre Amorim et al. (2015) reported that the patient developed cholestasis from day 6, with conjugated bilirubin of 3.07 mg/dL and GGT of 458 IU/L; it resolved without treatment by 2 months of age. Ultrasound showed biliary duct dilation, and the head of the pancreas was disproportionately large with an unidentifiable tail. At surgery, perijejunal submucosal tissue that looked like ectopic pancreatic tissue was seen; the authors described this as a novel feature, but it was not biopsied. The patient had chronic diarrhea and malabsorption that did not respond to exocrine pancreatic supplementation. At 7 months she had failure to thrive and still depended on insulin and partial parenteral nutrition.	
+Zegre Amorim et al. (2015)	reports	In a girl with Mitchell-Riley syndrome born to consanguineous Gipsy parents, Zegre Amorim et al. (2015) used Sanger sequencing to identify a homozygous missense mutation in exon 4 of the RFX6 gene (c.541C>T, p.R181W). Both parents were heterozygous for the mutation. The arginine at codon 181 lies in the DNA-binding domain and is highly conserved across species. The authors noted that a different mutation at the same residue (p.R181Q) had been reported previously.	
+RFX6 c.541C>T / p.R181W	in_gene	RFX6	
+Zegre Amorim et al. (2015)	reports	Zegre Amorim et al. (2015) reported a proband born to first-cousin parents, both of whom were heterozygous for the RFX6 mutation. The mother had previously had 3 first-trimester spontaneous abortions and a child with isolated congenital anorectal malformation.	
+MITCHELL-RILEY SYNDROME	caused_by	RFX6	20148032,21965172,23914949,25497100,26264437,26770845
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 c.2176C>T / p.R726*	26264437
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 c.2596C>T / p.R866*	26264437
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 c.541C>T / p.R181W	26770845
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 c.779A>C / p.K260T	23914949
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 p.R181Q	20148032
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 p.S217P	20148032
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 p.V506G	25497100
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 IVS1-12 a>g	20148032
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 IVS2+2 t>c	20148032
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 IVS6+2 t>g	20148032
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 novel homozygous splice site mutation	21965172
+MITCHELL-RILEY SYNDROME	has_variant	RFX6 out-of-frame deletion in exon 7	20148032
+MITCHELL-RILEY SYNDROME	inheritance	Autosomal recessive	1488984,15592663,18512226,20148032,21965172,23914949,25497096,25497100,26264437,26559129,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Neonatal insulin-dependent diabetes mellitus	15592663,16390394,18512226,20148032,21965172,23914949,25497096,25497100,26264437,26559129,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Intrauterine growth retardation	23914949,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Duodenal atresia	1488984,15592663,23914949,26264437,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Intestinal malrotation	16390394,18512226,23914949,26264437,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Intestinal perforation	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Annular pancreas	15592663,23914949,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Decreased circulating C-peptide concentration	23914949,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Exocrine pancreatic insufficiency	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Small for gestational age	1488984,23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Cholestasis	23914949,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Chronic diarrhea	23914949,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Feeding difficulties	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Recurrent infections	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Absent gallbladder	16390394,18512226,23914949,26264437,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Bile duct proliferation	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Hepatic failure	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Sepsis	23914949
+MITCHELL-RILEY SYNDROME	has_phenotype	Anteriorly placed anus	26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Anemia	26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Microcephaly	26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Pancreatic hypoplasia	1488984,15592663,18512226,20148032,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Ectopic pancreatic tissue	26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Malabsorption	25497096,26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Failure to thrive	26770845
+MITCHELL-RILEY SYNDROME	has_phenotype	Intestinal atresia	1488984,18512226,20148032,21965172,25497096
+MITCHELL-RILEY SYNDROME	has_phenotype	Intestinal obstruction	20148032
+MITCHELL-RILEY SYNDROME	has_phenotype	Abnormality of the pancreatic islet cells	15592663,20148032
+MITCHELL-RILEY SYNDROME	has_phenotype	Hypoplasia of the gallbladder	20148032
+MITCHELL-RILEY SYNDROME	has_phenotype	Intractable diarrhea	20148032
+MITCHELL-RILEY SYNDROME	has_phenotype	Death in infancy	15592663,20148032
+MITCHELL-RILEY SYNDROME	has_phenotype	Diabetes mellitus	20148032,26264437,26559129
+MITCHELL-RILEY SYNDROME	has_phenotype	Pancreatic aplasia	16390394
+MITCHELL-RILEY SYNDROME	has_phenotype	Abnormal cardiac septum morphology	16390394
+MITCHELL-RILEY SYNDROME	has_phenotype	Jejunal atresia	15592663,26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Meckel diverticulum	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Diabetic ketoacidosis	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Gastrointestinal hemorrhage	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Iron deficiency anemia	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Premature birth	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Intrahepatic cholestasis	26264437
+MITCHELL-RILEY SYNDROME	has_phenotype	Tracheoesophageal fistula	1488984
+MITCHELL-RILEY SYNDROME	has_phenotype	Extrahepatic biliary duct atresia	1488984
+MITCHELL-RILEY SYNDROME	has_phenotype	Hypospadias	1488984
+MITCHELL-RILEY SYNDROME	has_phenotype	Aplasia/Hypoplasia of the gallbladder	15592663
+MITCHELL-RILEY SYNDROME	has_phenotype	Biliary atresia	18512226
+MITCHELL-RILEY SYNDROME	has_phenotype	Abnormality of the biliary system	21965172
+MITCHELL-RILEY SYNDROME	has_phenotype	Neonatal death	25497096
+MITCHELL-RILEY SYNDROME	has_phenotype	Impaired glucose tolerance	25497096
+MITCHELL-RILEY SYNDROME	has_phenotype	Abnormal circulating insulin concentration	25497096
+Annular pancreas	is_a	Abnormality of the pancreas	
+Diabetic ketoacidosis	is_a	Diabetes mellitus	
+Cholestasis	is_a	Abnormality of the biliary system	
+Hypoplasia of the gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Intrahepatic cholestasis	is_a	Cholestasis	
+Intrahepatic cholestasis	is_a	Abnormality of the liver	
+Extrahepatic biliary duct atresia	is_a	Biliary atresia	
+Extrahepatic biliary duct atresia	is_a	Abnormality of the biliary system	
+Neonatal insulin-dependent diabetes mellitus	is_a	Diabetes mellitus	
+Jejunal atresia	is_a	Intestinal atresia	
+Iron deficiency anemia	is_a	Anemia	
+Pancreatic hypoplasia	is_a	Abnormality of the pancreas	
+Pancreatic aplasia	is_a	Abnormality of the pancreas	
+Bile duct proliferation	is_a	Abnormality of the biliary system	
+Biliary atresia	is_a	Abnormality of the biliary system	
+Absent gallbladder	is_a	Aplasia/Hypoplasia of the gallbladder	
+Exocrine pancreatic insufficiency	is_a	Abnormality of the pancreas	
+Aplasia/Hypoplasia of the gallbladder	is_a	Abnormality of the biliary system	
+Abnormality of the pancreatic islet cells	is_a	Abnormality of the pancreas	
+Ectopic pancreatic tissue	is_a	Abnormality of the pancreas	
+Duodenal atresia	is_a	Intestinal atresia	
+Abnormality of the biliary system	is_a	Abnormality of the liver	
