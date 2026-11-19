@@ -173,12 +173,13 @@ def summary(run_name):
 @click.argument("run_name")
 def compare(run_name):
     """Paired comparison of the evidence-graph strategy against the direct baseline."""
-    from .compare import compare_run, comparison_markdown
+    from .compare import compare_run, comparison_markdown, edge_markdown, write_graph_comparison
 
     run_dir = get_settings().runs / run_name
     result = compare_run(run_dir)
+    result["knowledge_graph_edges"] = write_graph_comparison(run_dir)
     (run_dir / "comparison.json").write_text(json.dumps(result, indent=2))
-    text = comparison_markdown(result)
+    text = comparison_markdown(result) + "\n" + edge_markdown(result["knowledge_graph_edges"])
     (run_dir / "comparison.md").write_text(text)
     click.echo(text)
 

@@ -225,3 +225,122 @@ def comparison_markdown(result: dict[str, Any]) -> str:
             out.append(f"### {group} — {block['n']} entries")
             out.append(table(block["metrics"]))
     return "\n\n".join(out) + "\n"
+
+
+# --------------------------------------------------------------------------- #
+# Edge-level comparison of the generated knowledge with OMIM's
+# --------------------------------------------------------------------------- #
+
+EDGE_RELATIONS = ("caused_by", "inheritance", "has_phenotype", "has_variant")
+
+
+def graph_edges(run_dir: Path, strategy: str) -> list[dict[str, str]]:
+    """Every entry-level edge, generated or OMIM's, labelled by who has it.
+
+    One row per (disease, relation, object): the causal genes, modes of
+    inheritance, HPO phenotypes and allelic variants of each entry. `source` is
+    "both" when the generated entry and OMIM agree, "generated_only" or
+    "omim_only" otherwise. Phenotypes are compared by exact HPO id; variants by
+    the matching done in the evaluation; only OMIM variants documented from a
+    paper the entry cites are counted.
+    """
+    from .models import INHERITANCE_COARSE
+
+    rows: list[dict[str, str]] = []
+    for entry_path in sorted(run_dir.glob(f"*/entry.{strategy}.json")):
+        folder = entry_path.parent
+        eval_path, gold_path = folder / f"eval.{strategy}.json", folder / "gold.json"
+        if not (eval_path.exists() and gold_path.exists()):
+            continue
+        entry, evaluation, gold = (json.loads(p.read_text()) for p in (entry_path, eval_path, gold_path))
+        mim, title = gold["mim"], gold["title"]
+
+        def add(relation: str, object_id: str, label: str, source: str, pmids: list[str] | None = None) -> None:
+            rows.append({"mim": mim, "disease": title, "relation": relation, "object_id": object_id,
+                         "object_label": label, "source": source, "pmids": ",".join(pmids or [])})
+
+        gold_genes = {g["symbol"].upper() for g in gold["genes"] if g["symbol"]}
+        seen = set()
+        for rel in entry["relationships"]:
+            symbol = rel["gene_symbol"].upper()
+            seen.add(symbol)
+            add("caused_by", symbol, symbol, "both" if symbol in gold_genes else "generated_only", rel["pmids"])
+        for symbol in sorted(gold_genes - seen):
+            add("caused_by", symbol, symbol, "omim_only")
+
+        coarse = lambda codes: {INHERITANCE_COARSE[c] for c in codes if c in INHERITANCE_COARSE}  # noqa: E731
+        predicted, expected = coarse(entry["inheritance"]), coarse(gold["inheritance"])
+        for code in sorted(predicted | expected):
+            add("inheritance", code, code,
+                "both" if code in predicted and code in expected else "generated_only" if code in predicted else "omim_only")
+
+        missed = {s.split(" ", 1)[0]: s.split(" ", 1)[-1] for s in evaluation["synopsis"]["missed"]}
+        extra = {s.split(" ", 1)[0] for s in evaluation["synopsis"]["extra"]}
+        for item in entry["clinical_synopsis"]:
+            if item["hpo_id"]:
+                add("has_phenotype", item["hpo_id"], item["hpo_label"],
+                    "generated_only" if item["hpo_id"] in extra else "both", item["pmids"])
+        for hpo_id, label in sorted(missed.items()):
+            add("has_phenotype", hpo_id, label, "omim_only")
+
+        variants = evaluation["variants"]
+        matched = {m["generated"] for m in variants["matched"]} | set(variants.get("in_omim_via_other_paper", []))
+        for av in entry["allelic_variants"]:
+            pmids = list(dict.fromkeys(p for para in av["paragraphs"] for p in para["pmids"]))
+            add("has_variant", "; ".join(av["hgvs"]) or av["name"], av["name"],
+                "both" if av["name"] in matched else "generated_only", pmids)
+        for name in variants["missed"]:
+            add("has_variant", name.split(" ", 1)[0], name.split(" ", 1)[-1], "omim_only")
+    return rows
+
+
+def edge_scores(rows: list[dict[str, str]]) -> dict[str, dict[str, Any]]:
+    """Micro-averaged precision, recall and F1 per relation over all entries."""
+    out: dict[str, dict[str, Any]] = {}
+    for relation in EDGE_RELATIONS:
+        subset = [r for r in rows if r["relation"] == relation]
+        both = sum(1 for r in subset if r["source"] == "both")
+        generated = both + sum(1 for r in subset if r["source"] == "generated_only")
+        omim = both + sum(1 for r in subset if r["source"] == "omim_only")
+        precision = both / generated if generated else None
+        recall = both / omim if omim else None
+        f1 = 2 * precision * recall / (precision + recall) if precision and recall else None
+        out[relation] = {"in_both": both, "generated": generated, "omim": omim,
+                         "precision": round(precision, 4) if precision is not None else None,
+                         "recall": round(recall, 4) if recall is not None else None,
+                         "f1": round(f1, 4) if f1 is not None else None}
+    return out
+
+
+def write_graph_comparison(run_dir: Path) -> dict[str, Any]:
+    """Write knowledge_graph.<strategy>.tsv for each strategy and return the edge scores."""
+    columns = ["mim", "disease", "relation", "object_id", "object_label", "source", "pmids"]
+    scores: dict[str, Any] = {}
+    for strategy in ("kg", "direct"):
+        rows = graph_edges(run_dir, strategy)
+        if not rows:
+            continue
+        with (run_dir / f"knowledge_graph.{strategy}.tsv").open("w", encoding="utf-8") as fh:
+            fh.write("\t".join(columns) + "\n")
+            for row in rows:
+                fh.write("\t".join(row[c].replace("\t", " ") for c in columns) + "\n")
+        scores[strategy] = edge_scores(rows)
+    return scores
+
+
+def edge_markdown(scores: dict[str, Any]) -> str:
+    labels = {"caused_by": "Disease → causal gene", "inheritance": "Disease → mode of inheritance",
+              "has_phenotype": "Disease → phenotype (HPO, exact id)", "has_variant": "Disease → allelic variant"}
+    names = {"kg": "Evidence graph", "direct": "Direct"}
+    lines = ["## Knowledge-graph edges against OMIM (all entries pooled)",
+             "Each generated entry is reduced to its edges and set against the same edges in OMIM. Precision is the "
+             "share of generated edges that OMIM also has; recall is the share of OMIM's edges that were generated. "
+             "A generated edge absent from OMIM is not necessarily wrong: it is one OMIM does not record.",
+             "| Edge type | Strategy | In both | Generated | In OMIM | Precision | Recall | F1 |", "|---|---|---|---|---|---|---|---|"]
+    for relation in EDGE_RELATIONS:
+        for strategy in ("kg", "direct"):
+            s = scores.get(strategy, {}).get(relation)
+            if s:
+                lines.append(f"| {labels[relation]} | {names[strategy]} | {s['in_both']:,} | {s['generated']:,} | {s['omim']:,} | "
+                             f"{_pct(s['precision'])} | {_pct(s['recall'])} | {_pct(s['f1'])} |")
+    return "\n\n".join(lines[:2]) + "\n\n" + "\n".join(lines[2:]) + "\n"

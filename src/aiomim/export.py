@@ -10,7 +10,8 @@ from pathlib import Path
 COPY = ("seed.json", "retrieval.json", "papers.json", "extractions.json", "kg.json", "kg_triples.tsv",
         "entry.kg.json", "entry.kg.md", "entry.direct.json", "entry.direct.md", "usage.json",
         "updates.json", "updates.md")
-RUN_FILES = ("summary.json", "comparison.json", "comparison.md")
+RUN_FILES = ("summary.json", "comparison.json", "comparison.md", "knowledge_graph.kg.tsv", "knowledge_graph.direct.tsv",
+             "backtest.json")
 
 
 def _redact(evaluation: dict) -> dict:
