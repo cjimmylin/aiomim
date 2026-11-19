@@ -110,7 +110,9 @@ def build_entries(
             log.info("[%s] auditing %s entry (%d paragraphs)", seed.mim or seed.title, strategy,
                      len(entry.all_paragraphs()))
             verify_entry(entry, by_pmid, llm)
-            entry.meta["audit_before_repair"] = eval_faithfulness(entry)
+            before = eval_faithfulness(entry)
+            before.pop("before_repair", None)
+            entry.meta["audit_before_repair"] = before
             if cfg.repair:
                 repair_entry(entry, by_pmid, llm)
                 entry.assign_paragraph_ids()

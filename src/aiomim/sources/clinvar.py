@@ -179,7 +179,26 @@ def fetch_vcv(variation_ids: list[str]) -> dict[str, str]:
     return out
 
 
+def omim_submitted(variation_ids: list[str], chunk: int = 150) -> list[str]:
+    """The subset of ClinVar variation ids that carry a submission from OMIM.
+
+    A disease can be linked to hundreds of ClinVar variations, of which OMIM
+    submitted a handful. One light search per `chunk` ids picks those out, instead
+    of downloading every variation record to look inside it.
+    """
+    from . import ncbi
+
+    ids = list(dict.fromkeys(str(v) for v in variation_ids))
+    kept: set[str] = set()
+    for start in range(0, len(ids), chunk):
+        part = ids[start:start + chunk]
+        term = "(" + " OR ".join(f"{i}[UID]" for i in part) + ') AND "OMIM"[Submitter]'
+        kept.update(ncbi._esearch("clinvar", term, retmax=len(part)))
+    return [i for i in ids if i in kept]
+
+
 def omim_allelic_variants(variation_ids: list[str]) -> list[GoldAllelicVariant]:
+    variation_ids = omim_submitted(variation_ids)
     raw = fetch_vcv(variation_ids)
     items: list[GoldAllelicVariant] = []
     for vid in dict.fromkeys(str(v) for v in variation_ids):

@@ -233,11 +233,17 @@ def test_gene_and_inheritance_scores():
     assert eval_inheritance(_entry(), _gold())["match"] is True
 
 
-def test_variant_matching_across_notations_and_phenotype_filter():
+def test_variant_matching_across_notations_and_scope():
     result = eval_variants(_entry(), _gold())
-    assert result["n_gold"] == 2            # the 535000-only variant is not this entry's
-    assert result["n_matched"] == 1
-    assert result["recall"] == 0.5
+    # Of three gold variants, one belongs to another phenotype and one rests on a
+    # paper this entry does not cite; only the remaining one is in scope.
+    assert result["n_gold"] == 1 and result["n_gold_out_of_scope"] == 2
+    assert result["n_matched"] == 1 and result["recall"] == 1.0 and result["missed"] == []
+
+    gold = _gold()
+    gold.cited_pmids.append("9")            # now the MTND1 paper is one the entry cites
+    result = eval_variants(_entry(), gold)
+    assert result["n_gold"] == 2 and result["recall"] == 0.5
     assert result["missed"] == ["516000.0012 MTND1, 3697G-A"]
 
 
@@ -247,8 +253,9 @@ def test_variant_keys_from_clinvar_and_omim_names():
     assert "R287W" in _variant_keys(["SMAD3, ARG287TRP"], "SMAD3")
 
 
-def test_gold_paragraphs_filtered_to_this_phenotype():
+def test_gold_paragraphs_filtered_to_this_phenotype_and_its_references():
     assert [p.pmids for p in _gold().gold_paragraphs] == [["1"], ["9"]]
+    assert [p.pmids for p in _gold().scoped_paragraphs] == [["1"]]
 
 
 def test_faithfulness_and_paragraph_status():
@@ -298,3 +305,15 @@ def test_markdown_render_has_omim_layout():
     for needle in ("LEBER OPTIC ATROPHY AND DYSTONIA; LDYT", "Phenotype-Gene Relationships", "### Clinical Features",
                    "### ALLELIC VARIANTS", ".0001", "MTND6, ALA72VAL", "✗"):
         assert needle in text, needle
+
+
+def test_recalled_omim_cross_references_are_stripped():
+    from aiomim.synthesize import _strip_mim_numbers
+
+    removed: list[str] = []
+    text = ("Jun et al. (1994) found an ala72-to-val substitution (A72V; 516006.0002) in the MTND6 gene (516006) "
+            "in a family with LHON (535000); it was absent from 125000 controls (see 540000).")
+    cleaned = _strip_mim_numbers(text, {"516006", "500001"}, removed)
+    assert cleaned == ("Jun et al. (1994) found an ala72-to-val substitution (A72V) in the MTND6 gene (516006) "
+                       "in a family with LHON; it was absent from 125000 controls.")
+    assert removed == ["516006.0002", "535000", "540000"]

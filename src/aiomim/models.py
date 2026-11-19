@@ -278,6 +278,23 @@ class GoldEntry(BaseModel):
                     out.append(para)
         return out
 
+    @property
+    def scoped_paragraphs(self) -> list[GoldParagraph]:
+        """The subset of `gold_paragraphs` that summarise a paper this entry itself cites.
+
+        OMIM files allelic-variant text under the gene entry, whose reference list
+        is larger than the phenotype entry's. A paragraph about a paper the
+        phenotype entry does not cite is outside what that entry was written from,
+        so it is not held against a replication of it.
+        """
+        cited = set(self.cited_pmids)
+        return [p for p in self.gold_paragraphs if cited & set(p.pmids)]
+
+    def scoped_variants(self) -> list[GoldAllelicVariant]:
+        """Allelic variants with at least one in-scope paragraph about this entry."""
+        scoped = {id(p) for p in self.scoped_paragraphs}
+        return [av for av in self.allelic_variants if any(id(p) in scoped for p in av.paragraphs)]
+
 
 # --------------------------------------------------------------------------- #
 # Evidence extraction

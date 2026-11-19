@@ -27,8 +27,20 @@ def main(verbose: bool) -> None:
     logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 
+def _read_mims(path: str) -> list[str]:
+    """MIM numbers from the first column of a TSV/text file (header and comments skipped)."""
+    out = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            token = line.split("\t")[0].strip()
+            if token.isdigit():
+                out.append(token)
+    return out
+
+
 @main.command()
-@click.argument("mims", nargs=-1, required=True)
+@click.argument("mims", nargs=-1)
+@click.option("--from-file", type=click.Path(exists=True), help="Read MIM numbers from a file (first column).")
 @click.option("--run", "run_name", default="default", show_default=True, help="Name of the run directory.")
 @click.option("--retrieval", type=click.Choice(["oracle", "open"]), default="oracle", show_default=True,
               help="oracle: use OMIM's own reference list. open: find the literature from scratch.")
@@ -40,8 +52,11 @@ def main(verbose: bool) -> None:
 @click.option("--no-eval", is_flag=True, help="Skip scoring against the gold standard.")
 @click.option("--no-fulltext", is_flag=True, help="Use abstracts only.")
 @click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
-def run(mims, run_name, retrieval, strategy, max_papers, no_verify, no_repair, no_eval, no_fulltext, jobs):
+def run(mims, from_file, run_name, retrieval, strategy, max_papers, no_verify, no_repair, no_eval, no_fulltext, jobs):
     """Replicate existing OMIM entries (by MIM number) and score them."""
+    mims = list(mims) + (_read_mims(from_file) if from_file else [])
+    if not mims:
+        raise click.UsageError("give MIM numbers or --from-file")
     cfg = RunConfig(run=run_name, retrieval=retrieval, strategies=_strategies(strategy), verify=not no_verify,
                     repair=not no_repair, evaluate=not no_eval, fulltext=not no_fulltext, max_papers=max_papers)
     summary = run_many(list(mims), cfg, jobs=jobs)
@@ -112,6 +127,36 @@ def select(created_from, created_to, entry_type, limit, min_paragraphs):
             click.echo("\t".join(str(row.get(k, "")) for k in
                                  ("mim", "prefix", "n_refs", "n_gold_paragraphs", "n_hpo", "n_genes", "inheritance", "title")))
     click.echo(f"{len(rows)} entries", err=True)
+
+
+@main.command()
+@click.option("-n", "n", default=100, show_default=True, help="Number of entries.")
+@click.option("--seed", default=13, show_default=True, help="Random seed; the same seed gives the same set.")
+@click.option("--min-refs", default=2, show_default=True)
+@click.option("--max-refs", default=12, show_default=True)
+@click.option("--min-hpo", default=5, show_default=True, help="Minimum HPO phenotype annotations.")
+@click.option("--include", multiple=True, help="MIM numbers to include regardless of the draw.")
+@click.option("--out", required=True, type=click.Path(), help="TSV file to write.")
+def evalset(n, seed, min_refs, max_refs, min_hpo, include, out):
+    """Draw a reproducible, stratified evaluation set of phenotype entries."""
+    from pathlib import Path
+
+    from .evalset import sample
+
+    columns = ["mim", "stratum", "n_refs", "n_hpo", "n_omim_paragraphs", "genes", "inheritance", "title"]
+    path = Path(out)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    count = 0
+    with path.open("w", encoding="utf-8") as fh:
+        fh.write("\t".join(columns) + "\n")
+        for row in sample(n=n, seed=seed, min_refs=min_refs, max_refs=max_refs, min_hpo=min_hpo,
+                          include=tuple(include)):
+            fh.write("\t".join(str(row[c]) for c in columns) + "\n")
+            fh.flush()
+            count += 1
+            click.echo(f"{count:3d}  {row['mim']}  refs={row['n_refs']:<3} hpo={row['n_hpo']:<3} "
+                       f"omim_paragraphs={row['n_omim_paragraphs']:<2} {row['title'][:60]}")
+    click.echo(f"{count} entries written to {path}")
 
 
 @main.command()

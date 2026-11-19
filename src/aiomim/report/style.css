@@ -116,6 +116,7 @@ table.data tr.clickable:hover td { background: var(--accent-soft); }
 table.data .entry-cell { min-width: 220px; }
 table.data .entry-cell a { font-weight: 600; text-decoration: none; }
 table.data .entry-cell a:hover { text-decoration: underline; }
+.table-scroll.compare { max-width: 820px; }
 .better { font-weight: 700; }
 .better::after { content: " ▲"; font-size: .75em; color: var(--ok); }
 abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
@@ -295,6 +296,12 @@ details.more[open] > summary { margin-bottom: 8px; }
 footer.foot { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-xs); color: var(--muted); display: grid; gap: 4px; }
 
 @media (max-width: 560px) {
+  .topbar { position: static; }
+  .topbar-inner { gap: 6px 14px; }
+  .topnav { gap: 4px 14px; }
+  .entry-jump { order: 3; }
+  table.data thead th { white-space: normal; }
+  table.data .entry-cell { min-width: 170px; }
   :root { --fs-xl: 1.4rem; --fs-lg: 1.2rem; --fs-md: 1rem; }
   .legend dl { grid-template-columns: 1fr; }
   .legend dd { margin-bottom: 6px; }

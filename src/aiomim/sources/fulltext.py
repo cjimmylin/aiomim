@@ -321,6 +321,13 @@ def _miss_cache() -> DiskCache:
 def fetch_fulltext(paper: Paper) -> tuple[str, str] | None:
     """(text, source) from the first open-access source with a real body, else None."""
     try:
+        # Text the user supplies for papers they have the right to read:
+        # <AIOMIM_HOME>/fulltext/<pmid>.txt takes precedence over any download.
+        local = get_settings().home / "fulltext" / f"{paper.pmid}.txt"
+        if local.is_file():
+            text = local.read_text(encoding="utf-8", errors="replace").strip()
+            if len(text) >= MIN_BODY_CHARS:
+                return text, "local"
         miss = _miss_cache()
         if miss.get_text(paper.pmid, MISS_TTL_S) is not None:
             return None

@@ -1,0 +1,8 @@
+#description: "tiny test annotation file"
+#version: 2026-01-01
+database_id	disease_name	qualifier	hpo_id	reference	evidence	onset	frequency	sex	modifier	aspect	biocuration
+OMIM:500001	Leber optic atrophy and dystonia		HP:0007768	PMID:17562939	PCS		2/2			P	HPO:test[2026-01-01]
+OMIM:500001	Leber optic atrophy and dystonia		HP:0001332	OMIM:500001	IEA					P	HPO:test[2026-01-01]
+OMIM:500001	Leber optic atrophy and dystonia		HP:0001427	OMIM:500001	IEA					I	HPO:test[2026-01-01]
+OMIM:613795	Loeys-Dietz syndrome 3		HP:0004942	OMIM:613795	TAS					P	HPO:test[2026-01-01]
+ORPHA:1	Something		HP:0001332	ORPHA:1	TAS					P	HPO:test[2026-01-01]

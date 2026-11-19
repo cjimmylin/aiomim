@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ClinVarResult-Set><VariationArchive VariationID="9733" VariationName="NC_012920.1(MT-ND1):m.3697G&gt;A" VariationType="single nucleotide variant" Accession="VCV000009733" Version="8" RecordType="classified" NumberOfSubmissions="9" NumberOfSubmitters="7" DateLastUpdated="2026-08-04" DateCreated="2013-10-03" MostRecentSubmission="2026-05-16">
+  <RecordStatus>current</RecordStatus>
+  <Species>Homo sapiens</Species>
+  <ClassifiedRecord>
+    <SimpleAllele AlleleID="24772" VariationID="9733">
+      <GeneList>
+        <Gene Symbol="MT-ND1" FullName="mitochondrially encoded NADH dehydrogenase 1" GeneID="4535" HGNC_ID="HGNC:7455" Source="submitted" RelationshipType="within single gene">
+          <Location>
+            <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="3307" stop="4262" display_start="3307" display_stop="4262" Strand="+"/>
+          </Location>
+          <OMIM>516000</OMIM>
+        </Gene>
+      </GeneList>
+      <Name>NC_012920.1(MT-ND1):m.3697G&gt;A</Name>
+      <CanonicalSPDI>NC_012920.1:3696:G:A</CanonicalSPDI>
+      <VariantType>single nucleotide variant</VariantType>
+      <Location>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" forDisplay="true" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="3697" stop="3697" display_start="3697" display_stop="3697" variantLength="1" positionVCF="3697" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="MT" Accession="NC_012920.1" start="3697" stop="3697" display_start="3697" display_stop="3697" variantLength="1" positionVCF="3697" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+      </Location>
+      <OtherNameList>
+        <Name>3697G-A</Name>
+      </OtherNameList>
+      <HGVSlist>
+        <HGVS Assembly="GRCh38" Type="genomic, top-level">
+          <NucleotideExpression sequenceAccessionVersion="NC_012920.1" sequenceAccession="NC_012920" sequenceVersion="1" change="m.3697G&gt;A" Assembly="GRCh38">
+            <Expression>NC_012920.1:m.3697G&gt;A</Expression>
+          </NucleotideExpression>
+        </HGVS>
+      </HGVSlist>
+      <XRefList>
+        <XRef Type="rs" ID="199476122" DB="dbSNP"/>
+        <XRef ID="CA120647" DB="ClinGen"/>
+        <XRef ID="GTR000591967" DB="Genetic Testing Registry (GTR)"/>
+        <XRef ID="GTR000591975" DB="Genetic Testing Registry (GTR)"/>
+        <XRef ID="GTR000591976" DB="Genetic Testing Registry (GTR)"/>
+        <XRef Type="Allelic variant" ID="516000.0012" DB="OMIM"/>
+      </XRefList>
+    </SimpleAllele>
+    <Classifications>
+      <GermlineClassification DateLastEvaluated="2022-03-24" NumberOfSubmissions="9" NumberOfSubmitters="7" DateCreated="2013-10-03" MostRecentSubmission="2026-05-16">
+        <ReviewStatus>reviewed by expert panel</ReviewStatus>
+        <Description>Likely pathogenic</Description>
+        <Explanation DataSource="ClinVar" Type="public">Likely pathogenic (1)</Explanation>
+        <Citation Type="general">
+          <ID Source="PubMed">28429146</ID>
+        </Citation>
+        <Citation Type="general">
+          <URL>https://erepo.clinicalgenome.org/evrepo/ui/interpretation/92937acb-7e51-46ae-82f7-7a511b084dab</URL>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">15466014</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">24830958</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">30143805</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">16969869</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">30623604</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">17562939</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">18977334</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">31996177</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301411</ID>
+          <ID Source="BookShelf">NBK1233</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301353</ID>
+          <ID Source="BookShelf">NBK1174</ID>
+        </Citation>
+        <DescriptionHistory Dated="2022-04-16">
+          <Description>Pathogenic</Description>
+        </DescriptionHistory>
+        </GermlineClassification>
+    </Classifications>
+    <ClinicalAssertionList>
+      <ClinicalAssertion ID="30611" SubmissionDate="2018-12-13" ContributesToAggregateClassification="false" DateLastUpdated="2018-12-16" DateCreated="2013-04-04">
+        <ClinVarSubmissionID localKey="516000.0012_MELAS SYNDROME" title="MTND1, 3697G-A_MELAS SYNDROME"/>
+        <ClinVarAccession Accession="SCV000030611" DateUpdated="2018-12-16" DateCreated="2013-04-04" Type="SCV" Version="2" SubmitterName="OMIM" OrgID="3" OrganizationCategory="resource"/>
+        <RecordStatus>current</RecordStatus>
+        <Classification DateLastEvaluated="2007-06-01">
+          <ReviewStatus>no assertion criteria provided</ReviewStatus>
+          <GermlineClassification>Pathogenic</GermlineClassification>
+        </Classification>
+        <Assertion>variation to disease</Assertion>
+        <ObservedInList>
+          <ObservedIn>
+            <Sample>
+              <Origin>germline</Origin>
+              <Species>human</Species>
+              <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+              <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData>
+              <Attribute Type="Description">Kirby et al. (2004) described a patient with MELAS syndrome (540000) in whom the common 3243A-G mutation of the MTTL1 gene (590050.0001) could not be detected, but who expressed a specific deficiency of complex I activity in both skeletal muscle and cultured fibroblasts; targeted sequencing of the mitochondrial tRNA and MTND genes identified a 3697G-A transition in the MTND1 gene, resulting in a gly131-to-ser (G131S) substitution.</Attribute>
+              <Citation>
+                <ID Source="PubMed">15466014</ID>
+              </Citation>
+              <XRef DB="OMIM" ID="540000" Type="MIM"/>
+            </ObservedData>
+            <ObservedData>
+              <Attribute Type="Description">Spruijt et al. (2007) reported a sister and brother with Leber optic atrophy and dystonia (500001). The 35-year-old sister developed sequential left and right vision loss, optic nerve atrophy, and bilateral central scotoma consistent with LHON. Serum and CSF lactate levels were increased. Her 34-year-old brother had developed progressive spastic dystonia beginning at age 3 years. Since age 27, he was wheelchair-bound with mental retardation, scoliosis, dysarthria, strabismus without ophthalmoplegia, and accumulation of abnormal mitochondria on sural nerve biopsy. His brain MRI showed bilateral hyperintensities in the putamen. Muscle biopsies from the sister and brother showed 8% and 16% residual complex I activity, respectively. Genetic analysis identified a heteroplasmic 3697G-A transition in the MTND1 gene. The mutation load was greater than 97% in muscle tissue of the woman with LHON and 88% in the blood of her brother.</Attribute>
+              <Citation>
+                <ID Source="PubMed">17562939</ID>
+              </Citation>
+              <XRef DB="OMIM" ID="500001" Type="MIM"/>
+            </ObservedData>
+          </ObservedIn>
+        </ObservedInList>
+        <SimpleAllele>
+          <GeneList>
+            <Gene Symbol="MTND1"/>
+          </GeneList>
+          <Name>MTND1, 3697G-A</Name>
+          <VariantType>Variation</VariantType>
+          <OtherNameList>
+            <Name Type="NonHGVS">3697G-A</Name>
+          </OtherNameList>
+          <XRefList>
+            <XRef DB="OMIM" ID="516000.0012" Type="Allelic variant"/>
+          </XRefList>
+        </SimpleAllele>
+        <TraitSet Type="Disease">
+          <Trait Type="Disease">
+            <Name>
+              <ElementValue Type="Preferred">MELAS SYNDROME</ElementValue>
+            </Name>
+          </Trait>
+        </TraitSet>
+      </ClinicalAssertion>
+      <ClinicalAssertion ID="30612" SubmissionDate="2018-12-13" ContributesToAggregateClassification="false" DateLastUpdated="2018-12-16" DateCreated="2013-04-04">
+        <ClinVarSubmissionID localKey="516000.0012_LEBER OPTIC ATROPHY AND DYSTONIA" title="MTND1, 3697G-A_LEBER OPTIC ATROPHY AND DYSTONIA"/>
+        <ClinVarAccession Accession="SCV000030612" DateUpdated="2018-12-16" DateCreated="2013-04-04" Type="SCV" Version="2" SubmitterName="OMIM" OrgID="3" OrganizationCategory="resource"/>
+        <RecordStatus>current</RecordStatus>
+        <Classification DateLastEvaluated="2007-06-01">
+          <ReviewStatus>no assertion criteria provided</ReviewStatus>
+          <GermlineClassification>Pathogenic</GermlineClassification>
+        </Classification>
+        <Assertion>variation to included disease</Assertion>
+        <ObservedInList>
+          <ObservedIn>
+            <Sample>
+              <Origin>germline</Origin>
+              <Species>human</Species>
+              <AffectedStatus>not provided</AffectedStatus>
+            </Sample>
+            <Method>
+              <MethodType>literature only</MethodType>
+            </Method>
+            <ObservedData>
+              <Attribute Type="Description">Kirby et al. (2004) described a patient with MELAS syndrome (540000) in whom the common 3243A-G mutation of the MTTL1 gene (590050.0001) could not be detected, but who expressed a specific deficiency of complex I activity in both skeletal muscle and cultured fibroblasts; targeted sequencing of the mitochondrial tRNA and MTND genes identified a 3697G-A transition in the MTND1 gene, resulting in a gly131-to-ser (G131S) substitution.</Attribute>
+              <Citation>
+                <ID Source="PubMed">15466014</ID>
+              </Citation>
+              <XRef DB="OMIM" ID="540000" Type="MIM"/>
+            </ObservedData>
+            <ObservedData>
+              <Attribute Type="Description">Spruijt et al. (2007) reported a sister and brother with Leber optic atrophy and dystonia (500001). The 35-year-old sister developed sequential left and right vision loss, optic nerve atrophy, and bilateral central scotoma consistent with LHON. Serum and CSF lactate levels were increased. Her 34-year-old brother had developed progressive spastic dystonia beginning at age 3 years. Since age 27, he was wheelchair-bound with mental retardation, scoliosis, dysarthria, strabismus without ophthalmoplegia, and accumulation of abnormal mitochondria on sural nerve biopsy. His brain MRI showed bilateral hyperintensities in the putamen. Muscle biopsies from the sister and brother showed 8% and 16% residual complex I activity, respectively. Genetic analysis identified a heteroplasmic 3697G-A transition in the MTND1 gene. The mutation load was greater than 97% in muscle tissue of the woman with LHON and 88% in the blood of her brother.</Attribute>
+              <Citation>
+                <ID Source="PubMed">17562939</ID>
+              </Citation>
+              <XRef DB="OMIM" ID="500001" Type="MIM"/>
+            </ObservedData>
+          </ObservedIn>
+        </ObservedInList>
+        <SimpleAllele>
+          <GeneList>
+            <Gene Symbol="MTND1"/>
+          </GeneList>
+          <Name>MTND1, 3697G-A</Name>
+          <VariantType>Variation</VariantType>
+          <OtherNameList>
+            <Name Type="NonHGVS">3697G-A</Name>
+          </OtherNameList>
+          <XRefList>
+            <XRef DB="OMIM" ID="516000.0012" Type="Allelic variant"/>
+          </XRefList>
+        </SimpleAllele>
+        <TraitSet Type="Disease">
+          <Trait Type="Disease">
+            <Name>
+              <ElementValue Type="included">LEBER OPTIC ATROPHY AND DYSTONIA</ElementValue>
+            </Name>
+          </Trait>
+        </TraitSet>
+      </ClinicalAssertion>
+      </ClinicalAssertionList>
+    </ClassifiedRecord>
+</VariationArchive>
+</ClinVarResult-Set>

@@ -170,27 +170,41 @@ class ScriptedLLM:
             ],
         )
 
+    def _XClaimSets(self, prompt):
+        A = verify.XAttributedClaim
+        table = {
+            "intro": [A(text="LDYT is caused by mutation in MT-ND6", pmids=["111"])],
+            "clinical_features.1": [A(text="8 members of the family had childhood-onset dystonia", pmids=["111"]),
+                                    A(text="Twelve members of the family were blind", pmids=["111"])],
+            "av0001.1": [A(text="Jun et al. (1994) identified a heteroplasmic 14459G-A transition",
+                           pmids=["not-a-cited-pmid"])],   # bad attribution falls back to the cited paper
+        }
+        if "Twelve" not in prompt:   # the repaired paragraph no longer makes that claim
+            table["clinical_features.1"].pop()
+        return verify.XClaimSets(paragraphs=[
+            verify.XParagraphClaims(paragraph_id=pid, claims=claims)
+            for pid, claims in table.items() if f'id="{pid}"' in prompt
+        ])
+
     def _XAudit(self, prompt):
         self.audit_rounds += 1
-        C = verify.XClaim
+        V = verify.XVerdict
         real = "Eight affected members had childhood-onset generalized dystonia"
-        if self.audit_rounds > 1:  # the re-audit after repair
-            return verify.XAudit(paragraphs=[verify.XParagraphAudit(paragraph_id="clinical_features.1", claims=[
-                C(claim="8 members had childhood-onset dystonia", verdict="supported", evidence_quote=real, explanation="")])])
-        return verify.XAudit(paragraphs=[
-            verify.XParagraphAudit(paragraph_id="clinical_features.1", claims=[
-                C(claim="8 members had childhood-onset dystonia", verdict="supported", evidence_quote=real, explanation=""),
-                C(claim="Twelve members were blind", verdict="unsupported", evidence_quote="", explanation="not stated"),
-            ]),
-            verify.XParagraphAudit(paragraph_id="intro", claims=[
-                # "Supported" on the strength of a quote that is not in the paper.
-                C(claim="LDYT is caused by mutation in MT-ND6", verdict="supported",
-                  evidence_quote="We conclude that the ND6 mutation is the sole cause of the disease in all families.",
-                  explanation="")]),
-            verify.XParagraphAudit(paragraph_id="av0001.1", claims=[
-                C(claim="heteroplasmic 14459G-A transition", verdict="supported",
-                  evidence_quote="a heteroplasmic G-to-A transition at nucleotide 14459 in the ND6 gene", explanation="")]),
-        ])
+        verdicts = []
+        if "[clinical_features.1#1]" in prompt:
+            verdicts.append(V(claim_id="clinical_features.1#1", verdict="supported", evidence_quote=real, explanation=""))
+        if "[clinical_features.1#2]" in prompt:
+            verdicts.append(V(claim_id="clinical_features.1#2", verdict="unsupported", evidence_quote="",
+                              explanation="not stated"))
+        if "[intro#1]" in prompt:
+            # "Supported" on the strength of a quote that is not in the paper.
+            verdicts.append(V(claim_id="intro#1", verdict="supported", explanation="",
+                              evidence_quote="We conclude that the ND6 mutation is the sole cause of the disease in all families."))
+        if "[av0001.1#1]" in prompt:
+            verdicts.append(V(claim_id="av0001.1#1", verdict="supported", explanation="",
+                              evidence_quote="a heteroplasmic G-to-A transition at nucleotide 14459 in the ND6 gene"))
+        verdicts.append(V(claim_id="no-such-claim#9", verdict="contradicted", evidence_quote="", explanation="ignored"))
+        return verify.XAudit(verdicts=verdicts)
 
     def _XRevisions(self, prompt):
         return verify.XRevisions(paragraphs=[verify.XRevision(
@@ -258,7 +272,8 @@ def test_flagged_paragraph_is_repaired_and_reaudited(run):
     assert para.status == "supported"
     assert entry.meta["audit_before_repair"]["unsupported"] == 1
     assert entry.meta["repair"] == {"flagged": 1, "revised": 1, "deleted": 0}
-    assert llm.audit_rounds == 2
+    assert llm.audit_rounds == 2                      # one paper, audited once and re-audited after repair
+    assert [c.verdict for c in para.checks] == ["supported"]
     assert entry.meta["audit"].get("unsupported", 0) == 0
 
 

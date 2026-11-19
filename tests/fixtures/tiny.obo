@@ -1,0 +1,85 @@
+format-version: 1.2
+data-version: hp/releases/test
+ontology: hp
+
+[Term]
+id: HP:0000001
+name: All
+
+[Term]
+id: HP:0000005
+name: Mode of inheritance
+is_a: HP:0000001 ! All
+
+[Term]
+id: HP:0001427
+name: Mitochondrial inheritance
+is_a: HP:0000005 ! Mode of inheritance
+
+[Term]
+id: HP:0000118
+name: Phenotypic abnormality
+is_a: HP:0000001 ! All
+
+[Term]
+id: HP:0000707
+name: Abnormality of the nervous system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000478
+name: Abnormality of the eye
+synonym: "Eye defect" EXACT []
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000587
+name: Abnormality of the optic nerve
+is_a: HP:0000478 ! Abnormality of the eye
+is_a: HP:0000707 ! Abnormality of the nervous system
+
+[Term]
+id: HP:0000648
+name: Optic atrophy
+def: "Atrophy of the optic nerve." [HPO:probinson]
+synonym: "Optic nerve atrophy" EXACT []
+synonym: "Wasting of the optic nerve" RELATED []
+alt_id: HP:0007768
+is_a: HP:0000587 ! Abnormality of the optic nerve
+
+[Term]
+id: HP:0001332
+name: Dystonia
+synonym: "Dystonic movements" EXACT []
+is_a: HP:0000707 ! Abnormality of the nervous system
+
+[Term]
+id: HP:0002305
+name: Athetosis
+is_a: HP:0000707 ! Abnormality of the nervous system
+
+[Term]
+id: HP:0001626
+name: Abnormality of the cardiovascular system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0004942
+name: Aortic aneurysm
+synonym: "Aneurysms of the aorta" EXACT []
+is_a: HP:0001626 ! Abnormality of the cardiovascular system
+
+[Term]
+id: HP:0009999
+name: obsolete Old optic term
+is_obsolete: true
+replaced_by: HP:0000648
+
+[Term]
+id: HP:0009998
+name: obsolete Dead term
+is_obsolete: true
+
+[Typedef]
+id: part_of
+name: part of

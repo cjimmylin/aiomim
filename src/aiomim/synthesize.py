@@ -70,6 +70,10 @@ for siblings.
 - Each allelic variant gets a name in OMIM form, "GENE, ARG123TRP" or "GENE, 3697G-A" or \
 "GENE, 1-BP DEL, 1234A", and one paragraph per report that describes the patients carrying it, the \
 change at nucleotide and protein level, zygosity, and the evidence for pathogenicity.
+- Do not write OMIM cross-reference numbers: no allelic-variant numbers such as "(516006.0002)" and \
+no MIM numbers of other disorders such as "(540000)". They are not in the evidence, so any you wrote \
+would come from memory. The only MIM numbers allowed are those listed in the reference data, used \
+where a gene is first named.
 - Include a section only if there is material for it. Do not pad, do not speculate, do not add \
 general background knowledge, and do not smooth over disagreements between reports: describe them.\
 """
@@ -80,7 +84,7 @@ number sign (#) is used with this entry because of evidence that <disorder> (<sy
 <heterozygous | homozygous | compound heterozygous | hemizygous | ...> mutation in the <GENE> gene \
 (<gene MIM number>) on chromosome <location>." Take the zygosity and gene from the evidence, and the \
 gene's MIM number and location from the reference data provided. If several genes are involved, name \
-them all. If the evidence does not establish a causal gene, write one sentence saying what the entry \
+every one of them (the same genes you list in `relationships`). If the evidence does not establish a causal gene, write one sentence saying what the entry \
 describes instead, without the number-sign formula. For a gene entry leave the intro text empty.\
 """
 
@@ -210,6 +214,42 @@ def _resolve_gene(symbol: str, facts: dict[str, dict[str, str]]) -> tuple[str, d
     if approved not in facts:
         facts.update(_gene_reference([approved])[1])
     return approved, facts.get(approved, {})
+
+
+_AV_NUMBER = re.compile(r"\b\d{6}\.\d{4}\b")
+_PARENTHETICAL = re.compile(r"\(([^()]*)\)")
+_BARE_MIM = re.compile(r"^(?:see|e\.g\.,?|MIM|OMIM)?\s*#?\s*([1-6]\d{5})$", re.I)
+
+
+def _strip_mim_numbers(text: str, allowed: set[str], removed: list[str]) -> str:
+    """Delete OMIM cross-reference numbers the evidence cannot have supplied.
+
+    Papers do not contain OMIM allelic-variant numbers, and the only MIM numbers
+    given to the writer are the entry's own and those of the genes in the HGNC
+    reference data. Any other cross-reference in the draft was recalled by the
+    model, so it is removed here and counted, whatever the prompt said.
+
+    Only OMIM's own cross-reference syntax is touched: "NNNNNN.NNNN" anywhere, and
+    a bare six-digit number standing alone as an item inside parentheses, as in
+    "(540000)" or "(LHON; 535000)". Six-digit quantities in running text are left
+    alone.
+    """
+    def clean_group(match: re.Match) -> str:
+        kept = []
+        for item in re.split(r"\s*;\s*", match.group(1)):
+            item = _AV_NUMBER.sub(lambda m: removed.append(m.group(0)) or "", item).strip(" ,")
+            bare = _BARE_MIM.match(item)
+            if bare and bare.group(1) not in allowed:
+                removed.append(bare.group(1))
+                continue
+            if item:
+                kept.append(item)
+        return f"({'; '.join(kept)})" if kept else ""
+
+    text = _PARENTHETICAL.sub(clean_group, text)
+    text = _AV_NUMBER.sub(lambda m: removed.append(m.group(0)) or "", text)
+    text = re.sub(r"\s+([.,;:)])", r"\1", text)
+    return re.sub(r"\s{2,}", " ", text).strip()
 
 
 def _labels(papers) -> dict[str, list[str]]:
@@ -403,9 +443,11 @@ def synthesize_from_graph(seed: Seed, kg: KnowledgeGraph, llm: LLM) -> Generated
     label_to_pmid = _labels(kg.papers.values())
     dropped: list[str] = []
     unknown_citations: list[str] = []
+    removed_mims: list[str] = []
+    allowed_mims = {f["mim"] for f in gene_facts.values() if f.get("mim")} | ({seed.mim} if seed.mim else set())
 
     def paragraph(x: XParagraph, where: str) -> EntryParagraph | None:
-        text = squash(x.text)
+        text = _strip_mim_numbers(squash(x.text), allowed_mims, removed_mims)
         if not text:
             return None
         ids = [i.strip().strip("[]") for i in x.finding_ids]
@@ -434,6 +476,18 @@ def synthesize_from_graph(seed: Seed, kg: KnowledgeGraph, llm: LLM) -> Generated
             dropped.append(f"relationship: {rel.gene_symbol}")
             continue
         symbol, facts = _resolve_gene(rel.gene_symbol, gene_facts)
+        # The gene must be one that the cited findings are actually about; this is
+        # what keeps the gene table a product of the graph rather than of the prose.
+        mentioned = {g for i in valid for g in kg.findings[i].genes} | \
+                    {v.gene for i in valid for v in kg.findings[i].variants if v.gene}
+        if symbol not in mentioned:
+            close = [g for g in mentioned if g.endswith(symbol) or symbol.endswith(g)]
+            if len(close) != 1:
+                dropped.append(f"relationship: {rel.gene_symbol} is not a gene of the findings cited for it")
+                continue
+            symbol, facts = _resolve_gene(close[0], gene_facts)
+        if any(r.gene_symbol == symbol for r in entry.relationships):
+            continue
         entry.relationships.append(GenePhenotypeRelationship(
             phenotype=seed.title, phenotype_mim=seed.mim or "", gene_symbol=symbol,
             gene_mim=facts.get("mim", ""), location=facts.get("location", ""),
@@ -466,7 +520,7 @@ def synthesize_from_graph(seed: Seed, kg: KnowledgeGraph, llm: LLM) -> Generated
         "strategy": "kg", "generated": date.today().isoformat(),
         "model": llm.settings.model_for("synthesize"),
         "dropped_ungrounded": dropped, "unknown_citations": sorted(set(unknown_citations)),
-        "kg": kg.stats(),
+        "removed_cross_references": removed_mims, "kg": kg.stats(),
     }
     return entry
 
@@ -527,9 +581,15 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
     label_to_pmid = _labels(papers)
     dropped: list[str] = []
     unknown_citations: list[str] = []
+    removed_mims: list[str] = []
+    # The writer may name a causal gene the seed did not; its MIM number is looked up
+    # here so that it counts as supplied reference data, not as recall.
+    for rel in raw.relationships:
+        _resolve_gene(rel.gene_symbol, gene_facts)
+    allowed_mims = {f["mim"] for f in gene_facts.values() if f.get("mim")} | ({seed.mim} if seed.mim else set())
 
     def paragraph(x: DParagraph, where: str) -> EntryParagraph | None:
-        text = squash(x.text)
+        text = _strip_mim_numbers(squash(x.text), allowed_mims, removed_mims)
         if not text:
             return None
         pmids = [p for p in dict.fromkeys(str(i).strip() for i in x.pmids) if p in by_pmid]
@@ -594,6 +654,7 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
         "strategy": "direct", "generated": date.today().isoformat(),
         "model": llm.settings.model_for("synthesize"),
         "dropped_ungrounded": dropped, "unknown_citations": sorted(set(unknown_citations)),
+        "removed_cross_references": removed_mims,
         "truncated_papers": truncated, "hpo_resolution": hpo_stats,
     }
     return entry

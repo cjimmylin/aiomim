@@ -35,7 +35,13 @@ def mito_symbol(symbol: str) -> str:
     """'MTND1' -> 'MT-ND1', 'MTTL1' -> 'MT-TL1'; anything else unchanged (upper-cased)."""
     s = (symbol or "").strip().upper()
     m = _MT_LEGACY.match(s)
-    return f"MT-{m.group(1)}" if m else s
+    if m:
+        return f"MT-{m.group(1)}"
+    # Papers on mtDNA disease often write the complex I subunit genes bare ("ND1").
+    # No nuclear gene has these symbols, so the mapping is unambiguous.
+    if re.fullmatch(r"ND(?:[1-6]|4L)", s):
+        return f"MT-{s}"
+    return s
 
 
 def _fetch(field_: str, value: str) -> list[dict]:

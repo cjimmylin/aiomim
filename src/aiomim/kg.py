@@ -86,6 +86,8 @@ def nucleotide_key(text: str, mito: bool = False) -> str:
     m = re.match(r"^(?:NM_[\d.]+:|NC_[\d.]+:)?([cgmn])\.(.*)$", s, re.I)
     if m:
         prefix, s = m.group(1).lower(), m.group(2)
+    if mito and prefix == "c":
+        prefix = "m"  # papers and models alike write "c." for mtDNA positions; there is no CDS numbering
     if not s:
         return ""
     m = _NUC_HGVS.match(s)

@@ -20,11 +20,12 @@ def entry_markdown(entry: GeneratedEntry, show_flags: bool = True) -> str:
 
     if entry.relationships:
         out.append("### Phenotype-Gene Relationships")
-        out.append("| Location | Phenotype | Phenotype MIM number | Inheritance | Phenotype mapping key | Gene/Locus | Gene/Locus MIM number |")
-        out.append("|---|---|---|---|---|---|---|")
+        rows = ["| Location | Phenotype | Phenotype MIM number | Inheritance | Phenotype mapping key | Gene/Locus | Gene/Locus MIM number |",
+                "|---|---|---|---|---|---|---|"]
         for r in entry.relationships:
-            out.append(f"| {r.location} | {r.phenotype.title()} | {r.phenotype_mim} | {', '.join(r.inheritance)} | "
-                       f"{r.mapping_key} | {r.gene_symbol} | {r.gene_mim} |")
+            rows.append(f"| {r.location} | {r.phenotype.capitalize()} | {r.phenotype_mim} | {', '.join(r.inheritance)} | "
+                        f"{r.mapping_key} | {r.gene_symbol} | {r.gene_mim} |")
+        out.append("\n".join(rows))
 
     def para(p) -> str:
         return p.text + (_BADGE.get(p.status, "") if show_flags else "")

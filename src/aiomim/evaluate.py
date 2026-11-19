@@ -204,8 +204,7 @@ def eval_variants(entry: GeneratedEntry, gold: GoldEntry, llm: LLM | None = None
     splice variants and other names the key parser does not cover) is offered to
     the judge model, which may pair items but cannot invent any.
     """
-    gold_variants = [av for av in gold.allelic_variants
-                     if gold.entry_type == "gene" or any(gold.mim in p.mims for p in av.paragraphs)]
+    gold_variants = gold.scoped_variants()
     generated = [(av, _variant_keys([av.name, *av.hgvs], av.gene_symbol)) for av in entry.allelic_variants]
     pairs: dict[int, int] = {}
     for gi, gv in enumerate(gold_variants):
@@ -234,14 +233,24 @@ def eval_variants(entry: GeneratedEntry, gold: GoldEntry, llm: LLM | None = None
                     pairs[gi] = i
                     judged += 1
 
+    # A generated variant that OMIM does list, but documents from a paper outside this
+    # entry's reference list, is not "new": keep it apart from the genuinely unlisted.
+    scoped_ids = {id(av) for av in gold_variants}
+    other_keys = [_variant_keys([av.name, av.clinvar_name, av.protein_change], av.gene_symbol)
+                  for av in gold.allelic_variants if id(av) not in scoped_ids]
+    unmatched = [i for i in range(len(generated)) if i not in pairs.values()]
+    listed_elsewhere = [i for i in unmatched if any(generated[i][1] & keys for keys in other_keys)]
+
     n_gold = len(gold_variants)
     return {
         "recall": round(len(pairs) / n_gold, 3) if n_gold else None,
-        "n_gold": n_gold, "n_generated": len(generated), "n_matched": len(pairs), "n_matched_by_judge": judged,
+        "n_gold": n_gold, "n_gold_out_of_scope": len(gold.allelic_variants) - n_gold,
+        "n_generated": len(generated), "n_matched": len(pairs), "n_matched_by_judge": judged,
         "matched": [{"gold": f"{gold_variants[gi].omim_id} {gold_variants[gi].name}", "generated": generated[i][0].name}
                     for gi, i in sorted(pairs.items())],
         "missed": [f"{gv.omim_id} {gv.name}" for gi, gv in enumerate(gold_variants) if gi not in pairs],
-        "not_in_omim": [av.name for i, (av, _) in enumerate(generated) if i not in pairs.values()],
+        "in_omim_via_other_paper": [generated[i][0].name for i in listed_elsewhere],
+        "not_in_omim": [generated[i][0].name for i in unmatched if i not in listed_elsewhere],
     }
 
 
@@ -331,10 +340,15 @@ def _draft_text_for(entry: GeneratedEntry, pmids: list[str]) -> str:
 def eval_gold_text(
     entry: GeneratedEntry, gold: GoldEntry, papers: dict[str, Paper], llm: LLM
 ) -> dict[str, Any]:
-    """Coverage of OMIM's per-paper paragraphs (as deposited in ClinVar) by the draft."""
-    paragraphs: list[GoldParagraph] = gold.gold_paragraphs
+    """Coverage of OMIM's per-paper paragraphs (as deposited in ClinVar) by the draft.
+
+    Only paragraphs about papers in the entry's own reference list are scored; see
+    `GoldEntry.scoped_paragraphs`.
+    """
+    paragraphs: list[GoldParagraph] = gold.scoped_paragraphs
+    out_of_scope = len(gold.gold_paragraphs) - len(paragraphs)
     if not paragraphs:
-        return {"n_paragraphs": 0}
+        return {"n_paragraphs": 0, "n_out_of_scope": out_of_scope}
     pairs = [(p.text, _draft_text_for(entry, p.pmids)) for p in paragraphs]
     judged = fact_coverage(pairs, llm)
 
@@ -351,7 +365,7 @@ def eval_gold_text(
             "draft": draft, "facts": facts, **_tally(facts),
         })
     return {
-        "n_paragraphs": len(paragraphs),
+        "n_paragraphs": len(paragraphs), "n_out_of_scope": out_of_scope,
         **_tally(all_facts),
         "by_content_level": {level: _tally(facts) for level, facts in sorted(by_level.items())},
         "paragraphs": per_paragraph,
@@ -398,6 +412,11 @@ def eval_faithfulness(entry: GeneratedEntry) -> dict[str, Any]:
         "paragraphs": dict(statuses),
         "dropped_ungrounded_paragraphs": len(entry.meta.get("dropped_ungrounded", [])),
         "unknown_citations": entry.meta.get("unknown_citations", []),
+        "removed_cross_references": len(entry.meta.get("removed_cross_references", [])),
+        # The same tally taken before the repair round: what the writer produced unaided.
+        "before_repair": {k: v for k, v in entry.meta.get("audit_before_repair", {}).items()
+                          if k in ("n_claims", "supported", "partially_supported", "unsupported", "contradicted",
+                                   "supported_rate", "error_rate")} or None,
     }
 
 
@@ -479,6 +498,8 @@ def summarize(evals: list[dict[str, Any]]) -> dict[str, Any]:
         "omim_text_coverage": _mean(pick("omim_text.coverage")),
         "claim_supported_rate": _mean(pick("faithfulness.supported_rate")),
         "claim_error_rate": _mean(pick("faithfulness.error_rate")),
+        "claim_supported_rate_before_repair": _mean(pick("faithfulness.before_repair.supported_rate")),
+        "claim_error_rate_before_repair": _mean(pick("faithfulness.before_repair.error_rate")),
         "pooled": {
             **dict(pooled),
             "claim_supported_rate": round(pooled["claims_supported"] / claims, 3) if claims else None,
