@@ -1,0 +1,17 @@
+[
+ {
+  "round": 1,
+  "critic_suggestions": "Content: all plotted counts match log Sec. 6.2 frozen table (present 495/629/1513, partial 331/297/254, absent 1290/1184/343, contradicted 4/10/10, 2,120 facts each); coverage 31.2/36.7/77.4% asserted against (present + partial/2)/facts; paired differences +4.9 (+2.8 to +7.1), 33/9/4 and +43.9 (+38.5 to +49.3), 45/0/1 copied from the table under it. Presentation: the 'Coverage' header overlapped the paired-difference header, and the coverage values touched the paired-difference column ('31.2%reference'). Moved the difference column right (N+420 -> N+560) and widened the x range (N+1450 -> N+1900). Contradicted segments (4-10 facts) are under a pixel wide; counts go in the caption.",
+  "changed": true
+ },
+ {
+  "round": 2,
+  "critic_suggestions": "Values unchanged and correct. The 'Coverage' header still ran almost into the paired-difference header (gap of one character); broke it as 'Cover-/age' over the coverage column. 'better / worse / tied' did not say what is counted; relabelled 'entries better / worse / tied' (counts of the 46 entries, from the log). Rendered width ~5.6 in vs 5.5 in text width: negligible shrink, fonts stay >= 7 pt.",
+  "changed": true
+ },
+ {
+  "round": 3,
+  "critic_suggestions": "Values unchanged and correct (re-checked against log Sec. 6.2: counts, coverage, paired differences and better/worse/tied). The longer 'entries better / worse / tied' subline widened the right column so the bars shrank and '31.2%' touched 'reference'; the hyphenated 'Cover-/age' header read poorly. Restored a one-line 'Coverage' header, moved the difference column to N+640 (x range to N+1950), rewrote the subline as 'entries: 33 better, 9 worse, 4 tied', and set segment labels under 300 facts at 7 pt so '254' and '297' no longer touch segment edges. Final render checked: no overlaps, no clipped text, no caption text inside the image, no project, package or author names. Contradicted segments (4/10/10 facts) remain sub-pixel; their counts are given in the caption.",
+  "changed": true
+ }
+]

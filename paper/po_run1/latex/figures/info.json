@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fig_access_strata.png",
+    "caption": "Paired difference from direct reading in OMIM facts conveyed (percentage points; point estimate with bootstrap 95% interval over entries) for the evidence graph, the agentic curator and case table first, within three groups of entries defined by the share of their references readable as full text: no full text (46 entries), under half (25) and half or more (21); the single entry with all references in full text is omitted. The darker band marks the replicate-noise 95% half-width on a difference between two strategies over 93 entries (1.0 point) and the lighter band the same over 30 entries (1.8 points). Memory only and recall, then verify fall far off scale (-18.1 to -59.6 points) and are listed in the note. Where entries have no full text the reading strategies are within noise of direct reading; the gaps widen as more of an entry's papers are readable in full, most clearly for case table first (-4.0, -6.3 to -2.0, and -6.1, -8.3 to -3.6), while the evidence graph's intervals still include zero. This stratification is observational across entries and confounded with entry creation date and journal; the within-paper effect of access is tested by the hidden-full-text experiment.",
+    "source": "plotting_agent",
+    "figure_id": "fig_access_strata"
+  },
+  {
+    "name": "fig_benchmark_overview.png",
+    "caption": "Overview of the benchmark. Each entry e = (h, R) supplies its header and exactly the papers the curators cited, each readable as full text, abstract or title only depending on open access; the causal gene is withheld. One model writes every draft, and only the generation strategy varies: three paradigms (read and write; extract, then write; memory first), a memory-only control with no papers, and three add-ons (dashed), each tested against its parent. The same mechanical guards apply to every strategy. Every draft then passes through the same claim-level audit against the cited papers and is scored against the same reference: curator-written per-paper text (OMIM allelic-variant descriptions in ClinVar), split once into fixed fact lists for the primary endpoint, OMIM facts conveyed, and HPO disease annotations, allelic variants, causal gene and inheritance for the secondary measures. Counts are for the 100-entry main set.",
+    "source": "plotting_agent",
+    "figure_id": "fig_benchmark_overview"
+  },
+  {
+    "name": "fig_hidden_fulltext.png",
+    "caption": "OMIM facts conveyed for the same papers when their full text is hidden (46 entries, 136 curator paragraphs about the hidden papers; the same 2,120 facts judged in each condition). For papers readable in full, the full text was hidden and the entry was written by direct reading from the abstract alone, or from the abstract plus second-hand passages from later open-access papers that cite it; these are compared with the direct-reading draft written from the full text. Coverage is scored against the same fixed fact lists as the main comparison and counts present facts plus half of partly present ones; contradicted facts (4, 10 and 10) are too few to see. Right: paired difference in per-entry coverage from the abstract-only draft, with bootstrap 95% intervals over entries. The full-text draft went through the audit's repair round; the two new drafts did not. With the papers held fixed, coverage was 77.4% from the full text and 31.2% from the abstracts alone (paired difference +43.9 points; 45 of 46 entries higher with full text); adding second-hand passages raised abstract-only coverage by 4.9 points (33 of 46 entries higher).",
+    "source": "plotting_agent",
+    "figure_id": "fig_hidden_fulltext"
+  },
+  {
+    "name": "fig_memory_by_era.png",
+    "caption": "OMIM facts conveyed (top; primary endpoint, coverage of curator-written per-paper text) and causal gene F1 (bottom) for the memory-only control and direct reading, as entry means by the creation era of the entry (MIM-number range; n = 18, 19, 20, 19 and 17 compared entries per band). Hollow markers at right are a separate set of 20 entries created June to November 2026. The memory-only control falls for the newest entries (facts conveyed 5.7% for 620000 onward and 7.0% for the 2026 set; gene F1 41.2% and 30.0%), while direct reading conveys 51.2-53.9% of facts from the 600000 band on (52.2% for the 2026 set) and reaches 100.0% gene F1 in every band but the classic one (87.0%). The model's training cut-off is not known, so this is a contamination check, not proof that the reading results are free of memorisation: within abstract-only papers, coverage by direct reading also varies with creation era.",
+    "source": "plotting_agent",
+    "figure_id": "fig_memory_by_era"
+  },
+  {
+    "name": "fig_missed_facts.png",
+    "caption": "Where the OMIM facts that direct reading did not fully convey went, by how each cited paper could be read (97 entries, 466 OMIM paragraphs; n = OMIM facts per access level). Each fact the draft did not fully convey was checked once against the text available for its paper: stated, partly stated, or not stated; this check is a model judgement. Facts the draft conveyed partly are counted with the missed ones, and the small remainder were contradicted. The right-hand column gives the share of missed facts that were stated in the available text. With full text, 49% of the missed facts were in the text the model read; with abstracts or titles only, nearly all missed facts were partly or not stated in the available text (2% and 0% stated).",
+    "source": "plotting_agent",
+    "figure_id": "fig_missed_facts"
+  }
+]
