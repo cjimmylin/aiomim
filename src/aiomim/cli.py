@@ -201,8 +201,21 @@ def summary(run_name):
 @click.option("--tag", default=None,
               help="Write strategies.<tag>.json/.md instead of the main files (default with --entries-file: the "
                    "file's name without extension). Graph-edge and two-way comparison files are not written.")
-def compare(run_name, baseline, entries_file, tag):
+@click.option("--by-availability", is_flag=True,
+              help="Only OMIM facts conveyed, restricted by whether the text available for the paper states the fact "
+                   "(stored judgements of `gaps --frozen`; no model call). Writes strategies.by_availability.json/.md.")
+def compare(run_name, baseline, entries_file, tag, by_availability):
     """Compare every strategy of a run: scores, paired differences from the baseline, volume and cost."""
+    if by_availability:
+        from .gaps import by_availability_markdown, compare_by_availability
+
+        run_dir = get_settings().runs / run_name
+        result = compare_by_availability(run_dir, baseline=baseline)
+        text = by_availability_markdown(result)
+        (run_dir / "strategies.by_availability.json").write_text(json.dumps(result, indent=2))
+        (run_dir / "strategies.by_availability.md").write_text(text)
+        click.echo(text)
+        return
     from .compare import (compare_run, compare_strategies, comparison_markdown, edge_markdown, load_evals,
                           strategies_markdown, write_graph_comparison)
 

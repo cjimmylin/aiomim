@@ -757,3 +757,260 @@ def conveyed_run(run_dir: Path, strategy: str = "direct", entries: Iterable[str]
     _write(run_dir / f"gaps.{strategy}.conveyed.json", summary)
     _write(run_dir / f"gaps.{strategy}.conveyed.md", conveyed_markdown(summary, run_dir.name, strategy))
     return summary
+
+
+# --------------------------------------------------------------------------- #
+# Strategies compared only on facts the supplied text states
+# --------------------------------------------------------------------------- #
+#
+# Whether a frozen fact is stated in the text available for its paper is a property of
+# that text, not of a strategy (the stored judgements of `gaps --frozen`, in each
+# entry's gold_facts.json). Joining every strategy's marks with them by fact id lets the
+# strategies be compared on the facts a reader of the supplied text could have conveyed,
+# apart from the facts no strategy could have read. No model call: stored files only.
+
+AVAIL_RESTRICTIONS: dict[str, tuple[str, ...] | None] = {
+    "all": None,                           # unrestricted: reproduces the main comparison
+    "stated": ("yes",),
+    "stated_or_partly": ("yes", "partly"),
+    "not_stated": ("no",),
+}
+AVAIL_LEVELS = ("all", "fulltext", "abstract")
+_RESTRICTION_NAMES = {"all": "All facts (unrestricted)", "stated": "Facts stated in the available text",
+                      "stated_or_partly": "Facts stated or partly stated in the available text",
+                      "not_stated": "Facts not stated in the available text"}
+_AVAIL_LEVEL_NAMES = {"all": "all papers", "fulltext": "papers readable in full",
+                      "abstract": "papers readable as abstract only"}
+
+
+def availability_by_fact(gold_facts: dict[str, Any]) -> dict[str, str]:
+    """fact id -> stored availability verdict (yes / partly / no / unjudged) from an entry's gold_facts.json."""
+    out: dict[str, str] = {}
+    for para in gold_facts.get("paragraphs") or []:
+        for row in ((para.get("availability") or {}).get("rows") or []):
+            out[row["id"]] = row.get("in_text") or "unjudged"
+    return out
+
+
+def join_marks(frozen: dict[str, Any], avail: dict[str, str]) -> tuple[list[dict[str, str]], dict[str, int]]:
+    """A draft's judged frozen marks joined with the availability verdicts by fact id.
+
+    Returns one row per judged fact {id, status, in_text, level} (facts without an
+    availability verdict are left out) and the join counts: facts judged, joined,
+    without a verdict, and marks left unjudged by the scorer (not in the coverage either).
+    """
+    rows: list[dict[str, str]] = []
+    counts = {"judged": 0, "joined": 0, "without_availability": 0, "unjudged_marks": 0}
+    for para in frozen.get("paragraphs") or []:
+        level = para.get("content_level", "not_retrieved")
+        for f in para.get("facts") or []:
+            if f.get("status") == "unjudged":
+                counts["unjudged_marks"] += 1
+                continue
+            counts["judged"] += 1
+            verdict = avail.get(f["id"])
+            if verdict is None:
+                counts["without_availability"] += 1
+                continue
+            counts["joined"] += 1
+            rows.append({"id": f["id"], "status": f["status"], "in_text": verdict, "level": level})
+    return rows, counts
+
+
+def restricted_tally(rows: Iterable[dict[str, str]], verdicts: tuple[str, ...] | None,
+                     level: str = "all") -> dict[str, Any]:
+    """Counts and coverage (present + half partial over facts) of the rows kept by a restriction."""
+    cell = {"n_facts": 0, "present": 0, "partial": 0, "absent": 0, "contradicted": 0}
+    for r in rows:
+        if verdicts is not None and r["in_text"] not in verdicts:
+            continue
+        if level != "all" and r["level"] != level:
+            continue
+        cell["n_facts"] += 1
+        cell[r["status"]] += 1
+    n = cell["n_facts"]
+    cell["coverage"] = (cell["present"] + 0.5 * cell["partial"]) / n if n else None
+    return cell
+
+
+def _pool(cells: list[dict[str, Any]]) -> dict[str, Any]:
+    out = {k: sum(c[k] for c in cells) for k in ("n_facts", "present", "partial", "absent", "contradicted")}
+    n = out["n_facts"]
+    out["coverage"] = round((out["present"] + 0.5 * out["partial"]) / n, 4) if n else None
+    return out
+
+
+def compare_by_availability(run_dir: Path, baseline: str = "direct", seed: int = 7) -> dict[str, Any]:
+    """Every strategy's OMIM-fact coverage restricted by whether the available text states the fact.
+
+    Over the entries the main comparison uses (complete for every strategy; see
+    `compare.compare_strategies`). Per restriction and paper level: the mean over
+    entries with at least one such fact, the coverage pooled over facts, and the paired
+    difference from the baseline (bootstrap interval over entries with the settings of
+    `compare`, better / worse / tied). Counts only.
+    """
+    import random
+
+    from .compare import _pair_stats, completion_status, load_evals
+
+    evals = load_evals(run_dir)
+    status = completion_status(run_dir)
+    complete = {s: {e for e in v if (status.get(s) or {}).get(e, {}).get("status", "complete") == "complete"}
+                for s, v in evals.items()}
+    common = sorted(set.intersection(*complete.values()))
+    strategies = list(evals)
+    if baseline not in evals:
+        baseline = strategies[0]
+
+    rows: dict[str, dict[str, list[dict[str, str]]]] = {s: {} for s in strategies}
+    join: dict[str, dict[str, Any]] = {s: {"judged": 0, "joined": 0, "without_availability": 0,
+                                           "unjudged_marks": 0, "entries_without_fact_file": []}
+                                       for s in strategies}
+    sanity: dict[str, dict[str, Any]] = {}
+    for e in common:
+        path = run_dir / e / "gold_facts.json"
+        avail = availability_by_fact(json.loads(path.read_text(encoding="utf-8"))) if path.exists() else {}
+        for s in strategies:
+            if not path.exists():
+                join[s]["entries_without_fact_file"].append(e)
+            frozen = evals[s][e].get("gold_text_frozen") or {}
+            got, counts = join_marks(frozen, avail)
+            rows[s][e] = got
+            for k, v in counts.items():
+                join[s][k] += v
+    for s in strategies:
+        reported = [evals[s][e]["gold_text"]["coverage"] for e in common
+                    if evals[s][e]["gold_text"].get("coverage") is not None]
+        sanity[s] = {"main_comparison_mean": round(sum(reported) / len(reported), 4) if reported else None}
+
+    rng = random.Random(seed)
+    cells: dict[str, dict[str, Any]] = {}
+    for name, verdicts in AVAIL_RESTRICTIONS.items():
+        for level in AVAIL_LEVELS:
+            per_entry = {s: {e: restricted_tally(rows[s][e], verdicts, level) for e in common} for s in strategies}
+            block: dict[str, Any] = {"by_strategy": {}, "versus_baseline": {}}
+            for s in strategies:
+                covs = [c["coverage"] for c in per_entry[s].values() if c["coverage"] is not None]
+                block["by_strategy"][s] = {
+                    "mean_over_entries": round(sum(covs) / len(covs), 4) if covs else None,
+                    "n_entries": len(covs), "pooled": _pool(list(per_entry[s].values())),
+                }
+            for s in strategies:
+                if s == baseline:
+                    continue
+                pairs = [(per_entry[s][e]["coverage"], per_entry[baseline][e]["coverage"]) for e in common
+                         if per_entry[s][e]["coverage"] is not None and per_entry[baseline][e]["coverage"] is not None]
+                block["versus_baseline"][s] = _pair_stats(pairs, True, rng) if pairs else None
+            cells.setdefault(name, {})[level] = block
+    for s in strategies:
+        mine = cells["all"]["all"]["by_strategy"][s]["mean_over_entries"]
+        sanity[s]["recomputed_mean"] = mine
+        ref = sanity[s]["main_comparison_mean"]
+        sanity[s]["same_to_one_decimal"] = (mine is not None and ref is not None
+                                            and f"{100 * mine:.1f}" == f"{100 * ref:.1f}")
+
+    facts_by_availability: dict[str, dict[str, int]] = {}
+    for e in common:
+        for r in rows[baseline][e]:
+            for lvl in ("all", r["level"]):
+                cell = facts_by_availability.setdefault(lvl, dict.fromkeys(VERDICTS, 0))
+                cell[r["in_text"]] = cell.get(r["in_text"], 0) + 1
+    from .strategies import STRATEGIES
+
+    return {
+        "run": run_dir.name, "baseline": baseline, "n_entries": len(common), "entries": common,
+        "strategies": [{"name": s, "label": STRATEGIES[s].label if s in STRATEGIES else s} for s in strategies],
+        "bootstrap": {"seed": seed, "resamples": 10_000, "interval": "percentile 95%, over entries"},
+        "judgement": "availability: stored model judgement (gaps --frozen, stage judge); not checked by a curator",
+        "join": join, "sanity": sanity,
+        "facts_by_availability": {lvl: facts_by_availability[lvl]
+                                  for lvl in (*LEVELS, "all") if lvl in facts_by_availability},
+        "cells": cells,
+    }
+
+
+def by_availability_markdown(result: dict[str, Any]) -> str:
+    names = [s["name"] for s in result["strategies"]]
+    labels = {s["name"]: s["label"] for s in result["strategies"]}
+    base = result["baseline"]
+    pct = lambda x: "–" if x is None else f"{100 * x:.1f}%"  # noqa: E731
+    pp = lambda x: "–" if x is None else f"{100 * x:+.1f}"  # noqa: E731
+    join = result["join"]
+    missing = sum(j["without_availability"] for j in join.values())
+    no_file = sorted({e for j in join.values() for e in j["entries_without_fact_file"]})
+    out = [
+        f"# OMIM facts conveyed, by whether the available text states the fact — run `{result['run']}`",
+        f"{result['n_entries']} entries: those the main comparison uses (complete for every strategy). Every frozen "
+        "fact a strategy was marked on is joined by fact id with the stored judgement of whether the text available "
+        "for its paper states it (stated, partly stated, not stated; `gaps --frozen`, a model judgement with verified "
+        "quotes, not checked by a curator). The judgement is a property of the supplied text, so every strategy is "
+        "scored on the same facts in each restriction. Coverage = (present + half of partial) / facts. *Mean over "
+        "entries* is over entries with at least one fact in the restriction (n entries); *pooled* is over facts. "
+        f"Differences are strategy minus {labels[base]} in percentage points, mean over the entries with such facts, "
+        f"with a 95% percentile bootstrap interval over entries ({result['bootstrap']['resamples']:,} resamples, seed "
+        f"{result['bootstrap']['seed']}, as in `compare`), then entries better / worse / tied.",
+        "## Join and sanity check",
+        f"Facts without an availability judgement: {missing} (excluded)"
+        + (f"; entries without a fact file: {', '.join(no_file)}" if no_file else "") + ". The unrestricted mean "
+        "recomputed from the joined fact marks against the main comparison's mean of OMIM facts conveyed:",
+        "| Strategy | Facts judged | Joined | Without availability judgement | Unrestricted mean, recomputed | Main "
+        "comparison | Same to 0.1 |\n|---|---|---|---|---|---|---|\n" + "\n".join(
+            f"| {labels[s]} | {join[s]['judged']:,} | {join[s]['joined']:,} | {join[s]['without_availability']} | "
+            f"{pct(result['sanity'][s]['recomputed_mean'])} | {pct(result['sanity'][s]['main_comparison_mean'])} | "
+            f"{'yes' if result['sanity'][s]['same_to_one_decimal'] else 'NO'} |" for s in names),
+        "## The facts, by availability",
+        "Pooled over the facts of the compared entries (identical for every strategy), by how the paragraph's "
+        "paper(s) could be read.",
+    ]
+    lvl_names = {"fulltext": "Full text", "abstract": "Abstract only", "title": "Title only",
+                 "not_retrieved": "Not retrieved", "all": "All papers"}
+    lines = ["| Paper read as | Facts | Stated | Partly stated | Not stated | Unjudged |", "|---|---|---|---|---|---|"]
+    for lvl, c in result["facts_by_availability"].items():
+        lines.append(f"| {lvl_names.get(lvl, lvl)} | {sum(c.values()):,} | {c['yes']:,} | {c['partly']:,} | "
+                     f"{c['no']:,} | {c['unjudged']:,} |")
+    out.append("\n".join(lines))
+
+    out.append("## Summary: mean over entries")
+    cols = [("all", "all"), ("stated", "all"), ("stated_or_partly", "all"), ("not_stated", "all"),
+            ("stated", "fulltext"), ("stated", "abstract")]
+    col_names = {("all", "all"): "All facts", ("stated", "all"): "Stated",
+                 ("stated_or_partly", "all"): "Stated or partly", ("not_stated", "all"): "Not stated",
+                 ("stated", "fulltext"): "Stated, full-text papers", ("stated", "abstract"): "Stated, abstract-only papers"}
+    lines = ["| Strategy | " + " | ".join(col_names[c] for c in cols) + " |", "|" + "---|" * (len(cols) + 1)]
+    for s in names:
+        lines.append(f"| {labels[s]} | " + " | ".join(
+            pct(result["cells"][r][lv]["by_strategy"][s]["mean_over_entries"]) for r, lv in cols) + " |")
+    lines.append("| Entries (n) | " + " | ".join(
+        str(result["cells"][r][lv]["by_strategy"][base]["n_entries"]) for r, lv in cols) + " |")
+    out.append("\n".join(lines))
+    lines = ["| Difference from " + labels[base] + " | " + " | ".join(col_names[c] for c in cols) + " |",
+             "|" + "---|" * (len(cols) + 1)]
+    for s in names:
+        if s == base:
+            continue
+        cells = []
+        for r, lv in cols:
+            p = result["cells"][r][lv]["versus_baseline"].get(s)
+            ci = f" ({pp(p['ci95'][0])} to {pp(p['ci95'][1])})" if p and p["ci95"] else ""
+            cells.append("–" if not p else f"{pp(p['difference'])}{ci}; {p['better']}/{p['worse']}/{p['ties']}")
+        lines.append(f"| {labels[s]} | " + " | ".join(cells) + " |")
+    out.append("\n".join(lines))
+
+    for r, lv in cols:
+        block = result["cells"][r][lv]
+        out.append(f"## {_RESTRICTION_NAMES[r]}, {_AVAIL_LEVEL_NAMES[lv]}")
+        lines = ["| Strategy | Mean over entries | Entries | Pooled over facts | Facts | Present / partial / absent / "
+                 f"contradicted | Difference from {labels[base]} | 95% interval | Better / worse / tied |",
+                 "|---|---|---|---|---|---|---|---|---|"]
+        for s in names:
+            c = block["by_strategy"][s]
+            p = block["versus_baseline"].get(s)
+            q = c["pooled"]
+            diff = (f"{pp(p['difference'])} | {pp(p['ci95'][0])} to {pp(p['ci95'][1])} | "
+                    f"{p['better']} / {p['worse']} / {p['ties']}") if p and p["ci95"] else \
+                (f"{pp(p['difference'])} | – | {p['better']} / {p['worse']} / {p['ties']}" if p else "– | – | –")
+            lines.append(f"| {labels[s]} | {pct(c['mean_over_entries'])} | {c['n_entries']} | {pct(q['coverage'])} | "
+                         f"{q['n_facts']:,} | {q['present']:,} / {q['partial']:,} / {q['absent']:,} / "
+                         f"{q['contradicted']:,} | {diff} |")
+        out.append("\n".join(lines))
+    return "\n\n".join(out) + "\n"

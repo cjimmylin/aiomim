@@ -10,7 +10,8 @@ from pathlib import Path
 COPY = ("seed.json", "retrieval.json", "papers.json", "extractions.json", "kg.json", "kg_triples.tsv",
         "cohort.json", "recall.memory_audit.json", "usage.json", "updates.json", "updates.md")
 ENTRY_GLOBS = ("entry.*.json", "entry.*.md")
-RUN_FILES = ("summary.json", "strategies.json", "strategies.md", "comparison.json", "comparison.md",
+RUN_FILES = ("summary.json", "strategies.json", "strategies.md", "strategies.by_availability.json",
+             "strategies.by_availability.md", "comparison.json", "comparison.md",
              "backtest.json", "audit_check.json", "audit_control.json", "adjudication.json", "candidate_corrections.md")
 RUN_GLOBS = ("knowledge_graph.*.tsv",)
 FROZEN_KEYS = ("gold_text_frozen", "gold_text_frozen_whole")
