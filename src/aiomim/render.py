@@ -27,8 +27,14 @@ def entry_markdown(entry: GeneratedEntry, show_flags: bool = True) -> str:
                         f"{r.mapping_key} | {r.gene_symbol} | {r.gene_mim} |")
         out.append("\n".join(rows))
 
+    secondhand: dict[str, None] = {}
+
     def para(p) -> str:
-        return p.text + (_BADGE.get(p.status, "") if show_flags else "")
+        # A dagger marks a paragraph resting in part on a later paper's description
+        # of the cited work (strategy "secondhand"); a footnote names those papers.
+        dagger = " †" if p.secondhand_pmids else ""
+        secondhand.update(dict.fromkeys(p.secondhand_pmids))
+        return p.text + dagger + (_BADGE.get(p.status, "") if show_flags else "")
 
     out.append("### TEXT")
     if entry.intro:
@@ -58,6 +64,11 @@ def entry_markdown(entry: GeneratedEntry, show_flags: bool = True) -> str:
     if entry.references:
         out.append("### REFERENCES")
         out.extend(f"{n}. {ref.citation}" for n, ref in enumerate(entry.references, 1))
+
+    if secondhand:
+        labels = (entry.meta.get("secondhand") or {}).get("citing_labels", {})
+        named = "; ".join(f"{labels[pmid]}, PMID {pmid}" if labels.get(pmid) else f"PMID {pmid}" for pmid in secondhand)
+        out.append(f"† Rests in part on later papers' descriptions of the cited work, not on its own text: {named}.")
 
     if show_flags:
         out.append("---\n*Generated automatically from the cited literature. ⚠︎ marks a paragraph with a claim the "

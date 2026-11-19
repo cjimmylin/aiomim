@@ -421,6 +421,26 @@ def audit_check(run_name, n, seed):
         click.echo(f"  paper read as {level:9s} n={row['n']:<3} detected={row['detection_rate']}  missed={row['missed']}")
 
 
+@main.command(name="secondhand-check")
+@click.argument("mims", nargs=-1)
+@click.option("--from-file", type=click.Path(exists=True), help="Read MIM numbers from a file (first column).")
+@click.option("--source", default="omim100", show_default=True,
+              help="Run whose entries, gold and full-text drafts are read (never written).")
+@click.option("--run", "run_name", default="secondhand_check", show_default=True,
+              help="Run directory the check writes to.")
+@click.option("--limit", type=int, default=None, help="Check at most this many entries.")
+@click.option("--jobs", default=1, show_default=True, help="Entries to process in parallel.")
+def secondhand_check(mims, from_file, source, run_name, limit, jobs):
+    """Hide the full text of papers read in full and measure what second-hand evidence recovers, and how accurately."""
+    from .secondhand import check_run
+
+    mims = list(mims) + (_read_mims(from_file) if from_file else [])
+    result = check_run(source, run_name, mims or None, limit=limit, jobs=jobs)
+    click.echo((get_settings().runs / run_name / "secondhand_check.md").read_text())
+    if result.get("failures"):
+        click.echo(f"Failed entries: {result['failures']}")
+
+
 def _fmt(value) -> str:
     if value is None:
         return "  -  "

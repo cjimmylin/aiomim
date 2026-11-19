@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic JATS for tests: author-year citations; the target's reference carries no PMID or DOI. -->
+<article article-type="case-report">
+  <body>
+    <sec>
+      <title>Case report</title>
+      <p>Our patient, a 7-year-old boy, had ataxia and cataract.</p>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>In the original report, <xref ref-type="bibr" rid="r1">Gamma et al. (2001)</xref> found that 5 of 5 affected sibs were homozygous for the variant, whereas their parents were heterozygous carriers. Our patient differs in having cataract.</p>
+      <p>Other causes of ataxia were excluded <xref ref-type="bibr" rid="r2">(Zeta, 2015)</xref>.</p>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="r1"><mixed-citation>Gamma A, Other B. A new recessive ataxia caused by GENEX mutation in two families. <source>Fict J Genet</source>. <year>2001</year>;12:1-9.</mixed-citation></ref>
+      <ref id="r2"><mixed-citation>Zeta C. <article-title>Ataxia work-up in children</article-title>. <year>2015</year>.</mixed-citation></ref>
+    </ref-list>
+  </back>
+</article>

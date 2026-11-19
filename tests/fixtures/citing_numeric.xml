@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic JATS for tests: a later paper citing the target (PMID 90000003) with numbered references. -->
+<pmc-articleset>
+<article article-type="review-article">
+  <front>
+    <article-meta>
+      <title-group><article-title>A review of the fictional FOOBAR syndrome</article-title></title-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>FOOBAR syndrome is a rare disorder of the fictional GENEX gene <xref ref-type="bibr" rid="B1">1</xref>.</p>
+      <p>The disorder was first described in 2 consanguineous families with 5 affected sibs who had ataxia from age 3 years <xref ref-type="bibr" rid="B3">3</xref>. A homozygous c.100A&gt;G (p.Lys34Glu) variant was found in all of them.</p>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <sec>
+        <title>Phenotype</title>
+        <p>Ataxia and seizures have since been reported in many families (<xref ref-type="bibr" rid="B2">2</xref>–<xref ref-type="bibr" rid="B5">5</xref>). Their severity varies.</p>
+        <p>Brain imaging was normal in most cases <xref ref-type="bibr" rid="B2 B4">2,4</xref>.</p>
+        <p>Cataract was noted in some patients (<xref ref-type="bibr" rid="B2">2-4</xref>).</p>
+      </sec>
+    </sec>
+    <table-wrap id="T1">
+      <label>Table 1</label>
+      <caption><p>Reported families with GENEX variants.</p></caption>
+      <table>
+        <thead><tr><th>Family</th><th>Variant</th><th>Patients</th><th>Ref</th></tr></thead>
+        <tbody>
+          <tr><td>F1</td><td>c.100A&gt;G</td><td>5</td><td><xref ref-type="bibr" rid="B3">3</xref></td></tr>
+          <tr><td>F2</td><td>c.250del</td><td>2</td><td><xref ref-type="bibr" rid="B4">4</xref></td></tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="B1"><label>1</label><element-citation><person-group><name><surname>Alpha</surname></name></person-group><article-title>GENEX in the brain</article-title><year>1999</year><pub-id pub-id-type="pmid">90000001</pub-id></element-citation></ref>
+      <ref id="B2"><label>2</label><element-citation><person-group><name><surname>Beta</surname></name></person-group><article-title>Seizures in FOOBAR syndrome</article-title><year>2005</year><pub-id pub-id-type="pmid">90000002</pub-id></element-citation></ref>
+      <ref id="B3"><label>3</label><element-citation><person-group><name><surname>Gamma</surname></name></person-group><article-title>A new recessive ataxia caused by GENEX mutation in two families</article-title><year>2001</year><pub-id pub-id-type="pmid">90000003</pub-id></element-citation></ref>
+      <ref id="B4"><label>4</label><element-citation><person-group><name><surname>Delta</surname></name></person-group><article-title>Cataract and ataxia</article-title><year>2008</year><pub-id pub-id-type="pmid">90000004</pub-id></element-citation></ref>
+      <ref id="B5"><label>5</label><element-citation><person-group><name><surname>Epsilon</surname></name></person-group><article-title>Imaging in GENEX disease</article-title><year>2010</year><pub-id pub-id-type="pmid">90000005</pub-id></element-citation></ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>

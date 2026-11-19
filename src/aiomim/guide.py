@@ -180,7 +180,7 @@ def gold_material(run_dir: Path) -> tuple[list[str], set[str], list[str]]:
 # --------------------------------------------------------------------------- #
 
 MAX_MISSED = 14
-MAX_EXTRA = 10
+MAX_EXTRA = 12
 MAX_TERMS = 14
 
 
@@ -194,6 +194,15 @@ def _term(label: str) -> str:
 
 def _pct(x: float | None) -> str:
     return "n/a" if x is None else f"{100 * x:.0f}%"
+
+
+def _round_robin(groups: list[list[Any]], owners: list[Any]) -> list[tuple[Any, Any]]:
+    """Interleave items across papers, so a capped list samples every paper rather than the first."""
+    out, depth = [], 0
+    while any(depth < len(g) for g in groups):
+        out += [(owner, g[depth]) for owner, g in zip(owners, groups) if depth < len(g)]
+        depth += 1
+    return out
 
 
 def entry_feedback(entry_dir: Path, strategy: str, baseline_dir: Path | None = None,
@@ -229,8 +238,9 @@ def entry_feedback(entry_dir: Path, strategy: str, baseline_dir: Path | None = N
                      f"synopsis precision {_pct(bex.get('precision'))}, recall {_pct(bex.get('recall'))}, "
                      f"{bex.get('n_predicted', '?')} terms; statements per paper {bed.get('statements_per_paper', 'n/a')}.")
 
-    missed = [(p, f) for p in gaps["paragraphs"] for f in p["facts"] if f["in_text"] in ("yes", "partly")]
-    missed.sort(key=lambda pf: (pf[1]["in_text"] != "yes", pf[1]["draft_status"] != "absent"))
+    missed = _round_robin([sorted([f for f in p["facts"] if f["in_text"] in ("yes", "partly")],
+                                  key=lambda f: (f["in_text"] != "yes", f["draft_status"] != "absent"))
+                           for p in gaps["paragraphs"]], gaps["paragraphs"])
     if missed:
         lines.append("OMIM states, and the available text contains, but the draft left out (absent) or blurred (partial):")
         for p, f in missed[:MAX_MISSED]:
@@ -242,7 +252,8 @@ def entry_feedback(entry_dir: Path, strategy: str, baseline_dir: Path | None = N
     if n_unavailable:
         lines.append(f"({n_unavailable} further OMIM facts were not in the available text; nothing to learn there.)")
 
-    extras = [(p, s) for p in editorial["paragraphs"] for s in p.get("statements", []) if s["counterpart"] == "no"]
+    extras = _round_robin([[s for s in p.get("statements", []) if s["counterpart"] == "no"]
+                           for p in editorial["paragraphs"]], editorial["paragraphs"])
     if extras:
         lines.append("The draft said, but OMIM's paragraph about the same paper does not:")
         for p, s in extras[:MAX_EXTRA]:
@@ -285,7 +296,12 @@ papers. For a set of training entries you are given: facts OMIM reports that wer
 writer had but that the draft left out or blurred; statements the draft made that OMIM's paragraph \
 about the same paper does not make; and the clinical-synopsis terms OMIM lists that the draft did \
 not, and those the draft listed that OMIM does not. (Facts that were not in the writer's text are \
-counted but not listed: the writer could not have known them.)
+counted but not listed: the writer could not have known them.) The OMIM text available for this \
+comparison is the allelic-variant section: for each variant, one short paragraph per paper that \
+reported it. What a draft says about a paper in other sections (Clinical Features, Molecular \
+Genetics) is compared against that paragraph too, so a statement "OMIM does not make" may still \
+belong in another section of the real entry; do not write rules that empty those sections merely \
+because their content is not in the comparison.
 
 Write a CURATION GUIDE: general rules that will bring the writer's choices closer to OMIM's on \
 entries it has not seen. Cover:
@@ -433,13 +449,13 @@ def choose_round(rounds: list[dict[str, Any]]) -> dict[str, Any] | None:
 # --------------------------------------------------------------------------- #
 
 
-def _ensure_analyses(run_dir: Path, strategy: str, entries: list[str], jobs: int, llm) -> None:
+def _ensure_analyses(run_dir: Path, strategy: str, entries: list[str], jobs: int, llm, with_gaps: bool = True) -> None:
     """Gap and editorial files for the given entries, computed where missing (run-level summaries untouched)."""
     from .editorial import editorial_run
     from .gaps import gaps_run
 
     missing_gaps = [m for m in entries if not (run_dir / m / f"gaps.{strategy}.json").exists()]
-    if missing_gaps:
+    if missing_gaps and with_gaps:
         log.info("gap analysis for %d entries of %s", len(missing_gaps), run_dir.name)
         gaps_run(run_dir, strategy, entries=missing_gaps, jobs=jobs, llm=llm, write_run_files=False)
     missing_ed = [m for m in entries if not (run_dir / m / f"editorial.{strategy}.json").exists()]
@@ -482,7 +498,7 @@ def learn_guide(
     # The baseline regenerated without the audit, so that it is scored exactly as the guided drafts will be.
     # Its generation call is the main run's, from cache.
     _generate(f"{work}/baseline", strategy, train, jobs)
-    _ensure_analyses(work_dir / "baseline", strategy, train, jobs, llm)
+    _ensure_analyses(work_dir / "baseline", strategy, train, jobs, llm, with_gaps=False)
     baseline = training_scores(work_dir / "baseline", strategy, train)
     log.info("baseline on %d training entries: %s", baseline["n_entries"], baseline)
 
