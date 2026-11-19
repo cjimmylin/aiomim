@@ -86,7 +86,7 @@ J~Harry Caufield, Harshad Hegde, Vincent Emonet, Nomi~L Harris, Marcin~P
   et~al.]{Chen2025RecentAdvances}
 Simin Chen, Yiming Chen, Zexin Li, Yifan Jiang, Zhongwei Wan, Yixin He, Dezhi
   Ran, Tianle Gu, Haizhou Li, Tao Xie, et~al.
-\newblock {Recent Advances in Large Langauge Model Benchmarks against Data
+\newblock {Recent Advances in Large Language Model Benchmarks against Data
   Contamination: From Static to Dynamic Evaluation}.
 \newblock arXiv preprint arXiv:2502.17521, 2025.
 
@@ -300,7 +300,7 @@ Naman Jain, King Han, Alex Gu, Wen-Ding Li, Fanjia Yan, Tianjun Zhang, Sida
 
 \bibitem[Jergas \& Baethge(2015)Jergas and Baethge]{jergas2015quotation}
 H.~Jergas and C.~Baethge.
-\newblock Quotation accuracy in medical journal articles-a systematic review
+\newblock Quotation accuracy in medical journal articles---a systematic review
   and meta-analysis.
 \newblock \emph{PeerJ}, 3:\penalty0 e1364, 2015.
 \newblock \doi{10.7717/peerj.1364}.
