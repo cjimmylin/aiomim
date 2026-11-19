@@ -1,0 +1,1093 @@
+{
+  "run": "omim100",
+  "replicate": "auditctl1",
+  "selection": "The paragraphs are the planted-error test's 60, which were chosen for having been passed as fully supported by the audit once. This measures how often a re-audit flags a paragraph that passed before, not the flag rate on arbitrary paragraphs.",
+  "procedure": "auditcheck.audit_texts on the original paragraph text, as the planted test on the altered text",
+  "papers_not_loaded": [],
+  "overall": {
+    "paragraphs": 60,
+    "paragraphs_flagged": 0,
+    "paragraphs_with_partly_supported": 6,
+    "paragraph_flag_rate": 0.0,
+    "claims_audited": 361,
+    "claims_flagged": 0,
+    "claims_unsupported": 0,
+    "claims_contradicted": 0,
+    "claims_partly_supported": 6,
+    "claims_supported": 355,
+    "claims_not_checkable": 3,
+    "claim_flag_rate": 0.0
+  },
+  "by_content_level": {
+    "abstract": {
+      "paragraphs": 44,
+      "paragraphs_flagged": 0,
+      "paragraphs_with_partly_supported": 4,
+      "paragraph_flag_rate": 0.0,
+      "claims_audited": 212,
+      "claims_flagged": 0,
+      "claims_unsupported": 0,
+      "claims_contradicted": 0,
+      "claims_partly_supported": 4,
+      "claims_supported": 208,
+      "claims_not_checkable": 0,
+      "claim_flag_rate": 0.0
+    },
+    "fulltext": {
+      "paragraphs": 16,
+      "paragraphs_flagged": 0,
+      "paragraphs_with_partly_supported": 2,
+      "paragraph_flag_rate": 0.0,
+      "claims_audited": 149,
+      "claims_flagged": 0,
+      "claims_unsupported": 0,
+      "claims_contradicted": 0,
+      "claims_partly_supported": 2,
+      "claims_supported": 147,
+      "claims_not_checkable": 3,
+      "claim_flag_rate": 0.0
+    }
+  },
+  "planted_overall": {
+    "n": 60,
+    "flagged": 60,
+    "downgraded_to_partial": 0,
+    "missed": 0,
+    "detection_rate": 1.0,
+    "flag_rate": 1.0
+  },
+  "safety_stops": 0,
+  "usage": {
+    "calls": 56,
+    "cached": 0,
+    "fresh": 56,
+    "input_tokens": 388011,
+    "output_tokens": 72323
+  },
+  "paragraphs": [
+    {
+      "mim": "611880",
+      "paragraph_id": "inheritance.2",
+      "pmid": "11102545",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "621214",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "38489591",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "diagnosis.1",
+      "pmid": "16084088",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "219900",
+      "paragraph_id": "genotype_phenotype_correlations.1",
+      "pmid": "10444339",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "618875",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "32197075",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "600740",
+      "paragraph_id": "mapping.3",
+      "pmid": "19809483",
+      "content_level": "fulltext",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "613848",
+      "paragraph_id": "description.1",
+      "pmid": "20188343",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "600501",
+      "paragraph_id": "intro",
+      "pmid": "11891690",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "616867",
+      "paragraph_id": "av0001.1",
+      "pmid": "28218388",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "partially_supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "621169",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "9665406",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "621214",
+      "paragraph_id": "description.1",
+      "pmid": "38489591",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "250220",
+      "paragraph_id": "inheritance.1",
+      "pmid": "7211944",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "177735",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "9662404",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "177735",
+      "paragraph_id": "av0007.1",
+      "pmid": "12788847",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "618458",
+      "paragraph_id": "clinical_features.2",
+      "pmid": "33693784",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "241800",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "30497210",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620851",
+      "paragraph_id": "av0001.2",
+      "pmid": "38859706",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615582",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "25835445",
+      "content_level": "fulltext",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "608133",
+      "paragraph_id": "molecular_genetics.3",
+      "pmid": "8485576",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "618808",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "30237576",
+      "content_level": "fulltext",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615582",
+      "paragraph_id": "av0001.1",
+      "pmid": "23824657",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620022",
+      "paragraph_id": "av0002.1",
+      "pmid": "30450842",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "612847",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "9714015",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "300148",
+      "paragraph_id": "clinical_features.7",
+      "pmid": "28055140",
+      "content_level": "fulltext",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615268",
+      "paragraph_id": "cytogenetics.1",
+      "pmid": "22892528",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "248360",
+      "paragraph_id": "molecular_genetics.4",
+      "pmid": "12955715",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "225060",
+      "paragraph_id": "av0002.1",
+      "pmid": "25913853",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "608133",
+      "paragraph_id": "inheritance.2",
+      "pmid": "8202715",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "619201",
+      "paragraph_id": "description.1",
+      "pmid": "31472902",
+      "content_level": "fulltext",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "partially_supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "618458",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "33693784",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "241800",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "30497210",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "108770",
+      "paragraph_id": "clinical_features.6",
+      "pmid": "12522116",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "population_genetics.2",
+      "pmid": "23486992",
+      "content_level": "fulltext",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620528",
+      "paragraph_id": "inheritance.1",
+      "pmid": "31332438",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620718",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "37384395",
+      "content_level": "abstract",
+      "planted_kind": "count or age",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "supported",
+        "partially_supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "225060",
+      "paragraph_id": "molecular_genetics.3",
+      "pmid": "25913853",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615425",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "20164846",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "621224",
+      "paragraph_id": "av0001.1",
+      "pmid": "32022899",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "607734",
+      "paragraph_id": "av0006.1",
+      "pmid": "20039262",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620029",
+      "paragraph_id": "av0019.1",
+      "pmid": "34163037",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "not_checkable",
+        "not_checkable",
+        "not_checkable"
+      ]
+    },
+    {
+      "mim": "620022",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "30450842",
+      "content_level": "fulltext",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "partially_supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620481",
+      "paragraph_id": "av0002.1",
+      "pmid": "28559357",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "620098",
+      "paragraph_id": "av0001.1",
+      "pmid": "35887345",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "614501",
+      "paragraph_id": "av0001.2",
+      "pmid": "34570759",
+      "content_level": "fulltext",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615817",
+      "paragraph_id": "av0005.1",
+      "pmid": "31953988",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported"
+      ]
+    },
+    {
+      "mim": "620528",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "31332438",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "236730",
+      "paragraph_id": "inheritance.1",
+      "pmid": "474623",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "618343",
+      "paragraph_id": "av0004.2",
+      "pmid": "28742248",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "619816",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "9422533",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "166780",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "11409867",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "616326",
+      "paragraph_id": "av0001.1",
+      "pmid": "11791205",
+      "content_level": "abstract",
+      "planted_kind": "zygosity",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "10407851",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "603552",
+      "paragraph_id": "molecular_genetics.4",
+      "pmid": "24459464",
+      "content_level": "fulltext",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "617232",
+      "paragraph_id": "av0006.1",
+      "pmid": "31897643",
+      "content_level": "fulltext",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "615631",
+      "paragraph_id": "av0001.1",
+      "pmid": "23716552",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "partially_supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "225300",
+      "paragraph_id": "inheritance.7",
+      "pmid": "20635353",
+      "content_level": "abstract",
+      "planted_kind": "inheritance or origin",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "616151",
+      "paragraph_id": "av0001.1",
+      "pmid": "23993198",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "partial",
+      "verdicts": [
+        "supported",
+        "partially_supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "621313",
+      "paragraph_id": "av0003.1",
+      "pmid": "38430071",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "606824",
+      "paragraph_id": "av0005.1",
+      "pmid": "20486940",
+      "content_level": "abstract",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    },
+    {
+      "mim": "619201",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "31472902",
+      "content_level": "fulltext",
+      "planted_kind": "amino acid change",
+      "planted_result": "flagged",
+      "result": "supported",
+      "verdicts": [
+        "supported",
+        "supported",
+        "supported"
+      ]
+    }
+  ]
+}

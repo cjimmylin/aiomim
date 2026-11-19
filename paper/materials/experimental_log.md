@@ -327,7 +327,8 @@ Per entry, from scratch, at API list prices (a measure of consumption; these run
 ## 3. Where the missed facts went (direct reading, fixed fact lists)
 
 Each fact direct reading did not fully convey was checked once against the text available for its paper: stated (with a
-quote that was verified in the text), partly stated, or not stated. The check is a model judgement.
+quote that was verified in the text), partly stated, or not stated. The check is a model judgement. Counts and shares in
+this section are pooled over facts.
 
 97 entries, 466 OMIM paragraphs, 437 judge calls (0 failed). Left out, no draft (the writer was stopped): 3 entries (609296, 620609, 621068).
 
@@ -354,6 +355,42 @@ By how much of the fact the draft conveyed (absent: not at all; partial: less pr
 Of all OMIM facts: 43% conveyed, 4% omitted though stated in the available text, 13% omitted and partly stated, 40% not in the available text; the remainder were contradicted. (Facts the draft conveyed partly are counted with the missed ones.)
 
 Facts contradicted by the draft (not in the columns above): 7 for full-text papers, 25 for abstract-only papers, 0 for title-only papers, 32 in all.
+
+### 3.1 Where the conveyed facts came from: the supplied text or elsewhere
+
+For every frozen OMIM fact the draft conveyed in full (present) or in part (partial), the judge checked whether the text the writer had for the paragraph's paper(s) states it (the stored availability judgement of `gaps --frozen`: same prompt, same per-paper cut, quotes verified in the text). A fact that text did not state, or stated only partly, was checked once more against the text of the entry's other supplied papers (cut the same way), since a later paper may describe an earlier one. These are model judgements, not a curator's. A conveyed fact stated in no supplied text was not read there: it was recalled from the model's memory, inferred from what the text does state (for example an inheritance mode from zygosity), or the judgement is wrong; this analysis does not separate the three.
+
+97 entries, 466 OMIM paragraphs. Judge calls: 0 for the paper's own text (stored judgements were reused), 385 for the other papers (0 failed); safety stops: 0. Left out, no draft (the writer was stopped): 3 entries (609296, 620609, 621068).
+
+**Headline.** Of the facts conveyed in full from papers readable only as an abstract or title, 24 of 1,458 (1.7%) are stated in no supplied text, and a further 241 only partly. Counting facts conveyed in part as well: 90 of 2,098 (4.3%) in no supplied text.
+
+| Paper read as | Conveyed | Facts | Stated in its paper's text | Partly stated in its paper's text | Stated only in another supplied paper | Partly stated only in another supplied paper | In no supplied text | Unjudged |
+|---|---|---|---|---|---|---|---|---|
+| Full text | in full | 1,329 | 1,174 (88.3%) | 122 (9.2%) | 22 (1.7%) | 4 (0.3%) | 7 (0.5%) | 0 |
+| Full text | in part | 214 | 122 (57.0%) | 86 (40.2%) | 1 (0.5%) | 1 (0.5%) | 4 (1.9%) | 0 |
+| Full text | in full or in part | 1,543 | 1,296 (84.0%) | 208 (13.5%) | 23 (1.5%) | 5 (0.3%) | 11 (0.7%) | 0 |
+| Abstract only | in full | 1,420 | 1,061 (74.7%) | 222 (15.6%) | 102 (7.2%) | 11 (0.8%) | 24 (1.7%) | 0 |
+| Abstract only | in part | 583 | 27 (4.6%) | 462 (79.2%) | 15 (2.6%) | 21 (3.6%) | 58 (10.0%) | 0 |
+| Abstract only | in full or in part | 2,003 | 1,088 (54.3%) | 684 (34.2%) | 117 (5.8%) | 32 (1.6%) | 82 (4.1%) | 0 |
+| Title only | in full | 38 | 27 (71.0%) | 8 (21.1%) | 3 (7.9%) | 0 (0.0%) | 0 (0.0%) | 0 |
+| Title only | in part | 57 | 0 (0.0%) | 47 (82.5%) | 1 (1.8%) | 1 (1.8%) | 8 (14.0%) | 0 |
+| Title only | in full or in part | 95 | 27 (28.4%) | 55 (57.9%) | 4 (4.2%) | 1 (1.1%) | 8 (8.4%) | 0 |
+| All papers | in full | 2,787 | 2,262 (81.2%) | 352 (12.6%) | 127 (4.6%) | 15 (0.5%) | 31 (1.1%) | 0 |
+| All papers | in part | 854 | 149 (17.4%) | 595 (69.7%) | 17 (2.0%) | 23 (2.7%) | 70 (8.2%) | 0 |
+| All papers | in full or in part | 3,641 | 2,411 (66.2%) | 947 (26.0%) | 144 (4.0%) | 38 (1.0%) | 101 (2.8%) | 0 |
+
+Shares are of the facts judged in that row. The second check, by the paper's own-text verdict (facts conveyed in full or in part):
+
+| Paper read as | Own text | Facts | Another paper states it | … partly | … no | No other paper supplied | Unjudged |
+|---|---|---|---|---|---|---|---|
+| Full text | partly stated | 223 | 15 | 37 | 171 | 0 | 0 |
+| Full text | not stated | 24 | 8 | 5 | 11 | 0 | 0 |
+| Abstract only | partly stated | 728 | 44 | 119 | 546 | 19 | 0 |
+| Abstract only | not stated | 187 | 73 | 32 | 81 | 1 | 0 |
+| Title only | partly stated | 57 | 2 | 5 | 50 | 0 | 0 |
+| Title only | not stated | 11 | 2 | 1 | 8 | 0 | 0 |
+| All papers | partly stated | 1,008 | 61 | 161 | 767 | 19 | 0 |
+| All papers | not stated | 222 | 83 | 38 | 100 | 1 | 0 |
 
 ## 4. How much the measurement moves
 
@@ -478,8 +515,11 @@ For papers readable in full, the full text was hidden and entries were written b
 with and without second-hand passages. Claims about the hidden papers were then audited against the real full text.
 No repair round was applied to the two new drafts; the full-text draft is the main run's and went through repair.
 Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
-kept beside it. Our full texts exclude supplementary material, so "unsupported by the full text" is an upper bound on
-error.
+kept beside it. Each coverage level below is labelled as pooled over facts or as a mean over entries; the paired
+differences are means over entries. Our full texts exclude supplementary material, so "unsupported by the full text" is
+an upper bound on error.
+
+OMIM facts conveyed on the fixed fact lists: abstract only 36.1% mean over entries (n = 46), 31.2% pooled over facts (2,120 facts); abstract plus second-hand 40.9% mean over entries (n = 46), 36.7% pooled over facts (2,120 facts); full text (main run's direct draft) 79.9% mean over entries (n = 46), 77.4% pooled over facts (2,120 facts).
 
 Source run `omim100`; 49 entries. In each, the papers read in full were hidden and the entry was written by direct reading from their abstracts, with and without second-hand passages from later open-access papers. Counts, not just rates.
 
@@ -491,32 +531,38 @@ Source run `omim100`; 49 entries. In each, the papers read in full were hidden a
 
 #### OMIM-fact coverage on the frozen fact lists (main measure)
 
-Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged.
+Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged, pooled over facts; the last column is the mean of per-entry coverage over the same entries, the unit of the paired differences below.
 
-| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen) | Coverage (old scoring) |
-|---|---|---|---|---|---|---|---|---|---|
-| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% |
-| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% |
-| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% |
+| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen), pooled over facts | Coverage (old scoring), pooled over facts | Coverage (frozen), mean over entries |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% | 36.1% |
+| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% | 40.9% |
+| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% | 79.9% |
 
-Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
+Paired differences, mean over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
 
 | Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | better / worse / tied |
 |---|---|---|---|---|---|
 | Abstract + second-hand minus abstract only | 46 | +4.9 (+2.8 to +7.1) | 33 / 9 / 4 | +5.3 (+3.6 to +7.2) | 36 / 7 / 3 |
 | Full text minus abstract only | 46 | +43.9 (+38.5 to +49.3) | 45 / 0 / 1 | +41.7 (+36.7 to +46.6) | 46 / 0 / 0 |
 
+#### Repair parity: what the repair round changed in the full-text drafts
+
+The full-text row is the source run's direct-reading draft, which went through the audit's repair round; the two abstract drafts did not. Over the 46 entries compared, the audit before repair flagged 13 of 6,609 audited claims (13 unsupported, 0 contradicted) in 11 paragraphs of 8 entries; the repair revised 11 paragraphs and deleted 0. 11 of the 11 revised paragraphs were located in the final drafts, and 11 of them cite a hidden paper; 13 of the flagged claims lie in paragraphs citing a hidden paper. After repair the drafts hold 6,637 audited claims, 5,328 of them in paragraphs citing a hidden paper.
+
+The pipeline does not keep the draft as it was before repair, so the full-text draft could not be scored before repair; no draft was regenerated.
+
 #### OMIM-fact coverage of the gold paragraphs about the hidden papers (old scoring: facts split afresh for each draft)
 
 Pooled over the 46 entries that have a full-text draft in the source run, the same entries for all three conditions; left out: 3 entries whose full-text direct draft was not written (the writer's reply was stopped), so they have no full-text coverage to compare: 609296, 620609, 621068.
 
-| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage |
+| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage, pooled over facts |
 |---|---|---|---|---|---|---|---|
 | Abstract only | 136 | 1783 | 452 | 362 | 966 | 3 | 35.5% |
 | Abstract + second-hand | 136 | 1802 | 565 | 362 | 864 | 11 | 41.4% |
 | Full text (source run's direct draft) | 136 | 1767 | 1268 | 243 | 246 | 10 | 78.6% |
 
-Over all 49 entries the two new conditions convey 35.3% (abstract only, 1876 facts) and 41.1% (abstract + second-hand, 1889 facts).
+Over all 49 entries the two new conditions convey 35.3% (abstract only, 1876 facts) and 41.1% (abstract + second-hand, 1889 facts), pooled over facts.
 
 Facts are split from the gold paragraph separately for each condition, so the fact counts differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.
 
@@ -800,12 +846,15 @@ An entry is compared only when every strategy below completed it in full: its dr
 Stopped replies were frequent on these entries: the agentic curator's writer was stopped on 6 of 30, direct reading's
 on 2, and the evidence graph lost a paper on 7.
 
+The 30 entries were chosen by creation date alone: the newest qualifying entries, by creation month and then entry number (`evalset.recent_entries`). They were used in no other run, and no code that shapes how the strategies write, audit or repair a draft changed after their drafts were generated: run with the final code, the 5 strategies run on them make only calls answered from the cache of the original calls and reproduce the stored drafts exactly (recall, then verify was not run on these entries).
+
 ## 11. Earlier analyses on the main set
 
 - **Planted errors.** In 60 paragraphs the audit had passed, one fact was altered by rule (a count, a zygosity, a
   residue or a mode of inheritance). The audit flagged all 60, each on a claim containing the altered value. The test
-  measures sensitivity to blunt single-fact substitutions only; no unaltered controls were run, so the false-flag rate
-  is unknown, and omissions and misattributions are not tested. In 6 of the 60 other claims were also flagged.
+  measures sensitivity to blunt single-fact substitutions only; omissions and misattributions are not tested. In 6 of
+  the 60 other claims were also flagged.
+- **Audit control: the same paragraphs unaltered.** The 60 paragraphs were audited again as written, with fresh model calls (replicate salt `auditctl1`) and the procedure of the planted test. 0 of 60 had at least one claim flagged; 0 of 361 claims were flagged (0 unsupported, 0 contradicted) and 6 came back partly supported; 3 could not be audited. Safety stops: 0. The paragraphs were selected for having passed the audit once, so this is the rate at which a re-audit flags a paragraph that passed before, not the false-flag rate on arbitrary paragraphs.
 - **Disagreements between a draft and the reference.** Facts on which a direct-reading draft contradicted the OMIM
   paragraph were re-examined against the paper by the same model: of 37, the paper was judged to support the draft in
   22, the reference in 1, both in 1, and 13 could not be decided from the readable text. These are unconfirmed leads; no
@@ -840,5 +889,5 @@ on 2, and the evidence graph lost a paper on 7.
 
 ## 13. Total model usage
 
-All experiments, pilots and re-scoring: 38,037 cached model calls, 253 million input and
-69 million output tokens, about $2,841 at list price.
+All experiments, pilots and re-scoring: 38,478 cached model calls, 259 million input and
+69 million output tokens, about $2,895 at list price.

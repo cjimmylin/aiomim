@@ -10030,5 +10030,177 @@
       },
       "failures": {}
     }
+  },
+  "repair_parity": {
+    "source": "omim100/<mim>/entry.direct.json (meta audit_before_repair, repair; paragraph checks)",
+    "before_repair_draft_kept": false,
+    "note": "The pipeline keeps only counts from the audit before repair, not the draft text, so the full-text draft cannot be scored as it was before repair. Revised paragraphs are located by matching the cached repair replies to the final draft's paragraphs (no model call). The repair round is instructed to correct or remove flagged claims and to add nothing.",
+    "total": {
+      "entries": 46,
+      "entries_repaired": 8,
+      "claims_before_repair": 6609,
+      "claims_flagged_before_repair": 13,
+      "claims_unsupported_before_repair": 13,
+      "claims_contradicted_before_repair": 0,
+      "claims_not_checkable_before_repair": 143,
+      "paragraphs_flagged": 11,
+      "paragraphs_revised": 11,
+      "paragraphs_deleted": 0,
+      "claims_after_repair": 6637,
+      "claims_after_repair_in_hidden_paragraphs": 5328,
+      "revised_located": 11,
+      "revised_located_citing_hidden": 11,
+      "claims_flagged_in_hidden_paragraphs": 13,
+      "entries_not_fully_located": []
+    },
+    "per_entry": [
+      {
+        "mim": "118210",
+        "claims_before_repair": 47,
+        "claims_unsupported_before_repair": 5,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 5,
+        "paragraphs_flagged": 3,
+        "paragraphs_revised": 3,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 76,
+        "claims_after_repair": 52,
+        "claims_after_repair_in_hidden_paragraphs": 27,
+        "revised_located": 3,
+        "revised_located_citing_hidden": 3,
+        "revised_paragraph_ids": [
+          "description.1",
+          "molecular_genetics.1",
+          "av0001.1"
+        ]
+      },
+      {
+        "mim": "607721",
+        "claims_before_repair": 181,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 180,
+        "claims_after_repair_in_hidden_paragraphs": 116,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "inheritance.1"
+        ]
+      },
+      {
+        "mim": "607876",
+        "claims_before_repair": 187,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 188,
+        "claims_after_repair_in_hidden_paragraphs": 104,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "description.1"
+        ]
+      },
+      {
+        "mim": "611521",
+        "claims_before_repair": 247,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 248,
+        "claims_after_repair_in_hidden_paragraphs": 230,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "av0001.1"
+        ]
+      },
+      {
+        "mim": "614856",
+        "claims_before_repair": 207,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 211,
+        "claims_after_repair_in_hidden_paragraphs": 120,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "description.1"
+        ]
+      },
+      {
+        "mim": "615710",
+        "claims_before_repair": 113,
+        "claims_unsupported_before_repair": 2,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 2,
+        "paragraphs_flagged": 2,
+        "paragraphs_revised": 2,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 67,
+        "claims_after_repair": 126,
+        "claims_after_repair_in_hidden_paragraphs": 104,
+        "revised_located": 2,
+        "revised_located_citing_hidden": 2,
+        "revised_paragraph_ids": [
+          "nomenclature.2",
+          "mapping.1"
+        ]
+      },
+      {
+        "mim": "618343",
+        "claims_before_repair": 172,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 177,
+        "claims_after_repair_in_hidden_paragraphs": 127,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "clinical_features.2"
+        ]
+      },
+      {
+        "mim": "620022",
+        "claims_before_repair": 200,
+        "claims_unsupported_before_repair": 1,
+        "claims_contradicted_before_repair": 0,
+        "claims_flagged_before_repair": 1,
+        "paragraphs_flagged": 1,
+        "paragraphs_revised": 1,
+        "paragraphs_deleted": 0,
+        "claims_not_checkable_before_repair": 0,
+        "claims_after_repair": 200,
+        "claims_after_repair_in_hidden_paragraphs": 200,
+        "revised_located": 1,
+        "revised_located_citing_hidden": 1,
+        "revised_paragraph_ids": [
+          "clinical_features.1"
+        ]
+      }
+    ]
   }
 }

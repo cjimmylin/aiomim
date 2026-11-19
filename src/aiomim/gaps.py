@@ -471,3 +471,289 @@ def gaps_run(
 def load_entry_gaps(entry_dir: Path, strategy: str) -> dict[str, Any] | None:
     path = entry_dir / f"gaps.{strategy}.json"
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
+# --------------------------------------------------------------------------- #
+# Conveyed facts: read in the text, or brought from memory?
+# --------------------------------------------------------------------------- #
+#
+# The decomposition above asks where the *missed* facts were. Here the question is the
+# converse: of the frozen facts the draft conveyed (present) or partly conveyed
+# (partial), how many does the text the writer had for the paragraph's paper(s) state?
+# That is read back from the stored availability judgements (the same ones
+# `--frozen` uses; no new call when they are stored). A conveyed fact that the paper's
+# own text does not state (or states only partly) is checked once more against the text
+# of the entry's *other* supplied papers, cut the same way: a later paper may describe
+# an earlier one. A conveyed fact stated in none of them came from somewhere other than
+# the supplied text, most plausibly the model's memory.
+
+CONVEYED = ("present", "partial")
+OWN_CLASSES = ("yes", "partly", "no", "unjudged")
+OTHER_CLASSES = ("yes", "partly", "no", "no_other_papers", "unjudged")
+
+GAPS_OTHER_SYSTEM = GAPS_SYSTEM + """
+
+Here the TEXT is not the summarised paper itself but the other papers supplied to the writer for the same \
+entry (each in its own <paper> block). A later paper may restate or describe the findings of the summarised \
+paper; that counts as stating the fact. Decide, exactly as above, whether this supplied text states each fact.\
+"""
+
+
+def classify_conveyed(own: str, other: str | None) -> str:
+    """One conveyed fact's class from its own-text verdict and, where checked, the other papers' verdict.
+
+    stated               the paper's own text states it
+    partly_stated        the own text states part of it, and the other papers do not state it in full
+    stated_elsewhere     not (fully) in the own text, but another supplied paper states it
+    partly_elsewhere     not in the own text at all, partly stated by another supplied paper
+    not_in_supplied_text stated by no supplied text
+    unjudged             a verdict is missing
+    """
+    if own == "yes":
+        return "stated"
+    if own == "unjudged" or other in (None, "unjudged"):
+        return "unjudged"
+    if other == "yes":
+        return "stated_elsewhere"
+    if own == "partly":
+        return "partly_stated"
+    if other == "partly":
+        return "partly_elsewhere"
+    return "not_in_supplied_text"
+
+
+CONVEYED_CLASSES = ("stated", "partly_stated", "stated_elsewhere", "partly_elsewhere", "not_in_supplied_text",
+                    "unjudged")
+
+
+def conveyed_entry(entry_dir: Path, strategy: str, llm, papers: dict[str, Paper], store=None) -> dict[str, Any]:
+    """For one entry, where each frozen fact the draft conveyed is stated in the supplied text."""
+    from .facts import FactStore, availability, frozen_facts, map_covering
+    from .models import GoldEntry
+
+    store = store or FactStore()
+    evaluation = json.loads((entry_dir / f"eval.{strategy}.json").read_text(encoding="utf-8"))
+    frozen = evaluation.get("gold_text_frozen")
+    if frozen is None:
+        raise ValueError(f"eval.{strategy}.json has no gold_text_frozen: run `aiomim rescore` first")
+    gold = GoldEntry.model_validate_json((entry_dir / "gold.json").read_text(encoding="utf-8"))
+    paragraphs = gold.scoped_paragraphs
+    # The lists must already exist: a conveyed fact is one the draft was marked on.
+    records = frozen_facts(paragraphs, llm, store, split_missing=False) if paragraphs else []
+    marks_by_key = {p["key"]: p for p in frozen.get("paragraphs", [])}
+    supplied = [r["pmid"] for r in json.loads((entry_dir / "papers.json").read_text(encoding="utf-8"))] \
+        if (entry_dir / "papers.json").exists() else list(papers)
+    cap = per_paper_chars(len(supplied))
+
+    ok = [i for i, rec in enumerate(records) if rec is not None and rec["key"] in marks_by_key]
+    avails, n_avail_calls = availability([records[i] for i in ok],
+                                         [paper_source(paragraphs[i].pmids, papers, cap) for i in ok],
+                                         llm, store, per_paper_chars=cap)
+    own_by_i = {i: {r["id"]: r for r in a["rows"]} for i, a in zip(ok, avails)}
+
+    out_paragraphs: list[dict[str, Any]] = []
+    jobs: list[tuple[int, list[dict[str, Any]], str]] = []   # paragraph slot, facts to check, other-papers text
+    for i in ok:
+        rec, marks = records[i], marks_by_key[records[i]["key"]]
+        status = {f["id"]: f["status"] for f in marks["facts"]}
+        rows = []
+        for f in rec["facts"]:
+            if status.get(f["id"]) not in CONVEYED:
+                continue
+            own = own_by_i[i].get(f["id"], {})
+            rows.append({"id": f["id"], "n": f["n"], "draft_status": status[f["id"]],
+                         "own": own.get("in_text", "unjudged"), "own_quote_verified": bool(own.get("quote_verified")),
+                         "other": None, "other_quote": "", "other_quote_verified": False})
+        out_paragraphs.append({"key": rec["key"], "pmids": paragraphs[i].pmids,
+                               "content_level": marks.get("content_level", "not_retrieved"),
+                               "n_facts": len(rec["facts"]), "facts": rows})
+        recheck = [r for r in rows if r["own"] in ("no", "partly")]
+        if not recheck:
+            continue
+        others = [p for p in supplied if p not in paragraphs[i].pmids and p in papers]
+        source = paper_source(others, papers, cap)
+        if not source.strip():
+            for r in recheck:
+                r["other"] = "no_other_papers"
+            continue
+        jobs.append((len(out_paragraphs) - 1, recheck, source))
+
+    wording = {f["id"]: f["fact"] for rec in records if rec for f in rec["facts"]}
+    text_of = {rec["key"]: rec["text"] for rec in records if rec}
+    prompts = [_prompt(text_of[out_paragraphs[slot]["key"]], [wording[r["id"]] for r in recheck], source)
+               for slot, recheck, source in jobs]
+    replies = map_covering(llm, GAPS_OTHER_SYSTEM, prompts, XGapVerdicts, [len(j[1]) for j in jobs],
+                           lambda r: r.verdicts)
+    n_errors = 0
+    for (slot, recheck, source), (by_n, attempts, error) in zip(jobs, replies):
+        if error:
+            n_errors += 1
+            log.warning("[%s] conveyed: paragraph %s failed: %s", entry_dir.name, out_paragraphs[slot]["key"][:12],
+                        error)
+        index = SourceIndex(source)
+        for k, r in enumerate(recheck, 1):
+            v = verdict_row(by_n.get(k), index)
+            r.update(other=v["in_text"], other_model=v["model_in_text"], other_quote=v["quote"],
+                     other_quote_verified=v["quote_verified"])
+        out_paragraphs[slot]["other_attempts"] = attempts
+    for para in out_paragraphs:
+        for r in para["facts"]:
+            r["class"] = classify_conveyed(r["own"], r["other"] if r["own"] != "yes" else None)
+    result = {"mim": evaluation.get("mim", entry_dir.name), "strategy": strategy, "per_paper_chars": cap,
+              "n_supplied_papers": len(supplied), "n_availability_calls": n_avail_calls, "n_calls": len(jobs),
+              "n_errors": n_errors, "n_paragraphs_without_frozen": len(paragraphs) - len(ok),
+              "paragraphs": out_paragraphs}
+    result["tally"] = tally_conveyed(out_paragraphs)
+    return result
+
+
+def _conveyed_cell() -> dict[str, Any]:
+    return {"n": 0, "own": dict.fromkeys(OWN_CLASSES, 0),
+            "other_given_own": {o: dict.fromkeys(OTHER_CLASSES, 0) for o in ("partly", "no")},
+            "class": dict.fromkeys(CONVEYED_CLASSES, 0)}
+
+
+def tally_conveyed(paragraphs: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Counts by paper access level and draft status (present / partial / both): pure, counts only."""
+    cells: dict[str, dict[str, dict[str, Any]]] = {}
+    for para in paragraphs:
+        level = para.get("content_level", "not_retrieved")
+        for f in para["facts"]:
+            for lvl in (level, "all"):
+                for st in (f["draft_status"], "conveyed"):
+                    cell = cells.setdefault(lvl, {}).setdefault(st, _conveyed_cell())
+                    cell["n"] += 1
+                    cell["own"][f["own"]] += 1
+                    if f["own"] in ("partly", "no"):
+                        cell["other_given_own"][f["own"]][f["other"] or "unjudged"] += 1
+                    cell["class"][f["class"]] += 1
+    for by_status in cells.values():
+        for cell in by_status.values():
+            judged = cell["n"] - cell["class"]["unjudged"]
+            cell["share"] = {c: (round(cell["class"][c] / judged, 4) if judged else None)
+                             for c in CONVEYED_CLASSES if c != "unjudged"}
+    order = [lvl for lvl in (*LEVELS, "all") if lvl in cells]
+    return {lvl: {st: cells[lvl][st] for st in (*CONVEYED, "conveyed") if st in cells[lvl]} for lvl in order}
+
+
+def headline_conveyed(tally: dict[str, Any], levels: tuple[str, ...] = ("abstract", "title")) -> dict[str, Any]:
+    """Facts conveyed from papers read only as abstract or title that no supplied text states."""
+    out = {}
+    for st in (*CONVEYED, "conveyed"):
+        cells = [tally[lvl][st] for lvl in levels if st in tally.get(lvl, {})]
+        n = sum(c["n"] - c["class"]["unjudged"] for c in cells)
+        none = sum(c["class"]["not_in_supplied_text"] for c in cells)
+        partly = sum(c["class"]["partly_stated"] + c["class"]["partly_elsewhere"] for c in cells)
+        out[st] = {"n_judged": n, "not_in_supplied_text": none, "at_most_partly_in_supplied_text": partly,
+                   "share_not_in_supplied_text": round(none / n, 4) if n else None,
+                   "share_not_fully_in_supplied_text": round((none + partly) / n, 4) if n else None}
+    return out
+
+
+_CLASS_NAMES = {"stated": "Stated in its paper's text", "partly_stated": "Partly stated in its paper's text",
+                "stated_elsewhere": "Stated only in another supplied paper",
+                "partly_elsewhere": "Partly stated only in another supplied paper",
+                "not_in_supplied_text": "In no supplied text", "unjudged": "Unjudged"}
+
+
+def conveyed_markdown(summary: dict[str, Any], run: str, strategy: str) -> str:
+    names = {"fulltext": "Full text", "abstract": "Abstract only", "title": "Title only",
+             "not_retrieved": "Not retrieved", "all": "All papers"}
+    status_names = {"present": "in full", "partial": "in part", "conveyed": "in full or in part"}
+    pct = lambda x: "-" if x is None else f"{100 * x:.1f}%"  # noqa: E731
+    h = summary["headline"]
+    lines = [
+        f"# Conveyed OMIM facts: read in the supplied text, or not? — run `{run}`, strategy `{strategy}` "
+        "(frozen fact lists)",
+        "For every frozen OMIM fact the draft conveyed in full (present) or in part (partial), the judge checked "
+        "whether the text the writer had for the paragraph's paper(s) states it (the stored availability judgement "
+        "of `gaps --frozen`: same prompt, same per-paper cut, quotes verified in the text). A fact that text did not "
+        "state, or stated only partly, was checked once more against the text of the entry's other supplied papers "
+        "(cut the same way), since a later paper may describe an earlier one. These are model judgements, not a "
+        "curator's. A conveyed fact stated in no supplied text was not read there: it was recalled from the model's "
+        "memory, inferred from what the text does state (for example an inheritance mode from zygosity), or the "
+        "judgement is wrong; this analysis does not separate the three.",
+        f"{summary['n_entries']} entries, {summary['n_paragraphs']} OMIM paragraphs. Judge calls: "
+        f"{summary['n_availability_calls']} for the paper's own text (stored judgements were reused), "
+        f"{summary['n_calls']} for the other papers ({summary['n_errors']} failed); safety stops: "
+        f"{summary.get('safety_stops', 0)}."
+        + (f" Left out, no draft (the writer was stopped): {len(summary['stopped_entries'])} entries "
+           f"({', '.join(summary['stopped_entries'])})." if summary.get("stopped_entries") else ""),
+        f"**Headline.** Of the facts conveyed in full from papers readable only as an abstract or title, "
+        f"{h['present']['not_in_supplied_text']:,} of {h['present']['n_judged']:,} "
+        f"({pct(h['present']['share_not_in_supplied_text'])}) are stated in no supplied text, and a further "
+        f"{h['present']['at_most_partly_in_supplied_text']:,} only partly. Counting facts conveyed in part as well: "
+        f"{h['conveyed']['not_in_supplied_text']:,} of {h['conveyed']['n_judged']:,} "
+        f"({pct(h['conveyed']['share_not_in_supplied_text'])}) in no supplied text.",
+        "| Paper read as | Conveyed | Facts | " + " | ".join(_CLASS_NAMES[c] for c in CONVEYED_CLASSES) + " |",
+        "|---|---|---|" + "---|" * len(CONVEYED_CLASSES),
+    ]
+    for level, by_status in summary["by_content_level"].items():
+        for st, c in by_status.items():
+            cells = " | ".join(f"{c['class'][k]:,}" + (f" ({pct(c['share'][k])})" if k != "unjudged" else "")
+                               for k in CONVEYED_CLASSES)
+            lines.append(f"| {names.get(level, level)} | {status_names[st]} | {c['n']:,} | {cells} |")
+    lines.append("")
+    lines.append("Shares are of the facts judged in that row. The second check, by the paper's own-text verdict "
+                 "(facts conveyed in full or in part):")
+    lines.append("")
+    lines.append("| Paper read as | Own text | Facts | Another paper states it | … partly | … no | No other paper "
+                 "supplied | Unjudged |")
+    lines.append("|---|---|---|---|---|---|---|---|")
+    for level, by_status in summary["by_content_level"].items():
+        c = by_status.get("conveyed")
+        if not c:
+            continue
+        for own in ("partly", "no"):
+            o = c["other_given_own"][own]
+            if sum(o.values()):
+                lines.append(f"| {names.get(level, level)} | {'partly stated' if own == 'partly' else 'not stated'} | "
+                             f"{sum(o.values()):,} | {o['yes']:,} | {o['partly']:,} | {o['no']:,} | "
+                             f"{o['no_other_papers']:,} | {o['unjudged']:,} |")
+    return "\n\n".join(lines[:4]) + "\n\n" + "\n".join(lines[4:]) + "\n"
+
+
+def conveyed_run(run_dir: Path, strategy: str = "direct", entries: Iterable[str] | None = None, jobs: int = 1,
+                 llm=None, load: Callable[[Path], dict[str, Paper]] | None = None, store=None) -> dict[str, Any]:
+    """`conveyed_entry` for every scored entry; writes gaps.<strategy>.conveyed.json|.md (counts only)."""
+    from .llm import LLM
+    from .pipeline import _write
+
+    llm = llm or LLM()
+    load = load or load_entry_papers
+    dirs = entry_dirs(run_dir, strategy, entries)
+
+    def one(entry_dir: Path) -> dict[str, Any] | None:
+        try:
+            result = conveyed_entry(entry_dir, strategy, llm, load(entry_dir), store)
+        except Exception as exc:  # noqa: BLE001 - one broken entry must not lose the rest
+            log.exception("[%s] conveyed failed: %s", entry_dir.name, exc)
+            return None
+        _write(entry_dir / f"gaps.{strategy}.conveyed.json", result)
+        log.info("[%s] conveyed: %d facts, %d in no supplied text", entry_dir.name,
+                 result["tally"].get("all", {}).get("conveyed", {}).get("n", 0),
+                 result["tally"].get("all", {}).get("conveyed", {}).get("class", {}).get("not_in_supplied_text", 0))
+        return result
+
+    with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
+        results = [r for r in pool.map(one, dirs) if r is not None]
+    tally = tally_conveyed(p for r in results for p in r["paragraphs"])
+    usage = llm.usage.summary()["total"]
+    summary = {
+        "run": run_dir.name, "strategy": strategy, "frozen": True, "n_entries": len(results),
+        "n_paragraphs": sum(len(r["paragraphs"]) for r in results),
+        "n_availability_calls": sum(r["n_availability_calls"] for r in results),
+        "n_calls": sum(r["n_calls"] for r in results), "n_errors": sum(r["n_errors"] for r in results),
+        "safety_stops": getattr(llm, "safety_stops", 0),
+        "usage": {k: usage.get(k) for k in ("calls", "cached", "input_tokens", "output_tokens")},
+        "failed_entries": sorted({d.name for d in dirs} - {r["mim"] for r in results}),
+        "stopped_entries": stopped_dirs(run_dir, strategy, entries),
+        "judgement": "model judgement (stage judge); not checked by a curator",
+        "headline": headline_conveyed(tally), "by_content_level": tally,
+        "entries": {r["mim"]: {"n_calls": r["n_calls"], "n_errors": r["n_errors"],
+                               "classes": r["tally"].get("all", {}).get("conveyed", {}).get("class", {})}
+                    for r in results},
+    }
+    _write(run_dir / f"gaps.{strategy}.conveyed.json", summary)
+    _write(run_dir / f"gaps.{strategy}.conveyed.md", conveyed_markdown(summary, run_dir.name, strategy))
+    return summary

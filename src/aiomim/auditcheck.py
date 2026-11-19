@@ -117,26 +117,30 @@ def plant_errors(run_dir: Path, n: int = 60, seed: int = 11, strategy: str = "kg
     return probes
 
 
+def audit_texts(probes: list[dict[str, Any]], field: str, papers: dict[str, Any], llm) -> list[EntryParagraph]:
+    """Audit `probe[field]` of every probe, each against its one cited paper, with the normal audit.
+
+    One synthetic "entry" holds only these paragraphs, so `verify_entry` runs on them unchanged.
+    """
+    from .models import EntrySection
+
+    holder = GeneratedEntry(title="audit check")
+    paragraphs = [EntryParagraph(id=f"probe.{i}", text=probe[field], pmids=[probe["pmid"]])
+                  for i, probe in enumerate(probes)]
+    holder.sections = [EntrySection(name="clinical_features", paragraphs=paragraphs)]
+    for i, para in enumerate(paragraphs):
+        para.id = f"probe.{i}"  # keep our ids; do not renumber
+    verify_entry(holder, papers, llm)
+    return paragraphs
+
+
 def run_audit_check(run_dir: Path, n: int = 60, seed: int = 11) -> dict[str, Any]:
     from .sources.fulltext import load_papers
 
     probes = plant_errors(run_dir, n=n, seed=seed)
     papers = {p.pmid: p for p in load_papers(sorted({probe["pmid"] for probe in probes}), with_fulltext=True)}
     probes = [p for p in probes if p["pmid"] in papers]
-
-    # One synthetic "entry" holding only the altered paragraphs, so the normal audit runs on them unchanged.
-    holder = GeneratedEntry(title="audit check")
-    holder.sections = []
-    paragraphs = []
-    for i, probe in enumerate(probes):
-        para = EntryParagraph(id=f"probe.{i}", text=probe["altered_text"], pmids=[probe["pmid"]])
-        paragraphs.append(para)
-    from .models import EntrySection
-
-    holder.sections.append(EntrySection(name="clinical_features", paragraphs=paragraphs))
-    for i, para in enumerate(paragraphs):
-        para.id = f"probe.{i}"  # keep our ids; do not renumber
-    verify_entry(holder, papers, LLM())
+    paragraphs = audit_texts(probes, "altered_text", papers, LLM())
 
     def tally(items: list[dict[str, Any]]) -> dict[str, Any]:
         total = len(items)
@@ -160,4 +164,91 @@ def run_audit_check(run_dir: Path, n: int = 60, seed: int = 11) -> dict[str, Any
         "probes": probes,
     }
     (run_dir / "audit_check.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
+    return result
+
+
+# --------------------------------------------------------------------------- #
+# Control: the same paragraphs, unaltered
+# --------------------------------------------------------------------------- #
+
+CONTROL_FILE = "audit_control.json"
+CONTROL_SELECTION = (
+    "The paragraphs are the planted-error test's 60, which were chosen for having been passed as fully supported "
+    "by the audit once. This measures how often a re-audit flags a paragraph that passed before, not the flag rate "
+    "on arbitrary paragraphs.")
+FLAGGED_VERDICTS = ("unsupported", "contradicted")
+
+
+def control_tally(verdicts_by_paragraph: list[list[str]]) -> dict[str, Any]:
+    """Counts over re-audited paragraphs, given each paragraph's claim verdicts.
+
+    A paragraph is flagged when at least one claim is unsupported or contradicted; claims that
+    could not be audited (`not_checkable`) are counted apart and left out of the claim denominator.
+    """
+    claims = [v for verdicts in verdicts_by_paragraph for v in verdicts]
+    audited = [v for v in claims if v != "not_checkable"]
+    n_par = len(verdicts_by_paragraph)
+    flagged_par = sum(1 for verdicts in verdicts_by_paragraph if any(v in FLAGGED_VERDICTS for v in verdicts))
+    flagged = sum(1 for v in audited if v in FLAGGED_VERDICTS)
+    return {
+        "paragraphs": n_par,
+        "paragraphs_flagged": flagged_par,
+        "paragraphs_with_partly_supported": sum(1 for verdicts in verdicts_by_paragraph
+                                                if "partially_supported" in verdicts),
+        "paragraph_flag_rate": round(flagged_par / n_par, 3) if n_par else None,
+        "claims_audited": len(audited),
+        "claims_flagged": flagged,
+        "claims_unsupported": audited.count("unsupported"),
+        "claims_contradicted": audited.count("contradicted"),
+        "claims_partly_supported": audited.count("partially_supported"),
+        "claims_supported": audited.count("supported"),
+        "claims_not_checkable": len(claims) - len(audited),
+        "claim_flag_rate": round(flagged / len(audited), 4) if audited else None,
+    }
+
+
+def run_audit_control(run_dir: Path, llm=None) -> dict[str, Any]:
+    """Re-audit the planted test's paragraphs as they were written (no alteration).
+
+    The paragraphs and their papers are read from `audit_check.json`, so they are exactly the
+    ones the planted test altered, whatever the drafts in the run look like now. The audit is
+    `audit_texts`, the procedure the planted test used. Run it under a replicate salt
+    (AIOMIM_REPLICATE) so that every call is made afresh and no earlier verdict is replayed.
+    Writes `audit_control.json` beside `audit_check.json`: counts, ids and verdicts, no
+    paragraph or claim wording.
+    """
+    from .facts import replicate_salt
+    from .sources.fulltext import load_papers
+
+    llm = llm or LLM()
+    planted = json.loads((run_dir / "audit_check.json").read_text(encoding="utf-8"))
+    probes = planted["probes"]
+    papers = {p.pmid: p for p in load_papers(sorted({probe["pmid"] for probe in probes}), with_fulltext=True)}
+    missing = [probe["pmid"] for probe in probes if probe["pmid"] not in papers]
+    probes = [p for p in probes if p["pmid"] in papers]
+    paragraphs = audit_texts(probes, "text", papers, llm)
+
+    rows = []
+    for probe, para in zip(probes, paragraphs):
+        rows.append({"mim": probe["mim"], "paragraph_id": probe["paragraph_id"], "pmid": probe["pmid"],
+                     "content_level": papers[probe["pmid"]].content_level,
+                     "planted_kind": probe["kind"], "planted_result": probe.get("result"),
+                     "result": para.status, "verdicts": [c.verdict for c in para.checks]})
+    levels = sorted({r["content_level"] for r in rows})
+    usage = llm.usage.summary()["total"]
+    result = {
+        "run": run_dir.name, "replicate": replicate_salt(llm) or None, "selection": CONTROL_SELECTION,
+        "procedure": "auditcheck.audit_texts on the original paragraph text, as the planted test on the altered text",
+        "papers_not_loaded": missing,
+        "overall": control_tally([r["verdicts"] for r in rows]),
+        "by_content_level": {lv: control_tally([r["verdicts"] for r in rows if r["content_level"] == lv])
+                             for lv in levels},
+        "planted_overall": planted.get("overall"),
+        "safety_stops": getattr(llm, "safety_stops", None),
+        "usage": {"calls": usage.get("calls"), "cached": usage.get("cached"),
+                  "fresh": (usage.get("calls") or 0) - (usage.get("cached") or 0),
+                  "input_tokens": usage.get("input_tokens"), "output_tokens": usage.get("output_tokens")},
+        "paragraphs": rows,
+    }
+    (run_dir / CONTROL_FILE).write_text(json.dumps(result, indent=2, ensure_ascii=False))
     return result

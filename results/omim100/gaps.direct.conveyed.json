@@ -1,0 +1,1703 @@
+{
+  "run": "omim100",
+  "strategy": "direct",
+  "frozen": true,
+  "n_entries": 97,
+  "n_paragraphs": 466,
+  "n_availability_calls": 0,
+  "n_calls": 385,
+  "n_errors": 0,
+  "safety_stops": 0,
+  "usage": {
+    "calls": 385,
+    "cached": 1,
+    "input_tokens": 6138217,
+    "output_tokens": 191916
+  },
+  "failed_entries": [],
+  "stopped_entries": [
+    "609296",
+    "620609",
+    "621068"
+  ],
+  "judgement": "model judgement (stage judge); not checked by a curator",
+  "headline": {
+    "present": {
+      "n_judged": 1458,
+      "not_in_supplied_text": 24,
+      "at_most_partly_in_supplied_text": 241,
+      "share_not_in_supplied_text": 0.0165,
+      "share_not_fully_in_supplied_text": 0.1818
+    },
+    "partial": {
+      "n_judged": 640,
+      "not_in_supplied_text": 66,
+      "at_most_partly_in_supplied_text": 531,
+      "share_not_in_supplied_text": 0.1031,
+      "share_not_fully_in_supplied_text": 0.9328
+    },
+    "conveyed": {
+      "n_judged": 2098,
+      "not_in_supplied_text": 90,
+      "at_most_partly_in_supplied_text": 772,
+      "share_not_in_supplied_text": 0.0429,
+      "share_not_fully_in_supplied_text": 0.4109
+    }
+  },
+  "by_content_level": {
+    "fulltext": {
+      "present": {
+        "n": 1329,
+        "own": {
+          "yes": 1174,
+          "partly": 136,
+          "no": 19,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 14,
+            "partly": 27,
+            "no": 95,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 8,
+            "partly": 4,
+            "no": 7,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 1174,
+          "partly_stated": 122,
+          "stated_elsewhere": 22,
+          "partly_elsewhere": 4,
+          "not_in_supplied_text": 7,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.8834,
+          "partly_stated": 0.0918,
+          "stated_elsewhere": 0.0166,
+          "partly_elsewhere": 0.003,
+          "not_in_supplied_text": 0.0053
+        }
+      },
+      "partial": {
+        "n": 214,
+        "own": {
+          "yes": 122,
+          "partly": 87,
+          "no": 5,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 1,
+            "partly": 10,
+            "no": 76,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 0,
+            "partly": 1,
+            "no": 4,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 122,
+          "partly_stated": 86,
+          "stated_elsewhere": 1,
+          "partly_elsewhere": 1,
+          "not_in_supplied_text": 4,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.5701,
+          "partly_stated": 0.4019,
+          "stated_elsewhere": 0.0047,
+          "partly_elsewhere": 0.0047,
+          "not_in_supplied_text": 0.0187
+        }
+      },
+      "conveyed": {
+        "n": 1543,
+        "own": {
+          "yes": 1296,
+          "partly": 223,
+          "no": 24,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 15,
+            "partly": 37,
+            "no": 171,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 8,
+            "partly": 5,
+            "no": 11,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 1296,
+          "partly_stated": 208,
+          "stated_elsewhere": 23,
+          "partly_elsewhere": 5,
+          "not_in_supplied_text": 11,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.8399,
+          "partly_stated": 0.1348,
+          "stated_elsewhere": 0.0149,
+          "partly_elsewhere": 0.0032,
+          "not_in_supplied_text": 0.0071
+        }
+      }
+    },
+    "abstract": {
+      "present": {
+        "n": 1420,
+        "own": {
+          "yes": 1061,
+          "partly": 254,
+          "no": 105,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 32,
+            "partly": 54,
+            "no": 166,
+            "no_other_papers": 2,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 70,
+            "partly": 11,
+            "no": 24,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 1061,
+          "partly_stated": 222,
+          "stated_elsewhere": 102,
+          "partly_elsewhere": 11,
+          "not_in_supplied_text": 24,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.7472,
+          "partly_stated": 0.1563,
+          "stated_elsewhere": 0.0718,
+          "partly_elsewhere": 0.0077,
+          "not_in_supplied_text": 0.0169
+        }
+      },
+      "partial": {
+        "n": 583,
+        "own": {
+          "yes": 27,
+          "partly": 474,
+          "no": 82,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 12,
+            "partly": 65,
+            "no": 380,
+            "no_other_papers": 17,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 3,
+            "partly": 21,
+            "no": 57,
+            "no_other_papers": 1,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 27,
+          "partly_stated": 462,
+          "stated_elsewhere": 15,
+          "partly_elsewhere": 21,
+          "not_in_supplied_text": 58,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.0463,
+          "partly_stated": 0.7925,
+          "stated_elsewhere": 0.0257,
+          "partly_elsewhere": 0.036,
+          "not_in_supplied_text": 0.0995
+        }
+      },
+      "conveyed": {
+        "n": 2003,
+        "own": {
+          "yes": 1088,
+          "partly": 728,
+          "no": 187,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 44,
+            "partly": 119,
+            "no": 546,
+            "no_other_papers": 19,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 73,
+            "partly": 32,
+            "no": 81,
+            "no_other_papers": 1,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 1088,
+          "partly_stated": 684,
+          "stated_elsewhere": 117,
+          "partly_elsewhere": 32,
+          "not_in_supplied_text": 82,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.5432,
+          "partly_stated": 0.3415,
+          "stated_elsewhere": 0.0584,
+          "partly_elsewhere": 0.016,
+          "not_in_supplied_text": 0.0409
+        }
+      }
+    },
+    "title": {
+      "present": {
+        "n": 38,
+        "own": {
+          "yes": 27,
+          "partly": 9,
+          "no": 2,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 1,
+            "partly": 1,
+            "no": 7,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 2,
+            "partly": 0,
+            "no": 0,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 27,
+          "partly_stated": 8,
+          "stated_elsewhere": 3,
+          "partly_elsewhere": 0,
+          "not_in_supplied_text": 0,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.7105,
+          "partly_stated": 0.2105,
+          "stated_elsewhere": 0.0789,
+          "partly_elsewhere": 0.0,
+          "not_in_supplied_text": 0.0
+        }
+      },
+      "partial": {
+        "n": 57,
+        "own": {
+          "yes": 0,
+          "partly": 48,
+          "no": 9,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 1,
+            "partly": 4,
+            "no": 43,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 0,
+            "partly": 1,
+            "no": 8,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 0,
+          "partly_stated": 47,
+          "stated_elsewhere": 1,
+          "partly_elsewhere": 1,
+          "not_in_supplied_text": 8,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.0,
+          "partly_stated": 0.8246,
+          "stated_elsewhere": 0.0175,
+          "partly_elsewhere": 0.0175,
+          "not_in_supplied_text": 0.1404
+        }
+      },
+      "conveyed": {
+        "n": 95,
+        "own": {
+          "yes": 27,
+          "partly": 57,
+          "no": 11,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 2,
+            "partly": 5,
+            "no": 50,
+            "no_other_papers": 0,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 2,
+            "partly": 1,
+            "no": 8,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 27,
+          "partly_stated": 55,
+          "stated_elsewhere": 4,
+          "partly_elsewhere": 1,
+          "not_in_supplied_text": 8,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.2842,
+          "partly_stated": 0.5789,
+          "stated_elsewhere": 0.0421,
+          "partly_elsewhere": 0.0105,
+          "not_in_supplied_text": 0.0842
+        }
+      }
+    },
+    "all": {
+      "present": {
+        "n": 2787,
+        "own": {
+          "yes": 2262,
+          "partly": 399,
+          "no": 126,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 47,
+            "partly": 82,
+            "no": 268,
+            "no_other_papers": 2,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 80,
+            "partly": 15,
+            "no": 31,
+            "no_other_papers": 0,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 2262,
+          "partly_stated": 352,
+          "stated_elsewhere": 127,
+          "partly_elsewhere": 15,
+          "not_in_supplied_text": 31,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.8116,
+          "partly_stated": 0.1263,
+          "stated_elsewhere": 0.0456,
+          "partly_elsewhere": 0.0054,
+          "not_in_supplied_text": 0.0111
+        }
+      },
+      "partial": {
+        "n": 854,
+        "own": {
+          "yes": 149,
+          "partly": 609,
+          "no": 96,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 14,
+            "partly": 79,
+            "no": 499,
+            "no_other_papers": 17,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 3,
+            "partly": 23,
+            "no": 69,
+            "no_other_papers": 1,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 149,
+          "partly_stated": 595,
+          "stated_elsewhere": 17,
+          "partly_elsewhere": 23,
+          "not_in_supplied_text": 70,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.1745,
+          "partly_stated": 0.6967,
+          "stated_elsewhere": 0.0199,
+          "partly_elsewhere": 0.0269,
+          "not_in_supplied_text": 0.082
+        }
+      },
+      "conveyed": {
+        "n": 3641,
+        "own": {
+          "yes": 2411,
+          "partly": 1008,
+          "no": 222,
+          "unjudged": 0
+        },
+        "other_given_own": {
+          "partly": {
+            "yes": 61,
+            "partly": 161,
+            "no": 767,
+            "no_other_papers": 19,
+            "unjudged": 0
+          },
+          "no": {
+            "yes": 83,
+            "partly": 38,
+            "no": 100,
+            "no_other_papers": 1,
+            "unjudged": 0
+          }
+        },
+        "class": {
+          "stated": 2411,
+          "partly_stated": 947,
+          "stated_elsewhere": 144,
+          "partly_elsewhere": 38,
+          "not_in_supplied_text": 101,
+          "unjudged": 0
+        },
+        "share": {
+          "stated": 0.6622,
+          "partly_stated": 0.2601,
+          "stated_elsewhere": 0.0395,
+          "partly_elsewhere": 0.0104,
+          "not_in_supplied_text": 0.0277
+        }
+      }
+    }
+  },
+  "entries": {
+    "108770": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 11,
+        "partly_stated": 5,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "118210": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 12,
+        "partly_stated": 6,
+        "stated_elsewhere": 4,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "166780": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 2,
+        "partly_stated": 1,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "167400": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 9,
+        "partly_stated": 14,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "177735": {
+      "n_calls": 12,
+      "n_errors": 0,
+      "classes": {
+        "stated": 55,
+        "partly_stated": 19,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 6,
+        "unjudged": 0
+      }
+    },
+    "186100": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 2,
+        "partly_stated": 7,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "205950": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 2,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "219900": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 0,
+        "partly_stated": 14,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "225060": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 13,
+        "partly_stated": 2,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "225300": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 13,
+        "partly_stated": 10,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "236730": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 6,
+        "partly_stated": 12,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "241800": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 1,
+        "partly_stated": 22,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 4,
+        "unjudged": 0
+      }
+    },
+    "248360": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 38,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "250220": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 18,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "251950": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 32,
+        "partly_stated": 11,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "278750": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 3,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 3,
+        "unjudged": 0
+      }
+    },
+    "300148": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 55,
+        "partly_stated": 7,
+        "stated_elsewhere": 3,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "301059": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 9,
+        "partly_stated": 27,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "302905": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 2,
+        "partly_stated": 4,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "500001": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 20,
+        "partly_stated": 14,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "600204": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 2,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "600251": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 0,
+        "partly_stated": 4,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "600501": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 13,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "600740": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 36,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "603552": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 34,
+        "partly_stated": 10,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "603689": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 8,
+        "stated_elsewhere": 2,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "604307": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 51,
+        "partly_stated": 5,
+        "stated_elsewhere": 4,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 3,
+        "unjudged": 0
+      }
+    },
+    "604928": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 19,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "606763": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 30,
+        "partly_stated": 17,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "606824": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 19,
+        "partly_stated": 1,
+        "stated_elsewhere": 3,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "607602": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 7,
+        "partly_stated": 5,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "607641": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 5,
+        "partly_stated": 7,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "607721": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 34,
+        "partly_stated": 9,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "607734": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 26,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "607876": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 34,
+        "partly_stated": 11,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "608133": {
+      "n_calls": 10,
+      "n_errors": 0,
+      "classes": {
+        "stated": 54,
+        "partly_stated": 17,
+        "stated_elsewhere": 2,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "608885": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 6,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "609057": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "609220": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 9,
+        "partly_stated": 9,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "611521": {
+      "n_calls": 12,
+      "n_errors": 0,
+      "classes": {
+        "stated": 83,
+        "partly_stated": 27,
+        "stated_elsewhere": 14,
+        "partly_elsewhere": 4,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "611880": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 0,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "612847": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 34,
+        "partly_stated": 13,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 3,
+        "unjudged": 0
+      }
+    },
+    "613581": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 9,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "613730": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 42,
+        "partly_stated": 3,
+        "stated_elsewhere": 6,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "613744": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 43,
+        "partly_stated": 10,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "613848": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 4,
+        "partly_stated": 11,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "614501": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 15,
+        "partly_stated": 2,
+        "stated_elsewhere": 2,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "614651": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 20,
+        "partly_stated": 7,
+        "stated_elsewhere": 8,
+        "partly_elsewhere": 5,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "614701": {
+      "n_calls": 10,
+      "n_errors": 0,
+      "classes": {
+        "stated": 8,
+        "partly_stated": 25,
+        "stated_elsewhere": 26,
+        "partly_elsewhere": 5,
+        "not_in_supplied_text": 5,
+        "unjudged": 0
+      }
+    },
+    "614856": {
+      "n_calls": 8,
+      "n_errors": 0,
+      "classes": {
+        "stated": 58,
+        "partly_stated": 16,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "615073": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 30,
+        "partly_stated": 11,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "615268": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 43,
+        "partly_stated": 6,
+        "stated_elsewhere": 3,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "615425": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 17,
+        "partly_stated": 15,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "615493": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 3,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "615582": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 68,
+        "partly_stated": 9,
+        "stated_elsewhere": 3,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 4,
+        "unjudged": 0
+      }
+    },
+    "615631": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 5,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "615710": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 68,
+        "partly_stated": 11,
+        "stated_elsewhere": 17,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "615817": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 22,
+        "partly_stated": 15,
+        "stated_elsewhere": 5,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 4,
+        "unjudged": 0
+      }
+    },
+    "615972": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 32,
+        "partly_stated": 5,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "616151": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 28,
+        "partly_stated": 9,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "616294": {
+      "n_calls": 11,
+      "n_errors": 0,
+      "classes": {
+        "stated": 50,
+        "partly_stated": 22,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 2,
+        "not_in_supplied_text": 4,
+        "unjudged": 0
+      }
+    },
+    "616326": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 25,
+        "partly_stated": 7,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "616482": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 14,
+        "partly_stated": 2,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "616867": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 12,
+        "partly_stated": 13,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "617153": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 14,
+        "partly_stated": 11,
+        "stated_elsewhere": 2,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "617162": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 18,
+        "partly_stated": 13,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "617232": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 73,
+        "partly_stated": 5,
+        "stated_elsewhere": 1,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "617927": {
+      "n_calls": 1,
+      "n_errors": 0,
+      "classes": {
+        "stated": 25,
+        "partly_stated": 2,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "618184": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 7,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "618229": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 18,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "618343": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 45,
+        "partly_stated": 11,
+        "stated_elsewhere": 6,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "618400": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 25,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "618458": {
+      "n_calls": 0,
+      "n_errors": 0,
+      "classes": {
+        "stated": 7,
+        "partly_stated": 5,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "618808": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 16,
+        "partly_stated": 12,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "618875": {
+      "n_calls": 6,
+      "n_errors": 0,
+      "classes": {
+        "stated": 19,
+        "partly_stated": 22,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "619124": {
+      "n_calls": 10,
+      "n_errors": 0,
+      "classes": {
+        "stated": 103,
+        "partly_stated": 25,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "619201": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 33,
+        "partly_stated": 2,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "619681": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 49,
+        "partly_stated": 6,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "619816": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 29,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "620022": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 82,
+        "partly_stated": 21,
+        "stated_elsewhere": 18,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620029": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 46,
+        "partly_stated": 11,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620098": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 9,
+        "partly_stated": 7,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620249": {
+      "n_calls": 7,
+      "n_errors": 0,
+      "classes": {
+        "stated": 47,
+        "partly_stated": 24,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 3,
+        "unjudged": 0
+      }
+    },
+    "620402": {
+      "n_calls": 8,
+      "n_errors": 0,
+      "classes": {
+        "stated": 50,
+        "partly_stated": 21,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "620457": {
+      "n_calls": 0,
+      "n_errors": 0,
+      "classes": {
+        "stated": 20,
+        "partly_stated": 1,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620481": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 62,
+        "partly_stated": 9,
+        "stated_elsewhere": 4,
+        "partly_elsewhere": 3,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620507": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 5,
+        "partly_stated": 17,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "620528": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 5,
+        "partly_stated": 16,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 4,
+        "unjudged": 0
+      }
+    },
+    "620662": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 3,
+        "partly_stated": 5,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 2,
+        "unjudged": 0
+      }
+    },
+    "620670": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 47,
+        "partly_stated": 8,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "620718": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 10,
+        "partly_stated": 20,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 1,
+        "not_in_supplied_text": 7,
+        "unjudged": 0
+      }
+    },
+    "620851": {
+      "n_calls": 3,
+      "n_errors": 0,
+      "classes": {
+        "stated": 15,
+        "partly_stated": 8,
+        "stated_elsewhere": 3,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "621030": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 29,
+        "partly_stated": 3,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "621169": {
+      "n_calls": 2,
+      "n_errors": 0,
+      "classes": {
+        "stated": 17,
+        "partly_stated": 4,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "621214": {
+      "n_calls": 5,
+      "n_errors": 0,
+      "classes": {
+        "stated": 1,
+        "partly_stated": 12,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    },
+    "621224": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 0,
+        "partly_stated": 12,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 1,
+        "unjudged": 0
+      }
+    },
+    "621313": {
+      "n_calls": 4,
+      "n_errors": 0,
+      "classes": {
+        "stated": 31,
+        "partly_stated": 12,
+        "stated_elsewhere": 0,
+        "partly_elsewhere": 0,
+        "not_in_supplied_text": 0,
+        "unjudged": 0
+      }
+    }
+  }
+}

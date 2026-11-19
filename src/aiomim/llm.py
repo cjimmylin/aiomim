@@ -271,6 +271,14 @@ class LLM:
         self.backend = ClaudeCode(self.settings)
         self.cache = DiskCache(self.settings.llm_cache)
         self.usage = UsageLedger()
+        # Replies stopped by the safety filter in this wrapper's calls, from cache or fresh.
+        self.safety_stops = 0
+        self._stops_lock = threading.Lock()
+
+    def _stopped(self) -> LLMRefusal:
+        with self._stops_lock:
+            self.safety_stops += 1
+        return LLMRefusal(SAFETY_STOP)
 
     def call(
         self, stage: str, system: str, prompt: str, output: type[T], *, use_cache: bool = True,
@@ -303,7 +311,7 @@ class LLM:
             if hit is not None:
                 if hit.get("meta", {}).get("safety_stops"):
                     self.usage.add(stage, cached=True, meta=hit.get("meta", {}))
-                    raise LLMRefusal(SAFETY_STOP)
+                    raise self._stopped()
                 try:
                     parsed = output.model_validate(hit["data"])
                 except ValidationError:
@@ -323,7 +331,7 @@ class LLM:
                 if meta.get("safety_stops"):
                     self.cache.put_json(key, {"data": data, "meta": meta})
                     self.usage.add(stage, cached=False, meta=meta)
-                    raise LLMRefusal(SAFETY_STOP)
+                    raise self._stopped()
                 parsed = output.model_validate(data)
                 if accept is not None and not accept(parsed):
                     self.usage.add(stage, cached=False, meta=meta)

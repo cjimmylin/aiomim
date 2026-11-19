@@ -266,6 +266,46 @@ def ablation_tables() -> str:
             + "\n\n**Each strategy against direct reading** (same format).\n\n" + "\n".join(t3))
 
 
+def entry_means(shj: dict) -> str:
+    """Hidden-full-text experiment: per-entry mean coverage beside the pooled levels (frozen fact lists)."""
+    f = shj["coverage_frozen"]
+    pe = f["per_entry"]
+    names = {"abstract": "abstract only", "secondhand": "abstract plus second-hand",
+             "fulltext": "full text (main run's direct draft)"}
+    cells = []
+    for c in ("abstract", "secondhand", "fulltext"):
+        vals = [e[c] for e in pe if e.get(c) is not None]
+        x = f["by_condition"][c]
+        cells.append(f"{names[c]} {pct(st.mean(vals))} mean over entries (n = {len(vals)}), "
+                     f"{pct(x['coverage'])} pooled over facts ({x['n_judged']:,} facts)")
+    return "OMIM facts conveyed on the fixed fact lists: " + "; ".join(cells) + "."
+
+
+def audit_control_item(a: dict) -> str:
+    """Section 11: the unaltered control of the planted-error test, from audit_control.json."""
+    o = a["overall"]
+    return (f"- **Audit control: the same paragraphs unaltered.** The {o['paragraphs']} paragraphs were audited again "
+            f"as written, with fresh model calls (replicate salt `{a['replicate']}`) and the procedure of the planted "
+            f"test. {o['paragraphs_flagged']} of {o['paragraphs']} had at least one claim flagged; "
+            f"{o['claims_flagged']} of {o['claims_audited']:,} claims were flagged ({o['claims_unsupported']} "
+            f"unsupported, {o['claims_contradicted']} contradicted) and {o['claims_partly_supported']} came back partly "
+            f"supported" + (f"; {o['claims_not_checkable']} could not be audited" if o["claims_not_checkable"] else "")
+            + f". Safety stops: {a['safety_stops']}. The paragraphs were selected for having passed the audit once, so "
+            "this is the rate at which a re-audit flags a paragraph that passed before, not the false-flag rate on "
+            "arbitrary paragraphs.")
+
+
+def recent_selection() -> str:
+    """Section 10: how the 2026 entries were chosen (evidence checked in the repository and the model cache)."""
+    n = len(mims_of("recent.tsv"))
+    k = len(json.load(open(RUNS / "recent" / "summary.json"))["strategies"])
+    return (f"The {n} entries were chosen by creation date alone: the newest qualifying entries, by creation month and "
+            "then entry number (`evalset.recent_entries`). They were used in no other run, and no code that shapes how "
+            "the strategies write, audit or repair a draft changed after their drafts were generated: run with the "
+            f"final code, the {k} strategies run on them make only calls answered from the cache of the original calls "
+            "and reproduce the stored drafts exactly (recall, then verify was not run on these entries).")
+
+
 # --------------------------------------------------------------------------- the log
 
 def build() -> str:
@@ -286,6 +326,9 @@ def build() -> str:
                                    "claims_on_secondhand", "paragraphs_on_secondhand"))
     calls, cost, inp, out = cache_totals()
     gaps = read(RUNS / "omim100" / "gaps.direct.frozen.md")
+    conveyed = read(RUNS / "omim100" / "gaps.direct.conveyed.md")
+    actl = json.load(open(RUNS / "omim100" / "audit_control.json"))
+    shj = json.load(open(ROOT / "results" / "omim100_secondhand" / "secondhand_check.json"))
     shc = read(ROOT / "results" / "omim100_secondhand" / "secondhand_check.md")
     lv = ev["levels"]
     gj = json.load(open(RUNS / "omim100" / "gaps.direct.frozen.json"))
@@ -485,11 +528,16 @@ Volume per entry:
 ## 3. Where the missed facts went (direct reading, fixed fact lists)
 
 Each fact direct reading did not fully convey was checked once against the text available for its paper: stated (with a
-quote that was verified in the text), partly stated, or not stated. The check is a model judgement.
+quote that was verified in the text), partly stated, or not stated. The check is a model judgement. Counts and shares in
+this section are pooled over facts.
 
 {gaps.split(chr(10) + chr(10), 2)[2].strip()}
 
 {gap_contradicted}
+
+### 3.1 Where the conveyed facts came from: the supplied text or elsewhere
+
+{conveyed.split(chr(10) + chr(10), 1)[1].strip()}
 
 ## 4. How much the measurement moves
 
@@ -560,8 +608,11 @@ For papers readable in full, the full text was hidden and entries were written b
 with and without second-hand passages. Claims about the hidden papers were then audited against the real full text.
 No repair round was applied to the two new drafts; the full-text draft is the main run's and went through repair.
 Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
-kept beside it. Our full texts exclude supplementary material, so "unsupported by the full text" is an upper bound on
-error.
+kept beside it. Each coverage level below is labelled as pooled over facts or as a mean over entries; the paired
+differences are means over entries. Our full texts exclude supplementary material, so "unsupported by the full text" is
+an upper bound on error.
+
+{entry_means(shj)}
 
 {shc_body}
 
@@ -668,12 +719,15 @@ memory-only control is the empirical test.
 Stopped replies were frequent on these entries: the agentic curator's writer was stopped on 6 of 30, direct reading's
 on 2, and the evidence graph lost a paper on 7.
 
+{recent_selection()}
+
 ## 11. Earlier analyses on the main set
 
 - **Planted errors.** In 60 paragraphs the audit had passed, one fact was altered by rule (a count, a zygosity, a
   residue or a mode of inheritance). The audit flagged all 60, each on a claim containing the altered value. The test
-  measures sensitivity to blunt single-fact substitutions only; no unaltered controls were run, so the false-flag rate
-  is unknown, and omissions and misattributions are not tested. In 6 of the 60 other claims were also flagged.
+  measures sensitivity to blunt single-fact substitutions only; omissions and misattributions are not tested. In 6 of
+  the 60 other claims were also flagged.
+{audit_control_item(actl)}
 - **Disagreements between a draft and the reference.** Facts on which a direct-reading draft contradicted the OMIM
   paragraph were re-examined against the paper by the same model: of 37, the paper was judged to support the draft in
   22, the reference in 1, both in 1, and 13 could not be decided from the readable text. These are unconfirmed leads; no

@@ -10,32 +10,38 @@ Source run `omim100`; 49 entries. In each, the papers read in full were hidden a
 
 ## OMIM-fact coverage on the frozen fact lists (main measure)
 
-Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged.
+Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, `gold_text_frozen`) restricted to the same paragraphs. 46 entries with a full-text draft in the source run, 136 paragraphs scored under all three conditions (the same entries, paragraphs and fact lists in every row). Coverage = (present + half of partial) / facts judged, pooled over facts; the last column is the mean of per-entry coverage over the same entries, the unit of the paired differences below.
 
-| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen) | Coverage (old scoring) |
-|---|---|---|---|---|---|---|---|---|---|
-| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% |
-| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% |
-| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% |
+| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage (frozen), pooled over facts | Coverage (old scoring), pooled over facts | Coverage (frozen), mean over entries |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Abstract only | 46 | 136 | 2120 | 495 | 331 | 1290 | 4 | 31.2% | 35.5% | 36.1% |
+| Abstract + second-hand | 46 | 136 | 2120 | 629 | 297 | 1184 | 10 | 36.7% | 41.4% | 40.9% |
+| Full text (source run's direct draft) | 46 | 136 | 2120 | 1513 | 254 | 343 | 10 | 77.4% | 78.6% | 79.9% |
 
-Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
+Paired differences, mean over entries (percentage points of per-entry coverage), bootstrap 95% interval over entries (10,000 resamples, seed 20261119); the old-scoring column uses the same entries.
 
 | Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | better / worse / tied |
 |---|---|---|---|---|---|
 | Abstract + second-hand minus abstract only | 46 | +4.9 (+2.8 to +7.1) | 33 / 9 / 4 | +5.3 (+3.6 to +7.2) | 36 / 7 / 3 |
 | Full text minus abstract only | 46 | +43.9 (+38.5 to +49.3) | 45 / 0 / 1 | +41.7 (+36.7 to +46.6) | 46 / 0 / 0 |
 
+## Repair parity: what the repair round changed in the full-text drafts
+
+The full-text row is the source run's direct-reading draft, which went through the audit's repair round; the two abstract drafts did not. Over the 46 entries compared, the audit before repair flagged 13 of 6,609 audited claims (13 unsupported, 0 contradicted) in 11 paragraphs of 8 entries; the repair revised 11 paragraphs and deleted 0. 11 of the 11 revised paragraphs were located in the final drafts, and 11 of them cite a hidden paper; 13 of the flagged claims lie in paragraphs citing a hidden paper. After repair the drafts hold 6,637 audited claims, 5,328 of them in paragraphs citing a hidden paper.
+
+The pipeline does not keep the draft as it was before repair, so the full-text draft could not be scored before repair; no draft was regenerated.
+
 ## OMIM-fact coverage of the gold paragraphs about the hidden papers (old scoring: facts split afresh for each draft)
 
 Pooled over the 46 entries that have a full-text draft in the source run, the same entries for all three conditions; left out: 3 entries whose full-text direct draft was not written (the writer's reply was stopped), so they have no full-text coverage to compare: 609296, 620609, 621068.
 
-| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage |
+| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage, pooled over facts |
 |---|---|---|---|---|---|---|---|
 | Abstract only | 136 | 1783 | 452 | 362 | 966 | 3 | 35.5% |
 | Abstract + second-hand | 136 | 1802 | 565 | 362 | 864 | 11 | 41.4% |
 | Full text (source run's direct draft) | 136 | 1767 | 1268 | 243 | 246 | 10 | 78.6% |
 
-Over all 49 entries the two new conditions convey 35.3% (abstract only, 1876 facts) and 41.1% (abstract + second-hand, 1889 facts).
+Over all 49 entries the two new conditions convey 35.3% (abstract only, 1876 facts) and 41.1% (abstract + second-hand, 1889 facts), pooled over facts.
 
 Facts are split from the gold paragraph separately for each condition, so the fact counts differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.
 

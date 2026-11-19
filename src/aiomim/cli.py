@@ -244,11 +244,19 @@ def compare(run_name, baseline, entries_file, tag):
 @click.option("--frozen", is_flag=True,
               help="Use the frozen fact lists (after `rescore`): availability is judged once per paragraph and "
                    "shared by every strategy; writes gaps.<strategy>.frozen.*.")
-def gaps(run_name, strategy, entries_file, jobs, frozen):
+@click.option("--conveyed", is_flag=True,
+              help="The converse, on the frozen fact lists: are the facts the draft conveyed stated in the text it "
+                   "had (then in the entry's other papers)? Writes gaps.<strategy>.conveyed.*.")
+def gaps(run_name, strategy, entries_file, jobs, frozen, conveyed):
     """Split the OMIM facts a draft missed into ones the available text had (omission) and ones it lacked (access)."""
-    from .gaps import gaps_markdown, gaps_run
+    from .gaps import conveyed_markdown, conveyed_run, gaps_markdown, gaps_run
 
     run_dir = get_settings().runs / run_name
+    if conveyed:
+        result = conveyed_run(run_dir, strategy, entries=_read_mims(entries_file) if entries_file else None,
+                              jobs=jobs)
+        click.echo(conveyed_markdown(result, run_name, strategy))
+        return
     result = gaps_run(run_dir, strategy, entries=_read_mims(entries_file) if entries_file else None, jobs=jobs,
                       frozen=frozen)
     click.echo(gaps_markdown(result, run_name, strategy))
@@ -476,6 +484,26 @@ def audit_check(run_name, n, seed):
         click.echo(f"  {kind:24s} n={row['n']:<3} detected={row['detection_rate']}  missed={row['missed']}")
     for level, row in result["by_content_level"].items():
         click.echo(f"  paper read as {level:9s} n={row['n']:<3} detected={row['detection_rate']}  missed={row['missed']}")
+
+
+@main.command(name="audit-control")
+@click.argument("run_name")
+def audit_control(run_name):
+    """Re-audit the planted test's paragraphs unaltered: how often a re-audit flags a paragraph that passed once.
+
+    Run under AIOMIM_REPLICATE=<salt> so every call is made afresh. Writes audit_control.json.
+    """
+    from .auditcheck import run_audit_control
+
+    if not get_settings().replicate:
+        raise click.UsageError("set AIOMIM_REPLICATE=<salt>: the control must not replay cached verdicts")
+    result = run_audit_control(get_settings().runs / run_name)
+    o = result["overall"]
+    click.echo(f"{o['paragraphs']} unaltered paragraphs: {o['paragraphs_flagged']} with a claim flagged; "
+               f"{o['claims_flagged']} of {o['claims_audited']} claims flagged ({o['claims_unsupported']} unsupported, "
+               f"{o['claims_contradicted']} contradicted), {o['claims_partly_supported']} partly supported, "
+               f"{o['claims_not_checkable']} not checkable. Safety stops: {result['safety_stops']}. "
+               f"Calls: {result['usage']['fresh']} fresh, {result['usage']['cached']} cached.")
 
 
 @main.command(name="secondhand-check")

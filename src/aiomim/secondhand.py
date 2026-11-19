@@ -432,6 +432,11 @@ def reaggregate(run: str, source: str | None = None, *, frozen: bool = False, jo
         if usage_frozen:
             frozen_summary["usage"] = usage_frozen
         summary["coverage_frozen"] = frozen_summary
+    if frozen_summary:
+        mims = [e["mim"] for e in frozen_summary["per_entry"]]
+        cache_root = getattr(settings, "llm_cache", None)
+        if cache_root and all((settings.runs / source / m / "entry.direct.json").exists() for m in mims):
+            summary[REPAIR_KEY] = repair_parity(settings.runs / source, run_dir, mims, cache_root)
     _write(run_dir / "secondhand_check.json", summary)
     _write(run_dir / "secondhand_check.md", check_markdown(summary))
     return summary
@@ -612,6 +617,123 @@ def pool_frozen(run_dir: Path, results: list[dict[str, Any]], no_fulltext_draft:
     }
 
 
+# --------------------------------------------------------------------------- #
+# Repair parity: what the audit's repair round changed in the full-text arm
+# --------------------------------------------------------------------------- #
+
+REPAIR_KEY = "repair_parity"
+
+
+def cached_revisions(cache_root: Path) -> list[list[dict[str, str]]]:
+    """Every cached repair reply (`verify.XRevisions`: a list of {paragraph_id, text}), read without a model call.
+
+    The repair prompt contains the paragraph as it was before repair, which the run does not keep, so a
+    reply cannot be looked up by its key; it is recognised by its shape instead.
+    """
+    out = []
+    for path in Path(cache_root).glob("*/*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8")).get("data")
+        except (OSError, ValueError, AttributeError):
+            continue
+        if not isinstance(data, dict) or set(data) != {"paragraphs"} or not isinstance(data["paragraphs"], list):
+            continue
+        rows = data["paragraphs"]
+        if rows and all(isinstance(r, dict) and set(r) == {"paragraph_id", "text"} for r in rows):
+            out.append(rows)
+    return out
+
+
+def repair_tally(entries: list[dict[str, Any]]) -> dict[str, Any]:
+    """Pool per-entry repair counts (pure). Each entry: meta `audit_before_repair` and `repair` counts, claims
+    after repair, and the revised paragraphs located among the final draft's paragraphs."""
+    t = {"entries": len(entries), "entries_repaired": sum(1 for e in entries if e["paragraphs_flagged"]),
+         **{k: sum(e[k] for e in entries) for k in (
+             "claims_before_repair", "claims_flagged_before_repair", "claims_unsupported_before_repair",
+             "claims_contradicted_before_repair", "claims_not_checkable_before_repair", "paragraphs_flagged", "paragraphs_revised", "paragraphs_deleted",
+             "claims_after_repair", "claims_after_repair_in_hidden_paragraphs", "revised_located",
+             "revised_located_citing_hidden")}}
+    # Flagged claims that lie in paragraphs citing a hidden paper: certain only where every flagged
+    # paragraph of the entry was located and cites one.
+    t["claims_flagged_in_hidden_paragraphs"] = sum(
+        e["claims_flagged_before_repair"] for e in entries
+        if e["paragraphs_flagged"] and e["revised_located_citing_hidden"] == e["paragraphs_flagged"])
+    t["entries_not_fully_located"] = sorted(e["mim"] for e in entries
+                                            if e["revised_located"] < e["paragraphs_revised"])
+    return t
+
+
+def repair_parity(source_dir: Path, run_dir: Path, mims: list[str], cache_root: Path | None = None) -> dict[str, Any]:
+    """How much the repair round changed the source run's direct drafts (the full-text arm), no model calls.
+
+    From `entry.direct.json` meta: claims audited and flagged before repair, paragraphs the repair
+    flagged, revised and deleted. Revised paragraphs are located in the final draft by matching the
+    cached repair replies' text, so they can be split by whether they cite a hidden paper. The draft
+    as it was before repair is not kept by the pipeline, so it cannot be scored.
+    """
+    from .models import GeneratedEntry
+
+    cache_root = cache_root or get_settings().llm_cache
+    revised_texts = {squash(r["text"]) for rows in cached_revisions(cache_root) for r in rows if squash(r["text"])}
+    entries = []
+    for mim in mims:
+        entry = GeneratedEntry.model_validate_json((source_dir / mim / "entry.direct.json").read_text(encoding="utf-8"))
+        hidden = set(json.loads((run_dir / mim / "secondhand_check" / "result.json").read_text())["hidden_papers"])
+        before = entry.meta.get("audit_before_repair", {})
+        rep = entry.meta.get("repair", {})
+        paras = entry.all_paragraphs()
+        located = [p for p in paras if p.text in revised_texts] if rep.get("revised") else []
+        entries.append({
+            "mim": mim,
+            "claims_before_repair": before.get("n_claims", 0),
+            "claims_unsupported_before_repair": before.get("unsupported", 0),
+            "claims_contradicted_before_repair": before.get("contradicted", 0),
+            "claims_flagged_before_repair": before.get("unsupported", 0) + before.get("contradicted", 0),
+            "paragraphs_flagged": rep.get("flagged", 0), "paragraphs_revised": rep.get("revised", 0),
+            "paragraphs_deleted": rep.get("deleted", 0),
+            "claims_not_checkable_before_repair": before.get("not_checkable", 0),
+            # Audited claims, as `n_claims` counts them (claims that could not be audited are left out).
+            "claims_after_repair": sum(1 for p in paras for c in p.checks if c.verdict != "not_checkable"),
+            "claims_after_repair_in_hidden_paragraphs": sum(
+                1 for p in paras if set(p.checked_pmids) & hidden for c in p.checks if c.verdict != "not_checkable"),
+            "revised_located": len(located),
+            "revised_located_citing_hidden": sum(1 for p in located if set(p.checked_pmids) & hidden),
+            "revised_paragraph_ids": [p.id for p in located],
+        })
+    return {
+        "source": f"{source_dir.name}/<mim>/entry.direct.json (meta audit_before_repair, repair; paragraph checks)",
+        "before_repair_draft_kept": False,
+        "note": "The pipeline keeps only counts from the audit before repair, not the draft text, so the full-text "
+                "draft cannot be scored as it was before repair. Revised paragraphs are located by matching the "
+                "cached repair replies to the final draft's paragraphs (no model call). The repair round is "
+                "instructed to correct or remove flagged claims and to add nothing.",
+        "total": repair_tally(entries), "per_entry": [e for e in entries if e["paragraphs_flagged"]],
+    }
+
+
+def repair_markdown(r: dict[str, Any]) -> list[str]:
+    t = r["total"]
+    return [
+        "## Repair parity: what the repair round changed in the full-text drafts",
+        "",
+        f"The full-text row is the source run's direct-reading draft, which went through the audit's repair round; the "
+        f"two abstract drafts did not. Over the {t['entries']} entries compared, the audit before repair flagged "
+        f"{t['claims_flagged_before_repair']} of {t['claims_before_repair']:,} audited claims "
+        f"({t['claims_unsupported_before_repair']} unsupported, {t['claims_contradicted_before_repair']} contradicted) "
+        f"in {t['paragraphs_flagged']} paragraphs of {t['entries_repaired']} entries; the repair revised "
+        f"{t['paragraphs_revised']} paragraphs and deleted {t['paragraphs_deleted']}. "
+        f"{t['revised_located']} of the {t['paragraphs_revised']} revised paragraphs were located in the final drafts, "
+        f"and {t['revised_located_citing_hidden']} of them cite a hidden paper; {t['claims_flagged_in_hidden_paragraphs']} "
+        f"of the flagged claims lie in paragraphs citing a hidden paper. After repair the drafts hold "
+        f"{t['claims_after_repair']:,} audited claims, {t['claims_after_repair_in_hidden_paragraphs']:,} of them in paragraphs "
+        f"citing a hidden paper.",
+        "",
+        "The pipeline does not keep the draft as it was before repair, so the full-text draft could not be scored "
+        "before repair; no draft was regenerated.",
+        "",
+    ]
+
+
 def _pct(x) -> str:
     return "-" if x is None else f"{100 * x:.1f}%"
 
@@ -624,8 +746,15 @@ def _pp(x) -> str:
     return "-" if x is None else f"{100 * x:+.1f}"
 
 
+def frozen_entry_mean(f: dict[str, Any], condition: str) -> float | None:
+    """Mean over entries of per-entry frozen coverage (`per_entry` of `coverage_frozen`)."""
+    vals = [e[condition] for e in f.get("per_entry", []) if e.get(condition) is not None]
+    return sum(vals) / len(vals) if vals else None
+
+
 def frozen_markdown(f: dict[str, Any], old: dict[str, Any] | None = None) -> list[str]:
     """The frozen-list coverage section: counts per condition, paired differences, old numbers beside."""
+    means = {n: frozen_entry_mean(f, n) for n in CONDITIONS}
     lines = [
         "## OMIM-fact coverage on the frozen fact lists (main measure)",
         "",
@@ -637,21 +766,24 @@ def frozen_markdown(f: dict[str, Any], old: dict[str, Any] | None = None) -> lis
         "under all three conditions (the same entries, paragraphs and fact lists in every row"
         + (f"; {f['paragraphs_dropped_not_scored_under_all_three']} paragraphs left out because one condition had "
            "no frozen score" if f.get("paragraphs_dropped_not_scored_under_all_three") else "")
-        + "). Coverage = (present + half of partial) / facts judged.",
+        + "). Coverage = (present + half of partial) / facts judged, pooled over facts; the last column is the mean "
+        "of per-entry coverage over the same entries, the unit of the paired differences below.",
         "",
         "| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage "
-        "(frozen) | Coverage (old scoring) |",
-        "|---|---|---|---|---|---|---|---|---|---|",
+        "(frozen), pooled over facts | Coverage (old scoring), pooled over facts | Coverage (frozen), mean over "
+        "entries |",
+        "|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for name in CONDITIONS:
         x = f["by_condition"][name]
         o = (old or {}).get(name, {}).get("coverage")
         lines.append(f"| {_NAMES[name]} | {f['n_entries']} | {x['paragraphs']} | {x['n_judged']} | {x['present']} | "
-                     f"{x['partial']} | {x['absent']} | {x['contradicted']} | {_pct(x['coverage'])} | {_pct(o)} |")
+                     f"{x['partial']} | {x['absent']} | {x['contradicted']} | {_pct(x['coverage'])} | {_pct(o)} | "
+                     f"{_pct(means[name])} |")
     unjudged = sum(f["by_condition"][n]["unjudged"] for n in CONDITIONS)
     if unjudged:
         lines += ["", f"{unjudged} facts got no verdict and are left out of the rates."]
-    lines += ["", f"Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% "
+    lines += ["", f"Paired differences, mean over entries (percentage points of per-entry coverage), bootstrap 95% "
               f"interval over entries ({f['bootstrap']['resamples']:,} resamples, seed {f['bootstrap']['seed']}); "
               "the old-scoring column uses the same entries.", "",
               "| Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | "
@@ -695,6 +827,8 @@ def check_markdown(s: dict[str, Any]) -> str:
     ]
     if s.get("coverage_frozen"):
         lines += frozen_markdown(s["coverage_frozen"], c)
+    if s.get(REPAIR_KEY):
+        lines += repair_markdown(s[REPAIR_KEY])
     lines += [
         "## OMIM-fact coverage of the gold paragraphs about the hidden papers"
         + (" (old scoring: facts split afresh for each draft)" if s.get("coverage_frozen") else ""),
@@ -705,7 +839,7 @@ def check_markdown(s: dict[str, Any]) -> str:
            f"(the writer's reply was stopped), so they have no full-text coverage to compare: "
            f"{', '.join(s['left_out_no_fulltext_draft'])}" if s.get("left_out_no_fulltext_draft") else "") + ".",
         "",
-        "| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage |",
+        "| Condition | Paragraphs | Facts | Present | Partial | Absent | Contradicted | Coverage, pooled over facts |",
         "|---|---|---|---|---|---|---|---|",
     ]
     names = {"abstract": "Abstract only", "secondhand": "Abstract + second-hand",
@@ -718,7 +852,8 @@ def check_markdown(s: dict[str, Any]) -> str:
         a = s["coverage_all_entries"]
         lines += ["", f"Over all {s['n_entries']} entries the two new conditions convey "
                   f"{_pct(a['abstract']['coverage'])} (abstract only, {a['abstract']['n_facts']} facts) and "
-                  f"{_pct(a['secondhand']['coverage'])} (abstract + second-hand, {a['secondhand']['n_facts']} facts)."]
+                  f"{_pct(a['secondhand']['coverage'])} (abstract + second-hand, {a['secondhand']['n_facts']} facts), "
+                  "pooled over facts."]
     lines += ["", "Facts are split from the gold paragraph separately for each condition, so the fact counts "
               "differ slightly. The full-text draft went through the audit's repair round; the two new drafts did not.",
               "", "## Claims about the hidden papers in the second-hand draft", "",
