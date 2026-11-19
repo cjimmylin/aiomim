@@ -1,6 +1,9 @@
 /* OMIM draft review page. Vanilla JS, no dependencies.
    All data comes from the JSON block #report-data; every string from it is inserted with
-   textContent / setAttribute through h(), never as HTML. */
+   textContent / setAttribute through h(), never as HTML.
+   The page knows nothing about particular generation strategies: their names, labels, summaries
+   and which of them is a control all come from the data (DATA.strategy_info), and an entry may
+   have a draft from any subset of them. */
 (function () {
   'use strict';
 
@@ -23,6 +26,8 @@
   const isControl = (s) => !!stratInfo(s).control;
   // The label without a trailing "(control)", for places where a Control tag is shown beside it.
   const stratName = (s) => stratLabel(s).replace(/\s*\(control\)\s*$/i, '') || stratLabel(s);
+  // Strategy names go into the link hash, which may hold only letters, digits and hyphens.
+  const stratSlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'draft';
   const draftName = (s) => 'the “' + stratName(s) + '” draft' + (isControl(s) ? ' (a control)' : '');
 
   const STATUS = {
@@ -394,7 +399,7 @@
       const parts = raw.slice(6).split('--');
       const item = byKey.get(parts[0]);
       if (!item) return { view: 'missing' };
-      let strategy = parts[2] && item.strategies.indexOf(parts[2]) >= 0 ? parts[2] : (item.strategies[0] || null);
+      let strategy = (parts[2] && item.strategies.find((x) => stratSlug(x) === parts[2])) || item.strategies[0] || null;
       let tab = ['review', 'gold', 'evidence', 'updates'].indexOf(parts[1]) >= 0 ? parts[1] : 'review';
       if (tab === 'review' && !strategy && item.has_updates) tab = 'updates';
       return { view: 'entry', item: item, tab: tab, strategy: strategy };
@@ -405,7 +410,7 @@
     let out = 'entry-' + item.key;
     const s = strategy && strategy !== item.strategies[0] ? strategy : null;
     if ((tab && tab !== 'review') || s) out += '--' + (tab || 'review');
-    if (s) out += '--' + s;
+    if (s) out += '--' + stratSlug(s);
     return '#' + out;
   }
 
@@ -619,7 +624,8 @@
       sec.append(metricTable(strategies, m));
     } else {
       if (strategies.length) sec.append(h('p', { class: 'small muted' }, 'Showing ' + draftName(s) + '. ' + stratAbout(s) + ' Select an entry to review it.'));
-      sec.append(scoreTable(s, strategies.length > 1));
+      else sec.append(h('p', { class: 'small muted' }, 'No entry of this run has a draft yet.'));
+      sec.append(scoreTable(s || '', strategies.length > 1));
     }
     sec.append(legend(false));
     return sec;
@@ -669,7 +675,7 @@
     tbody.append(h('tr', { class: 'mean' }, h('td', null, 'Mean of entries with a value'), showDrafts ? h('td', null, '') : null, h('td', null, ''),
       METRICS.map((m) => h('td', { class: 'n' }, fmt(mean[m.key], m.fmt))), h('td', null, '')));
     return h('div', { class: 'table-scroll' }, h('table', { class: 'data' },
-      h('caption', { class: 'visually-hidden' }, 'Scores for each entry, ' + stratLabel(s)),
+      h('caption', { class: 'visually-hidden' }, 'Scores for each entry' + (s ? ', ' + stratLabel(s) : '')),
       h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Entry'),
         showDrafts ? h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'How many of the run’s strategies have a draft of this entry' }, 'Drafts')) : null,
         h('th', { scope: 'col' }, 'Your review'),
@@ -770,14 +776,13 @@
     const head = (first, list, withBaseline) => h('thead', null, h('tr', null, h('th', { scope: 'col' }, first),
       (list || names).map((s) => h('th', { class: ctl(s, 'n'), scope: 'col' }, stratTitle(s, withBaseline)))));
     // rows of {label, higher_is_better, values:{strategy: v}, n:{strategy: n}}
-    const meansTable = (rows, caption, format, groupN) => h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
-      h('caption', { class: 'visually-hidden' }, caption), head('Score', names, true),
+    const meansTable = (rows, caption, format, first) => h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+      h('caption', { class: 'visually-hidden' }, caption), head(first || 'Score', names, true),
       h('tbody', null, (rows || []).map((r) => h('tr', null, metricLabel(r), names.map((s) => {
         const v = (r.values || {})[s];
         const k = (r.n || {})[s];
-        const expect = isNum(groupN) ? groupN : n;
         return h('td', { class: ctl(s, 'n'), title: isNum(k) ? 'Mean over ' + plural(k, 'entry', 'entries') : null }, format(v, r),
-          isNum(k) && isNum(v) && k !== expect ? h('div', { class: 'cmp-pair' }, 'n = ' + k) : null);
+          isNum(k) && isNum(v) && k !== n ? h('div', { class: 'cmp-pair' }, 'n = ' + k) : null);
       }))))));
     const pctOrF1 = (v, r) => fmtCmp(v, cmpKind(r.metric));
 
@@ -788,7 +793,7 @@
       if ((c.volume || []).length) {
         sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'How much each strategy writes'),
           h('p', { class: 'small muted' }, 'Mean per entry. More text gives more chances both to convey a fact and to get one wrong, so read the scores above with these in mind.'),
-          meansTable(c.volume, 'Amount written per entry, by strategy', (v) => (isNum(v) ? v.toFixed(1) : '–'))));
+          meansTable(c.volume, 'Amount written per entry, by strategy', (v) => (isNum(v) ? v.toFixed(1) : '–'), 'Per entry')));
       }
     }
 
@@ -1288,7 +1293,7 @@
     } else if (s) controls.append(h('span', { class: 'small muted' }, stratTitle(s)));
     if (s && (item.pids[s] || []).length) controls.append(progressEl(item, s));
     wrap.append(controls);
-    if (s && stratAbout(s) && item.strategies.length > 1) wrap.append(h('p', { class: 'small muted strat-about' }, h('strong', null, stratName(s) + ': '), stratAbout(s)));
+    if (s && stratAbout(s) && item.strategies.length > 1 && !isControl(s)) wrap.append(h('p', { class: 'small muted strat-about' }, h('strong', null, stratName(s) + ': '), stratAbout(s)));
     const missing = STRATS.filter((x) => item.strategies.indexOf(x) < 0);
     if (item.strategies.length > 1 && route.tab !== 'gold') {
       wrap.append(h('details', { class: 'legend entry-scores', open: state.open.has('entry-scores') || null,

@@ -8,6 +8,15 @@ data goes into `report_data/<entry>.js`, which the page loads with a <script>
 element when the entry is opened (this works from file://, where fetch() does
 not). Paper full text is never embedded; only what the page shows is kept.
 
+A run may hold drafts from any number of generation strategies, and an entry may have only
+some of them. Their labels and summaries come from `strategies.json` (written by `aiomim
+compare`) or, failing that, from the strategy registry; nothing here or in the page is tied to
+particular strategy names. A strategy's own working files (the case table of "cohort", the
+memory audit of "recall") are cut down and capped before they are embedded.
+
+A single file with a lot of entry data embeds each entry gzip-compressed and the page
+unpacks it when the entry is opened, which keeps a 100-entry, six-strategy run under 10 MB.
+
     build_report(run_dir)  ->  run_dir / "report.html"  [+ run_dir / "report_data/*.js"]
 """
 

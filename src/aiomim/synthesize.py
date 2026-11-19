@@ -575,7 +575,11 @@ best-matching Human Phenotype Ontology term name and the PMIDs reporting it.\
 DIRECT_TOTAL_CHARS = 600_000
 
 
-def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEntry:
+def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
+                      strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
+    """All papers in one prompt. `extra_rules` is appended to the system prompt, for
+    strategies that are direct reading plus something (a learned guide, second-hand
+    evidence); with none, the prompt is exactly the baseline's."""
     per_paper = max(20_000, DIRECT_TOTAL_CHARS // max(1, len(papers)))
     truncated = []
     blocks = []
@@ -592,9 +596,10 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
         f"Reference data from HGNC (nomenclature only, not literature evidence):\n{gene_ref or 'none supplied'}\n\n"
         + "\n\n".join(blocks)
     )
-    raw = llm.call("synthesize", DIRECT_SYSTEM, prompt, DEntry)
-    return draft_to_entry(seed, papers, raw, llm, strategy="direct", gene_facts=gene_facts,
-                          meta={"truncated_papers": truncated})
+    system = DIRECT_SYSTEM + (f"\n\n{extra_rules.strip()}" if extra_rules.strip() else "")
+    raw = llm.call("synthesize", system, prompt, DEntry)
+    return draft_to_entry(seed, papers, raw, llm, strategy=strategy, gene_facts=gene_facts,
+                          meta={"truncated_papers": truncated, **(meta or {})})
 
 
 def draft_to_entry(

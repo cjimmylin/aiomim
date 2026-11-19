@@ -13,7 +13,7 @@ from pathlib import Path
 
 # Stages that call the LLM. Each can be pointed at a different model / effort.
 STAGES = ("plan", "triage", "extract", "normalize", "synthesize", "verify", "judge", "update",
-          "agent", "recall", "cases")
+          "agent", "recall", "cases", "reconcile", "reflect")
 
 DEFAULT_MODEL = "claude-opus-5-5"
 
@@ -31,6 +31,8 @@ DEFAULT_EFFORT = {
     "agent": "high",    # the autonomous curator: reads, checks and writes in one session
     "recall": "high",   # writing from memory
     "cases": "medium",  # per-paper case-record extraction
+    "reconcile": "high",  # deciding which records across papers are the same patient, family or variant
+    "reflect": "high",    # turning a training split's misses and extras into a curation guide
 }
 
 

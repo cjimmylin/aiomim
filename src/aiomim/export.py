@@ -8,7 +8,7 @@ from pathlib import Path
 
 # Per-entry files copied as they are. gold.json is deliberately absent.
 COPY = ("seed.json", "retrieval.json", "papers.json", "extractions.json", "kg.json", "kg_triples.tsv",
-        "cohort.json", "usage.json", "updates.json", "updates.md")
+        "cohort.json", "recall.memory_audit.json", "usage.json", "updates.json", "updates.md")
 ENTRY_GLOBS = ("entry.*.json", "entry.*.md")
 RUN_FILES = ("summary.json", "strategies.json", "strategies.md", "comparison.json", "comparison.md",
              "backtest.json", "audit_check.json", "adjudication.json", "candidate_corrections.md")

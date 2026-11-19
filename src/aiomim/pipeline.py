@@ -30,7 +30,7 @@ from .llm import LLM
 from .models import GeneratedEntry, GoldEntry, Paper, PaperExtraction, Seed
 from .render import entry_markdown
 from .retrieve import retrieve_open, retrieve_oracle
-from .strategies import STRATEGIES, run_strategy
+from .strategies import STRATEGIES, after_audit, audit_papers, run_strategy
 from .verify import repair_entry, verdict_counts, verify_entry
 
 log = logging.getLogger(__name__)
@@ -101,14 +101,19 @@ def build_entries(
         if cfg.verify and spec.audit:
             _phase(s_llm, "audit")
             log.info("[%s] %s: auditing %d paragraphs", name_, strategy, len(entry.all_paragraphs()))
-            verify_entry(entry, by_pmid, s_llm)
+            # A strategy that wrote from more text than the papers as retrieved
+            # (second-hand evidence) is audited against that same text.
+            read = audit_papers(strategy, papers, out_dir)
+            audit_by_pmid = by_pmid if read is papers else {p.pmid: p for p in read}
+            verify_entry(entry, audit_by_pmid, s_llm)
             before = eval_faithfulness(entry)
             before.pop("before_repair", None)
             entry.meta["audit_before_repair"] = before
             if cfg.repair and spec.repair:
-                repair_entry(entry, by_pmid, s_llm)
+                repair_entry(entry, audit_by_pmid, s_llm)
                 entry.assign_paragraph_ids()
             entry.meta["audit"] = verdict_counts(entry)
+            after_audit(strategy, entry, read, out_dir)
         _write(out_dir / f"entry.{strategy}.json", entry.model_dump())
         _write(out_dir / f"entry.{strategy}.md", entry_markdown(entry))
         entries[strategy] = entry

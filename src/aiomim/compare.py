@@ -375,7 +375,8 @@ def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7) -
     return {
         "run": run_dir.name, "baseline": baseline, "n_entries": len(common),
         "strategies": [{"name": s, "label": STRATEGIES[s].label if s in STRATEGIES else s,
-                        "summary": STRATEGIES[s].summary if s in STRATEGIES else "", "n_entries": len(evals[s])}
+                        "summary": STRATEGIES[s].summary if s in STRATEGIES else "",
+                        "control": bool(s in STRATEGIES and STRATEGIES[s].control), "n_entries": len(evals[s])}
                        for s in evals],
         "means": _means(by_strategy, METRICS),
         "volume": _means(by_strategy, VOLUME),
