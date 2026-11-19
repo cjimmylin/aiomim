@@ -61,11 +61,12 @@ that can hold all of them in context writes an equally faithful entry directly. 
 points. The graph draft finds more (about 30% more clinical-synopsis terms and 20% more variants; HPO recall +2.3 points,
 95% interval −0.3 to +4.9) at lower agreement with OMIM (HPO precision −3.5 points, interval −6.7 to −0.6;
 hierarchical F1 −1.7, interval −3.0 to −0.4). Where most papers were readable in full, the direct draft conveyed more
-of OMIM's facts (70.5% against 66.0% over 23 entries), which points to detail lost in the extraction step. What the graph does provide is structure and provenance: each paragraph lists the findings it
-rests on, each finding its quotes, and the gene, inheritance and variant tables are computed rather than written.
+of OMIM's facts (70.5% against 66.0% over 23 entries), which points to detail lost in the extraction step. What the
+graph does provide is structure and provenance: each paragraph lists the findings it rests on, each finding its
+quotes, and the gene, inheritance and variant tables are computed rather than written.
 Whether it helps for entries with hundreds of references, which no context window holds, was not tested.
 
-**4. Most disagreements with OMIM trace to the OMIM text, not the draft.** Each of the 43 facts on which the graph
+**4. Where a draft and OMIM disagree, the paper usually sides with the draft.** Each of the 43 facts on which the graph
 draft contradicted OMIM's paragraph was taken back to the paper. The paper supported the draft in 29, OMIM in 1 and
 both in 5; 8 could not be decided from the readable text. Of the 13 cases with full text, the draft was right in 9 and
 OMIM in 1. Typical cases are transposed digits or a changed base or residue in a variant name. These are listed in
