@@ -211,3 +211,41 @@ def describe_papers(mim: str) -> dict[str, Any]:
         "n_fulltext": levels["fulltext"], "n_abstract": levels["abstract"], "n_title": levels["title"],
         "source_chars": sum(len(p.source_text()) for p in papers),
     }
+
+
+def recent_entries(year: int, months: tuple[int, ...] = tuple(range(1, 13)), min_refs: int = 2,
+                   min_paragraphs: int = 1, exclude: set[str] | frozenset[str] = frozenset()) -> list[dict[str, Any]]:
+    """Phenotype entries first published in `year`, newest month first, as coverage rows.
+
+    Creation dates come from NCBI (esearch db=omim, [PDAT]) one month at a time, as
+    `aiomim select` does. An entry qualifies with at least `min_refs` cited references
+    and `min_paragraphs` OMIM-authored paragraphs about a paper it cites; whether it
+    has HPO annotations is reported, not required (new entries often have none yet).
+    Within a month, higher MIM numbers (assigned later) come first.
+    """
+    import calendar
+
+    from .gold import build_gold, find_entries
+
+    rows: list[dict[str, Any]] = []
+    for month in sorted(months, reverse=True):
+        last = calendar.monthrange(year, month)[1]
+        mims = find_entries(f"{year}/{month:02d}/01", f"{year}/{month:02d}/{last}", limit=5000)
+        for mim in sorted(mims, key=int, reverse=True):
+            if mim in exclude:
+                continue
+            try:
+                gold = build_gold(mim)
+            except Exception as exc:  # noqa: BLE001 - a broken record is just not listed
+                log.warning("recent: %s skipped (%s)", mim, exc)
+                continue
+            if len(gold.cited_pmids) < min_refs or len(gold.scoped_paragraphs) < min_paragraphs:
+                continue
+            rows.append({
+                "mim": gold.mim, "created": f"{year}-{month:02d}", "n_refs": len(gold.cited_pmids),
+                "n_hpo": sum(1 for a in gold.hpo_annotations if a.aspect == "P"),
+                "n_omim_paragraphs": len(gold.scoped_paragraphs),
+                "genes": ",".join(g.symbol for g in gold.genes), "inheritance": ",".join(gold.inheritance),
+                "title": gold.title,
+            })
+    return rows
