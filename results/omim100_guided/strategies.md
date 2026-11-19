@@ -202,7 +202,7 @@ Pooled over facts. Each cell: coverage, then the number of facts scored.
 
 ### Difference from Direct reading, by how the paper was readable
 
-Coverage pooled over the facts of all papers at that level, strategy minus baseline in percentage points, with a 95% interval from resampling entries (all of an entry's facts move together); n is the number of entries with facts at that level for both strategies. Facts are split from the gold paragraph separately for each draft, so the fact counts differ slightly.
+Coverage pooled over the facts of all papers at that level, strategy minus baseline in percentage points, with a 95% interval from resampling entries (all of an entry's facts move together); n is the number of entries with facts at that level for both strategies.
 
 | Paper readable as | Learned curation guide |
 |---|---|

@@ -935,20 +935,20 @@
       "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
       "higher_is_better": true,
       "values": {
-        "kg": null,
-        "direct": 0.3974,
+        "kg": 0.4644,
+        "direct": 0.4652,
         "agent": null,
         "closedbook": null,
         "recall": null,
-        "cohort": null
+        "cohort": 0.4503
       },
       "n": {
-        "kg": 0,
-        "direct": 5,
+        "kg": 30,
+        "direct": 34,
         "agent": 0,
         "closedbook": 0,
         "recall": 0,
-        "cohort": 0
+        "cohort": 30
       }
     },
     {
@@ -1611,6 +1611,27 @@
         "sign_test_p_holm": 1.0
       },
       {
+        "metric": "gold_fact_coverage_whole",
+        "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
+        "higher_is_better": true,
+        "n": 30,
+        "strategy": 0.4644,
+        "baseline": 0.4663,
+        "difference": -0.0018,
+        "ci95": [
+          -0.0204,
+          0.0182
+        ],
+        "median_difference": 0.0,
+        "better": 13,
+        "worse": 13,
+        "ties": 4,
+        "sign_test_p": 1.0,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
+      },
+      {
         "metric": "gold_fact_coverage_adaptive",
         "label": "\u2026 facts split afresh for each draft (earlier scoring)",
         "higher_is_better": true,
@@ -1620,7 +1641,7 @@
         "difference": -0.006,
         "ci95": [
           -0.0157,
-          0.0033
+          0.0034
         ],
         "median_difference": 0.0,
         "better": 46,
@@ -1640,8 +1661,8 @@
         "baseline": 0.3591,
         "difference": -0.0134,
         "ci95": [
-          -0.0325,
-          0.0058
+          -0.0329,
+          0.0057
         ],
         "median_difference": 0.0,
         "better": 34,
@@ -1662,8 +1683,8 @@
         "baseline": 0.4415,
         "difference": -0.0355,
         "ci95": [
-          -0.0678,
-          -0.0048
+          -0.0685,
+          -0.0054
         ],
         "median_difference": -0.019,
         "better": 29,
@@ -1683,8 +1704,8 @@
         "baseline": 0.3625,
         "difference": 0.0114,
         "ci95": [
-          -0.0129,
-          0.0339
+          -0.0128,
+          0.0336
         ],
         "median_difference": 0.0,
         "better": 36,
@@ -1704,7 +1725,7 @@
         "baseline": 0.5614,
         "difference": -0.0141,
         "ci95": [
-          -0.0278,
+          -0.0276,
           -0.0006
         ],
         "median_difference": 0.0,
@@ -1727,7 +1748,7 @@
         "difference": -0.013,
         "ci95": [
           -0.0238,
-          -0.0022
+          -0.0026
         ],
         "median_difference": -0.004,
         "better": 35,
@@ -1747,8 +1768,8 @@
         "baseline": 0.6647,
         "difference": -0.0053,
         "ci95": [
-          -0.0309,
-          0.0249
+          -0.0314,
+          0.0253
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -1769,8 +1790,8 @@
         "baseline": 0.8871,
         "difference": -0.0708,
         "ci95": [
-          -0.1131,
-          -0.0312
+          -0.1136,
+          -0.0323
         ],
         "median_difference": 0.0,
         "better": 2,
@@ -1856,7 +1877,7 @@
         "difference": 0.0108,
         "ci95": [
           -0.0215,
-          0.043
+          0.0538
         ],
         "median_difference": 0.0,
         "better": 1,
@@ -1939,8 +1960,8 @@
         "baseline": 0.9443,
         "difference": 0.0019,
         "ci95": [
-          -0.0224,
-          0.0225
+          -0.0222,
+          0.0226
         ],
         "median_difference": 0.0,
         "better": 9,
@@ -1963,7 +1984,7 @@
         "difference": 0.0031,
         "ci95": [
           -0.0043,
-          0.0101
+          0.0099
         ],
         "median_difference": 0.007,
         "better": 53,
@@ -2028,7 +2049,7 @@
         "difference": -0.0012,
         "ci95": [
           -0.0039,
-          0.001
+          0.0009
         ],
         "median_difference": 0.0,
         "better": 11,
@@ -2070,7 +2091,7 @@
         "difference": -0.0063,
         "ci95": [
           -0.0129,
-          -0.0
+          0.0001
         ],
         "median_difference": 0.0,
         "better": 31,
@@ -2090,8 +2111,8 @@
         "baseline": 0.4236,
         "difference": -0.004,
         "ci95": [
-          -0.0117,
-          0.0039
+          -0.0115,
+          0.0038
         ],
         "median_difference": 0.0,
         "better": 30,
@@ -2133,8 +2154,8 @@
         "baseline": 0.5207,
         "difference": -0.0073,
         "ci95": [
-          -0.0159,
-          0.0007
+          -0.0161,
+          0.0006
         ],
         "median_difference": 0.0,
         "better": 43,
@@ -2154,8 +2175,8 @@
         "baseline": 0.3591,
         "difference": -0.0033,
         "ci95": [
-          -0.0151,
-          0.0088
+          -0.0154,
+          0.0084
         ],
         "median_difference": 0.0,
         "better": 38,
@@ -2176,8 +2197,8 @@
         "baseline": 0.4415,
         "difference": 0.0132,
         "ci95": [
-          -0.002,
-          0.0271
+          -0.0018,
+          0.0273
         ],
         "median_difference": 0.0,
         "better": 42,
@@ -2198,7 +2219,7 @@
         "difference": -0.0204,
         "ci95": [
           -0.0346,
-          -0.0067
+          -0.0069
         ],
         "median_difference": 0.0,
         "better": 17,
@@ -2219,7 +2240,7 @@
         "difference": 0.0003,
         "ci95": [
           -0.0104,
-          0.0111
+          0.0113
         ],
         "median_difference": 0.0,
         "better": 40,
@@ -2241,7 +2262,7 @@
         "difference": -0.0029,
         "ci95": [
           -0.0131,
-          0.0073
+          0.0071
         ],
         "median_difference": 0.0,
         "better": 32,
@@ -2261,7 +2282,7 @@
         "baseline": 0.6647,
         "difference": -0.0057,
         "ci95": [
-          -0.0218,
+          -0.0216,
           0.0068
         ],
         "median_difference": 0.0,
@@ -2283,8 +2304,8 @@
         "baseline": 0.8871,
         "difference": -0.0076,
         "ci95": [
-          -0.0352,
-          0.0214
+          -0.0351,
+          0.0215
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2452,8 +2473,8 @@
         "baseline": 0.9443,
         "difference": -0.011,
         "ci95": [
-          -0.0299,
-          0.0076
+          -0.0298,
+          0.0075
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2475,8 +2496,8 @@
         "baseline": 0.961,
         "difference": -0.4528,
         "ci95": [
-          -0.5025,
-          -0.4039
+          -0.5026,
+          -0.4029
         ],
         "median_difference": -0.471,
         "better": 2,
@@ -2497,8 +2518,8 @@
         "baseline": 0.0,
         "difference": 0.227,
         "ci95": [
-          0.1871,
-          0.2713
+          0.1869,
+          0.2705
         ],
         "median_difference": 0.185,
         "better": 0,
@@ -2518,8 +2539,8 @@
         "baseline": 0.0025,
         "difference": 0.2245,
         "ci95": [
-          0.1841,
-          0.2674
+          0.1828,
+          0.2669
         ],
         "median_difference": 0.185,
         "better": 1,
@@ -2540,8 +2561,8 @@
         "baseline": 0.0025,
         "difference": 0.2182,
         "ci95": [
-          0.1776,
-          0.2608
+          0.1788,
+          0.2612
         ],
         "median_difference": 0.1667,
         "better": 1,
@@ -2562,7 +2583,7 @@
         "difference": 0.0063,
         "ci95": [
           0.0024,
-          0.0111
+          0.011
         ],
         "median_difference": 0.0,
         "better": 0,
@@ -2582,8 +2603,8 @@
         "baseline": 0.4907,
         "difference": -0.3396,
         "ci95": [
-          -0.3924,
-          -0.2878
+          -0.3927,
+          -0.2874
         ],
         "median_difference": -0.343,
         "better": 7,
@@ -2603,8 +2624,8 @@
         "baseline": 0.4236,
         "difference": -0.321,
         "ci95": [
-          -0.3746,
-          -0.268
+          -0.3759,
+          -0.2687
         ],
         "median_difference": -0.286,
         "better": 9,
@@ -2624,8 +2645,8 @@
         "baseline": 0.0036,
         "difference": 0.0012,
         "ci95": [
-          -0.0019,
-          0.0048
+          -0.002,
+          0.0049
         ],
         "median_difference": 0.0,
         "better": 17,
@@ -2646,8 +2667,8 @@
         "baseline": 0.5207,
         "difference": -0.3162,
         "ci95": [
-          -0.364,
-          -0.2695
+          -0.3629,
+          -0.269
         ],
         "median_difference": -0.311,
         "better": 7,
@@ -2667,8 +2688,8 @@
         "baseline": 0.3591,
         "difference": -0.0528,
         "ci95": [
-          -0.0923,
-          -0.0144
+          -0.0916,
+          -0.0149
         ],
         "median_difference": -0.029,
         "better": 41,
@@ -2690,7 +2711,7 @@
         "difference": 0.0937,
         "ci95": [
           0.0396,
-          0.1468
+          0.1478
         ],
         "median_difference": 0.1145,
         "better": 61,
@@ -2710,8 +2731,8 @@
         "baseline": 0.3625,
         "difference": -0.1212,
         "ci95": [
-          -0.1624,
-          -0.0807
+          -0.1622,
+          -0.0812
         ],
         "median_difference": -0.1,
         "better": 18,
@@ -2731,8 +2752,8 @@
         "baseline": 0.5614,
         "difference": -0.0794,
         "ci95": [
-          -0.1237,
-          -0.0344
+          -0.1231,
+          -0.035
         ],
         "median_difference": -0.038,
         "better": 38,
@@ -2753,8 +2774,8 @@
         "baseline": 0.6632,
         "difference": -0.0431,
         "ci95": [
-          -0.0791,
-          -0.0066
+          -0.0793,
+          -0.0052
         ],
         "median_difference": -0.037,
         "better": 37,
@@ -2774,8 +2795,8 @@
         "baseline": 0.6647,
         "difference": -0.5132,
         "ci95": [
-          -0.5987,
-          -0.4259
+          -0.6001,
+          -0.4239
         ],
         "median_difference": -0.5,
         "better": 3,
@@ -2796,8 +2817,8 @@
         "baseline": 0.8793,
         "difference": 0.092,
         "ci95": [
-          -0.0092,
-          0.2069
+          -0.008,
+          0.208
         ],
         "median_difference": 0.0,
         "better": 7,
@@ -2861,7 +2882,7 @@
         "difference": -0.1075,
         "ci95": [
           -0.1935,
-          -0.0323
+          -0.0215
         ],
         "median_difference": 0.0,
         "better": 3,
@@ -2966,8 +2987,8 @@
         "baseline": 0.9443,
         "difference": -0.6086,
         "ci95": [
-          -0.6638,
-          -0.5536
+          -0.6631,
+          -0.5533
         ],
         "median_difference": -0.636,
         "better": 0,
@@ -2989,8 +3010,8 @@
         "baseline": 0.961,
         "difference": -0.0186,
         "ci95": [
-          -0.0342,
-          -0.0041
+          -0.0347,
+          -0.004
         ],
         "median_difference": -0.015,
         "better": 34,
@@ -3033,7 +3054,7 @@
         "difference": 0.0041,
         "ci95": [
           -0.0004,
-          0.0093
+          0.0094
         ],
         "median_difference": 0.0,
         "better": 10,
@@ -3055,7 +3076,7 @@
         "difference": 0.0032,
         "ci95": [
           -0.001,
-          0.0082
+          0.0081
         ],
         "median_difference": 0.0,
         "better": 12,
@@ -3096,8 +3117,8 @@
         "baseline": 0.4907,
         "difference": -0.345,
         "ci95": [
-          -0.3919,
-          -0.299
+          -0.3917,
+          -0.2995
         ],
         "median_difference": -0.319,
         "better": 2,
@@ -3117,8 +3138,8 @@
         "baseline": 0.4236,
         "difference": -0.3229,
         "ci95": [
-          -0.3703,
-          -0.2768
+          -0.3699,
+          -0.2769
         ],
         "median_difference": -0.321,
         "better": 2,
@@ -3160,8 +3181,8 @@
         "baseline": 0.5207,
         "difference": -0.3385,
         "ci95": [
-          -0.3832,
-          -0.2958
+          -0.3844,
+          -0.2967
         ],
         "median_difference": -0.305,
         "better": 3,
@@ -3181,8 +3202,8 @@
         "baseline": 0.3591,
         "difference": -0.1098,
         "ci95": [
-          -0.1444,
-          -0.0751
+          -0.1442,
+          -0.0758
         ],
         "median_difference": -0.093,
         "better": 25,
@@ -3203,8 +3224,8 @@
         "baseline": 0.4458,
         "difference": 0.0903,
         "ci95": [
-          0.0291,
-          0.1506
+          0.0296,
+          0.1514
         ],
         "median_difference": 0.1,
         "better": 55,
@@ -3224,8 +3245,8 @@
         "baseline": 0.3625,
         "difference": -0.1787,
         "ci95": [
-          -0.2146,
-          -0.1427
+          -0.2155,
+          -0.1433
         ],
         "median_difference": -0.153,
         "better": 5,
@@ -3245,8 +3266,8 @@
         "baseline": 0.5614,
         "difference": -0.1568,
         "ci95": [
-          -0.1997,
-          -0.1147
+          -0.1989,
+          -0.1146
         ],
         "median_difference": -0.115,
         "better": 21,
@@ -3267,8 +3288,8 @@
         "baseline": 0.6632,
         "difference": -0.1304,
         "ci95": [
-          -0.1705,
-          -0.0926
+          -0.1701,
+          -0.0932
         ],
         "median_difference": -0.108,
         "better": 25,
@@ -3288,8 +3309,8 @@
         "baseline": 0.6647,
         "difference": -0.5489,
         "ci95": [
-          -0.6266,
-          -0.4696
+          -0.628,
+          -0.47
         ],
         "median_difference": -0.6,
         "better": 0,
@@ -3311,7 +3332,7 @@
         "difference": 0.0754,
         "ci95": [
           0.0087,
-          0.1667
+          0.1652
         ],
         "median_difference": 0.0,
         "better": 4,
@@ -3396,7 +3417,7 @@
         "baseline": 0.0215,
         "difference": 0.2151,
         "ci95": [
-          0.1398,
+          0.129,
           0.3011
         ],
         "median_difference": 0.0,
@@ -3480,8 +3501,8 @@
         "baseline": 0.9443,
         "difference": -0.2925,
         "ci95": [
-          -0.3421,
-          -0.2412
+          -0.3426,
+          -0.241
         ],
         "median_difference": -0.25,
         "better": 2,
@@ -3503,8 +3524,8 @@
         "baseline": 0.961,
         "difference": -0.0144,
         "ci95": [
-          -0.0265,
-          -0.0038
+          -0.0266,
+          -0.0039
         ],
         "median_difference": -0.01,
         "better": 34,
@@ -3547,7 +3568,7 @@
         "difference": 0.0013,
         "ci95": [
           -0.0018,
-          0.0041
+          0.004
         ],
         "median_difference": 0.0,
         "better": 12,
@@ -3568,7 +3589,7 @@
         "baseline": 0.0025,
         "difference": 0.001,
         "ci95": [
-          -0.0021,
+          -0.002,
           0.0038
         ],
         "median_difference": 0.0,
@@ -3610,8 +3631,8 @@
         "baseline": 0.4907,
         "difference": -0.0191,
         "ci95": [
-          -0.0309,
-          -0.0071
+          -0.0308,
+          -0.0075
         ],
         "median_difference": -0.008,
         "better": 31,
@@ -3631,7 +3652,7 @@
         "baseline": 0.4236,
         "difference": -0.0155,
         "ci95": [
-          -0.0287,
+          -0.0285,
           -0.0023
         ],
         "median_difference": 0.0,
@@ -3666,6 +3687,27 @@
         "sign_test_p_holm": 1.0
       },
       {
+        "metric": "gold_fact_coverage_whole",
+        "label": "\u2026 conveyed anywhere in the draft, not only where the paper is cited",
+        "higher_is_better": true,
+        "n": 30,
+        "strategy": 0.4503,
+        "baseline": 0.4663,
+        "difference": -0.016,
+        "ci95": [
+          -0.0392,
+          0.0092
+        ],
+        "median_difference": 0.0,
+        "better": 11,
+        "worse": 14,
+        "ties": 5,
+        "sign_test_p": 0.69,
+        "ci_unreliable": false,
+        "primary": false,
+        "headline": false
+      },
+      {
         "metric": "gold_fact_coverage_adaptive",
         "label": "\u2026 facts split afresh for each draft (earlier scoring)",
         "higher_is_better": true,
@@ -3674,8 +3716,8 @@
         "baseline": 0.5207,
         "difference": -0.0279,
         "ci95": [
-          -0.0404,
-          -0.0162
+          -0.0409,
+          -0.0159
         ],
         "median_difference": -0.013,
         "better": 27,
@@ -3695,8 +3737,8 @@
         "baseline": 0.3591,
         "difference": -0.0196,
         "ci95": [
-          -0.039,
-          -0.0009
+          -0.0387,
+          -0.0013
         ],
         "median_difference": 0.0,
         "better": 39,
@@ -3717,8 +3759,8 @@
         "baseline": 0.4415,
         "difference": -0.0343,
         "ci95": [
-          -0.068,
-          -0.0024
+          -0.0681,
+          -0.0034
         ],
         "median_difference": -0.018,
         "better": 32,
@@ -3738,8 +3780,8 @@
         "baseline": 0.3625,
         "difference": 0.0142,
         "ci95": [
-          -0.0116,
-          0.0395
+          -0.0112,
+          0.0404
         ],
         "median_difference": 0.0,
         "better": 38,
@@ -3759,8 +3801,8 @@
         "baseline": 0.5614,
         "difference": -0.0248,
         "ci95": [
-          -0.0402,
-          -0.0094
+          -0.0407,
+          -0.0092
         ],
         "median_difference": -0.006,
         "better": 34,
@@ -3781,8 +3823,8 @@
         "baseline": 0.6632,
         "difference": -0.0185,
         "ci95": [
-          -0.032,
-          -0.0054
+          -0.0322,
+          -0.0051
         ],
         "median_difference": -0.01,
         "better": 35,
@@ -3802,8 +3844,8 @@
         "baseline": 0.6647,
         "difference": -0.0217,
         "ci95": [
-          -0.0485,
-          0.0031
+          -0.0492,
+          0.0032
         ],
         "median_difference": 0.0,
         "better": 6,
@@ -3824,8 +3866,8 @@
         "baseline": 0.8871,
         "difference": -0.1048,
         "ci95": [
-          -0.1575,
-          -0.0523
+          -0.1587,
+          -0.0525
         ],
         "median_difference": 0.0,
         "better": 2,
@@ -3995,7 +4037,7 @@
         "difference": 0.0013,
         "ci95": [
           -0.0227,
-          0.0254
+          0.0251
         ],
         "median_difference": 0.0,
         "better": 10,
@@ -4221,8 +4263,8 @@
           "n": 100,
           "difference": 0.0244,
           "ci95": [
-            0.0009,
-            0.0563
+            0.0011,
+            0.0562
           ],
           "median_difference": 0.0,
           "better": 46,
@@ -4261,8 +4303,8 @@
           "n": 100,
           "difference": -0.0017,
           "ci95": [
-            -0.0303,
-            0.0297
+            -0.0302,
+            0.0309
           ],
           "median_difference": 0.0,
           "better": 36,
@@ -4302,7 +4344,7 @@
           "difference": -0.0082,
           "ci95": [
             -0.0284,
-            0.0124
+            0.0128
           ],
           "median_difference": 0.0,
           "better": 36,
@@ -4321,8 +4363,8 @@
           "n": 100,
           "difference": -0.005,
           "ci95": [
-            -0.0243,
-            0.0174
+            -0.0244,
+            0.0179
           ],
           "median_difference": 0.0,
           "better": 38,
@@ -4341,8 +4383,8 @@
           "n": 100,
           "difference": 0.0021,
           "ci95": [
-            -0.0411,
-            0.0485
+            -0.0404,
+            0.0486
           ],
           "median_difference": 0.0,
           "better": 7,
@@ -4443,8 +4485,8 @@
           "n": 100,
           "difference": 0.0039,
           "ci95": [
-            -0.0104,
-            0.027
+            -0.0103,
+            0.0269
           ],
           "median_difference": 0.0,
           "better": 34,
@@ -4463,7 +4505,7 @@
           "n": 97,
           "difference": 0.0003,
           "ci95": [
-            -0.0008,
+            -0.0007,
             0.0015
           ],
           "median_difference": 0.0,
@@ -4483,8 +4525,8 @@
           "n": 100,
           "difference": 0.0018,
           "ci95": [
-            -0.0118,
-            0.0175
+            -0.0123,
+            0.0176
           ],
           "median_difference": 0.0,
           "better": 40,
@@ -4503,8 +4545,8 @@
           "n": 100,
           "difference": 0.0069,
           "ci95": [
-            -0.008,
-            0.0255
+            -0.0079,
+            0.0252
           ],
           "median_difference": 0.0,
           "better": 44,
@@ -4523,8 +4565,8 @@
           "n": 100,
           "difference": 0.0047,
           "ci95": [
-            -0.0167,
-            0.0308
+            -0.0163,
+            0.0309
           ],
           "median_difference": 0.0,
           "better": 4,
@@ -4585,8 +4627,8 @@
           "n": 100,
           "difference": -0.4178,
           "ci95": [
-            -0.4759,
-            -0.3584
+            -0.4754,
+            -0.3576
           ],
           "median_difference": -0.445,
           "better": 4,
@@ -4605,8 +4647,8 @@
           "n": 97,
           "difference": 0.2194,
           "ci95": [
-            0.1804,
-            0.2606
+            0.1803,
+            0.261
           ],
           "median_difference": 0.172,
           "better": 1,
@@ -4625,8 +4667,8 @@
           "n": 100,
           "difference": -0.337,
           "ci95": [
-            -0.3898,
-            -0.2844
+            -0.3891,
+            -0.2854
           ],
           "median_difference": -0.344,
           "better": 9,
@@ -4665,8 +4707,8 @@
           "n": 100,
           "difference": -0.052,
           "ci95": [
-            -0.0896,
-            -0.0153
+            -0.0894,
+            -0.0145
           ],
           "median_difference": -0.027,
           "better": 44,
@@ -4685,8 +4727,8 @@
           "n": 100,
           "difference": -0.0791,
           "ci95": [
-            -0.1236,
-            -0.0352
+            -0.1235,
+            -0.0364
           ],
           "median_difference": -0.05,
           "better": 40,
@@ -4705,8 +4747,8 @@
           "n": 100,
           "difference": -0.5048,
           "ci95": [
-            -0.587,
-            -0.419
+            -0.5867,
+            -0.4193
           ],
           "median_difference": -0.5,
           "better": 3,
@@ -4726,7 +4768,7 @@
           "difference": -0.1167,
           "ci95": [
             -0.1967,
-            -0.0433
+            -0.04
           ],
           "median_difference": 0.0,
           "better": 3,
@@ -4767,8 +4809,8 @@
           "n": 98,
           "difference": 0.0025,
           "ci95": [
-            -0.0256,
-            0.0377
+            -0.0246,
+            0.0372
           ],
           "median_difference": -0.012,
           "better": 38,
@@ -4807,8 +4849,8 @@
           "n": 100,
           "difference": -0.3431,
           "ci95": [
-            -0.3912,
-            -0.2968
+            -0.3918,
+            -0.2964
           ],
           "median_difference": -0.329,
           "better": 4,
@@ -4847,8 +4889,8 @@
           "n": 100,
           "difference": -0.1064,
           "ci95": [
-            -0.1412,
-            -0.0731
+            -0.1406,
+            -0.073
           ],
           "median_difference": -0.0855,
           "better": 27,
@@ -4867,8 +4909,8 @@
           "n": 100,
           "difference": -0.1527,
           "ci95": [
-            -0.1952,
-            -0.111
+            -0.1951,
+            -0.1105
           ],
           "median_difference": -0.1155,
           "better": 23,
@@ -4887,8 +4929,8 @@
           "n": 100,
           "difference": -0.5431,
           "ci95": [
-            -0.6189,
-            -0.4645
+            -0.621,
+            -0.4639
           ],
           "median_difference": -0.6,
           "better": 0,
@@ -4907,7 +4949,7 @@
           "n": 100,
           "difference": -0.1267,
           "ci95": [
-            -0.2033,
+            -0.2,
             -0.0566
           ],
           "median_difference": 0.0,
@@ -4949,8 +4991,8 @@
           "n": 99,
           "difference": 0.0033,
           "ci95": [
-            -0.0221,
-            0.0368
+            -0.0223,
+            0.0362
           ],
           "median_difference": -0.01,
           "better": 36,
@@ -4969,8 +5011,8 @@
           "n": 97,
           "difference": 0.0035,
           "ci95": [
-            -0.0027,
-            0.0123
+            -0.0028,
+            0.0126
           ],
           "median_difference": 0.0,
           "better": 13,
@@ -4989,8 +5031,8 @@
           "n": 100,
           "difference": -0.0142,
           "ci95": [
-            -0.0409,
-            0.0136
+            -0.0419,
+            0.0137
           ],
           "median_difference": -0.007,
           "better": 34,
@@ -5070,7 +5112,7 @@
           "difference": -0.0172,
           "ci95": [
             -0.0604,
-            0.0267
+            0.0271
           ],
           "median_difference": 0.0,
           "better": 8,
@@ -5594,8 +5636,8 @@
         "n_entries": 40,
         "difference": 0.0119,
         "ci95": [
-          -0.0173,
-          0.0384
+          -0.0175,
+          0.0379
         ],
         "ci_unreliable": false
       },
@@ -5605,8 +5647,8 @@
         "n_entries": 40,
         "difference": -0.0095,
         "ci95": [
-          -0.0256,
-          0.0046
+          -0.0251,
+          0.0042
         ],
         "ci_unreliable": false
       },
@@ -5616,8 +5658,8 @@
         "n_entries": 40,
         "difference": -0.6611,
         "ci95": [
-          -0.7355,
-          -0.5836
+          -0.7323,
+          -0.5864
         ],
         "ci_unreliable": false
       },
@@ -5627,8 +5669,8 @@
         "n_entries": 40,
         "difference": -0.6431,
         "ci95": [
-          -0.7226,
-          -0.5659
+          -0.7237,
+          -0.5653
         ],
         "ci_unreliable": false
       },
@@ -5638,8 +5680,8 @@
         "n_entries": 40,
         "difference": -0.0592,
         "ci95": [
-          -0.0896,
-          -0.0291
+          -0.0903,
+          -0.0287
         ],
         "ci_unreliable": false
       }
@@ -5655,8 +5697,8 @@
         "n_entries": 85,
         "difference": -0.0194,
         "ci95": [
-          -0.0356,
-          -0.0059
+          -0.0364,
+          -0.0057
         ],
         "ci_unreliable": false
       },
@@ -5666,8 +5708,8 @@
         "n_entries": 85,
         "difference": -0.005,
         "ci95": [
-          -0.0119,
-          0.0013
+          -0.0116,
+          0.0012
         ],
         "ci_unreliable": false
       },
@@ -5677,8 +5719,8 @@
         "n_entries": 85,
         "difference": -0.2679,
         "ci95": [
-          -0.31,
-          -0.2241
+          -0.3143,
+          -0.2216
         ],
         "ci_unreliable": false
       },
@@ -5688,8 +5730,8 @@
         "n_entries": 85,
         "difference": -0.2715,
         "ci95": [
-          -0.311,
-          -0.2311
+          -0.3117,
+          -0.2293
         ],
         "ci_unreliable": false
       },
@@ -5699,8 +5741,8 @@
         "n_entries": 85,
         "difference": -0.0136,
         "ci95": [
-          -0.0275,
-          -0.0017
+          -0.0284,
+          -0.0006
         ],
         "ci_unreliable": false
       }
@@ -5716,8 +5758,8 @@
         "n_entries": 21,
         "difference": 0.0,
         "ci95": [
-          -0.0211,
-          0.0204
+          -0.0208,
+          0.0199
         ],
         "ci_unreliable": false
       },
@@ -5727,8 +5769,8 @@
         "n_entries": 21,
         "difference": -0.0066,
         "ci95": [
-          -0.0173,
-          0.0028
+          -0.0175,
+          0.0032
         ],
         "ci_unreliable": false
       },
@@ -5738,8 +5780,8 @@
         "n_entries": 21,
         "difference": -0.0646,
         "ci95": [
-          -0.1354,
-          0.0145
+          -0.1373,
+          0.0095
         ],
         "ci_unreliable": false
       },
@@ -5749,8 +5791,8 @@
         "n_entries": 21,
         "difference": -0.1359,
         "ci95": [
-          -0.178,
-          -0.0947
+          -0.1823,
+          -0.0943
         ],
         "ci_unreliable": false
       },
@@ -5760,8 +5802,8 @@
         "n_entries": 21,
         "difference": -0.0026,
         "ci95": [
-          -0.0162,
-          0.0113
+          -0.0169,
+          0.0112
         ],
         "ci_unreliable": false
       }
@@ -7531,8 +7573,8 @@
             "baseline": 0.3554,
             "difference": -0.0017,
             "ci95": [
-              -0.0113,
-              0.0078
+              -0.0114,
+              0.0079
             ],
             "median_difference": 0.0,
             "better": 17,
@@ -7552,8 +7594,8 @@
             "baseline": 0.4845,
             "difference": 0.0043,
             "ci95": [
-              -0.0473,
-              0.0625
+              -0.0457,
+              0.0641
             ],
             "median_difference": 0.0,
             "better": 4,
@@ -7576,7 +7618,7 @@
             "difference": -0.0015,
             "ci95": [
               -0.0111,
-              0.0074
+              0.0072
             ],
             "median_difference": 0.0,
             "better": 15,
@@ -7596,7 +7638,7 @@
             "baseline": 0.4845,
             "difference": -0.0038,
             "ci95": [
-              -0.0299,
+              -0.0304,
               0.0158
             ],
             "median_difference": 0.0,
@@ -7620,7 +7662,7 @@
             "difference": -0.1805,
             "ci95": [
               -0.2386,
-              -0.1238
+              -0.1228
             ],
             "median_difference": -0.1685,
             "better": 7,
@@ -7640,8 +7682,8 @@
             "baseline": 0.4845,
             "difference": -0.3261,
             "ci95": [
-              -0.4509,
-              -0.1978
+              -0.4539,
+              -0.2011
             ],
             "median_difference": -0.25,
             "better": 3,
@@ -7663,8 +7705,8 @@
             "baseline": 0.3554,
             "difference": -0.1915,
             "ci95": [
-              -0.2313,
-              -0.1531
+              -0.2316,
+              -0.152
             ],
             "median_difference": -0.187,
             "better": 2,
@@ -7684,8 +7726,8 @@
             "baseline": 0.4845,
             "difference": -0.3866,
             "ci95": [
-              -0.4964,
-              -0.2801
+              -0.4952,
+              -0.2808
             ],
             "median_difference": -0.325,
             "better": 0,
@@ -7707,7 +7749,7 @@
             "baseline": 0.3554,
             "difference": 0.0064,
             "ci95": [
-              -0.0034,
+              -0.0032,
               0.0162
             ],
             "median_difference": 0.0035,
@@ -7728,8 +7770,8 @@
             "baseline": 0.4845,
             "difference": -0.0041,
             "ci95": [
-              -0.0413,
-              0.0332
+              -0.0411,
+              0.0326
             ],
             "median_difference": 0.0,
             "better": 5,
@@ -7756,8 +7798,8 @@
             "baseline": 0.5424,
             "difference": -0.0065,
             "ci95": [
-              -0.0264,
-              0.0127
+              -0.026,
+              0.0126
             ],
             "median_difference": -0.01,
             "better": 8,
@@ -7777,7 +7819,7 @@
             "baseline": 0.7942,
             "difference": -0.019,
             "ci95": [
-              -0.0414,
+              -0.0423,
               0.0
             ],
             "median_difference": 0.0,
@@ -7800,8 +7842,8 @@
             "baseline": 0.5424,
             "difference": -0.0038,
             "ci95": [
-              -0.0152,
-              0.0076
+              -0.0156,
+              0.0077
             ],
             "median_difference": -0.008,
             "better": 11,
@@ -7844,8 +7886,8 @@
             "baseline": 0.5424,
             "difference": -0.4173,
             "ci95": [
-              -0.4908,
-              -0.3439
+              -0.493,
+              -0.3443
             ],
             "median_difference": -0.405,
             "better": 0,
@@ -7865,8 +7907,8 @@
             "baseline": 0.7942,
             "difference": -0.6418,
             "ci95": [
-              -0.7645,
-              -0.5134
+              -0.7632,
+              -0.5108
             ],
             "median_difference": -0.714,
             "better": 0,
@@ -7888,8 +7930,8 @@
             "baseline": 0.5424,
             "difference": -0.4248,
             "ci95": [
-              -0.4956,
-              -0.3556
+              -0.4962,
+              -0.3552
             ],
             "median_difference": -0.441,
             "better": 0,
@@ -7909,8 +7951,8 @@
             "baseline": 0.7942,
             "difference": -0.6595,
             "ci95": [
-              -0.7798,
-              -0.5263
+              -0.7811,
+              -0.5285
             ],
             "median_difference": -0.727,
             "better": 0,
@@ -7932,7 +7974,7 @@
             "baseline": 0.5424,
             "difference": -0.0402,
             "ci95": [
-              -0.0622,
+              -0.0628,
               -0.0204
             ],
             "median_difference": -0.03,
@@ -7953,8 +7995,8 @@
             "baseline": 0.7942,
             "difference": -0.0547,
             "ci95": [
-              -0.1264,
-              -0.0008
+              -0.1267,
+              0.0
             ],
             "median_difference": 0.0,
             "better": 1,
@@ -7981,8 +8023,8 @@
             "baseline": 0.7181,
             "difference": -0.0184,
             "ci95": [
-              -0.0441,
-              0.0063
+              -0.0439,
+              0.007
             ],
             "median_difference": -0.011,
             "better": 7,
@@ -8002,7 +8044,7 @@
             "baseline": 0.8893,
             "difference": -0.0103,
             "ci95": [
-              -0.0249,
+              -0.0265,
               0.0
             ],
             "median_difference": 0.0,
@@ -8025,8 +8067,8 @@
             "baseline": 0.7181,
             "difference": -0.0201,
             "ci95": [
-              -0.034,
-              -0.0072
+              -0.0343,
+              -0.0073
             ],
             "median_difference": -0.009,
             "better": 5,
@@ -8069,8 +8111,8 @@
             "baseline": 0.7181,
             "difference": -0.5962,
             "ci95": [
-              -0.68,
-              -0.5106
+              -0.6813,
+              -0.5097
             ],
             "median_difference": -0.57,
             "better": 0,
@@ -8091,7 +8133,7 @@
             "difference": -0.7945,
             "ci95": [
               -0.9172,
-              -0.6527
+              -0.6536
             ],
             "median_difference": -1.0,
             "better": 0,
@@ -8114,7 +8156,7 @@
             "difference": -0.5868,
             "ci95": [
               -0.666,
-              -0.5104
+              -0.5105
             ],
             "median_difference": -0.568,
             "better": 0,
@@ -8134,8 +8176,8 @@
             "baseline": 0.8893,
             "difference": -0.7988,
             "ci95": [
-              -0.9215,
-              -0.6571
+              -0.921,
+              -0.656
             ],
             "median_difference": -1.0,
             "better": 0,
@@ -8157,8 +8199,8 @@
             "baseline": 0.7181,
             "difference": -0.0609,
             "ci95": [
-              -0.0839,
-              -0.0367
+              -0.0829,
+              -0.0361
             ],
             "median_difference": -0.077,
             "better": 3,

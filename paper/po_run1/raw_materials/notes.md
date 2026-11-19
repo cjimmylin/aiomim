@@ -6,7 +6,7 @@
   names, affiliations, acknowledgements, repository URLs or the name of this project's code package.
 - The general contribution is a controlled comparison of strategies for evidence-grounded knowledge-base writing, and
   the finding about access to sources. The paper is not a ranking of curation tools and not a clinical tool.
-- Frame the strategies as three paradigms (read and write; extract, then write; memory first), one control, and four
+- Frame the strategies as three paradigms (read and write; extract, then write; memory first), one control, and three
   add-ons each tested against its parent. Never present them as "nine strategies" of equal standing.
 - Lead the access claim with the within-paper hidden-full-text experiment. The comparison across papers by access level
   is observational and confounded with entry creation date and journal; say so.

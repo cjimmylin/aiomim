@@ -72,7 +72,7 @@ A controlled benchmark in which the generation strategy is the only thing that v
 1. A benchmark and open harness for evidence-grounded knowledge-base writing against curator-written references,
    built only from public sources, with a claim-level audit, fixed fact lists and per-entry release of every draft,
    verdict and score.
-2. A controlled comparison of three paradigms, a control and four add-ons under one model, with completion, variance
+2. A controlled comparison of three paradigms, a control and three add-ons under one model, with completion, variance
    between repeated runs and matched ablations of the extract-then-write strategies reported.
 3. Evidence that access to the source, not the strategy, bounds agreement with curators at current open access,
    including a within-paper experiment, and that differences between strategies grow as more full text is readable.

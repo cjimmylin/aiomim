@@ -28,7 +28,8 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
     6,652 facts in all.
   - Clinical synopsis: the Human Phenotype Ontology disease annotations for the entry (phenotype aspect):
     2,311 annotations, of which 1,835 are the HPO team's own curation from
-    papers (they carry a PubMed reference) and 476 are taken from OMIM.
+    papers (they carry a PubMed reference) and 476 are taken from OMIM. (That this count equals
+    the number of in-scope paragraphs is a coincidence.)
   - Causal gene: OMIM's gene map via MedGen and mim2gene. Inheritance: HPO and MedGen modes, compared as coarse classes
     (autosomal dominant, autosomal recessive, X-linked, mitochondrial, and others), requiring the sets to be equal.
   - Allelic variants: the entry's OMIM-submitted ClinVar records in scope: 427.
@@ -77,8 +78,12 @@ removed; every paragraph must cite a supplied paper.
 - **OMIM facts conveyed (primary endpoint).** Each fixed fact is marked present, partly present, absent or
   contradicted in what the draft says about the paragraph's papers. Coverage = (present + half of partial) / facts
   judged. No fact went unjudged in any run.
-- **Clinical synopsis.** Precision, recall and F1 of ontology terms: exact, hierarchical (ancestors count) and
-  semantic.
+- **Clinical synopsis.** Precision, recall and F1 of ontology terms against the reference annotations, three ways.
+  Exact: identical term identifiers. Hierarchical: both sets are expanded with all their ancestors in the ontology
+  before comparing, so a more general or more specific term earns partial credit. Semantic: for each term the best
+  Lin similarity to any term of the other set (information content computed from the ontology's disease annotations),
+  averaged in each direction to give precision and recall. Terms are assigned by a lexical search over the ontology's
+  labels and synonyms that returns candidates, from which the model chooses.
 - **Allelic variants.** Recall of OMIM's in-scope variants and precision of the draft's variants, matched on
   normalised protein or nucleotide change with a model judge for names that do not normalise. Variant names are not
   validated against reference sequences. Precision counts a variant OMIM does not list as a miss whether or not the
@@ -146,15 +151,15 @@ Percentage points, strategy minus baseline, with a bootstrap 95% interval over e
 
 | Metric | Evidence graph | Agentic curator | Memory only (control) | Recall, then verify | Case table first |
 |---|---|---|---|---|---|
-| Claims supported by cited paper ↑ | +0.4 (-0.4 to +1.3); 41/45/7 | +0.3 (-0.4 to +1.0); 53/33/7 | -45.3 (-50.2 to -40.4); 2/90/1 | -1.9 (-3.4 to -0.4); 34/53/5 (n=92) | -1.4 (-2.6 to -0.4); 34/56/3 |
-| … same, before the repair round ↓ | +0.0 (-0.3 to +0.2); 10/12/71 | -0.1 (-0.4 to +0.1); 11/8/74 | +22.4 (+18.4 to +26.7); 1/79/13 | +0.4 (-0.0 to +0.9); 10/10/72 (n=92) | +0.1 (-0.2 to +0.4); 12/18/63 |
-| OMIM per-paper facts conveyed (primary) ↑ | -0.5 (-1.5 to +0.5); 33/45/15 | -0.6 (-1.3 to -0.0); 31/42/20 | -34.0 (-39.2 to -28.8); 7/85/1 | -34.5 (-39.2 to -29.9); 2/89/2 | -1.9 (-3.1 to -0.7); 31/48/14 |
+| Claims supported by cited paper ↑ | +0.4 (-0.4 to +1.3); 41/45/7 | +0.3 (-0.4 to +1.0); 53/33/7 | -45.3 (-50.3 to -40.3); 2/90/1 | -1.9 (-3.5 to -0.4); 34/53/5 (n=92) | -1.4 (-2.7 to -0.4); 34/56/3 |
+| … same, before the repair round ↓ | +0.0 (-0.3 to +0.2); 10/12/71 | -0.1 (-0.4 to +0.1); 11/8/74 | +22.4 (+18.3 to +26.7); 1/79/13 | +0.4 (-0.0 to +0.9); 10/10/72 (n=92) | +0.1 (-0.2 to +0.4); 12/18/63 |
+| OMIM per-paper facts conveyed (primary) ↑ | -0.5 (-1.5 to +0.5); 33/45/15 | -0.6 (-1.3 to +0.0); 31/42/20 | -34.0 (-39.3 to -28.7); 7/85/1 | -34.5 (-39.2 to -29.9); 2/89/2 | -1.9 (-3.1 to -0.8); 31/48/14 |
 | OMIM per-paper facts contradicted ↓ | +0.0 (-0.1 to +0.2); 8/5/80 | +0.0 (-0.1 to +0.2); 3/5/85 | +0.1 (-0.2 to +0.5); 17/14/62 | -0.1 (-0.2 to +0.2); 16/7/70 | +0.1 (-0.1 to +0.3); 5/8/80 |
-| Clinical synopsis HPO F1, exact ↑ | -1.3 (-3.2 to +0.6); 34/45/14 | -0.3 (-1.5 to +0.9); 38/32/23 | -5.3 (-9.2 to -1.4); 41/52/0 | -11.0 (-14.4 to -7.5); 25/63/5 | -2.0 (-3.9 to -0.1); 39/45/9 |
-| Clinical synopsis HPO F1, hierarchical ↑ | -1.4 (-2.8 to -0.1); 36/44/13 | +0.0 (-1.0 to +1.1); 40/35/18 | -7.9 (-12.4 to -3.4); 38/54/1 | -15.7 (-20.0 to -11.5); 21/68/4 | -2.5 (-4.0 to -0.9); 34/51/8 |
-| OMIM allelic variants recovered ↑ | -0.5 (-3.1 to +2.5); 4/8/81 | -0.6 (-2.2 to +0.7); 3/3/87 | -51.3 (-59.9 to -42.6); 3/69/21 | -54.9 (-62.7 to -47.0); 0/71/22 | -2.2 (-4.9 to +0.3); 6/11/76 |
+| Clinical synopsis HPO F1, exact ↑ | -1.3 (-3.3 to +0.6); 34/45/14 | -0.3 (-1.5 to +0.8); 38/32/23 | -5.3 (-9.2 to -1.5); 41/52/0 | -11.0 (-14.4 to -7.6); 25/63/5 | -2.0 (-3.9 to -0.1); 39/45/9 |
+| Clinical synopsis HPO F1, hierarchical ↑ | -1.4 (-2.8 to -0.1); 36/44/13 | +0.0 (-1.0 to +1.1); 40/35/18 | -7.9 (-12.3 to -3.5); 38/54/1 | -15.7 (-19.9 to -11.5); 21/68/4 | -2.5 (-4.1 to -0.9); 34/51/8 |
+| OMIM allelic variants recovered ↑ | -0.5 (-3.1 to +2.5); 4/8/81 | -0.6 (-2.2 to +0.7); 3/3/87 | -51.3 (-60.0 to -42.4); 3/69/21 | -54.9 (-62.8 to -47.0); 0/71/22 | -2.2 (-4.9 to +0.3); 6/11/76 |
 | Causal gene F1 ↑ | +0.7 (+0.0 to +2.1); 1/0/92 | +0.0 (+0.0 to +0.0); 0/0/93 | -13.6 (-21.5 to -6.1); 2/15/76 | -14.7 (-22.6 to -7.5); 1/15/77 | -3.6 (-8.6 to +0.4); 1/4/88 |
-| Inheritance matches OMIM ↑ | -1.1 (-5.4 to +2.1); 1/2/90 | +0.0 (-3.2 to +3.2); 1/1/91 | -10.8 (-19.4 to -3.2); 3/13/77 | -20.4 (-29.0 to -11.8); 1/20/72 | -2.1 (-8.6 to +4.3); 4/6/83 |
+| Inheritance matches OMIM ↑ | -1.1 (-5.4 to +2.1); 1/2/90 | +0.0 (-3.2 to +3.2); 1/1/91 | -10.8 (-19.4 to -2.1); 3/13/77 | -20.4 (-29.0 to -11.8); 1/20/72 | -2.1 (-8.6 to +4.3); 4/6/83 |
 
 ### 2.4 Sensitivity: all 100 entries, a missing draft counted as zero
 
@@ -176,14 +181,14 @@ Paired differences from Direct reading over all entries (mean, interval, median,
 
 | Metric | Evidence graph | Agentic curator | Memory only (control) | Recall, then verify | Case table first |
 |---|---|---|---|---|---|
-| Claims supported by cited paper ↑ | +2.4 (+0.1 to +5.6); median +0.0; 46/46/8; p 1.000 | +0.3 (-0.4 to +1.0); median +0.7; 56/34/9; p 0.026 (n=99) | -41.8 (-47.6 to -35.8); median -44.5; 4/94/2; p <0.001 | +0.2 (-2.6 to +3.8); median -1.2; 38/55/5; p 0.097 (n=98) | +0.3 (-2.2 to +3.7); median -1.0; 36/60/3; p 0.018 (n=99) |
-| … same, before the repair round ↓ | -0.1 (-0.4 to +0.2); median +0.0; 11/12/74; p 1.000 (n=97) | -0.2 (-0.5 to +0.1); median +0.0; 12/9/76; p 0.664 (n=97) | +21.9 (+18.0 to +26.1); median +17.2; 1/82/14; p <0.001 (n=97) | +0.3 (-0.2 to +0.8); median +0.0; 11/10/75; p 1.000 (n=96) | +0.4 (-0.3 to +1.2); median +0.0; 13/19/65; p 0.377 (n=97) |
-| OMIM per-paper facts conveyed (primary) ↑ | -0.2 (-3.0 to +3.0); median +0.0; 36/48/16; p 0.230 | +0.4 (-1.0 to +2.7); median +0.0; 34/43/23; p 0.362 | -33.7 (-39.0 to -28.4); median -34.4; 9/89/2; p <0.001 | -34.3 (-39.1 to -29.7); median -32.9; 4/93/3; p <0.001 | -1.4 (-4.1 to +1.4); median -0.7; 34/51/15; p 0.082 |
+| Claims supported by cited paper ↑ | +2.4 (+0.1 to +5.6); median +0.0; 46/46/8; p 1.000 | +0.3 (-0.4 to +1.0); median +0.7; 56/34/9; p 0.026 (n=99) | -41.8 (-47.5 to -35.8); median -44.5; 4/94/2; p <0.001 | +0.2 (-2.5 to +3.7); median -1.2; 38/55/5; p 0.097 (n=98) | +0.3 (-2.2 to +3.6); median -1.0; 36/60/3; p 0.018 (n=99) |
+| … same, before the repair round ↓ | -0.1 (-0.4 to +0.2); median +0.0; 11/12/74; p 1.000 (n=97) | -0.2 (-0.5 to +0.1); median +0.0; 12/9/76; p 0.664 (n=97) | +21.9 (+18.0 to +26.1); median +17.2; 1/82/14; p <0.001 (n=97) | +0.3 (-0.2 to +0.8); median +0.0; 11/10/75; p 1.000 (n=96) | +0.4 (-0.3 to +1.3); median +0.0; 13/19/65; p 0.377 (n=97) |
+| OMIM per-paper facts conveyed (primary) ↑ | -0.2 (-3.0 to +3.1); median +0.0; 36/48/16; p 0.230 | +0.4 (-1.0 to +2.7); median +0.0; 34/43/23; p 0.362 | -33.7 (-38.9 to -28.5); median -34.4; 9/89/2; p <0.001 | -34.3 (-39.2 to -29.6); median -32.9; 4/93/3; p <0.001 | -1.4 (-4.2 to +1.4); median -0.7; 34/51/15; p 0.082 |
 | OMIM per-paper facts contradicted ↓ | +0.0 (-0.1 to +0.2); median +0.0; 9/6/82; p 0.607 (n=97) | +0.0 (-0.1 to +0.1); median +0.0; 4/5/88; p 1.000 (n=97) | +0.1 (-0.3 to +0.4); median +0.0; 19/14/64; p 0.487 (n=97) | -0.1 (-0.3 to +0.1); median +0.0; 18/8/71; p 0.075 (n=97) | +0.1 (-0.1 to +0.3); median +0.0; 7/8/82; p 1.000 (n=97) |
-| Clinical synopsis HPO F1, exact ↑ | -0.8 (-2.8 to +1.2); median +0.0; 36/48/16; p 0.230 | +0.2 (-1.2 to +1.8); median +0.0; 40/35/25; p 0.644 | -5.2 (-9.0 to -1.5); median -2.7; 44/55/1; p 0.315 | -10.6 (-14.1 to -7.3); median -8.6; 27/67/6; p <0.001 | -1.3 (-3.5 to +0.9); median +0.0; 42/48/10; p 0.598 |
-| Clinical synopsis HPO F1, hierarchical ↑ | -0.5 (-2.4 to +1.7); median +0.0; 38/48/14; p 0.332 | +0.7 (-0.8 to +2.5); median +0.0; 44/36/20; p 0.434 | -7.9 (-12.4 to -3.5); median -5.0; 40/58/2; p 0.085 | -15.3 (-19.5 to -11.1); median -11.6; 23/72/5; p <0.001 | -1.7 (-4.1 to +1.0); median -0.7; 36/55/9; p 0.059 |
-| OMIM allelic variants recovered ↑ | +0.2 (-4.1 to +4.9); median +0.0; 7/10/83; p 0.629 | +0.5 (-1.7 to +3.1); median +0.0; 4/3/93; p 1.000 | -50.5 (-58.7 to -41.9); median -50.0; 3/73/24; p <0.001 | -54.3 (-61.9 to -46.5); median -60.0; 0/75/25; p <0.001 | -1.7 (-6.0 to +2.7); median +0.0; 8/14/78; p 0.286 |
-| Causal gene F1 ↑ | +2.7 (+0.0 to +6.0); median +0.0; 3/0/97; p 0.250 | +1.0 (+0.0 to +3.0); median +0.0; 1/0/99; p 1.000 | -11.7 (-19.7 to -4.3); median +0.0; 3/15/82; p 0.007 | -12.7 (-20.3 to -5.7); median +0.0; 2/15/83; p 0.002 | -2.3 (-8.0 to +3.0); median +0.0; 3/5/92; p 0.727 |
+| Clinical synopsis HPO F1, exact ↑ | -0.8 (-2.8 to +1.3); median +0.0; 36/48/16; p 0.230 | +0.2 (-1.2 to +1.8); median +0.0; 40/35/25; p 0.644 | -5.2 (-8.9 to -1.5); median -2.7; 44/55/1; p 0.315 | -10.6 (-14.1 to -7.3); median -8.6; 27/67/6; p <0.001 | -1.3 (-3.5 to +0.9); median +0.0; 42/48/10; p 0.598 |
+| Clinical synopsis HPO F1, hierarchical ↑ | -0.5 (-2.4 to +1.8); median +0.0; 38/48/14; p 0.332 | +0.7 (-0.8 to +2.5); median +0.0; 44/36/20; p 0.434 | -7.9 (-12.3 to -3.6); median -5.0; 40/58/2; p 0.085 | -15.3 (-19.5 to -11.1); median -11.6; 23/72/5; p <0.001 | -1.7 (-4.1 to +1.0); median -0.7; 36/55/9; p 0.059 |
+| OMIM allelic variants recovered ↑ | +0.2 (-4.0 to +4.9); median +0.0; 7/10/83; p 0.629 | +0.5 (-1.6 to +3.1); median +0.0; 4/3/93; p 1.000 | -50.5 (-58.7 to -41.9); median -50.0; 3/73/24; p <0.001 | -54.3 (-62.1 to -46.4); median -60.0; 0/75/25; p <0.001 | -1.7 (-6.0 to +2.7); median +0.0; 8/14/78; p 0.286 |
+| Causal gene F1 ↑ | +2.7 (+0.0 to +6.0); median +0.0; 3/0/97; p 0.250 | +1.0 (+0.0 to +3.0); median +0.0; 1/0/99; p 1.000 | -11.7 (-19.7 to -4.0); median +0.0; 3/15/82; p 0.007 | -12.7 (-20.0 to -5.7); median +0.0; 2/15/83; p 0.002 | -2.3 (-8.0 to +3.0); median +0.0; 3/5/92; p 0.727 |
 | Inheritance matches OMIM ↑ | +0.0 (-4.0 to +4.0); median +0.0; 2/2/96; p 1.000 | +0.0 (-3.0 to +3.0); median +0.0; 1/1/98; p 1.000 | -9.0 (-17.0 to -1.0); median +0.0; 4/13/83; p 0.049 | -18.0 (-27.0 to -10.0); median +0.0; 2/20/78; p <0.001 | -1.0 (-8.0 to +6.0); median +0.0; 6/7/87; p 1.000 |
 
 ### 2.5 Pooled counts
@@ -237,13 +242,13 @@ Pooled over facts. Each cell: coverage, then the number of facts scored.
 
 ### Difference from Direct reading, by how the paper was readable
 
-Coverage pooled over the facts of all papers at that level, strategy minus baseline in percentage points, with a 95% interval from resampling entries (all of an entry's facts move together); n is the number of entries with facts at that level for both strategies. Facts are split from the gold paragraph separately for each draft, so the fact counts differ slightly.
+Coverage pooled over the facts of all papers at that level, strategy minus baseline in percentage points, with a 95% interval from resampling entries (all of an entry's facts move together); n is the number of entries with facts at that level for both strategies.
 
 | Paper readable as | Evidence graph | Agentic curator | Memory only (control) | Recall, then verify | Case table first |
 |---|---|---|---|---|---|
-| fulltext | +1.2 (-1.7 to +3.8); n=40 | -0.9 (-2.6 to +0.5); n=40 | -66.1 (-73.6 to -58.4); n=40 | -64.3 (-72.3 to -56.6); n=40 | -5.9 (-9.0 to -2.9); n=40 |
-| abstract | -1.9 (-3.6 to -0.6); n=85 | -0.5 (-1.2 to +0.1); n=85 | -26.8 (-31.0 to -22.4); n=85 | -27.2 (-31.1 to -23.1); n=85 | -1.4 (-2.8 to -0.2); n=85 |
-| title | +0.0 (-2.1 to +2.0); n=21 | -0.7 (-1.7 to +0.3); n=21 | -6.5 (-13.5 to +1.5); n=21 | -13.6 (-17.8 to -9.5); n=21 | -0.3 (-1.6 to +1.1); n=21 |
+| fulltext | +1.2 (-1.8 to +3.8); n=40 | -0.9 (-2.5 to +0.4); n=40 | -66.1 (-73.2 to -58.6); n=40 | -64.3 (-72.4 to -56.5); n=40 | -5.9 (-9.0 to -2.9); n=40 |
+| abstract | -1.9 (-3.6 to -0.6); n=85 | -0.5 (-1.2 to +0.1); n=85 | -26.8 (-31.4 to -22.2); n=85 | -27.2 (-31.2 to -22.9); n=85 | -1.4 (-2.8 to -0.1); n=85 |
+| title | +0.0 (-2.1 to +2.0); n=21 | -0.7 (-1.8 to +0.3); n=21 | -6.5 (-13.7 to +0.9); n=21 | -13.6 (-18.2 to -9.4); n=21 | -0.3 (-1.7 to +1.1); n=21 |
 
 ### 2.9 Paired differences from direct reading within strata of entries by access
 
@@ -253,18 +258,18 @@ Entries grouped by the share of their references readable as full text (as in th
 
 | Access group | Entries | Evidence graph | Agentic curator | Memory only (control) | Recall, then verify | Case table first |
 |---|---|---|---|---|---|---|
-| no full text (abstracts only) | 46 | -0.2 (-1.1 to +0.8); n=46 | -0.1 (-1.1 to +0.7); n=46 | -18.1 (-23.9 to -12.4); n=46 | -19.1 (-23.1 to -15.3); n=46 | +0.6 (-0.3 to +1.6); n=46 |
-| under half full text | 25 | -0.7 (-2.6 to +1.3); n=25 | -0.4 (-1.5 to +0.8); n=25 | -41.7 (-49.1 to -34.4); n=25 | -42.5 (-49.6 to -35.6); n=25 | -4.0 (-6.2 to -2.0); n=25 |
-| half or more full text | 21 | -1.8 (-4.4 to +0.6); n=21 | -2.0 (-3.4 to -0.7); n=21 | -59.6 (-68.0 to -51.1); n=21 | -58.7 (-66.6 to -51.0); n=21 | -6.1 (-8.4 to -3.7); n=21 |
+| no full text (abstracts only) | 46 | -0.2 (-1.1 to +0.8); n=46 | -0.1 (-1.1 to +0.7); n=46 | -18.1 (-23.9 to -12.3); n=46 | -19.1 (-23.2 to -15.2); n=46 | +0.6 (-0.3 to +1.6); n=46 |
+| under half full text | 25 | -0.7 (-2.6 to +1.3); n=25 | -0.4 (-1.6 to +0.8); n=25 | -41.7 (-49.3 to -34.4); n=25 | -42.5 (-49.6 to -35.5); n=25 | -4.0 (-6.3 to -2.0); n=25 |
+| half or more full text | 21 | -1.8 (-4.4 to +0.7); n=21 | -2.0 (-3.4 to -0.7); n=21 | -59.6 (-68.1 to -51.0); n=21 | -58.7 (-66.6 to -51.0); n=21 | -6.1 (-8.3 to -3.6); n=21 |
 | all full text | 1 | +17.8 †; n=1 | +0.0 †; n=1 | -32.2 †; n=1 | -33.9 †; n=1 | +21.4 †; n=1 |
 
 ### OMIM allelic variants recovered
 
 | Access group | Entries | Evidence graph | Agentic curator | Memory only (control) | Recall, then verify | Case table first |
 |---|---|---|---|---|---|---|
-| no full text (abstracts only) | 46 | +0.4 (-4.7 to +6.2); n=46 | -0.4 (-3.0 to +1.6); n=46 | -32.6 (-45.1 to -19.8); n=46 | -38.7 (-49.6 to -28.0); n=46 | -0.4 (-4.1 to +3.3); n=46 |
-| under half full text | 25 | -1.9 (-4.1 to +0.0); n=25 | -0.1 (-2.0 to +1.7); n=25 | -64.2 (-76.4 to -51.3); n=25 | -66.0 (-78.0 to -52.6); n=25 | -5.5 (-12.6 to -0.1); n=25 |
-| half or more full text | 21 | -1.0 (-2.5 to +0.0); n=21 | -1.6 (-4.8 to +0.0); n=21 | -79.5 (-91.7 to -65.3); n=21 | -79.9 (-92.2 to -65.7); n=21 | -2.2 (-5.2 to +0.0); n=21 |
+| no full text (abstracts only) | 46 | +0.4 (-4.6 to +6.4); n=46 | -0.4 (-3.0 to +1.6); n=46 | -32.6 (-45.4 to -20.1); n=46 | -38.7 (-49.5 to -28.1); n=46 | -0.4 (-4.1 to +3.3); n=46 |
+| under half full text | 25 | -1.9 (-4.2 to +0.0); n=25 | -0.1 (-2.0 to +1.7); n=25 | -64.2 (-76.3 to -51.1); n=25 | -66.0 (-78.1 to -52.8); n=25 | -5.5 (-12.7 to +0.0); n=25 |
+| half or more full text | 21 | -1.0 (-2.6 to +0.0); n=21 | -1.6 (-4.8 to +0.0); n=21 | -79.5 (-91.7 to -65.4); n=21 | -79.9 (-92.1 to -65.6); n=21 | -2.2 (-5.2 to +0.0); n=21 |
 | all full text | 1 | +0.0 †; n=1 | +0.0 †; n=1 | +0.0 †; n=1 | +0.0 †; n=1 | +0.0 †; n=1 |
 
 ### 2.10 OMIM facts conveyed by creation era within each access level (direct reading and the memory-only control)

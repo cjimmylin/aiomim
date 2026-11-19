@@ -1,0 +1,391 @@
+{
+  "plotting_plan": [
+    {
+      "figure_id": "fig_benchmark_overview",
+      "title": "One model, fixed sources, one audit, one scoring: only the generation strategy varies",
+      "plot_type": "diagram",
+      "data_source": "both",
+      "objective": "Left-to-right schematic of the benchmark (idea.md 'Core idea' and 'Formal setup'; log Sec. 1.1-1.4). Left: an entry e = (h, R) with header h and the curators' cited papers R, each tagged with its access level a(d) in {full text, abstract, title}; the causal gene is withheld. Middle: the strategies grouped as three paradigms (Read and write: direct reading, agentic curator; Extract, then write: evidence graph, case table first; Memory first: recall, then verify), the memory-only control, and add-ons drawn as small attachments to their parent (second-hand evidence -> direct reading; reconciled case database -> case table first; learned curation guide -> direct reading), exactly as in log Sec. 1.3. A band beneath all strategies lists the shared mechanical guards (ontology IDs chosen only from ontology-search candidates, HGNC normalisation, removal of recalled cross-reference numbers, every paragraph cites a supplied paper). Right: the shared claim-level audit (atomic claims -> per-paper verdict with verbatim quote -> one repair round) and the shared scoring against the reference (fixed fact lists for 'OMIM facts conveyed' as the primary endpoint; HPO terms; allelic variants; causal gene; inheritance). Label the reference sources with the required wording: 'curator-written per-paper text (OMIM allelic-variant descriptions in ClinVar)' and 'HPO disease annotations'. No numbers other than counts from log Sec. 1.1 if space allows.",
+      "aspect_ratio": "21:9"
+    },
+    {
+      "figure_id": "fig_hidden_fulltext",
+      "title": "Within-paper effect of access: hiding the full text of the same papers",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Horizontal stacked bar chart, one bar per condition (Abstract only; Abstract + second-hand; Full text), each bar split into Present / Partial / Absent / Contradicted fact counts, with coverage printed at the bar end: 35.5%, 41.4%, 78.6%. Data: log Sec. 6.2, table 'OMIM-fact coverage of the gold paragraphs about the hidden papers' (46 entries, 136 paragraphs; facts 1783 / 1802 / 1767; present 452/565/1268, partial 362/362/243, absent 966/864/246, contradicted 3/11/10). Caption must state: same papers in all three conditions; coverage here uses the earlier per-draft fact splitting, not the fixed lists; the full-text draft went through the repair round and the two new drafts did not. This is the lead evidence for the access claim.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_missed_facts",
+      "title": "Where the facts direct reading missed went",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "100%-stacked bar chart, one bar per access level (Full text, Abstract only, Title only), segments: conveyed; not fully conveyed but stated in the available text; partly in text; not in text. Data: log Sec. 3 first table (97 entries, 466 paragraphs): Full text 1,837 facts (1,329 conveyed; missed 245 in text / 134 partly / 122 not in text); Abstract only 4,282 (1,420; 46 / 632 / 2,159); Title only 379 (38; 0 / 53 / 288). Annotate the 'in text, share of missed' column (49%, 2%, 0%). Caption: the check is a model judgement; partly conveyed facts are counted with the missed ones; a small remainder of facts were contradicted (counts do not sum exactly because of these).",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "figure_id": "fig_access_strata",
+      "title": "Differences between reading strategies grow as more of an entry's papers are readable in full",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Forest plot (point estimate with 95% bootstrap interval) of the paired difference from direct reading in OMIM facts conveyed, in percentage points, for evidence graph, agentic curator and case table first, within three access groups of entries: no full text (n=46), under half full text (n=25), half or more full text (n=21). Data: log Sec. 2.9, table 'OMIM facts conveyed' (e.g. case table first +0.6 (-0.3 to +1.6), -4.0 (-6.2 to -2.0), -6.1 (-8.4 to -3.7); agentic -0.1, -0.4, -2.0 (-3.4 to -0.7); evidence graph -0.2, -0.7, -1.8 (-4.4 to +0.6)). Omit the 'all full text' group (n=1, no interval). Memory-only and recall-then-verify are off-scale (-18 to -60 points) and go in a note or inset, not the main axis. Draw a shaded band at +/-1.0 point for the replicate-noise half-width over 93 entries (log Sec. 4.2). Caption: observational stratification across entries, confounded with entry creation date and journal; the within-paper evidence is fig_hidden_fulltext.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_memory_by_era",
+      "title": "Memory-only control against direct reading by entry creation era",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Two-panel line chart over the five creation-era bands (classic 1xxxxx-5xxxxx; 600000-609999; 610000-615999; 616000-619999; 620000 onward). Left panel: OMIM facts conveyed, memory only vs direct reading (14.5/34.9, 24.1/53.9, 17.5/51.2, 12.6/51.4, 5.7/53.5; log Sec. 2.11). Right panel: causal gene F1, memory vs direct (88.9/87.0, 94.7/100.0, 100.0/100.0, 89.5/100.0, 41.2/100.0; log Sec. 2.11). Optionally add as a third marker the newest-entry set from log Sec. 10 (20 entries created June-November 2026: memory 7.0% facts, gene F1 30.0%; direct 52.2%, 100.0%) clearly separated as a different sample. Caption: entry counts per band (18, 19, 20, 19, 17); the model's training cut-off is not known; this is a contamination check, not proof that reading is free of memorisation (direct-reading coverage on abstract-only papers also varies with era, log Sec. 2.10).",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "intro_related_work_plan": {
+    "introduction_strategy": {
+      "hook_hypothesis": "Curated knowledge bases such as OMIM are built by experts who read papers and record, entry by entry, what each paper showed; language models can now read those papers, and many system designs (long-context reading, extraction into graphs or tables, agents, draft-then-verify, prompt optimisation) have been proposed for turning documents into structured, cited text, but they were evaluated on different tasks, models, retrieval stacks and scoring, so their results cannot be compared.",
+      "problem_gap_hypothesis": "There is no controlled evaluation in which the cited sources, the model, the mechanical guards and the scoring are held fixed and only the generation strategy varies, scored against curator-written per-paper text and structured fields. Scoped to what the log evaluates: one model family, 100 small OMIM phenotype entries (2-12 references) given the curators' own reference list, open-access text only; questions are (1) how much the strategy matters, (2) whether the strategy or what it could read limits agreement with curators, and (3) what a claim-level audit against the cited source can and cannot catch. No claim of generality across models, of clinical use, or of human validation.",
+      "search_directions": [
+        "Real-world burden and bottleneck of manual literature curation for genetic and rare-disease knowledge bases (OMIM, ClinVar, HPO, ClinGen), e.g. growth of the literature, curation backlog and the role of these resources in diagnosis",
+        "Surveys and systematic reviews of large language models for literature review, evidence synthesis, systematic-review automation and biomedical knowledge extraction",
+        "Foundational papers on retrieval-augmented and long-context generation with citations and on atomic-claim factuality evaluation of long-form generated text",
+        "Foundational work on language-model agents and pipelines that write Wikipedia-like or encyclopedic articles from retrieved scientific literature",
+        "Open-access availability of the biomedical literature (full text vs abstract only) and its consequences for text mining and machine reading"
+      ]
+    },
+    "related_work_strategy": {
+      "overview": "Organise by the paper's own axes (notes.md): (1) literature-to-knowledge-base curation in genetics and biology; (2) intermediate representation versus long-context reading; (3) memory, verification and contamination; (4) supervision by prompt optimisation. Close the section with one paragraph on evaluation: atomic-claim checking, citation support and the validity of model judges (the canonical papers for that paragraph are requested as citation hints in Method 3.3, which the writer should reuse here). Throughout, state the difference from the closest prior work: FlyAOC (memorisation, pipeline and agent harnesses scored against FlyBase curators), GEN-KnowRD (generated rare-disease profiles compared with curated reports), WikiCrow (gene articles against Wikipedia) and Groza et al. 2026 (model memory of rare-disease genes and phenotypes): here the cited papers are fixed, the reference is curators' own text and structured fields, and the generation strategy is the only variable. Do not frame other systems as competitors that were beaten; published systems were not run (log Sec. 12).",
+      "subsections": [
+        {
+          "subsection_title": "2.1 Language models for literature curation in genetics and biology",
+          "methodology_cluster": "LLM-assisted biocuration and knowledge-base population: ontology curation agents, phenotype concept recognition, gene-disease-phenotype and variant extraction from papers, rare-disease profiles and knowledge, curation tools built on structured prompting",
+          "sota_investigation_mission": "Find work up to 2026-11 that uses language models to populate or assist curated biological knowledge bases (FlyBase/GO-style annotation, HPO annotation, ClinVar/variant evidence, gene-disease validity, rare-disease profiles), with emphasis on how each is evaluated: what reference, whether sources are fixed, whether curator-written text is used. Include the closest prior work named in notes.md (FlyAOC, GEN-KnowRD, WikiCrow, Groza et al. 2026) and phenotype concept-recognition baselines. Do not look for new systems to compare against; none were run.",
+          "limitation_hypothesis": "Prior work varies the retrieval, the model and the scoring together, scores against structured annotations or encyclopedia text rather than curators' per-paper prose, or tests what the model remembers rather than what it reads; none holds the cited papers fixed and varies only the generation strategy.",
+          "limitation_search_queries": [
+            "LLM agent ontology annotation curation benchmark FlyBase curators",
+            "large language model rare disease phenotype profile generation compared with curated reports",
+            "LLM knowledge of rare disease genes and phenotypes systematic assessment",
+            "LLM gene-disease-phenotype extraction full-text human genetics literature benchmark",
+            "LLM extraction of genetic variants from literature ClinVar evidence",
+            "Human Phenotype Ontology concept recognition large language models evaluation",
+            "LLM-generated gene articles compared with Wikipedia"
+          ],
+          "bridge_to_our_method": "We fix the input to exactly the papers the curators cited, withhold the causal gene, and score every strategy against the same curator-written per-paper text (OMIM allelic-variant descriptions in ClinVar) and structured fields, so differences are attributable to the strategy or to what could be read."
+        },
+        {
+          "subsection_title": "2.2 Intermediate representations versus long-context reading",
+          "methodology_cluster": "Long-context reading vs retrieval-augmented generation; graph-based RAG and knowledge-graph intermediates; table/database extraction pipelines and reconciliation for evidence synthesis; agentic literature synthesis with tools",
+          "sota_investigation_mission": "Collect systematic comparisons of long-context reading with RAG and GraphRAG, document-processing pipelines that extract to structured intermediates (graphs, tables, databases with reconciliation), and agentic literature-synthesis systems that write cited articles, up to 2026-11. Focus on what each compared and on which tasks; note where comparisons conflate model, retrieval and scoring.",
+          "limitation_hypothesis": "Evidence on whether an intermediate representation helps over reading the documents directly is mixed and task-dependent, comes from QA or summarisation tasks rather than knowledge-base writing, and rarely includes matched ablations that separate the representation from other design choices such as extraction effort.",
+          "limitation_search_queries": [
+            "RAG versus long-context LLM systematic comparison",
+            "GraphRAG versus RAG systematic evaluation when graphs help",
+            "lost in the middle long context position effects",
+            "LLM document processing pipeline structured extraction agentic query rewriting",
+            "evidence synthesis database reconciliation systematic review LLM",
+            "language agents scientific literature synthesis cited Wikipedia-style articles"
+          ],
+          "bridge_to_our_method": "Our evidence graph and case table first strategies are our own implementations of the extract-then-write idea, compared with direct reading and an agentic curator on the same papers, with a matched ablation (log Sec. 5) that raises extraction effort and lets the writer choose synopsis terms, and a plus-text variant."
+        },
+        {
+          "subsection_title": "2.3 Memory, verification and contamination",
+          "methodology_cluster": "Parametric knowledge and draft-then-verify methods (chain-of-verification, self-verification agents); detection and measurement of training-data contamination in benchmarks",
+          "sota_investigation_mission": "Find work on generating from model memory and then verifying (chain-of-verification, self-verification against databases), and on detecting or measuring benchmark contamination (time-based splits, black-box tests), up to 2026-11. Look for evidence on whether verification after recall adds content or only removes/corrects it.",
+          "limitation_hypothesis": "Verify-after-recall methods are mostly evaluated on short-form or general-knowledge tasks where memory is strong; contamination studies rarely provide a control that measures what memory alone supplies for the same task and how this changes with when the knowledge was created.",
+          "limitation_search_queries": [
+            "chain-of-verification reduces hallucination",
+            "self-verification language agent domain databases",
+            "proving test set contamination black box language models",
+            "measure data contamination per benchmark",
+            "time travel tracing data contamination LLM",
+            "temporal split knowledge cutoff evaluation memorisation"
+          ],
+          "bridge_to_our_method": "We include a memory-only control analysed by entry creation era and a set of entries created in 2026 as a contamination check, and test recall, then verify, whose rewriter may restate, correct or delete but not add content from the papers."
+        },
+        {
+          "subsection_title": "2.4 Supervision by prompt optimisation",
+          "methodology_cluster": "Reflective prompt optimisation and learned instructions from feedback on a training split",
+          "sota_investigation_mission": "Find prompt-optimisation and reflective prompt-evolution methods (up to 2026-11) and their reported sample efficiency and evaluation settings, to position a small learned curation guide (two reflection rounds on 27 training entries).",
+          "limitation_hypothesis": "Prompt optimisation results are reported with substantial search budgets and on tasks with dense, cheap feedback; little is known about whether a guide learned from omissions and extras transfers to long-form knowledge-base writing with expensive scoring.",
+          "limitation_search_queries": [
+            "reflective prompt evolution outperforms reinforcement learning",
+            "automatic prompt optimization from natural language feedback",
+            "learning instructions from errors on training examples LLM"
+          ],
+          "bridge_to_our_method": "Our learned curation guide is a deliberately small instance of this idea, tested on 70 held-out entries; its null result says nothing about better-resourced prompt optimisation (log Sec. 12)."
+        }
+      ]
+    }
+  },
+  "section_plan": [
+    {
+      "section_title": "Abstract",
+      "subsections": [
+        {
+          "subsection_title": "Abstract",
+          "content_bullets": [
+            "One paragraph. Problem: designs for turning papers into structured, cited knowledge-base text are not comparable (idea.md 'Problem').",
+            "Benchmark: 100 OMIM phenotype entries, each written from exactly the papers its curators cited, causal gene withheld; one model; shared guards, claim-level audit and scoring; strategies framed as three paradigms, a control and add-ons each tested against its parent (log Sec. 1.3) - never 'nine strategies'.",
+            "Primary endpoint named once with required wording: coverage of facts in curator-written per-paper text (do not say 'the OMIM entry').",
+            "Results: reading strategies are close at current open access (direct reading 49.1%, evidence graph 48.6%, agentic curator 48.4%, case table first 47.2%; log Sec. 2.2); memory-based strategies far lower (15.1%, 14.6%).",
+            "Lead the access claim with the within-paper experiment: hiding full text of the same papers drops coverage from 78.6% to 35.5%, second-hand passages recover to 41.4% (log Sec. 6.2); differences between strategies grow where more full text is readable (log Sec. 2.9).",
+            "Audit: removes unsupported claims and flagged all 60 planted single-fact errors, but checks fidelity, not correctness, and passes claims supported only by a later paper's description (log Sec. 11, 6.2).",
+            "One clause on scope: one model family, no human validation, open-access text only."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "3. Benchmark and Strategies",
+      "subsections": [
+        {
+          "subsection_title": "3.1 Task, entries and reference",
+          "content_bullets": [
+            "Formalise as in idea.md 'Formal setup': entry e = (h, R), R = {d_1,...,d_n}, access level a(d) in {full text, abstract, title}; strategy S maps (h, R) to draft D (paragraphs citing non-empty subsets of R, genes, inheritance modes, ontology terms, variants).",
+            "Input: entry number, title and alternative titles plus exactly the cited papers; causal gene withheld (idea.md 'Design rationale').",
+            "Entries: 100 drawn at random with a fixed seed, 20 per creation-era band of entry number; eligibility 2-12 references, causal gene in gene map, >=5 phenotype annotations, >=1 in-scope curator paragraph; sample is stratified and selects well-annotated, molecularly characterised entries (log Sec. 1.1).",
+            "Papers: 515 cited; readable in full 96 (19%), abstract only 345, title only 74; open access via PubMed Central or Europe PMC; supplementary material not retrieved (log Sec. 1.1).",
+            "Reference with required wording (notes.md 'Words to use'): 'OMIM facts conveyed' = coverage of facts in OMIM's allelic-variant descriptions as deposited in ClinVar, from OMIM's gene entries, variant-centred; 476 paragraphs in scope; split once into 6,652 fixed facts without sight of any draft. Narrative sections of phenotype entries are not compared.",
+            "Clinical synopsis reference = HPO disease annotations: 2,311, of which 1,835 are the HPO team's own curation from papers and 476 taken from OMIM; never call it OMIM's synopsis. Causal gene from OMIM gene map via MedGen and mim2gene; inheritance from HPO and MedGen as coarse classes; 427 in-scope OMIM-submitted ClinVar variants (log Sec. 1.1).",
+            "Other evaluation sets: 40-entry ablation subset, 30-entry replicate subset, 12 entries with 30-75 references (exploratory), 30 entries created June-November 2026 (log Sec. 1.1)."
+          ],
+          "citation_hints": [
+            "Amberger et al. (OMIM.org: leveraging knowledge across phenotype-gene relationships)",
+            "Hamosh et al. (Online Mendelian Inheritance in Man (OMIM\\textregistered): Victor McKusick's magnum opus)",
+            "Landrum et al. (ClinVar: updates to support classifications of both germline and somatic variants)",
+            "Robinson et al. (The Human Phenotype Ontology: a tool for annotating and analyzing human hereditary disease)",
+            "Gargano et al. (The Human Phenotype Ontology in 2024: phenotypes around the world)",
+            "Sayers et al. (Database resources of the National Center for Biotechnology Information in 2026)",
+            "research paper or technical report introducing 'MedGen'",
+            "research paper or technical report introducing 'mim2gene' (OMIM-to-NCBI Gene mapping)",
+            "Rosonovski et al. (Europe PMC in 2023)",
+            "research paper or technical report introducing 'PubMed Central' open-access subset"
+          ]
+        },
+        {
+          "subsection_title": "3.2 Generation strategies",
+          "content_bullets": [
+            "Present Table 1 from log Sec. 1.3: three paradigms (Read and write: direct reading as baseline, agentic curator; Extract, then write: evidence graph, case table first; Memory first: recall, then verify), the memory-only control, and add-ons each tested against its parent (second-hand evidence and learned curation guide on direct reading; reconciled case database on the case table).",
+            "Describe each strategy only as in log Sec. 1.3 and idea.md 'Core idea'; note evidence-graph findings with quotes not found in the paper are discarded (none were in this run; log Sec. 2.13) and agentic curator quotes were all found verbatim (2,600; self-reported opening; log Sec. 2.13).",
+            "State that recall, then verify may not add content from the papers, so its low coverage is partly by construction (log Sec. 1.3, 12).",
+            "Model and settings: one model (Claude Opus 5.5) via the Claude Code command-line interface in headless mode with schema-constrained output; no temperature or seed exposed; reasoning effort high for writers, medium for per-paper extraction, audit and judging; no web access; replies cached so each call is made once (log Sec. 1.2).",
+            "Replies 'stopped by the model's safety filter' are recorded, never retried with a changed prompt; reasons not visible (log Sec. 1.2; notes.md).",
+            "Mechanical guards applied to every strategy: ontology identifiers chosen only from ontology-search candidates; gene symbols normalised against HGNC; recalled cross-reference numbers removed; every paragraph must cite a supplied paper (log Sec. 1.3; idea.md 'Design rationale').",
+            "Say 'our extract-then-write implementations'; published systems (e.g. SLIDERS, PaperQA2) were not run; strategies are our implementations of the ideas (log Sec. 12)."
+          ],
+          "citation_hints": [
+            "technical report or model card introducing 'Claude Opus 5.5'",
+            "technical report or documentation introducing 'Claude Code'",
+            "Seal et al. (Genenames.org: the HGNC resources in 2023)",
+            "Li et al. (Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach)",
+            "Skarlinski et al. (Language agents achieve superhuman synthesis of scientific knowledge)",
+            "Shao et al. (Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models)",
+            "Edge et al. (From Local to Global: A Graph RAG Approach to Query-Focused Summarization)",
+            "Joshi et al. (SLIDERS: Evidence Synthesis with Autonomous Database Reconciliation for Systematic Reviews)",
+            "Shankar et al. (DocETL: Agentic Query Rewriting and Evaluation for Complex Document Processing)",
+            "Caufield et al. (Structured Prompt Interrogation and Recursive Extraction of Semantics (SPIRES): a method for populating knowledge bases using zero-shot learning)",
+            "Dhuliawala et al. (Chain-of-Verification Reduces Hallucination in Large Language Models)",
+            "Agrawal et al. (GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning)"
+          ]
+        },
+        {
+          "subsection_title": "3.3 Audit, scoring and statistics",
+          "content_bullets": [
+            "Completion as an outcome (idea.md 'Formal setup'; log Sec. 1.4): a strategy completes an entry when its draft exists and no per-paper call failed; compare only on entries every compared strategy completed; sensitivity analysis counts a missing draft as zero. Rationale: one-call strategies lose the entry, per-paper strategies lose a paper (idea.md 'Design rationale').",
+            "Audit: atomic claims attributed to cited papers; verdict v(c, d) in {supported, partly supported, unsupported, contradicted} with a quote that must occur verbatim, else downgraded; claim verdict is the best over R(c); one repair round. Report 'judged supported' and keep unsupported and contradicted separate (notes.md).",
+            "Primary endpoint: coverage = (present + 1/2 partial) / facts judged over the fixed fact lists Phi(g); no fact went unjudged in any run (log Sec. 1.4). Explain why fixed lists: per-draft splitting adapts to the draft and changes denominators (idea.md; log Sec. 4.4).",
+            "Secondary: HPO precision/recall/F1 exact, hierarchical (ancestors count) and semantic; allelic variant recall and precision matched on normalised protein or nucleotide change with a model judge for names that do not normalise, not validated against reference sequences; causal gene F1; inheritance agreement as coarse classes; predicting nothing where the gold set is non-empty scores zero (log Sec. 1.4).",
+            "Statistics: paired differences from direct reading, bootstrap 95% interval over entries (10,000 resamples), median difference, exact sign test, Holm correction across secondary headline measures; primary endpoint not adjusted (log Sec. 1.4 and header).",
+            "All verdicts and fact judgements are by the same model that wrote the drafts; no human validation."
+          ],
+          "citation_hints": [
+            "Min et al. (FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation)",
+            "Gao et al. (Enabling Large Language Models to Generate Text with Citations)",
+            "Wei et al. (Long-form factuality in large language models)",
+            "Wu et al. (An automated framework for assessing how well LLMs cite relevant medical references)",
+            "Zheng et al. (Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena)",
+            "Panickssery et al. (LLM Evaluators Recognize and Favor Their Own Generations)",
+            "Shankar et al. (Who Validates the Validators? Aligning LLM-Assisted Evaluation of LLM Outputs with Human Preferences)",
+            "Efron (Bootstrap Methods: Another Look at the Jackknife)",
+            "Holm (A Simple Sequentially Rejective Multiple Test Procedure)",
+            "research paper or textbook introducing the 'exact sign test' for paired comparisons",
+            "research paper or technical report introducing 'hierarchical precision, recall and F1' for ontology term sets",
+            "research paper or technical report introducing 'semantic similarity' between Human Phenotype Ontology term sets"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "4. Experiments",
+      "subsections": [
+        {
+          "subsection_title": "4.1 Main comparison on 100 small entries",
+          "content_bullets": [
+            "Completion first (log Sec. 2.1): 93 of 100 entries compared; per-strategy complete / incomplete / no draft (e.g. direct reading 97 complete, 3 no draft; evidence graph 96, 3 incomplete, 1 no draft); stopped replies remove entries unevenly.",
+            "Compact Table 2 from log Sec. 2.2/2.3: primary endpoint direct reading 49.1%, evidence graph 48.6% (-0.5, -1.5 to +0.5), agentic 48.4% (-0.6, -1.3 to -0.0), case table first 47.2% (-1.9, -3.1 to -0.7), memory only 15.1% (-34.0), recall then verify 14.6% (-34.5); plus claims judged supported, HPO exact F1, variants recovered, variant precision, gene F1, inheritance.",
+            "Interpretation bounded by log Sec. 4.2: differences of about one point or less over 93 entries are within replicate noise (half-width 1.0 point); so the agentic -0.6 and evidence-graph -0.5 are not distinguishable from noise. Do NOT claim the evidence graph conveys fewer facts overall; mention in one sentence that an earlier analysis treating completion unevenly showed -2.1 and the corrected analysis does not (log Sec. 12).",
+            "Sensitivity with missing drafts as zero (log Sec. 2.4): same picture (e.g. evidence graph -0.2, agentic +0.4, case table -1.4 (-4.1 to +1.4)).",
+            "Structured fields: extract-then-write raises synopsis recall but lowers precision (e.g. precision 40.6% graph vs 44.1% direct) and produces more variants not in OMIM (pooled precision 69.3% graph, 65.6% table vs 87.5% direct; log Sec. 2.6), noting precision counts a variant OMIM does not list as a miss whether or not the paper reports it.",
+            "Memory-based strategies: recall, then verify keeps claims judged supported high (94.2%) but conveys 14.6% of facts and states no inheritance in 22 of 93 entries (log Sec. 2.7); by construction it cannot add content from papers. Do not claim verification after recall cannot help in general.",
+            "Cost per entry at list price for one model (log Sec. 2.12): everything $1.18 direct reading vs $1.72 evidence graph, $1.78 case table first."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.2 Access to the source bounds agreement with curators",
+          "content_bullets": [
+            "Lead with the within-paper hidden-full-text experiment (log Sec. 6.2; fig_hidden_fulltext): 49 entries, 91 hidden papers; on 46 entries / 136 paragraphs coverage 35.5% abstract only, 41.4% with second-hand passages, 78.6% with full text; state it uses the earlier per-draft fact splitting and that only the full-text draft had a repair round.",
+            "Where missed facts went (log Sec. 3; fig_missed_facts): of facts direct reading did not fully convey, 49% were in the text for full-text papers vs 2% for abstract-only and 0% title-only; overall 43% conveyed, 4% omitted though stated, 13% omitted and partly stated, 40% not in the available text. Model judgement.",
+            "Observational evidence (log Sec. 2.8, 2.9; fig_access_strata): pooled coverage 77.6% on full-text papers vs 40.1% abstract vs 17.5% title for direct reading; differences between strategies grow with the full-text share (case table first +0.6 / -4.0 / -6.1; agentic -0.1 / -0.4 / -2.0). Say explicitly this comparison is across papers and confounded with entry creation date and journal.",
+            "Report both halves of the claim (notes.md): at current open access the reading strategies are close; where more full text is readable, differences grow. Do not claim the method matters little in general.",
+            "Second-hand evidence in use (log Sec. 6.3, 96 entries): +1.8 points (+1.0 to +2.8) on the primary endpoint, +5.0 on variants recovered, title-only coverage 17.5% -> 26.7%; costs: unsupported before repair 0.4% -> 3.9%, facts contradicted +0.2 (+0.0 to +0.5); 240 of 10,597 claims rested only on second-hand text and were labelled, not counted as supported."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.3 What the audit can and cannot see",
+          "content_bullets": [
+            "What it removes: memory-only control has 50.8% claims judged supported, 22.1% unsupported but only 0.6% contradicted before repair (log Sec. 2.2); pooled 576 unsupported vs 18 contradicted (log Sec. 2.5) - unsupported is not wrong (log Sec. 12). Reading strategies reach ~96% judged supported.",
+            "Planted errors (log Sec. 11): in 60 audited paragraphs one fact altered by rule; all 60 flagged on the altered claim; no unaltered controls, so false-flag rate unknown; omissions and misattributions not tested; 6 of 60 had other claims flagged too.",
+            "Blind spot from the hidden-full-text experiment (log Sec. 6.2): 112 claims rested on second-hand text; against the real full text 74 supported, 24 partial, 11 unsupported, 3 contradicted; table passages worse (9 of 21 unsupported) than paragraph passages (2 of 91). 'Unsupported by the primary text' is an upper bound because supplementary material is excluded.",
+            "The audit checks fidelity to the cited text, not correctness: a faithful copy of a source's error passes (log Sec. 12; notes.md).",
+            "Disagreements with the reference in at most one sentence as unconfirmed leads adjudicated by the same model (37 contradicted facts; paper judged to support the draft in 22; log Sec. 11), no entry named, no claim that OMIM is wrong."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.4 Memory-only control and contamination",
+          "content_bullets": [
+            "By creation era (log Sec. 2.11; fig_memory_by_era): memory-only facts conveyed 14.5%, 24.1%, 17.5%, 12.6%, 5.7% from oldest to newest band, against direct reading 34.9-53.9%; memory gene F1 falls to 41.2% in the newest band.",
+            "Entries created June-November 2026 (log Sec. 10): 20 compared of 30; memory only 7.0% facts, gene F1 30.0%, claims judged supported 26.2%; reading strategies 49.4-52.2%; synopsis and inheritance not reported (annotations for one entry only). Model training cut-off is not known; stopped replies were frequent (agentic writer stopped on 6 of 30).",
+            "Hedge (notes.md): the control shows memory contributes little for the newest entries; within abstract-only papers, direct-reading coverage also declines with creation date (log Sec. 2.10: 49.8% for 600000-609999 to 37.9% for 620000 onward, 33.0% classic), so reading results are not claimed free of memorisation."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.5 Ablation of the extract-then-write implementations",
+          "content_bullets": [
+            "Setup (log Sec. 5): 40 entries weighted to full text (25 with at least half full text), 38 compared; 'matched' raises per-paper extraction to high effort and lets the writer choose synopsis terms (two changes made together); 'plus text' also gives the writer the papers' text.",
+            "Results: evidence graph matched vs direct reading +1.8 (+0.4 to +3.3) on facts, +3.3 (+1.2 to +5.6) on full-text papers; case table gap -2.3 shrinks to -0.2 when matched (table matched minus table +2.1, +1.1 to +3.2). Attribution of the matched gain to extraction effort is an inference (log Sec. 5).",
+            "Synopsis precision remains lower than direct reading for all extract-then-write variants (-2.6 to -5.7) and more terms per entry; plus text recovers claims judged supported (+1.5 graph).",
+            "Report the higher cost (generation $0.32 direct vs $0.65-$0.97) and completion losses from stopped high-effort extraction calls. Always phrase as 'our extract-then-write implementations' with the matched ablation beside the main-comparison result."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "4.6 Learned curation guide and reconciliation",
+          "content_bullets": [
+            "Learned guide (log Sec. 8): two reflection rounds on 27 training entries; the final guide did not improve facts on its own training entries (+0.06 points); on 68 held-out entries +1.0 (+0.0 to +2.0) facts, -1.6 variants recovered. Null-to-small result; says nothing about better-resourced prompt optimisation; a first guide that treated three empty drafts as omissions was discarded.",
+            "Reconciled case database (log Sec. 7): 57 merges proposed, 40 accepted in 27 entries; counted individuals 2,580 -> 2,413, families 1,126 -> 1,092; planted test merged 10 of 10 copied reports and no unrelated records (easy case only); no entry-level score changed (+0.1 facts, -0.1 to +0.4); patient-count agreement with HPO fractions 48% before and after. Not validated against external per-patient ground truth; do not claim structure pays when the database is the product.",
+            "Measurement stability (log Sec. 4.1-4.3), one short paragraph: judge re-runs within-entry SD 0.8-0.9 points, per-fact agreement 95.7%; three full replicates: within-entry SD 2.5 (direct) and 4.0 (graph), 1-3% of variance within entries; crediting a fact anywhere in the draft changes coverage by at most one point."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "5. Discussion and Limitations",
+      "subsections": [
+        {
+          "subsection_title": "5.1 What the results support",
+          "content_bullets": [
+            "With model, sources, guards and scoring fixed, reading strategies differ by about two points or less on the primary endpoint at current open access, while access to full text moves coverage by tens of points within the same papers (log Sec. 2.3, 6.2).",
+            "Strategy differences grow where full text is readable (log Sec. 2.9, 5), so the comparison should be revisited as open access grows; this is a statement about this benchmark, not a general claim that strategy matters little.",
+            "An audit against the cited text is useful for removing unsupported claims but is a fidelity check: it cannot certify correctness and passes second-hand support (log Sec. 6.2, 11, 12).",
+            "Memory alone supplies little for recent entries; verify-after-recall as implemented cannot add content (log Sec. 2.11, 10, 12). Do not generalise the negative results for recall-then-verify, the learned guide or reconciliation beyond the implementations and entry sizes tested."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "5.2 Limitations",
+          "content_bullets": [
+            "One model family wrote, audited and judged everything; no human has read any draft, verdict or fact judgement; no second model tested (log Sec. 12; notes.md).",
+            "The reference is indirect and narrow: variant-centred curator paragraphs, an HPO annotation set from two sources, gene and inheritance tables; narrative sections of entries are not compared; editorial agreement suggests drafts make about twice as many statements per paper as the paragraph has facts (log Sec. 8).",
+            "Oracle references: every strategy is given the curators' reference list; finding the literature was tested only on ten entries (log Sec. 11: 56 of 85 references, 66%).",
+            "Open access only, no supplementary material; variant names not validated against reference sequences; inheritance compared as coarse classes.",
+            "Strategies were developed on the same entries they are evaluated on; no separate development set.",
+            "Stopped replies remove entries unevenly across strategies (log Sec. 2.1, 10).",
+            "Entries with few references dominate; inputs too large for one prompt were not tested; the 30-75-reference tier (log Sec. 9) is exploratory: about ten comparable entries, mostly abstracts, fact score covers a minority of references.",
+            "Cost is at list price for one model; published systems were not run as released."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "6. Conclusion",
+      "subsections": [
+        {
+          "subsection_title": "Conclusion",
+          "content_bullets": [
+            "Restate the three questions of idea.md 'Problem' and answer each with the bounded claim from Sec. 4 (strategy: close at current access; access: within-paper drop 78.6% -> 35.5%; audit: fidelity, not correctness).",
+            "Position the benchmark and harness as the contribution (idea.md 'Contributions' 1): public sources only, claim-level audit, fixed fact lists, per-entry release of drafts, verdicts and scores (score files carry fact identifiers and statuses, not curator wording; notes.md 'Ethics').",
+            "No promises of further experiments (other models, curator studies, published systems)."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Ethics Statement",
+      "subsections": [
+        {
+          "subsection_title": "Ethics Statement",
+          "content_bullets": [
+            "Built from public resources (NCBI, ClinVar, HPO, MedGen, Europe PMC, HGNC); curator-written text used for scoring and not redistributed (notes.md 'Ethics and data use').",
+            "Generated entries are drafts for expert review, not clinical guidance, must be marked machine generated and not as OMIM content; rights holders' terms of use apply to anyone rebuilding the reference.",
+            "No human subjects; no patient-level data beyond what published papers report."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Reproducibility Statement",
+      "subsections": [
+        {
+          "subsection_title": "Reproducibility Statement",
+          "content_bullets": [
+            "Model, interface and reasoning-effort settings; caching so each call is made once; no temperature or seed exposed (log Sec. 1.2).",
+            "Entry sampling with a fixed seed, eligibility rules and subsets (log Sec. 1.1); per-entry release of drafts, verdicts and scores; replicate and judge-variation analyses (log Sec. 4).",
+            "Total model usage: 37,769 cached model calls, 252 million input and 69 million output tokens, about $2,831 at list price (log Sec. 13). No repository URL or package name (anonymity)."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Appendix",
+      "subsections": [
+        {
+          "subsection_title": "A.1 Full main-comparison tables",
+          "content_bullets": [
+            "Full log Sec. 2.2 tables (all metrics, volume per entry), Sec. 2.3 paired differences, Sec. 2.4 sensitivity with full statistics (median, sign test), Sec. 2.5 pooled counts, Sec. 2.6 variant precision, Sec. 2.7 inheritance errors by kind, Sec. 2.8 pooled coverage by access, Sec. 2.9 variant strata, Sec. 2.10 era-by-access tables, Sec. 2.12 cost.",
+            "State the earlier per-draft scoring row runs 2-5 points higher with the same ordering (log Sec. 4.4)."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "A.2 Ablation, measurement stability and add-on details",
+          "content_bullets": [
+            "Full log Sec. 5 tables (means, step-wise differences, differences from direct reading, costs, completion, variant precision).",
+            "Log Sec. 4.1-4.3 judge-variation and replicate tables.",
+            "Log Sec. 6.1 retrieval of second-hand passages (473 of 515 papers, 2,430 passages); Sec. 6.2 claim tables by evidence source, passage kind and number of other references; Sec. 6.3 full table; Sec. 7 and Sec. 8 full tables and training trajectory."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "A.3 Exploratory and supplementary analyses",
+          "content_bullets": [
+            "Log Sec. 9 large-entry tier, explicitly labelled exploratory (10 of 12 compared, 536 papers of which 29 full text, intervals unreliable, fact score covers 3-19 papers per entry); no findings drawn.",
+            "Log Sec. 10 newest-entry completion table.",
+            "Log Sec. 11 updates experiment (all 28 later-added references found, 21 became update proposals, 33 papers OMIM does not cite) and retrieval without a reference list; evidence-graph strategy only.",
+            "Log Sec. 12 analyses that failed or were corrected: the earlier uneven completion analysis, the frameshift-naming bug fixed before results."
+          ],
+          "citation_hints": []
+        }
+      ]
+    }
+  ]
+}

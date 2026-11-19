@@ -326,7 +326,8 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
     {ev['facts']:,} facts in all.
   - Clinical synopsis: the Human Phenotype Ontology disease annotations for the entry (phenotype aspect):
     {sum(ev['hpo'].values()):,} annotations, of which {ev['hpo'].get('PMID', 0):,} are the HPO team's own curation from
-    papers (they carry a PubMed reference) and {ev['hpo'].get('OMIM', 0):,} are taken from OMIM.
+    papers (they carry a PubMed reference) and {ev['hpo'].get('OMIM', 0):,} are taken from OMIM. (That this count equals
+    the number of in-scope paragraphs is a coincidence.)
   - Causal gene: OMIM's gene map via MedGen and mim2gene. Inheritance: HPO and MedGen modes, compared as coarse classes
     (autosomal dominant, autosomal recessive, X-linked, mitochondrial, and others), requiring the sets to be equal.
   - Allelic variants: the entry's OMIM-submitted ClinVar records in scope: {ev['variants']}.
@@ -375,8 +376,12 @@ removed; every paragraph must cite a supplied paper.
 - **OMIM facts conveyed (primary endpoint).** Each fixed fact is marked present, partly present, absent or
   contradicted in what the draft says about the paragraph's papers. Coverage = (present + half of partial) / facts
   judged. No fact went unjudged in any run.
-- **Clinical synopsis.** Precision, recall and F1 of ontology terms: exact, hierarchical (ancestors count) and
-  semantic.
+- **Clinical synopsis.** Precision, recall and F1 of ontology terms against the reference annotations, three ways.
+  Exact: identical term identifiers. Hierarchical: both sets are expanded with all their ancestors in the ontology
+  before comparing, so a more general or more specific term earns partial credit. Semantic: for each term the best
+  Lin similarity to any term of the other set (information content computed from the ontology's disease annotations),
+  averaged in each direction to give precision and recall. Terms are assigned by a lexical search over the ontology's
+  labels and synonyms that returns candidates, from which the model chooses.
 - **Allelic variants.** Recall of OMIM's in-scope variants and precision of the draft's variants, matched on
   normalised protein or nucleotide change with a model judge for names that do not normalise. Variant names are not
   validated against reference sequences. Precision counts a variant OMIM does not list as a miss whether or not the

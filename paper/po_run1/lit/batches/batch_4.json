@@ -1,0 +1,65 @@
+[
+  {
+    "section": "Introduction",
+    "focus": "Surveys and systematic reviews of large language models for literature review, evidence synthesis, systematic-review automation and biomedical knowledge extraction",
+    "context": "Hook: Curated knowledge bases such as OMIM are built by experts who read papers and record, entry by entry, what each paper showed; language models can now read those papers, and many system designs (long-context reading, extraction into graphs or tables, agents, draft-then-verify, prompt optimisation) have been proposed for turning documents into structured, cited text, but they were evaluated on different tasks, models, retrieval stacks and scoring, so their results cannot be compared.. Gap: There is no controlled evaluation in which the cited sources, the model, the mechanical guards and the scoring are held fixed and only the generation strategy varies, scored against curator-written per-paper text and structured fields. Scoped to what the log evaluates: one model family, 100 small OMIM phenotype entries (2-12 references) given the curators' own reference list, open-access text only; questions are (1) how much the strategy matters, (2) whether the strategy or what it could read limits agreement with curators, and (3) what a claim-level audit against the cited source can and cannot catch. No claim of generality across models, of clinical use, or of human validation.",
+    "search_type": "exploration",
+    "task_id": "T002"
+  },
+  {
+    "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+    "focus": "LLM-generated gene articles compared with Wikipedia",
+    "context": "Mission: Find work up to 2026-11 that uses language models to populate or assist curated biological knowledge bases (FlyBase/GO-style annotation, HPO annotation, ClinVar/variant evidence, gene-disease validity, rare-disease profiles), with emphasis on how each is evaluated: what reference, whether sources are fixed, whether curator-written text is used. Include the closest prior work named in notes.md (FlyAOC, GEN-KnowRD, WikiCrow, Groza et al. 2026) and phenotype concept-recognition baselines. Do not look for new systems to compare against; none were run.. Hypothesis: Prior work varies the retrieval, the model and the scoring together, scores against structured annotations or encyclopedia text rather than curators' per-paper prose, or tests what the model remembers rather than what it reads; none holds the cited papers fixed and varies only the generation strategy.",
+    "search_type": "exploration",
+    "task_id": "T012"
+  },
+  {
+    "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+    "focus": "GraphRAG versus RAG systematic evaluation when graphs help",
+    "context": "Mission: Collect systematic comparisons of long-context reading with RAG and GraphRAG, document-processing pipelines that extract to structured intermediates (graphs, tables, databases with reconciliation), and agentic literature-synthesis systems that write cited articles, up to 2026-11. Focus on what each compared and on which tasks; note where comparisons conflate model, retrieval and scoring.. Hypothesis: Evidence on whether an intermediate representation helps over reading the documents directly is mixed and task-dependent, comes from QA or summarisation tasks rather than knowledge-base writing, and rarely includes matched ablations that separate the representation from other design choices such as extraction effort.",
+    "search_type": "exploration",
+    "task_id": "T014"
+  },
+  {
+    "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+    "focus": "LLM document processing pipeline structured extraction agentic query rewriting",
+    "context": "Mission: Collect systematic comparisons of long-context reading with RAG and GraphRAG, document-processing pipelines that extract to structured intermediates (graphs, tables, databases with reconciliation), and agentic literature-synthesis systems that write cited articles, up to 2026-11. Focus on what each compared and on which tasks; note where comparisons conflate model, retrieval and scoring.. Hypothesis: Evidence on whether an intermediate representation helps over reading the documents directly is mixed and task-dependent, comes from QA or summarisation tasks rather than knowledge-base writing, and rarely includes matched ablations that separate the representation from other design choices such as extraction effort.",
+    "search_type": "exploration",
+    "task_id": "T016"
+  },
+  {
+    "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+    "focus": "language agents scientific literature synthesis cited Wikipedia-style articles",
+    "context": "Mission: Collect systematic comparisons of long-context reading with RAG and GraphRAG, document-processing pipelines that extract to structured intermediates (graphs, tables, databases with reconciliation), and agentic literature-synthesis systems that write cited articles, up to 2026-11. Focus on what each compared and on which tasks; note where comparisons conflate model, retrieval and scoring.. Hypothesis: Evidence on whether an intermediate representation helps over reading the documents directly is mixed and task-dependent, comes from QA or summarisation tasks rather than knowledge-base writing, and rarely includes matched ablations that separate the representation from other design choices such as extraction effort.",
+    "search_type": "exploration",
+    "task_id": "T018"
+  },
+  {
+    "section": "Related Work: 2.3 Memory, verification and contamination",
+    "focus": "measure data contamination per benchmark",
+    "context": "Mission: Find work on generating from model memory and then verifying (chain-of-verification, self-verification against databases), and on detecting or measuring benchmark contamination (time-based splits, black-box tests), up to 2026-11. Look for evidence on whether verification after recall adds content or only removes/corrects it.. Hypothesis: Verify-after-recall methods are mostly evaluated on short-form or general-knowledge tasks where memory is strong; contamination studies rarely provide a control that measures what memory alone supplies for the same task and how this changes with when the knowledge was created.",
+    "search_type": "exploration",
+    "task_id": "T022"
+  },
+  {
+    "section": "Related Work: 2.3 Memory, verification and contamination",
+    "focus": "temporal split knowledge cutoff evaluation memorisation",
+    "context": "Mission: Find work on generating from model memory and then verifying (chain-of-verification, self-verification against databases), and on detecting or measuring benchmark contamination (time-based splits, black-box tests), up to 2026-11. Look for evidence on whether verification after recall adds content or only removes/corrects it.. Hypothesis: Verify-after-recall methods are mostly evaluated on short-form or general-knowledge tasks where memory is strong; contamination studies rarely provide a control that measures what memory alone supplies for the same task and how this changes with when the knowledge was created.",
+    "search_type": "exploration",
+    "task_id": "T024"
+  },
+  {
+    "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+    "focus": "research paper or technical report introducing 'PubMed Central' open-access subset",
+    "context": "Must-have citation for section covering: Formalise as in idea.md 'Formal setup': entry e = (h, R), R = {d_1,...,d_n}, access level a(d) in {full text, abstract, title}; strategy S maps (h, R) to draft D (paragraphs citing non-empty subsets of R, genes, inheritance modes, ontology terms, variants). Input: entry number, title and alternative titles plus exactly the cited papers; causal gene withheld (idea.md 'Design rationale'). Entries: 100 drawn at random with a fixed seed, 20 per creation-era band of entry number; eligibility 2-12 references, causal gene in gene map, >=5 phenotype annotations, >=1 in-scope curator paragraph; sample is stratified and selects well-annotated, molecularly characterised entries (log Sec. 1.1). Papers: 515 cited; readable in full 96 (19%), abstract only 345, title only 74; open access via PubMed Central or Europe PMC; supplementary material not retrieved (log Sec. 1.1). Reference with required wording (notes.md 'Words to use'): 'OMIM facts conveyed' = coverage of facts in OMIM's allelic-variant descriptions as deposited in ClinVar, from OMIM's gene entries, variant-centred; 476 paragraphs in scope; split once into 6,652 fixed facts without sight of any draft. Narrative sections of phenotype entries are not compared. Clinical synopsis reference = HPO disease annotations: 2,311, of which 1,835 are the HPO team's own curation from papers and 476 taken from OMIM; never call it OMIM's synopsis. Causal gene from OMIM gene map via MedGen and mim2gene; inheritance from HPO and MedGen as coarse classes; 427 in-scope OMIM-submitted ClinVar variants (log Sec. 1.1). Other evaluation sets: 40-entry ablation subset, 30-entry replicate subset, 12 entries with 30-75 references (exploratory), 30 entries created June-November 2026 (log Sec. 1.1).",
+    "search_type": "targeted",
+    "task_id": "T037"
+  },
+  {
+    "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+    "focus": "research paper or textbook introducing the 'exact sign test' for paired comparisons",
+    "context": "Must-have citation for section covering: Completion as an outcome (idea.md 'Formal setup'; log Sec. 1.4): a strategy completes an entry when its draft exists and no per-paper call failed; compare only on entries every compared strategy completed; sensitivity analysis counts a missing draft as zero. Rationale: one-call strategies lose the entry, per-paper strategies lose a paper (idea.md 'Design rationale'). Audit: atomic claims attributed to cited papers; verdict v(c, d) in {supported, partly supported, unsupported, contradicted} with a quote that must occur verbatim, else downgraded; claim verdict is the best over R(c); one repair round. Report 'judged supported' and keep unsupported and contradicted separate (notes.md). Primary endpoint: coverage = (present + 1/2 partial) / facts judged over the fixed fact lists Phi(g); no fact went unjudged in any run (log Sec. 1.4). Explain why fixed lists: per-draft splitting adapts to the draft and changes denominators (idea.md; log Sec. 4.4). Secondary: HPO precision/recall/F1 exact, hierarchical (ancestors count) and semantic; allelic variant recall and precision matched on normalised protein or nucleotide change with a model judge for names that do not normalise, not validated against reference sequences; causal gene F1; inheritance agreement as coarse classes; predicting nothing where the gold set is non-empty scores zero (log Sec. 1.4). Statistics: paired differences from direct reading, bootstrap 95% interval over entries (10,000 resamples), median difference, exact sign test, Holm correction across secondary headline measures; primary endpoint not adjusted (log Sec. 1.4 and header). All verdicts and fact judgements are by the same model that wrote the drafts; no human validation.",
+    "search_type": "targeted",
+    "task_id": "T059"
+  }
+]
