@@ -143,7 +143,10 @@ class ScriptedLLM:
                  [_ph("dystonia", "Dystonia"), _ph("seizures", "Seizure"),
                   _ph("ataxia from drug toxicity", "Ataxia", other_cause=True),   # not counted
                   _ph("optic atrophy", "Optic atrophy", present=False)],
-                 [_var("R34W")], "A 9-year-old girl presented with dystonia and seizures.", sex="female"),
+                 [_var("R34W"),
+                  # A candidate the writer will not confirm: its gene must stay out of relationships.
+                  _var("c.77G>A", cdna="c.77G>A", gene="GENEV", zygosity="heterozygous", conclusion="uncertain")],
+                 "A 9-year-old girl presented with dystonia and seizures.", sex="female"),
         ], notes=[cohort.XNote(section="pathogenesis", inheritance="UNKNOWN",
                                statement="Smith and Jones (2005) found GENEX protein reduced to 30% of control.",
                                quotes=["GENEX protein levels were reduced to 30% of control"])])
@@ -167,6 +170,11 @@ class ScriptedLLM:
                 cohort.CSection(name="pathogenesis", paragraphs=[
                     P(text="Smith and Jones (2005) found GENEX protein reduced to 30% of control.",
                       evidence_ids=["N:222:1"])]),
+            ],
+            relationships=[
+                cohort.CRelationship(gene_symbol="genex", record_ids=["R:111:1", "R:222:1"]),
+                cohort.CRelationship(gene_symbol="GENEQ", record_ids=["R:111:1"]),        # not a candidate
+                cohort.CRelationship(gene_symbol="GENEV", record_ids=["R:111:1"]),        # no record carries it there
             ],
             allelic_variants=[
                 cohort.CAllelicVariant(variant_id="V1", name="GENEX, ARG34TRP", phenotype="Dystonia with optic atrophy",
@@ -210,7 +218,7 @@ def test_counts_pool_across_papers(run):
 
 def test_same_variant_named_two_ways_is_one_row(run):
     entry, table, _ = run
-    assert len(table["variants"]) == 2              # the GENEX change, named two ways, and the GENEW one
+    assert len(table["variants"]) == 3              # the GENEX change named two ways, GENEW, GENEV
     row = table["variants"][0]
     assert row["id"] == "V1" and row["records"] == ["R:111:1", "R:222:1"] and row["individuals"] == 4
     assert set(row["keys"]) == {"c.100C>T", "p.R34W"}
@@ -232,7 +240,7 @@ def test_paragraphs_without_valid_ids_are_dropped(run):
     entry, _, _ = run
     text = entry.plain_text()
     assert "Brown" not in text and "seventh" not in text and "Invented" not in text
-    assert len(entry.meta["dropped_ungrounded"]) == 3
+    assert len([d for d in entry.meta["dropped_ungrounded"] if not d.startswith("relationship")]) == 3
     assert entry.sections[0].paragraphs[0].pmids == ["111"]
     assert [s.name for s in entry.sections] == ["clinical_features", "pathogenesis"]
     assert entry.intro.pmids == ["111", "222"]
@@ -305,3 +313,16 @@ def test_follow_up_records_are_not_counted_twice():
     ph = table.phenotype_table()
     assert ph["HP:0001332"]["present"] == 3 and ph["HP:0001332"]["pmids"] == ["111", "222"]
     assert ph["HP:0001250"]["present"] == 3 and ph["HP:0001250"].get("from_follow_up")   # only the follow-up has it
+
+
+def test_writer_confirms_causal_genes_from_the_candidates(run):
+    entry, table, llm = run
+    genes = entry.meta["cohort"]["genes"]
+    assert genes["candidates"] == ["GENEX", "GENEV"]            # GENEW was dismissed by its authors
+    assert genes["confirmed"] == ["GENEX"] and genes["not_confirmed"] == ["GENEV"]
+    assert {d["gene"]: d["reason"] for d in genes["dropped"]} == {"GENEQ": "not a candidate",
+                                                                  "GENEV": "no valid record id"}
+    assert [r.gene_symbol for r in entry.relationships] == ["GENEX"]
+    assert entry.inheritance == ["AR"] and table["inheritance"]["genes"] == ["GENEX"]
+    prompt = next(p for stage, p in llm.calls if stage == "synthesize")
+    assert "CANDIDATE CAUSAL GENES" in prompt and "- GENEV:" in prompt

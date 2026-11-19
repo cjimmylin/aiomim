@@ -79,12 +79,26 @@ def protein_key(text: str) -> str:
     return f"p.{ref}{pos}{alt}"
 
 
+_TRANSCRIPT = re.compile(r"^(?:NM|NR|NP|NC|NG|XM|XR|XP|ENST|ENSP|ENSG|LRG)_?\d[\w.]*:?", re.I)
+_NUC_RANGE = re.compile(
+    r"^[-*]?\d+(?:[+-]\d+)?(?:_[-*]?\d+(?:[+-]\d+)?)?(?:del|dup|ins|inv|delins)[acgt\d]*(?:ins[acgt\d]*)?$", re.I)
+
+
 def nucleotide_key(text: str, mito: bool = False) -> str:
-    """'c.3697G>A', '3697G-A', 'G3697A' -> 'c.3697G>A' (or 'm.…' for mtDNA)."""
+    """'c.3697G>A', '3697G-A', 'G3697A' -> 'c.3697G>A' (or 'm.…' for mtDNA).
+
+    Only strings that are positions-with-a-change are keyed. A transcript
+    identifier ("NM_007077.3"), a protein or RNA expression, or a legacy name that
+    does not start with a position ("IVS3+2delT", "insT1354") gets no key, so it
+    can never become the reason two different variants are merged.
+    """
     s = re.sub(r"\s", "", text or "")
+    s = _TRANSCRIPT.sub("", s)                    # "NM_005902.4:c.859C>T" -> "c.859C>T"; a bare id -> ""
     prefix = "m" if mito else "c"
-    m = re.match(r"^(?:NM_[\d.]+:|NC_[\d.]+:)?([cgmn])\.(.*)$", s, re.I)
+    m = re.match(r"^([cgmnrp])\.(.*)$", s, re.I)
     if m:
+        if m.group(1).lower() in ("p", "r"):
+            return ""
         prefix, s = m.group(1).lower(), m.group(2)
     if mito and prefix == "c":
         prefix = "m"  # papers and models alike write "c." for mtDNA positions; there is no CDS numbering
@@ -96,7 +110,7 @@ def nucleotide_key(text: str, mito: bool = False) -> str:
     m = _NUC_LEGACY.match(s)
     if m:
         return f"{prefix}.{m.group(2)}{m.group(1).upper()}>{m.group(3).upper()}"
-    if re.search(r"\d", s) and re.search(r"del|dup|ins|inv|_", s, re.I):
+    if _NUC_RANGE.match(s):
         return f"{prefix}.{s.lower()}"
     return ""
 

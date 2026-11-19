@@ -40,10 +40,13 @@ Counting rules (see `_tally_feature` and `pool`):
   follow-ups (at most once). Records in different papers that share a label are
   kept separate and listed as possible duplicates.
 
-Causal genes: genes with patient variants in records from primary or supporting
-papers, leaving out variants the authors themselves dismiss (incidental,
-polymorphism, cause of something else); if any variant is called causal by its
-authors, only genes with such variants are kept.
+Causal genes: the candidates are the genes with patient variants in records from
+primary or supporting papers, leaving out variants the authors themselves
+dismiss (incidental, polymorphism, cause of a different condition the patients
+also have). The writer then confirms, from the candidates only, the gene(s) the
+records show to cause this entry's disorder rather than a sister disorder, each
+with records carrying variants in it; anything else it names is dropped. The
+mode of inheritance is recomputed by the rule from the confirmed genes' records.
 
 Inheritance rule (see `record_mode` and `choose_modes`): each pooled record
 gives at most one mode from the genotypes it carries in the causal genes: an mtDNA variant → MT;
@@ -634,18 +637,15 @@ class CaseTable:
     def _build_genes(self) -> dict[str, dict[str, Any]]:
         """Causal genes: genes with patient variants in records from core papers, with papers and individuals.
 
-        A variant the authors dismissed (incidental, polymorphism, cause of something
-        else) does not make its gene causal. When some gene has a variant the authors
-        call causal, only such genes are kept; otherwise genes with variants of
-        uncertain status are.
+        A variant the authors dismissed (incidental, polymorphism, cause of a different
+        condition) does not make its gene causal; one they call causal or leave
+        uncertain does.
         """
         genes: dict[str, dict[str, Any]] = {}
-        any_causal = any(r["gene"] and r["authors"].get("causal") and any(self.is_core(p) for p in r["pmids"])
-                         for r in self.variants)
         for row in self.variants:
             if not row["gene"]:
                 continue
-            if row["authors"].get("causal", 0) == 0 and (any_causal or not row["authors"].get("uncertain")):
+            if not (row["authors"].get("causal") or row["authors"].get("uncertain")):
                 continue
             core_pmids = [p for p in row["pmids"] if self.is_core(p)]
             if not core_pmids:
@@ -719,20 +719,28 @@ class CaseTable:
             row["text"] = row.pop("texts").most_common(1)[0][0]
         return rows
 
-    def compute_inheritance(self) -> dict[str, Any]:
+    def compute_inheritance(self, genes: set[str] | None = None) -> dict[str, Any]:
+        """Apply the inheritance rule over the records of `genes` (default: all candidate genes).
+
+        With confirmed genes given, records whose only variants lie in candidate
+        genes that were not confirmed are left out; records without any candidate-gene
+        variant still contribute the mode stated for them.
+        """
+        use = set(self.genes) if genes is None else set(genes)
         for rec in self.records.values():
-            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, set(self.genes) or None)
-        pooled = self.pooled()
+            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, use or None)
+        pooled = [r for r in self.pooled()
+                  if any(v.gene in use for v in r.variants) or not any(v.gene in self.genes for v in r.variants)]
         overall = _mode_support(pooled)
         chosen = choose_modes(overall)
         per_gene: dict[str, list[str]] = {}
-        for gene in self.genes:
+        for gene in [g for g in self.genes if g in use]:
             recs = [r for r in pooled if any(v.gene == gene for v in r.variants)]
             for r in recs:  # the mode as shown by this gene's variants alone
                 r.genotype_mode, r.genotype_reason = record_mode(r, self.x_genes, {gene})
             per_gene[gene] = choose_modes(_mode_support(recs)) or chosen
         for rec in self.records.values():
-            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, set(self.genes) or None)
+            rec.genotype_mode, rec.genotype_reason = record_mode(rec, self.x_genes, use or None)
         fallback: dict[str, list[str]] = {}
         if not chosen:
             for r in self.records.values():
@@ -744,7 +752,7 @@ class CaseTable:
             if fallback:
                 chosen = [max(fallback, key=lambda m: (len(set(fallback[m])), m))]
         return {
-            "chosen": chosen, "per_gene": per_gene,
+            "chosen": chosen, "per_gene": per_gene, "genes": sorted(use),
             "support": {m: {**s, "reasons": dict(s["reasons"])} for m, s in overall.items()},
             "stated_fallback": {m: sorted(set(p)) for m, p in fallback.items()},
         }
@@ -817,9 +825,16 @@ class CAllelicVariant(BaseModel):
     paragraphs: list[CParagraph]
 
 
+class CRelationship(BaseModel):
+    gene_symbol: str = Field(description="A gene from the candidate list")
+    record_ids: list[str] = Field(description='IDs of the records (R:...) whose patients show this gene causes the '
+                                              'disorder of this entry')
+
+
 class CEntry(BaseModel):
     intro: CParagraph
     sections: list[CSection]
+    relationships: list[CRelationship]
     allelic_variants: list[CAllelicVariant]
 
 
@@ -850,8 +865,14 @@ reopen the papers to learn who was studied, what was found and how it was shown.
 
 {STYLE}
 
-{INTRO_RULE} The causal genes and the mode of inheritance have been computed from the case table and \
-are given to you; use them in the intro.
+{INTRO_RULE} The mode of inheritance has been computed from the patients' genotypes and is given to \
+you. Name in the intro exactly the genes you confirm in `relationships`.
+
+`relationships`: the candidate causal genes are every gene with patient variants in a primary or \
+supporting paper, so they can include genes that cause a sister disorder or a second condition in the \
+same patients. From the candidates only, name the gene(s) that the records show to cause THIS entry's \
+disorder, each with the IDs of the records (R:...) whose patients carry variants in it and have this \
+disorder. Judge from the records and notes, not from memory. Leave it empty for a gene entry.
 
 `allelic_variants`: one item per variant in the variant table that was reported as disease-causing in \
 patients, keyed by its `variant_id`, in chronological order of first report, each with paragraphs \
@@ -913,12 +934,12 @@ def cohort_context(table: CaseTable, inheritance: dict[str, Any]) -> str:
     t = table.totals()
     lines.append(f"\nCASE TABLE TOTALS (pooled, for orientation only): {t['individuals']} affected individuals, "
                  f"{t['families']} families, {t['records']} records")
-    lines.append("\nCAUSAL GENES (computed: genes with patient variants in primary or supporting papers)")
+    lines.append("\nCANDIDATE CAUSAL GENES (computed: genes with patient variants in primary or supporting papers)")
     lines.extend(f"- {g}: {s['individuals']} individuals; papers: "
                  f"{'; '.join(table.label(p) for p in s['pmids'])}" for g, s in table.genes.items())
     if not table.genes:
         lines.append("- none established")
-    lines.append("\nMODE OF INHERITANCE (computed from genotypes and stated family patterns)")
+    lines.append("\nMODE OF INHERITANCE (computed from genotypes and stated family patterns, over all candidate genes)")
     lines.append("- called: " + (", ".join(f"{m} ({INHERITANCE_HPO[m][1]})" for m in inheritance["chosen"]) or "none"))
     for mode, s in inheritance["support"].items():
         lines.append(f"- {mode}: {s['individuals']} individuals in {len(s['records'])} records "
@@ -1015,9 +1036,35 @@ def render_entry(seed: Seed, table: CaseTable, inheritance: dict[str, Any], gene
             phenotype=squash(x.phenotype), paragraphs=paras,
         ))
 
+    # Causal genes: the writer confirms them, but only from the table's candidates
+    # and only on records that carry variants in them.
+    confirmed: dict[str, list[str]] = {}
+    gene_decisions: dict[str, Any] = {"candidates": list(table.genes), "confirmed": [], "dropped": []}
+    if seed.entry_type != "gene":
+        for rel in raw.relationships:
+            symbol = table.gene(rel.gene_symbol)
+            if symbol not in table.genes:
+                gene_decisions["dropped"].append({"gene": rel.gene_symbol, "reason": "not a candidate"})
+                dropped.append(f"relationship: {rel.gene_symbol} is not a candidate gene of the case table")
+                continue
+            ids = [i.strip().strip("[]") for i in rel.record_ids]
+            valid = [i for i in dict.fromkeys(ids)
+                     if i in table.records and any(v.gene == symbol for v in table.records[i].variants)]
+            if not valid:
+                gene_decisions["dropped"].append({"gene": symbol, "reason": "no valid record id"})
+                dropped.append(f"relationship: {rel.gene_symbol} cites no record carrying a variant in it")
+                continue
+            confirmed.setdefault(symbol, [])
+            confirmed[symbol] += [i for i in valid if i not in confirmed[symbol]]
+    gene_decisions["confirmed"] = list(confirmed)
+    gene_decisions["not_confirmed"] = [g for g in table.genes if g not in confirmed]
+    if confirmed:
+        inheritance = table.compute_inheritance(set(confirmed))
+
     # Structured parts: from the table, not from the prose.
     if seed.entry_type != "gene":
-        for gene, support in table.genes.items():
+        for gene in confirmed:
+            support = table.genes[gene]
             facts = gene_facts.get(gene, {})
             entry.relationships.append(GenePhenotypeRelationship(
                 phenotype=seed.title, phenotype_mim=seed.mim or "", gene_symbol=gene,
@@ -1030,6 +1077,7 @@ def render_entry(seed: Seed, table: CaseTable, inheritance: dict[str, Any], gene
     entry.assign_paragraph_ids()
     entry.references = _references(entry, table.papers)
     entry.meta = {
+        "genes": gene_decisions, "final_inheritance": inheritance,
         "strategy": "cohort", "generated": date.today().isoformat(),
         "model": llm.settings.model_for("synthesize"),
         "dropped_ungrounded": dropped, "unknown_citations": sorted(set(unknown_citations)),
@@ -1052,10 +1100,12 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
 
     gene_ref, gene_facts = _gene_reference(sorted(set(table.genes) | set(seed.gene_symbols)))
     table.x_genes = {g for g, f in gene_facts.items() if (f.get("location") or "").upper().startswith("X")}
-    inheritance = table.compute_inheritance()
-    _write(out_dir / "cohort.json", table.to_json(inheritance))
-
-    entry = render_entry(seed, table, inheritance, gene_ref, gene_facts, llm)
+    candidate_inheritance = table.compute_inheritance()
+    entry = render_entry(seed, table, candidate_inheritance, gene_ref, gene_facts, llm)
+    gene_decisions = entry.meta.pop("genes")
+    inheritance = entry.meta.pop("final_inheritance")
+    _write(out_dir / "cohort.json", {**table.to_json(inheritance), "gene_decisions": gene_decisions,
+                                     "candidate_inheritance": candidate_inheritance["chosen"]})
     totals = table.totals()
     n_rec = sum(len(c.records) for c in cases)
     n_rec_drop = sum(len(c.dropped_records) for c in cases)
@@ -1077,6 +1127,8 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
                                     for m, s in inheritance["support"].items()},
                         "stated_fallback": inheritance["stated_fallback"]},
         "possible_duplicates": table.possible_duplicates(),
+        "genes": {"candidates": gene_decisions["candidates"], "confirmed": gene_decisions["confirmed"],
+                  "not_confirmed": gene_decisions["not_confirmed"], "dropped": gene_decisions["dropped"]},
     }
     log.info("[%s] cohort: %d individuals, %d families, %d records", seed.mim or seed.title,
              totals["individuals"], totals["families"], totals["records"])

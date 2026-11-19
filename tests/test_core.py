@@ -376,3 +376,18 @@ def test_audit_only_papers_are_checked_but_not_cited():
     assert entry.cited_pmids() == ["2"]
     assert entry.sections[0].paragraphs[0].checked_pmids == ["1", "2"]
     assert entry.sections[0].paragraphs[1].checked_pmids == ["2"]
+
+
+def test_transcript_ids_and_non_nucleotide_names_never_become_variant_keys():
+    assert nucleotide_key("NM_007077.3") == "" and nucleotide_key("NM_007077.3:") == ""
+    assert nucleotide_key("NM_007077.3:c.124C>T") == "c.124C>T"
+    assert nucleotide_key("p.Glu163_Ser165del") == "" and nucleotide_key("r.421_542del") == ""
+    assert nucleotide_key("IVS3+2delT") == "" and nucleotide_key("insT1354") == ""
+    assert nucleotide_key("chrX_24091319C/T") == ""
+    assert nucleotide_key("c.695_697delACA") == "c.695_697delaca"
+    assert nucleotide_key("c.542+1_542+4delGTAA") == "c.542+1_542+4delgtaa"
+    assert nucleotide_key("c.131_132del") == "c.131_132del"
+    # Two different variants quoted with the same transcript must stay two variants.
+    a = variant_keys(VariantMention(gene="AP4S1", as_reported="c.124C>T (NM_007077.3)"))
+    b = variant_keys(VariantMention(gene="AP4S1", as_reported="c.289C>T (NM_007077.3)"))
+    assert a == {"c.124C>T"} and b == {"c.289C>T"} and not a & b
