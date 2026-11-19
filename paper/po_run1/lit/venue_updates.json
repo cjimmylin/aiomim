@@ -1,0 +1,316 @@
+{
+ "Asai2023SelfragLearning": {
+  "published": false
+ },
+ "Asai2024OpenscholarSynthesizing": {
+  "published": false
+ },
+ "Chen2025RecentAdvances": {
+  "published": false
+ },
+ "Cheng2025SurveyData": {
+  "published": false
+ },
+ "Deng2024UnveilingSpectrum": {
+  "published": false
+ },
+ "Fernando2023PromptbreederSelfreferential": {
+  "published": true,
+  "venue": "International Conference on Machine Learning",
+  "venue_short": "International Conference on Machine Learning",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2309.16797?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "13481-13544"
+ },
+ "Gao2022RarrResearching": {
+  "published": true,
+  "venue": "Annual Meeting of the Association for Computational Linguistics",
+  "venue_short": "Annual Meeting of the Association for Computational Linguistics",
+  "year": 2022,
+  "type": "inproceedings",
+  "matched_title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2210.08726?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "16477-16508"
+ },
+ "Guo2023EvopromptConnecting": {
+  "published": false
+ },
+ "Gutirrez2024HipporagNeurobiologically": {
+  "published": true,
+  "venue": "Neural Information Processing Systems",
+  "venue_short": "Neural Information Processing Systems",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2405.14831?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Hier2024HighthroughputPhenotyping": {
+  "published": true,
+  "venue": "2024 IEEE EMBS International Conference on Biomedical and Health Informatics (BHI)",
+  "venue_short": "2024 IEEE EMBS International Conference on Biomedical and Health Informatics (BHI)",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "High-Throughput Phenotyping of Clinical Text Using Large Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2408.01214?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "1-8"
+ },
+ "Huang2023LargeLanguage": {
+  "published": false
+ },
+ "Jain2024LivecodebenchHolistic": {
+  "published": true,
+  "venue": "International Conference on Learning Representations",
+  "venue_short": "International Conference on Learning Representations",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2403.07974?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Jin2023GenegptAugmenting": {
+  "published": true,
+  "venue": "Bioinformatics",
+  "venue_short": "Bioinformatics",
+  "year": 2024,
+  "type": "article",
+  "matched_title": "GeneGPT: augmenting large language models with domain tools for improved access to biomedical information",
+  "evidence_url": "https://doi.org/10.1093/bioinformatics/btae075",
+  "source": "crossref",
+  "volume": "40"
+ },
+ "Khattab2023DspyCompiling": {
+  "published": false
+ },
+ "Kim2024StructuredExtraction": {
+  "published": true,
+  "venue": "2024 IEEE International Conference on Big Data (BigData)",
+  "venue_short": "2024 IEEE International Conference on Big Data (BigData)",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+  "evidence_url": "https://doi.org/10.1109/bigdata62323.2024.10825160",
+  "source": "crossref",
+  "pages": "3421-3430"
+ },
+ "Lewis2020RetrievalaugmentedGeneration": {
+  "published": true,
+  "venue": "Neural Information Processing Systems",
+  "venue_short": "Neural Information Processing Systems",
+  "year": 2020,
+  "type": "inproceedings",
+  "matched_title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2005.11401?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Li2024LongContext": {
+  "published": false
+ },
+ "Li2025GenewhispererEnhancing": {
+  "published": false
+ },
+ "Li2025LaraBenchmarking": {
+  "published": false
+ },
+ "Li2025WhatLevel": {
+  "published": true,
+  "venue": "Research Synthesis Methods",
+  "venue_short": "Research Synthesis Methods",
+  "year": 2026,
+  "type": "article",
+  "matched_title": "What level of automation is \u201cgood enough\u201d? A benchmark of large language models for meta-analysis data extraction",
+  "evidence_url": "https://doi.org/10.1017/rsm.2025.10066",
+  "source": "crossref",
+  "volume": "17",
+  "pages": "671-692"
+ },
+ "Liu2023EvaluatingVerifiability": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Evaluating Verifiability in Generative Search Engines",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2304.09848?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Lla2023PaperqaRetrievalaugmented": {
+  "published": false
+ },
+ "Madaan2023SelfrefineIterative": {
+  "published": true,
+  "venue": "Advances in Neural Information Processing Systems 36",
+  "venue_short": "Advances in Neural Information Processing Systems 36",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Self-Refine: Iterative Refinement with Self-Feedback",
+  "evidence_url": "https://doi.org/10.52202/075280-2019",
+  "source": "crossref",
+  "pages": "46534-46594"
+ },
+ "Manakul2023SelfcheckgptZeroresource": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2303.08896?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Murphy2024HarnessingGenerative": {
+  "published": false
+ },
+ "Nakano2021WebgptBrowserassisted": {
+  "published": false
+ },
+ "Opsahlong2024OptimizingInstructions": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2406.11695?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Pryzant2023AutomaticPrompt": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2305.03495?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "7957-7968"
+ },
+ "Rashkin2021MeasuringAttribution": {
+  "published": true,
+  "venue": "Computational Linguistics",
+  "venue_short": "Computational Linguistics",
+  "year": 2021,
+  "type": "article",
+  "matched_title": "Measuring Attribution in Natural Language Generation Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2112.12870?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "volume": "49",
+  "pages": "777-840"
+ },
+ "Ravaut2024ComprehensiveSurvey": {
+  "published": true,
+  "venue": "Trans. Mach. Learn. Res.",
+  "venue_short": "Trans. Mach. Learn. Res.",
+  "year": 2024,
+  "type": "article",
+  "matched_title": "A Comprehensive Survey of Contamination Detection Methods in Large Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2404.00699?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "volume": "2025"
+ },
+ "Roberts2023DataContamination": {
+  "published": false
+ },
+ "Shi2023DetectingPretraining": {
+  "published": true,
+  "venue": "International Conference on Learning Representations",
+  "venue_short": "International Conference on Learning Representations",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Detecting Pretraining Data from Large Language Models",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2310.16789?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Shinn2023ReflexionLanguage": {
+  "published": true,
+  "venue": "Advances in Neural Information Processing Systems 36",
+  "venue_short": "Advances in Neural Information Processing Systems 36",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "Reflexion: language agents with verbal reinforcement learning",
+  "evidence_url": "https://doi.org/10.52202/075280-0377",
+  "source": "crossref",
+  "pages": "8634-8652"
+ },
+ "Singh2024EvaluationData": {
+  "published": false
+ },
+ "Song2024VeriscoreEvaluating": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2406.19276?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar"
+ },
+ "Stewartevans2025ExpeditingData": {
+  "published": false
+ },
+ "Sun2024Docs2kgUnified": {
+  "published": false
+ },
+ "Weng2022LargeLanguage": {
+  "published": true,
+  "venue": "Conference on Empirical Methods in Natural Language Processing",
+  "venue_short": "Conference on Empirical Methods in Natural Language Processing",
+  "year": 2022,
+  "type": "inproceedings",
+  "matched_title": "Large Language Models are Better Reasoners with Self-Verification",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2212.09561?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "2550-2575"
+ },
+ "White2024LivebenchChallenging": {
+  "published": false
+ },
+ "Xu2024BenchmarkData": {
+  "published": false
+ },
+ "Yang2023LargeLanguage": {
+  "published": false
+ },
+ "Yu2024DefenseRag": {
+  "published": false
+ },
+ "Yuksekgonul2024TextgradAutomatic": {
+  "published": false
+ },
+ "Zhang2024ChainAgents": {
+  "published": true,
+  "venue": "Advances in Neural Information Processing Systems 37",
+  "venue_short": "Advances in Neural Information Processing Systems 37",
+  "year": 2024,
+  "type": "inproceedings",
+  "matched_title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+  "evidence_url": "https://doi.org/10.52202/079017-4202",
+  "source": "crossref",
+  "pages": "132208-132237"
+ },
+ "Zhang2025AgenticContext": {
+  "published": false
+ },
+ "Zhao2023ExpelLlm": {
+  "published": true,
+  "venue": "AAAI Conference on Artificial Intelligence",
+  "venue_short": "AAAI Conference on Artificial Intelligence",
+  "year": 2023,
+  "type": "inproceedings",
+  "matched_title": "ExpeL: LLM Agents Are Experiential Learners",
+  "evidence_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2308.10144?fields=title,venue,publicationVenue,year,journal,externalIds",
+  "source": "semanticscholar",
+  "pages": "19632-19642"
+ },
+ "Zhou2022LargeLanguage": {
+  "published": false
+ },
+ "Zhou2023DontMake": {
+  "published": false
+ }
+}

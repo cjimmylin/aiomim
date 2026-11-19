@@ -1,0 +1,49 @@
+{
+  "round": 2,
+  "input_tex": "latex/refined_v1.tex",
+  "output_tex": "latex/refined_v2.tex",
+  "title_changed_to": "Same Papers, Different Strategies: Full-Text Access Bounds Agreement of Knowledge-Base Drafts with Curators' Per-Paper Text",
+  "addressed_weaknesses": [
+    "W1 (no human validation): not addressable without new work. Kept as stated in abstract, Sec. 4 opening, Related Work, Limitation (i), Conclusion.",
+    "W2 (single model family): not addressable without new work. Kept in abstract, Discussion, Limitation (i).",
+    "W3 (access result expected; asymmetric repair): addressed with log 6.2. Lead comparison is now like-for-like (no arm repaired): 79.8% vs 36.1% means over entries, +43.7 (+38.3 to +49.1; 45/0/1); after-repair +43.9 and the after-minus-before +0.2 (-0.1 to +0.4; 6/2/38) also given. '17 of 9,371' workaround removed. Direction-is-expected framing kept.",
+    "W4 (regime / 'strategies separate'): addressed in wording. Abstract, Introduction, Discussion and Conclusion attach in the same sentence that it rests on an observational comparison across entries (21 in the top group) and the matched ablation, not a randomised manipulation. Sec. 4.3 adds the same. Large-input regime remains untested (limitation).",
+    "W5 (cued recall, carried from round 1 / Q11): addressed with log 3.1 in Sec. 4.1 (new paragraph with counts), abstract, Intro and Sec. 4.5; wording follows notes.md ('stated in no supplied text'; partly-stated and only-in-another-paper shares; in-part facts more often outside the text; model judgement; not 'free of memorisation'). New Appendix Table tab:app_conveyed.",
+    "W6 (narrow reference vs whole-entry framing): addressed. New title; abstract and Introduction say the primary endpoint scores what the draft says about each cited paper against curator-written per-paper text and that other content is checked only by the audit; Sec. 3.3 states the share of the task the reference covers (24.0 statements per paper vs 11.9 facts; 24% of statements have a counterpart, 68 held-out entries).",
+    "W7 (audit evaluation): partly. Unaltered re-audit control (log 11) reported in Sec. 4.4, abstract, Appendix A as a re-audit flag rate on paragraphs that had passed once (0 of 60; 0 of 361 claims), explicitly not a false-flag rate on arbitrary paragraphs; omissions and misattributed citations stated as untested (Limitation ix).",
+    "W8 (development on evaluation entries; 2026 set): partly. 2026 entries described as a sample not used in developing the strategies (log 10) with caveats (five strategies, not recall-then-verify; 20 of 30 compared; frequent stopped replies) in Sec. 4.2, Limitation (vi), Appendix I.2. The main-set limitation is kept.",
+    "W9 (aggregation inconsistency): addressed. Headline hidden-full-text levels are means over entries in abstract, Intro, Sec. 4.1, Conclusion; pooled levels given once, labelled, where Figure 2 is described and in its caption; Sec. 3.3 states which quantities are pooled; labels added to Table 1, figure captions, Sec. 4.1, 4.3-4.6 and appendix captions/columns; hidden-full-text appendix table now has both pooled and per-entry columns and the before-repair row.",
+    "W10 (presentation / wording slips): addressed. Abstract names recall-then-verify (memory-first strategy) and the memory-only control separately; Sec. 4.4 says 'as audited' for the never-repaired control; 'worker's report from the comparison' removed; 'frozen', 'old scoring', 'source run's direct draft', 'fulltext', 'secondhand', 're-scoring' and the ambiguous '... same, before the repair round' row label replaced with paper terms; 'Claims supported by cited paper' rows renamed 'judged supported'. Figure captions rewritten for the redrawn figures at the specified widths.",
+    "W11 (reproducibility: no temperature/seed, unknown cut-off): not addressable; stated; usage totals updated from log 13."
+  ],
+  "integrated_answers": [
+    "Q3 (full-text coverage before repair): 79.8% mean over entries / 77.3% pooled; like-for-like difference +43.7 (+38.3 to +49.1).",
+    "Q4 (pooled vs per-entry headline): both reported, per-entry as headline; Table tab:app_hidden carries both.",
+    "Q5 (false-flag rate): unaltered re-audit control reported with its limited interpretation; omissions/misattribution untested.",
+    "Q7 (development effort / held-out data): 2026 entries chosen by creation date alone, used in no other experiment, drafted after the last change to drafting/audit/repair (rerun reproduces drafts exactly).",
+    "Q11 (cued recall): conveyed-fact provenance check (log 3.1)."
+  ],
+  "actions_taken": [
+    "Title changed to name the controlled comparison, the access finding and the per-paper reference.",
+    "Abstract rewritten (framing against reference, like-for-like access numbers as means over entries, provenance result, control vs memory-first strategy named separately, observational caveat, audit control).",
+    "Introduction: endpoint framing, bold finding with new numbers and caveat, contribution (3) updated, scope sentence on 2026 set; measurement-lesson list moved to Discussion only.",
+    "Sec. 3: Figure 1 at \\linewidth; caption shortened and points to the guards in Sec. 3.2 (which lists all four); aggregation sentence and reference-coverage sentence added to Sec. 3.3; strategy and statistics paragraphs tightened.",
+    "Sec. 4.1: hidden-full-text paragraph rebuilt around repair parity; new 'Where the conveyed facts came from' paragraph; Figures 2 and 3 at 0.545/0.435 with new captions (no 'Right:' panel; pooled bars, per-entry differences, better/worse/tied counts, after-repair bar with before-repair 77.3%).",
+    "Sec. 4.2: 2026 set described with log-10 caveats; measurement and secondary paragraphs tightened.",
+    "Figures 4/5 captions: off-scale memory-based values listed (verified against log 2.9), +-1.0/+-1.8 bands, x-tick explanation and n per band.",
+    "Sec. 4.4: control 'as audited'; unaltered re-audit control; 'cannot see' paragraph tightened. Sec. 4.5: provenance cross-reference with memorisation caveat. Secs. 4.6-4.7, Discussion, Limitations, Conclusion compressed to fit 10 pages without dropping caveats.",
+    "Appendix: experiments table gains conveyed-provenance and audit-control rows; new Table tab:app_conveyed; hidden-full-text table rebuilt (pooled and per-entry columns, before/after-repair rows, repair-parity differences, repair counts in caption); 2026 subsection describes selection; process language removed throughout.",
+    "Reproducibility statement usage figures updated: 38,505 calls, 260M input / 69M output tokens, about $2,896.",
+    "po.py check: no unknown keys, no missing figures, balanced environments. po.py compile: ok, 35 pages; main text ends on page 10."
+  ],
+  "ignored_requests": [
+    "Human/curator validation of fact judgements and audit verdicts (Q1) - not run.",
+    "Second model family as writer or judge (Q2) - not run.",
+    "Audit tests on omissions, misattributed citations, partial distortions - not run.",
+    "Inputs larger than one prompt / scaled-up large-reference tier (Q6) - not run.",
+    "Repairing the abstract arms - not run; the like-for-like comparison uses the full-text draft before repair instead.",
+    "Sensitivity to half-credit weight; correlation of primary and secondary measures (Q9) - not in the log.",
+    "Recall-then-verify variant allowed to add content (Q10) - not run.",
+    "Matched-ablation table not returned to the main text: no room within 10 pages."
+  ]
+}
