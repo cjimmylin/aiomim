@@ -20,8 +20,9 @@ Given a MIM number, the pipeline:
 ## What the study shows
 
 Nine ways of generating an entry were run on the same entries and scored against what OMIM's curators wrote. The full
-write-up is being prepared as a conference paper under [`paper/`](paper/) (the earlier markdown draft in
-[`docs/paper-draft.md`](docs/paper-draft.md) predates the corrected analysis); a survey of published approaches is in
+write-up is the conference paper draft [`paper/po_run1/final_paper.pdf`](paper/po_run1/final_paper.pdf), built from
+the result files through [`paper/materials/experimental_log.md`](paper/materials/experimental_log.md) (the earlier
+markdown draft in [`docs/paper-draft.md`](docs/paper-draft.md) predates the corrected analysis); a survey of published approaches is in
 [`docs/approach-survey.md`](docs/approach-survey.md).
 
 **The entries.** 100 OMIM phenotype entries drawn at random (fixed seed, 20 from each of five creation-era bands, 2–12

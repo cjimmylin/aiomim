@@ -1,9 +1,11 @@
 # Drafting OMIM-style disease entries from the literature: a controlled comparison of nine generation strategies
 
-> **Under correction.** A review of this draft ([`paper-review.md`](paper-review.md)) found errors in the analysis and
-> in several statements. The comparison files under `results/` have been corrected; this text has not yet been
-> rewritten and still carries the earlier numbers, including a difference between the evidence graph and direct
-> reading that does not survive the corrected analysis. Do not cite it.
+> **Superseded.** A review of this draft ([`paper-review.md`](paper-review.md)) found errors in the analysis and in
+> several statements. The analysis was corrected and the paper rewritten as a conference submission:
+> [`paper/po_run1/final_paper.pdf`](../paper/po_run1/final_paper.pdf) (source `final_paper.tex` beside it; the
+> numbers behind it are in [`paper/materials/experimental_log.md`](../paper/materials/experimental_log.md)). The text
+> below still carries the earlier numbers, including a difference between the evidence graph and direct reading that
+> does not survive the corrected analysis. Do not cite it.
 
 **Draft of 19 November 2026.** Authors and affiliations to be added. Every number comes from the result files in
 [`results/`](../results); the statements marked as interpretation are ours.
