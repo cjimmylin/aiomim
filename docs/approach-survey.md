@@ -50,7 +50,8 @@ than any strategy's generation except the agent's cumulative input.
 | Recall, then verify | Memory draft audited against the papers; unsupported claims deleted | 84,000 / 24,000 | 10 |
 | Case table first | One record per reported patient or family → pooled table → entry | 110,000 / 30,000 | 7 |
 
-Results on 100 entries exist for the first two (see the README); the other four are running on the same entries now.
+All six have since been run on the same 100 entries, together with three add-ons built on them (second-hand evidence, a
+reconciled case database and a learned curation guide). The results are in the README and in `results/omim100/strategies.md`.
 
 ## 3. SLIDERS and DataSTORM
 
@@ -342,6 +343,10 @@ reading stops fitting, and the choice is between extraction into a table (SLIDER
 selective reading (the agent, PaperQA2) and summarisation (RAPTOR, chains).
 
 ## 6. Suggested next steps for the paper
+
+*Status, November 2026.* Items 1, 2 and 4 were carried out in adapted form: a reconciled case database (the idea taken
+from SLIDERS), a tier of entries with 30–75 references, and a curation guide learned by reflection on a training split
+(the idea taken from GEPA). Items 3 and 5 were not done. The list below is kept as written.
 
 1. **Add SLIDERS** as the seventh strategy, with OMIM's sections and fields as fixed evidence variables. It tests the
    one idea the current six lack: reconciliation of a relational evidence table.
