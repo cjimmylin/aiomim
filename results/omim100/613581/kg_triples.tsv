@@ -1,0 +1,22 @@
+subject	predicate	object	pmids
+Bandah-Rozenfeld et al. (2010)	reports	Using autozygosity mapping, Bandah-Rozenfeld et al. (2010) identified 2 families, each with 3 affected sibs with retinitis pigmentosa. The affected sibs shared large overlapping homozygous regions on chromosome 3 that contained the IMPG2 gene.	
+Bandah-Rozenfeld et al. (2010)	reports	In 3 affected sibs of Iraqi Jewish ancestry with autosomal recessive retinitis pigmentosa, Bandah-Rozenfeld et al. (2010) found a homozygous nonsense mutation in the IMPG2 gene. The mutation cosegregated with the disease in the family.	
+IMPG2 nonsense mutation	in_gene	IMPG2	
+Bandah-Rozenfeld et al. (2010)	reports	In a Dutch family with autosomal recessive retinitis pigmentosa, Bandah-Rozenfeld et al. (2010) found a homozygous 1.8-kb genomic deletion in the IMPG2 gene that removes exon 9. The deletion leads to the loss of 7 amino acids in a conserved SEA domain and cosegregated with the disease. In transfected COS-1 cells, the wildtype SEA domain was targeted to the plasma membrane, but the mutant lacking the 7 amino acids appeared to be retained in the endoplasmic reticulum.	
+IMPG2 1.8 kb genomic deletion that removes exon 9	in_gene	IMPG2	
+Bandah-Rozenfeld et al. (2010)	reports	Bandah-Rozenfeld et al. (2010) analyzed IMPG2 in 10 additional index cases of Dutch, Israeli, Italian, and Pakistani origin whose homozygous regions included IMPG2. They found 5 additional mutations: 4 nonsense mutations and 1 missense mutation that affects a highly conserved phenylalanine residue.	
+IMPG2 missense mutation affecting a highly conserved phenylalanine residue	in_gene	IMPG2	
+Bandah-Rozenfeld et al. (2010)	reports	Bandah-Rozenfeld et al. (2010) reported that most patients with IMPG2 mutations had early-onset retinitis pigmentosa, with visual-field loss and declining visual acuity that both progressed over time.	
+Bandah-Rozenfeld et al. (2010)	reports	Bandah-Rozenfeld et al. (2010) reported that the patient with the IMPG2 missense mutation was diagnosed with maculopathy, not retinitis pigmentosa.	
+Meunier et al. (2014)	reports	Meunier et al. (2014) screened IMPG1 and IMPG2 in 49 families with vitelliform macular dystrophy who had no identified BEST1 or PRPH2 mutation. In 1 family (2 patients) with autosomal dominant vitelliform macular dystrophy, they identified a c.3230G-T mutation in IMPG2, resulting in a cys1077-to-phe (C1077F) substitution. IMPG1 was the causal gene in 3 other families. Overall, the authors estimated that IMPG1 and IMPG2 account for 8% of families negative for BEST1 and PRPH2 mutations.	
+IMPG2 c.3230G>T / p.C1077F	in_gene	IMPG2	
+Meunier et al. (2014)	reports	Meunier et al. (2014) reported that the 13 patients with IMPG1 or IMPG2 mutations had late-onset vitelliform macular dystrophy with moderate visual impairment (mean age of onset, 42 years; mean visual acuity, 20/40). Drusen-like lesions next to the vitelliform deposits were seen in 9 of the 13 patients. On spectral-domain OCT, the vitelliform material lay above the retinal pigment epithelium (RPE), and the RPE was well preserved with normal reflectivity. Electro-oculogram results were normal or borderline in 9 cases.	
+RETINITIS PIGMENTOSA 56	caused_by	IMPG2	20673862
+RETINITIS PIGMENTOSA 56	has_variant	IMPG2 1.8 kb genomic deletion that removes exon 9	20673862
+RETINITIS PIGMENTOSA 56	has_variant	IMPG2 missense mutation affecting a highly conserved phenylalanine residue	20673862
+RETINITIS PIGMENTOSA 56	has_variant	IMPG2 nonsense mutation	20673862
+RETINITIS PIGMENTOSA 56	inheritance	Autosomal recessive	20673862
+RETINITIS PIGMENTOSA 56	has_phenotype	Rod-cone dystrophy	20673862
+RETINITIS PIGMENTOSA 56	has_phenotype	Visual field defect	20673862
+RETINITIS PIGMENTOSA 56	has_phenotype	Reduced visual acuity	20673862
+RETINITIS PIGMENTOSA 56	has_phenotype	Macular degeneration	20673862

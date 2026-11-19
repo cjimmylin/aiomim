@@ -1,0 +1,37 @@
+subject	predicate	object	pmids
+Warner et al. (1996)	reports	Warner et al. (1996) identified 5 new mutations in the MPZ gene, which encodes the major structural protein (P0) of peripheral nerve myelin. The patients had CMT1B, Dejerine-Sottas syndrome, or congenital hypomyelination.	
+Warner et al. (1996)	reports	Warner et al. (1996) suggested that CMT1B, Dejerine-Sottas syndrome, and congenital hypomyelination may not be separate pathophysiologic entities. They proposed instead that these disorders form a spectrum of related 'myelinopathies' caused by an underlying defect in myelination.	
+Warner et al. (1996)	reports	Warner et al. (1996) hypothesized that differences in clinical severity among MPZ mutations depend on the type of mutation and its effect on protein function, i.e., loss of function versus dominant-negative.	
+Mandich et al. (1999)	reports	Mandich et al. (1999) described the clinical, morphological, and immunohistochemical features of a patient with congenital hypomyelination. The authors characterized congenital hypomyelination as a hereditary demyelinating peripheral neuropathy with onset in early infancy, distal muscle weakness, hypotonia, areflexia, and severely slowed nerve conduction velocities. They reported that the patient's clinical features were quite distinct from those of CMT1B or Dejerine-Sottas syndrome.	
+Mandich et al. (1999)	reports	In a patient with congenital hypomyelination, Mandich et al. (1999) identified a de novo Q215X mutation in the MPZ gene, which encodes myelin protein zero (P0). The authors concluded that this finding confirms that congenital hypomyelination is allelic with milder MPZ-related disorders, namely CMT1B and Dejerine-Sottas syndrome.	
+MPZ p.Q215*	in_gene	MPZ	
+Szigeti et al. (2003)	reports	Szigeti et al. (2003) reported a patient with congenital hypomyelination associated with cranial nerve dysfunction, respiratory failure, and hypertrophic cardiomyopathy, the latter confounding the clinical picture. Muscle biopsy findings suggested an effect of abnormal innervation on early postnatal muscle fiber differentiation.	
+Szigeti et al. (2003)	reports	In a patient with congenital hypomyelinating neuropathy, Szigeti et al. (2003) identified a complex de novo mutation in the MPZ gene consisting of a 3-bp deletion of CTA from nucleotides 550 to 552 and insertion of G at nucleotide 550, predicted by conceptual translation to result in a frameshift.	
+MPZ 3bp deletion of CTA from nucleotide 550 to 552 and insertion of G at nucleotide 550	in_gene	MPZ	
+Kochanski et al. (2004)	reports	Kochanski et al. (2004) described the clinical and morphologic features of a patient with congenital hypomyelinating neuropathy (CHN), a severe neuropathy with onset in early infancy. Sural nerve biopsy in CHN shows a characteristic picture of nonmyelinated and poorly myelinated axons with basal lamina onion bulbs and lack of myelin breakdown products.	
+Kochanski et al. (2004)	reports	In a patient with congenital hypomyelinating neuropathy, Kochanski et al. (2004) identified a novel thr124-to-lys (T124K) mutation in the MPZ gene.	
+MPZ p.T124K	in_gene	MPZ	
+Smit et al. (2008)	reports	Smit et al. (2008) described a family with congenital hypomyelinating neuropathy who carried a heterozygous mutation in the MPZ gene. The mutation was confirmed in two generations.	
+MPZ heterozygous mutation in MPZ	in_gene	MPZ	
+Smit et al. (2008)	reports	Smit et al. (2008) noted that congenital hypomyelinating neuropathy is a rare condition with prenatal, neonatal, or early infantile onset of hypotonia, paresis, and areflexia. On histopathology, myelin sheaths are absent or thin, and most reported patients have died within the first years of life. Mutations had been described in the MPZ, EGR2, PMP22, and MTMR2 genes.	
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	caused_by	MPZ	10319895,12953275,15184631,17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_variant	MPZ p.Q215*	10319895
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_variant	MPZ p.T124K	15184631
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_variant	MPZ 3bp deletion of CTA from nucleotide 550 to 552 and insertion of G at nucleotide 550	12953275
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_variant	MPZ heterozygous mutation in MPZ	17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	inheritance	Autosomal dominant	12953275,17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Hypotonia	10319895,17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Muscle weakness	17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Areflexia	10319895,17825553
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Peripheral hypomyelination	12953275,15184631,17825553,8816708
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Peripheral neuropathy	15184631
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Onion bulb formation	15184631
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Cranial nerve paralysis	12953275
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Respiratory failure	12953275
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Hypertrophic cardiomyopathy	12953275
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Abnormality of skeletal muscle fiber size	12953275
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Distal muscle weakness	10319895
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Decreased motor nerve conduction velocity	10319895
+NEUROPATHY, CONGENITAL HYPOMYELINATING, 2	has_phenotype	Demyelinating peripheral neuropathy	10319895
+Distal muscle weakness	is_a	Muscle weakness	
+Demyelinating peripheral neuropathy	is_a	Peripheral neuropathy	

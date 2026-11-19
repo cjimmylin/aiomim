@@ -1,0 +1,39 @@
+subject	predicate	object	pmids
+Knierim et al. (2016)	reports	Knierim et al. (2016) studied 4 families in which affected individuals presented with prenatal-onset spinal muscular atrophy, multiple congenital contractures (arthrogryposis multiplex congenita), respiratory distress, and congenital bone fractures.	
+Knierim et al. (2016)	reports	In affected individuals from 4 families with prenatal-onset SMA and congenital bone fractures, Knierim et al. (2016) used autozygosity mapping and whole-exome sequencing to identify homozygous and compound heterozygous nonsense and frameshift mutations in the TRIP4 and ASCC1 genes, encoding subunits of the nuclear activating signal cointegrator 1 (ASC-1) complex. The mutations cosegregated with the disease and led to truncation or entire absence of the respective proteins.	
+Knierim et al. (2016)	reports	Knierim et al. (2016) found that the phenotype of prenatal-onset SMA with congenital bone fractures was associated with mutations in either of 2 genes, TRIP4 or ASCC1, both encoding subunits of the ASC-1 complex.	
+Knierim et al. (2016)	reports	Knierim et al. (2016) found that morpholino knockdown of either trip4 or ascc1 in zebrafish disrupted alpha-motoneuron outgrowth and formation of myotomes and neuromuscular junctions and caused a swimming defect in larvae.	
+Knierim et al. (2016)	reports	Knierim et al. (2016) found that ASCC1 mutant patient fibroblasts downregulated genes associated with neurogenesis, neuronal migration, and pathfinding (SERPINF1, DAB1, SEMA3D, SEMA3A) and with bone development (TNFRSF11B, RASSF2, STC1). Immunoprecipitation of the ASC-1 complex consistently copurified the transcriptional cofactor CSRP1. The authors concluded that dysfunction of a transcriptional coactivator complex can result in a syndrome affecting the neuromuscular system.	
+Knierim et al. (2016)	reports	Knierim et al. (2016) found that Trip4 and Ascc1 had identical expression patterns in embryonic day 17.5 mouse embryos, with high expression in spinal cord, brain, paraspinal ganglia, thyroid, and submandibular glands.	
+Oliveira et al. (2017)	reports	Oliveira et al. (2017) described a female newborn with a severe neuromuscular disorder. She had generalized hypotonia, congenital bone fractures, no spontaneous movements and poor respiratory effort, and she died within the first days of life. A male sib born later had the same clinical presentation. Karyotyping and screening of several neuromuscular disease genes were negative.	
+Oliveira et al. (2017)	reports	Whole-exome sequencing under a recessive model first found no disease-causing variants in known neuromuscular genes. Oliveira et al. (2017) then identified a homozygous frameshift variant in the ASCC1 gene (c.157dupG, p.Glu53Glyfs*19) in the female proband. The authors concluded that this second known case confirms ASCC1 involvement in a severe neuromuscular disease lying within the spinal muscular atrophy or primary muscle disease spectra.	
+ASCC1 c.157dupg / p.E53G	in_gene	ASCC1	
+Böhm et al. (2019)	reports	Böhm et al. (2019) provided a clinical, histological and genetic description of 3 families with ASCC1-related disorder. All patients presented with severe prenatal-onset muscle weakness, neonatal hypotonia, arthrogryposis, and congenital bone fractures.	
+Böhm et al. (2019)	reports	Böhm et al. (2019) found that muscle biopsies from affected infants showed intense oxidative rims beneath the sarcolemma and scattered remnants of sarcomeres with enlarged Z-bands, which the authors suggested could represent a histopathologic hallmark of the disorder.	
+Böhm et al. (2019)	reports	In affected individuals from 3 families with prenatal-onset muscle weakness, arthrogryposis and congenital bone fractures, Böhm et al. (2019) identified recessive nonsense or frameshift mutations in the ASCC1 gene by sequencing, including 2 novel mutations.	
+Giuffrida et al. (2020)	reports	Giuffrida et al. (2020) described the first case of SMABF2 diagnosed in a stillbirth, in which the course of the disease was documented during the prenatal period. Arthrogryposis and hydrops were present, and these findings prompted chromosomal microarray analysis.	
+Giuffrida et al. (2020)	reports	In a stillborn fetus with SMABF2, Giuffrida et al. (2020) found compound heterozygous variants in the ASCC1 gene. Microarray analysis first detected a microdeletion of about 64 kb that involved 4 exons of ASCC1. Exome analysis then identified a c.1027C>T nonsense variant (Arg343Ter) that introduces a premature termination codon. The authors stated that this was the first reported case of ASCC1 compound heterozygosity caused by an exonic microdeletion together with a nucleotide variant.	
+ASCC1 c.1027C>T / p.R343*	in_gene	ASCC1	
+ASCC1 microdeletion copy number variant (CNV) of about 64 Kb, involving four exons of ASCC1	in_gene	ASCC1	
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	caused_by	ASCC1	28218388,31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_variant	ASCC1 c.1027C>T / p.R343*	31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_variant	ASCC1 c.157dupg / p.E53G	28218388
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_variant	ASCC1 microdeletion copy number variant (CNV) of about 64 Kb, involving four exons of ASCC1	31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	inheritance	Autosomal recessive	26924529,28218388,30327447,31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Stillbirth	31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Arthrogryposis multiplex congenita	26924529,30327447,31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Hydrops fetalis	31880396
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Generalized muscle weakness	30327447
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Neonatal hypotonia	30327447
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Multiple prenatal fractures	26924529,28218388,30327447
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Abnormal skeletal muscle morphology	30327447
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Increased Z-disc width	30327447
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Generalized hypotonia	28218388
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Decreased fetal movement	28218388
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Respiratory insufficiency	28218388
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Neonatal death	28218388
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Spinal muscular atrophy	26924529
+SPINAL MUSCULAR ATROPHY WITH CONGENITAL BONE FRACTURES 2	has_phenotype	Respiratory distress	26924529
+Spinal muscular atrophy	is_a	Abnormal skeletal muscle morphology	
+Arthrogryposis multiplex congenita	is_a	Abnormal skeletal muscle morphology	
+Increased Z-disc width	is_a	Abnormal skeletal muscle morphology	

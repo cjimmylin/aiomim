@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+import threading
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -56,11 +58,12 @@ class RunConfig:
 
 
 def _write(path: Path, data: Any) -> None:
+    """Write a result file atomically: entries run in parallel while the summary reads them."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    if isinstance(data, str):
-        path.write_text(data, encoding="utf-8")
-    else:
-        path.write_text(json.dumps(data, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    text = data if isinstance(data, str) else json.dumps(data, indent=2, ensure_ascii=False, default=str)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{threading.get_ident()}.tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def _paper_record(paper: Paper) -> dict[str, Any]:

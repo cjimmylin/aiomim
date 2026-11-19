@@ -1,0 +1,33 @@
+subject	predicate	object	pmids
+Wilson et al. (1998)	reports	Wilson et al. (1998) reported 2 sibs with Knobloch syndrome. Both had high myopia, vitreoretinal degeneration, and either an occipital encephalocele or a scalp lesion. One sib had very early onset of severe eye disease. The other was notable for a very mild scalp defect. Both sibs also appeared to have an unusual pulmonary lymphatic condition.	
+Wilson et al. (1998)	reports	Wilson et al. (1998) reviewed the literature on Knobloch syndrome and discussed possible causes. They suggested that mesoderm might be involved in the morphogenesis of the disorder.	
+Menzel et al. (2004)	reports	Menzel et al. (2004) studied a Knobloch syndrome family from New Zealand and excluded linkage to the COL18A1 locus on 21q22.3. They took this as evidence for a second Knobloch syndrome locus, which they named KNO2.	
+Menzel et al. (2004)	reports	In the New Zealand family with Knobloch syndrome 2, Menzel et al. (2004) used mutation analysis to exclude COL15A1 as the cause of KNO2. COL15A1 belongs to the same multiplexin collagen subfamily as COL18A1.	
+Menzel et al. (2004)	reports	Menzel et al. (2004) described Knobloch syndrome as an autosomal recessive disorder with high myopia, vitreoretinal degeneration with retinal detachment, and congenital encephalocele.	
+Menzel et al. (2004)	reports	In a Hungarian family with Knobloch syndrome, Menzel et al. (2004) identified two COL18A1 mutations. One was a 1-bp insertion causing a frameshift and a premature stop codon. The other was a missense variant, D1437N (D104N in endostatin), at a conserved residue. The endostatin N104 mutant had reduced affinity for laminin, and the authors concluded that it likely represents a pathogenic mutation.	
+COL18A1 1-bp insertion	in_gene	COL18A1	
+COL18A1 p.D104N / p.D1437N	in_gene	COL18A1	
+Antonarakis et al. (2021)	reports	Antonarakis et al. (2021) restudied a pedigree first published in 1998 and designated KNO2. Two affected sibs, born to unaffected parents, had Knobloch type 2 syndrome with intellectual disability, autistic behavior, retinal degeneration, and encephalocele.	
+Antonarakis et al. (2021)	reports	In the 2 affected sibs of the KNO2 family, Antonarakis et al. (2021) used whole-exome sequencing of the sibs and their unaffected parents to identify a heterozygous missense variant in PAK2, p.(Glu435Lys). The variant was apparently de novo in both sibs, which suggested germline mosaicism in one parent, but deep sequencing of the parents' blood DNA did not detect mosaicism. The variant lies in the kinase domain, and structural analysis predicted that it might compromise kinase activity.	
+PAK2 p.E435K	in_gene	PAK2	
+Antonarakis et al. (2021)	reports	In functional studies in transfected HEK293T cells, Antonarakis et al. (2021) found that the PAK2 p.(Glu435Lys) variant caused a partial loss of kinase activity.	
+Antonarakis et al. (2021)	reports	Antonarakis et al. (2021) concluded that, unlike the autosomal recessive COL18A1-related Knobloch syndrome, KNO2 in the family they studied is a dominant disorder. Both affected sibs carried the PAK2 variant on one allele, and it was apparently de novo, which pointed to likely parental germline mosaicism.	
+Antonarakis et al. (2021)	reports	Antonarakis et al. (2021) noted that Knobloch syndrome is usually an autosomal recessive disorder caused by biallelic COL18A1 variants. However, some clinically diagnosed patients have an unknown molecular cause that is not linked to COL18A1.	
+KNOBLOCH SYNDROME 2	caused_by	COL18A1	14695535
+KNOBLOCH SYNDROME 2	has_variant	COL18A1 p.D104N / p.D1437N	14695535
+KNOBLOCH SYNDROME 2	has_variant	COL18A1 1-bp insertion	14695535
+KNOBLOCH SYNDROME 2	caused_by	PAK2	33693784
+KNOBLOCH SYNDROME 2	has_variant	PAK2 p.E435K	33693784
+KNOBLOCH SYNDROME 2	inheritance	Autosomal dominant	33693784
+KNOBLOCH SYNDROME 2	inheritance	Autosomal recessive	14695535
+KNOBLOCH SYNDROME 2	has_phenotype	Intellectual disability	33693784
+KNOBLOCH SYNDROME 2	has_phenotype	Autistic behavior	33693784
+KNOBLOCH SYNDROME 2	has_phenotype	Retinal degeneration	33693784
+KNOBLOCH SYNDROME 2	has_phenotype	Encephalocele	14695535,33693784
+KNOBLOCH SYNDROME 2	has_phenotype	High myopia	14695535,9677068
+KNOBLOCH SYNDROME 2	has_phenotype	Vitreoretinopathy	14695535,9677068
+KNOBLOCH SYNDROME 2	has_phenotype	Retinal detachment	14695535
+KNOBLOCH SYNDROME 2	has_phenotype	Occipital encephalocele	9677068
+KNOBLOCH SYNDROME 2	has_phenotype	Aplasia cutis congenita of scalp	9677068
+KNOBLOCH SYNDROME 2	has_phenotype	Abnormality of the lymphatic system	9677068
+Occipital encephalocele	is_a	Encephalocele	

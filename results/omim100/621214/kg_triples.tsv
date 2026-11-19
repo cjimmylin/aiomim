@@ -1,0 +1,24 @@
+subject	predicate	object	pmids
+Bergner et al. (2024)	reports	Bergner et al. (2024) described a new adult-onset leukodystrophy caused by dominant stop-gain or frameshift variants in the CST3 gene. Its clinical and radiologic features differed markedly from Icelandic cerebral amyloid angiopathy, which is caused by the p.Leu68Asn substitution in CST3.	
+Bergner et al. (2024)	reports	Bergner et al. (2024) reported 16 patients from 8 families with an adult-onset leukodystrophy. Patients had recurrent episodes of hemiplegic migraine with transient one-sided focal deficits. Motor symptoms and cognitive decline progressed slowly in mid to older adulthood. In some patients, a sudden clinical deterioration led to a long episode of reduced consciousness and even early death.	
+Bergner et al. (2024)	reports	Bergner et al. (2024) described characteristic MRI changes at typical predilection sites. These involved the deep cerebral white matter, sparing a rim of periventricular and directly subcortical tissue. Other sites were the middle blade of the corpus callosum, the posterior limb of the internal capsule, the middle cerebellar peduncles, the cerebral peduncles and, specifically, the globus pallidus.	
+Bergner et al. (2024)	reports	Bergner et al. (2024) studied 2 autopsy cases. Histopathology showed no angiopathy but did show micro- to macrocystic degeneration of the white matter. Astrocytes were activated at early stages and later showed severe degeneration and loss. Despite the loss of myelin, oligodendrocytes were increased in number and some were apoptotic.	
+Bergner et al. (2024)	reports	Bergner et al. (2024) identified 4 different heterozygous stop-gain or frameshift variants in the CST3 gene in 16 patients from 8 families with adult-onset leukodystrophy. A structural comparison of the variants suggested that specific truncations of cystatin C cause abnormal protein function, possibly by making the protein more prone to aggregation. The authors noted that further studies are needed to confirm this effect.	
+Zhang and Wu (2024)	reports	Zhang and Wu (2024) reported Chinese patients with adult-onset leukodystrophy caused by variants in the CST3 gene.	
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	inheritance	Autosomal dominant	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Leukodystrophy	38729262
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Migraine with aura	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Motor deterioration	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Cognitive impairment	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Reduced consciousness	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Leukoencephalopathy	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormal corpus callosum morphology	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormality of the internal capsule	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormal cerebellar peduncle morphology	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormal globus pallidus morphology	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Abnormal cerebral white matter morphology	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	CNS demyelination	38489591
+LEUKODYSTROPHY, ADULT-ONSET, AUTOSOMAL DOMINANT, WITHOUT AMYLOID ANGIOPATHY	has_phenotype	Astrocytosis	38489591
+Abnormal corpus callosum morphology	is_a	Abnormal cerebral white matter morphology	
+Abnormality of the internal capsule	is_a	Abnormal cerebral white matter morphology	
+Motor deterioration	is_a	Cognitive impairment	

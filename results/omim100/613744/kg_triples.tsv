@@ -1,0 +1,86 @@
+subject	predicate	object	pmids
+Moreno-De-Luca et al. (2011)	reports	Moreno-De-Luca et al. (2011) described 2 sibs, a female (IV-4) examined at age 23 and a male (IV-5) examined at age 22, from a consanguineous Palestinian-Jordanian family. Both had autosomal recessive spastic tetraplegic cerebral palsy with profound intellectual disability, microcephaly, epilepsy and white matter loss. Both were born at term after uneventful pregnancies and had microcephaly and hypotonia from birth or soon after. The hypotonia progressed to spastic tetraplegia with hypertonia, hyperreflexia and Babinski signs. Both later had generalized tonic-clonic seizures, stereotypic laughter, drooling, absent normal speech and absent sphincter control, and both became wheelchair-bound.	
+Moreno-De-Luca et al. (2011)	reports	Moreno-De-Luca et al. (2011) reported that the affected female sib had dysmorphic features. These included bitemporal narrowing, a long narrow face with a prominent pointed chin, downslanting palpebral fissures, a long nose with a wide nasal ridge, a short philtrum with a full everted upper vermilion, prominent antehelices and facial hypotonia. Her brother's dysmorphic features were described as very similar. Her brain MRI showed ventriculomegaly, cortical and cerebellar atrophy, reduced hippocampal volume, and diffuse white matter loss that was most pronounced frontally and in the corpus callosum. Her EEG showed generalized theta slowing of the background. Her brother's CT scan showed ventriculomegaly with prominent cisterns. Eye and hearing evaluations were normal in both sibs.	
+Moreno-De-Luca et al. (2011)	reports	Moreno-De-Luca et al. (2011) used chromosomal microarray analysis to identify a homozygous deletion on chromosome 15q21.2 in the 2 affected sibs. High-resolution array mapping defined the deletion as 192 kb (chr15:48,835,480-49,028,171, hg18). It removed the 5-prime ends of AP4E1 and SPPL2A, and FISH confirmed the result. FISH showed that the mother was a heterozygous carrier, and SNRPN methylation analysis showing biparental inheritance of chromosome 15 indicated that the father was also a carrier. The authors proposed that AP4E1 deficiency was the main cause of the phenotype, although they could not rule out a contribution from loss of SPPL2A.	
+AP4E1 c.chr15:48835480-49028171(hg18)deletion	in_gene	AP4E1	
+Moreno-De-Luca et al. (2011)	reports	Moreno-De-Luca et al. (2011) found that both affected sibs carried a homozygous 192-kb deletion at chromosome 15q21.2, which they confirmed by metaphase FISH using the RP11-147B19 probe. The mother and the older sister carried the deletion heterozygously, and the younger sib was not deleted.	
+Moreno-De-Luca et al. (2011)	reports	Moreno-De-Luca et al. (2011) compared their AP4E1-deleted family with a Moroccan family in which Verkerk et al. had reported a homozygous AP4M1 mutation. The two families shared infantile hypotonia that progressed to spastic tetraplegia, microcephaly, severe intellectual disability, stereotypic laughter, drooling, ventriculomegaly and white matter loss. Epilepsy was present in the AP4E1 patients but not in the AP4M1 patients. The authors proposed that disrupting any of the 4 AP-4 subunits abolishes the function of the complex and causes a distinct autosomal recessive 'AP-4 deficiency syndrome'.	
+Abou Jamra et al. (2011)	reports	Abou Jamra et al. (2011) reported 8 affected individuals from 3 consanguineous families with severe intellectual disability, absent speech, shy character, stereotypic laughter, muscular hypotonia that progressed to spastic paraplegia, microcephaly, foot deformity, decreased muscle mass of the lower limbs, inability to walk, and growth retardation. The authors concluded that these findings demonstrated a clinically recognizable syndrome due to deficiency of the AP4 complex.	
+Abou Jamra et al. (2011)	reports	In affected members of a consanguineous family with severe intellectual disability and progressive spastic paraplegia, Abou Jamra et al. (2011) identified a splice mutation in the AP4E1 gene (c.542+1_542+4delGTAA, NM_007347.3), resulting in skipping of sequence (r.421_542del) and a frameshift (p.Glu181GlyfsTer20). The mutation was identified using a combination of autozygosity mapping and either Sanger sequencing of candidate genes or next-generation exome sequencing.	
+AP4E1 c.542+1_542+4delgtaa / c.nm_007347.3: / c.r.421_542del / p.E181G	in_gene	AP4E1	
+Abou Jamra et al. (2011)	reports	Abou Jamra et al. (2011) found that the same AP4-deficiency phenotype was caused by mutations in genes encoding other AP4 subunits in the 2 other consanguineous families: a nonsense mutation in AP4S1 (c.124C>T, p.Arg42Ter) and a frameshift mutation in AP4B1 (c.487_488insTAT, p.Glu163_Ser739delinsVal). They noted that mutations in AP4M1 and AP4E1 had recently been found to cause cerebral palsy associated with severe intellectual disability, supporting a crucial role of AP4-mediated trafficking in brain development and function.	
+AP4S1 c.124C>T / c.nm_007077.3: / p.R42 / p.R42*	in_gene	AP4S1	
+AP4B1 c.487_488instat / c.nm_006594.2: / c.p.glu163_ser739delinsval / p.E163	in_gene	AP4B1	
+Najmabadi et al. (2011)	reports	Najmabadi et al. (2011) performed homozygosity mapping, exon enrichment, and next-generation sequencing in 136 consanguineous families with autosomal recessive intellectual disability from Iran and elsewhere. They found additional mutations in 23 genes previously implicated in intellectual disability or related neurologic disorders, and single, probably disease-causing variants in 50 novel candidate genes.	
+Kong et al. (2013)	reports	Kong et al. (2013) reported identical female twins born to first-cousin Moroccan parents who had infancy-onset complex hereditary spastic paraplegia. At age 3 years they had marked developmental delay, microcephaly, inability to walk, absent speech, stereotypic laughter, drooling, muscular hypotonia, short stature and low body weight, and spastic paraplegia of the lower extremities. They did not have seizures. They had a prominent bulbous nose, wide mouth and coarse features. CT showed atrophy of the inferior vermis with cortical atrophy, and EEG showed diffuse slow waves.	
+Kong et al. (2013)	reports	Kong et al. (2013) reported that both twins developed unilateral enlarged, inflamed axillary lymph nodes at 9 months of age after BCG vaccination. Biopsy showed acid-fast bacilli. Immune cell counts, immunoglobulins and complement were normal, and the IL-12/IFN-gamma axis and oxidative burst were normal. The authors proposed that the AP4E1 mutation was the most likely cause of the mycobacterial disease.	
+Kong et al. (2013)	reports	Kong et al. (2013) used whole-exome sequencing in twins with SPG51 born to consanguineous Moroccan parents and identified a homozygous nonsense mutation in the AP4E1 gene (p.R1105X). Sanger sequencing confirmed the mutation. It segregated with the disorder: both parents were heterozygous and a healthy sib was wildtype. The mutation was not found in 1,050 CEPH controls or in 69 Moroccan controls.	
+AP4E1 p.R1105*	in_gene	AP4E1	
+Kong et al. (2013)	reports	Kong et al. (2013) found that the p.R1105X mutation did not affect AP4E1 mRNA levels or splicing in patient EBV-B cells. However, AP-4-epsilon protein was barely detectable, and AP-4-mu and AP-4-beta levels were also lower. Assembled AP-4 complex was more than 95% lower in patient fibroblasts and EBV-B cells, and the AP-4 binding partner tepsin was undetectable in patient fibroblasts. The authors suggested that the C-terminal part of AP-4-epsilon is important for the integrity of the AP-4 complex.	
+Kong et al. (2013)	reports	Kong et al. (2013) noted that p.R1105X lies close to the normal termination codon and does not trigger nonsense-mediated decay. They speculated that the resulting C-terminally truncated protein might have dominant-negative or gain-of-function activity, which could explain why mycobacterial disease occurred in these patients but not in other AP-4-deficient patients, most of whom carry probable null mutations.	
+Kong et al. (2013)	reports	Kong et al. (2013) noted that 27 patients from 9 kindreds with mutations in AP-4 subunit genes (AP4E1, AP4B1, AP4S1 and AP4M1) share a uniform phenotype of complex HSP: severe intellectual disability, microcephaly, progressive spastic paraplegia, growth retardation and stereotypic laughter. They called this phenotype 'AP-4 deficiency syndrome.'	
+Kong et al. (2018)	reports	Kong et al. (2018) reported that monozygotic twin sisters (P1 and P2), born in 2009 to first-cousin Moroccan parents and studied primarily for Mendelian susceptibility to mycobacterial disease, also displayed hereditary spastic paraplegia due to a homozygous p.R1105X mutation of the AP4E1 gene.	
+Kong et al. (2018)	reports	Kong et al. (2018) described the two affected eight-year-old monozygotic twin sisters (P1 and P2) from a consanguineous Moroccan kindred, who in addition to their hereditary spastic paraplegia had BCG disease: they presented at nine months of age with unilaterally enlarged inflammatory axillary lymph nodes after BCG vaccination at birth, with biopsy confirming acid-fast bacilli; neonatal asphyxiation had been noted during delivery.	
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	caused_by	AP4E1	20972249,21620353,23472171,30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_variant	AP4E1 c.542+1_542+4delgtaa / c.nm_007347.3: / c.r.421_542del / p.E181G	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_variant	AP4E1 c.chr15:48835480-49028171(hg18)deletion	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_variant	AP4E1 p.R1105*	23472171,30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	inheritance	Autosomal recessive	20972249,21620353,23472171,30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Spastic paraplegia	21620353,23472171,30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Axillary lymphadenopathy	30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Neonatal asphyxia	30127434
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Intellectual disability	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Microcephaly	20972249,21620353,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Inability to walk	20972249,21620353,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Absent speech	20972249,21620353,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Inappropriate laughter	20972249,21620353,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Drooling	20972249,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Hypotonia	21620353,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Short stature	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Decreased body weight	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Bulbous nose	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Wide mouth	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Coarse facial features	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Cerebellar vermis atrophy	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Cerebral cortical atrophy	20972249,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Urinary incontinence	20972249,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	EEG with generalized slow activity	20972249,23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Lymphadenitis	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Unusual mycobacterial infection	23472171
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Severe global developmental delay	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Excessive shyness	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Abnormal foot morphology	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Lower limb amyotrophy	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Growth delay	21620353
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Neonatal hypotonia	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Spastic tetraplegia	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Hyperreflexia	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Hypertonia	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Babinski sign	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Severe intellectual disability	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Bilateral tonic-clonic seizure with generalized onset	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Nystagmus	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Dysarthria	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Narrow forehead	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Long face	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Pointed chin	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Downslanted palpebral fissures	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Long nose	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Wide nasal bridge	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Short philtrum	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Everted upper lip vermilion	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Prominent antihelix	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Facial hypotonia	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Ventriculomegaly	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Cerebellar atrophy	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Hippocampal atrophy	20972249
+SPASTIC PARAPLEGIA 51, AUTOSOMAL RECESSIVE	has_phenotype	Cerebral white matter atrophy	20972249
+Neonatal hypotonia	is_a	Hypotonia	
+Spastic paraplegia	is_a	Hypertonia	
+Cerebellar vermis atrophy	is_a	Cerebellar atrophy	
+Hippocampal atrophy	is_a	Cerebral cortical atrophy	
+Short stature	is_a	Growth delay	
+Severe intellectual disability	is_a	Intellectual disability	
+Bilateral tonic-clonic seizure with generalized onset	is_a	Seizure	
+Spastic tetraplegia	is_a	Hypertonia	
+Facial hypotonia	is_a	Hypotonia	

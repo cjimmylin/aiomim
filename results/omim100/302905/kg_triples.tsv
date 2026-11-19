@@ -1,0 +1,44 @@
+subject	predicate	object	pmids
+Abruzzo and Erickson (1977)	reports	Abruzzo and Erickson (1977) described a new syndrome characterized by cleft palate, coloboma, hypospadias, deafness, short stature, and radial synostosis.	
+Abruzzo and Erickson (1977)	reports	Abruzzo and Erickson (1977) concluded that the family history suggested either autosomal dominant inheritance with limited expression in females or X-linked inheritance.	
+Davenport et al. (1986)	reports	Davenport et al. (1986) described the external ear anomalies of CHARGE syndrome: short, wide pinnae that were often cupped and asymmetric; a distinctive triangular concha; a break between the antihelix and antitragus; and 'snipped-off' portions of the helical folds. The authors stated that these patterns were distinctive enough that a preliminary diagnosis of CHARGE syndrome could often be made from ear shape alone.	
+Metlay et al. (1987)	reports	Metlay et al. (1987) reported a boy with CHARGE syndrome. He had a coloboma of the optic nerve head and a congenital heart defect (atrial septal defect, ventricular septal defect and parachute mitral valve). He also had choanal atresia, severe growth retardation, genital hypoplasia, abnormal ears, cleft lip and palate, and pectus carinatum. His chromosomes were normal, and he died at 19 months of age; autopsy findings were reported.	
+Metlay et al. (1987)	reports	Metlay et al. (1987) noted that the mother of the affected boy was short and had hearing impairment, choanal atresia, and a coloboma. The authors suggested that this was evidence for dominant transmission of the disorder in this family, and they reviewed other familial cases from the literature.	
+Abruzzo and Erickson (1989)	reports	Abruzzo and Erickson (1989) did a follow-up study of the family they had previously reported with a new syndrome of cleft palate, coloboma, hypospadias, deafness, short stature, and radial synostosis. The purpose was to assess how the patients had developed since then and to determine whether they had CHARGE syndrome.	
+Abruzzo and Erickson (1989)	reports	Abruzzo and Erickson (1989) noted that other reports had cited their family as an example of familial CHARGE syndrome. After the follow-up study, they concluded that the patients in this family did not have familial CHARGE syndrome or the CHARGE association.	
+Pauws et al. (2013)	reports	In a family with X-linked CHARGE-like Abruzzo-Erickson syndrome of unknown cause, Pauws et al. (2013) found a novel TBX22 splice acceptor mutation (c.593-5T>A) that segregated with the phenotype. In silico analysis predicted that the variant abolishes normal mRNA splicing, and an in vitro splicing assay suggested that alternative splice sites were likely to be used. The authors concluded that TBX22 is the gene underlying Abruzzo-Erickson syndrome.	
+TBX22 c.593-5T>A	in_gene	TBX22	
+Pauws et al. (2013)	reports	Pauws et al. (2013) noted that the phenotype in the family with X-linked CHARGE-like Abruzzo-Erickson syndrome goes beyond classic X-linked cleft palate (CPX) to include sensorineural deafness and coloboma. These features had not previously been reported in CPX patients but are consistent with the developmental expression pattern of Tbx22.	
+Pauws et al. (2013)	reports	Pauws et al. (2013) found a novel TBX22 splice donor variant (c.767+5G>A) and a previously known canonical splice donor mutation (c.767+1G>A), both affecting the same exon as the Abruzzo-Erickson mutation, in patients with classic X-linked cleft palate. In silico and in vitro splicing studies predicted that both variants disrupt normal splicing.	
+TBX22 c.767+5G>A	in_gene	TBX22	
+TBX22 c.767+1G>A	in_gene	TBX22	
+ABRUZZO-ERICKSON SYNDROME	caused_by	TBX22	22784330
+ABRUZZO-ERICKSON SYNDROME	has_variant	TBX22 c.593-5T>A	22784330
+ABRUZZO-ERICKSON SYNDROME	inheritance	X-linked recessive	22784330
+ABRUZZO-ERICKSON SYNDROME	inheritance	Autosomal dominant	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Sensorineural hearing impairment	22784330
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Coloboma	22784330,2596527,3565473,839509
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Cleft palate	22784330,2596527,839509
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Optic disc coloboma	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Atrial septal defect	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Ventricular septal defect	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Parachute mitral valve	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Choanal atresia	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Growth delay	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	External genital hypoplasia	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Abnormality of the outer ear	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Orofacial cleft	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Pectus carinatum	3565473
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Short stature	2596527,3565473,839509
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Hearing impairment	2596527,3565473,839509
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Hypospadias	2596527,839509
+ABRUZZO-ERICKSON SYNDROME	has_phenotype	Radioulnar synostosis	2596527,839509
+Optic disc coloboma	is_a	Coloboma	
+Asymmetry of the ears	is_a	Abnormality of the outer ear	
+Cleft palate	is_a	Orofacial cleft	
+Short ear	is_a	Abnormality of the outer ear	
+Abnormal helix morphology	is_a	Abnormality of the outer ear	
+Short stature	is_a	Growth delay	
+Sensorineural hearing impairment	is_a	Hearing impairment	
+Abnormal antihelix morphology	is_a	Abnormality of the outer ear	
+Cupped ear	is_a	Abnormality of the outer ear	

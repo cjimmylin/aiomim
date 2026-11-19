@@ -1,0 +1,87 @@
+subject	predicate	object	pmids
+Faletra et al. (2014)	reports	Faletra et al. (2014) described the first family with autosomal recessive Stickler syndrome due to a loss-of-function mutation in the COL9A3 gene, a 23-bp deletion (c.1176_1198del) predicted to cause a frameshift and premature termination (p.Gln393Cysfs*25).	
+COL9A3 c.1176_1198del / p.Q393C	in_gene	COL9A3	
+Faletra et al. (2014)	reports	Faletra et al. (2014) noted that Stickler syndrome is genetically heterogeneous. Dominant forms are caused by mutations in COL2A1, COL11A1, and COL11A2, and recessive forms had been associated with COL9A1 and COL9A2. They also noted that only heterozygous COL9A3 mutations had previously been reported in humans, in association with multiple epiphyseal dysplasia type 3, susceptibility to intervertebral disc disease, and hearing loss.	
+Hanson-Kahn et al. (2018)	reports	Hanson-Kahn et al. (2018) reported a boy, born to consanguineous parents (third cousins) from India, with autosomal recessive Stickler syndrome. He failed newborn hearing screening and at 5 months had moderate to severe sensorineural hearing loss on the right and severe loss on the left, which remained stable; temporal bone CT showed mild enlargement of the vestibular aqueducts. He had no myopia at 5 months, but by 2 years had myopia of -6.75 OD and -8 OS, progressing to -10.75 OD and -11.25 OS by 12 years, without vitreous abnormalities. Femoral and tibial bowing were present at birth. Radiographs at 6 years showed slightly flattened proximal femoral epiphyses, flattened acetabula, irregularity of the medial distal femoral epiphyses, and mild platyspondyly. He also had midface hypoplasia and no cleft palate. Growth and intelligence were normal, and autoimmune hypothyroidism was diagnosed at 10 years.	
+Hanson-Kahn et al. (2018)	reports	In a boy with autosomal recessive Stickler syndrome from a consanguineous Indian family (R08-308), Hanson-Kahn et al. (2018) identified by exome sequencing a homozygous single-base duplication (c.650dupC, NM_001853.3) in exon 13 of the COL9A3 gene, predicted to cause a frameshift, premature termination, and absence of the gene product. The variant, confirmed by Sanger sequencing, was not found in public SNP databases; the unaffected parents and an unaffected sib were heterozygous. Prior targeted analysis of COL2A1, COL11A1, COL11A2 and specific exons of COL9A1, COL9A2 and COL9A3 had been negative.	
+COL9A3 c.650dupc	in_gene	COL9A3	
+Hanson-Kahn et al. (2018)	reports	Hanson-Kahn et al. (2018) noted that all Stickler syndrome patients with type IX collagen defects (6 families, 12 cases with COL9A1, COL9A2, or COL9A3 mutations) had high myopia, midface hypoplasia, and mild to severe hearing loss, whereas vitreous and retinal degeneration had been reported with COL9A1 and COL9A2 but not COL9A3 mutations. They suggested that loss of the alpha-3 chain of type IX collagen results in a phenotype similar to that caused by loss of the alpha-1 and alpha-2 chains, and distinct from recessive COL11A1-related Stickler syndrome, in which hearing loss is severe-profound and cleft palate is present.	
+Nixon et al. (2019)	reports	Nixon et al. (2019) described 6 patients from 4 families with recessive Stickler syndrome due to homozygous variants in Type IX collagen genes: COL9A1 (1 family, 1 patient), COL9A2 (2 families, 3 patients), and COL9A3 (1 family, 2 patients). All patients were highly myopic, with congenital megalophthalmos and abnormal, hypoplastic vitreous gel, and all had sensorineural hearing loss. One patient had severe arthropathy.	
+Nixon et al. (2019)	reports	In 2 patients from 1 family with recessive Stickler syndrome, Nixon et al. (2019) identified a homozygous variant in the COL9A3 gene. Across the 4 families studied (with COL9A1, COL9A2, or COL9A3 variants), 3 of the variants were novel.	
+Nixon et al. (2019)	reports	Nixon et al. (2019) noted that congenital megalophthalmos and myopia occur in both dominant and recessive forms of Stickler syndrome. Sensorineural hearing loss is more common and more severe in the recessive forms caused by Type IX collagen variants.	
+Nixon et al. (2019)	reports	Nixon et al. (2019) suggested that COL9A1, COL9A2, and COL9A3 be added to genetic screening panels for patients with congenital hearing loss. Their reasoning was that early diagnosis of recessive Stickler syndrome would have a high impact for children at risk of dual sensory impairment.	
+Markova et al. (2021)	reports	Markova et al. (2021) reported a boy, born to healthy nonconsanguineous Russian parents, with autosomal recessive Stickler syndrome. At 1 month he had hip dysplasia with bilateral absence of ossification centers. At 3 months he had congenital high bilateral myopia. At 11 months he was diagnosed with bilateral grade 3-4 sensorineural hearing loss, and he had delayed speech. Radiographs at 1 and 3 years showed mild spondyloepiphyseal dysplasia with spina bifida occulta of the sacral vertebrae, mild platyspondyly, kyphosis, flattened and irregular femoral heads, coxa valga, and flattened distal femoral epiphyses. Eye examination showed peripheral pigment changes, multiple vitreous floaters, and a preretinal membrane, with a normal ERG. At age 2 years 5 months he had genu valgum, waddling gait, lower limb joint pain, a flat nasal bridge, mild midface hypoplasia, a high palate, and no cleft palate. The authors considered the joint pain from age 3 years to be early-onset arthropathy.	
+Markova et al. (2021)	reports	Markova et al. (2021) used targeted sequencing of 166 skeletal disorder genes in the boy with autosomal recessive Stickler syndrome. They found compound heterozygous nonsense mutations in the COL9A3 gene: c.268C>T (p.Arg90Ter) in exon 5 and c.1729C>T (p.Arg577Ter) in exon 30. Sanger sequencing showed that the mutations were in trans, and his healthy sibs did not carry pathogenic COL9A3 variants. The authors stated that this was the first reported case of COL9A3-related recessive Stickler syndrome not caused by a homozygous mutation.	
+COL9A3 c.268C>T / p.R90*	in_gene	COL9A3	
+COL9A3 c.1729C>T / p.R577*	in_gene	COL9A3	
+Markova et al. (2021)	reports	Markova et al. (2021) compared their patient with 6 previously reported patients from 3 families with recessive COL9A3-related Stickler syndrome. High myopia and sensorineural hearing loss were present in all patients, and none had cleft palate. Their patient also had early-onset arthropathy and vitreoretinal degeneration, which the authors described as a more severe presentation.	
+Rad et al. (2022)	reports	Rad et al. (2022) described a 28-year-old Iranian woman (family 1), the only affected child of first-cousin parents. She had high myopia, vitreoretinal degeneration with empty vitreous, multiple lattice degenerations and retinal pigmentary changes, and severe progressive sensorineural hearing loss. One skull x-ray showed unilateral absence of the frontal sinus. Her joint and bone examination and x-rays were normal, although she had knee pain. She lacked the typical Stickler craniofacial features.	
+Rad et al. (2022)	reports	Rad et al. (2022) described 2 affected brothers (family 2), aged 65 and 57 years, born to Iranian first-cousin parents. Advanced vitreoretinal degeneration caused recurrent rhegmatogenous retinal detachments that required multiple surgeries. The older brother had no light perception in either eye; the younger could count fingers with one eye and had no light perception in the other. Both had severe progressive sensorineural hearing loss and a herniated cervical disc. The older brother also had muscular atrophy.	
+Rad et al. (2022)	reports	Rad et al. (2022) described 2 sibs (family 3), a boy aged 11.8 years and a girl aged 3.1 years, born to Iranian first-cousin parents. Both had myopia and congenital moderate to severe progressive sensorineural hearing impairment. Both had spondyloepiphyseal dysplasia, pes planus, a depressed nasal bridge and anteverted nares. Midface hypoplasia and downslanting palpebral fissures were more pronounced in the girl. The boy had knee pain. Neither had intellectual disability.	
+Rad et al. (2022)	reports	In the proband of family 1 with Stickler syndrome, exome sequencing by Rad et al. (2022) identified a homozygous 10-bp deletion in exon 2 of COL9A3 (c.107_116del, NM_001853.3), predicted to cause a frameshift (p.Pro36ArgfsTer49). Its allele frequency in gnomAD was 0.0000139 (2 carriers). The variant was not reported in Iranome, GME or 1000 Genomes. Segregation was checked by Sanger sequencing in available family members.	
+COL9A3 c.107_116del / p.P36R	in_gene	COL9A3	
+Rad et al. (2022)	reports	In 2 affected brothers from family 2 with Stickler syndrome, Rad et al. (2022) identified a homozygous nonsense variant in exon 23 of COL9A3 (c.1204C>T, p.Arg402Ter) by exome sequencing of the proband. The variant was not reported in public databases.	
+COL9A3 c.1204C>T / p.R402*	in_gene	COL9A3	
+Rad et al. (2022)	reports	In 2 affected sibs from family 3 with Stickler syndrome, Rad et al. (2022) identified a homozygous 1-bp deletion in exon 7 of COL9A3 (c.355delC) by exome sequencing of the proband. The paper reports the predicted frameshift as p.Leu119SerfsTer9 in the text and as p.Leu119SerfsTer10 in Table 1. The variant was not reported in public databases.	
+COL9A3 c.355delc / p.L119S	in_gene	COL9A3	
+Rad et al. (2022)	reports	Rad et al. (2022) compared their 5 patients with previously reported patients carrying biallelic COL9A3 loss-of-function variants, for a total of 7 families. Consistent features were moderate-to-profound progressive sensorineural hearing loss and moderate to high myopia with vitreoretinal degeneration. Retinal detachment and cataract occurred occasionally, and skeletal involvement was more variable. The older patients in family 2 had only myopia, hearing loss and herniated cervical discs, whereas the younger patients in family 3 had spondyloepiphyseal dysplasia and craniofacial abnormalities.	
+Rad et al. (2022)	reports	Rad et al. (2022) observed no mild phenotypes in heterozygous carriers in their families. This differs from Nixon et al., who reported that carrier parents can show mild Stickler syndrome features.	
+STICKLER SYNDROME, TYPE VI	caused_by	COL9A3	24273071,30450842,33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.107_116del / p.P36R	35241111
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.1176_1198del / p.Q393C	24273071
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.1204C>T / p.R402*	35241111
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.1729C>T / p.R577*	33570243
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.268C>T / p.R90*	33570243
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.355delc / p.L119S	35241111
+STICKLER SYNDROME, TYPE VI	has_variant	COL9A3 c.650dupc	30450842
+STICKLER SYNDROME, TYPE VI	inheritance	Autosomal recessive	24273071,30450842,31090205,33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	High myopia	30450842,31090205,33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Vitreoretinopathy	33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Lattice retinal degeneration	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Abnormal retinal pigmentation	33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Progressive sensorineural hearing impairment	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Absent frontal sinuses	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Knee pain	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Midface retrusion	30450842,33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Rhegmatogenous retinal detachment	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Blindness	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Herniation of intervertebral nuclei	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Skeletal muscle atrophy	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Myopia	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Spondyloepiphyseal dysplasia	33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Pes planus	33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Depressed nasal bridge	33570243,35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Anteverted nares	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Downslanted palpebral fissures	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Retinal detachment	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Cataract	35241111
+STICKLER SYNDROME, TYPE VI	has_phenotype	Severe sensorineural hearing impairment	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Delayed speech and language development	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Hip dysplasia	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Spina bifida occulta	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Platyspondyly	30450842,33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Kyphosis	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Flattened femoral head	30450842,33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Coxa valga	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Flattened femoral epiphysis	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Epiretinal membrane	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Genu valgum	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Waddling gait	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Arthralgia	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	High palate	33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Sensorineural hearing impairment	30450842,31090205,33570243
+STICKLER SYNDROME, TYPE VI	has_phenotype	Megalocornea	31090205
+STICKLER SYNDROME, TYPE VI	has_phenotype	Abnormal vitreous humor morphology	31090205
+STICKLER SYNDROME, TYPE VI	has_phenotype	Arthropathy	31090205
+STICKLER SYNDROME, TYPE VI	has_phenotype	Enlarged vestibular aqueduct	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Femoral bowing	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Tibial bowing	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Flat acetabular roof	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Irregular distal femoral epiphysis	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Irregular vertebral endplates	30450842
+STICKLER SYNDROME, TYPE VI	has_phenotype	Primary hypothyroidism	30450842
+Progressive sensorineural hearing impairment	is_a	Sensorineural hearing impairment	
+Vitreoretinopathy	is_a	Abnormal vitreous humor morphology	
+Rhegmatogenous retinal detachment	is_a	Retinal detachment	
+High myopia	is_a	Myopia	
+Severe sensorineural hearing impairment	is_a	Sensorineural hearing impairment	

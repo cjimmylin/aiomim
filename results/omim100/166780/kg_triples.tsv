@@ -1,0 +1,55 @@
+subject	predicate	object	pmids
+Fára et al. (1967)	reports	Fára et al. (1967) reported a familial disorder that they called oto-facio-cervical dysmorphia.	
+Dallapiccola and Mingarelli (1995)	reports	Dallapiccola and Mingarelli (1995) described a sporadic patient with OFC syndrome. The distinguishing features were a long face with a narrow nose, high-arched palate, prominent and dysmorphic ears, long neck, sloping shoulders and clavicles, winged, low and laterally set scapulae, tetralogy of Fallot, and deafness caused by cochlear malformation. The patient did not have preauricular tags, lacrimal duct stenosis, or renal malformations.	
+Dallapiccola and Mingarelli (1995)	reports	Dallapiccola and Mingarelli (1995) noted that some features in the original family, including lateral cervical fistulae, had led to the suggestion that OFC syndrome might be a variant of branchiootorenal (BOR) syndrome. They concluded that their patient supported OFC syndrome being a unique, clinically recognizable entity. Their evidence was that the patient lacked preauricular tags, lacrimal duct stenosis, and renal malformations but had distinct facial and radiographic findings and markedly downward-sloping shoulders.	
+Rickard et al. (2001)	reports	Rickard et al. (2001) developed a fluorescent quantitative multiplex PCR dosage assay for EYA1 exons 7, 9, and 13. Combined with microsatellite marker analysis, it identified de novo deletions of the EYA1 gene and the surrounding region in 2 patients with complex phenotypes that included features of BOR syndrome. One of these patients, who had OFC syndrome, carried a large deletion of the EYA1 gene region. The authors concluded that this confirmed OFC syndrome is allelic with BOR syndrome.	
+EYA1 large deletion of the EYA1 gene region	in_gene	EYA1	
+Rickard et al. (2001)	reports	Rickard et al. (2001) concluded that OFC syndrome is a contiguous gene deletion syndrome involving EYA1 on 8q13.3. They compared the boundaries of the large deletion in their OFC patient with other reported rearrangements of the region. This narrowed the critical region for Duane syndrome, an eye movement disorder, to the interval between markers D8S553 and D8S1797, a genetic distance of about 1 cM.	
+Rickard et al. (2001)	reports	Rickard et al. (2001) noted that OFC syndrome is clinically similar to branchiootorenal (BOR) syndrome but has clinical features beyond those of BOR syndrome. BOR syndrome is an autosomal dominant disorder involving hearing loss, branchial defects, ear pits, and renal abnormalities.	
+Estefanía et al. (2006)	reports	Estefanía et al. (2006) found a single-nucleotide substitution at a splice site of the EYA1 gene in a patient with otofaciocervical syndrome. They concluded that OFC can be caused by point mutations that alter the EYA1 reading frame, not only by major rearrangements. This finding argued against the hypothesis that OFC results from contiguous deletions of EYA1 and adjacent genes.	
+EYA1 single-nucleotide substitution in a splice site of EYA1	in_gene	EYA1	
+Estefanía et al. (2006)	reports	Estefanía et al. (2006) described otofaciocervical syndrome as having trophic changes of the face and shoulder girdle in addition to the malformations seen in branchiootorenal syndrome. These malformations are developmental defects of branchial arch structures, the middle and/or inner ear, and the kidney. They noted that it is debated whether OFC and BOR are the same disease.	
+Pohl et al. (2013)	reports	Pohl et al. (2013) described otofaciocervical syndrome (OFCS) as an autosomal recessive disorder. Its features are facial dysmorphism, external ear anomalies with preauricular pits, hearing impairment, branchial cysts or fistulas, anomalies of the vertebrae and shoulder girdle, and mild intellectual disability.	
+Pohl et al. (2013)	reports	Pohl et al. (2013) studied a large consanguineous Turkish family with OFCS. They performed whole-exome sequencing on a single pooled DNA sample from 4 affected individuals and identified a homozygous c.497G>T mutation in the PAX1 gene. The mutation is predicted to cause a gly166-to-val (G166V) substitution within the highly conserved paired-box domain, and it co-segregated with the disease in the family. Filtering found it to be the only novel homozygous variant.	
+PAX1 c.497G>T / p.G166V	in_gene	PAX1	
+Pohl et al. (2013)	reports	Pohl et al. (2013) used a dual luciferase reporter assay in HEK293T cells to test transactivation of a regulatory sequence in the Nkx3-2 promoter, a direct target of mouse Pax1. Cells expressing the mouse equivalent of the mutation, Pax1(G157V), showed significantly reduced transactivation compared with wildtype Pax1. The authors concluded that this indicated reduced DNA-binding affinity of the mutant protein and that the mutation is hypofunctional.	
+PAX1 p.G157V	in_gene	PAX1	
+OTOFACIOCERVICAL SYNDROME 1	caused_by	EYA1	11409867,16441263
+OTOFACIOCERVICAL SYNDROME 1	has_variant	EYA1 large deletion of the EYA1 gene region	11409867
+OTOFACIOCERVICAL SYNDROME 1	has_variant	EYA1 single-nucleotide substitution in a splice site of EYA1	16441263
+OTOFACIOCERVICAL SYNDROME 1	caused_by	PAX1	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_variant	PAX1 c.497G>T / p.G166V	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_variant	PAX1 p.G157V	23851939
+OTOFACIOCERVICAL SYNDROME 1	inheritance	Autosomal recessive	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormal facial shape	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormality of the outer ear	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Preauricular pit	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Hearing impairment	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Branchial anomaly	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormality of the vertebral column	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormality of the shoulder girdle musculature	16441263,23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Mild intellectual disability	23851939
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormality of the face	16441263
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Long face	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Narrow nose	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	High palate	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Protruding ear	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Long neck	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Down-sloping shoulder	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormal clavicle morphology	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Scapular winging	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Abnormal scapula morphology	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Tetralogy of Fallot	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Sensorineural hearing impairment	8558563
+OTOFACIOCERVICAL SYNDROME 1	has_phenotype	Cochlear malformation	8558563
+High palate	is_a	Abnormality of the face	
+Scapular winging	is_a	Abnormal scapula morphology	
+Scapular winging	is_a	Abnormality of the shoulder girdle musculature	
+Abnormal facial shape	is_a	Abnormality of the face	
+Protruding ear	is_a	Abnormality of the outer ear	
+Narrow nose	is_a	Abnormality of the face	
+Preauricular skin tag	is_a	Abnormality of the face	
+Lacrimal duct stenosis	is_a	Abnormality of the face	
+Sensorineural hearing impairment	is_a	Hearing impairment	
+Preauricular pit	is_a	Abnormality of the face	
+Long face	is_a	Abnormal facial shape	

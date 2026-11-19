@@ -1,0 +1,19 @@
+subject	predicate	object	pmids
+Beijer et al. (2019)	reports	In affected members of 3 unrelated families with juvenile-onset autosomal dominant distal hereditary motor neuropathy, Beijer et al. (2019) used next-generation sequencing to identify heterozygous nonsense mutations in the SPTAN1 gene, which encodes alpha-II spectrin.	
+Beijer et al. (2019)	reports	Beijer et al. (2019) reported 3 families with juvenile-onset distal hereditary motor neuropathy caused by SPTAN1 nonsense mutations. Penetrance was variable in 2 of the 3 families, and the severity of the phenotype differed greatly between patients.	
+Beijer et al. (2019)	reports	In patient cells, Beijer et al. (2019) found that mutant SPTAN1 mRNA carrying the nonsense mutations was broken down by nonsense-mediated decay and that alpha-II spectrin protein levels were reduced. This contrasts with the dominant-negative SPTAN1 mutations previously described as causing a spectrum of epilepsy phenotypes.	
+Ylikallio et al. (2020)	reports	Ylikallio et al. (2020) reported a de novo SPTAN1 mutation associated with axonal sensorimotor neuropathy and a developmental disorder.	
+SPTAN1 De novo SPTAN1 mutation	in_gene	SPTAN1	
+Dong et al. (2021)	reports	Dong et al. (2021) reported a novel de novo nonsense variant in the SPTAN1 gene that caused hereditary motor neuropathy in a Chinese family.	
+SPTAN1 novel de novo SPTAN1 nonsense variant	in_gene	SPTAN1	
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	caused_by	SPTAN1	33206935,33578420
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_variant	SPTAN1 De novo SPTAN1 mutation	33206935
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_variant	SPTAN1 novel de novo SPTAN1 nonsense variant	33578420
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	inheritance	Autosomal dominant	31332438
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Motor polyneuropathy	33578420
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Axonal degeneration	33206935
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Global developmental delay	33206935
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Distal muscle weakness	31332438
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Juvenile onset	31332438
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Variable expressivity	31332438
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 11	has_phenotype	Typified by incomplete penetrance	31332438

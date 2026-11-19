@@ -1,0 +1,11 @@
+subject	predicate	object	pmids
+Christiansen et al. (2010)	reports	In an individual with severe autosomal recessive osteogenesis imperfecta, Christiansen et al. (2010) identified a homozygous missense mutation (c.233T>C, p.Leu78Pro) in the SERPINH1 gene, which encodes the collagen chaperone-like protein HSP47.	
+SERPINH1 c.233T>C / p.L78P	in_gene	SERPINH1	
+Christiansen et al. (2010)	reports	Christiansen et al. (2010) found that the L78P mutation caused the endoplasmic reticulum-resident HSP47 to be degraded via the proteasome. In fibroblasts from the affected individual, type I procollagen accumulated in the Golgi, and part of the secreted type I procollagen was protease sensitive. The authors suggested that HSP47 monitors the integrity of the type I procollagen triple helix at the ER/cis-Golgi boundary, and that without it procollagen moves from the ER to the Golgi faster and its helical structure is compromised.	
+Christiansen et al. (2010)	reports	Christiansen et al. (2010) found normal 3-hydroxylation of the prolyl residue at position 986 of the proalpha1(I) triple helical domain in the patient. They concluded that HSP47 acts downstream of the CRTAP/P3H1/CyPB complex involved in prolyl 3-hydroxylation.	
+Duran et al. (2015)	reports	Duran et al. (2015) identified a new osteogenesis imperfecta mutation in the SERPINH1 gene. The mutation destabilized HSP47 and caused it to be mislocalized, and it secondarily had similar effects on FKBP65.	
+Duran et al. (2015)	reports	Duran et al. (2015) found evidence that HSP47 and FKBP65 act cooperatively during posttranslational maturation of type I procollagen, and that the two proteins fail to interact properly in cells with mutant HSP47. They concluded that OI caused by HSP47 deficiency and OI caused by FKBP65 deficiency share a common cellular pathway.	
+OSTEOGENESIS IMPERFECTA, TYPE X	caused_by	SERPINH1	20188343
+OSTEOGENESIS IMPERFECTA, TYPE X	has_variant	SERPINH1 c.233T>C / p.L78P	20188343
+OSTEOGENESIS IMPERFECTA, TYPE X	inheritance	Autosomal recessive	20188343,25510505
+OSTEOGENESIS IMPERFECTA, TYPE X	has_phenotype	Recurrent fractures	20188343

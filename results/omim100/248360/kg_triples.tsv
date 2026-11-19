@@ -1,0 +1,81 @@
+subject	predicate	object	pmids
+Brown et al. (1984)	reports	Brown et al. (1984) described a child with deficiency of the mitochondrial enzyme malonyl-CoA decarboxylase, an inborn error of metabolism that had not been recognized before. The child had repeated episodes of vomiting, some of which required hospitalization.	
+Brown et al. (1984)	reports	Brown et al. (1984) first suspected malonyl-CoA decarboxylase deficiency in their patient because the child persistently excreted malonic and methylmalonic acids in the urine. The authors also demonstrated disturbances of lipid metabolism.	
+Haan et al. (1986)	reports	Haan et al. (1986) described a boy, the second reported child with malonyl-CoA decarboxylase deficiency, whose enzyme defect was more severe. He was mildly mentally retarded. During a urinary tract infection he presented with vomiting, a seizure, hypoglycemia and mild metabolic acidosis.	
+Haan et al. (1986)	reports	Haan et al. (1986) found that the patient's urine contained increased amounts of malonic, methylmalonic, succinic, adipic, glutaric and suberic acids. Mitochondrial malonyl-CoA decarboxylase activity in extracts of his cultured fibroblasts was 4% of the mean control value.	
+Haan et al. (1986)	reports	Haan et al. (1986) found that a high-fat, low-carbohydrate diet led to symptomatic hypoglycemia, moderate metabolic acidosis, and excretion of large amounts of the same organic acids and 3-hydroxybutyrate in the urine. On an isocaloric low-fat, high-carbohydrate diet, only relatively small quantities of malonic, methylmalonic and succinic acids were excreted. Acute fat and lysine loads increased urinary malonic acid excretion without affecting excretion of the other organic acids.	
+Haan et al. (1986)	reports	Haan et al. (1986) suggested that malonyl-CoA decarboxylase serves an important function in the mitochondrion by preventing accumulation of malonyl-CoA, and that its importance is best seen when fat is the main metabolic fuel. They noted that the mechanisms by which malonyl-CoA produces its complex metabolic effects remained to be elucidated.	
+MacPhee et al. (1993)	reports	MacPhee et al. (1993) described 2 Scottish-born children with malonyl-CoA decarboxylase deficiency whose consanguineous parents were of Scots/Irish origin. The children were investigated during episodes of vomiting and febrile convulsions, along with developmental delay. Before this report, the disorder had been reported in only 2 Australian children.	
+MacPhee et al. (1993)	reports	MacPhee et al. (1993) found malonic aciduria and greatly reduced malonyl-CoA decarboxylase activity in 2 Scottish patients. They presented urinary organic acid profiles obtained by gas chromatography-mass spectrometry and compared the clinical and biochemical features of these patients with those of the Australian patients.	
+FitzPatrick et al. (1999)	reports	FitzPatrick et al. (1999) identified a homozygous 442C-G transversion in the MCD gene, producing a premature stop codon (S148X) in the N-terminal half of the protein, in fibroblast RNA from one of two previously reported consanguineous Scottish patients with MCD deficiency. They found it by RT-PCR analysis. The mutation segregated appropriately within the family and was not present in 100 normal unrelated individuals.	
+MCD c.442C>G / p.S148*	in_gene	MCD	
+FitzPatrick et al. (1999)	reports	In the second consanguineous Scottish patient with MCD deficiency, FitzPatrick et al. (1999) found a homozygous intronic mutation in the MCD gene (IVS4-14A-G). It created a novel splice acceptor site, which led to a 13-bp insertion in the mature RNA, a frameshift, and predicted truncation of the protein. The mutation segregated appropriately within the family and was absent from 100 normal unrelated controls.	
+MCD IVS4-14A-->G	in_gene	MCD	
+FitzPatrick et al. (1999)	reports	FitzPatrick et al. (1999) found homozygous MCD mutations in two patients with MCD deficiency from consanguineous Scottish families, which is consistent with autosomal recessive inheritance.	
+FitzPatrick et al. (1999)	reports	FitzPatrick et al. (1999) found that the human MCD peptide carries a C-terminal peroxisomal targeting sequence (-SKL). In rat liver homogenates, subcellular fractionation showed a distribution of MCD enzyme activity that strongly suggested MCD is located in peroxisomes as well as mitochondria.	
+Sacksteder et al. (1999)	reports	Sacksteder et al. (1999) described malonyl-CoA decarboxylase deficiency as a lethal disorder characterized by cardiomyopathy and developmental delay, associated with defects in MCD activity. MCD catalyzes the proton-consuming conversion of malonyl-CoA to acetyl-CoA and CO2.	
+Sacksteder et al. (1999)	reports	In a patient with malonyl-CoA decarboxylase deficiency, Sacksteder et al. (1999) identified a severe mutation in the MCD gene, a 2-bp deletion (c.947-948delTT). They had found MCD in a computer-based search for new peroxisomal proteins. Together with the high malonyl-CoA decarboxylase activity of the recombinant protein, the mutation confirmed that the gene encodes human MCD.	
+MCD c.947-948deltt	in_gene	MCD	
+Sacksteder et al. (1999)	reports	Sacksteder et al. (1999) found that recombinant MCD protein had high intrinsic malonyl-CoA decarboxylase activity. The protein carries a canonical type-1 peroxisomal targeting signal (serine-lysine-leucine at the C terminus). Subcellular fractionation showed that MCD is located in both the cytoplasm and peroxisomes.	
+Sacksteder et al. (1999)	reports	Sacksteder et al. (1999) proposed that cytoplasmic MCD regulates the amount of cytoplasmic malonyl-CoA and, through it, mitochondrial fatty acid uptake and oxidation. They noted that MCD mRNA is most abundant in cardiac and skeletal muscle, and that patients have phenotypes reminiscent of mitochondrial fatty acid oxidation disorders. They also suggested that peroxisomal MCD may degrade intraperoxisomal malonyl-CoA produced by beta-oxidation of odd chain-length dicarboxylic fatty acids.	
+Gao et al. (1999)	reports	Gao et al. (1999) noted that malonyl-CoA decarboxylase converts malonyl-CoA to acetyl-CoA. They stated that deficiency of the enzyme has been associated with mild mental retardation, seizures, hypotonia, cardiomyopathy, vomiting, hypoglycemia, metabolic acidosis, and malonic aciduria.	
+Gao et al. (1999)	reports	Gao et al. (1999) found the mutation underlying malonyl-CoA decarboxylase deficiency in a patient who had clinical features of the defect, malonic aciduria, and markedly reduced malonyl-CoA decarboxylase activity. The abstract does not name the mutation. The authors identified the human MCD gene by its homology to the goose gene.	
+Gao et al. (1999)	reports	Gao et al. (1999) identified the human malonyl-CoA decarboxylase cDNA by its homology to the goose gene. The 1,479-bp human cDNA is 70% identical to the goose sequence. The intron/exon boundaries, which they determined by sequencing a PAC clone, are completely conserved between the two species.	
+Wightman et al. (2003)	reports	Wightman et al. (2003) described malonyl-CoA decarboxylase (MLYCD) deficiency as an autosomal recessive disorder characterized by malonic aciduria, developmental delay, seizures, hypoglycemia, and cardiomyopathy.	
+Wightman et al. (2003)	reports	Wightman et al. (2003) sequenced the genomic MLYCD gene in 9 unrelated patients with MLYCD deficiency and identified 16 of 18 pathogenic alleles. They recorded these variants in a newly created Human MLYCD Allelic Variant Database.	
+Wightman et al. (2003)	reports	Wightman et al. (2003) carried out Western blot analysis on fibroblast cell lines from 8 of their patients and 2 previously reported patients with homozygous MLYCD mutations. The 66-kDa MLYCD band was absent in 6 patients and substantially reduced in 3. One patient had increased protein levels, with a prominent smeary band at 68 to 83 kDa.	
+Wightman et al. (2003)	reports	Wightman et al. (2003) identified an extreme N-terminal MLYCD mutation, c.8G>A (p.G3D), in a patient with MLYCD deficiency. On immunocytochemistry, the mutant protein mislocalized to the plasma membrane. The authors suggested that a novel targeting signal may reside in a conserved 4-amino acid N-terminal motif.	
+MLYCD c.8G>A / p.G3D	in_gene	MLYCD	
+Wightman et al. (2003)	reports	Wightman et al. (2003) identified a point mutation, c.119T>C (p.M40T), in a patient with MLYCD deficiency. This mutation ablates the second of the putative mitochondrial and peroxisomal initiating codons (M40). On immunocytochemistry, the mutant protein showed punctate perinuclear staining.	
+MLYCD c.119T>C / p.M40T	in_gene	MLYCD	
+Wightman et al. (2003)	reports	Wightman et al. (2003) identified a 25-base deletion in MLYCD, located between the putative mitochondrial (M1) and peroxisomal (M40) initiating codons, in a patient with MLYCD deficiency. On immunocytochemistry, the mutant protein showed punctate perinuclear staining.	
+MLYCD 25-base deletion between M1 and M40	in_gene	MLYCD	
+Wightman et al. (2003)	reports	Wightman et al. (2003) found apparent intracellular mislocalization of MLYCD in patient cell lines that still expressed the protein. None of the 3 mislocalizing mutations was predicted to alter catalytic function, so the authors concluded that correct subcellular localization of MLYCD is likely critical for normal function.	
+de Wit et al. (2006)	reports	de Wit et al. (2006) described a girl with MCD deficiency whose brain MRI showed white matter abnormalities together with diffuse pachygyria and periventricular heterotopia, consistent with a malformation of cortical development. The patient had strikingly low appetite, which the authors noted was interesting in light of the proposed role of malonyl-CoA in feeding control, but which remained to be confirmed in other patients.	
+de Wit et al. (2006)	reports	In the girl with MCD deficiency, de Wit et al. (2006) found a normal MLYCD genomic sequence but no MLYCD messenger product, suggesting an abnormality of transcription regulation.	
+de Wit et al. (2006)	reports	de Wit et al. (2006) recommended that patients with MCD deficiency be evaluated with brain MRI and that unexplained malformations of cortical development prompt metabolic screening.	
+Chapel-Crespo et al. (2019)	reports	Chapel-Crespo et al. (2019) reported the clinical, biochemical and molecular characteristics of malonyl-CoA decarboxylase deficiency, with long-term follow-up of 9 patients.	
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	caused_by	MCD	10417274,10455107
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MCD c.442C>G / p.S148*	10417274
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MCD c.947-948deltt	10455107
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MCD IVS4-14A-->G	10417274
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	caused_by	MLYCD	12955715
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MLYCD c.119T>C / p.M40T	12955715
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MLYCD c.8G>A / p.G3D	12955715
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_variant	MLYCD 25-base deletion between M1 and M40	12955715
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	inheritance	Autosomal recessive	10417274,12955715
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Abnormal cerebral white matter morphology	16275149
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Pachygyria	16275149
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Periventricular nodular heterotopia	16275149
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Poor appetite	16275149
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urine malonic acid level	12955715,3709568,6145813,8259873,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Global developmental delay	10455107,12955715,8259873
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Seizure	12955715,3709568,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Hypoglycemia	12955715,3709568,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Cardiomyopathy	10455107,12955715,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Mild intellectual disability	3709568,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Hypotonia	9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Vomiting	3709568,6145813,8259873,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Metabolic acidosis	3709568,9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Abnormal circulating enzyme concentration or activity	9869665
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Febrile seizure (within the age range of 3 months to 6 years)	8259873
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Abnormality of metabolism/homeostasis	8259873
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Methylmalonic aciduria	3709568,6145813
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Abnormal metabolism	6145813
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urine succinic acid level	3709568
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urinary adipic acid	3709568
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Glutaric aciduria	3709568
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urine suberic acid level	3709568
+MALONYL-CoA DECARBOXYLASE DEFICIENCY	has_phenotype	Elevated urinary 3-hydroxybutyric acid	3709568
+Elevated urine succinic acid level	is_a	Abnormality of metabolism/homeostasis	
+Metabolic acidosis	is_a	Abnormality of metabolism/homeostasis	
+Elevated urinary 3-hydroxybutyric acid	is_a	Abnormality of metabolism/homeostasis	
+Elevated urine suberic acid level	is_a	Abnormality of metabolism/homeostasis	
+Febrile seizure (within the age range of 3 months to 6 years)	is_a	Seizure	
+Abnormal circulating enzyme concentration or activity	is_a	Abnormality of metabolism/homeostasis	
+Elevated urinary adipic acid	is_a	Abnormality of metabolism/homeostasis	
+Hypoglycemia	is_a	Abnormality of metabolism/homeostasis	
+Methylmalonic aciduria	is_a	Abnormality of metabolism/homeostasis	
+Glutaric aciduria	is_a	Abnormality of metabolism/homeostasis	
+Abnormal metabolism	is_a	Abnormality of metabolism/homeostasis	
+Elevated urine malonic acid level	is_a	Abnormality of metabolism/homeostasis	

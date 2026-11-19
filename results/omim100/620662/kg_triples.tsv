@@ -1,0 +1,59 @@
+subject	predicate	object	pmids
+Choucair et al. (2017)	reports	Choucair et al. (2017) reported a male child born to consanguineous parents. He had intellectual disability, short stature, dysmorphic facial features, synpolydactyly, and cardiac malformations.	
+Choucair et al. (2017)	reports	In a male child born to consanguineous parents, Choucair et al. (2017) used chromosomal microarray analysis and found a homozygous deletion at 8p23.1. The deletion contained the microRNA miR-4660 and the ERI1 and MFHAS1 genes. The authors noted that ERI1 is a ribonuclease involved in RNA metabolism and is required for correct skeletal patterning by defining HOXC8 expression. They discussed how the deleted genes might contribute to the patient's features.	
+ERI1 8p23.1 homozygous deletion containing miR-4660, ERI1, and MFHAS1	in_gene	ERI1	
+Szot et al. (2021)	reports	Szot et al. (2021) found that patient F5.II.1, a girl with limb reduction defects, cardiac defects, microcephaly, global developmental delay, and autism, carried a homozygous loss-of-function variant in ERI1 (NM_153332.4: c.514C>T, p.Gln172Ter). She was also homozygous for a KYNU missense variant (c.616G>A, p.Glu206Lys). The authors noted that ERI1 had previously been found in a homozygous microdeletion, together with MFHAS1, in a patient whose limb and cardiac abnormalities resembled hers. They suggested that this additional variant may help explain her phenotype, but said the functional link between ERI1 mutation and these defects remained to be assessed.	
+ERI1 c.514C>T / c.nm_153332.4 / p.Q172*	in_gene	ERI1	
+KYNU c.616G>A / p.E206K	in_gene	KYNU	
+Szot et al. (2021)	reports	Szot et al. (2021) described a girl (F5.II.1) with reduction defects of the hands and feet. On the right hand she had a transverse terminal limb reduction with a rudimentary fifth digit. Several digits had hypoplastic or absent nails, toes 2 to 4 of the right foot and toes 3 to 5 of the left foot were absent, and there was syndactyly. She also had a perimembranous ventricular septal defect, pulmonary vein stenosis, microcephaly, global developmental delay, autism, brachycephaly with a flat occiput and bitemporal narrowing, a small nose, cupped prominent ears, and bilateral inguinal hernias. No vertebral or renal defects were recorded.	
+Hoxha and Aliu (2023)	reports	Hoxha and Aliu (2023) reported a female patient with mild intellectual disability, eyelid ptosis, and hand and foot anomalies. The hand and foot anomalies were brachydactyly, clinodactyly, dysplastic or short nails of the halluces, brachytelephalangy, short metacarpals, and toe syndactyly.	
+Hoxha and Aliu (2023)	reports	Hoxha and Aliu (2023) identified a homozygous nonsense variant in the ERI1 gene in a female patient with developmental delay and distal limb abnormalities. They described this as the first reported human case associated with ERI1 variants.	
+ERI1 homozygous nonsense variant in ERI1	in_gene	ERI1	
+Hoxha and Aliu (2023)	reports	Hoxha and Aliu (2023) described ERI1 as an evolutionarily conserved 3-prime-to-5-prime exonuclease that has an important function in multiple RNA processing pathways.	
+Guo et al. (2023)	reports	Guo et al. (2023) reported 8 affected individuals from 7 unrelated families with biallelic ERI1 variants and described a phenotypic dichotomy. Individuals with biallelic null variants had mild intellectual disability and digital anomalies, without the severe spondyloepimetaphyseal dysplasia (SEMD) seen in the 5 individuals with missense variants.	
+Guo et al. (2023)	reports	Guo et al. (2023) identified biallelic null variants in the ERI1 gene in individuals with mild intellectual disability and digital anomalies. Biallelic missense variants were found in 5 individuals with severe SEMD.	
+Guo et al. (2023)	reports	Guo et al. (2023) proposed a model in which, within recessive ERI1 genotypes, missense alleles have a more severe effect than null alleles. Missense alleles caused severe SEMD, whereas null alleles caused a milder phenotype of mild intellectual disability and digital anomalies.	
+Guo et al. (2023)	reports	Guo et al. (2023) found that the ERI1 missense variants abolished exoribonuclease activity. This caused defective trimming of the 3-prime end of 5.8S rRNA and reduced degradation of replication-dependent histone mRNAs.	
+Guo et al. (2023)	reports	Guo et al. (2023) found that induced pluripotent stem cells (iPSCs) derived from affected individuals showed impaired chondrogenesis in vitro, with downregulation of genes that regulate skeletal patterning.	
+HOXHA-ALIU SYNDROME	caused_by	ERI1	28488351,33942433,36208065
+HOXHA-ALIU SYNDROME	has_variant	ERI1 c.514C>T / c.nm_153332.4 / p.Q172*	33942433
+HOXHA-ALIU SYNDROME	has_variant	ERI1 8p23.1 homozygous deletion containing miR-4660, ERI1, and MFHAS1	28488351
+HOXHA-ALIU SYNDROME	has_variant	ERI1 homozygous nonsense variant in ERI1	36208065
+HOXHA-ALIU SYNDROME	caused_by	KYNU	33942433
+HOXHA-ALIU SYNDROME	has_variant	KYNU c.616G>A / p.E206K	33942433
+HOXHA-ALIU SYNDROME	inheritance	Autosomal recessive	28488351,33942433,36208065,37352860
+HOXHA-ALIU SYNDROME	has_phenotype	Mild intellectual disability	36208065,37352860
+HOXHA-ALIU SYNDROME	has_phenotype	Abnormal digit morphology	37352860
+HOXHA-ALIU SYNDROME	has_phenotype	Ptosis	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Brachydactyly	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Clinodactyly	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Nail dysplasia	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Shortening of all distal phalanges of the fingers	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Short metacarpal	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Toe syndactyly	36208065
+HOXHA-ALIU SYNDROME	has_phenotype	Transverse terminal upper limb defect	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Absent toe	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Anonychia	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Syndactyly	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Perimembranous ventricular septal defect	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Abnormal pulmonary vein morphology	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Microcephaly	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Global developmental delay	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Autism	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Brachycephaly	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Narrow forehead	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Cupped ear	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Inguinal hernia	33942433
+HOXHA-ALIU SYNDROME	has_phenotype	Intellectual disability	28488351
+HOXHA-ALIU SYNDROME	has_phenotype	Short stature	28488351
+HOXHA-ALIU SYNDROME	has_phenotype	Abnormal facial shape	28488351
+HOXHA-ALIU SYNDROME	has_phenotype	Abnormal heart morphology	28488351
+Shortening of all distal phalanges of the fingers	is_a	Abnormal digit morphology	
+Syndactyly	is_a	Abnormal digit morphology	
+Brachydactyly	is_a	Abnormal digit morphology	
+Toe syndactyly	is_a	Syndactyly	
+Toe syndactyly	is_a	Abnormal digit morphology	
+Perimembranous ventricular septal defect	is_a	Abnormal heart morphology	
+Clinodactyly	is_a	Abnormal digit morphology	
+Mild intellectual disability	is_a	Intellectual disability	
+Absent toe	is_a	Abnormal digit morphology	

@@ -1,0 +1,37 @@
+subject	predicate	object	pmids
+HAYDEN and GROSSMAN (1959)	reports	HAYDEN and GROSSMAN (1959) reported a family with rectal, ocular, and submaxillary pain. They described it as a familial autonomic disorder related to proctalgia fugax.	
+Dugan (1972)	reports	Dugan (1972) reported familial rectal pain.	
+Mann and Cree (1972)	reports	Mann and Cree (1972) reported familial rectal pain.	
+Fertleman and Ferrie (2006)	reports	Fertleman and Ferrie (2006) noted that the disorder formerly called familial rectal pain syndrome had been renamed paroxysmal extreme pain disorder.	
+Fertleman et al. (2006)	reports	Fertleman et al. (2006) described paroxysmal extreme pain disorder (PEPD), formerly called familial rectal pain, as an inherited condition characterized by paroxysms of rectal, ocular, or submandibular pain with flushing.	
+Fertleman et al. (2006)	reports	Fertleman et al. (2006) proposed the name paroxysmal extreme pain disorder (PEPD) for the condition previously known as familial rectal pain (FRP).	
+Fertleman et al. (2006)	reports	Fertleman et al. (2006) carried out a genome-wide linkage search followed by mutation analysis of the candidate gene SCN9A, which encodes the sodium channel Nav1.7. They identified 8 missense mutations in 11 families with PEPD and in 2 sporadic cases.	
+Fertleman et al. (2006)	reports	Fertleman et al. (2006) tested 3 of the mutant Nav1.7 channels in vitro and found reduced fast inactivation, which led to a persistent sodium current. By contrast, SCN9A mutations that cause primary erythermalgia are associated with more negative activation thresholds. The authors concluded that PEPD and primary erythermalgia are allelic disorders with distinct biophysical mechanisms and represent a separate class of peripheral neuronal sodium channelopathy.	
+Fertleman et al. (2006)	reports	Fertleman et al. (2006) noted that carbamazepine is effective in PEPD but not in primary erythermalgia. In vitro, carbamazepine selectively blocked the persistent current of the PEPD mutant channels but did not affect the negative activation threshold of a primary erythermalgia mutant.	
+Fertleman et al. (2007)	reports	Fertleman et al. (2007) described the clinical phenotype of 77 individuals from 15 families with paroxysmal extreme pain disorder. Clinical details were collected through an international consortium, and 14 affected individuals completed a validated pain questionnaire. Onset was in the neonatal period or infancy, and the disorder persisted throughout life. Early on, autonomic features predominated: all patients had skin flushing, and most had harlequin color change and tonic attacks. Dramatic syncopes with bradycardia, sometimes with asystole, were common.	
+Fertleman et al. (2007)	reports	Fertleman et al. (2007) reported that, later in life, the disorder was marked by attacks of excruciating deep burning pain. The pain was often in the rectal, ocular, or jaw areas but could also be diffuse. Attacks were triggered by defecation, cold wind, eating, and emotion.	
+Fertleman et al. (2007)	reports	Fertleman et al. (2007) found that carbamazepine was effective in almost all patients who tried it, but the response was often incomplete.	
+Fertleman et al. (2007)	reports	Fertleman et al. (2007) noted that paroxysmal extreme pain disorder is most likely to be misdiagnosed as epilepsy. In infancy in particular, it may be misdiagnosed as hyperekplexia or as reflex anoxic seizures.	
+Fertleman et al. (2007)	reports	Fertleman et al. (2007) used the name paroxysmal extreme pain disorder for the condition previously called familial rectal pain syndrome. They described it as an autosomal dominant sodium channelopathy involving SCN9A.	
+Meglič et al. (2014)	reports	Meglič et al. (2014) described a 3-year-old girl with an unusual presentation of PEPD: extremely painful voiding (micturition) that had been present since birth. Her father had occasionally had some pain in his jaw while yawning since childhood.	
+Meglič et al. (2014)	reports	In a 3-year-old girl with PEPD presenting with painful micturition, Meglič et al. (2014) identified a heterozygous c.554G>A (p.Arg185His) mutation in the SCN9A gene, inherited from her mildly affected father, who also carried the mutation. The authors noted that the same mutation had been found in patients with small fiber sensory neuropathy, and suggested that intra- and interfamilial phenotypic diversity associated with gain-of-function Nav1.7 variants may explain their case.	
+SCN9A c.554G>A / p.R185H	in_gene	SCN9A	
+Meglič et al. (2014)	reports	Meglič et al. (2014) reported that carbamazepine significantly reduced pain in a 3-year-old girl with PEPD and painful voiding.	
+PAROXYSMAL EXTREME PAIN DISORDER	caused_by	SCN9A	24817410
+PAROXYSMAL EXTREME PAIN DISORDER	has_variant	SCN9A c.554G>A / p.R185H	24817410
+PAROXYSMAL EXTREME PAIN DISORDER	inheritance	Autosomal dominant	17679678,24817410
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Dysuria	24817410
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Jaw pain	17679678,24817410
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Flushing	17145499,17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Abnormal skin pigmentation	17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Tonic seizure	17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Syncope	17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Bradycardia	17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Anal pain	13636703,17145499,17679678,4111621,4112340
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Ocular pain	13636703,17145499,17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Episodic pain	17145499,17679678
+PAROXYSMAL EXTREME PAIN DISORDER	has_phenotype	Pain	13636703
+Jaw pain	is_a	Pain	
+Anal pain	is_a	Pain	
+Episodic pain	is_a	Pain	
+Ocular pain	is_a	Pain	

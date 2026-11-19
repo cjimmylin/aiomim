@@ -1,0 +1,46 @@
+subject	predicate	object	pmids
+JOHNSTON and KIRBY (1955)	reports	JOHNSTON and KIRBY (1955) reported syndactyly of the ring and little fingers.	
+Opjordsmoen and Nyberg-Hansen (1980)	reports	Opjordsmoen and Nyberg-Hansen (1980) reported a family from northern Norway in which 9 of 22 members across 3 generations had spastic paraplegia together with neurogenic bladder disturbance and syndactyly. The main complaint was the bladder disturbance, an incomplete supranuclear bladder paresis (uninhibited neurogenic bladder), which appeared early in the disease. The authors suggested that the family probably represented an unusual form of hereditary spastic paraplegia.	
+Opjordsmoen and Nyberg-Hansen (1980)	reports	Opjordsmoen and Nyberg-Hansen (1980) concluded that the disorder of spastic paraplegia, neurogenic bladder and syndactyly in this 3-generation Norwegian family was inherited in an autosomal dominant pattern.	
+Brueton et al. (1990)	reports	Brueton et al. (1990) described a family with type III syndactyly and a facial appearance resembling the facial phenotype of oculodentodigital dysplasia. The family had none of the other characteristic findings of oculodentodigital dysplasia.	
+Brueton et al. (1990)	reports	Brueton et al. (1990) discussed how type III syndactyly relates to oculodentodigital dysplasia, asking whether they are separate genetic entities or part of one disease spectrum.	
+Schrander-Stumpel et al. (1993)	reports	Schrander-Stumpel et al. (1993) described a newborn boy with complete cutaneous syndactyly of fingers 3 to 5 on the left hand and fingers 4 and 5 on the right hand. His mother and maternal grandmother had been born with the same hand malformation. The mother had a thin nose and small teeth. The grandmother's teeth had been very small, with enamel hypoplasia. Both women had normal eyes.	
+Schrander-Stumpel et al. (1993)	reports	Schrander-Stumpel et al. (1993) concluded that inheritance was autosomal dominant in a family in which syndactyly was passed down through 3 generations: maternal grandmother, mother and son.	
+Schrander-Stumpel et al. (1993)	reports	Schrander-Stumpel et al. (1993) concluded that the family showed variable expression of oculodentodigital dysplasia. They proposed that type III syndactyly and oculodentodigital dysplasia form a clinical spectrum.	
+McKiernan and McCann (1993)	reports	McKiernan and McCann (1993) reported a large family with 14 members who had familial syndactyly of the ring and little fingers (type III syndactyly). They found that the clinical features varied between affected members. Three affected members had surgery in the authors' unit, and the senior author had previously operated on a fourth elsewhere.	
+McKiernan and McCann (1993)	reports	McKiernan and McCann (1993) analyzed the pedigree of a large family with 14 members affected by type III syndactyly. They concluded that the analysis confirmed autosomal dominant inheritance.	
+De Smet et al. (1994)	reports	De Smet et al. (1994) described 5 new cases of isolated syndactyly of the ring and small fingers. Brachymesophalangia of the fifth finger was a frequent association, and the authors stated that surgery is required at a young age.	
+De Smet et al. (1994)	reports	De Smet et al. (1994) concluded that autosomal dominant inheritance was obvious in their cases of isolated ring-small finger syndactyly.	
+De Smet et al. (1994)	reports	De Smet et al. (1994) stated that surgery is required at a young age for syndactyly of the ring and small fingers.	
+Gladwin et al. (1997)	reports	Gladwin et al. (1997) studied a large family with type III syndactyly and atypical facial features. Their analysis suggested that isolated type III syndactyly maps to the same region of chromosome 6q22-q24 as the oculodentodigital syndrome (ODD) locus.	
+Gladwin et al. (1997)	reports	Gladwin et al. (1997) noted that type III syndactyly occurs as part of oculodentodigital syndrome but has also been reported as an isolated entity. They found linkage of ODD to polymorphic markers on chromosome 6q (pairwise maximum lod score = 9.37 at theta = 0.001).	
+Paznekas et al. (2003)	reports	Paznekas et al. (2003) noted that oculodentodigital dysplasia is an autosomal dominant syndrome with craniofacial (ocular, nasal, and dental) and limb dysmorphisms, spastic paraplegia, and neurodegeneration. Syndactyly type III and conductive deafness can occur in some cases, and cardiac abnormalities are rarely seen.	
+Paznekas et al. (2003)	reports	Paznekas et al. (2003) found GJA1 (connexin 43) mutations in all 17 families with oculodentodigital dysplasia that they screened. They found 16 different missense mutations and 1 codon duplication. The authors suggested that the mutations may cause misassembly of channels or alter channel conduction properties.	
+Richardson et al. (2004)	reports	Richardson et al. (2004) reported that expression of Gja1 correlated with the phenotype seen in oculodentodigital syndrome/type III syndactyly.	
+SYNDACTYLY, TYPE III	inheritance	Autosomal dominant	12457340,8031535,8110413,8313625,9002680
+SYNDACTYLY, TYPE III	has_phenotype	4-5 finger cutaneous syndactyly	12457340,14361398,2157843,8313625,9002680
+SYNDACTYLY, TYPE III	has_phenotype	Conductive hearing impairment	12457340
+SYNDACTYLY, TYPE III	has_phenotype	Spastic paraplegia	12457340
+SYNDACTYLY, TYPE III	has_phenotype	Abnormal heart morphology	12457340
+SYNDACTYLY, TYPE III	has_phenotype	Abnormality of the dentition	12457340
+SYNDACTYLY, TYPE III	has_phenotype	Neurodegeneration	12457340
+SYNDACTYLY, TYPE III	has_phenotype	Abnormal facial shape	9002680
+SYNDACTYLY, TYPE III	has_phenotype	Variable expressivity	8313625
+SYNDACTYLY, TYPE III	has_phenotype	Finger syndactyly	8031535,8110413
+SYNDACTYLY, TYPE III	has_phenotype	3-5 finger cutaneous syndactyly	8110413
+SYNDACTYLY, TYPE III	has_phenotype	Narrow nose	8110413
+SYNDACTYLY, TYPE III	has_phenotype	Microdontia	8110413
+SYNDACTYLY, TYPE III	has_phenotype	Enamel hypoplasia	8110413
+SYNDACTYLY, TYPE III	has_phenotype	Short middle phalanx of the 5th finger	8031535
+SYNDACTYLY, TYPE III	has_phenotype	Abnormality of the face	2157843
+Enamel hypoplasia	is_a	Abnormality of the dentition	
+Enamel hypoplasia	is_a	Abnormality of the face	
+Narrow nose	is_a	Abnormality of the face	
+3-5 finger cutaneous syndactyly	is_a	Finger syndactyly	
+Abnormal facial shape	is_a	Abnormality of the face	
+Microdontia	is_a	Abnormality of the dentition	
+Microdontia	is_a	Abnormality of the face	
+Finger syndactyly	is_a	Syndactyly	
+Abnormality of the dentition	is_a	Abnormality of the face	
+4-5 finger cutaneous syndactyly	is_a	Finger syndactyly	
+4-5 finger cutaneous syndactyly	is_a	Syndactyly	

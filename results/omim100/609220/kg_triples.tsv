@@ -1,0 +1,33 @@
+subject	predicate	object	pmids
+Bank et al. (1999)	reports	Bank et al. (1999) described Bruck syndrome as characterized by osteoporosis, joint contractures, fragile bones, and short stature.	
+Bank et al. (1999)	reports	In Bruck syndrome patients, Bank et al. (1999) found that lysine residues within the telopeptides of type I collagen in bone were underhydroxylated, leading to aberrant crosslinking, whereas lysine residues in the triple helix were normally modified. In contrast, cartilage and ligament showed unaltered telopeptide hydroxylation, as evidenced by normal crosslinking patterns.	
+Bank et al. (1999)	reports	Bank et al. (1999) concluded that collagen crosslinking is regulated primarily by tissue-specific enzymes that hydroxylate only telopeptide lysine residues, and suggested that Bruck syndrome results from deficiency of a bone-specific telopeptide lysyl hydroxylase.	
+Bank et al. (1999)	reports	By a genome screen in a family with affected sibs, Bank et al. (1999) identified a single region on chromosome 17p12 where all affected sibs shared a cluster of haplotypes identical by descent, and proposed this as the Bruck syndrome locus and the location of the bone telopeptidyl lysyl hydroxylase gene.	
+van der Slot et al. (2003)	reports	By analyzing the genetic defect of Bruck syndrome, which is characterized by a pyridinoline deficiency in bone collagen, van der Slot et al. (2003) identified 2 missense mutations in exon 17 of the PLOD2 gene, thereby identifying PLOD2 as a putative telopeptide lysyl hydroxylase (TLH) gene.	
+van der Slot et al. (2003)	reports	van der Slot et al. (2003) noted that Bruck syndrome is characterized by a deficiency of pyridinoline cross-links in bone collagen, which are derived from hydroxylated lysine residues within the collagen telopeptides.	
+van der Slot et al. (2003)	reports	van der Slot et al. (2003) found that PLOD2 mRNA was highly increased in fibroblasts derived from fibrotic skin of systemic sclerosis patients and that the matrix deposited by these fibroblasts had increased pyridinoline cross-link levels, demonstrating a link between PLOD2 mRNA levels and hydroxylation of telopeptide lysine residues.	
+Ha-Vinh et al. (2004)	reports	Ha-Vinh et al. (2004) reported a boy with Bruck syndrome. At birth he had congenital contractures with pterygia, along with severe osteopenia resembling osteogenesis imperfecta and multiple fractures. The authors suggested that the combination of pterygia and bone fragility implies a role for telopeptide lysyl hydroxylation in prenatal joint formation and morphogenesis.	
+Ha-Vinh et al. (2004)	reports	Ha-Vinh et al. (2004) found that the urine of their patient with Bruck syndrome contained high amounts of hydroxyproline but low amounts of collagen crosslink degradation products. They proposed that measuring collagen degradation products in urine, together with PLOD2 mutation analysis, may be used to diagnose Bruck syndrome and to distinguish it from osteogenesis imperfecta.	
+Ha-Vinh et al. (2004)	reports	In a boy with Bruck syndrome, Ha-Vinh et al. (2004) identified a novel homozygous mutation in the PLOD2 gene that results in an arg598-to-his (R598H) substitution. The mutation lies next to 2 previously reported mutations, Gly601Val and Thr608Ile, and the authors suggested that this region is a functionally important hotspot in PLOD2.	
+PLOD2 p.R598H	in_gene	PLOD2	
+Ha-Vinh et al. (2004)	reports	Ha-Vinh et al. (2004) noted that Bruck syndrome is genetically heterogeneous. One locus had been mapped to 17p12 (BS type 1), while mutations in PLOD2 on 3q23-q24 cause BS type 2. They noted that it was still uncertain what proportion of cases falls into each type, and that phenotypic correlations were lacking.	
+Puig-Hervás et al. (2012)	reports	Puig-Hervás et al. (2012) screened 6 consanguineous Bruck syndrome families and found changes in PLOD2 or FKBP10 in every case. Two probands carried a homozygous frameshift mutation in the alternative exon 13a of PLOD2. The authors concluded that specifically inactivating the longer PLOD2 protein isoform is enough to cause Bruck syndrome.	
+PLOD2 homozygous frameshift mutation in the alternative exon 13a	in_gene	PLOD2	
+Puig-Hervás et al. (2012)	reports	In a patient with autosomal recessive osteogenesis imperfecta, Puig-Hervás et al. (2012) used homozygosity mapping followed by candidate gene analysis to identify a homozygous donor splice site mutation in PLOD2.	
+PLOD2 homozygous donor splice site mutation	in_gene	PLOD2	
+Puig-Hervás et al. (2012)	reports	Puig-Hervás et al. (2012) found compound heterozygous PLOD2 mutations in 2 brothers. One brother had mild autosomal recessive OI and the other had mild Bruck syndrome. The authors concluded that, besides causing Bruck syndrome, PLOD2 is associated with AR-OI phenotypes of variable severity.	
+BRUCK SYNDROME 2	caused_by	PLOD2	15523624,22689593
+BRUCK SYNDROME 2	has_variant	PLOD2 p.R598H	15523624
+BRUCK SYNDROME 2	has_variant	PLOD2 homozygous donor splice site mutation	22689593
+BRUCK SYNDROME 2	has_variant	PLOD2 homozygous frameshift mutation in the alternative exon 13a	22689593
+BRUCK SYNDROME 2	inheritance	Autosomal recessive	15523624,22689593
+BRUCK SYNDROME 2	has_phenotype	Congenital contracture	15523624,22689593
+BRUCK SYNDROME 2	has_phenotype	Pterygium	15523624
+BRUCK SYNDROME 2	has_phenotype	Osteopenia	15523624
+BRUCK SYNDROME 2	has_phenotype	Recurrent fractures	15523624,9927692
+BRUCK SYNDROME 2	has_phenotype	Hydroxyprolinuria	15523624
+BRUCK SYNDROME 2	has_phenotype	Abnormal bone collagen fibril morphology	12881513,9927692
+BRUCK SYNDROME 2	has_phenotype	Osteoporosis	9927692
+BRUCK SYNDROME 2	has_phenotype	Joint contracture	9927692
+BRUCK SYNDROME 2	has_phenotype	Short stature	9927692
+Congenital contracture	is_a	Joint contracture	

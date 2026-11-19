@@ -1,0 +1,61 @@
+subject	predicate	object	pmids
+Garbes et al. (2015)	reports	Garbes et al. (2015) reported 3 affected individuals from 2 families who had a similar skeletal phenotype: a 7-year-old boy whose phenotype most closely resembled Cole-Carpenter syndrome, and 2 fetuses first suspected to have a severe type of osteogenesis imperfecta. All 3 had severely disturbed ossification of the skull and multiple fractures beginning before birth. The boy also had short stature and craniofacial malformations, including macrocephaly, midface hypoplasia, micrognathia, frontal bossing and down-slanting palpebral fissures.	
+Garbes et al. (2015)	reports	Garbes et al. (2015) used whole-exome sequencing to find 3 mutant SEC24D alleles in 3 affected individuals from 2 families. Each affected individual was compound heterozygous for 2 of these alleles. SEC24D encodes a component of the COPII complex, which is involved in protein export from the endoplasmic reticulum.	
+Garbes et al. (2015)	reports	Garbes et al. (2015) identified a c.3044C>T missense mutation in SEC24D, causing a p.Ser1015Phe substitution in a cargo-binding pocket. It was found in the compound heterozygous state in all 3 affected individuals from 2 families. The variant lay within a 14-Mb founder haplotype shared by all 3 individuals.	
+SEC24D c.3044C>T / p.S1015F	in_gene	SEC24D	
+Garbes et al. (2015)	reports	Garbes et al. (2015) identified a c.613C>T truncating mutation in SEC24D, resulting in p.Gln205Ter. Patients carried it in the compound heterozygous state together with another SEC24D mutation.	
+SEC24D c.613C>T / p.Q205 / p.Q205*	in_gene	SEC24D	
+Garbes et al. (2015)	reports	Garbes et al. (2015) identified a c.2933A>C missense mutation in SEC24D, causing a p.Gln978Pro substitution in the gelsolin-like domain. Patients carried it in the compound heterozygous state together with another SEC24D mutation.	
+SEC24D c.2933A>C / p.Q978P	in_gene	SEC24D	
+Garbes et al. (2015)	reports	Garbes et al. (2015) examined skin fibroblasts from the affected boy using electron and immunofluorescence microscopy. Export of procollagen from the endoplasmic reticulum was inefficient and the ER tubules were dilated, reproducing the cellular phenotype seen in cranio-lenticulo-sutural dysplasia caused by SEC23A mutations. The authors noted that the cellular and morphologic phenotypes matched those described in Sec24d-deficient fish mutants: vbi (medaka) and bulldog (zebrafish).	
+Garbes et al. (2015)	reports	Garbes et al. (2015) noted that cranio-lenticulo-sutural dysplasia, caused by SEC23A mutations, has a largely overlapping craniofacial phenotype. Unlike the SEC24D disorder, however, it does not feature generalized bone fragility, and the original family described had cataracts.	
+Moosa et al. (2016)	reports	Moosa et al. (2016) reported that mutations in the SEC24D gene cause autosomal recessive osteogenesis imperfecta.	
+Zhang et al. (2017)	reports	Zhang et al. (2017) described a 23-year-old Chinese man (family 1) with recurrent fractures, dentinogenesis imperfecta, an open anterior fontanel, and facial dysmorphism. CT 3-dimensional imaging of the cranium showed skull deformities with a broad ossification defect in the frontoapical area, a widened sagittal suture, and wormian bones.	
+Zhang et al. (2017)	reports	Zhang et al. (2017) described a 7-year-old Chinese boy (family 2) who had recurrent fractures, dentinogenesis imperfecta, and an open anterior fontanel, but no obvious facial dysmorphism.	
+Zhang et al. (2017)	reports	Using whole-exome sequencing in the proband from family 1, Zhang et al. (2017) identified novel compound heterozygous missense mutations in the SEC24D gene: c.2723G>A (p.Cys908Tyr) and c.2842T>C (p.Ser948Pro).	
+SEC24D c.2723G>A / p.C908Y	in_gene	SEC24D	
+SEC24D c.2842T>C / p.S948P	in_gene	SEC24D	
+Zhang et al. (2017)	reports	Using whole-exome sequencing in the proband from family 2, Zhang et al. (2017) identified novel compound heterozygous missense mutations in the SEC24D gene: c.938G>A (p.Arg313His) and c.875C>T (p.Pro292Leu).	
+SEC24D c.938G>A / p.R313H	in_gene	SEC24D	
+SEC24D c.875C>T / p.P292L	in_gene	SEC24D	
+Takeyari et al. (2018)	reports	Takeyari et al. (2018) described a 15-year-old Japanese boy with Cole-Carpenter syndrome. He had short-trunk short stature and craniofacial abnormalities, including ocular proptosis, marked frontal bossing, midface hypoplasia, and micrognathia. He also had low bone mineral density and basilar impression.	
+Takeyari et al. (2018)	reports	Takeyari et al. (2018) used whole exome sequencing to identify compound heterozygous variants in the SEC24D gene, p.Arg484* and p.Arg313His, in a Japanese boy with Cole-Carpenter syndrome type 2.	
+SEC24D p.R484*	in_gene	SEC24D	
+COLE-CARPENTER SYNDROME 2	caused_by	SEC24D	25683121,27942778,30462379
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.2723G>A / p.C908Y	27942778
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.2842T>C / p.S948P	27942778
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.2933A>C / p.Q978P	25683121
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.3044C>T / p.S1015F	25683121
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.613C>T / p.Q205 / p.Q205*	25683121
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.875C>T / p.P292L	27942778
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D c.938G>A / p.R313H	27942778,30462379
+COLE-CARPENTER SYNDROME 2	has_variant	SEC24D p.R484*	30462379
+COLE-CARPENTER SYNDROME 2	inheritance	Autosomal recessive	25683121,26467156,27942778,30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Disproportionate short-trunk short stature	30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Proptosis	30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Frontal bossing	25683121,30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Midface retrusion	25683121,30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Micrognathia	25683121,30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Reduced bone mineral density	30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Basilar impression	30462379
+COLE-CARPENTER SYNDROME 2	has_phenotype	Recurrent fractures	26467156,27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Dentinogenesis imperfecta	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Persistent open anterior fontanelle	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Abnormal facial shape	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Abnormal skull morphology	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Abnormality of skull ossification	25683121,27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Wide cranial sutures	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Wormian bones	27942778
+COLE-CARPENTER SYNDROME 2	has_phenotype	Multiple prenatal fractures	25683121
+COLE-CARPENTER SYNDROME 2	has_phenotype	Short stature	25683121
+COLE-CARPENTER SYNDROME 2	has_phenotype	Macrocephaly	25683121
+COLE-CARPENTER SYNDROME 2	has_phenotype	Downslanted palpebral fissures	25683121
+Wide cranial sutures	is_a	Abnormal skull morphology	
+Abnormality of skull ossification	is_a	Abnormal skull morphology	
+Macrocephaly	is_a	Abnormal skull morphology	
+Wormian bones	is_a	Abnormal skull morphology	
+Persistent open anterior fontanelle	is_a	Abnormal skull morphology	
+Micrognathia	is_a	Abnormal skull morphology	
+Basilar impression	is_a	Abnormal skull morphology	
+Disproportionate short-trunk short stature	is_a	Short stature	
+Frontal bossing	is_a	Abnormal skull morphology	

@@ -1,0 +1,81 @@
+subject	predicate	object	pmids
+Kajiwara et al. (1991)	reports	Kajiwara et al. (1991) identified 3 mutations in RDS, the human homolog of the murine retinal degeneration slow (rds) gene, in separate families with autosomal dominant retinitis pigmentosa. In each family the mutation cosegregated with the disease. The authors concluded that some cases of autosomal dominant retinitis pigmentosa are due to mutations at the RDS locus.	
+Kajiwara et al. (1991)	reports	Kajiwara et al. (1991) noted that the murine retinal degeneration slow (rds) mutation is semidominant. In rds mice, rod and cone photoreceptors develop abnormally and then slowly degenerate, which made it a possible model for retinitis pigmentosa.	
+Farrar et al. (1991)	reports	In a large Irish pedigree with autosomal dominant retinitis pigmentosa, Farrar et al. (1991) noted that the disease gene had been mapped to chromosome 6p and was tightly linked to the gene encoding peripherin, a photoreceptor cell-specific glycoprotein. This made peripherin a strong candidate gene.	
+Farrar et al. (1991)	reports	In affected members of a large Irish pedigree with autosomal dominant retinitis pigmentosa linked to 6p, Farrar et al. (1991) identified a 3-bp deletion in the peripherin/RDS gene. The deletion removes one of a pair of highly conserved cysteine residues in the predicted third transmembrane domain of peripherin. It segregated with the disease and was not found in unaffected controls. The authors suggested that mutant peripherin causes retinitis pigmentosa.	
+PERIPHERIN-RDS three-base-pair deletion resulting in loss of a conserved cysteine in the third transmembrane domain	in_gene	PERIPHERIN-RDS	
+Farrar et al. (1991)	reports	Farrar et al. (1991) performed linkage analysis on an Irish pedigree with late-onset autosomal dominant retinitis pigmentosa using chromosome 6p markers. They found positive two-point lod scores with 5 markers, including D6S105 (Z = 6.081 at theta = 0.00), HLA-DRA (Z = 4.364 at theta = 0.00) and RDS (Z = 5.376 at theta = 0.00). Multipoint analysis gave a maximum lod score of 6.6 at HLA-DRA. The authors concluded that this localized the ADRP gene in the pedigree to 6p.	
+Farrar et al. (1991)	reports	Farrar et al. (1991) concluded that their findings were direct evidence for an additional autosomal dominant RP locus. They proposed the human equivalent of the mouse retinal degeneration slow (rds) gene, peripherin-RDS, as a strong candidate gene for autosomal dominant retinitis pigmentosa.	
+Jordan et al. (1992)	reports	In a large Irish family with late-onset autosomal dominant retinitis pigmentosa that had previously been linked to 6p, Jordan et al. (1992) found that an intragenic marker from the peripherin-RDS gene cosegregated with the disease locus with no recombination (lod score 5.46 at theta = 0.00).	
+Jordan et al. (1992)	reports	Jordan et al. (1992) used the CEPH reference panel to map the peripherin-RDS gene relative to other 6p markers. In a multipoint analysis, the lod score for adRP was 8.21 and peaked at the peripherin-RDS locus. The authors concluded that this was strong evidence suggesting a role for peripherin-RDS in the cause of one form of adRP.	
+Weleber et al. (1993)	reports	Weleber et al. (1993) described a family in which a 75-year-old woman, her two daughters (aged 44 and 50 years) and her 49-year-old son showed three different phenotypes. The mother presented at age 63 years with adult-onset retinitis pigmentosa and a profoundly abnormal ERG. Over 12 years her disease progressed dramatically, with marked loss of peripheral visual field. One daughter developed pattern macular dystrophy at age 31; at 44 her ERG was moderately abnormal but her disease was limited to the macula. The other daughter presented with macular degeneration at age 42 and over 10 years developed the picture of fundus flavimaculatus, with preserved peripheral field and a moderately abnormal ERG. The son had onset of macular degeneration at age 44, with pericentral scotomas, a markedly abnormal ERG and punctate pigment epithelial transmission defects on fluorescein angiography.	
+Weleber et al. (1993)	reports	Weleber et al. (1993) found a new 3-bp deletion of codon 153 or 154 of the peripherin/RDS gene in a family whose members had retinitis pigmentosa, pattern macular dystrophy and fundus flavimaculatus. The authors concluded that this one mutation can produce clinically disparate phenotypes even within the same family.	
+PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154	in_gene	PERIPHERIN/RDS	
+Weleber et al. (1993)	reports	Weleber et al. (1993) observed intrafamilial phenotypic variability: within a single family, the same peripherin/RDS codon 153/154 deletion caused retinitis pigmentosa, pattern macular dystrophy and fundus flavimaculatus.	
+Wells et al. (1993)	reports	Wells et al. (1993) screened the RDS gene, which encodes the photoreceptor glycoprotein peripherin, in families with autosomal dominant retinal dystrophies. In one family with retinitis pigmentosa, they found a deletion of a cysteine at codon 118/119 of RDS.	
+PRPH2 cysteine deletion at codon 118/119	in_gene	PRPH2	
+Wells et al. (1993)	reports	Wells et al. (1993) found that, in contrast to the RP-associated codon 118/119 cysteine deletion, three families with similar macular dystrophy had RDS mutations at codon 172 (arg172-to-trp in two families and arg172-to-gln in one), and a family with adult vitelliform macular dystrophy had a stop codon at codon 258. They concluded that both retinitis pigmentosa and macular dystrophies are caused by RDS mutations and that the functional significance of certain amino acids in peripherin-RDS may differ in cones and rods.	
+PRPH2 codon 172 arginine to tryptophan	in_gene	PRPH2	
+PRPH2 codon 172 arginine to glutamine	in_gene	PRPH2	
+PRPH2 stop sequence at codon 258	in_gene	PRPH2	
+Kikawa et al. (1994)	reports	Kikawa et al. (1994) identified a novel mutation, Asn244Lys, in the peripherin/RDS gene causing autosomal dominant retinitis pigmentosa associated with bull's-eye maculopathy; the mutation was detected by nonradioisotopic SSCP analysis.	
+PERIPHERIN/RDS p.N244K	in_gene	PERIPHERIN/RDS	
+Kajiwara et al. (1994)	reports	Kajiwara et al. (1994) identified 3 families with mutations in the unlinked photoreceptor-specific genes ROM1 and peripherin/RDS. In these families, only individuals who were double heterozygotes, carrying a mutation in both genes, developed retinitis pigmentosa.	
+Kajiwara et al. (1994)	reports	Kajiwara et al. (1994) concluded that the allelic and nonallelic heterogeneity of monogenic retinitis pigmentosa is complicated further by interactions between unlinked mutations that cause digenic RP. They suggested that recognizing this inheritance pattern might help identify other examples of digenic inheritance in human disease.	
+Wang et al. (2013)	reports	Wang et al. (2013) described 3 unrelated patients (1318, 3256, and 741) homozygous for PRPH2 missense mutations. Two had LCA and one had juvenile RP. All had visual impairment within the first year of life, nondetectable or reduced ERGs, and a very similar maculopathy in the fundus. The 2 LCA patients also had nystagmus. Fundus findings included a multilobulated central atrophic maculopathy, vessel narrowing, peripheral pigment deposits or diffuse retinal dystrophy, and optic disc pallor in 1 patient.	
+Wang et al. (2013)	reports	Wang et al. (2013) used targeted NGS of 163 retinal disease genes to study patients with LCA or juvenile RP. In LCA patient 3256, they found a homozygous c.554T>C (p.L185P) missense mutation in PRPH2. They noted that this mutation had previously been reported to cause digenic RP together with a ROM1 null mutation. They then sequenced PRPH2 in 135 more unsolved patients and found the same homozygous p.L185P mutation in juvenile RP patient 741, whose parents were both heterozygous. The mutations were confirmed by Sanger sequencing.	
+PRPH2 c.554T>C / p.L185P	in_gene	PRPH2	
+Wang et al. (2013)	reports	Wang et al. (2013) found a homozygous c.637T>C (p.C213R) missense mutation in PRPH2 in LCA patient 1318. This mutation had previously been associated with autosomal dominant pattern dystrophy. The patient's mother and son were heterozygous carriers, and an unaffected brother was homozygous wild-type.	
+PRPH2 c.637T>C / p.C213R	in_gene	PRPH2	
+Wang et al. (2013)	reports	Wang et al. (2013) found that relatives heterozygous for PRPH2 mutations had no symptoms but showed detectable macular pattern dystrophy. The 56-year-old heterozygous father of patient 741 (p.L185P) had macular pattern dystrophy with essentially normal visual acuity. The 57-year-old mother of patient 1318 (p.C213R) had a butterfly-shaped macular pattern dystrophy with 20/20 acuity. The authors suggested that the severe early-onset disease in homozygotes reflects a dose-dependent effect, consistent with rds mouse models. They also suggested that heterozygous p.L185P carriers, previously reported as asymptomatic in digenic RP families, may have a subclinical phenotype.	
+Manes et al. (2015)	reports	Manes et al. (2015) screened PRPH2 by Sanger sequencing in 310 French families with autosomal dominant retinitis pigmentosa. They identified 15 mutations (6 novel and 9 previously reported) in 32 families, a prevalence of 10.3%. This was higher than previously reported (0 to 8%) and made PRPH2 the second most frequent adRP gene after RHO in their series.	
+Manes et al. (2015)	reports	Manes et al. (2015) identified a novel recurrent p.Leu254Gln mutation in PRPH2 in French families with autosomal dominant RP. Peripherin-2 carrying this mutation was produced in yeast and analyzed by Western blot. The mutant protein aggregated, which the authors suggested indicates abnormal folding.	
+PRPH2 p.L254Q	in_gene	PRPH2	
+Manes et al. (2015)	reports	Manes et al. (2015) found that disease severity was moderate in patients with adRP and PRPH2 mutations. Visual acuity was 1 to 0.5 in 78% of eyes, and 52% of eyes retained more than 50% of the visual field. Some patients characteristically had vitelliform deposits or macular involvement. Within some families, certain members had pericentral RP or macular dystrophy while others had widespread RP. The authors concluded that PRPH2 mutations cause highly variable phenotypes and moderate forms of adRP, including mild cases that could be underdiagnosed.	
+RETINITIS PIGMENTOSA 7	caused_by	PERIPHERIN-RDS	1749427
+RETINITIS PIGMENTOSA 7	has_variant	PERIPHERIN-RDS three-base-pair deletion resulting in loss of a conserved cysteine in the third transmembrane domain	1749427
+RETINITIS PIGMENTOSA 7	caused_by	PERIPHERIN/RDS	8020945,8240110
+RETINITIS PIGMENTOSA 7	has_variant	PERIPHERIN/RDS p.N244K	8020945
+RETINITIS PIGMENTOSA 7	has_variant	PERIPHERIN/RDS 3-base pair deletion of codon 153 or 154	8240110
+RETINITIS PIGMENTOSA 7	caused_by	PRPH2	23847139,25447119,8485576
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 c.554T>C / p.L185P	23847139
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 c.637T>C / p.C213R	23847139
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 p.L254Q	25447119
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 codon 172 arginine to glutamine	8485576
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 codon 172 arginine to tryptophan	8485576
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 cysteine deletion at codon 118/119	8485576
+RETINITIS PIGMENTOSA 7	has_variant	PRPH2 stop sequence at codon 258	8485576
+RETINITIS PIGMENTOSA 7	inheritance	Autosomal dominant	1539599,1684223,1749427,1783395,25447119,8020945,8240110,8485576
+RETINITIS PIGMENTOSA 7	inheritance	Semidominant	1684223,23847139
+RETINITIS PIGMENTOSA 7	inheritance	Autosomal recessive	23847139
+RETINITIS PIGMENTOSA 7	inheritance	Digenic	8202715
+RETINITIS PIGMENTOSA 7	has_phenotype	Rod-cone dystrophy	1539599,1684223,1749427,1783395,25447119,8020945,8202715,8240110,8485576
+RETINITIS PIGMENTOSA 7	has_phenotype	Vitelliform macular lesion	25447119,8485576
+RETINITIS PIGMENTOSA 7	has_phenotype	Macular dystrophy	23847139,25447119,8240110,8485576
+RETINITIS PIGMENTOSA 7	has_phenotype	Pericentral retinitis pigmentosa	25447119
+RETINITIS PIGMENTOSA 7	has_phenotype	Visual impairment	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Nystagmus	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Abnormal electroretinogram	23847139,8240110
+RETINITIS PIGMENTOSA 7	has_phenotype	Macular atrophy	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Attenuation of retinal blood vessels	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Optic disc pallor	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Yellow/white retinal lesion	23847139
+RETINITIS PIGMENTOSA 7	has_phenotype	Constriction of peripheral visual field	8240110
+RETINITIS PIGMENTOSA 7	has_phenotype	Abnormal fundus morphology	8240110
+RETINITIS PIGMENTOSA 7	has_phenotype	Macular degeneration	8240110
+RETINITIS PIGMENTOSA 7	has_phenotype	Pericentral scotoma	8240110
+RETINITIS PIGMENTOSA 7	has_phenotype	Bull's eye maculopathy	8020945
+Macular dystrophy	is_a	Abnormal fundus morphology	
+Rod-cone dystrophy	is_a	Abnormal fundus morphology	
+Vitelliform macular lesion	is_a	Yellow/white retinal lesion	
+Vitelliform macular lesion	is_a	Abnormal fundus morphology	
+Optic disc pallor	is_a	Abnormal fundus morphology	
+Yellow/white retinal lesion	is_a	Abnormal fundus morphology	
+Constriction of peripheral visual field	is_a	Visual impairment	
+Macular atrophy	is_a	Macular degeneration	
+Macular atrophy	is_a	Abnormal fundus morphology	
+Macular degeneration	is_a	Abnormal fundus morphology	
+Pericentral scotoma	is_a	Visual impairment	
+Bull's eye maculopathy	is_a	Abnormal fundus morphology	
+Attenuation of retinal blood vessels	is_a	Abnormal fundus morphology	
+Pericentral retinitis pigmentosa	is_a	Rod-cone dystrophy	

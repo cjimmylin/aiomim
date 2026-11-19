@@ -1,0 +1,1578 @@
+{
+  "run": "omim100",
+  "seed": 11,
+  "overall": {
+    "n": 60,
+    "flagged": 60,
+    "downgraded_to_partial": 0,
+    "missed": 0,
+    "detection_rate": 1.0,
+    "flag_rate": 1.0
+  },
+  "by_kind": {
+    "count or age": {
+      "n": 17,
+      "flagged": 17,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    },
+    "zygosity": {
+      "n": 17,
+      "flagged": 17,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    },
+    "amino acid change": {
+      "n": 9,
+      "flagged": 9,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    },
+    "inheritance or origin": {
+      "n": 17,
+      "flagged": 17,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    }
+  },
+  "by_content_level": {
+    "abstract": {
+      "n": 44,
+      "flagged": 44,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    },
+    "fulltext": {
+      "n": 16,
+      "flagged": 16,
+      "downgraded_to_partial": 0,
+      "missed": 0,
+      "detection_rate": 1.0,
+      "flag_rate": 1.0
+    }
+  },
+  "probes": [
+    {
+      "mim": "611880",
+      "paragraph_id": "inheritance.2",
+      "pmid": "11102545",
+      "text": "In their study of 41 Arab families from the Eastern Province of Saudi Arabia, Seliem et al. (2000) found that the parents were first cousins in 19 families (46%). There was no obvious consanguinity in the other 22 families (54%). Complex segregation analysis of the family data using the mixed model of inheritance showed that recessive inheritance fit the data best. The authors suggested that recessive dilated cardiomyopathy may be hard to recognize in populations where consanguineous marriage is uncommon and families have few children.",
+      "kind": "count or age",
+      "altered_text": "In their study of 41 Arab families from the Eastern Province of Saudi Arabia, Seliem et al. (2000) found that the parents were first cousins in 26 families (46%). There was no obvious consanguinity in the other 22 families (54%). Complex segregation analysis of the family data using the mixed model of inheritance showed that recessive inheritance fit the data best. The authors suggested that recessive dilated cardiomyopathy may be hard to recognize in populations where consanguineous marriage is uncommon and families have few children.",
+      "was": "19",
+      "now": "26",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "In the Seliem et al. (2000) study, the parents were first cousins in 26 families (46%).",
+          "pmid": "11102545",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper reports 19 families (46%) with first-cousin parents, not 26: \"In 19 families (46%), parents were first cousins\"."
+        }
+      ]
+    },
+    {
+      "mim": "621214",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "38489591",
+      "text": "Bergner et al. (2024) reported 16 patients from 8 families with an adult-onset leukodystrophy. The patients had recurrent episodes of hemiplegic migraine with transient one-sided focal deficits. Motor symptoms and cognitive decline progressed slowly in mid to older adulthood. In some patients, a sudden clinical deterioration led to a long episode of reduced consciousness and even early death. Brain MRI showed characteristic changes at typical predilection sites. These involved the deep cerebral white matter, sparing a rim of periventricular and directly subcortical tissue. Other sites were the middle blade of the corpus callosum, the posterior limb of the internal capsule, the middle cerebellar peduncles, the cerebral peduncles and, specifically, the globus pallidus.",
+      "kind": "count or age",
+      "altered_text": "Bergner et al. (2024) reported 23 patients from 8 families with an adult-onset leukodystrophy. The patients had recurrent episodes of hemiplegic migraine with transient one-sided focal deficits. Motor symptoms and cognitive decline progressed slowly in mid to older adulthood. In some patients, a sudden clinical deterioration led to a long episode of reduced consciousness and even early death. Brain MRI showed characteristic changes at typical predilection sites. These involved the deep cerebral white matter, sparing a rim of periventricular and directly subcortical tissue. Other sites were the middle blade of the corpus callosum, the posterior limb of the internal capsule, the middle cerebellar peduncles, the cerebral peduncles and, specifically, the globus pallidus.",
+      "was": "16",
+      "now": "23",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Bergner et al. (2024) reported 23 patients from 8 families with an adult-onset leukodystrophy.",
+          "pmid": "38489591",
+          "verdict": "contradicted",
+          "evidence_quote": "We describe a novel adult onset leukodystrophy in 16 patients from eight families",
+          "explanation": "The paper reports 16 patients from eight families, not 23."
+        }
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "diagnosis.1",
+      "pmid": "16084088",
+      "text": "Birchall et al. (2005) concluded that subclinical involvement of the semitendinosus and obturator externus muscles on MRI is specific to autosomal dominant myopathy with early respiratory failure. They stated that MRI allows early noninvasive diagnosis of at-risk individuals, which is otherwise difficult because onset is insidious in late adult life and clinical and pathologic muscle involvement is highly selective.",
+      "kind": "inheritance or origin",
+      "altered_text": "Birchall et al. (2005) concluded that subclinical involvement of the semitendinosus and obturator externus muscles on MRI is specific to autosomal recessive myopathy with early respiratory failure. They stated that MRI allows early noninvasive diagnosis of at-risk individuals, which is otherwise difficult because onset is insidious in late adult life and clinical and pathologic muscle involvement is highly selective.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Birchall et al. (2005) concluded that subclinical involvement of the semitendinosus and obturator externus muscles on MRI is specific to autosomal recessive myopathy with early respiratory failure.",
+          "pmid": "16084088",
+          "verdict": "contradicted",
+          "evidence_quote": "These findings are specific to autosomal dominant myopathy with early respiratory failure",
+          "explanation": "The paper describes an autosomal dominant myopathy, not an autosomal recessive one."
+        }
+      ]
+    },
+    {
+      "mim": "219900",
+      "paragraph_id": "genotype_phenotype_correlations.1",
+      "pmid": "10444339",
+      "text": "Thoene et al. (1999) studied 6 patients and concluded that intermediate cystinosis results from having at least one mild CTNS mutation. This could be one mild mutation together with a mutation that causes nephropathic cystinosis, or homozygosity for a predicted mild mutation.",
+      "kind": "count or age",
+      "altered_text": "Thoene et al. (1999) studied 9 patients and concluded that intermediate cystinosis results from having at least one mild CTNS mutation. This could be one mild mutation together with a mutation that causes nephropathic cystinosis, or homozygosity for a predicted mild mutation.",
+      "was": "6",
+      "now": "9",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Thoene et al. (1999) studied 9 patients with intermediate cystinosis.",
+          "pmid": "10444339",
+          "verdict": "contradicted",
+          "evidence_quote": "Six patients with the intermediate form of cystinosis are described.",
+          "explanation": "The abstract describes six patients with intermediate cystinosis, not 9."
+        }
+      ]
+    },
+    {
+      "mim": "618875",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "32197075",
+      "text": "Dong et al. (2020) reported 6 individuals from 4 families who had a neurodegenerative disease. All had refractory epilepsy, developmental regression, and reduced white matter volume with delayed myelination. Development was normal or mildly delayed at first. Seizures began within the first year of life and were followed by developmental regression. Intracranial calcification was found in 3 of the individuals.",
+      "kind": "count or age",
+      "altered_text": "Dong et al. (2020) reported 9 individuals from 4 families who had a neurodegenerative disease. All had refractory epilepsy, developmental regression, and reduced white matter volume with delayed myelination. Development was normal or mildly delayed at first. Seizures began within the first year of life and were followed by developmental regression. Intracranial calcification was found in 3 of the individuals.",
+      "was": "6",
+      "now": "9",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Dong et al. (2020) reported 9 individuals from 4 families who had a neurodegenerative disease.",
+          "pmid": "32197075",
+          "verdict": "contradicted",
+          "evidence_quote": "We report six individuals from four families with bi-allelic variants in NRROS.",
+          "explanation": "The paper reports six individuals from four families, not 9."
+        },
+        {
+          "claim": "All 9 individuals reported by Dong et al. (2020) had refractory epilepsy.",
+          "pmid": "32197075",
+          "verdict": "partially_supported",
+          "evidence_quote": "All affected individuals had neurodegenerative disease with refractory epilepsy, developmental regression, and reduced white matter volume with delayed myelination.",
+          "explanation": "All affected individuals had refractory epilepsy, but the paper describes six individuals, not 9."
+        },
+        {
+          "claim": "All 9 individuals reported by Dong et al. (2020) had developmental regression.",
+          "pmid": "32197075",
+          "verdict": "partially_supported",
+          "evidence_quote": "All affected individuals had neurodegenerative disease with refractory epilepsy, developmental regression, and reduced white matter volume with delayed myelination.",
+          "explanation": "All affected individuals had developmental regression, but the paper describes six individuals, not 9."
+        },
+        {
+          "claim": "All 9 individuals reported by Dong et al. (2020) had reduced white matter volume with delayed myelination.",
+          "pmid": "32197075",
+          "verdict": "partially_supported",
+          "evidence_quote": "All affected individuals had neurodegenerative disease with refractory epilepsy, developmental regression, and reduced white matter volume with delayed myelination.",
+          "explanation": "All affected individuals had reduced white matter volume with delayed myelination, but the paper describes six individuals, not 9."
+        },
+        {
+          "claim": "Intracranial calcification was found in 3 of the 9 individuals reported by Dong et al. (2020).",
+          "pmid": "32197075",
+          "verdict": "partially_supported",
+          "evidence_quote": "Intracranial calcification was detected in three individuals.",
+          "explanation": "Three individuals had calcification, but out of six individuals, not 9."
+        }
+      ]
+    },
+    {
+      "mim": "600740",
+      "paragraph_id": "mapping.3",
+      "pmid": "19809483",
+      "text": "Hannan et al. (2010) performed linkage analysis in 34 informative members of the Oklahoma kindred, 19 of them affected, using 17 microsatellite markers and 7 SNPs. They confirmed linkage to chromosome 19q13, with a peak 2-point lod score of 6.92 at theta = 0 for D19S606. Recombinants in 3 individuals refined the locus to a 4.1-Mb interval (less than 10 cM) flanked by D19S112 and rs245111. This interval contained 135 protein-coding genes and 24 predicted genes. The authors also examined the region of mouse chromosome 7 that is syntenic to the interval. It contains 4 Casr-related sequences (Gprc2a-rs genes), but BLAST analysis found no human or primate homologs. The human syntenic region (22.0 Mb) and the mouse region (39.3 Mb) shared 2 conserved segments, which were inverted in man. An 11.6-Mb mouse region containing 35 genes, including the 4 Gprc2a-rs genes, was absent from the human genome. The authors concluded that FHH3 cannot be attributed to Gprc2a-rs abnormalities.",
+      "kind": "count or age",
+      "altered_text": "Hannan et al. (2010) performed linkage analysis in 34 informative members of the Oklahoma kindred, 19 of them affected, using 17 microsatellite markers and 7 SNPs. They confirmed linkage to chromosome 19q13, with a peak 2-point lod score of 6.92 at theta = 0 for D19S606. Recombinants in 6 individuals refined the locus to a 4.1-Mb interval (less than 10 cM) flanked by D19S112 and rs245111. This interval contained 135 protein-coding genes and 24 predicted genes. The authors also examined the region of mouse chromosome 7 that is syntenic to the interval. It contains 4 Casr-related sequences (Gprc2a-rs genes), but BLAST analysis found no human or primate homologs. The human syntenic region (22.0 Mb) and the mouse region (39.3 Mb) shared 2 conserved segments, which were inverted in man. An 11.6-Mb mouse region containing 35 genes, including the 4 Gprc2a-rs genes, was absent from the human genome. The authors concluded that FHH3 cannot be attributed to Gprc2a-rs abnormalities.",
+      "was": "3",
+      "now": "6",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Recombinants in 6 individuals of the Oklahoma kindred refined the FHH3 locus to a 4.1-Mb interval (less than 10 cM) flanked by D19S112 and rs245111.",
+          "pmid": "19809483",
+          "verdict": "contradicted",
+          "evidence_quote": "The combined observations of the recombinants observed in II.2, III.3 and III.4, locate FBHHOk within the <10 cM interval flanked centromerically by D19S112",
+          "explanation": "The paper names recombinants in 3 individuals (II.2, III.3 and III.4), not 6. The interval details are correct."
+        }
+      ]
+    },
+    {
+      "mim": "613848",
+      "paragraph_id": "description.1",
+      "pmid": "20188343",
+      "text": "Osteogenesis imperfecta type X is a severe autosomal recessive form of osteogenesis imperfecta caused by deficiency of HSP47, the collagen chaperone-like protein encoded by SERPINH1 (Christiansen et al., 2010).",
+      "kind": "inheritance or origin",
+      "altered_text": "Osteogenesis imperfecta type X is a severe autosomal dominant form of osteogenesis imperfecta caused by deficiency of HSP47, the collagen chaperone-like protein encoded by SERPINH1 (Christiansen et al., 2010).",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Osteogenesis imperfecta type X is a severe form of osteogenesis imperfecta.",
+          "pmid": "20188343",
+          "verdict": "partially_supported",
+          "evidence_quote": "Homozygosity for a missense mutation in SERPINH1, which encodes the collagen chaperone protein HSP47, results in severe recessive osteogenesis imperfecta.",
+          "explanation": "The paper describes the SERPINH1-related form as severe. It does not use the label 'type X' anywhere in the abstract."
+        },
+        {
+          "claim": "Osteogenesis imperfecta type X is autosomal dominant.",
+          "pmid": "20188343",
+          "verdict": "contradicted",
+          "evidence_quote": "We have identified an autosomal-recessive missense mutation (c.233T>C, p.Leu78Pro) in SERPINH1",
+          "explanation": "The paper describes autosomal recessive inheritance, with the affected person homozygous for the mutation, not autosomal dominant inheritance."
+        },
+        {
+          "claim": "Osteogenesis imperfecta type X is caused by deficiency of HSP47.",
+          "pmid": "20188343",
+          "verdict": "partially_supported",
+          "evidence_quote": "The mutation results in degradation of the endoplasmic reticulum resident HSP47 via the proteasome.",
+          "explanation": "The paper supports a severe OI phenotype caused by loss of HSP47 through degradation. The 'type X' designation is not in the abstract."
+        }
+      ]
+    },
+    {
+      "mim": "600501",
+      "paragraph_id": "intro",
+      "pmid": "11891690",
+      "text": "A number sign (#) is used with this entry because of evidence that ABCD syndrome (ABCDS) is caused by homozygous mutation in the EDNRB gene (131244) on chromosome 13q22.",
+      "kind": "zygosity",
+      "altered_text": "A number sign (#) is used with this entry because of evidence that ABCD syndrome (ABCDS) is caused by heterozygous mutation in the EDNRB gene (131244) on chromosome 13q22.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "ABCD syndrome (ABCDS) is caused by heterozygous mutation in the EDNRB gene.",
+          "pmid": "11891690",
+          "verdict": "contradicted",
+          "evidence_quote": "ABCD syndrome is caused by a homozygous mutation in the EDNRB gene.",
+          "explanation": "The paper reports a homozygous mutation (R201X) in EDNRB and calls ABCD syndrome autosomal recessive. It does not report a heterozygous mutation."
+        },
+        {
+          "claim": "The EDNRB gene is located on chromosome 13q22.",
+          "pmid": "11891690",
+          "verdict": "unsupported",
+          "evidence_quote": "",
+          "explanation": "The abstract does not give the chromosomal location of EDNRB. This is standard nomenclature, but this text does not state it."
+        }
+      ]
+    },
+    {
+      "mim": "616867",
+      "paragraph_id": "av0001.1",
+      "pmid": "28218388",
+      "text": "Oliveira et al. (2017) studied a female newborn with SMABF2 who died within the first days of life; a later-born male sib had the same presentation. In the proband they identified a homozygous 1-bp duplication (c.157dupG) in the ASCC1 gene, which causes a frameshift (Glu53GlyfsTer19). The variant was found by whole-exome sequencing under a recessive model after no disease-causing variants were found in known neuromuscular genes.",
+      "kind": "zygosity",
+      "altered_text": "Oliveira et al. (2017) studied a female newborn with SMABF2 who died within the first days of life; a later-born male sib had the same presentation. In the proband they identified a heterozygous 1-bp duplication (c.157dupG) in the ASCC1 gene, which causes a frameshift (Glu53GlyfsTer19). The variant was found by whole-exome sequencing under a recessive model after no disease-causing variants were found in known neuromuscular genes.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Oliveira et al. (2017) identified a heterozygous 1-bp duplication (c.157dupG) in the ASCC1 gene in the female SMABF2 proband.",
+          "pmid": "28218388",
+          "verdict": "contradicted",
+          "evidence_quote": "Our patient was also found to have a homozygous frameshift variant (c.157dupG, p.Glu53Glyfs*19) in ASCC1",
+          "explanation": "The paper reports the variant as homozygous, not heterozygous."
+        }
+      ]
+    },
+    {
+      "mim": "621169",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "9665406",
+      "text": "In a French family with a variable monilethrix phenotype, Winter et al. (1998) identified a glu402-to-lys (E402K) mutation in the type II hair keratin hHb1 (KRT81). The mutation affected another highly conserved glutamic acid residue (Glu106 of the 2B subdomain) in the EIATYRRLLEGEE helix termination motif. The authors stated that, before their report, pathogenic mutations in hHb6 and hHb1 had been limited to Glu413.",
+      "kind": "amino acid change",
+      "altered_text": "In a French family with a variable monilethrix phenotype, Winter et al. (1998) identified a glu402-to-ser (E402S) mutation in the type II hair keratin hHb1 (KRT81). The mutation affected another highly conserved glutamic acid residue (Glu106 of the 2B subdomain) in the EIATYRRLLEGEE helix termination motif. The authors stated that, before their report, pathogenic mutations in hHb6 and hHb1 had been limited to Glu413.",
+      "was": "glu402-to-lys",
+      "now": "glu402-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Winter et al. (1998) identified a glu402-to-ser (E402S) mutation in the type II hair keratin hHb1 (KRT81) in a French monilethrix family.",
+          "pmid": "9665406",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper reports a glutamic acid-to-lysine change (Glu402Lys, E402K), not glu402-to-ser. Conflicting passage: \"which again consists of a lysine substitution of another highly conserved glutamic acid residue, Glu402\" and \"bearing the hHb1 Glu402Lys mutation\"."
+        },
+        {
+          "claim": "The KRT81 E402S mutation affected a highly conserved glutamic acid residue (Glu106 of the 2B subdomain) in the EIATYRRLLEGEE helix termination motif.",
+          "pmid": "9665406",
+          "verdict": "partially_supported",
+          "evidence_quote": "a lysine substitution of another highly conserved glutamic acid residue, Glu402 (Glu106 of the 2B subdomain), in the EIATYRRLLEGEE motif of hHb1",
+          "explanation": "The residue, its 2B-subdomain position and the motif are correct, but the claim calls the mutation E402S when the paper says it is E402K (lysine)."
+        }
+      ]
+    },
+    {
+      "mim": "621214",
+      "paragraph_id": "description.1",
+      "pmid": "38489591",
+      "text": "Adult-onset autosomal dominant leukodystrophy without amyloid angiopathy (ADLDWA) is caused by dominant stop-gain or frameshift mutations in the CST3 gene. Bergner et al. (2024) reported that its clinical and radiologic features differed markedly from Icelandic cerebral amyloid angiopathy, which is caused by the leu68-to-asn (L68N) substitution in CST3.",
+      "kind": "amino acid change",
+      "altered_text": "Adult-onset autosomal dominant leukodystrophy without amyloid angiopathy (ADLDWA) is caused by dominant stop-gain or frameshift mutations in the CST3 gene. Bergner et al. (2024) reported that its clinical and radiologic features differed markedly from Icelandic cerebral amyloid angiopathy, which is caused by the leu68-to-ser (L68S) substitution in CST3.",
+      "was": "leu68-to-asn",
+      "now": "leu68-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Bergner et al. (2024) reported that the clinical and radiologic features of ADLDWA differed markedly from Icelandic cerebral amyloid angiopathy.",
+          "pmid": "38489591",
+          "verdict": "contradicted",
+          "evidence_quote": "Clinical and radiological features differ markedly from the previously described Icelandic cerebral amyloid angiopathy found in patients carrying p.Leu68Asn substitution in CST3.",
+          "explanation": "The comparison matches the paper. However, the draft sentence that makes this claim names the substitution as leu68-to-ser (L68S), while the paper says p.Leu68Asn."
+        },
+        {
+          "claim": "Icelandic cerebral amyloid angiopathy is caused by the leu68-to-ser (L68S) substitution in CST3.",
+          "pmid": "38489591",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper names the Icelandic CAA substitution as p.Leu68Asn, not leu68-to-ser (L68S). Paper text: 'Icelandic cerebral amyloid angiopathy found in patients carrying p.Leu68Asn substitution in CST3.'"
+        }
+      ]
+    },
+    {
+      "mim": "250220",
+      "paragraph_id": "inheritance.1",
+      "pmid": "7211944",
+      "text": "The parents of the affected brothers reported by Sedaghatian (1980) were normal and had recently had an affected baby girl. On this basis the author presumed autosomal recessive inheritance.",
+      "kind": "inheritance or origin",
+      "altered_text": "The parents of the affected brothers reported by Sedaghatian (1980) were normal and had recently had an affected baby girl. On this basis the author presumed autosomal dominant inheritance.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Sedaghatian (1980) presumed autosomal dominant inheritance in the family of the affected brothers.",
+          "pmid": "7211944",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper presumes autosomal recessive inheritance, not autosomal dominant: \"it is presumed that this disorder is an autosomal recessive trait.\""
+        }
+      ]
+    },
+    {
+      "mim": "177735",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "9662404",
+      "text": "Geller et al. (1998) screened the mineralocorticoid receptor gene in 13 dominant or sporadic PHA1 kindreds. They found heterozygous mutations in 1 sporadic and 4 dominant kindreds: 2 frameshift mutations (1 of them de novo), 2 premature termination codons and 1 splice donor mutation. The mutations segregated with PHA1 and were absent from unaffected subjects. The authors concluded that heterozygous mutations in the mineralocorticoid receptor gene cause PHA1.",
+      "kind": "zygosity",
+      "altered_text": "Geller et al. (1998) screened the mineralocorticoid receptor gene in 13 dominant or sporadic PHA1 kindreds. They found homozygous mutations in 1 sporadic and 4 dominant kindreds: 2 frameshift mutations (1 of them de novo), 2 premature termination codons and 1 splice donor mutation. The mutations segregated with PHA1 and were absent from unaffected subjects. The authors concluded that heterozygous mutations in the mineralocorticoid receptor gene cause PHA1.",
+      "was": "heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Geller et al. (1998) found homozygous mineralocorticoid receptor gene mutations in 1 sporadic and 4 dominant PHA1 kindreds.",
+          "pmid": "9662404",
+          "verdict": "contradicted",
+          "evidence_quote": "have identified heterozygous mutations in one sporadic and four dominant kindreds",
+          "explanation": "The paper reports heterozygous mutations, not homozygous ones. The kindred counts (1 sporadic, 4 dominant) are correct."
+        }
+      ]
+    },
+    {
+      "mim": "177735",
+      "paragraph_id": "av0007.1",
+      "pmid": "12788847",
+      "text": "In PHA1, Sartorato et al. (2003) found a heterozygous gln776-to-arg (Q776R) mutation in the ligand-binding domain of the NR3C2 gene. The R776 mutant showed reduced aldosterone binding and reduced ligand-dependent transactivation. The authors suggested that the mutation probably causes haploinsufficiency.",
+      "kind": "zygosity",
+      "altered_text": "In PHA1, Sartorato et al. (2003) found a homozygous gln776-to-arg (Q776R) mutation in the ligand-binding domain of the NR3C2 gene. The R776 mutant showed reduced aldosterone binding and reduced ligand-dependent transactivation. The authors suggested that the mutation probably causes haploinsufficiency.",
+      "was": "heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "In PHA1, Sartorato et al. (2003) found a homozygous gln776-to-arg (Q776R) mutation in the NR3C2 gene.",
+          "pmid": "12788847",
+          "verdict": "contradicted",
+          "evidence_quote": "Six heterozygous mutations were detected.",
+          "explanation": "The paper reports Q776R as one of six heterozygous mutations in hMR (NR3C2) in autosomal dominant or sporadic PHA1. It does not describe it as homozygous."
+        }
+      ]
+    },
+    {
+      "mim": "618458",
+      "paragraph_id": "clinical_features.2",
+      "pmid": "33693784",
+      "text": "Antonarakis et al. (2021) restudied a pedigree first published in 1998 and designated KNO2. The family had 2 affected sibs born to unaffected parents. The sibs had Knobloch syndrome type 2 with intellectual disability, autistic behavior, retinal degeneration, and encephalocele.",
+      "kind": "count or age",
+      "altered_text": "Antonarakis et al. (2021) restudied a pedigree first published in 1998 and designated KNO2. The family had 5 affected sibs born to unaffected parents. The sibs had Knobloch syndrome type 2 with intellectual disability, autistic behavior, retinal degeneration, and encephalocele.",
+      "was": "2",
+      "now": "5",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The KNO2 family had 5 affected sibs born to unaffected parents.",
+          "pmid": "33693784",
+          "verdict": "contradicted",
+          "evidence_quote": "Whole exome sequencing of the two affected siblings and the normal parents",
+          "explanation": "The abstract describes two affected siblings, not 5."
+        }
+      ]
+    },
+    {
+      "mim": "241800",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "30497210",
+      "text": "Rubino et al. (2019) contrasted the syndrome in their family, which they attributed to germline SMO mutations, with Pallister-Hall syndrome. They noted that Pallister-Hall syndrome is autosomal dominant and is caused by truncation of GLI3, a downstream effector in the sonic hedgehog pathway.",
+      "kind": "inheritance or origin",
+      "altered_text": "Rubino et al. (2019) contrasted the syndrome in their family, which they attributed to germline SMO mutations, with Pallister-Hall syndrome. They noted that Pallister-Hall syndrome is autosomal recessive and is caused by truncation of GLI3, a downstream effector in the sonic hedgehog pathway.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Rubino et al. (2019) noted that Pallister-Hall syndrome is autosomal recessive.",
+          "pmid": "30497210",
+          "verdict": "contradicted",
+          "evidence_quote": "Pallister-Hall syndrome, an autosomal dominant familial syndrome",
+          "explanation": "The paper says Pallister-Hall syndrome is autosomal dominant, not autosomal recessive."
+        }
+      ]
+    },
+    {
+      "mim": "620851",
+      "paragraph_id": "av0001.2",
+      "pmid": "38859706",
+      "text": "Schot et al. (2024) reanalyzed diagnostic WGS trio data and identified the de novo n.64_65insT variant (NR_003137.2) in a 5-year-old girl with ReNU syndrome. Her features included severe global developmental delay, hypotonia, microcephaly and seizures.",
+      "kind": "inheritance or origin",
+      "altered_text": "Schot et al. (2024) reanalyzed diagnostic WGS trio data and identified the inherited n.64_65insT variant (NR_003137.2) in a 5-year-old girl with ReNU syndrome. Her features included severe global developmental delay, hypotonia, microcephaly and seizures.",
+      "was": "de novo",
+      "now": "inherited",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Schot et al. (2024) identified an inherited n.64_65insT variant (NR_003137.2) in a 5-year-old girl with ReNU syndrome.",
+          "pmid": "38859706",
+          "verdict": "contradicted",
+          "evidence_quote": "We identify a recurrent de novo RNU4-2 variant (NR_003137.2(RNU4-2):n.64_65insT) in a 5-year-old girl",
+          "explanation": "The paper describes the variant as de novo, but the draft calls it inherited. The variant notation itself matches."
+        }
+      ]
+    },
+    {
+      "mim": "615582",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "25835445",
+      "text": "Bertoli-Avella et al. (2015) summarized 43 patients (23 male, 20 female) from 11 families with TGFB3 mutations, whose features overlapped with Loeys-Dietz syndrome. Four patients had type A dissection (median age 51 years) and 6 had type B dissection (median age 44.5 years). Other findings were aortic aneurysm, mitral valve disease, septal defects, hypertelorism, bifid uvula, cleft palate, cervical spine instability, clubfoot, tall stature, arachnodactyly, pectus deformity, kyphoscoliosis, joint hypermobility and hernia. The authors observed no early dissection, no dissection at small aortic size, no striking arterial tortuosity and no ectopia lentis. Clinical variability was striking both within and between families.",
+      "kind": "count or age",
+      "altered_text": "Bertoli-Avella et al. (2015) summarized 50 patients (23 male, 20 female) from 11 families with TGFB3 mutations, whose features overlapped with Loeys-Dietz syndrome. Four patients had type A dissection (median age 51 years) and 6 had type B dissection (median age 44.5 years). Other findings were aortic aneurysm, mitral valve disease, septal defects, hypertelorism, bifid uvula, cleft palate, cervical spine instability, clubfoot, tall stature, arachnodactyly, pectus deformity, kyphoscoliosis, joint hypermobility and hernia. The authors observed no early dissection, no dissection at small aortic size, no striking arterial tortuosity and no ectopia lentis. Clinical variability was striking both within and between families.",
+      "was": "43",
+      "now": "50",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Bertoli-Avella et al. (2015) summarized 50 patients (23 male, 20 female) from 11 families with TGFB3 mutations.",
+          "pmid": "25835445",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper reports 43 affected patients, not 50: \"Affected Individuals (n = 43)∗ Sex, M/F | 23/20\". The 23/20 split adds up to 43."
+        }
+      ]
+    },
+    {
+      "mim": "608133",
+      "paragraph_id": "molecular_genetics.3",
+      "pmid": "8485576",
+      "text": "Wells et al. (1993) screened the RDS gene in families with autosomal dominant retinal dystrophies and found deletion of a cysteine at codon 118/119 in 1 family with retinitis pigmentosa.",
+      "kind": "inheritance or origin",
+      "altered_text": "Wells et al. (1993) screened the RDS gene in families with autosomal recessive retinal dystrophies and found deletion of a cysteine at codon 118/119 in 1 family with retinitis pigmentosa.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Wells et al. (1993) screened the RDS gene in families with autosomal recessive retinal dystrophies.",
+          "pmid": "8485576",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper says the families had autosomal dominant retinal dystrophies, not autosomal recessive: \"have been sought in families with autosomal dominant retinal dystrophies.\""
+        }
+      ]
+    },
+    {
+      "mim": "618808",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "30237576",
+      "text": "In affected members of 2 families with global developmental delay and intellectual disability, Maddirevula et al. (2019) used autozygome and exome analysis to identify homozygous truncating mutations in the ABCA2 gene. In one family, they found a 1-bp duplication (c.740dupT; NM_212533.2), resulting in a frameshift and premature termination (Gly248ArgfsTer38); in the second family, they found a nonsense mutation (c.1027C-T; NM_212533.2), resulting in a gln343-to-ter (Q343X) substitution. In each family, the variant fully segregated with the phenotype.",
+      "kind": "count or age",
+      "altered_text": "In affected members of 5 families with global developmental delay and intellectual disability, Maddirevula et al. (2019) used autozygome and exome analysis to identify homozygous truncating mutations in the ABCA2 gene. In one family, they found a 1-bp duplication (c.740dupT; NM_212533.2), resulting in a frameshift and premature termination (Gly248ArgfsTer38); in the second family, they found a nonsense mutation (c.1027C-T; NM_212533.2), resulting in a gln343-to-ter (Q343X) substitution. In each family, the variant fully segregated with the phenotype.",
+      "was": "2",
+      "now": "5",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Maddirevula et al. (2019) studied affected members of 5 families with global developmental delay and intellectual disability.",
+          "pmid": "30237576",
+          "verdict": "contradicted",
+          "evidence_quote": "These include two families with global developmental delay and intellectual disability (Fig. 2) that fully segregated with homozygous truncating variants in ABCA2",
+          "explanation": "The paper reports two families with ABCA2 variants, not five."
+        }
+      ]
+    },
+    {
+      "mim": "615582",
+      "paragraph_id": "av0001.1",
+      "pmid": "23824657",
+      "text": "Rienhoff et al. (2013) used exome sequencing to study a European American girl with distal arthrogryposis, hypotonia, bifid uvula, hypertelorism, low muscle mass and growth retardation. They identified a de novo heterozygous c.1226G-A transition in the TGFB3 gene, resulting in a cys409-to-tyr (C409Y) substitution. Cys409 is the penultimate cysteine of the cysteine knot and is conserved across TGF-beta family ligands. Sanger sequencing confirmed that the variant was de novo, and it was absent from dbSNP130, the EVS database and 1000 Genomes. Secreted mutant TGFB3 failed to activate a TGF-beta reporter in cultured cells. In Xenopus embryos, co-injection of mutant and wildtype RNA at a 1:1 ratio reduced pSMAD2 and pERK1/2 signals to about 40% and 60% of wildtype levels, respectively, consistent with a dominant-negative effect. The mutant had no effect on BMP/SMAD1 signaling. The authors concluded that the mutation is hypomorphic.",
+      "kind": "zygosity",
+      "altered_text": "Rienhoff et al. (2013) used exome sequencing to study a European American girl with distal arthrogryposis, hypotonia, bifid uvula, hypertelorism, low muscle mass and growth retardation. They identified a de novo homozygous c.1226G-A transition in the TGFB3 gene, resulting in a cys409-to-tyr (C409Y) substitution. Cys409 is the penultimate cysteine of the cysteine knot and is conserved across TGF-beta family ligands. Sanger sequencing confirmed that the variant was de novo, and it was absent from dbSNP130, the EVS database and 1000 Genomes. Secreted mutant TGFB3 failed to activate a TGF-beta reporter in cultured cells. In Xenopus embryos, co-injection of mutant and wildtype RNA at a 1:1 ratio reduced pSMAD2 and pERK1/2 signals to about 40% and 60% of wildtype levels, respectively, consistent with a dominant-negative effect. The mutant had no effect on BMP/SMAD1 signaling. The authors concluded that the mutation is hypomorphic.",
+      "was": "heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Rienhoff et al. (2013) identified a de novo homozygous c.1226G-A transition in the TGFB3 gene in the European American girl.",
+          "pmid": "23824657",
+          "verdict": "contradicted",
+          "evidence_quote": "The proband was heterozygous for two de novo mutations.",
+          "explanation": "The paper says the de novo TGFB3 mutation was heterozygous, not homozygous. The paper also argues it acts as a dominant trait."
+        }
+      ]
+    },
+    {
+      "mim": "620022",
+      "paragraph_id": "av0002.1",
+      "pmid": "30450842",
+      "text": "In a boy from a consanguineous Indian family with Stickler syndrome type VI (STL6), Hanson-Kahn et al. (2018) used exome sequencing to identify a homozygous 1-bp duplication (c.650dupC, NM_001853.3) in exon 13 of the COL9A3 gene. The duplication was predicted to cause a frameshift, premature termination, and absence of the gene product. Sanger sequencing confirmed the mutation, which was not found in public SNP databases. The unaffected parents and an unaffected sib were heterozygous.",
+      "kind": "zygosity",
+      "altered_text": "In a boy from a consanguineous Indian family with Stickler syndrome type VI (STL6), Hanson-Kahn et al. (2018) used exome sequencing to identify a heterozygous 1-bp duplication (c.650dupC, NM_001853.3) in exon 13 of the COL9A3 gene. The duplication was predicted to cause a frameshift, premature termination, and absence of the gene product. Sanger sequencing confirmed the mutation, which was not found in public SNP databases. The unaffected parents and an unaffected sib were heterozygous.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Hanson-Kahn et al. (2018) studied a boy from a consanguineous Indian family with Stickler syndrome type VI (STL6).",
+          "pmid": "30450842",
+          "verdict": "partially_supported",
+          "evidence_quote": "In consanguineous Stickler syndrome family R08–308, exome sequencing was used to identify homozygosity for single base duplication c.650dupC in exon 13 of COL9A3",
+          "explanation": "The paper supports a boy from a consanguineous family (third cousins from India) with Stickler syndrome. It does not use the 'STL6' or 'type VI' label; that is the draft's own nomenclature."
+        },
+        {
+          "claim": "Hanson-Kahn et al. (2018) used exome sequencing to identify a heterozygous 1-bp duplication (c.650dupC, NM_001853.3) in exon 13 of the COL9A3 gene in the boy with STL6.",
+          "pmid": "30450842",
+          "verdict": "contradicted",
+          "evidence_quote": "exome sequencing was used to identify homozygosity for single base duplication c.650dupC in exon 13 of COL9A3 (RefSeq accession number NM_001853.3) of the proband",
+          "explanation": "The paper says the proband was homozygous, not heterozygous."
+        }
+      ]
+    },
+    {
+      "mim": "612847",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "9714015",
+      "text": "Ahmad et al. (1998) concluded that the phenotype in their Pakistani kindred is distinct from other autosomal recessive forms of SEMD. They based this on the mild metaphyseal involvement, the type of brachydactyly, and the absence of loose joints or other clinical findings.",
+      "kind": "inheritance or origin",
+      "altered_text": "Ahmad et al. (1998) concluded that the phenotype in their Pakistani kindred is distinct from other autosomal dominant forms of SEMD. They based this on the mild metaphyseal involvement, the type of brachydactyly, and the absence of loose joints or other clinical findings.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Ahmad et al. (1998) concluded that the phenotype in their Pakistani kindred is distinct from other autosomal dominant forms of SEMD.",
+          "pmid": "9714015",
+          "verdict": "contradicted",
+          "evidence_quote": "This distinctive phenotype is distinct from other autosomal recessive forms of SEMD",
+          "explanation": "The paper says the phenotype is distinct from other autosomal recessive forms of SEMD, not autosomal dominant forms."
+        }
+      ]
+    },
+    {
+      "mim": "300148",
+      "paragraph_id": "clinical_features.7",
+      "pmid": "28055140",
+      "text": "Skopkova et al. (2017) reported a second Slovak boy (family 2) from a nonconsanguineous family. His mother was unaffected and he had no other affected relatives. His head circumference at birth was -5.1 SD. From 6 months he had therapy-resistant seizures, without an EEG correlate. He also had hypogenitalism, severe developmental delay, central obesity, and dysmorphic features. Non-autoimmune insulin-treated diabetes was present from 10 months, and MRI showed delayed myelination. At 3 years he was hypotonic, had no voluntary movements, and showed no social interaction.",
+      "kind": "count or age",
+      "altered_text": "Skopkova et al. (2017) reported a second Slovak boy (family 2) from a nonconsanguineous family. His mother was unaffected and he had no other affected relatives. His head circumference at birth was -5.1 SD. From 9 months he had therapy-resistant seizures, without an EEG correlate. He also had hypogenitalism, severe developmental delay, central obesity, and dysmorphic features. Non-autoimmune insulin-treated diabetes was present from 10 months, and MRI showed delayed myelination. At 3 years he was hypotonic, had no voluntary movements, and showed no social interaction.",
+      "was": "6",
+      "now": "9",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "From 9 months of age, the Slovak boy in family 2 reported by Skopkova et al. (2017) had therapy-resistant seizures without an EEG correlate.",
+          "pmid": "28055140",
+          "verdict": "contradicted",
+          "evidence_quote": "therapy resistant seizures (diagnosed at the age of 6 months) without EEG correlation",
+          "explanation": "The paper says the seizures were diagnosed at 6 months, not 9 months. The rest of the claim (therapy-resistant, no EEG correlate) matches."
+        }
+      ]
+    },
+    {
+      "mim": "615268",
+      "paragraph_id": "cytogenetics.1",
+      "pmid": "22892528",
+      "text": "Onat et al. (2013) noted that an unrelated individual identified earlier, who had mental retardation and severe hypotonia, carried a de novo balanced t(10; 13) translocation that disrupted the ATP8A2 gene.",
+      "kind": "inheritance or origin",
+      "altered_text": "Onat et al. (2013) noted that an unrelated individual identified earlier, who had mental retardation and severe hypotonia, carried a inherited balanced t(10; 13) translocation that disrupted the ATP8A2 gene.",
+      "was": "de novo",
+      "now": "inherited",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Onat et al. (2013) noted that an earlier-identified unrelated individual with mental retardation and severe hypotonia carried an inherited balanced t(10;13) translocation.",
+          "pmid": "22892528",
+          "verdict": "contradicted",
+          "evidence_quote": "an unrelated individual has been identified, in whom mental retardation and severe hypotonia is associated with a de novo t(10;13) balanced translocation",
+          "explanation": "The draft says the translocation was inherited, but the abstract says it was de novo."
+        }
+      ]
+    },
+    {
+      "mim": "248360",
+      "paragraph_id": "molecular_genetics.4",
+      "pmid": "12955715",
+      "text": "Wightman et al. (2003) sequenced the genomic MLYCD gene in 9 unrelated patients with MLYCD deficiency and identified 16 of the 18 pathogenic alleles. They recorded the variants in a newly created Human MLYCD Allelic Variant Database. Western blot analysis of fibroblast cell lines from 8 of their patients and 2 previously reported patients with homozygous MLYCD mutations showed that the 66-kDa MLYCD band was absent in 6 patients and substantially reduced in 3. One patient had increased protein levels, with a prominent smeary band at 68 to 83 kDa. The mutations included an extreme N-terminal mutation (G3D), whose mutant protein mislocalized to the plasma membrane on immunocytochemistry; a mutation (M40T) that ablates the second of the putative mitochondrial and peroxisomal initiating codons; and a 25-base deletion between the putative mitochondrial (M1) and peroxisomal (M40) initiating codons. The protein from the last 2 mutants showed punctate perinuclear staining.",
+      "kind": "count or age",
+      "altered_text": "Wightman et al. (2003) sequenced the genomic MLYCD gene in 12 unrelated patients with MLYCD deficiency and identified 16 of the 18 pathogenic alleles. They recorded the variants in a newly created Human MLYCD Allelic Variant Database. Western blot analysis of fibroblast cell lines from 8 of their patients and 2 previously reported patients with homozygous MLYCD mutations showed that the 66-kDa MLYCD band was absent in 6 patients and substantially reduced in 3. One patient had increased protein levels, with a prominent smeary band at 68 to 83 kDa. The mutations included an extreme N-terminal mutation (G3D), whose mutant protein mislocalized to the plasma membrane on immunocytochemistry; a mutation (M40T) that ablates the second of the putative mitochondrial and peroxisomal initiating codons; and a 25-base deletion between the putative mitochondrial (M1) and peroxisomal (M40) initiating codons. The protein from the last 2 mutants showed punctate perinuclear staining.",
+      "was": "9",
+      "now": "12",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Wightman et al. (2003) sequenced the genomic MLYCD gene in 12 unrelated patients with MLYCD deficiency.",
+          "pmid": "12955715",
+          "verdict": "contradicted",
+          "evidence_quote": "Genomic sequencing of MLYCD in nine unrelated patients identified 16 of 18 pathogenic alleles",
+          "explanation": "The paper sequenced MLYCD in nine unrelated patients, not 12."
+        },
+        {
+          "claim": "Wightman et al. (2003) identified 16 of the 18 pathogenic MLYCD alleles in 12 unrelated patients with MLYCD deficiency.",
+          "pmid": "12955715",
+          "verdict": "contradicted",
+          "evidence_quote": "Genomic sequencing of MLYCD in nine unrelated patients identified 16 of 18 pathogenic alleles",
+          "explanation": "The figure of 16 of 18 alleles is correct, but they came from nine patients, not 12. Eighteen alleles also fits nine patients, not 12."
+        }
+      ]
+    },
+    {
+      "mim": "225060",
+      "paragraph_id": "av0002.1",
+      "pmid": "25913853",
+      "text": "Yoshida et al. (2015) studied a 7-year-old Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome, the child of a consanguineous marriage. He had a novel homozygous c.400C-T transition in exon 2 of the PVRL1 gene, resulting in an arg134-to-ter (R134X) substitution. Both parents were heterozygous for the mutation. The predicted truncated protein lacks the transmembrane and intracellular domains of nectin-1, which are needed to start cell-cell adhesion.",
+      "kind": "zygosity",
+      "altered_text": "Yoshida et al. (2015) studied a 7-year-old Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome, the child of a consanguineous marriage. He had a novel heterozygous c.400C-T transition in exon 2 of the PVRL1 gene, resulting in an arg134-to-ter (R134X) substitution. Both parents were heterozygous for the mutation. The predicted truncated protein lacks the transmembrane and intracellular domains of nectin-1, which are needed to start cell-cell adhesion.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome had a novel heterozygous c.400C-T transition in exon 2 of the PVRL1 gene, resulting in an R134X substitution.",
+          "pmid": "25913853",
+          "verdict": "contradicted",
+          "evidence_quote": "Mutation analysis of exon 2 of PVRL1 revealed a novel homozygous nonsense mutation, c.400C>T (p.Arg134*).",
+          "explanation": "The paper reports this mutation as homozygous, not heterozygous. The variant, exon and protein change are otherwise correct."
+        }
+      ]
+    },
+    {
+      "mim": "608133",
+      "paragraph_id": "inheritance.2",
+      "pmid": "8202715",
+      "text": "Kajiwara et al. (1994) identified digenic inheritance of RP in 3 families in which only individuals who were double heterozygotes for mutations in the unlinked ROM1 and peripherin/RDS genes developed retinitis pigmentosa. They concluded that the allelic and nonallelic heterogeneity of monogenic RP is further complicated by interactions between unlinked mutations causing digenic RP, and suggested that recognition of this inheritance pattern might help identify other examples of digenic inheritance in human disease.",
+      "kind": "count or age",
+      "altered_text": "Kajiwara et al. (1994) identified digenic inheritance of RP in 6 families in which only individuals who were double heterozygotes for mutations in the unlinked ROM1 and peripherin/RDS genes developed retinitis pigmentosa. They concluded that the allelic and nonallelic heterogeneity of monogenic RP is further complicated by interactions between unlinked mutations causing digenic RP, and suggested that recognition of this inheritance pattern might help identify other examples of digenic inheritance in human disease.",
+      "was": "3",
+      "now": "6",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Kajiwara et al. (1994) identified digenic inheritance of retinitis pigmentosa in 6 families.",
+          "pmid": "8202715",
+          "verdict": "contradicted",
+          "evidence_quote": "Three families were identified with mutations in the unlinked photoreceptor-specific genes ROM1 and peripherin/RDS",
+          "explanation": "The abstract reports three families, not 6."
+        },
+        {
+          "claim": "In the 6 digenic RP families of Kajiwara et al. (1994), only individuals who were double heterozygotes for mutations in the ROM1 and peripherin/RDS genes developed retinitis pigmentosa.",
+          "pmid": "8202715",
+          "verdict": "partially_supported",
+          "evidence_quote": "Three families were identified with mutations in the unlinked photoreceptor-specific genes ROM1 and peripherin/RDS, in which only double heterozygotes develop retinitis pigmentosa (RP).",
+          "explanation": "The abstract supports the double-heterozygote finding, but it describes three families, not 6."
+        }
+      ]
+    },
+    {
+      "mim": "619201",
+      "paragraph_id": "description.1",
+      "pmid": "31472902",
+      "text": "Nephrotic syndrome type 23 (NPHS23) is an autosomal recessive form of steroid-resistant nephrotic syndrome (SRNS) caused by mutation in KIRREL1, a component of the glomerular slit diaphragm. Solanki et al. (2019) concluded that KIRREL1 has an important role in modulating the integrity of the slit diaphragm and maintaining glomerular filtration function.",
+      "kind": "inheritance or origin",
+      "altered_text": "Nephrotic syndrome type 23 (NPHS23) is an autosomal dominant form of steroid-resistant nephrotic syndrome (SRNS) caused by mutation in KIRREL1, a component of the glomerular slit diaphragm. Solanki et al. (2019) concluded that KIRREL1 has an important role in modulating the integrity of the slit diaphragm and maintaining glomerular filtration function.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Nephrotic syndrome type 23 (NPHS23) is an autosomal dominant form of steroid-resistant nephrotic syndrome.",
+          "pmid": "31472902",
+          "verdict": "contradicted",
+          "evidence_quote": "we have identified and characterized two novel recessive mutations in KIRREL1 gene in two patients with SRNS of 2 unrelated consanguineous families",
+          "explanation": "The paper describes homozygous recessive mutations in consanguineous families, not autosomal dominant inheritance."
+        },
+        {
+          "claim": "Nephrotic syndrome type 23 (NPHS23) is caused by mutation in KIRREL1.",
+          "pmid": "31472902",
+          "verdict": "partially_supported",
+          "evidence_quote": "this is the first report describing mutations in human KIRREL1 that results in SRNS",
+          "explanation": "The paper supports KIRREL1 mutations causing SRNS but does not use the NPHS23 designation."
+        }
+      ]
+    },
+    {
+      "mim": "618458",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "33693784",
+      "text": "Antonarakis et al. (2021) performed whole-exome sequencing on the 2 affected sibs of the KNO2 family and their unaffected parents. Both sibs carried a heterozygous missense mutation in the PAK2 gene, glu435-to-lys (E435K). The mutation was apparently de novo in both sibs, which suggested germline mosaicism in one parent. However, deep sequencing of the parents' blood DNA did not detect mosaicism. The mutation lies in the kinase domain, and structural analysis predicted that it might compromise kinase activity. In transfected HEK293T cells, the E435K mutation caused a partial loss of kinase activity.",
+      "kind": "count or age",
+      "altered_text": "Antonarakis et al. (2021) performed whole-exome sequencing on the 5 affected sibs of the KNO2 family and their unaffected parents. Both sibs carried a heterozygous missense mutation in the PAK2 gene, glu435-to-lys (E435K). The mutation was apparently de novo in both sibs, which suggested germline mosaicism in one parent. However, deep sequencing of the parents' blood DNA did not detect mosaicism. The mutation lies in the kinase domain, and structural analysis predicted that it might compromise kinase activity. In transfected HEK293T cells, the E435K mutation caused a partial loss of kinase activity.",
+      "was": "2",
+      "now": "5",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The KNO2 family has 5 affected sibs.",
+          "pmid": "33693784",
+          "verdict": "contradicted",
+          "evidence_quote": "Whole exome sequencing of the two affected siblings and the normal parents",
+          "explanation": "The abstract describes two affected siblings, not 5."
+        }
+      ]
+    },
+    {
+      "mim": "241800",
+      "paragraph_id": "clinical_features.3",
+      "pmid": "30497210",
+      "text": "Rubino et al. (2019) described 2 brothers with a familial syndrome of hypothalamic hamartomas and polydactyly that differed from Pallister-Hall syndrome. One brother had a large hypothalamic hamartoma that was biopsied and subtotally resected by an endoscopic endonasal approach, and the authors reported its histopathologic findings.",
+      "kind": "count or age",
+      "altered_text": "Rubino et al. (2019) described 5 brothers with a familial syndrome of hypothalamic hamartomas and polydactyly that differed from Pallister-Hall syndrome. One brother had a large hypothalamic hamartoma that was biopsied and subtotally resected by an endoscopic endonasal approach, and the authors reported its histopathologic findings.",
+      "was": "2",
+      "now": "5",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Rubino et al. (2019) described 5 brothers with a familial syndrome of hypothalamic hamartomas and polydactyly.",
+          "pmid": "30497210",
+          "verdict": "contradicted",
+          "evidence_quote": "the authors describe two brothers with a different familial syndrome",
+          "explanation": "The paper describes two brothers (the title also says 2 cases), not 5."
+        },
+        {
+          "claim": "The familial hypothalamic hamartoma-polydactyly syndrome in the 5 brothers described by Rubino et al. (2019) differed from Pallister-Hall syndrome.",
+          "pmid": "30497210",
+          "verdict": "partially_supported",
+          "evidence_quote": "the authors describe two brothers with a different familial syndrome",
+          "explanation": "The syndrome does differ from Pallister-Hall syndrome, but the paper describes two brothers, not 5."
+        },
+        {
+          "claim": "One of the 5 brothers described by Rubino et al. (2019) had a large hypothalamic hamartoma that was biopsied and subtotally resected by an endoscopic endonasal approach.",
+          "pmid": "30497210",
+          "verdict": "partially_supported",
+          "evidence_quote": "The authors discuss the endoscopic endonasal biopsy and subtotal resection of a large hypothalamic hamartoma in one of the patients",
+          "explanation": "The procedure is described as stated, but the patient was one of two brothers, not one of 5."
+        },
+        {
+          "claim": "Rubino et al. (2019) reported the histopathologic findings of the resected hypothalamic hamartoma.",
+          "pmid": "30497210",
+          "verdict": "partially_supported",
+          "evidence_quote": "subtotal resection of a large hypothalamic hamartoma in one of the patients as well as the histopathological findings encountered",
+          "explanation": "The paper reports the histopathological findings; the claim's link to '5 brothers' is wrong, since the paper has two."
+        }
+      ]
+    },
+    {
+      "mim": "108770",
+      "paragraph_id": "clinical_features.6",
+      "pmid": "12522116",
+      "text": "Groenewegen et al. (2003) clinically evaluated 44 members of a large family with atrial standstill. One deceased and 3 living relatives were unambiguously affected. All other relatives appeared unaffected.",
+      "kind": "count or age",
+      "altered_text": "Groenewegen et al. (2003) clinically evaluated 51 members of a large family with atrial standstill. One deceased and 3 living relatives were unambiguously affected. All other relatives appeared unaffected.",
+      "was": "44",
+      "now": "51",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Groenewegen et al. (2003) clinically evaluated 51 members of a large family with atrial standstill.",
+          "pmid": "12522116",
+          "verdict": "contradicted",
+          "evidence_quote": "Forty-four family members were clinically evaluated.",
+          "explanation": "The paper says 44 family members were clinically evaluated, not 51."
+        }
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "population_genetics.2",
+      "pmid": "23486992",
+      "text": "Pfeffer et al. (2014) found that the probands of 5 new and 3 previously reported families with the TTN C30071R mutation shared a common core haplotype of 171 kb on chromosome 2. The probability of such sharing by chance in 8 unrelated families was less than 10(-6). The small size of the shared region suggested that the mutation is ancient. The authors attributed its frequency, 5.5% of undiagnosed UK patients with myofibrillar myopathy, to a British founder effect.",
+      "kind": "count or age",
+      "altered_text": "Pfeffer et al. (2014) found that the probands of 5 new and 3 previously reported families with the TTN C30071R mutation shared a common core haplotype of 171 kb on chromosome 2. The probability of such sharing by chance in 11 unrelated families was less than 10(-6). The small size of the shared region suggested that the mutation is ancient. The authors attributed its frequency, 5.5% of undiagnosed UK patients with myofibrillar myopathy, to a British founder effect.",
+      "was": "8",
+      "now": "11",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "The probability of sharing the TTN C30071R haplotype by chance in 11 unrelated families was less than 10(-6).",
+          "pmid": "23486992",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper gives this probability for 8 unrelated families, not 11: \"the probability of this shared haplotype occurring in 8 unrelated families by chance is less than 10-6.\""
+        }
+      ]
+    },
+    {
+      "mim": "620528",
+      "paragraph_id": "inheritance.1",
+      "pmid": "31332438",
+      "text": "Beijer et al. (2019) reported autosomal dominant inheritance of distal hereditary motor neuropathy in 3 unrelated families with heterozygous SPTAN1 nonsense mutations. Penetrance was variable in 2 of the 3 families.",
+      "kind": "count or age",
+      "altered_text": "Beijer et al. (2019) reported autosomal dominant inheritance of distal hereditary motor neuropathy in 6 unrelated families with heterozygous SPTAN1 nonsense mutations. Penetrance was variable in 2 of the 3 families.",
+      "was": "3",
+      "now": "6",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Beijer et al. (2019) reported autosomal dominant inheritance of distal hereditary motor neuropathy in 6 unrelated families.",
+          "pmid": "31332438",
+          "verdict": "contradicted",
+          "evidence_quote": "in three separate dominant hereditary motor neuropathy families via next-generation sequencing",
+          "explanation": "The paper says there were 3 families, not 6. The dominant inheritance is correct."
+        }
+      ]
+    },
+    {
+      "mim": "620718",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "37384395",
+      "text": "Bruel et al. (2023) reported 4 affected individuals from 3 unrelated families with a new form of oral-facial-digital syndrome. Besides defects of the face, oral cavity and digits, the patients had cardiac, cerebral, skeletal and anorectal defects.",
+      "kind": "count or age",
+      "altered_text": "Bruel et al. (2023) reported 7 affected individuals from 3 unrelated families with a new form of oral-facial-digital syndrome. Besides defects of the face, oral cavity and digits, the patients had cardiac, cerebral, skeletal and anorectal defects.",
+      "was": "4",
+      "now": "7",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Bruel et al. (2023) reported 7 affected individuals from 3 unrelated families with a new form of oral-facial-digital syndrome.",
+          "pmid": "37384395",
+          "verdict": "contradicted",
+          "evidence_quote": "bi-allelic missense variants in a novel disease-causing ciliary gene RAB34 in four individuals from three unrelated families",
+          "explanation": "The abstract reports four affected individuals from three unrelated families, not 7. The three families and the novel OFDS do match."
+        },
+        {
+          "claim": "The patients with the new oral-facial-digital syndrome reported by Bruel et al. (2023) had defects of the face, oral cavity, and digits.",
+          "pmid": "37384395",
+          "verdict": "partially_supported",
+          "evidence_quote": "Oral-facial-digital syndromes (OFDS) are a group of clinically and genetically heterogeneous disorders characterized by defects in the development of the face and oral cavity along with digit anomalies.",
+          "explanation": "The abstract defines OFDS in general by face, oral cavity and digit defects, and says the patients had a novel OFDS. It does not describe these features in the patients themselves."
+        }
+      ]
+    },
+    {
+      "mim": "225060",
+      "paragraph_id": "molecular_genetics.3",
+      "pmid": "25913853",
+      "text": "In a 7-year-old Japanese boy with CLPED1 born to consanguineous parents, Yoshida et al. (2015) analyzed exon 2 of the PVRL1 gene and found a novel homozygous nonsense mutation, c.400C-T (R134X). Both parents were heterozygous for the mutation. The authors noted that all 4 PVRL1 mutations reported in this syndrome so far, including this one, produce truncated proteins that lack the transmembrane and intracellular domains of nectin-1. These domains are needed to start the cell-cell adhesion process.",
+      "kind": "zygosity",
+      "altered_text": "In a 7-year-old Japanese boy with CLPED1 born to consanguineous parents, Yoshida et al. (2015) analyzed exon 2 of the PVRL1 gene and found a novel heterozygous nonsense mutation, c.400C-T (R134X). Both parents were heterozygous for the mutation. The authors noted that all 4 PVRL1 mutations reported in this syndrome so far, including this one, produce truncated proteins that lack the transmembrane and intracellular domains of nectin-1. These domains are needed to start the cell-cell adhesion process.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The Japanese boy with CLPED1 had a novel heterozygous nonsense mutation in PVRL1, c.400C-T (R134X).",
+          "pmid": "25913853",
+          "verdict": "contradicted",
+          "evidence_quote": "Mutation analysis of exon 2 of PVRL1 revealed a novel homozygous nonsense mutation, c.400C>T (p.Arg134*).",
+          "explanation": "The paper reports this mutation as homozygous, not heterozygous."
+        }
+      ]
+    },
+    {
+      "mim": "615425",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "20164846",
+      "text": "Groves et al. (2010) studied a 38-year-old man with autosomal recessive EBS. They identified a homozygous nonsense mutation in the DST gene, gln1124-to-ter (Q1124X), which lies in the region encoding the coiled-coil domain of the epithelial isoform BPAG1-e (BP230). In the patient's skin, the mutation led to loss of the hemidesmosomal inner plaques and complete absence of BPAG1-e immunostaining. Immunolabeling for plectin, beta-4 integrin, and type XVII collagen was reduced. The authors concluded that BPAG1-e pathology underlies a new form of autosomal recessive EBS.",
+      "kind": "zygosity",
+      "altered_text": "Groves et al. (2010) studied a 38-year-old man with autosomal recessive EBS. They identified a heterozygous nonsense mutation in the DST gene, gln1124-to-ter (Q1124X), which lies in the region encoding the coiled-coil domain of the epithelial isoform BPAG1-e (BP230). In the patient's skin, the mutation led to loss of the hemidesmosomal inner plaques and complete absence of BPAG1-e immunostaining. Immunolabeling for plectin, beta-4 integrin, and type XVII collagen was reduced. The authors concluded that BPAG1-e pathology underlies a new form of autosomal recessive EBS.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The 38-year-old man with autosomal recessive EBS had a heterozygous nonsense mutation Q1124X in the DST gene.",
+          "pmid": "20164846",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper reports a HOMOZYGOUS nonsense mutation, not a heterozygous one: \"We now report an inherited skin fragility disorder with a homozygous nonsense mutation in the dystonin gene (DST)\"."
+        }
+      ]
+    },
+    {
+      "mim": "621224",
+      "paragraph_id": "av0001.1",
+      "pmid": "32022899",
+      "text": "Lévy et al. (2020) identified de novo deletions at chromosome 4q25 that included the LEF1 gene in 2 unrelated patients with hypohidrotic ectodermal dysplasia. The patients had severe oligodontia of the primary and permanent teeth, hypotrichosis, hypohidrosis, taurodontism, and a particular alveolar bone defect. The authors concluded that LEF1 haploinsufficiency causes ectodermal dysplasia.",
+      "kind": "inheritance or origin",
+      "altered_text": "Lévy et al. (2020) identified inherited deletions at chromosome 4q25 that included the LEF1 gene in 2 unrelated patients with hypohidrotic ectodermal dysplasia. The patients had severe oligodontia of the primary and permanent teeth, hypotrichosis, hypohidrosis, taurodontism, and a particular alveolar bone defect. The authors concluded that LEF1 haploinsufficiency causes ectodermal dysplasia.",
+      "was": "de novo",
+      "now": "inherited",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Lévy et al. (2020) identified inherited deletions at chromosome 4q25 including the LEF1 gene in 2 unrelated patients with hypohidrotic ectodermal dysplasia.",
+          "pmid": "32022899",
+          "verdict": "contradicted",
+          "evidence_quote": "We report two unrelated patients with 4q25 de novo deletion encompassing LEF1",
+          "explanation": "The paper says the 4q25 deletions were de novo, not inherited. The 2 unrelated patients and the HED-compatible phenotype are correct."
+        }
+      ]
+    },
+    {
+      "mim": "607734",
+      "paragraph_id": "av0006.1",
+      "pmid": "20039262",
+      "text": "In 4 sibs with a severe, early-onset neuropathy, Yum et al. (2009) identified a homozygous c.628G-T transversion in the NEFL gene, predicting a glu210-to-ter (E210X) substitution. The sibs were born to consanguineous Palestinian parents. Both parents were heterozygous carriers, and the unaffected sib did not carry the mutation. The mutation was absent from more than 11,000 individuals analyzed at Athena Diagnostics. A sural nerve biopsy from the index patient showed myelinated axons without intermediate filaments. These axons were immunoreactive with an N-terminal but not a C-terminal NFL antiserum, consistent with the presence of the truncated protein. In SW-13 vim- cells, the mutant protein did not form filaments and accumulated poorly. It did not interfere with filament formation by wildtype NFL, consistent with a loss-of-function mechanism.",
+      "kind": "zygosity",
+      "altered_text": "In 4 sibs with a severe, early-onset neuropathy, Yum et al. (2009) identified a heterozygous c.628G-T transversion in the NEFL gene, predicting a glu210-to-ter (E210X) substitution. The sibs were born to consanguineous Palestinian parents. Both parents were heterozygous carriers, and the unaffected sib did not carry the mutation. The mutation was absent from more than 11,000 individuals analyzed at Athena Diagnostics. A sural nerve biopsy from the index patient showed myelinated axons without intermediate filaments. These axons were immunoreactive with an N-terminal but not a C-terminal NFL antiserum, consistent with the presence of the truncated protein. In SW-13 vim- cells, the mutant protein did not form filaments and accumulated poorly. It did not interfere with filament formation by wildtype NFL, consistent with a loss-of-function mechanism.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Yum et al. (2009) identified a heterozygous c.628G-T transversion in the NEFL gene, predicting an E210X substitution, in the 4 sibs with severe early-onset neuropathy.",
+          "pmid": "20039262",
+          "verdict": "contradicted",
+          "evidence_quote": "a homozygous G>T transversion was detected (c.628G>T), predicted to result in a glutamate>AMBER change at position 210 (E210X), in all four affected children.",
+          "explanation": "The four affected sibs were homozygous for the mutation, not heterozygous. Only the parents were heterozygous."
+        }
+      ]
+    },
+    {
+      "mim": "620029",
+      "paragraph_id": "av0019.1",
+      "pmid": "34163037",
+      "text": "In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo heterozygous 1-bp duplication (c.4129dup) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Arg1377ProfsTer61) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.",
+      "kind": "zygosity",
+      "altered_text": "In an individual with NEDHLSS, Rodan et al. (2021) identified a de novo homozygous 1-bp duplication (c.4129dup) in the CACNA1C gene. The mutation was predicted to cause a frameshift and premature termination (Arg1377ProfsTer61) and to undergo nonsense-mediated decay. It was absent from gnomAD, 1000 Genomes, and the Exome Variant Server.",
+      "was": "heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Rodan et al. (2021) identified a de novo homozygous 1-bp duplication (c.4129dup) in the CACNA1C gene in an individual with NEDHLSS.",
+          "pmid": "34163037",
+          "verdict": "contradicted",
+          "evidence_quote": "We describe 25 individuals from 22 families with heterozygous variants in CACNA1C",
+          "explanation": "The paper describes c.4129dup (P20, p.Arg1377Profs*61) as a de novo variant, but every variant in the cohort is heterozygous, not homozygous. The paper does not use the NEDHLSS designation."
+        },
+        {
+          "claim": "The CACNA1C c.4129dup mutation was predicted to undergo nonsense-mediated decay.",
+          "pmid": "34163037",
+          "verdict": "partially_supported",
+          "evidence_quote": "One truncating variant we describe occurs in exon 45/45, potentially escaping nonsense-mediated decay. All other reported truncating variants are predicted to be subject to nonsense-mediated decay.",
+          "explanation": "The paper does not say which variant is in exon 45, so nonsense-mediated decay for c.4129dup is implied but not stated explicitly."
+        }
+      ]
+    },
+    {
+      "mim": "620022",
+      "paragraph_id": "clinical_features.1",
+      "pmid": "30450842",
+      "text": "Hanson-Kahn et al. (2018) reported a boy with autosomal recessive Stickler syndrome, born to consanguineous parents (third cousins) from India. He failed newborn hearing screening. At 5 months he had moderate to severe sensorineural hearing loss on the right and severe loss on the left, which remained stable. Temporal bone CT showed mild enlargement of the vestibular aqueducts. He had no myopia at 5 months. By 2 years he had myopia of -6.75 OD and -8 OS, which progressed to -10.75 OD and -11.25 OS by 12 years. He had no vitreous abnormalities. Femoral and tibial bowing were present at birth. Radiographs at 6 years showed slightly flattened proximal femoral epiphyses, flattened acetabula, irregularity of the medial distal femoral epiphyses, and mild platyspondyly. He also had midface hypoplasia and did not have cleft palate. Growth and intelligence were normal. Autoimmune hypothyroidism was diagnosed at 10 years.",
+      "kind": "inheritance or origin",
+      "altered_text": "Hanson-Kahn et al. (2018) reported a boy with autosomal dominant Stickler syndrome, born to consanguineous parents (third cousins) from India. He failed newborn hearing screening. At 5 months he had moderate to severe sensorineural hearing loss on the right and severe loss on the left, which remained stable. Temporal bone CT showed mild enlargement of the vestibular aqueducts. He had no myopia at 5 months. By 2 years he had myopia of -6.75 OD and -8 OS, which progressed to -10.75 OD and -11.25 OS by 12 years. He had no vitreous abnormalities. Femoral and tibial bowing were present at birth. Radiographs at 6 years showed slightly flattened proximal femoral epiphyses, flattened acetabula, irregularity of the medial distal femoral epiphyses, and mild platyspondyly. He also had midface hypoplasia and did not have cleft palate. Growth and intelligence were normal. Autoimmune hypothyroidism was diagnosed at 10 years.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Hanson-Kahn et al. (2018) reported a boy with autosomal dominant Stickler syndrome.",
+          "pmid": "30450842",
+          "verdict": "contradicted",
+          "evidence_quote": "We report the second case of autosomal recessive Stickler syndrome due to homozygosity for a loss of function mutation in COL9A3",
+          "explanation": "The paper describes autosomal recessive Stickler syndrome, not autosomal dominant."
+        }
+      ]
+    },
+    {
+      "mim": "620481",
+      "paragraph_id": "av0002.1",
+      "pmid": "28559357",
+      "text": "Using exome and targeted sequencing, Seo et al. (2017) identified a homozygous arg99-to-trp (R99W) mutation in the THPO gene in affected children from 2 families with severe thrombocytopenia progressing to trilineage bone marrow failure. THPO was absent from the patients' serum.",
+      "kind": "zygosity",
+      "altered_text": "Using exome and targeted sequencing, Seo et al. (2017) identified a heterozygous arg99-to-trp (R99W) mutation in the THPO gene in affected children from 2 families with severe thrombocytopenia progressing to trilineage bone marrow failure. THPO was absent from the patients' serum.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Seo et al. (2017) identified a heterozygous R99W mutation in the THPO gene in affected children from 2 families with severe thrombocytopenia progressing to trilineage bone marrow failure.",
+          "pmid": "28559357",
+          "verdict": "contradicted",
+          "evidence_quote": "THPO R99W, homozygous in affected children in 2 families",
+          "explanation": "The paper reports R99W as homozygous, not heterozygous, and calls the mutations biallelic loss-of-function."
+        }
+      ]
+    },
+    {
+      "mim": "620098",
+      "paragraph_id": "av0001.1",
+      "pmid": "35887345",
+      "text": "Verberne et al. (2022) reported a 14-year-old boy (patient 4) with moderate intellectual disability, autism spectrum disorder, and behavior abnormalities. He carried a de novo heterozygous 1-bp duplication in the JARID2 gene (c.2866dupG), which caused a frameshift and premature termination (Glu956GlyfsTer72). The variant was classified as pathogenic.",
+      "kind": "zygosity",
+      "altered_text": "Verberne et al. (2022) reported a 14-year-old boy (patient 4) with moderate intellectual disability, autism spectrum disorder, and behavior abnormalities. He carried a de novo homozygous 1-bp duplication in the JARID2 gene (c.2866dupG), which caused a frameshift and premature termination (Glu956GlyfsTer72). The variant was classified as pathogenic.",
+      "was": "heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Patient 4 of Verberne et al. (2022) carried a de novo homozygous 1-bp duplication in the JARID2 gene (c.2866dupG).",
+          "pmid": "35887345",
+          "verdict": "contradicted",
+          "evidence_quote": "Since haploinsufficiency of JARID2 has been identified as the disease mechanism in JARID2-neurodevelopmental syndrome, the eight patients carrying a (likely) pathogenic JARID2 variant were used for the discovery phase",
+          "explanation": "The paper does support c.2866dupG and de novo inheritance ('dn' in Table 1). It never calls the variant homozygous. It treats the variant as a haploinsufficiency allele, which means one copy (heterozygous), so 'homozygous' conflicts with the paper."
+        }
+      ]
+    },
+    {
+      "mim": "614501",
+      "paragraph_id": "av0001.2",
+      "pmid": "34570759",
+      "text": "Ammous et al. (2021) confirmed homozygosity for the c.1097A-G (E366G) mutation in exon 4 of SNIP1 in 35 Amish individuals with NEDHCS. All parents were heterozygous, and unaffected sibs were heterozygous or wildtype. The mutation had a gnomAD frequency of 0.001%, with 11 heterozygotes (10 Amish) and no homozygotes. In a control database of more than 5,000 individuals, its allele frequency was 0.5% in Pennsylvania Amish and 1.4% in Ohio, Indiana, and Wisconsin Amish, with no unaffected homozygotes. Of 51 affected Old Order Amish individuals from 27 sibships, 49 were confirmed homozygous.",
+      "kind": "zygosity",
+      "altered_text": "Ammous et al. (2021) confirmed homozygosity for the c.1097A-G (E366G) mutation in exon 4 of SNIP1 in 35 Amish individuals with NEDHCS. All parents were heterozygous, and unaffected sibs were heterozygous or wildtype. The mutation had a gnomAD frequency of 0.001%, with 11 heterozygotes (10 Amish) and no homozygotes. In a control database of more than 5,000 individuals, its allele frequency was 0.5% in Pennsylvania Amish and 1.4% in Ohio, Indiana, and Wisconsin Amish, with no unaffected homozygotes. Of 51 affected Old Order Amish individuals from 27 sibships, 49 were confirmed heterozygous.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Of 51 affected Old Order Amish individuals from 27 sibships, 49 were confirmed heterozygous for SNIP1 E366G.",
+          "pmid": "34570759",
+          "verdict": "contradicted",
+          "evidence_quote": "Forty-nine individuals were confirmed to be homozygous for the SNIP1 variant, two individuals were not genotyped",
+          "explanation": "The paper says 49 of the 51 affected individuals (from 27 sibships) were confirmed homozygous, not heterozygous. The draft has the zygosity wrong."
+        }
+      ]
+    },
+    {
+      "mim": "615817",
+      "paragraph_id": "av0005.1",
+      "pmid": "31953988",
+      "text": "For discussion of the his503-to-arg (H503R) missense variant in the WASHC4 gene, which was found in compound heterozygous state in a patient with MRT43 by Assoum et al. (2020), see K1079R.",
+      "kind": "zygosity",
+      "altered_text": "For discussion of the his503-to-arg (H503R) missense variant in the WASHC4 gene, which was found in homozygous state in a patient with MRT43 by Assoum et al. (2020), see K1079R.",
+      "was": "compound heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Assoum et al. (2020) found the WASHC4 H503R missense variant in homozygous state in a patient with MRT43.",
+          "pmid": "31953988",
+          "verdict": "contradicted",
+          "evidence_quote": "The third patient was aged 34 years and had two missense variants, one inherited from each parent (p.(Lys1079Arg) and p.(His503Arg)).",
+          "explanation": "The paper reports H503R in the compound heterozygous state with K1079R, one variant from each parent. It does not report it as homozygous."
+        }
+      ]
+    },
+    {
+      "mim": "620528",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "31332438",
+      "text": "Beijer et al. (2019) used next-generation sequencing to study affected members of 3 unrelated families with juvenile-onset autosomal dominant distal hereditary motor neuropathy. They found heterozygous nonsense mutations in the SPTAN1 gene. In patient cells, mutant SPTAN1 mRNA was broken down by nonsense-mediated decay, and alpha-II spectrin protein levels were reduced.",
+      "kind": "inheritance or origin",
+      "altered_text": "Beijer et al. (2019) used next-generation sequencing to study affected members of 3 unrelated families with juvenile-onset autosomal recessive distal hereditary motor neuropathy. They found heterozygous nonsense mutations in the SPTAN1 gene. In patient cells, mutant SPTAN1 mRNA was broken down by nonsense-mediated decay, and alpha-II spectrin protein levels were reduced.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Beijer et al. (2019) used next-generation sequencing to study affected members of 3 unrelated families with juvenile-onset autosomal recessive distal hereditary motor neuropathy.",
+          "pmid": "31332438",
+          "verdict": "contradicted",
+          "evidence_quote": "in three separate dominant hereditary motor neuropathy families via next-generation sequencing",
+          "explanation": "The paper describes the families as dominant, not autosomal recessive. The 3 families, next-generation sequencing and juvenile onset (from the title) are correct."
+        }
+      ]
+    },
+    {
+      "mim": "236730",
+      "paragraph_id": "inheritance.1",
+      "pmid": "474623",
+      "text": "From genetic analysis of 3 families, Elejalde (1979) concluded that the condition was probably autosomal dominant, with variable expressivity and incomplete penetrance.",
+      "kind": "inheritance or origin",
+      "altered_text": "From genetic analysis of 3 families, Elejalde (1979) concluded that the condition was probably autosomal recessive, with variable expressivity and incomplete penetrance.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Elejalde (1979) concluded that the condition was probably autosomal recessive, with variable expressivity and incomplete penetrance.",
+          "pmid": "474623",
+          "verdict": "contradicted",
+          "evidence_quote": "The genetic analysis of these families indicates that the condition is probably autosomal dominant, with variable expressivity and incomplete penetrance.",
+          "explanation": "The paper concludes the condition is probably autosomal dominant, not autosomal recessive. Variable expressivity and incomplete penetrance do match the paper."
+        }
+      ]
+    },
+    {
+      "mim": "618343",
+      "paragraph_id": "av0004.2",
+      "pmid": "28742248",
+      "text": "Horn et al. (2017) identified a homozygous P49A mutation in COL3A1 in 2 sibs with cobblestone-like cortical malformation, cerebellar cysts, white matter abnormalities, developmental delay, and seizures.",
+      "kind": "zygosity",
+      "altered_text": "Horn et al. (2017) identified a heterozygous P49A mutation in COL3A1 in 2 sibs with cobblestone-like cortical malformation, cerebellar cysts, white matter abnormalities, developmental delay, and seizures.",
+      "was": "homozygous",
+      "now": "heterozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Horn et al. (2017) identified a heterozygous P49A mutation in COL3A1 in 2 sibs.",
+          "pmid": "28742248",
+          "verdict": "contradicted",
+          "evidence_quote": "the two affected siblings were homozygous for the missense variant c.145C<G, p.(Pro49Ala) of COL3A1",
+          "explanation": "The paper reports the P49A variant as homozygous in the 2 sibs, not heterozygous."
+        }
+      ]
+    },
+    {
+      "mim": "619816",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "9422533",
+      "text": "Pulkkinen et al. (1998) noted that epidermolysis bullosa with pyloric atresia (EB-PA) is a clinically and genetically heterogeneous autosomal recessive blistering disorder that includes lethal and nonlethal variants. In 3 patients with the lethal form of EB-PA, they identified ITGB4 mutations on 5 alleles, and predicted that 3 of the 4 distinct mutations would produce truncated polypeptides.",
+      "kind": "inheritance or origin",
+      "altered_text": "Pulkkinen et al. (1998) noted that epidermolysis bullosa with pyloric atresia (EB-PA) is a clinically and genetically heterogeneous autosomal dominant blistering disorder that includes lethal and nonlethal variants. In 3 patients with the lethal form of EB-PA, they identified ITGB4 mutations on 5 alleles, and predicted that 3 of the 4 distinct mutations would produce truncated polypeptides.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Pulkkinen et al. (1998) noted that epidermolysis bullosa with pyloric atresia (EB-PA) is a clinically and genetically heterogeneous autosomal dominant blistering disorder.",
+          "pmid": "9422533",
+          "verdict": "contradicted",
+          "evidence_quote": "is a clinically and genetically heterogeneous autosomal recessive blistering disorder, including lethal and nonlethal variants",
+          "explanation": "The paper describes EB-PA as autosomal recessive, not autosomal dominant."
+        }
+      ]
+    },
+    {
+      "mim": "166780",
+      "paragraph_id": "molecular_genetics.1",
+      "pmid": "11409867",
+      "text": "Rickard et al. (2001) developed a fluorescent quantitative multiplex PCR dosage assay for EYA1 exons 7, 9, and 13. Combined with microsatellite marker analysis, the assay identified de novo deletions of the EYA1 gene and the surrounding region in 2 patients with complex phenotypes that included features of BOR syndrome. One of these patients, who had OFC syndrome, carried a large deletion of the EYA1 gene region. The authors concluded that this confirmed that OFC syndrome is allelic with BOR syndrome.",
+      "kind": "inheritance or origin",
+      "altered_text": "Rickard et al. (2001) developed a fluorescent quantitative multiplex PCR dosage assay for EYA1 exons 7, 9, and 13. Combined with microsatellite marker analysis, the assay identified inherited deletions of the EYA1 gene and the surrounding region in 2 patients with complex phenotypes that included features of BOR syndrome. One of these patients, who had OFC syndrome, carried a large deletion of the EYA1 gene region. The authors concluded that this confirmed that OFC syndrome is allelic with BOR syndrome.",
+      "was": "de novo",
+      "now": "inherited",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Combined with microsatellite marker analysis, the EYA1 dosage assay identified inherited deletions of the EYA1 gene and the surrounding region in 2 patients.",
+          "pmid": "11409867",
+          "verdict": "contradicted",
+          "evidence_quote": "has identified de novo deletions of the EYA1 gene and surrounding region in two patients",
+          "explanation": "The paper says the deletions were de novo, not inherited."
+        }
+      ]
+    },
+    {
+      "mim": "616326",
+      "paragraph_id": "av0001.1",
+      "pmid": "11791205",
+      "text": "Ohno et al. (2002) identified an asn88-to-lys (N88K) mutation in TPR3 of the RAPSN gene in all 4 of their patients with CMS and endplate AChR deficiency. Two patients were homozygous for the mutation. One was compound heterozygous for N88K and L14P, and 1 was compound heterozygous for N88K and a 5-bp insertion (553ins5). In HEK cell expression studies, N88K did not hinder rapsyn self-association but diminished coclustering of AChR with rapsyn.",
+      "kind": "zygosity",
+      "altered_text": "Ohno et al. (2002) identified an asn88-to-lys (N88K) mutation in TPR3 of the RAPSN gene in all 4 of their patients with CMS and endplate AChR deficiency. Two patients were homozygous for the mutation. One was homozygous for N88K and L14P, and 1 was compound heterozygous for N88K and a 5-bp insertion (553ins5). In HEK cell expression studies, N88K did not hinder rapsyn self-association but diminished coclustering of AChR with rapsyn.",
+      "was": "compound heterozygous",
+      "now": "homozygous",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "One CMS patient studied by Ohno et al. (2002) was homozygous for both the RAPSN N88K and L14P mutations.",
+          "pmid": "11791205",
+          "verdict": "contradicted",
+          "evidence_quote": "one patient carries L14P in TPR1 and N88K in TPR3",
+          "explanation": "The abstract describes recessive mutations, with this patient carrying L14P and N88K, i.e., compound heterozygous. It does not say the patient was homozygous for both."
+        },
+        {
+          "claim": "One CMS patient studied by Ohno et al. (2002) was compound heterozygous for the RAPSN N88K mutation and a 5-bp insertion (553ins5).",
+          "pmid": "11791205",
+          "verdict": "partially_supported",
+          "evidence_quote": "we identify three recessive rapsyn mutations: one patient carries L14P in TPR1 and N88K in TPR3; two are homozygous for N88K; and one carries N88K and 553ins5, which frameshifts in TPR5",
+          "explanation": "The patient carries N88K and 553ins5. Compound heterozygosity is implied by the recessive inheritance but not stated outright, and the abstract does not describe 553ins5 as a 5-bp insertion beyond its name."
+        }
+      ]
+    },
+    {
+      "mim": "603689",
+      "paragraph_id": "heterogeneity.1",
+      "pmid": "10407851",
+      "text": "Xiang et al. (1999) studied a French family with autosomal dominant myopathy whose clinical and muscle biopsy findings were similar to those of the Swedish families mapped to 2q24-q31. The 2q24-q31 region was completely excluded in this family. A genome-wide scan with polymorphic microsatellite markers gave a maximum 2-point lod score of 2.11, the highest possible in this family, for markers in a 4-cM region between D2S1272 and D2S1260. The authors suggested that the gene for the French form probably lies on chromosome 2q21.",
+      "kind": "inheritance or origin",
+      "altered_text": "Xiang et al. (1999) studied a French family with autosomal recessive myopathy whose clinical and muscle biopsy findings were similar to those of the Swedish families mapped to 2q24-q31. The 2q24-q31 region was completely excluded in this family. A genome-wide scan with polymorphic microsatellite markers gave a maximum 2-point lod score of 2.11, the highest possible in this family, for markers in a 4-cM region between D2S1272 and D2S1260. The authors suggested that the gene for the French form probably lies on chromosome 2q21.",
+      "was": "autosomal dominant",
+      "now": "autosomal recessive",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Xiang et al. (1999) studied a French family with autosomal recessive myopathy.",
+          "pmid": "10407851",
+          "verdict": "contradicted",
+          "evidence_quote": "A second locus for autosomal dominant myopathy with proximal muscle weakness and early respiratory muscle involvement",
+          "explanation": "The paper calls the myopathy autosomal dominant, not autosomal recessive."
+        }
+      ]
+    },
+    {
+      "mim": "603552",
+      "paragraph_id": "molecular_genetics.4",
+      "pmid": "24459464",
+      "text": "Muller et al. (2014) sequenced UNC13D, STX11, and STXBP2 in 3 patients with FHL4 from unrelated consanguineous Pakistani families. All 3 carried a novel homozygous c.173T-C transition in the STX11 gene, resulting in a leu58-to-pro (L58P) substitution in an alpha-helix of the predicted Habc domain. The parents were heterozygous and had no history of inflammatory disease. Syntaxin-11 expression was greatly reduced in cells from 1 patient. In transfected cells, the L58P mutant failed to bind Munc18-2 (see PATHOGENESIS).",
+      "kind": "amino acid change",
+      "altered_text": "Muller et al. (2014) sequenced UNC13D, STX11, and STXBP2 in 3 patients with FHL4 from unrelated consanguineous Pakistani families. All 3 carried a novel homozygous c.173T-C transition in the STX11 gene, resulting in a leu58-to-ser (L58S) substitution in an alpha-helix of the predicted Habc domain. The parents were heterozygous and had no history of inflammatory disease. Syntaxin-11 expression was greatly reduced in cells from 1 patient. In transfected cells, the L58S mutant failed to bind Munc18-2 (see PATHOGENESIS).",
+      "was": "leu58-to-pro",
+      "now": "leu58-to-ser",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "All 3 FHL4 patients studied by Muller et al. (2014) carried a novel homozygous c.173T-C transition in the STX11 gene, resulting in a leu58-to-ser (L58S) substitution.",
+          "pmid": "24459464",
+          "verdict": "contradicted",
+          "evidence_quote": "all three patients were homozygous for a novel STX11 mutation, c.173T > C (p.L58P)",
+          "explanation": "The paper gives the change at codon 58 as leucine to proline (L58P), not leucine to serine (L58S). The c.173T>C change and homozygosity are correct, but the amino acid is wrong."
+        },
+        {
+          "claim": "The STX11 L58S substitution lies in an alpha-helix of the predicted Habc domain.",
+          "pmid": "24459464",
+          "verdict": "partially_supported",
+          "evidence_quote": "The L58P localizes to an α-helical strand of the predicted Stx11 Habc domain.",
+          "explanation": "The location is correct, but the paper names the variant L58P, not L58S."
+        },
+        {
+          "claim": "The parents of the FHL4 patients with the STX11 L58S mutation were heterozygous for the mutation.",
+          "pmid": "24459464",
+          "verdict": "partially_supported",
+          "evidence_quote": "The parents were heterozygous for this STX11 mutation, but did not have any recorded history of inflammatory disease.",
+          "explanation": "Correct, except that the paper names the mutation L58P, not L58S."
+        },
+        {
+          "claim": "The parents of the FHL4 patients with the STX11 L58S mutation had no history of inflammatory disease.",
+          "pmid": "24459464",
+          "verdict": "partially_supported",
+          "evidence_quote": "The parents were heterozygous for this STX11 mutation, but did not have any recorded history of inflammatory disease.",
+          "explanation": "Correct, except that the paper names the mutation L58P, not L58S."
+        },
+        {
+          "claim": "Syntaxin-11 expression was greatly reduced in cells from 1 FHL4 patient with the STX11 L58S mutation.",
+          "pmid": "24459464",
+          "verdict": "partially_supported",
+          "evidence_quote": "we analyzed Stx11 expression in PBMCs from patient C and controls. Stx11 levels were found to be greatly reduced in the patient (Figure 3A).",
+          "explanation": "The finding comes from 1 patient (patient C) and is correct, but the paper names the mutation L58P, not L58S."
+        },
+        {
+          "claim": "In transfected cells, the STX11 L58S mutant failed to bind Munc18-2.",
+          "pmid": "24459464",
+          "verdict": "partially_supported",
+          "evidence_quote": "neither FLAG-tagged Stx11 R4A nor L58P mutants bound HA-tagged Munc18-2 (Figure 4E)",
+          "explanation": "The mutant failed to bind Munc18-2 in transfected HEK-293T cells, but the paper names this mutant L58P, not L58S."
+        }
+      ]
+    },
+    {
+      "mim": "617232",
+      "paragraph_id": "av0006.1",
+      "pmid": "31897643",
+      "text": "Servián-Morilla et al. (2020) found a homozygous trp308-to-leu (W308L) mutation in the POGLUT1 gene in a 22-year-old man with adult-onset LGMDR21 (family 6). The mutation was absent from ExAC. The mutant protein was secreted poorly, suggesting destabilization. It gave little or no rescue of Notch1 EGF1-18 secretion in POGLUT1-knockout cells.",
+      "kind": "amino acid change",
+      "altered_text": "Servián-Morilla et al. (2020) found a homozygous trp308-to-ser (W308S) mutation in the POGLUT1 gene in a 22-year-old man with adult-onset LGMDR21 (family 6). The mutation was absent from ExAC. The mutant protein was secreted poorly, suggesting destabilization. It gave little or no rescue of Notch1 EGF1-18 secretion in POGLUT1-knockout cells.",
+      "was": "trp308-to-leu",
+      "now": "trp308-to-ser",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Servián-Morilla et al. (2020) found a homozygous trp308-to-ser (W308S) mutation in the POGLUT1 gene in a 22-year-old man with LGMDR21 (family 6).",
+          "pmid": "31897643",
+          "verdict": "contradicted",
+          "evidence_quote": "The homozygous missense variants p.I129T, p.R98W, p.Y57C, p.W308L, p.C102F (novel variants), and p.R183W (previously described as a DDD mutation) were identified in patients from Families 3, 4, 5, 6, 7, and 9 respectively.",
+          "explanation": "The paper reports the family 6 variant as p.W308L (trp308-to-leu), not W308S. The table gives the patient's details as '6/ II.4 | p.W308L/ p.W308L | 2nd | 22/M | LGMD- adult onset'. Homozygosity, age and sex are correct, but the amino acid change is wrong."
+        },
+        {
+          "claim": "The LGMDR21 in the man with the POGLUT1 W308S mutation (family 6) was adult-onset.",
+          "pmid": "31897643",
+          "verdict": "partially_supported",
+          "evidence_quote": "6/ II.4 | p.W308L/ p.W308L | 2nd | 22/M | LGMD- adult onset",
+          "explanation": "Adult onset in the family 6 patient is supported, but the paper calls the variant W308L, not W308S."
+        },
+        {
+          "claim": "The POGLUT1 W308S mutation was absent from the ExAC database.",
+          "pmid": "31897643",
+          "verdict": "contradicted",
+          "evidence_quote": "All variants were either absent (p.I129T, p.W308L and p.W184*) or found in heterozygous state",
+          "explanation": "The variant absent from ExAC is p.W308L. The paper does not mention any W308S variant."
+        },
+        {
+          "claim": "The POGLUT1 W308S mutant protein was secreted poorly, suggesting destabilization.",
+          "pmid": "31897643",
+          "verdict": "contradicted",
+          "evidence_quote": "Thus, these results suggested that the p.I129T, p.R98W, p.C102F, and p.W308L mutations destabilized POGLUT1 proteins.",
+          "explanation": "Poor secretion suggesting destabilization is reported for p.W308L, not W308S. The amino acid change is wrong."
+        },
+        {
+          "claim": "The POGLUT1 W308S mutant gave little or no rescue of Notch1 EGF1-18 secretion in POGLUT1-knockout cells.",
+          "pmid": "31897643",
+          "verdict": "contradicted",
+          "evidence_quote": "These results suggest that the p.R98W, p.C102F, p.I129T, and p.W308L mutants of POGLUT1 have little or no ability to rescue secretion of Notch1 EGF1–18-MycHis in these assays.",
+          "explanation": "The finding of little or no rescue applies to p.W308L. The draft names the variant as W308S, which is wrong."
+        }
+      ]
+    },
+    {
+      "mim": "615631",
+      "paragraph_id": "av0001.1",
+      "pmid": "23716552",
+      "text": "In affected members of a consanguineous family of Middle Eastern origin with congenital dyserythropoietic anemia type Ib, Babbs et al. (2013) identified a homozygous c.533T-A transversion in the C15ORF41 gene, predicted to result in a leu178-to-gln (L178Q) substitution. The mutation was found by whole genome sequencing and segregation analysis; no likely pathogenic CDAN1 mutation had been found in this family.",
+      "kind": "amino acid change",
+      "altered_text": "In affected members of a consanguineous family of Middle Eastern origin with congenital dyserythropoietic anemia type Ib, Babbs et al. (2013) identified a homozygous c.533T-A transversion in the C15ORF41 gene, predicted to result in a leu178-to-ser (L178S) substitution. The mutation was found by whole genome sequencing and segregation analysis; no likely pathogenic CDAN1 mutation had been found in this family.",
+      "was": "leu178-to-gln",
+      "now": "leu178-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The C15ORF41 c.533T-A transversion is predicted to result in a leu178-to-ser (L178S) substitution.",
+          "pmid": "23716552",
+          "verdict": "contradicted",
+          "evidence_quote": "predicted to lead to a p.L178Q missense substitution",
+          "explanation": "The paper predicts leu178-to-gln (L178Q), not leu178-to-ser (L178S)."
+        }
+      ]
+    },
+    {
+      "mim": "225300",
+      "paragraph_id": "inheritance.7",
+      "pmid": "20635353",
+      "text": "Blattner et al. (2010) concluded that sporadic SHFM is not always a dominant trait and may be inherited in an autosomal recessive manner. In that case, the recurrence risk is 25% for sibs and very low for the offspring of patients unless there is consanguinity.",
+      "kind": "inheritance or origin",
+      "altered_text": "Blattner et al. (2010) concluded that sporadic SHFM is not always a dominant trait and may be inherited in an autosomal dominant manner. In that case, the recurrence risk is 25% for sibs and very low for the offspring of patients unless there is consanguinity.",
+      "was": "autosomal recessive",
+      "now": "autosomal dominant",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "Blattner et al. (2010) concluded that sporadic SHFM may be inherited in an autosomal dominant manner.",
+          "pmid": "20635353",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper says sporadic SHFM may be inherited in a recessive manner, not a dominant one: 'Obviously, sporadic SHFM may show recessive rather than dominant inheritance resulting in a 25% recurrence risk for sibs.' The patient had a homozygous WNT10B mutation, and nine heterozygous relatives were unaffected."
+        },
+        {
+          "claim": "In that inheritance scenario for sporadic SHFM, the recurrence risk for sibs is 25%.",
+          "pmid": "20635353",
+          "verdict": "partially_supported",
+          "evidence_quote": "sporadic SHFM may show recessive rather than dominant inheritance resulting in a 25% recurrence risk for sibs instead of a very low-recurrence risk as generally presumed",
+          "explanation": "The 25% sib recurrence risk is stated, but the paper gives it for recessive inheritance. In the draft, 'that inheritance scenario' refers to the dominant mode it wrongly describes."
+        },
+        {
+          "claim": "In that inheritance scenario for sporadic SHFM, the recurrence risk for the offspring of patients is very low unless there is consanguinity.",
+          "pmid": "20635353",
+          "verdict": "partially_supported",
+          "evidence_quote": "Likewise, there is a very low-recurrence risk for offspring of patients (unless there is consanguinity) instead of an estimated risk between 30% and 50%.",
+          "explanation": "The very low risk for patients' offspring (unless there is consanguinity) is stated, but it belongs to the recessive scenario, not the dominant one the draft names."
+        }
+      ]
+    },
+    {
+      "mim": "616151",
+      "paragraph_id": "av0001.1",
+      "pmid": "23993198",
+      "text": "In a large family with autosomal dominant VMD4, Manes et al. (2013) used gene mapping and whole-exome sequencing to identify a heterozygous c.713T-G mutation in the IMPG1 gene, resulting in a leu238-to-arg (L238R) substitution. The same mutation was found in 2 other families with autosomal dominant VMD and the same phenotype. Structural modeling indicated that the substitution destabilizes the conserved SEA1 domain of the SPACR protein.",
+      "kind": "amino acid change",
+      "altered_text": "In a large family with autosomal dominant VMD4, Manes et al. (2013) used gene mapping and whole-exome sequencing to identify a heterozygous c.713T-G mutation in the IMPG1 gene, resulting in a leu238-to-ser (L238S) substitution. The same mutation was found in 2 other families with autosomal dominant VMD and the same phenotype. Structural modeling indicated that the substitution destabilizes the conserved SEA1 domain of the SPACR protein.",
+      "was": "leu238-to-arg",
+      "now": "leu238-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The IMPG1 c.713T-G mutation results in a leu238-to-ser (L238S) substitution.",
+          "pmid": "23993198",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper reports a leucine-to-arginine change, not leucine-to-serine: 'c.713T>G (p.Leu238Arg)'. T>G at codon 238 (CTG>CGG) gives arginine."
+        },
+        {
+          "claim": "The IMPG1 L238S mutation was found in 2 other families with autosomal dominant VMD and the same phenotype.",
+          "pmid": "23993198",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The paper does say the same mutation was found in two other autosomal dominant VMD families with the same phenotype. However, that mutation is p.Leu238Arg, not L238S: 'c.713T>G (p.Leu238Arg) IMPG1 mutation, which was subsequently found in two other families'."
+        },
+        {
+          "claim": "Structural modeling indicated that the IMPG1 L238S substitution destabilizes the conserved SEA1 domain of the SPACR protein.",
+          "pmid": "23993198",
+          "verdict": "contradicted",
+          "evidence_quote": "",
+          "explanation": "The modeling finding is correct, but the paper attributes it to p.Leu238Arg, not L238S: 'Structural modeling indicates that the p.Leu238Arg substitution destabilizes the conserved SEA1 domain of SPACR.'"
+        }
+      ]
+    },
+    {
+      "mim": "621313",
+      "paragraph_id": "av0003.1",
+      "pmid": "38430071",
+      "text": "In 3 sibs with NIT1-small vessel disease, Rutten et al. (2024) identified compound heterozygosity for a c.727C-T transition in the NIT1 gene, resulting in an arg243-to-trp (R243W) substitution, and a 2-bp deletion (c.198_199del) resulting in an ala68-to-ter (A68X) substitution, by exome sequencing. Four additional patients, each a single case from 1 of 4 unrelated pedigrees, were homozygous for the R243W mutation. NIT1 protein was absent from patient fibroblasts on Western blotting.",
+      "kind": "amino acid change",
+      "altered_text": "In 3 sibs with NIT1-small vessel disease, Rutten et al. (2024) identified compound heterozygosity for a c.727C-T transition in the NIT1 gene, resulting in an arg243-to-ser (R243S) substitution, and a 2-bp deletion (c.198_199del) resulting in an ala68-to-ter (A68X) substitution, by exome sequencing. Four additional patients, each a single case from 1 of 4 unrelated pedigrees, were homozygous for the R243S mutation. NIT1 protein was absent from patient fibroblasts on Western blotting.",
+      "was": "arg243-to-trp",
+      "now": "arg243-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "One NIT1 mutation in the 3 sibs was a c.727C-T transition resulting in an arg243-to-ser (R243S) substitution.",
+          "pmid": "38430071",
+          "verdict": "contradicted",
+          "evidence_quote": "compound heterozygous for the NIT1 c.727C>T; (p.Arg243Trp) variant",
+          "explanation": "The paper gives c.727C>T as p.Arg243Trp (arg243-to-trp, R243W), not arg243-to-ser (R243S)."
+        },
+        {
+          "claim": "Four additional patients with NIT1-small vessel disease, each a single case from 1 of 4 unrelated pedigrees, were homozygous for the NIT1 R243S mutation.",
+          "pmid": "38430071",
+          "verdict": "contradicted",
+          "evidence_quote": "The 4 additional patients were single cases from 4 unrelated pedigrees and were all homozygous for the NIT1 c.727C>T; p.(Arg243Trp) variant.",
+          "explanation": "The patient count and homozygosity match, but the paper's variant is p.Arg243Trp (R243W), not R243S."
+        }
+      ]
+    },
+    {
+      "mim": "606824",
+      "paragraph_id": "av0005.1",
+      "pmid": "20486940",
+      "text": "Xin and Wang (2011) found a homozygous c.1845C-G transversion in the SLC5A1 gene, resulting in a his615-to-gln (H615Q) substitution, in all 33 patients with GGM from a large Old Order Amish pedigree. It was 1 of 4 homozygous missense mutations that cosegregated with the phenotype; the others were N51S, A411T, and R558H.",
+      "kind": "amino acid change",
+      "altered_text": "Xin and Wang (2011) found a homozygous c.1845C-G transversion in the SLC5A1 gene, resulting in a his615-to-ser (H615S) substitution, in all 33 patients with GGM from a large Old Order Amish pedigree. It was 1 of 4 homozygous missense mutations that cosegregated with the phenotype; the others were N51S, A411T, and R558H.",
+      "was": "his615-to-gln",
+      "now": "his615-to-ser",
+      "result": "flagged",
+      "content_level": "abstract",
+      "checks": [
+        {
+          "claim": "The SLC5A1 c.1845C-G transversion results in a his615-to-ser (H615S) substitution.",
+          "pmid": "20486940",
+          "verdict": "contradicted",
+          "evidence_quote": "c.1845C>G (p.H615Q)",
+          "explanation": "The paper gives the protein change as p.H615Q (his-to-gln), not his615-to-ser (H615S)."
+        },
+        {
+          "claim": "The SLC5A1 H615S mutation was 1 of 4 homozygous missense mutations that cosegregated with GGM in the Old Order Amish pedigree.",
+          "pmid": "20486940",
+          "verdict": "contradicted",
+          "evidence_quote": "four homozygous missense mutations, c.152A>G (p.N51S), c.1231G>A (p.A411T), c.1673G>A (p.R558H), and c.1845C>G (p.H615Q), that co-segregate with the GGM phenotype",
+          "explanation": "The paper does count this variant as 1 of 4 co-segregating homozygous missense mutations, but it calls it H615Q, not H615S."
+        }
+      ]
+    },
+    {
+      "mim": "619201",
+      "paragraph_id": "molecular_genetics.2",
+      "pmid": "31472902",
+      "text": "In patient A666_21, Solanki et al. (2019) identified a homozygous arg440-to-cys (R440C) mutation in KIRREL1. It lay within the maximum NPL homozygosity peak on chromosome 1 and had a gnomAD minor allele frequency of 3.97 x 10(-6).",
+      "kind": "amino acid change",
+      "altered_text": "In patient A666_21, Solanki et al. (2019) identified a homozygous arg440-to-ser (R440S) mutation in KIRREL1. It lay within the maximum NPL homozygosity peak on chromosome 1 and had a gnomAD minor allele frequency of 3.97 x 10(-6).",
+      "was": "arg440-to-cys",
+      "now": "arg440-to-ser",
+      "result": "flagged",
+      "content_level": "fulltext",
+      "checks": [
+        {
+          "claim": "Solanki et al. (2019) identified a homozygous arg440-to-ser (R440S) mutation in KIRREL1 in patient A666_21.",
+          "pmid": "31472902",
+          "verdict": "contradicted",
+          "evidence_quote": "Whole exome sequencing identifies a homozygous mutation of KIRREL1 (p.Arg440Cys) that is positioned within the maximum NPL peak on chromosome 1",
+          "explanation": "The paper reports arg440-to-cys (R440C), not arg440-to-ser (R440S)."
+        },
+        {
+          "claim": "The KIRREL1 R440S mutation lay within the maximum NPL homozygosity peak on chromosome 1.",
+          "pmid": "31472902",
+          "verdict": "partially_supported",
+          "evidence_quote": "Whole exome sequencing identifies a homozygous mutation of KIRREL1 (p.Arg440Cys) that is positioned within the maximum NPL peak on chromosome 1 (arrowhead).",
+          "explanation": "The location in the maximum chromosome 1 NPL peak is correct, but the variant is p.Arg440Cys, not R440S."
+        },
+        {
+          "claim": "The KIRREL1 R440S mutation had a gnomAD minor allele frequency of 3.97 x 10(-6).",
+          "pmid": "31472902",
+          "verdict": "partially_supported",
+          "evidence_quote": "The mutated alleles causing mutations p.Arg440Cys and p.Ser573Leu appear to be very rare based on the reference data base gnomAD with a minor allele frequency (MAF) of 3.97×10−6 and a MAF of 7.87×10−4 respectively",
+          "explanation": "The MAF value is correct, but it belongs to p.Arg440Cys, not R440S."
+        }
+      ]
+    }
+  ]
+}

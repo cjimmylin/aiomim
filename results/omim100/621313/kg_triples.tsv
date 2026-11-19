@@ -1,0 +1,43 @@
+subject	predicate	object	pmids
+Rendu et al. (2019)	reports	Rendu et al. (2019) described 3 brothers with bilateral small cystic lesions of the basal ganglia (a deep cavitating state) and positive urine sulfite dipstick tests. The index patient (II.4) had nonsevere mental retardation and an acute psychotic episode followed by generalized seizures. At age 34 he developed a sudden pure motor left hemiparesis. Arteriography, EEG, EMG, Doppler ultrasound and echocardiography were normal. Over 20 years he progressed to severe neuropsychological deterioration and spastic tetraplegia, and he died at age 57.	
+Rendu et al. (2019)	reports	Rendu et al. (2019) reported that a brother of the index patient (II.5) had diabetes mellitus and had led an active professional life. At age 58 he had a sudden coma with cardiovascular collapse. CT and 3T MRI showed the same basal ganglia cystic lesions, and his urine sulfite test was positive. He recovered but had neuropsychological deterioration (BREF 14/18, MMSE 22/30). A third brother (II.7), diagnosed with schizophrenia 40 years earlier, had a normal clinical examination but the same brain lesions and a positive urine sulfite test.	
+Rendu et al. (2019)	reports	In 2 affected brothers (II.5 and II.7), Rendu et al. (2019) used exome sequencing to identify compound heterozygous variants in the NIT1 gene. One was a c.457G>A transition (p.Gly153Arg) at a highly conserved residue on the last nucleotide of exon 4. Sequencing of the NIT1 transcript from a skin biopsy of patient II.5 showed that this variant affected splicing. Asymptomatic sibs whose DNA was available carried neither variant. Cloning showed that the 2 variants were on different alleles. NIT1 protein was undetectable on western blot of the patient's fibroblasts.	
+NIT1 c.457G>A / p.G153R	in_gene	NIT1	
+Rendu et al. (2019)	reports	Rendu et al. (2019) found that the second NIT1 variant in the affected brothers was a 1-bp duplication, c.670dupA, causing a frameshift (p.Thr224Asnfs*41) that was predicted to cause loss of function. It was inherited from the asymptomatic mother. The father's DNA was not available.	
+NIT1 c.670dupa / p.T224N	in_gene	NIT1	
+Rendu et al. (2019)	reports	Rendu et al. (2019) found that the affected brothers had positive urine sulfite dipstick tests, whereas the mother and the asymptomatic sibs who were tested did not. GC/MS organic acid analysis detected a urinary compound with a mass spectrum identical to deaminated glutathione (dGSH), matching the compound excreted by Nit1-knockout mice. It was present in the 3 affected brothers but undetectable in the other sibs tested and the mother. The authors proposed that dGSH accumulation was probably responsible for the positive sulfite test.	
+Rendu et al. (2019)	reports	In fibroblasts from patient II.5, Rendu et al. (2019) found unchanged cytoplasmic Cu/Zn SOD activity but a 2-fold increase in mitochondrial MnSOD activity. They suggested that dGSH accumulation causes oxidative stress and redox damage. They also noted that other effects of NIT1 deficiency, such as altered Wnt/beta-catenin signaling, could contribute.	
+Rendu et al. (2019)	reports	Rendu et al. (2019) concluded that this is a novel autosomal recessive metabolic disorder caused by NIT1 mutations. It combines neurological signs, basal ganglia lesions and a positive urine sulfite test. The authors excluded sulfite oxidase deficiency and molybdenum cofactor deficiency.	
+Rendu et al. (2019)	reports	Rendu et al. (2019) suggested that the urine sulfite test could easily be used to screen cohorts of psychiatric patients for the disorder.	
+Rutten et al. (2024)	reports	Rutten et al. (2024) described NIT1-small vessel disease as a new autosomal recessive cerebral small vessel disease. It is caused by loss-of-function variants in NIT1 and is characterized by a triad of movement disorders, massively dilated perivascular spaces in the basal ganglia, and intracerebral hemorrhage.	
+Rutten et al. (2024)	reports	Rutten et al. (2024) reported 7 patients with NIT1-small vessel disease from 5 unrelated pedigrees: 3 siblings and 4 single cases. The patients presented in mid-adulthood with movement disorders. All had striking abnormalities on brain MRI, with numerous and massively dilated perivascular spaces in the basal ganglia. Three patients had a non-lobar intracerebral hemorrhage between ages 45 and 60, which was fatal in 2 of them.	
+Rutten et al. (2024)	reports	Rutten et al. (2024) found on brain autopsy large electron-dense deposits in the walls of small and medium-sized cerebral arteries.	
+Rutten et al. (2024)	reports	Rutten et al. (2024) used exome sequencing in 3 sibs with NIT1-small vessel disease. All 3 were compound heterozygous for 2 NIT1 variants: c.727C>T (p.Arg243Trp) and c.198_199del (p.Ala68Ter).	
+NIT1 c.727C>T / p.R243W	in_gene	NIT1	
+NIT1 c.198_199del / p.A68 / p.A68*	in_gene	NIT1	
+Rutten et al. (2024)	reports	Rutten et al. (2024) reported 4 more patients with NIT1-small vessel disease, each a single case from 1 of 4 unrelated pedigrees. All 4 were homozygous for the NIT1 c.727C>T (p.Arg243Trp) variant.	
+Rutten et al. (2024)	reports	Rutten et al. (2024) found by Western blotting that NIT1 protein was absent from patient fibroblasts. Metabolic analysis of patient urine confirmed loss of NIT1 enzyme function.	
+BRAIN SMALL VESSEL DISEASE 4	caused_by	NIT1	31705625,38430071
+BRAIN SMALL VESSEL DISEASE 4	has_variant	NIT1 c.198_199del / p.A68 / p.A68*	38430071
+BRAIN SMALL VESSEL DISEASE 4	has_variant	NIT1 c.457G>A / p.G153R	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_variant	NIT1 c.670dupa / p.T224N	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_variant	NIT1 c.727C>T / p.R243W	38430071
+BRAIN SMALL VESSEL DISEASE 4	inheritance	Autosomal recessive	31705625,38430071
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Abnormality of movement	38430071
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Dilation of Virchow-Robin spaces	38430071
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Cerebral hemorrhage	38430071
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Abnormal cerebral vascular morphology	38430071
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Intellectual disability	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Psychosis	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Generalized-onset seizure	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Hemiparesis	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Basal ganglia cysts	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Cognitive impairment	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Spastic tetraplegia	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Coma	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Shock	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Schizophrenia	31705625
+BRAIN SMALL VESSEL DISEASE 4	has_phenotype	Increased urinary sulfite level	31705625
+Dilation of Virchow-Robin spaces	is_a	Abnormal cerebral vascular morphology	
+Spastic tetraplegia	is_a	Abnormality of movement	
+Cerebral hemorrhage	is_a	Abnormal cerebral vascular morphology	

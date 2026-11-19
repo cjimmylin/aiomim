@@ -1,0 +1,130 @@
+subject	predicate	object	pmids
+Greene et al. (2024)	reports	Greene et al. (2024) ran a genetic association analysis on whole-genome sequencing data from the 100,000 Genomes Project. They compared the burden of rare variants in 41,132 noncoding genes between 5,529 unrelated intellectual disability (ID) cases and 46,401 unrelated controls. They identified an extremely strong dominant association between rare variants in RNU4-2, which encodes U4 snRNA, and ID (posterior probability of association about 1, log Bayes factor 55). None of the 34 ID cases carrying the 3 top variants had previously received a diagnosis, and these cases were phenotypically more homogeneous than expected by chance.	
+Greene et al. (2024)	reports	Greene et al. (2024) found 8 rare variants in 2 contiguous regions of RNU4-2 (n.62-70 and n.73-79) that were present only in affected participants. These regions lie in a locus markedly depleted of variation in gnomAD. Across 47 cases in the 100,000 Genomes Project, 37 variants were de novo and 10 had unknown inheritance. The variants were n.63T>G, n.64_65insG, n.64_65insT, n.65A>G, n.65_66insT, n.67A>G and n.68_69insA in the quasi-pseudoknot region, and n.76C>T and n.77_78insT in stem III.	
+RNU4-2 n.63T>G	in_gene	RNU4-2	
+RNU4-2 n.64_65insg	in_gene	RNU4-2	
+RNU4-2 n.65_66inst	in_gene	RNU4-2	
+RNU4-2 n.67A>G	in_gene	RNU4-2	
+RNU4-2 n.68_69insa	in_gene	RNU4-2	
+RNU4-2 n.77_78inst	in_gene	RNU4-2	
+Greene et al. (2024)	reports	Greene et al. (2024) reported that the most common RNU4-2 variant, n.64_65insT, arose as a de novo mutation in 33 different families. They noted that G64 of U4 snRNA is thought to help stabilize the ACAGAGA loop of U6 snRNA. They also proposed that the insertion could disrupt the G64(U4)-A47(U6) interaction that supports the quasi-pseudoknot.	
+RNU4-2 c.:n.64_65inst / c.nr_003137.2 / n.64_65inst	in_gene	RNU4-2	
+Greene et al. (2024)	reports	In 100,000 Genomes Project pedigree G38, Greene et al. (2024) identified the RNU4-2 n.65A>G variant in a heterozygous male proband. His mother was called homozygous for the reference allele but was likely mosaic for the variant when the aligned WGS reads were inspected.	
+RNU4-2 n.65A>G	in_gene	RNU4-2	
+Greene et al. (2024)	reports	Greene et al. (2024) replicated their findings in 3 collections: the NIHR BioResource, the 100,000 Genomes Project Pilot and the UK Genomic Medicine Service. Together these contributed 27 further probands with a rare variant in the 2 RNU4-2 regions, of whom 26 were affected and 1 was unaffected. Of the 26 affected probands, 19 had a de novo variant, 6 had unknown inheritance, and 1 inherited n.76C>T from an affected mother. This brought the total to 73 unrelated cases.	
+Greene et al. (2024)	reports	Greene et al. (2024) observed the RNU4-2 n.76C>T variant de novo in 4 families and inherited from an affected mother in 1 family. It was the only variant among the 74 pedigrees present in gnomAD (allele count 1 in 152,108). The authors suggested it may cause a less severe phenotype in some cases than other variants, particularly n.64_65insT. Variant n.76C>G was seen in 1 case without neurodevelopmental abnormality, further suggesting that some mutations at position 76 may have a limited or benign effect.	
+RNU4-2 n.76C>T	in_gene	RNU4-2	
+RNU4-2 n.76C>G	in_gene	RNU4-2	
+Greene et al. (2024)	reports	Greene et al. (2024) analyzed HPO terms for 46 RNU4-2 cases from the 100,000 Genomes Project coded with neurodevelopmental abnormality. Intellectual disability and neurodevelopmental delay were each present in 91% and motor delay in 61%. Compared with other cases coded with neurodevelopmental abnormality, several features were significantly overrepresented: microcephaly (57%), seizures (52%), generalized hypotonia (39%), proportionate short stature (28%), drooling (13%) and abnormality of the upper lip vermilion (13%).	
+Greene et al. (2024)	reports	Greene et al. (2024) found RNU4-2 cases in 46 of 9,112 (0.50%) 100,000 Genomes Project cases coded with neurodevelopmental abnormality, making it the most prevalent etiology for neurodevelopmental abnormality in that cohort. In the UK Genomic Medicine Service, RNU4-2 was the second most prevalent etiology (21 of 5,527 cases, 0.38%), after MECP2 (24 cases).	
+Greene et al. (2024)	reports	Greene et al. (2024) reported that one variant region of RNU4-2 maps to the U4-U6 quasi-pseudoknot interaction and the other maps to U4-U6 stem III. They predicted that the variants destabilize U4 snRNA interactions with U6 snRNA and with RNA-binding proteins. Noting the similar phenotype of WBP4 deficiency, they suggested that delayed U4-U6 unwinding may be the underlying etiological mechanism.	
+Greene et al. (2024)	reports	Greene et al. (2024) described a syndrome caused by de novo variants in 2 regions of RNU4-2, which encodes the U4 snRNA of the major spliceosome. The syndrome is characterized by intellectual disability, microcephaly, short stature, hypotonia, seizures and motor delay.	
+Schot et al. (2024)	reports	Schot et al. (2024) reported a 5-year-old girl with severe global developmental delay, hypotonia, microcephaly, and seizures, followed over 5 years; photographs showed facial features the authors considered recognizable for this novel disorder.	
+Schot et al. (2024)	reports	By mining 164 diagnostic WGS trios from individuals with neurodevelopmental or multiple congenital anomaly disorders, Schot et al. (2024) identified a recurrent de novo variant in the noncoding spliceosomal snRNA gene RNU4-2 (NR_003137.2:n.64_65insT) in the girl, whose earlier extensive genetic investigations had not identified an alternative cause. The authors concluded that the variant likely explained her phenotype.	
+Chen et al. (2024)	reports	Chen et al. (2024) identified the noncoding RNA gene RNU4-2, which encodes the U4 snRNA of the major spliceosome U4/U6.U5 tri-snRNP, as a gene for an autosomal dominant syndromic neurodevelopmental disorder. They found heterozygous variants in 115 individuals with NDD, all within an 18-bp region of RNU4-2 that maps to the T-loop and stem III of the U4/U6 duplex and is severely depleted of variation in the general population.	
+Chen et al. (2024)	reports	Chen et al. (2024) identified a highly recurrent single-base insertion in RNU4-2 (n.64_65insT; GRCh38 chr12:120291839:T:TA) in the Genomics England 100,000 Genomes Project. It arose de novo in 38 probands sequenced with both unaffected parents, and 8 more individuals had findings consistent with de novo occurrence. All 46 had undiagnosed NDD, which was 0.52% of 8,841 undiagnosed NDD probands. The variant was absent from 3,408 diagnosed NDD probands, 21,817 non-NDD probands, 33,122 unaffected individuals, gnomAD v4.0 and All of Us, and was seen in only 1 individual in UK Biobank. Across all cohorts, 89 of the 115 affected individuals (77.4%) carried this variant.	
+Chen et al. (2024)	reports	Chen et al. (2024) reported a second recurrent single-base insertion in RNU4-2, n.77_78insT (GRCh38 chr12:120291826:T:TA), in 6 individuals, including 2 affected sibs. In total, 6 different single-base insertions in the critical region were found in 100 individuals. Single-base insertions in this region were present in 54 of 8,841 undiagnosed GEL NDD probands, compared with 2 of 490,132 UK Biobank individuals (OR = 1,531).	
+Chen et al. (2024)	reports	Chen et al. (2024) identified 15 individuals with SNVs in the RNU4-2 critical region; 10 were confirmed de novo, and all had phenotypes consistent with those of individuals with insertions. The SNVs clustered at both ends of the 18-bp region. SNVs were modestly enriched in GEL NDD probands compared with UK Biobank (OR = 9.51). In 1 individual, the n.65A>G variant appeared to be mosaic in the mother, and in another the SNV n.76C>T was maternally inherited. SNVs at the center of the region (nucleotides 71-74) were also found in non-NDD individuals and population controls.	
+RNU4-2 n.78A>C	in_gene	RNU4-2	
+Chen et al. (2024)	reports	Chen et al. (2024) noted that other single-base insertions in RNU4-2 included n.68_69insA and n.64_65insG, each found in individuals described clinically in the study.	
+Chen et al. (2024)	reports	Chen et al. (2024) confirmed de novo occurrence with parental sequencing in 86 of 115 individuals. In all 54 individuals in whom the parental allele of origin could be resolved, the variant was on the maternal allele, in contrast to the usual paternal bias for de novo mutations. The authors suggested this could reflect negative selection in the male germline or imprinting. No maternal age effect was seen.	
+Chen et al. (2024)	reports	Chen et al. (2024) collected detailed phenotypes for 49 individuals (21 female, 28 male; median age 10 years, range 2-38). Of these, 42 had n.64_65insT, 3 had other insertions and 4 had SNVs. All had moderate to severe global developmental delay and intellectual disability. Most (83%) walked, but late (mean 3.4 years), some with a wide-based or ataxic gait. Most were nonverbal. Other common features were short stature (76%), microcephaly (77%, mostly congenital), hypotonia (87%), seizures (77%; median onset 3 years), abnormal brain MRI (91%), vision problems (79%), autism (48%), feeding difficulties and constipation.	
+Chen et al. (2024)	reports	Chen et al. (2024) reported that 45 of 48 individuals had dysmorphic facial features. These varied, but included a myopathic face with deep-set eyes, epicanthus, a wide nasal bridge, anteverted nares or underdeveloped alae nasi, large cupped ears, full cheeks, full lips with downturned corners, a high-arched palate and a large or protruding tongue.	
+Chen et al. (2024)	reports	Chen et al. (2024) reported that brain MRI showed abnormalities in most individuals, most often reduced white matter volume, hypoplasia of the corpus callosum, ventriculomegaly and delayed myelination. Many organ systems were involved, including skeletal (osteopenia, recurrent fractures, scoliosis, kyphosis, hip dysplasia), endocrine (hypothyroidism, growth hormone deficiency, pituitary abnormalities), visual (including cortical blindness), genitourinary, dental and cutaneous. Presentation did not differ significantly between males and females.	
+Chen et al. (2024)	reports	Chen et al. (2024) found that, compared with all other NDD probands in GEL, individuals with the n.64_65insT variant were significantly enriched for HPO terms for global developmental delay, delayed gross and fine motor development, microcephaly, hypotonia, short stature, drooling and absent speech.	
+Chen et al. (2024)	reports	Chen et al. (2024) found that children with SNVs had fewer reports of severe global developmental delay than those with single-base insertions (0 of 4 vs 34 of 40). Two of the 3 individuals with fluent speech had an SNV, and fewer organ systems were involved in those with SNVs. The authors suggested that SNVs may cause a milder phenotype, but noted that this needs confirmation in larger cohorts.	
+Chen et al. (2024)	reports	Chen et al. (2024) analyzed blood RNA-seq data from 5 individuals with RNU4-2 variants (3 with n.64_65insT, 1 with n.77_78insT and 1 with n.78A>C). Compared with controls, these individuals showed significantly more abnormal splicing events at unannotated 5-prime splice sites (mean 8.8 vs 0.7). Splicing events shared by 2 or more patients were not found in any of 378 controls. At sites with increased use, positions +3 to +5, which pair with the U6 ACAGAGA sequence, shifted away from consensus. The authors concluded that the variants disrupt accurate 5-prime splice-site recognition during spliceosome activation.	
+Chen et al. (2024)	reports	Chen et al. (2024) noted that the 18-bp critical region (nucleotides 62-79) is loaded into the active site of the BRR2 (SNRNP200) helicase. The n.64_65insT variant lies within a T-loop (quasi-pseudoknot), and n.77_78insT lies in the stem III region that pairs with U6. The authors proposed that single-base insertions destabilize the U4/U6 interaction and/or alter the positioning of the U6 ACAGAGA sequence that receives the 5-prime splice site.	
+Chen et al. (2024)	reports	Chen et al. (2024) found variants in the 18-bp RNU4-2 region in 60 of 8,841 (0.68%) genetically undiagnosed GEL NDD probands, compared with 39 of 490,132 (0.008%) UK Biobank individuals. Assuming a prior diagnostic yield of 40%, they estimated that RNU4-2 variants explain about 0.4% of all NDD. The rate was much lower in autism cohorts (3 of 7,149). The authors noted that the variant region is not captured by clinical exome sequencing.	
+Chen et al. (2024)	reports	Chen et al. (2024) found that exome sequencing has very low sensitivity for detecting the n.64_65insT variant. Of 22 individuals with the variant who also had DDD exome data, only 2 had any read at the position, and in both cases the read showed the reference sequence. The authors stated that any variant found this way requires independent confirmation.	
+Chen et al. (2024)	reports	Chen et al. (2024) found that RNU4-2 and RNU4-1 are adjacent on chromosome 12, are both 141 bp long and differ at 4 nucleotides. RNU4-2 was expressed at consistently higher levels than RNU4-1 across development in human prefrontal cortex (BrainVar). Prenatal cortex ATAC-seq showed much greater chromatin accessibility at RNU4-2, supporting RNU4-2 as the main U4 transcript in the brain. Variants in RNU4-1 were not enriched in NDD.	
+Chen et al. (2024)	reports	Chen et al. (2024) examined 28 other brain-expressed snRNA genes and found no other snRNA, or constrained subregion of one, significantly enriched for de novo or biallelic variants in undiagnosed NDD probands. RNU12 showed only nominal enrichment of biallelic variants.	
+ReNU SYNDROME	caused_by	RNU4-2	38821540,38859706,38991538
+ReNU SYNDROME	has_variant	RNU4-2 c.:n.64_65inst / c.nr_003137.2 / n.64_65inst	38821540,38859706,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.63T>G	38821540
+ReNU SYNDROME	has_variant	RNU4-2 n.64_65insg	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.65A>G	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.65_66inst	38821540
+ReNU SYNDROME	has_variant	RNU4-2 n.67A>G	38821540
+ReNU SYNDROME	has_variant	RNU4-2 n.68_69insa	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.76C>G	38821540
+ReNU SYNDROME	has_variant	RNU4-2 n.76C>T	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.77_78inst	38821540,38991538
+ReNU SYNDROME	has_variant	RNU4-2 n.78A>C	38991538
+ReNU SYNDROME	inheritance	Autosomal dominant	38821540,38859706,38991538
+ReNU SYNDROME	has_phenotype	Neurodevelopmental abnormality	38991538
+ReNU SYNDROME	has_phenotype	Global developmental delay	38859706,38991538
+ReNU SYNDROME	has_phenotype	Intellectual disability	38821540,38991538
+ReNU SYNDROME	has_phenotype	Short stature	38821540,38991538
+ReNU SYNDROME	has_phenotype	Microcephaly	38821540,38859706,38991538
+ReNU SYNDROME	has_phenotype	Intrauterine growth retardation	38991538
+ReNU SYNDROME	has_phenotype	Absent speech	38991538
+ReNU SYNDROME	has_phenotype	Delayed ability to walk	38991538
+ReNU SYNDROME	has_phenotype	Gait ataxia	38991538
+ReNU SYNDROME	has_phenotype	Hypotonia	38821540,38859706,38991538
+ReNU SYNDROME	has_phenotype	Seizure	38821540,38859706,38991538
+ReNU SYNDROME	has_phenotype	Infantile spasms	38991538
+ReNU SYNDROME	has_phenotype	Atypical behavior	38991538
+ReNU SYNDROME	has_phenotype	Autism	38991538
+ReNU SYNDROME	has_phenotype	Sleep disturbance	38991538
+ReNU SYNDROME	has_phenotype	Hearing impairment	38991538
+ReNU SYNDROME	has_phenotype	Optic nerve hypoplasia	38991538
+ReNU SYNDROME	has_phenotype	Strabismus	38991538
+ReNU SYNDROME	has_phenotype	Nystagmus	38991538
+ReNU SYNDROME	has_phenotype	Constipation	38991538
+ReNU SYNDROME	has_phenotype	Gastroesophageal reflux	38991538
+ReNU SYNDROME	has_phenotype	Feeding difficulties	38991538
+ReNU SYNDROME	has_phenotype	Gastrostomy tube feeding in infancy	38991538
+ReNU SYNDROME	has_phenotype	Abnormality of the cardiovascular system	38991538
+ReNU SYNDROME	has_phenotype	Abnormal facial shape	38859706,38991538
+ReNU SYNDROME	has_phenotype	Myopathic facies	38991538
+ReNU SYNDROME	has_phenotype	Deeply set eye	38991538
+ReNU SYNDROME	has_phenotype	Epicanthus	38991538
+ReNU SYNDROME	has_phenotype	Wide nasal bridge	38991538
+ReNU SYNDROME	has_phenotype	Anteverted nares	38991538
+ReNU SYNDROME	has_phenotype	Underdeveloped nasal alae	38991538
+ReNU SYNDROME	has_phenotype	Cupped ear	38991538
+ReNU SYNDROME	has_phenotype	Posteriorly rotated ears	38991538
+ReNU SYNDROME	has_phenotype	Full cheeks	38991538
+ReNU SYNDROME	has_phenotype	Thick vermilion border	38991538
+ReNU SYNDROME	has_phenotype	Downturned corners of mouth	38991538
+ReNU SYNDROME	has_phenotype	High palate	38991538
+ReNU SYNDROME	has_phenotype	Protruding tongue	38991538
+ReNU SYNDROME	has_phenotype	Abnormal brain morphology	38991538
+ReNU SYNDROME	has_phenotype	Reduced cerebral white matter volume	38991538
+ReNU SYNDROME	has_phenotype	Hypoplasia of the corpus callosum	38991538
+ReNU SYNDROME	has_phenotype	Ventriculomegaly	38991538
+ReNU SYNDROME	has_phenotype	Delayed CNS myelination	38991538
+ReNU SYNDROME	has_phenotype	Cerebral visual impairment	38991538
+ReNU SYNDROME	has_phenotype	Osteopenia	38991538
+ReNU SYNDROME	has_phenotype	Recurrent fractures	38991538
+ReNU SYNDROME	has_phenotype	Scoliosis	38991538
+ReNU SYNDROME	has_phenotype	Kyphosis	38991538
+ReNU SYNDROME	has_phenotype	Hip dysplasia	38991538
+ReNU SYNDROME	has_phenotype	Hypothyroidism	38991538
+ReNU SYNDROME	has_phenotype	Reduced circulating growth hormone concentration	38991538
+ReNU SYNDROME	has_phenotype	Delayed gross motor development	38991538
+ReNU SYNDROME	has_phenotype	Delayed fine motor development	38991538
+ReNU SYNDROME	has_phenotype	Drooling	38821540,38991538
+ReNU SYNDROME	has_phenotype	Neurodevelopmental delay	38821540
+ReNU SYNDROME	has_phenotype	Motor delay	38821540
+ReNU SYNDROME	has_phenotype	Proportionate short stature	38821540
+ReNU SYNDROME	has_phenotype	Generalized hypotonia	38821540
+ReNU SYNDROME	has_phenotype	Abnormality of upper lip vermillion	38821540
+Ventriculomegaly	is_a	Abnormal brain morphology	
+Infantile spasms	is_a	Seizure	
+Delayed ability to walk	is_a	Delayed gross motor development	
+Neurodevelopmental delay	is_a	Neurodevelopmental abnormality	
+Delayed gross motor development	is_a	Motor delay	
+Generalized hypotonia	is_a	Hypotonia	
+Proportionate short stature	is_a	Short stature	
+Gastrostomy tube feeding in infancy	is_a	Feeding difficulties	
+Delayed fine motor development	is_a	Motor delay	
+Intellectual disability	is_a	Neurodevelopmental abnormality	
+Motor delay	is_a	Neurodevelopmental delay	
+Microcephaly	is_a	Abnormal brain morphology	
+Autism	is_a	Atypical behavior	
+Global developmental delay	is_a	Neurodevelopmental delay	
+Hypoplasia of the corpus callosum	is_a	Abnormal brain morphology	
+Reduced cerebral white matter volume	is_a	Abnormal brain morphology	
+Absent speech	is_a	Neurodevelopmental delay	

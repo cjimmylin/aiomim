@@ -1,0 +1,21 @@
+subject	predicate	object	pmids
+Hu et al. (2019)	reports	Hu et al. (2019) performed whole exome and whole genome sequencing in 404 consanguineous, mostly Iranian families with 2 or more affected offspring with intellectual disability. They found likely causative variants in 219 families, involving 77 known and 77 novel autosomal recessive ID (candidate) genes, 21 X-linked genes, and 9 genes previously implicated in diseases other than ID.	
+Maddirevula et al. (2019)	reports	Maddirevula et al. (2019) described 2 families with global developmental delay and intellectual disability. Both families carried homozygous truncating variants in ABCA2, found through autozygome and exome analysis. The index patient (16DG0071) did not have obvious gross dysmorphism. The authors suggested that this phenotype is a distinct allelic disorder, different from the amyotrophic lateral sclerosis previously reported with ABCA2.	
+Maddirevula et al. (2019)	reports	In one of 2 families with global developmental delay and intellectual disability, Maddirevula et al. (2019) used autozygome and exome analysis to identify a homozygous frameshift variant in ABCA2, c.740dupT (p.Gly248Argfs*38; NM_212533.2). The variant fully segregated with the phenotype in the family.	
+ABCA2 c.740dupt / c.740dupt:p.[gly248argfs*38] / p.G248R	in_gene	ABCA2	
+Maddirevula et al. (2019)	reports	In the second family with global developmental delay and intellectual disability, Maddirevula et al. (2019) identified a homozygous nonsense variant in ABCA2, c.1027C>T (p.Gln343*; NM_212533.2). The variant fully segregated with the phenotype in the family.	
+ABCA2 c.1027C>T / p.Q343*	in_gene	ABCA2	
+Aslam and Naz (2019)	reports	Aslam and Naz (2019) reported 2 sibs from a consanguineous Pakistani family who had cerebellar ataxia with dysarthria. Brain MRI of the older sib was normal. Both affected individuals had elevated levels of low density lipoproteins in the blood.	
+Aslam and Naz (2019)	reports	Aslam and Naz (2019) used whole-exome sequencing in 2 sibs with ataxia and dysarthria from a consanguineous Pakistani family and identified a frameshift variant in the ABCA2 gene, c.4993delG (p.Val1665TyrfsTer36; NM_212533.2). Sanger sequencing showed that the variant segregated with the disorder. It was absent from all publicly available databases and from ethnically matched controls.	
+ABCA2 c.4993delg / c.4993delg:p. / p.V1665Y	in_gene	ABCA2	
+Aslam and Naz (2019)	reports	Aslam and Naz (2019) noted that recessive ABCA2 variants had previously been reported in patients with intellectual disability and global developmental delay. They concluded that their family showed a distinct ataxia-with-dysarthria phenotype, reflecting pleiotropic effects of ABCA2 mutation. They also stated that the phenotype closely matched that of Abca2 knockout mice.	
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	caused_by	ABCA2	30237576,31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_variant	ABCA2 c.1027C>T / p.Q343*	30237576
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_variant	ABCA2 c.4993delg / c.4993delg:p. / p.V1665Y	31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_variant	ABCA2 c.740dupt / c.740dupt:p.[gly248argfs*38] / p.G248R	30237576
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	inheritance	Autosomal recessive	30237576,31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_phenotype	Ataxia	31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_phenotype	Dysarthria	31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_phenotype	Elevated circulating LDL-C concentration	31047799
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_phenotype	Global developmental delay	30237576
+INTELLECTUAL DEVELOPMENTAL DISORDER WITH POOR GROWTH AND WITH OR WITHOUT SEIZURES OR ATAXIA	has_phenotype	Intellectual disability	30237576

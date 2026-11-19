@@ -1,0 +1,28 @@
+subject	predicate	object	pmids
+Galceran et al. (2004)	reports	Galceran et al. (2004) showed that in mice, a targeted mutation of Lef1 affected the patterning of somites and the expression of components of the Notch pathway. The mutation abrogated LEF1 function and impaired the activity of coexpressed TCF factors.	
+Galceran et al. (2004)	reports	Galceran et al. (2004) found that LEF1 bound multiple sites in the Dll1 promoter both in vitro and in vivo. Mutating these LEF1-binding sites impaired expression of a Dll1-LacZ transgene in the presomitic mesoderm. Induced expression of LEF1-beta-catenin activated endogenous Dll1 expression in fibroblastic cells. The authors concluded that Wnt signaling can affect the Notch pathway through LEF1-mediated regulation of Dll1.	
+Lévy et al. (2020)	reports	Lévy et al. (2020) reported 2 unrelated patients with severe oligodontia affecting both primary and permanent teeth, hypotrichosis and hypohidrosis, consistent with hypohidrotic ectodermal dysplasia. Both patients also had taurodontism and a particular alveolar bone defect.	
+Lévy et al. (2020)	reports	In 2 unrelated patients with hypohidrotic ectodermal dysplasia, Lévy et al. (2020) identified de novo deletions at chromosome 4q25 that included the LEF1 gene. The authors concluded that the findings provided further evidence that LEF1 haploinsufficiency causes ectodermal dysplasia. They noted that no pathogenic variants involving LEF1 had previously been reported in humans.	
+LEF1 4q25 de novo deletion encompassing LEF1	in_gene	LEF1	
+Lévy et al. (2020)	reports	Lévy et al. (2020) noted that, in mice, targeted inactivation of the Lef1 gene completely blocks the development of multiple ectodermal appendages.	
+Dufour et al. (2022)	reports	Dufour et al. (2022) concluded that monoallelic and biallelic variants in LEF1, which encodes a transcription factor acting downstream of the WNT-beta-catenin signaling pathway, cause a novel syndrome of limb malformations and ectodermal dysplasia.	
+Dufour et al. (2022)	reports	Dufour et al. (2022) reported 12 individuals with LEF1 variants: 11 from 4 unrelated families and 1 from a consanguineous family. The phenotypic spectrum included ectodermal dysplasia and various limb malformations, such as radial ray defects, polydactyly, or split hand/foot.	
+Dufour et al. (2022)	reports	Dufour et al. (2022) stated that, depending on the type and location of the LEF1 variant, this condition can be inherited in either an autosomal dominant or an autosomal recessive manner.	
+Dufour et al. (2022)	reports	Using high-throughput sequencing, Dufour et al. (2022) found monoallelic LEF1 variants in 11 affected individuals from 4 unrelated families. They also found a biallelic LEF1 variant in an affected individual from a consanguineous family. Earlier, LEF1 had been suspected as a candidate gene for ectodermal dysplasia in 2 individuals with 4q35 microdeletions.	
+Dufour et al. (2022)	reports	Functional studies by Dufour et al. (2022) used immunofluorescence, immunoblotting, pulldown assays, and RNA sequencing. The authors suggested 2 molecular mechanisms. Haploinsufficiency or loss of DNA binding was responsible for a mild to moderate phenotype, whereas loss of beta-catenin binding caused by biallelic variants was associated with a severe phenotype.	
+Dufour et al. (2022)	reports	Transcriptomic studies by Dufour et al. (2022) showed altered WNT signaling associated with the LEF1 variants.	
+Hassan et al. (2024)	reports	Hassan et al. (2024) reported a family with hypohidrotic ectodermal dysplasia, which they considered to expand the spectrum of LEF1-related disorders.	
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	inheritance	Autosomal dominant	32022899
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Hypohidrosis	32022899,39107921
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Ectodermal dysplasia	35583550
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Abnormality of limbs	35583550
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Aplasia/hypoplasia involving forearm bones	35583550
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Polydactyly	35583550
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Split hand	35583550
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Oligodontia	32022899
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Sparse hair	32022899
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Taurodontia	32022899
+ECTODERMAL DYSPLASIA 17 WITH OR WITHOUT LIMB MALFORMATIONS	has_phenotype	Abnormal alveolar ridge morphology	32022899
+Aplasia/hypoplasia involving forearm bones	is_a	Abnormality of limbs	
+Polydactyly	is_a	Abnormality of limbs	
+Split hand	is_a	Abnormality of limbs	

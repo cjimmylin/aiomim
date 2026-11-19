@@ -1,0 +1,50 @@
+subject	predicate	object	pmids
+Jordanova et al. (2003)	reports	Jordanova et al. (2003) screened 323 patients with CMT or related peripheral neuropathies for mutations in the NEFL gene and identified 6 disease-associated missense mutations and one 3-bp in-frame deletion clustered in functionally defined domains of the NEFL protein. They suggested that NEFL mutations should be considered in the molecular evaluation of patients with sporadic or dominantly inherited CMT.	
+Jordanova et al. (2003)	reports	Jordanova et al. (2003) found that patients with NEFL mutations had early onset and often a severe clinical phenotype, with moderately to severely slowed nerve conduction velocities on electrophysiologic examination.	
+Jordanova et al. (2003)	reports	Jordanova et al. (2003) reported the first nerve biopsy of a CMT patient with a de novo missense mutation in NEFL, which showed axonal pathology with axonal regeneration clusters and onion bulb formations.	
+NEFL de novo missense mutation in NEFL	in_gene	NEFL	
+Abe et al. (2009)	reports	Abe et al. (2009) screened the NEFL gene in 223 Japanese patients with CMT who were negative for mutations in other known CMT genes (PMP22, MPZ, GJB1, LITAF, EGR2, GDAP1, MTMR2 and PRX in the demyelinating form; MFN2, MPZ, GJB1, HSP27, HSP22 and GARS in the axonal form). They found 4 heterozygous NEFL missense mutations (pro8 to leu, glu90 to lys, asn98 to ser, and glu396 to lys) in 5 unrelated patients.	
+NEFL p.P8L	in_gene	NEFL	
+NEFL p.E90K	in_gene	NEFL	
+NEFL p.N98S	in_gene	NEFL	
+NEFL p.E396K	in_gene	NEFL	
+Abe et al. (2009)	reports	In 1 Japanese patient with CMT, Abe et al. (2009) identified a homozygous nonsense mutation in the NEFL gene (glu140 to ter; E140X). They described this as the first report of a homozygous nonsense NEFL mutation.	
+NEFL p.E140*	in_gene	NEFL	
+Abe et al. (2009)	reports	Abe et al. (2009) reported that all 6 patients with NEFL mutations had mildly to moderately slowed nerve conduction velocities. They suggested that the slowing might be caused by a loss of large-diameter fibers.	
+Abe et al. (2009)	reports	Abe et al. (2009) concluded that nonsense NEFL mutations probably cause a recessive phenotype, whereas missense mutations cause a dominant phenotype.	
+Yum et al. (2009)	reports	Yum et al. (2009) described 4 of 5 children of consanguineous Palestinian parents (first cousins) with a severe, progressive neuropathy. Onset was at about 1.5 years. All 4 had hypotonia in infancy and early childhood, mildly delayed motor milestones, slowly progressive distal atrophy and weakness of the feet and hands, and bilateral pes cavus. They also had moderate glove-and-stocking sensory impairment and absent ankle jerks. The oldest sib (23 years) used a walker and had proximal leg weakness and a waddling gait; the others walked with ankle-foot orthoses. CMT neuropathy scores were 16 to 27. None had enlarged nerves, pathologic reflexes, cranial neuropathies, or clinically evident hearing loss.	
+Yum et al. (2009)	reports	Yum et al. (2009) found that in the affected sibs, sensory responses were absent or nearly so. Median and ulnar motor conduction velocities were severely slowed (12 to 25 m/s), and amplitudes became progressively smaller with age. Peroneal and tibial responses eventually became unobtainable, and EMG showed severe distal denervation. Visual evoked responses were prolonged in 3 of 4 affected children, indicating subclinical CNS axonal involvement; brain MRI was normal in the 3 who were tested.	
+Yum et al. (2009)	reports	In the 4 affected sibs, Yum et al. (2009) found a homozygous c.628G>T transversion in the NEFL gene, which predicts a glu210-to-ter (E210X) substitution. Both parents were heterozygous carriers and the unaffected sib did not carry the mutation. The mutation was absent from more than 11,000 individuals analyzed at Athena Diagnostics. Sequencing of PMP22, GJB1, MPZ, EGR2, PRX, LMNA, GDAP1 and MFN2 found no other mutations. The authors stated that this was the first reported recessive NEFL mutation.	
+NEFL c.628G>T / p.E210*	in_gene	NEFL	
+Yum et al. (2009)	reports	Yum et al. (2009) examined a sural nerve biopsy from the index patient at age 16 years. Myelinated axon density was markedly reduced (1,300/mm vs about 6,000/mm in controls), and all myelinated axons were smaller than 3 microns and often irregular in shape. There were occasional regenerating clusters but no actively degenerating axons. Myelinated axons contained microtubules but no intermediate filaments. The axons were immunoreactive with an N-terminal NFL antiserum but not a C-terminal one, consistent with the presence of the truncated protein; NFM, NFH, peripherin and alpha-internexin were also detected.	
+Yum et al. (2009)	reports	In SW-13 vim- cells, Yum et al. (2009) found that the E210X mutant NFL did not form filaments, appeared diffuse and mostly nuclear, and accumulated poorly (a ~30-kDa band). It did not interfere with filament formation by coexpressed wildtype NFL or with the vimentin network, unlike the dominant Q333P mutant. The authors concluded that E210X causes a simple loss of function.	
+Yum et al. (2009)	reports	Yum et al. (2009) noted that the conduction velocities (about 20 m/s) fell in the demyelinating range. Because NEFL is not prominently expressed by myelinating Schwann cells, they concluded that the absence of large myelinated axons, which lack neurofilaments and fail to reach normal caliber, is the likely explanation for the slowed conduction. They suggested that neurofilaments are required to maintain myelinated PNS axons.	
+Yum et al. (2009)	reports	Yum et al. (2009) proposed the term 'severe, early-onset axonal neuropathy' (SEOAN) for the disorder in their patients. They noted resemblance to Dejerine-Sottas neuropathy but with faster conduction and distinct biopsy findings, and suggested the patients would be designated CMT2B5 under the OMIM scheme for recessive axonal neuropathies.	
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	caused_by	NEFL	12566280,19158810,20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL c.628G>T / p.E210*	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL p.E140*	19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL p.E396K	19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL p.E90K	19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL p.N98S	19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL p.P8L	19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_variant	NEFL de novo missense mutation in NEFL	12566280
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	inheritance	Autosomal recessive	19158810,20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	inheritance	Autosomal dominant	12566280,19158810
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Floppy infant	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Delayed gross motor development	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Distal muscle weakness	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Pes cavus	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Distal sensory impairment	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Absent Achilles reflex	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Waddling gait	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Specific learning disability	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Decreased motor nerve conduction velocity	12566280,19158810,20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Decreased amplitude of sensory action potentials	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Decreased compound muscle action potential amplitude	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Abnormality of visual evoked potentials	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	EMG: neuropathic changes	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Decreased number of peripheral myelinated nerve fibers	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Abnormal peripheral nerve morphology by anatomical site	20039262
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Peripheral neuropathy	12566280
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Axonal regeneration	12566280
+CHARCOT-MARIE-TOOTH DISEASE, DEMYELINATING, TYPE 1F	has_phenotype	Onion bulb formation	12566280

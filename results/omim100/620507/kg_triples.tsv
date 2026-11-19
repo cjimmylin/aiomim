@@ -1,0 +1,16 @@
+subject	predicate	object	pmids
+Gong et al. (2023)	reports	Gong et al. (2023) described a previously undescribed autosomal dominant cornification disorder in 1 familial case and 2 sporadic cases. The disorder was characterized by early-onset ichthyosiform erythroderma or erythrokeratoderma. Patients' skin showed a thickened, dense stratum corneum, which the authors took as a sign of abnormal desquamation.	
+Gong et al. (2023)	reports	Whole-exome sequencing in 3 families (1 familial case and 2 sporadic cases) was used by Gong et al. (2023) to find 2 heterozygous variants affecting Gly50 in KLK11. These variants lie around the signal peptide cleavage site. One of them was c.149G>A (p.Gly50Glu). In overexpression systems, the variants disrupted signal peptide cleavage of KLK11. The Gly50Glu variant caused subcellular mislocalization and reduced extracellular secretion.	
+KLK11 c.149G>A / p.G50E	in_gene	KLK11	
+Gong et al. (2023)	reports	Gong et al. (2023) found significantly lower trypsin-like and chymotrypsin-like proteolytic activity in patients' stratum corneum. They also found reduced proteolysis of desmoglein-1 and delayed breakdown of corneodesmosomes, which pointed to delayed skin desquamation.	
+Gong et al. (2023)	reports	Gong et al. (2023) made mice homozygous for the Klk11 variant c.131G>A (p.Gly44Glu), the equivalent of human KLK11 p.Gly50Glu. These mice had hyperkeratosis and abnormal desquamation, partly reproducing the human phenotype.	
+KLK11 c.131G>A / p.G44E	in_gene	KLK11	
+Takeichi et al. (2023)	reports	Takeichi et al. (2023) reported KLK11 ichthyosis with large hyperkeratotic pigmented plaques on the trunk. They described it as a distinct autosomal dominant disorder of cornification.	
+ICHTHYOSIS WITH ERYTHROKERATODERMA	caused_by	KLK11	36689511
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_variant	KLK11 c.149G>A / p.G50E	36689511
+ICHTHYOSIS WITH ERYTHROKERATODERMA	inheritance	Autosomal dominant	36689511,37212630
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_phenotype	Ichthyosis	37212630
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_phenotype	Skin plaque	37212630
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_phenotype	Hyperpigmentation of the skin	37212630
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_phenotype	Erythroderma	36689511
+ICHTHYOSIS WITH ERYTHROKERATODERMA	has_phenotype	Hyperkeratosis	36689511

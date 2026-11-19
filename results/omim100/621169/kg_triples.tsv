@@ -1,0 +1,21 @@
+subject	predicate	object	pmids
+Winter et al. (1997)	reports	In affected members of a family with monilethrix, Winter et al. (1997) identified a mutation in the type II hair keratin hHb1 that changes glutamic acid-403 to lysine (Glu403Lys). This residue sits in the helix termination motif and corresponds to Glu410 of hHb6. The authors suggested that this site is a mutational hotspot in these closely related type II hair keratins.	
+HHB1 p.E403K	in_gene	HHB1	
+Winter et al. (1997)	reports	Winter et al. (1997) found the common hHb6 Glu410Lys mutation in affected members of a second, unrelated monilethrix family and in one isolated patient.	
+HHB6 p.E410K	in_gene	HHB6	
+Winter et al. (1997)	reports	Winter et al. (1997) described monilethrix as a rare dominant hair disorder. The hair is beaded (moniliform) because the hair shaft thins at regular intervals, and it is highly prone to excess weathering and breakage.	
+Winter et al. (1997)	reports	Winter et al. (1997) noted that hHb1 and hHb6 are largely expressed together in the cortical trichocytes of the hair shaft. They concluded that monilethrix is a disease of the hair cortex.	
+Winter et al. (1998)	reports	Winter et al. (1998) described a French family with monilethrix that showed a particularly variable phenotype. One infant had pronounced dystrophic alopecia, follicular keratosis, and clear-cut moniliform hair. A second infant had no hair loss, and the moniliform hair was detectable only by electron microscopy. An adult family member had no symptoms detectable clinically or by electron microscopy but had clear historical proof of the disease.	
+Winter et al. (1998)	reports	In a French family with monilethrix, Winter et al. (1998) identified a glu402-to-lys (E402K) mutation in the type II hair keratin hHb1 (KRT81). The mutation affects another highly conserved glutamic acid residue (Glu106 of the 2B subdomain) in the EIATYRRLLEGEE helix termination motif. Before this report, pathogenic mutations in hHb6 and hHb1 had been limited to Glu413.	
+HHB1 p.E402K	in_gene	HHB1	
+MONILETHRIX 2	caused_by	HHB1	9402962,9665406
+MONILETHRIX 2	has_variant	HHB1 p.E402K	9665406
+MONILETHRIX 2	has_variant	HHB1 p.E403K	9402962
+MONILETHRIX 2	caused_by	HHB6	9402962
+MONILETHRIX 2	has_variant	HHB6 p.E410K	9402962
+MONILETHRIX 2	inheritance	Autosomal dominant	9402962,9665406
+MONILETHRIX 2	has_phenotype	Alopecia	9665406
+MONILETHRIX 2	has_phenotype	Follicular hyperkeratosis	9665406
+MONILETHRIX 2	has_phenotype	Monilethrix	9402962,9665406
+MONILETHRIX 2	has_phenotype	Variable expressivity	9665406
+MONILETHRIX 2	has_phenotype	Brittle hair	9402962

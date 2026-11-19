@@ -1,0 +1,42 @@
+subject	predicate	object	pmids
+Tavormina et al. (1999)	reports	Tavormina et al. (1999) described 4 unrelated individuals with a skeletal dysplasia nearly as severe as thanatophoric dysplasia type I. Three of the 4 developed extensive acanthosis nigricans starting in early childhood and had severe neurologic impairment. All of them survived past infancy without prolonged life support.	
+Tavormina et al. (1999)	reports	Tavormina et al. (1999) named the phenotype caused by the FGFR3 Lys650Met mutation 'severe achondroplasia with developmental delay and acanthosis nigricans' (SADDAN). They chose a separate name because the phenotype differs significantly from those of other known FGFR3 mutations.	
+Tavormina et al. (1999)	reports	Tavormina et al. (1999) found the same FGFR3 missense mutation, A1949T (Lys650Met), in all 4 unrelated individuals with SADDAN. The change is at the nucleotide next to the thanatophoric dysplasia type II mutation (A1948G; Lys650Glu). It produces a different amino acid substitution at a highly conserved codon in the activation loop of the kinase domain.	
+FGFR3 c.1949A>T / p.A1949T / p.K650M	in_gene	FGFR3	
+Tavormina et al. (1999)	reports	In transient transfection studies by Tavormina et al. (1999), the FGFR3 Lys650Met mutation caused a dramatic increase in constitutive receptor kinase activity. The activity was about 3 times higher than with the thanatophoric dysplasia type II mutation Lys650Glu.	
+Bellus et al. (1999)	reports	Bellus et al. (1999) gave a detailed clinical account of the SADDAN phenotype. The FGFR3 Lys650Met mutation caused severe disturbances of endochondral bone growth that approached and overlapped those seen in thanatophoric dysplasia type I, but was most often compatible with survival into adulthood. Some patients had unusual bone deformities such as femoral bowing with reverse (posterior apex) tibial and fibular bowing and 'ram's horn' bowing of the clavicle. Surviving patients had progressive acanthosis nigricans, structural anomalies of the central nervous system, seizures, and severe developmental delay.	
+Bellus et al. (1999)	reports	Bellus et al. (1999) noted that although the Lys650Met mutation lies in the same FGFR3 codon as the thanatophoric dysplasia type II mutation (Lys650Glu) and has a similar effect on constitutive activation of the FGFR3 tyrosine kinase, it is not associated with cloverleaf skull or craniosynostosis.	
+FGFR3 p.K650E	in_gene	FGFR3	
+Bellus et al. (1999)	reports	Bellus et al. (1999) noted that they had previously identified a novel missense mutation, Lys650Met, in the tyrosine kinase domain of FGFR3 in 4 unrelated individuals with the condition they called SADDAN.	
+Iwata et al. (2001)	reports	To determine whether the FGFR3 K650M mutation causes the SADDAN phenotype, Iwata et al. (2001) introduced the corresponding point mutation (K644M) into the mouse Fgfr3 gene. Heterozygous mutant mice had a phenotype similar to human SADDAN, and most survived the perinatal period. The authors suggested that the survival of SADDAN patients is indeed due to the K650M mutation. Long bone abnormalities in the SADDAN mice were milder than in the TDII mouse model, and the rib cartilage, trachea and nasal septum showed overgrowth of cartilaginous tissue.	
+FGFR3 p.K644M	in_gene	FGFR3	
+Iwata et al. (2001)	reports	Iwata et al. (2001) noted that FGFR3 carrying the SADDAN mutation (K650M) is more activated in vitro than FGFR3 carrying the TDII mutation (K650E), yet TDII is lethal at birth while most SADDAN patients survive. In primary chondrocyte cultures, a low concentration of FGF ligand activated MAP kinase differently in cells from wildtype and SADDAN mice.	
+Zankl et al. (2008)	reports	Zankl et al. (2008) described the prenatal and postnatal features of a patient with SADDAN. The case confirmed the severe morbidity of SADDAN and added to the reports of early mortality associated with the disorder. The authors also reviewed the clinical and radiologic characteristics of all reported cases of SADDAN.	
+Zankl et al. (2008)	reports	In a patient with SADDAN, Zankl et al. (2008) confirmed the clinical diagnosis by identifying the FGFR3 Lys650Met mutation through mutation analysis. They noted this was one of only six SADDAN cases with molecular analysis reported in the literature.	
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	caused_by	FGFR3	10053006,10377013,18076102
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_variant	FGFR3 c.1949A>T / p.A1949T / p.K650M	10053006,10377013,11406607,18076102
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_variant	FGFR3 p.K650E	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	inheritance	Autosomal dominant	11406607
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormal long bone morphology	11406607
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormal cartilage morphology	11406607
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Skeletal dysplasia	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Bowing of the legs	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Tibial bowing	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormal clavicle morphology	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Acanthosis nigricans	10053006,10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormal brain morphology	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Seizure	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Severe global developmental delay	10377013
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Abnormality of the skeletal system	10053006
+ACHONDROPLASIA, SEVERE, WITH DEVELOPMENTAL DELAY AND ACANTHOSIS NIGRICANS	has_phenotype	Neurodevelopmental delay	10053006
+Bowing of the legs	is_a	Abnormal long bone morphology	
+Bowing of the legs	is_a	Abnormality of the skeletal system	
+Abnormal long bone morphology	is_a	Abnormality of the skeletal system	
+Abnormal cartilage morphology	is_a	Abnormality of the skeletal system	
+Tibial bowing	is_a	Bowing of the legs	
+Tibial bowing	is_a	Abnormality of the skeletal system	
+Skeletal dysplasia	is_a	Abnormality of the skeletal system	
+Craniosynostosis	is_a	Abnormality of the skeletal system	
+Abnormal clavicle morphology	is_a	Abnormality of the skeletal system	
+Severe global developmental delay	is_a	Neurodevelopmental delay	
+Cloverleaf skull	is_a	Abnormality of the skeletal system	

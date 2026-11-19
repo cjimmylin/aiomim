@@ -1,0 +1,36 @@
+subject	predicate	object	pmids
+Sabry et al. (1997)	reports	Sabry et al. (1997) described 3 Bedouin sibs with congenital dyserythropoietic anemia type I who also had dysmorphic features. These included growth retardation/short stature, congenital ptosis, abnormal tarsal bones, metatarsal duplication/hypoplasia, nail and phalangeal hypoplasia of fingers and toes, Madelung deformity, syndactyly of toes, and hallux valgus. The phenotype varied among the sibs.	
+Sabry et al. (1997)	reports	Sabry et al. (1997) found a very low mitotic index in peripheral blood lymphocyte cultures from the 3 affected sibs. They suggested that a low mitotic index and congenital ptosis could be part of the syndrome.	
+Sabry et al. (1997)	reports	Sabry et al. (1997) concluded that their report confirmed an association between a subset of congenital dyserythropoietic anemia type I and a specific form of distal limb anomalies. This suggested a distinct entity.	
+Ahmed et al. (2006)	reports	Ahmed et al. (2006) reported evidence of genetic heterogeneity in congenital dyserythropoietic anemia type I.	
+Ahmed et al. (2006)	reports	Ahmed et al. (2006) performed linkage and mutation analysis of the CDAN1 gene in congenital dyserythropoietic anemia type I and found genetic heterogeneity.	
+Babbs et al. (2013)	reports	In a consanguineous family of Middle Eastern origin with congenital dyserythropoietic anemia type I, Babbs et al. (2013) used whole genome sequencing and segregation analysis to identify a homozygous c.533T>A transversion in the C15ORF41 gene, which was predicted to result in a p.L178Q substitution. No likely pathogenic CDAN1 mutation had been found in this family.	
+CDIN1 c.533T>A / p.L178Q	in_gene	CDIN1	
+Babbs et al. (2013)	reports	By sequencing C15ORF41 in other congenital dyserythropoietic anemia type I families without CDAN1 mutations, Babbs et al. (2013) found a homozygous c.281A>G transition, predicted to result in a p.Y94C substitution, in 2 more families of Southeast Asian origin.	
+CDIN1 c.281A>G / p.Y94C	in_gene	CDIN1	
+Babbs et al. (2013)	reports	Babbs et al. (2013) reported that the haplotype around the c.281A>G mutation in C15ORF41 suggested a founder effect for this mutation in Pakistan.	
+Babbs et al. (2013)	reports	Babbs et al. (2013) noted that CDAN1 mutations underlie most cases of congenital dyserythropoietic anemia type I. However, no likely pathogenic CDAN1 mutation is found in about 20% of cases, which suggested that at least one other locus exists.	
+Babbs et al. (2013)	reports	Using detailed sequence similarity searches, Babbs et al. (2013) predicted that C15ORF41 encodes a novel restriction endonuclease belonging to the Holliday junction resolvase protein family.	
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	caused_by	CDIN1	23716552
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_variant	CDIN1 c.281A>G / p.Y94C	23716552
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_variant	CDIN1 c.533T>A / p.L178Q	23716552
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	inheritance	Autosomal recessive	23716552
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Macrocytic dyserythropoietic anemia	23716552
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Congenital hypoplastic anemia	16643456,16754775,9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Short stature	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Ptosis	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormality of the tarsal bones	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormal metatarsal morphology	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Nail dysplasia	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Short phalanx of finger	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Madelung deformity	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Toe syndactyly	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Hallux valgus	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormal lymphocyte morphology	9220189
+ANEMIA, CONGENITAL DYSERYTHROPOIETIC, TYPE Ib	has_phenotype	Abnormality of limbs	9220189
+Abnormality of the tarsal bones	is_a	Abnormality of limbs	
+Short phalanx of finger	is_a	Abnormality of limbs	
+Madelung deformity	is_a	Abnormality of limbs	
+Hallux valgus	is_a	Abnormality of limbs	
+Toe syndactyly	is_a	Abnormality of limbs	
+Abnormal metatarsal morphology	is_a	Abnormality of limbs	

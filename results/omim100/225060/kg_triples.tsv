@@ -1,0 +1,76 @@
+subject	predicate	object	pmids
+Zlotogora et al. (1987)	reports	Zlotogora et al. (1987) reported 2 sibs with a syndrome of cleft lip and palate, sparse scalp hair, malformed protruding ears, and partial syndactyly of the fingers and toes. The older child also had mental retardation and pili torti.	
+Zlotogora et al. (1987)	reports	Zlotogora et al. (1987) concluded that the syndrome in 2 affected sibs was most probably inherited as an autosomal recessive disorder.	
+Oğur and Yüksel (1988)	reports	Oğur and Yüksel (1988) reported 2 Turkish brothers, born to parents who were second cousins, with tetramelic syndactyly, ectodermal dysplasia, cleft lip and palate, renal anomalies, and mental retardation.	
+Oğur and Yüksel (1988)	reports	Oğur and Yüksel (1988) reported 2 affected brothers born to second-cousin parents. They compared these sibs with previously reported cases and discussed the mode of transmission.	
+Zlotogora and Ogur (1988)	reports	Zlotogora and Ogur (1988) reported syndactyly together with ectodermal dysplasia and cleft lip and palate.	
+Rodini and Richieri-Costa (1990)	reports	Rodini and Richieri-Costa (1990) reported 3 Brazilian brothers, born to normal consanguineous parents (F = 1/16), who had ectodermal dysplasia, cleft lip/palate, mental retardation, syndactyly of fingers 2-3, accessory nipples, and ear anomalies. The authors discussed the similarities of these brothers to previously reported cases of Zlotogora-Ogur syndrome.	
+Rodini and Richieri-Costa (1990)	reports	The occurrence of the disorder in 3 brothers born to normal consanguineous parents (F = 1/16) was considered by Rodini and Richieri-Costa (1990) in discussing an autosomal recessive pattern of inheritance for Zlotogora-Ogur syndrome.	
+Bustos et al. (1991)	reports	Bustos et al. (1991) described 27 individuals from 7 families who were probably related to each other. All had ectodermal dysplasia along with other anomalies. Females were affected as severely as males, and expressivity varied. The families came from a relatively isolated, inbred population on Margarita Island (Nueva Esparta State) in northeastern Venezuela. The authors concluded that the clinical picture did not fit any known ectodermal dysplasia.	
+Bustos et al. (1991)	reports	Bustos et al. (1991) found that all parents of affected individuals were normal and that both sexes were equally affected in an inbred population. They concluded that the condition was a newly recognized autosomal recessive dysplasia/malformation syndrome.	
+Zlotogora (1994)	reports	Zlotogora (1994) reported on the association of syndactyly, ectodermal dysplasia, and cleft lip/palate.	
+Suzuki et al. (1998)	reports	Suzuki et al. (1998) described Margarita Island ectodermal dysplasia (ED4) as an autosomal recessive disorder. Its features are unusual facies, dental anomalies, hypotrichosis, palmoplantar hyperkeratosis, onychodysplasia, syndactyly, and cleft lip/cleft palate.	
+Suzuki et al. (1998)	reports	Suzuki et al. (1998) used an affected-only DNA-pooling strategy for linkage disequilibrium mapping and placed the ED4 gene at 11q23. Haplotype analysis of 4 complex Margarita Island ED4 families narrowed the gene to an interval of about 1 to 2 Mb, spanned by just 2 YACs.	
+Suzuki et al. (2000)	reports	By positional cloning, Suzuki et al. (2000) identified PVRL1, which encodes nectin-1, an immunoglobulin-related transmembrane cell-cell adhesion molecule of the NAP cell adhesion system, as the gene responsible for autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome (CLPED1; previously ED4).	
+Suzuki et al. (2000)	reports	Suzuki et al. (2000) noted a high frequency of CLPED1 on Margarita Island in the Caribbean Sea and suggested that it might result from resistance of heterozygotes to infection by alpha-herpesviruses, since nectin-1 is the principal cell surface receptor for these viruses (HveC).	
+Suzuki et al. (2000)	reports	Suzuki et al. (2000) designated the autosomal recessive cleft lip/palate-ectodermal dysplasia syndrome CLPED1, previously known as ED4.	
+Sözen et al. (2001)	reports	Sözen et al. (2001) found a highly significant association between heterozygosity for the PVRL1 nonsense mutation W185X and sporadic, non-syndromic cleft lip with or without cleft palate (CL/P) in northern Venezuela. Homozygosity for the same mutation causes the autosomal recessive CL/P syndrome CLPED1 on Margarita Island.	
+NECTIN1 p.W185*	in_gene	NECTIN1	
+Yoshida et al. (2015)	reports	Yoshida et al. (2015) reported a 7-year-old Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome. He was the first child of a consanguineous marriage. He had hypohidrotic ectodermal dysplasia with sparse, brittle, fine, dry hair and hypodontia, along with a distinctive facial appearance with cleft lip/palate, cutaneous syndactyly of the fingers, and mild mental retardation. Scanning electron microscopy of the hair showed pili torti and pili trianguli et canaliculi.	
+Yoshida et al. (2015)	reports	Yoshida et al. (2015) analyzed exon 2 of the PVRL1 gene in the Japanese boy with cleft lip/palate-ectodermal dysplasia syndrome and found a novel homozygous nonsense mutation, c.400C>T (p.Arg134*). Both of his consanguineous parents were heterozygous for the mutation. The authors noted that all 4 PVRL1 mutations reported in this syndrome so far, including this one, produce truncated proteins that lack the transmembrane and intracellular domains of nectin-1. These domains are needed to start the cell-cell adhesion process.	
+NECTIN1 c.400C>T / p.R134*	in_gene	NECTIN1	
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	caused_by	NECTIN1	11559849,25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_variant	NECTIN1 c.400C>T / p.R134*	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_variant	NECTIN1 p.W185*	11559849
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	inheritance	Autosomal recessive	10932188,1776626,2167611,25913853,3035184,9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Hypohidrosis	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Sparse scalp hair	25913853,3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Brittle scalp hair	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Dry hair	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Hypodontia	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Cleft upper lip	25913853,2832607
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Cleft palate	25913853,2832607,9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Finger syndactyly	25913853,3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Mild intellectual disability	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Pili torti	25913853,3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Pili canaliculi	25913853
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Cleft lip	10932188,11559849,2845087,7891379,9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the integument	10932188,7891379
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormal facial shape	9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the dentition	9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Sparse hair	9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Palmoplantar hyperkeratosis	9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Nail dysplasia	9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Syndactyly	2832607,2845087,7891379,9758630
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Orofacial cleft	2167611,3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Protruding ear	3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Toe syndactyly	3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Intellectual disability	2167611,2832607,3035184
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the skin	1776626,2832607,2845087
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the kidney	2832607
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Ectodermal dysplasia	2167611
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	2-3 finger cutaneous syndactyly	2167611
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Supernumerary nipple	2167611
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Abnormality of the ear	2167611
+CLEFT LIP/PALATE-ECTODERMAL DYSPLASIA SYNDROME	has_phenotype	Variable expressivity	1776626
+Hypodontia	is_a	Abnormality of the dentition	
+Protruding ear	is_a	Abnormality of the ear	
+Abnormality of the skin	is_a	Abnormality of the integument	
+Sparse scalp hair	is_a	Sparse hair	
+Sparse scalp hair	is_a	Abnormality of the integument	
+Pili torti	is_a	Abnormality of the integument	
+Cleft palate	is_a	Orofacial cleft	
+Toe syndactyly	is_a	Syndactyly	
+Palmoplantar hyperkeratosis	is_a	Abnormality of the skin	
+Hypohidrosis	is_a	Abnormality of the integument	
+Nail dysplasia	is_a	Abnormality of the integument	
+Ectodermal dysplasia	is_a	Abnormality of the skin	
+Sparse hair	is_a	Abnormality of the integument	
+Dry hair	is_a	Abnormality of the integument	
+2-3 finger cutaneous syndactyly	is_a	Finger syndactyly	
+2-3 finger cutaneous syndactyly	is_a	Syndactyly	
+Brittle scalp hair	is_a	Abnormality of the integument	
+Pili canaliculi	is_a	Abnormality of the integument	
+Finger syndactyly	is_a	Syndactyly	
+Cleft upper lip	is_a	Cleft lip	
+Mild intellectual disability	is_a	Intellectual disability	

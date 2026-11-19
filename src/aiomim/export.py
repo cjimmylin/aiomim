@@ -18,9 +18,14 @@ def _redact(evaluation: dict) -> dict:
     """Drop OMIM-authored wording from an evaluation; keep every score and fact verdict count."""
     for para in (evaluation.get("gold_text") or {}).get("paragraphs", []):
         para.pop("reference", None)
+        para.pop("draft", None)  # the draft's own text is in entry.<strategy>.json
         # The judged facts restate the reference sentence by sentence; keep only their verdicts.
         para["facts"] = [{"status": f.get("status")} for f in para.get("facts", [])]
     return evaluation
+
+
+def _compact(data) -> str:
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 
 
 def export_run(run_dir: Path, out: str | Path) -> int:
@@ -38,11 +43,15 @@ def export_run(run_dir: Path, out: str | Path) -> int:
         target = out / entry_dir.name
         target.mkdir(exist_ok=True)
         for name in COPY:
-            if (entry_dir / name).exists():
+            if not (entry_dir / name).exists():
+                continue
+            if name.endswith(".json"):
+                # Compact JSON: these are data files, and a hundred entries add up.
+                (target / name).write_text(_compact(json.loads((entry_dir / name).read_text())))
+            else:
                 shutil.copyfile(entry_dir / name, target / name)
         for eval_path in entry_dir.glob("eval.*.json"):
-            evaluation = _redact(json.loads(eval_path.read_text()))
-            (target / eval_path.name).write_text(json.dumps(evaluation, indent=2, ensure_ascii=False))
+            (target / eval_path.name).write_text(_compact(_redact(json.loads(eval_path.read_text()))))
         seed = json.loads((entry_dir / "seed.json").read_text()) if (entry_dir / "seed.json").exists() else {}
         rows.append((entry_dir.name, seed.get("title", "")))
 

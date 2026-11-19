@@ -1,0 +1,31 @@
+subject	predicate	object	pmids
+Sahn et al. (1992)	reports	Sahn et al. (1992) described a 30-year-old white woman whose bullous and ichthyosiform skin lesions began at age 8 months. The blistering stopped at puberty, but the hyperkeratotic plaques remained. At age 27 years she developed many annular and polycyclic, erythematous, hyperkeratotic plaques on the trunk and extremities. These plaques itched, grew slowly and then resolved.	
+Sahn et al. (1992)	reports	Sahn et al. (1992) reported that the affected woman had five children, two of whom had a bullous type of ichthyosis. This is consistent with vertical transmission in the kindred.	
+Sahn et al. (1992)	reports	Sahn et al. (1992) found epidermolytic hyperkeratosis on histopathologic examination of the annular plaques. Electron microscopy showed interrupted perinuclear tonofilament rings, which the authors considered consistent with either bullous ichthyotic erythroderma of Brocq or ichthyosis bullosa of Siemens. They suggested that the kindred might represent a new phenotype of epidermolytic (acanthokeratolytic) ichthyosis.	
+Joh et al. (1997)	reports	Joh et al. (1997) reported a family with annular epidermolytic ichthyosis in which two generations were affected. The proband had bullous ichthyosis with episodes of disease activity, during which many annular and polycyclic erythematous, hyperkeratotic plaques appeared on the trunk and proximal extremities. Histology showed the typical pathology of epidermolytic hyperkeratosis. On ultrastructural analysis, keratin filament networks were abnormal and tonofilaments formed clumps around the nucleus.	
+Joh et al. (1997)	reports	In the affected members of a family with annular epidermolytic ichthyosis, Joh et al. (1997) found a new 2-bp mutation in the KRT10 gene: a tandem CG-to-GA change on a single allele. This change replaces arginine with glutamate at residue 83 (R83E) of the 2B helical segment. Based on this finding, the authors concluded that annular epidermolytic ichthyosis should be considered a variant of bullous congenital ichthyosiform erythroderma.	
+KRT10 p.R83E	in_gene	KRT10	
+Joh et al. (1997)	reports	Joh et al. (1997) stated that the way annular epidermolytic ichthyosis is inherited fits an autosomal dominant pattern. The family they reported had affected members in two generations.	
+Suga et al. (1998)	reports	Suga et al. (1998) described a third kindred with annular epidermolytic ichthyosis, a phenotypic variant of bullous congenital ichthyosiform erythroderma. Affected individuals present with bullous ichthyosis in early childhood and hyperkeratotic lichenified plaques in flexural areas and extensor surfaces at later ages, and characteristically develop intermittent bouts of annular and polycyclic, erythematous, scaly plaques on the trunk and proximal extremities.	
+Suga et al. (1998)	reports	In a kindred with annular epidermolytic ichthyosis, Suga et al. (1998) identified a novel mutation in the KRT10 gene resulting in an ile107-to-thr substitution (codon 446) within the highly conserved helix termination motif at the end of the rod domain of keratin 10.	
+KRT10 p.I107T	in_gene	KRT10	
+Mikilita et al. (2020)	reports	Mikilita et al. (2020) reported an 8-year-old Brazilian girl with a diffuse skin disorder that began in the first months of life. She had erythematous, scaly, hyperkeratotic plaques with prominent borders on the mesogastrium, cubital and popliteal fossae, and inguinal and cervical regions. She also had palmoplantar hyperkeratosis and yellowish hyperkeratotic plaques on the scalp and nasal introitus, with no changes in hair, nails, or mucosa. There was no family history and no consanguinity. One month later the affected areas had grown larger but were no longer polycyclic, showing that the plaques were migratory.	
+Mikilita et al. (2020)	reports	In the patient reported by Mikilita et al. (2020), a skin biopsy from the forearm showed acanthosis, papillomatosis, and hyperkeratosis with marked epidermolysis of the granular layer. The authors had first suspected erythrokeratodermia variabilis et progressiva, but this epidermolytic hyperkeratosis led them to diagnose annular epidermolytic ichthyosis.	
+Mikilita et al. (2020)	reports	Mikilita et al. (2020) identified erythrokeratodermia variabilis et progressiva (EKVP) as the main differential diagnosis of annular epidermolytic ichthyosis. They listed onset during childhood, absence of epidermal fragility, and histology without epidermolysis as features that distinguish EKVP.	
+Mikilita et al. (2020)	reports	Mikilita et al. (2020) reviewed 19 previously reported cases from 10 publications. Topical treatments, including retinoids, corticosteroids, propylene glycol, calcipotriene, and keratolytics, produced little response. Three articles reported a good response to systemic retinoids: two with acitretin and one with low-dose isotretinoin.	
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	caused_by	KRT10	9036939,9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_variant	KRT10 p.I107T	9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_variant	KRT10 p.R83E	9036939
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	inheritance	Autosomal dominant	9036939
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Hyperkeratosis	1517502,32482553,9036939,9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Palmoplantar keratoderma	32482553
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Erythema	32482553
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Congenital bullous ichthyosiform erythroderma	1517502,32482553,9036939
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Epidermal acanthosis	32482553
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Ichthyosis	1517502,9036939,9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Erythematous plaque	1517502,9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Blistering by anatomical location	9856845
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Abnormal keratinocyte morphology	9036939
+ICHTHYOSIS, ANNULAR EPIDERMOLYTIC, 1	has_phenotype	Pruritus	1517502
+Palmoplantar keratoderma	is_a	Hyperkeratosis	
+Congenital bullous ichthyosiform erythroderma	is_a	Ichthyosis	

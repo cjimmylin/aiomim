@@ -1,0 +1,165 @@
+# # 621068
+
+## NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, POOR GROWTH, DYSMORPHIC FACIES, AND AGAMMAGLOBULINEMIA; NEDHGFA
+
+### Phenotype-Gene Relationships
+
+| Location | Phenotype | Phenotype MIM number | Inheritance | Phenotype mapping key | Gene/Locus | Gene/Locus MIM number |
+|---|---|---|---|---|---|---|
+| 14q31 | Neurodevelopmental disorder with hypotonia, poor growth, dysmorphic facies, and agammaglobulinemia | 621068 | AR | 3 | SEL1L | 602329 |
+
+### TEXT
+
+A number sign (#) is used with this entry because of evidence that neurodevelopmental disorder with hypotonia, poor growth, dysmorphic facies, and agammaglobulinemia (NEDHGFA) is caused by homozygous mutation in the SEL1L gene (602329) on chromosome 14q31.
+
+### Description
+
+Neurodevelopmental disorder with hypotonia, poor growth, dysmorphic facies, and agammaglobulinemia (NEDHGFA) begins in infancy. It combines an ERAD-associated neurodevelopmental disorder with infantile-onset agammaglobulinemia and absence of mature B cells. Affected children have feeding problems with failure to thrive, severe axial hypotonia, global developmental delay, intellectual disability with absent speech, microcephaly, short stature, and facial dysmorphism. The immunodeficiency leads to frequent infections and early death (Weis et al., 2024).
+
+### Nomenclature
+
+Weis et al. (2024) named the disorder ENDI-agammaglobulinemia (ENDI-A) syndrome. The name reflects the combination of an ERAD-associated neurodevelopmental disorder with onset in infancy (ENDI) with infantile-onset agammaglobulinemia.
+
+### Clinical Features
+
+Weis et al. (2024) reported 5 sibs from 2 consanguineous sibships within a large Roma family from an isolated region of southern Slovakia. All had feeding problems from birth, with repeated vomiting after eating, failure to gain weight, pallor, and gradual cachexia. They shared similar facial dysmorphisms, namely a triangular face and big ears. All had severe axial hypotonia, global developmental delay, short stature, microcephaly, intellectual disability, and no speech. Three patients could not sit up or hold their heads up. Only patient 4 could sit without support, at age 4.5 years.
+
+The patients described by Weis et al. (2024) had recurrent severe respiratory infections almost every month, including otitis media, sinusitis, bronchitis, and pneumonia. These were often accompanied by respiratory insufficiency caused by food aspiration. Patients 3 and 4 were diagnosed with hearing impairment at 1 year of age, which the authors considered likely secondary to otitis media. From 12 months of age, patients 3, 4, and 5 had no detectable mature CD19+ memory B cells and no circulating immunoglobulins. Their absolute CD4+ and CD8+ T-cell counts were largely normal, but the CD4:CD8 ratio was reduced. A duodenal biopsy from patient 3 showed subtotal villous atrophy (Marsh IIIb enteropathy) with no CD20+ B cells. At 7.7 years, patient 4 had COVID-19 with respiratory failure. The course was prolonged, and no antigen-specific memory T-cell response was detected. All patients died young of infection, sepsis, or respiratory failure: patient 1 at 2.9 years, patient 2 at 2 months, and patient 5 at 5.1 years.
+
+Weis et al. (2024) also described findings in individual patients: - Patient 1 developed marasmus and had acute renal failure and pulmonary hypertension. - Patient 3 had a ventricular septal defect and epilepsy, with normal myelination on MRI. - Patient 4 had leukoencephalopathy on MRI, ptosis, partial papillary atrophy, and sideropenic anemia. - Patient 5 had leukoencephalopathy, later discrete cortical atrophy, ptosis, micropenis, central hypothyroidism, hypoplastic thymus, hepatopathy, and dystrophic nails.
+
+### Other Features
+
+In the same family, Weis et al. (2024) reported a female sib (IV-4) who carried 1 C141Y allele. She was born with: - alobar holoprosencephaly - cleft lip and palate - 'frog' eyes - low-set ears - microcephaly - pterygium colli - polydactyly/syndactyly - anal malformation - contractures - atrioventricular septal defect with patent ductus arteriosus She died of cardiorespiratory failure at 9 days of age and had no immune problems.
+
+### Inheritance
+
+The transmission pattern of NEDHGFA in the family reported by Weis et al. (2024) was consistent with autosomal recessive inheritance. The affected sibs came from consanguineous sibships and were homozygous for a SEL1L mutation.
+
+### Molecular Genetics
+
+Weis et al. (2024) studied 5 affected sibs from 2 consanguineous sibships of a Slovakian Roma family with ENDI-A syndrome. They identified a homozygous c.422G-A transition in exon 4 of the SEL1L gene (NM_005065.6), resulting in a cys141-to-tyr (C141Y) substitution. The mutation was found by whole-exome sequencing of 2 patients and their parents, assuming recessive inheritance, and was confirmed by Sanger sequencing. It was present in all 5 patients but not in the parents or unaffected sibs. The mutation affects a conserved cysteine in the luminal fibronectin type II domain that forms a disulfide bond with cys168. Exome sequencing also identified an R490W variant in the FAR2 gene, but it did not segregate with disease (in patient 2) and was excluded as causal. Chromosome analysis, SNP array, and next-generation sequencing found no other genomic imbalance or variant to explain the phenotypes, and aCGH found no large deletions or duplications. The authors classified the SEL1L variant as pathogenic under ACMG criteria. However, they acknowledged that causality could not be firmly established without a knockin mouse.
+
+In patient fibroblasts, Weis et al. (2024) found that SEL1L protein was largely undetectable and HRD1 protein was reduced by more than 90%, while mRNA levels were normal. Both proteins were unstable, and the ERAD substrates IRE1-alpha and CD147 accumulated. Duodenal biopsies from patients also showed reduced SEL1L and HRD1.
+
+### Genotype/Phenotype Correlations
+
+Weis et al. (2024) contrasted their patients with ENDI patients carrying hypomorphic SEL1L variants (G585D, M528R) or an HRD1 variant (P398L), who survived into their teens and twenties. Patients with the more severe C141Y variant had B-cell immunodeficiency and died early. The authors attributed this difference to differing degrees of ERAD dysfunction. In knockin HEK293T cells, C141Y produced the lowest SEL1L and HRD1 levels and the highest substrate accumulation of the variants compared. On this basis, the authors proposed an inverse correlation between ERAD function and disease severity.
+
+### Pathogenesis
+
+In patient fibroblasts, Weis et al. (2024) found that SEL1L protein was largely undetectable and HRD1 was reduced by more than 90%, with normal mRNA levels. Both proteins were unstable, and the ERAD substrates IRE1-alpha and CD147 accumulated. The lectins OS9 and ERLEC1 were decreased. There was no overt unfolded protein response, but ER chaperones were elevated.
+
+Weis et al. (2024) compared knockin HEK293T cells carrying C141Y with cells carrying the hypomorphic ENDI variants SEL1L M528R, SEL1L G585D, and HRD1 P398L. C141Y cells had the lowest SEL1L and HRD1 levels and the highest substrate accumulation, indicating the most severe ERAD dysfunction. The effects were milder than in SEL1L-null cells, suggesting that C141Y is not a complete loss of function. C141Y did not impair formation of the ERAD complex. Disrupting the other FNII disulfide bond (C127Y) had similar effects, whereas deleting the whole FNII domain left ERAD function largely normal. SEL1L levels were rescued by proteasome inhibition or by deletion of HRD1, but not by deletion of RNF5. The accumulated mutant SEL1L formed high-molecular-weight aggregates. The authors concluded that the unpaired cysteine causes HRD1-mediated, proteasome-dependent self-destruction of the SEL1L-HRD1 complex.
+
+Ji et al. (2016) studied the role of Sel1L-Hrd1 ERAD in B-cell development, as follows. - Expression of Sel1L and Hrd1 was induced around the pre-B cell stage in developing lymphocytes, preceding that of the ER chaperones BiP and Edem1. - The pre-B cell receptor (pre-BCR) complex, rather than its individual components, was an endogenous substrate of the Sel1L-Hrd1 ERAD complex. Protein levels of the 3 pre-BCR components (Igmu, lambda5, VpreB) were dramatically increased and stabilized in pro-/pre-B cells of B cell-specific Sel1L-deficient mice, while transcript levels were unchanged. - In 70z/3 pre-B cells, loss of either Sel1L or Hrd1 raised steady-state pre-BCR levels and increased the Igmu half-life from about 60 min to over 120 min, with dramatically reduced Igmu ubiquitination. - The mature BCR was not a substrate. In differentiated 70z/3 cells and in mature splenic B cells from inducible Sel1L-knockout mice, Igmu in the BCR complex was unaffected by Sel1L deficiency, as were plasma cell differentiation and total IgG. - ERAD-mediated pre-BCR degradation required BiP but not the unique region of lambda5.
+
+Ji et al. (2016) also showed that Sel1L-Hrd1 ERAD deficiency led to increased ER exit and elevated surface pre-BCR, with nearly 3-fold more endoH-resistant Igmu. Phosphorylation of the downstream effector Syk was increased. Bone marrow of the mutant mice had more than 50% more BrdU-positive cycling pro-/pre-B cells, and proliferation of lambda5+ large pre-B cells was increased more than 2.5-fold. The authors concluded that Sel1L-Hrd1 ERAD is required to attenuate pre-BCR signaling by promoting its turnover, and that the mutant mice phenocopy models with gain-of-function pre-BCR signaling.
+
+### Clinical Management
+
+Weis et al. (2024) treated patients 3, 4, and 5 with IgG replacement every 4 weeks. Acute infections improved substantially, but chronic respiratory symptoms continued to recur. All 3 patients eventually deteriorated suddenly with sepsis and multiorgan failure.
+
+### Animal Model
+
+Ji et al. (2016) generated B cell-specific Sel1L-deficient mice (Sel1L-CD19) by crossing Sel1L flox/flox mice on the C57BL/6 background with CD19-Cre mice. The mutant mice were born in a normal Mendelian ratio and appeared healthy with no obvious growth defects. However, spleen weights were significantly reduced. The percentage of peripheral B cells in spleen, blood, and lymph nodes was reduced by 60 to 75%, and absolute numbers of splenic B cells were more than 75% lower than in controls. CD4+ T cells, CD8+ T cells, and myeloid cells were not affected.
+
+The mice of Ji et al. (2016) had a severe developmental block at the transition from large to small pre-B cells: - Recirculating mature and immature bone marrow B cells were significantly decreased. - Pro-B cells were slightly elevated. - Pre-B I and large pre-B cells were twice as numerous. - Small pre-B cells were reduced by 50%. Apoptotic rates were comparable between cohorts. Neither Sel1L heterozygosity nor CD19-Cre expression alone affected B-cell development. BiP and Chop were moderately elevated in large pre-B cells of the mutant mice, but the block was Chop-independent: Chop deficiency had no impact on the low spleen weight, the paucity of peripheral B cells, or the developmental block. Ji et al. (2016) noted that global Sel1L-deficient mice are embryonic lethal. Acute Sel1L deletion in adult mice results in pancreatic atrophy and premature lethality, and Sel1L deficiency in adipocytes causes intracellular retention of lipoprotein lipase and hypertriglyceridemia.
+
+### Clinical Synopsis
+
+**INHERITANCE**  
+- Autosomal recessive
+
+**ABDOMEN**  
+- Abnormality of the anus [HP:0004378] (1 paper)
+- Abnormality of the liver [HP:0001392] (1 paper)
+- Pancreatic atrophy [HP:6000156] (1 paper)
+- Villous atrophy [HP:0011473] (1 paper)
+- Vomiting [HP:0002013] (1 paper)
+
+**CARDIOVASCULAR**  
+- Abnormality of the spleen [HP:0001743] (1 paper)
+- Atrioventricular canal defect [HP:0006695] (1 paper)
+- Hypoplasia of the thymus [HP:0000778] (1 paper)
+- Patent ductus arteriosus [HP:0001643] (1 paper)
+- Pulmonary arterial hypertension [HP:0002092] (1 paper)
+- Ventricular septal defect [HP:0001629] (1 paper)
+
+**ENDOCRINE FEATURES**  
+- Central hypothyroidism [HP:0011787] (1 paper)
+
+**GENITOURINARY**  
+- Acute kidney injury [HP:0001919] (1 paper)
+- Micropenis [HP:0000054] (1 paper)
+
+**GROWTH**  
+- Cachexia [HP:0004326] (1 paper)
+- Failure to thrive [HP:0001508] (1 paper)
+- Short stature [HP:0004322] (1 paper)
+
+**HEAD & NECK**  
+- Orofacial cleft [HP:0000202] (1 paper)
+- Triangular face [HP:0000325] (1 paper)
+- Webbed neck [HP:0000465] (1 paper)
+
+**HEAD & NECK: EARS**  
+- Hearing impairment [HP:0000365] (1 paper)
+- Macrotia [HP:0000400] (1 paper)
+- Recurrent otitis media [HP:0000403] (1 paper)
+
+**HEAD & NECK: EYES**  
+- Ptosis [HP:0000508] (1 paper)
+
+**HEMATOLOGY**  
+- Absent circulating B cells [HP:0030252] (1 paper)
+- Agammaglobulinemia [HP:0004432] (1 paper)
+- Decreased circulating total IgG concentration [HP:0032132] (1 paper)
+- Decreased total B cell count [HP:0010976] (1 paper)
+- Inverted CD4:CD8 ratio [HP:0033222] (1 paper)
+- Iron deficiency anemia [HP:0001891] (1 paper)
+
+**IMMUNOLOGY**  
+- Sepsis [HP:0100806] (1 paper)
+
+**METABOLIC FEATURES**  
+- Hypertriglyceridemia [HP:0002155] (1 paper)
+
+**MUSCLE, SOFT TISSUES**  
+- Axial hypotonia [HP:0008936] (1 paper)
+
+**NEUROLOGIC**  
+- Absent speech [HP:0001344] (1 paper)
+- Alobar holoprosencephaly [HP:0006988] (1 paper)
+- Cerebral cortical atrophy [HP:0002120] (1 paper)
+- Global developmental delay [HP:0001263] (1 paper)
+- Intellectual disability [HP:0001249] (1 paper)
+- Leukoencephalopathy [HP:0002352] (1 paper)
+- Microcephaly [HP:0000252] (1 paper)
+- Seizure [HP:0001250] (1 paper)
+
+**RESPIRATORY**  
+- Aspiration [HP:0002835] (1 paper)
+- Recurrent pneumonia [HP:0006532] (1 paper)
+- Respiratory failure [HP:0002878] (1 paper)
+- Sinusitis [HP:0000246] (1 paper)
+
+**SKIN, NAILS, & HAIR**  
+- Nail dystrophy [HP:0008404] (1 paper)
+- Pallor [HP:0000980] (1 paper)
+
+### ALLELIC VARIANTS
+
+**.0001 NEURODEVELOPMENTAL DISORDER WITH HYPOTONIA, POOR GROWTH, DYSMORPHIC FACIES, AND AGAMMAGLOBULINEMIA**  
+SEL1L, CYS141TYR [c.422G>A; c.nm_005065.6:; p.C141Y]
+
+Weis et al. (2024) studied 5 affected sibs from 2 consanguineous sibships of a Slovakian Roma family with NEDHGFA. In these patients they identified a homozygous c.422G-A transition in exon 4 of the SEL1L gene (NM_005065.6), resulting in a cys141-to-tyr (C141Y) substitution. The mutation was found by whole-exome sequencing and confirmed by Sanger sequencing. It was present in all 5 patients but not in the parents or unaffected sibs. The mutation affects a conserved cysteine in the luminal fibronectin type II domain that normally forms a disulfide bond with cys168. In patient fibroblasts, SEL1L protein was largely undetectable and HRD1 protein was reduced by more than 90%, with normal mRNA levels, and the ERAD substrates IRE1-alpha and CD147 accumulated. In knockin cells, the mutant SEL1L underwent HRD1-mediated, proteasome-dependent degradation and formed high-molecular-weight aggregates. A sib in the same family who carried 1 C141Y allele had multiple congenital malformations, including alobar holoprosencephaly, and died at 9 days of age without immune problems.
+
+### REFERENCES
+
+1. Ji Y, Kim H, Yang L, Sha H, Roman CA, Long Q, Qi L. The Sel1L-Hrd1 Endoplasmic Reticulum-Associated Degradation Complex Manages a Key Checkpoint in B Cell Development. Cell Rep 16: 2630-2640, 2016. [PubMed: 27568564]
+
+2. Weis D, Lin LL, Wang HH, Li ZJ, Kusikova K, Ciznar P, Wolf HM, Leiss-Piller A, Wang Z, Wei X, and others. Biallelic Cys141Tyr variant of SEL1L is associated with neurodevelopmental disorders, agammaglobulinemia, and premature death. J Clin Invest 134, 2024. [PubMed: 37943617]
+
+---
+*Generated automatically from the cited literature. ⚠︎ marks a paragraph with a claim the audit found only partly supported by its source; ✗ marks one with an unsupported or contradicted claim. Not reviewed by a curator.*

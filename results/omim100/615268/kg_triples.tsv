@@ -1,0 +1,77 @@
+subject	predicate	object	pmids
+Ozcelik et al. (2008)	reports	Ozcelik et al. (2008) studied 4 large consanguineous Turkish kindreds with quadrupedal gait (Unertan syndrome). In 2 families (B and C), the phenotype was not linked to chromosome 9p, where VLDLR mutations had been found in families A and D. The authors concluded that hereditary disorders with quadrupedal gait in humans are genetically heterogeneous.	
+Ozcelik et al. (2008)	reports	Ozcelik et al. (2008) described 4 large consanguineous kindreds from Turkey with quadrupedal gait (Unertan syndrome), which they described as a rare phenotype associated with dysarthric speech, mental retardation, and varying degrees of cerebrocerebellar hypoplasia.	
+Ozcelik et al. (2008)	reports	In a reply to Herz et al. and Humphrey et al., Ozcelik et al. (2008) discussed genetic heterogeneity of cerebellar hypoplasia with quadrupedal locomotion.	
+Gulsuner et al. (2011)	reports	Gulsuner et al. (2011) studied a large consanguineous Turkish family with an extremely rare phenotype of quadrupedal locomotion, mental retardation, and cerebro-cerebellar hypoplasia. Diffusion-weighted imaging and fiber tractography showed morphologic abnormalities of the cerebellum and corpus callosum, particularly atrophy of the superior, middle, and inferior cerebellar peduncles; structural MRI showed additional morphometric abnormalities in cortical areas including the corpus callosum, precentral gyrus, and Brodmann areas BA6, BA44, and BA45.	
+Gulsuner et al. (2011)	reports	By homozygosity mapping in a large consanguineous Turkish family, Gulsuner et al. (2011) linked the disorder to a 7.1-Mb region of homozygosity on chromosome 17p13.1-p13.3.	
+Gulsuner et al. (2011)	reports	By targeted sequencing of the entire homozygous region in 3 affected individuals and 2 obligate carriers from a consanguineous Turkish family, Gulsuner et al. (2011) identified a private homozygous missense mutation in WDR81 (P856L) that cosegregated with the condition in the extended family. The mutation lies in a highly conserved region of WDR81, flanked by an N-terminal BEACH domain and C-terminal WD40 beta-propeller domains.	
+WDR81 p.P856L	in_gene	WDR81	
+Gulsuner et al. (2011)	reports	Gulsuner et al. (2011) reported that WDR81 is predicted to be a transmembrane protein and is highly expressed in the cerebellum and corpus callosum, particularly in the Purkinje cell layer of the cerebellum.	
+Gulsuner et al. (2011)	reports	Gulsuner et al. (2011) noted that WDR81 was the third gene, after VLDLR and CA8, implicated in quadrupedal locomotion in humans.	
+Onat et al. (2013)	reports	Onat et al. (2013) studied a consanguineous Turkish family in which 4 members had cerebellar ataxia, mental retardation, and dysequilibrium syndrome with quadrupedal locomotion and cerebellar atrophy.	
+Onat et al. (2013)	reports	Onat et al. (2013) used homozygosity mapping in the consanguineous Turkish family and found several homozygous regions shared by affected members, including one on chromosome 13q12.	
+Onat et al. (2013)	reports	In the affected members of a consanguineous Turkish family with CAMRQ, Onat et al. (2013) identified a novel missense variant in the ATP8A2 gene, p.I376M. They found it by targeted next-generation sequencing of one affected individual, followed by segregation analysis, population screening, and prediction approaches. The variant lies in a highly conserved C-terminal transmembrane region of the E1 E2 ATPase domain.	
+ATP8A2 p.I376M	in_gene	ATP8A2	
+Onat et al. (2013)	reports	Onat et al. (2013) noted a previously identified unrelated individual with mental retardation and severe hypotonia who carried a de novo balanced t(10;13) translocation that disrupted the ATP8A2 gene.	
+Onat et al. (2013)	reports	Onat et al. (2013) noted that ATP8A2 is expressed mainly in the brain and during development, particularly in the cerebellum. They suggested that ATP8A2 is involved in the development of the cerebro-cerebellar structures that humans need for posture and gait.	
+Mohamadian et al. (2020)	reports	Mohamadian et al. (2020) described 3 sibs (a 9-year-old girl proband, a 15-year-old sister, and a 17-year-old brother) from a consanguineous Iranian family of Arab descent born to healthy first-cousin parents, with non-progressive cerebellar ataxia, severe hypotonia, intellectual disability, dysarthria, and cerebellar atrophy. The proband had severe neonatal hypotonia, global psychomotor delay, feeding difficulties since infancy, and was wheelchair-bound, unable to walk, sit, or hold her head. All 3 patients had IQ of 20 to 40, delayed speech with dysarthria, absent deep tendon reflexes, and cerebellar atrophy on brain MRI; hearing was normal, there were no seizures or optic atrophy, and metabolic investigations were normal.	
+Mohamadian et al. (2020)	reports	In 3 affected sibs from a consanguineous Iranian family with CAMRQ4, Mohamadian et al. (2020) identified a homozygous c.1339G-A transition (NM_016529.6) in exon 14 of the ATP8A2 gene, resulting in a gly447-to-arg (G447R) substitution at an extremely conserved residue in the ATP-binding (N) domain. The variant, found by whole-exome sequencing after normal karyotype and chromosomal microarray, was confirmed by Sanger sequencing and segregated with disease: parents and 2 unaffected sibs were heterozygous and 1 unaffected sib was wildtype. It was absent from public databases and 100 ethnically matched controls. Structural modeling predicted reduced protein stability and an altered ligand-binding pocket.	
+ATP8A2 c.1339G>A / c.np_057613.4: / p.G447R	in_gene	ATP8A2	
+Mohamadian et al. (2020)	reports	Mohamadian et al. (2020) predicted by homology modeling that the G447R substitution in ATP8A2 severely reduces protein stability (FoldX ddG 7.94 kcal/mol) and alters the ligand-binding pocket adjacent to the active site, which may decrease ligand-binding affinity and catalytic activity; they suggested it could also disrupt folding and interaction with CDC50A (TMEM30A).	
+Damásio et al. (2021)	reports	Damásio et al. (2021) described 2 sibs with congenital ataxia who learned to walk on their own by age 4 years. After 16 years of follow-up, they had near-normal cognition, cerebellar ataxia, mild pyramidal signs, and dystonia.	
+Damásio et al. (2021)	reports	In 2 sibs with congenital ataxia, Damásio et al. (2021) used exome sequencing to identify a novel homozygous variant in intron 17 of the ATP8A2 gene (c.1580-18C-G). Bioinformatics tools predicted that it creates a new acceptor splice site. In a minigene assay in HEK293T cells, the variant construct produced an aberrant transcript that kept 17 bp of intron 17 because an alternative acceptor splice site was used. This inserted 4 amino acids and created a premature stop codon. The authors concluded that the variant was disease-causing.	
+ATP8A2 c.1580-18C>G	in_gene	ATP8A2	
+Damásio et al. (2021)	reports	Damásio et al. (2021) concluded that their findings expand ATP8A2-related disorders to include less severe forms of congenital ataxia.	
+Narishige et al. (2022)	reports	Narishige et al. (2022) reported 2 Japanese siblings with CAMRQ4 who presented with athetotic movements at 1 and 2 months of age. They also had ptosis, ophthalmoplegia, feeding difficulty, hypotonia, and severely delayed development. One sib had retinal degeneration and optic atrophy. Flattening of auditory brainstem responses and areflexia developed later. At last follow-up, neither patient could sit or achieve head control, although some nonverbal communication was preserved.	
+Narishige et al. (2022)	reports	In 2 Japanese sibs with CAMRQ4, Narishige et al. (2022) identified compound heterozygous nonsense variants in the ATP8A2 gene by whole-exome sequencing: c.1741C>T (p.Arg581Ter), which had been previously reported, and c.2158C>T (p.Arg720Ter), which was novel.	
+ATP8A2 c.1741C>T / p.R581*	in_gene	ATP8A2	
+ATP8A2 c.2158C>T / p.R720*	in_gene	ATP8A2	
+Narishige et al. (2022)	reports	Narishige et al. (2022) noted that symptoms did not progress in early development, making CAMRQ4 difficult to distinguish from dyskinetic cerebral palsy, particularly in solitary cases, but suggested that visual and hearing impairments associated with involuntary movements and severe developmental delay may be a clue to suspect CAMRQ4.	
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	caused_by	ATP8A2	22892528,33079427,33682124,35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	ATP8A2 c.1339G>A / c.np_057613.4: / p.G447R	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	ATP8A2 c.1580-18C>G	33682124
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	ATP8A2 c.1741C>T / p.R581*	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	ATP8A2 c.2158C>T / p.R720*	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	ATP8A2 p.I376M	22892528
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	caused_by	WDR81	21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_variant	WDR81 p.P856L	21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	inheritance	Autosomal recessive	21885617,22892528,33079427,33682124,35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Athetosis	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Ptosis	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Ophthalmoplegia	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Feeding difficulties	33079427,35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Hypotonia	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Severe global developmental delay	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Retinal degeneration	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Optic atrophy	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal auditory evoked potentials	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Areflexia	33079427,35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Poor head control	35321980
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Ataxia	22892528,33682124
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Delayed ability to walk	33682124
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal pyramidal sign	33682124
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Dystonia	33682124
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Intellectual disability	21885617,22892528
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Nonprogressive cerebellar ataxia	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Neonatal hypotonia	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Severe intellectual disability	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Global developmental delay	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Inability to walk	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Delayed speech and language development	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Dysarthria	33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Cerebellar atrophy	22892528,33079427
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Cerebellar ataxia associated with quadrupedal gait	18544652,21885617,22892528
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Severe muscular hypotonia	22892528
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Cerebellar hypoplasia	18544652,21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal cerebral morphology	21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal cerebellar peduncle morphology	21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal corpus callosum morphology	21885617
+CEREBELLAR ATAXIA, IMPAIRED INTELLECTUAL DEVELOPMENT, AND DYSEQUILIBRIUM SYNDROME 4	has_phenotype	Abnormal cerebral cortex morphology	21885617
+Severe muscular hypotonia	is_a	Hypotonia	
+Neonatal hypotonia	is_a	Hypotonia	
+Severe global developmental delay	is_a	Global developmental delay	
+Cerebellar ataxia associated with quadrupedal gait	is_a	Ataxia	
+Nonprogressive cerebellar ataxia	is_a	Ataxia	
+Severe intellectual disability	is_a	Intellectual disability	
+Abnormal cerebral cortex morphology	is_a	Abnormal cerebral morphology	
+Abnormal corpus callosum morphology	is_a	Abnormal cerebral morphology	

@@ -1,0 +1,16 @@
+subject	predicate	object	pmids
+Kagan et al. (1988)	reports	Kagan et al. (1988) reported 2 sibs with hereditary nephritis, pretibial epidermolysis bullosa, and end-stage renal disease; both sibs also had beta-thalassemia minor.	
+Karamatic Crew et al. (2004)	reports	Karamatic Crew et al. (2004) studied 3 MER2-negative patients of Indian Jewish origin, 2 of them sibs, who had end-stage kidney disease. Along with hereditary nephritis, the sibs had sensorineural deafness, pretibial epidermolysis bullosa, and beta-thalassemia minor.	
+Karamatic Crew et al. (2004)	reports	Karamatic Crew et al. (2004) found that all 3 MER2-negative Indian Jewish patients with end-stage kidney disease were homozygous for a single-nucleotide insertion (G383) in exon 5 of the CD151 gene. The insertion caused a frameshift and a premature stop signal at codon 140, and the authors predicted that the truncated protein would lack its integrin-binding domain.	
+CD151 p.G383	in_gene	CD151	
+Karamatic Crew et al. (2004)	reports	Karamatic Crew et al. (2004) concluded that CD151 is essential for correct assembly of the glomerular and tubular basement membranes in the kidney and has functional significance in the skin. They suggested that it is probably a component of the inner ear and could play a role in erythropoiesis. They also reported that CD151 forms stable laminin-binding complexes with integrins.	
+Karamatic Crew et al. (2004)	reports	Karamatic Crew et al. (2004) showed that CD151 carries the MER2 blood group antigen and is present on erythrocytes; the patients were MER2-negative.	
+Has et al. (2020)	reports	In a consensus expert review, Has et al. (2020) reclassified inherited epidermolysis bullosa (EB) using new clinical and molecular data. They introduced the concept of genetic disorders with skin fragility, with classical EB as the prototype. Disorders in which blisters are a minor feature, such as peeling skin, erosive, hyperkeratotic and connective tissue disorders with skin fragility, were placed in separate categories.	
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	caused_by	CD151	15265795
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_variant	CD151 p.G383	15265795
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	inheritance	Autosomal recessive	15265795
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_phenotype	Stage 5 chronic kidney disease	15265795,3412548
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_phenotype	Nephritis	15265795,3412548
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_phenotype	Sensorineural hearing impairment	15265795
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_phenotype	Pretibial blistering	15265795,3412548
+EPIDERMOLYSIS BULLOSA SIMPLEX 7, WITH NEPHROPATHY AND DEAFNESS	has_phenotype	Microcytic anemia	15265795,3412548

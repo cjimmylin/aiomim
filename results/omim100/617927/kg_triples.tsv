@@ -1,0 +1,58 @@
+subject	predicate	object	pmids
+Phadke et al. (1999)	reports	Phadke et al. (1999) reported a consanguineous family in which sibs had a new variety of oral-facial-digital syndrome. Along with oral, facial, and digital malformations, the sibs had acromelic short stature and genu valgum. The authors noted that these features overlap with Ellis-van Creveld syndrome. One sib also had urinary incontinence and growth hormone deficiency, which the authors said had not been reported before in any type of OFDS.	
+Phadke et al. (1999)	reports	Phadke et al. (1999) described this OFDS variant in sibs born to consanguineous parents.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) described an unclassified type of oral-facial-digital syndrome (OFDS) with short stature and brachymesophalangia, overlapping with Ellis-van Creveld syndrome (EVCS), caused by a homozygous hypomorphic mutation in IFT57, representing the first description of a ciliary transport defect in OFDS.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) restudied a consanguineous family, previously reported by Phadke et al. (1999), with 3 affected sibs, followed up for 15 years; one sib (II-3) died at 17 years of a complicated pulmonary infection. Subject II-1, a male examined at 25 years, had normal intelligence, short stature (155 cm, -3 SD), square face with short forehead, upslanting palpebral fissures, high nasal bridge, pyriform nose, short philtrum, medial cleft of upper lip, supernumerary frenulae, missing incisors, pronounced brachydactyly, upper limb postaxial polydactyly, and preaxial polydactyly of the feet due to first metatarsal duplication; x-rays showed severe mesophalangeal shortening, short femoral necks with varus femurs, and genu valgum, with no thoracic deformity or vertebral anomalies; heart, renal, and abdominal ultrasounds were normal.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) described subject II-2, a female examined at 22 years with normal intelligence and short stature (122 cm, -5 SD), square face, narrow forehead, enophthalmos, upslanting palpebral fissures, broad nasal bridge, bilateral hypopigmented pseudoclefts, medial labial cleft, missing incisors, supernumerary frenulae, marked brachydactyly, and 4-limb postaxial polydactyly. X-rays showed mesophalangeal shortening, fused proximal phalanges and bifid distal phalanges, first metatarsal duplication with absent middle phalanges (preaxial polydactyly), vertebral bodies with medial notches without platyspondyly, bilateral cervical ribs, gracile long bones, and short femoral necks; there was no thoracic deformity, and brain MRI and abdominal and heart ultrasounds were normal.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) concluded on review that the family had an unclassified OFDS type with skeletal dysplasia rather than EVCS, since patients lacked rib shortening or thoracic narrowing but had short stature, brachymesophalangia, and stocky femoral necks. The affected individuals had no visual complaints, although retinopathy was not excluded.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) performed homozygosity mapping in 2 affected sibs of the consanguineous family and identified shared runs of homozygosity totaling 11 Mb on chromosome 3 (chr3:104822019-111671862) and chromosome 10 (chr10:1372501-6029726); the chromosome 10 interval was excluded by segregation in the third sib.	
+Thevenon et al. (2016)	reports	In 3 sibs from a consanguineous family with an unclassified OFDS with short stature and brachymesophalangia, Thevenon et al. (2016) identified by homozygosity mapping and exome sequencing a homozygous synonymous variant in the IFT57 gene (c.777G>A, p.Lys259Lys; NM_018010.3) affecting the last base of exon 6. Sanger sequencing confirmed homozygosity in all 3 affected sibs; the variant was absent from ExAC and from 50 healthy northern Indian controls. In patient fibroblasts it caused a complex splicing pattern with normal transcript plus 3 aberrant transcripts (in-frame skipping of exon 6, in-frame skipping of exons 5-6, and out-of-frame skipping of exons 4-6) detected only after NMD inhibition, with reduced IFT57 mRNA, consistent with a hypomorphic allele.	
+IFT57 c.777G>A / p.K259K	in_gene	IFT57	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) found no causative IFT57 mutations by Sanger sequencing in 13 OFDS patients (with polydactyly and cleft lip/palate) and 12 EVCS patients negative for EVC/EVC2, and no biallelic causative mutations in exome or ciliome data from 172 patients with various ciliopathies.	
+Thevenon et al. (2016)	reports	Thevenon et al. (2016) found that patient fibroblasts had normal primary cilia number and length but decreased anterograde ciliary transport, with IFT57 staining at the ciliary tip significantly decreased (90% vs 35%) and increased at the basal body. SAG stimulation produced poor induction of GLI1 mRNA in patient fibroblasts, and siRNA knockdown of IFT57 in control fibroblasts abolished GLI1 induction, indicating defective sonic hedgehog signaling; the authors suggested defective hedgehog signaling underlies many of the phenotypes.	
+OROFACIODIGITAL SYNDROME XVIII	caused_by	IFT57	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_variant	IFT57 c.777G>A / p.K259K	27060890
+OROFACIODIGITAL SYNDROME XVIII	inheritance	Autosomal recessive	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Short stature	10457851,27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Square face	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Upslanted palpebral fissure	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Prominent nasal bridge	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Short philtrum	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Median cleft upper lip	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Accessory oral frenulum	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Agenesis of incisor	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Brachydactyly	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Postaxial hand polydactyly	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Preaxial foot polydactyly	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Short middle phalanx of finger	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Short femoral neck	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Genu valgum	10457851,27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Deeply set eye	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Wide nasal bridge	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Postaxial polydactyly	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Partial duplication of the distal phalanges of the hand	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Cervical ribs	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormality of the vertebral column	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Slender long bone	27060890
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Acromelia	10457851
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormal oral morphology	10457851
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormal facial shape	10457851
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Abnormal digit morphology	10457851
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Urinary incontinence	10457851
+OROFACIODIGITAL SYNDROME XVIII	has_phenotype	Reduced circulating growth hormone concentration	10457851
+Agenesis of incisor	is_a	Abnormal oral morphology	
+Preaxial foot polydactyly	is_a	Abnormal digit morphology	
+Short middle phalanx of finger	is_a	Abnormal digit morphology	
+Postaxial polydactyly	is_a	Abnormal digit morphology	
+Square face	is_a	Abnormal facial shape	
+Brachydactyly	is_a	Abnormal digit morphology	
+Narrow chest	is_a	Abnormal thorax morphology	
+Short philtrum	is_a	Abnormal oral morphology	
+Platyspondyly	is_a	Abnormality of the vertebral column	
+Cervical ribs	is_a	Abnormal thorax morphology	
+Accessory oral frenulum	is_a	Abnormal oral morphology	
+Partial duplication of the distal phalanges of the hand	is_a	Abnormal digit morphology	
+Short ribs	is_a	Abnormal thorax morphology	
+Median cleft upper lip	is_a	Abnormal oral morphology	
+Postaxial hand polydactyly	is_a	Postaxial polydactyly	
+Postaxial hand polydactyly	is_a	Abnormal digit morphology	

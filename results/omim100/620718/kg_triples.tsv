@@ -1,0 +1,35 @@
+subject	predicate	object	pmids
+Bruel et al. (2023)	reports	Bruel et al. (2023) described OFDS-RAB34, a new form of oral-facial-digital syndrome caused by biallelic RAB34 variants. Along with oral-facial-digital features, it includes cardiac, cerebral, skeletal and anorectal defects.	
+Bruel et al. (2023)	reports	Bruel et al. (2023) reported 4 affected individuals from 3 unrelated families with a new form of oral-facial-digital syndrome. Besides defects of the face, oral cavity and digits, they had cardiac, cerebral, skeletal and anorectal defects.	
+Bruel et al. (2023)	reports	In 4 individuals with oral-facial-digital syndrome from 3 unrelated families, Bruel et al. (2023) used exome sequencing to identify biallelic missense variants in the RAB34 gene. The variants clustered near the C terminus of RAB34. The abstract does not give the individual variants.	
+Bruel et al. (2023)	reports	In functional studies, Bruel et al. (2023) found that the mutant RAB34 proteins showed strong loss of function. Some variants could still be recruited to the mother centriole, but cells expressing mutant RAB34 had a significant defect in cilium assembly. RAB34 acts selectively in cell types that use the intracellular ciliogenesis pathway, and the authors concluded that RAB34 is the first small GTPase involved in OFDS.	
+Batkovskyte et al. (2024)	reports	Batkovskyte et al. (2024) reported a fetus with an atypical skeletal ciliopathy phenotype. The fetus had multiple malformations: posterior neck edema, micrognathia, low-set and small ears, auricular hypoplasia, cleft lip and palate, short extremities, and a combination of preaxial and postaxial polydactyly, which rarely occur together.	
+Batkovskyte et al. (2024)	reports	In a fetus with a skeletal ciliopathy phenotype, Batkovskyte et al. (2024) identified compound heterozygous variants in the RAB34 gene by genome sequencing: a maternally inherited missense variant, c.254T>C (p.Ile85Thr), and a paternally inherited nonsense variant, c.691C>T (p.Arg231Ter). Only the paternal variant was present in the unaffected sibling. The authors noted that Rab34-null mice display a ciliopathy phenotype with cleft palate and polydactyly, supporting pathogenicity, and suggested RAB34 as a candidate gene for skeletal ciliopathies.	
+RAB34 c.254T>C / p.I85T	in_gene	RAB34	
+RAB34 c.691C>T / p.R231*	in_gene	RAB34	
+Batkovskyte et al. (2024)	reports	Batkovskyte et al. (2024) cited evidence from the literature that Rab34-null mice display a ciliopathy phenotype with cleft palate and polydactyly, features consistent with those in their patient.	
+OROFACIODIGITAL SYNDROME XX	caused_by	RAB34	37619988
+OROFACIODIGITAL SYNDROME XX	has_variant	RAB34 c.254T>C / p.I85T	37619988
+OROFACIODIGITAL SYNDROME XX	has_variant	RAB34 c.691C>T / p.R231*	37619988
+OROFACIODIGITAL SYNDROME XX	inheritance	Autosomal recessive	37384395,37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Fetal nuchal edema	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Micrognathia	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Low-set ears	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Small earlobe	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Microtia	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Orofacial cleft	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Micromelia	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Preaxial polydactyly	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Postaxial polydactyly	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Cleft palate	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Polydactyly	37619988
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormal heart morphology	37384395
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormal brain morphology	37384395
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormality of the skeletal system	37384395
+OROFACIODIGITAL SYNDROME XX	has_phenotype	Abnormality of the anus	37384395
+Preaxial polydactyly	is_a	Polydactyly	
+Postaxial polydactyly	is_a	Polydactyly	
+Polydactyly	is_a	Abnormality of the skeletal system	
+Cleft palate	is_a	Orofacial cleft	
+Micrognathia	is_a	Abnormality of the skeletal system	
+Micromelia	is_a	Abnormality of the skeletal system	

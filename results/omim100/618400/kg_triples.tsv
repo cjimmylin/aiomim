@@ -1,0 +1,66 @@
+subject	predicate	object	pmids
+Blakely et al. (2012)	reports	Blakely et al. (2012) reported a 21-year-old Pakistani man, born to nonconsanguineous parents, who developed walking difficulties at age 14 years. Over several years these progressed to bilateral foot drop requiring orthoses, along with distal numbness. On examination he had distal muscle wasting and weakness, clawed toes, areflexia, distal sensory loss, and mild hepatomegaly; he had no pes cavus and no significant cognitive impairment. Nerve conduction studies showed an axonal sensorimotor polyneuropathy, and sural nerve biopsy showed a severe chronic axonal neuropathy.	
+Blakely et al. (2012)	reports	In the patient reported by Blakely et al. (2012), cranial MRI showed diffuse T2-hyperintense signal in the cerebral and cerebellar white matter, which the authors judged suggestive of leukoencephalopathy; an MRI at age 9 years had been normal. CSF protein (1963 mg/L) and CSF lactate (4.3 mmol/L) were raised. Liver biopsy showed patchy steatosis with early bridging fibrosis, but the patient had no clinically significant chronic liver disease.	
+Blakely et al. (2012)	reports	Blakely et al. (2012) reported that the proband's sister developed a progressive, fatal hepatitis at age 9 years. Their father had an episode of hepatitis in childhood and recovered fully.	
+Blakely et al. (2012)	reports	In the patient's skeletal muscle, Blakely et al. (2012) found about 1% ragged-red fibers and about 20% COX-deficient fibers in a mosaic pattern. Electron microscopy showed abnormal mitochondria with paracrystalline inclusions. mtDNA copy number in muscle was normal, but long-range PCR showed multiple mtDNA deletions, and single-fiber analysis showed clonally expanded mtDNA deletions in COX-deficient fibers.	
+Blakely et al. (2012)	reports	Blakely et al. (2012) sequenced the POLG, DGUOK, and MPV17 genes in the patient and identified a homozygous missense mutation in MPV17, reported as c.2898C>T (c.298C>T in the figure legend), resulting in p.Pro98Leu. This mutation had previously been reported as recessive in a patient with mtDNA depletion in liver, and it affects a residue conserved from human to yeast. Parental samples were not available. The authors suggested the parents, who were of the same Asian ethnicity, shared a common ancestor.	
+MPV17 c.2898C>T / p.P98L	in_gene	MPV17	
+Blakely et al. (2012)	reports	Blakely et al. (2012) concluded that MPV17 mutation can cause clonally expanded multiple mtDNA deletions and focal COX deficiency in skeletal muscle, as well as mtDNA depletion. They suggested that the MPV17 protein is involved in both mtDNA replication and repair, and is associated with both quantitative and qualitative mtDNA abnormalities.	
+Choi et al. (2015)	reports	Choi et al. (2015) reported a 34-year-old Korean woman (patient 1, family FC26), born to healthy nonconsanguineous parents, with normal early motor milestones who first noticed distal lower limb weakness at 9 years of age and walked with short leg braces from age 12. At 34 years she had distal muscle weakness and atrophy predominantly in the lower limbs, severe atrophy of intrinsic hand, foot and calf muscles, flexion deformities of interphalangeal joints, ankle joint deformity, scoliosis, vibration and position sense more disturbed than pain and touch, and absent knee and ankle jerks. She had no growth retardation, gastrointestinal dysmotility, hepatomegaly, cognitive impairment, ophthalmoplegia, corneal scarring, or hypoglycemic attacks; serum lactate was mildly elevated (2.1 mmol/L) with normal liver enzymes, glucose and pyruvate.	
+Choi et al. (2015)	reports	Choi et al. (2015) reported a 22-year-old Korean man (patient 2, family FC355), born to healthy nonconsanguineous parents, with normal early motor milestones who developed gait and balance problems at age 13 and walked with short leg braces from age 20. At 22 years he had distal muscle weakness and atrophy, flat feet, atrophy of intrinsic hand, foot and calf muscles, vibration and position sense more disturbed than pain and touch, and absent deep tendon reflexes; he had no other features of Navajo neurohepatopathy and only slightly elevated serum lactate (1.9 mmol/L).	
+Choi et al. (2015)	reports	Choi et al. (2015) found similar electrophysiologic results in both patients: sural sensory nerve action potentials were lost early in the disease, median and ulnar motor conduction velocities and CMAPs were decreased, peroneal and tibial CMAPs were not elicited, and no sensory responses were obtained; visual and brainstem auditory evoked potentials were normal. Lower leg MRI showed severe atrophy and fatty replacement predominantly of the soleus muscles with relative sparing of tibialis posterior and lateral gastrocnemius, consistent with length-dependent axonal degeneration and similar to CMT2A; brain MRI was normal.	
+Choi et al. (2015)	reports	Choi et al. (2015) found that sural nerve biopsy from patient 1 at age 34 showed almost complete loss of large and medium-sized myelinated fibers (10/mm2) with a few remaining small myelinated fibers, atrophy and vesicular changes in unmyelinated axons, and no demyelination, remyelination, or onion bulbs. Vastus lateralis biopsy in patient 2 at age 22 showed increased irregular NADH-TR and SDH reaction, a few ragged red fibers, and subsarcolemmal accumulation of enlarged mitochondria.	
+Choi et al. (2015)	reports	In 2 unrelated Korean patients with autosomal recessive axonal sensorimotor polyneuropathy without liver or brain involvement, Choi et al. (2015) identified by whole-exome sequencing a homozygous c.122G-A transition in the MPV17 gene, resulting in an arg41-to-gln (R41Q) substitution at a conserved residue. The mutation was confirmed by Sanger sequencing, a mutant allele was putatively inherited from each parent, and it was absent from 300 controls, in-house exomes (n = 302), dbSNP142, and 1000 Genomes, but present at very low frequency in ESP (0.00008) and ExAC (0.00002471).	
+MPV17 c.122G>A / p.R41Q	in_gene	MPV17	
+Choi et al. (2015)	reports	Choi et al. (2015) found that knockdown of Mpv17 in NSC34 mouse motor neuronal cells significantly reduced cell proliferation and viability against reactive oxygen species and affected OXPHOS levels, and that overexpression of the R41Q mutant protein significantly inhibited cell proliferation compared to controls, as did R50Q and L143* mutants. They suggested that both loss of normal MPV17 function and gain of detrimental effects of the mutant protein might affect neuronal function.	
+Choi et al. (2015)	reports	Choi et al. (2015) noted that, unlike previously described Navajo neurohepatopathy patients in whom neuropathy was always associated with hepatopathy or brain involvement, their patients had only axonal sensorimotor polyneuropathy at ages 34 and 22 years. Noting a milder phenotype in patients with an R41W mutation at the same residue, and that R41W overexpression also affected cellular proliferation, they suggested that mutation at arg41 predominantly causes peripheral neuropathy.	
+Baumann et al. (2019)	reports	Baumann et al. (2019) described 5 patients from 2 unrelated families who had juvenile- or adult-onset sensorimotor axonal neuropathy without hepatocerebral involvement.	
+Baumann et al. (2019)	reports	In affected members of 1 of the 2 families with axonal sensorimotor neuropathy, Baumann et al. (2019) found the previously reported MPV17 c.122G>A (p.Arg41Gln) variant in the homozygous state.	
+Baumann et al. (2019)	reports	In affected members of the second family with axonal sensorimotor neuropathy, Baumann et al. (2019) found a novel homozygous MPV17 c.376-9T>G near-splice variant, which was shown to cause an in-frame deletion of 11 amino acids.	
+MPV17 c.376-9T>G	in_gene	MPV17	
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	caused_by	MPV17	22508010,26437932,30298599
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_variant	MPV17 c.122G>A / p.R41Q	26437932,30298599
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_variant	MPV17 c.2898C>T / p.P98L	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_variant	MPV17 c.376-9T>G	30298599
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	inheritance	Autosomal recessive	22508010,26437932,30298599
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Sensorimotor neuropathy	30298599
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Distal lower limb muscle weakness	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Distal amyotrophy	22508010,26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Flexion contracture of finger	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Abnormality of the ankle	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Scoliosis	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Impaired vibratory sensation	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Areflexia	22508010,26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hepatomegaly	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Increased circulating lactate concentration	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Gait disturbance	22508010,26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Distal muscle weakness	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Pes planus	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Decreased amplitude of sensory action potentials	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Decreased compound muscle action potential amplitude	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Fatty replacement of skeletal muscle	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Decreased number of large peripheral myelinated nerve fibers	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Ragged-red muscle fibers	22508010,26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Subsarcolemmal accumulations of abnormally shaped mitochondria	26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Axonal degeneration	22508010,26437932
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Foot dorsiflexor weakness	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Distal sensory impairment	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Claw toe deformity	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hip flexor weakness	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Impaired vibration sensation at ankles	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Leukoencephalopathy	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Increased CSF protein concentration	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Increased CSF lactate	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hepatic steatosis	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hepatic fibrosis	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Hepatitis	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Cytochrome C oxidase-negative muscle fibers	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Multiple mitochondrial DNA deletions	22508010
+CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE	has_phenotype	Abnormal mitochondria in muscle tissue	22508010
+Impaired vibration sensation at ankles	is_a	Impaired vibratory sensation	
+Hepatic steatosis	is_a	Abnormality of the liver	
+Hepatitis	is_a	Abnormality of the liver	
+Hepatic fibrosis	is_a	Abnormality of the liver	
+Distal lower limb muscle weakness	is_a	Distal muscle weakness	
+Hepatomegaly	is_a	Abnormality of the liver	
+Leukoencephalopathy	is_a	Abnormal brain morphology	

@@ -1,0 +1,29 @@
+subject	predicate	object	pmids
+Loeffen et al. (2001)	reports	In patients from 3 families with enzymatic complex I deficiency, cardiomyopathy and encephalomyopathy, Loeffen et al. (2001) screened NDUFS2 cDNA by RT-PCR and direct sequencing. They found 3 missense mutations that changed conserved amino acids.	
+Loeffen et al. (2001)	reports	Loeffen et al. (2001) noted a high rate of consanguinity and an autosomal recessive mode of inheritance in their group of patients with complex I deficiency. Together with the absence of common mtDNA mutations, this made a nuclear genetic cause likely.	
+Bénit et al. (2003)	reports	Bénit et al. (2003) described 3 affected sibs from a consanguineous family who had complex I deficiency with early-onset hypertrophic cardiomyopathy and trunk hypotonia. The authors noted that this cardiomyopathy contrasted with the mainly neurologic symptoms seen with mutations in most other complex I subunit genes.	
+Bénit et al. (2003)	reports	In 3 affected sibs from a consanguineous family with complex I deficiency and early-onset hypertrophic cardiomyopathy, Bénit et al. (2003) used denaturing HPLC and sequencing to identify a homozygous 4-bp deletion in intron 2 of the NDUFV2 gene (IVS2+5_+8delGTAA). The deletion altered the consensus splice-donor site of exon 2 and led to a 70% decrease in NDUFV2 protein and complex I deficiency.	
+NDUFV2 c.ivs2+5_+8delgtaa	in_gene	NDUFV2	
+Pagniez-Mammeri et al. (2009)	reports	Pagniez-Mammeri et al. (2009) screened 8 patients with biochemically proven isolated mitochondrial complex I deficiency for mutations in 8 nuclear complex I genes (NDUFS1, NDUFS2, NDUFS3, NDUFS4, NDUFS7, NDUFS8, NDUFV1, and NDUFV2). They used Surveyor nuclease digestion of 22 cDNA fragments covering the coding sequences. Single-nucleotide polymorphisms and missense mutations were detected in 18.7% of the cDNA fragments, and molecular defects were identified in 3 patients.	
+Pagniez-Mammeri et al. (2009)	reports	Pagniez-Mammeri et al. (2009) concluded that Surveyor nuclease screening of cDNAs is a reliable and easy-to-interpret way to genotype nuclear complex I deficiencies, and that it reduces the number of sequencing reactions needed. They suggested that the method would make prenatal diagnosis more feasible.	
+Cameron et al. (2015)	reports	Cameron et al. (2015) reported 2 sibs with hypertrophic cardiomyopathy and brain atrophy who were diagnosed with mitochondrial complex I deficiency based on low enzyme activity in muscle and a high lactate/pyruvate ratio in fibroblasts.	
+Cameron et al. (2015)	reports	In 2 sibs with complex I deficiency, hypertrophic cardiomyopathy, and brain atrophy, Cameron et al. (2015) identified compound heterozygous mutations in the NDUFV2 gene, found by whole-exome sequencing of fibroblast DNA from one sib and filtering for novel nonsynonymous changes: a previously reported intronic splice mutation (c.IVS2+1delGTAA), considered disease causing, and a novel 1-bp insertion (c.669_670insG) predicted to cause a frameshift (p.Ser224Valfs*3).	
+NDUFV2 c.1delgtaa / c.ivs2+1delgtaa	in_gene	NDUFV2	
+NDUFV2 c.669_670insg / p.S224V	in_gene	NDUFV2	
+Cameron et al. (2015)	reports	Cameron et al. (2015) reported a consanguineous family in which 3 of 5 sibs with complex I deficiency presented with Leigh syndrome but without cardiac involvement.	
+Cameron et al. (2015)	reports	By screening of 10 probands with complex I deficiency from different families, Cameron et al. (2015) identified homozygosity for the NDUFV2 intronic c.IVS2+1delGTAA mutation in a consanguineous family with Leigh syndrome.	
+Cameron et al. (2015)	reports	Cameron et al. (2015) noted that homozygosity for the c.IVS2+1delGTAA NDUFV2 mutation had previously been reported in 2 families presenting with hypertrophic cardiomyopathy, truncal hypotonia, and encephalopathy, whereas their family with the same genotype had Leigh syndrome without cardiac involvement, expanding the clinical phenotype associated with this mutation.	
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	caused_by	NDUFV2	12754703,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_variant	NDUFV2 c.1delgtaa / c.ivs2+1delgtaa	26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_variant	NDUFV2 c.669_670insg / p.S224V	26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_variant	NDUFV2 c.ivs2+5_+8delgtaa	12754703
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	inheritance	Autosomal recessive	11220739,12754703,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Hypertrophic cardiomyopathy	12754703,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Cerebral atrophy	26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Decreased activity of mitochondrial complex I	11220739,12754703,19167255,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Elevated lactate:pyruvate ratio	26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Axial hypotonia	12754703,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Encephalopathy	11220739,26008862
+MITOCHONDRIAL COMPLEX I DEFICIENCY, NUCLEAR TYPE 7	has_phenotype	Cardiomyopathy	11220739
+Cardiomyopathy	is_a	Abnormality of the cardiovascular system	
+Hypertrophic cardiomyopathy	is_a	Cardiomyopathy	

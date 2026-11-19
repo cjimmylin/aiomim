@@ -1,0 +1,56 @@
+subject	predicate	object	pmids
+ANDERSON et al. (1965)	reports	ANDERSON et al. (1965) reported an inborn defect of intestinal absorption of certain monosaccharides.	
+Elsas et al. (1970)	reports	Elsas et al. (1970) studied a 3-year-old girl with congenital glucose-galactose malabsorption. In vitro, her jejunal mucosa could not concentrate glucose at any point in a 60-minute incubation. Renal glucose titration showed a partial defect in renal glucose reabsorption.	
+Elsas et al. (1970)	reports	Elsas et al. (1970) found that normal human jejunal mucosa transported glucose against a concentration gradient; transport was saturable, depended on sodium and energy, and showed competitive inhibition. Mucosa from 6 normal controls and from the proband's asymptomatic 5-year-old brother concentrated glucose to 16 times the medium concentration. Fructose was accumulated similarly in all subjects.	
+Elsas et al. (1970)	reports	Elsas et al. (1970) found impaired intestinal glucose transport in both parents and a half sister of the proband, with values between those of normal controls and the proband. In these heterozygotes, glucose influx was impaired while efflux was the same as in controls. Kinetic analysis showed a reduced capacity (Vmax) with normal affinity (Km), and the authors concluded that heterozygotes can be detected.	
+Elsas et al. (1970)	reports	Elsas et al. (1970) concluded that familial glucose-galactose malabsorption is inherited as an autosomal recessive trait. They also concluded that heterozygotes are detectable because their capacity for glucose transport is reduced.	
+Elsas et al. (1970)	reports	Elsas et al. (1970) concluded that the absence of intestinal glucose transport in glucose-galactose malabsorption is accompanied by partial impairment of renal glucose transport. The proband's brother had a renal titration curve similar to those of 7 normal volunteers.	
+Meeuwisse (1970)	reports	Meeuwisse (1970) studied renal glucosuria in glucose-galactose malabsorption.	
+Lebenthal et al. (1971)	reports	Lebenthal et al. (1971) reported glucose-galactose malabsorption in an Oriental-Iraqi Jewish family.	
+Elsas and Lambe (1973)	reports	Elsas and Lambe (1973) reported familial glucose-galactose malabsorption in which the glucose intolerance went into remission.	
+Turk et al. (1991)	reports	Turk et al. (1991) described glucose/galactose malabsorption as an autosomal recessive disease that manifests within the first weeks of life and is characterized by a selective failure to absorb dietary glucose and galactose from the intestine. The resulting severe diarrhea and dehydration are usually fatal unless these sugars are removed from the diet.	
+Turk et al. (1991)	reports	Turk et al. (1991) noted that the severe diarrhea and dehydration of GGM are usually fatal unless glucose and galactose are eliminated from the diet.	
+Turk et al. (1991)	reports	Turk et al. (1991) noted that intestinal biopsies from GGM patients had shown a specific defect in Na(+)-dependent glucose absorption in the brush border. Normal absorption is mediated by the Na+/glucose cotransporter in the brush border membrane, which is encoded by SGLT1 on distal chromosome 22q.	
+Turk et al. (1991)	reports	In members of a family with GGM, Turk et al. (1991) used PCR to amplify SGLT1 cDNA and genomic DNA and found a single missense mutation in SGLT1 that cosegregated with the GGM phenotype. In Xenopus oocytes injected with cRNA carrying the mutation, Na(+)-dependent glucose transport was completely lost.	
+SLC5A1 single missense mutation in SGLT1	in_gene	SLC5A1	
+Turk et al. (1993)	reports	Turk et al. (1993) used fluorescence in situ hybridization with a cosmid probe to refine the localization of the SGLT1 gene, which encodes the intestinal Na+/glucose cotransporter, from the distal long arm of chromosome 22 (22q11.2-qter) to 22q13.1.	
+Turk et al. (1993)	reports	Turk et al. (1993) noted that in 2 patients with autosomal recessive glucose/galactose malabsorption, the cause was a missense mutation in SGLT1, asp28-to-asn (D28N), which was shown in vitro to eliminate SGLT1 transport activity.	
+SLC5A1 p.D28 / p.D28N	in_gene	SLC5A1	
+Martín et al. (1996)	reports	Martín et al. (1996) stated that glucose-galactose malabsorption (GGM) is caused by a defect in the intestinal brush border Na+/glucose cotransporter SGLT1. The disorder presents in the neonatal period with diarrhea, which is fatal unless glucose and galactose are removed from the diet.	
+Martín et al. (1996)	reports	Martín et al. (1996) screened the SGLT1 gene in 30 new patients with GGM. They used a heterologous expression system to link the mutations to the phenotype, and concluded that defects in SGLT1 trafficking and function cause the disorder.	
+Martín et al. (1996)	reports	Martín et al. (1996) performed prenatal screening for GGM in 2 subsequent pregnancies in a large consanguineous family in which 2 proband sibs with GGM had a missense mutation (D28N) in SGLT1. Exon 1 of SGLT1 was PCR-amplified from fetal genomic DNA and screened for D28N by EcoRV restriction digestion; the proband's sib was heterozygous and a cousin was not a carrier. Both children remained healthy without diarrheal symptoms at 2 years of age.	
+Abdullah et al. (1996)	reports	Abdullah et al. (1996) described 8 children from 8 different families with glucose-galactose malabsorption; 6 were Saudi Arabs and 2 were of other Arab nationalities. Mean age at presentation was 10.6 months, and the children had chronic watery diarrhea present since birth and failure to thrive. One child had a renal stone at the first visit, and another was found to have one on follow-up.	
+Abdullah et al. (1996)	reports	Abdullah et al. (1996) confirmed the diagnosis of glucose-galactose malabsorption with laboratory tests, including small-bowel biopsy, histology, and small-bowel enzyme assay.	
+Abdullah et al. (1996)	reports	Abdullah et al. (1996) reported that all 8 children with glucose-galactose malabsorption responded clinically to a fructose-based formula and were thriving at follow-up.	
+Xin and Wang (2011)	reports	Xin and Wang (2011) reported 33 patients with glucose-galactose malabsorption from a large Old Order Amish pedigree. All affected individuals presented with classic watery diarrhea and dehydration; increased bowel sounds, distended abdomen, vigorous nursing despite illness, and irritability and apathy were also noted at initial presentation.	
+Xin and Wang (2011)	reports	Xin and Wang (2011) observed that patients who were correctly diagnosed and adequately managed showed immediate cessation of diarrhea and rapid rehydration, followed by normal growth and development, whereas a prolonged clinical course followed if the disease was not recognized.	
+Xin and Wang (2011)	reports	In 33 Old Order Amish patients with GGM, Xin and Wang (2011) sequenced the 15 protein-coding exons and exon-intron boundaries of SLC5A1 and identified homozygosity for four missense mutations, including c.152A>G (p.N51S), which co-segregated with the phenotype in all affected individuals.	
+SLC5A1 c.152A>G / p.N51S	in_gene	SLC5A1	
+Xin and Wang (2011)	reports	Xin and Wang (2011) identified a homozygous c.1231G>A (p.A411T) missense mutation in SLC5A1, one of four homozygous missense variants co-segregating with GGM in all 33 affected Old Order Amish individuals.	
+SLC5A1 c.1231G>A / p.A411T	in_gene	SLC5A1	
+Xin and Wang (2011)	reports	Xin and Wang (2011) identified a homozygous c.1673G>A (p.R558H) missense mutation in SLC5A1, one of four homozygous missense variants co-segregating with GGM in all 33 affected Old Order Amish individuals.	
+SLC5A1 c.1673G>A / p.R558H	in_gene	SLC5A1	
+Xin and Wang (2011)	reports	Xin and Wang (2011) identified a homozygous c.1845C>G (p.H615Q) missense mutation in SLC5A1, one of four homozygous missense variants co-segregating with GGM in all 33 affected Old Order Amish individuals.	
+SLC5A1 c.1845C>G / p.H615Q	in_gene	SLC5A1	
+Xin and Wang (2011)	reports	Xin and Wang (2011) suggested a founder effect for the SLC5A1 mutations associated with GGM in the Amish and proposed population-specific genetic testing to allow early diagnosis, which they considered critical for a favorable outcome.	
+GLUCOSE/GALACTOSE MALABSORPTION	caused_by	SLC5A1	2008213,20486940,8244393
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 c.1231G>A / p.A411T	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 c.152A>G / p.N51S	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 c.1673G>A / p.R558H	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 c.1845C>G / p.H615Q	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 p.D28 / p.D28N	8244393,8844006
+GLUCOSE/GALACTOSE MALABSORPTION	has_variant	SLC5A1 single missense mutation in SGLT1	2008213
+GLUCOSE/GALACTOSE MALABSORPTION	inheritance	Autosomal recessive	2008213,20486940,5415683,8244393,8844006
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Diarrhea	2008213,20486940,8563765
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Dehydration	2008213,20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Hyperactive bowel sounds	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Abdominal distention	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Irritability	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Apathy	20486940
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Malabsorption	14259267,2008213,4717580,5415683,8244393
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Chronic diarrhea	8985845
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Failure to thrive	8985845
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Kidney stone	8985845
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Glucose intolerance	5581590
+GLUCOSE/GALACTOSE MALABSORPTION	has_phenotype	Glycosuria	5415683,5438804
+Chronic diarrhea	is_a	Diarrhea	

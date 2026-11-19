@@ -1,0 +1,63 @@
+subject	predicate	object	pmids
+Mollet et al. (2007)	reports	Mollet et al. (2007) studied 2 families with inborn errors of CoQ10 biosynthesis. In both, quinone-dependent oxidative phosphorylation (OXPHOS) activities were in the range of the lowest control values, while OXPHOS enzyme activities themselves were normal. Adding quinone restored normal OXPHOS activities, which confirmed CoQ10 deficiency.	
+Mollet et al. (2007)	reports	In family 1, Mollet et al. (2007) did a genome-wide search for homozygosity and identified a region on chromosome 10. This region contains PDSS1, the human ortholog of yeast COQ1, which encodes a key enzyme of CoQ10 synthesis.	
+Mollet et al. (2007)	reports	In family 1 with CoQ10 deficiency, Mollet et al. (2007) sequenced PDSS1 and identified a homozygous nucleotide substitution that changes a conserved amino acid (D308E). When yeast Delta-coq1 strains were transformed with the corresponding mutant yeast COQ1 gene, they grew poorly on respiratory medium. The authors concluded that the mutation causes the OXPHOS deficiency.	
+PDSS1 p.D308E	in_gene	PDSS1	
+Mollet et al. (2007)	reports	In a second family with CoQ10 deficiency, Mollet et al. (2007) sequenced COQ2 directly and identified a single-base-pair frameshift deletion (c.1198delT, N401fsX415) that results in a premature stop codon. Mutant human COQ2 did not support growth of yeast Delta-coq2 strains on respiratory medium. This shows that CoQ10 deficiency is genetically heterogeneous.	
+COQ2 c.1198delt / p.N401fs	in_gene	COQ2	
+Vasta et al. (2012)	reports	Vasta et al. (2012) performed targeted next-generation sequencing of the exons of 908 known and candidate nuclear genes in 26 patients with known or suspected mitochondrial disorders. Among the variants they found in known pathogenic genes were variants in PDSS1, alongside variants in CPT2, POLG, UBE3A, and SDHD. The authors concluded that the diagnostic spectrum of mitochondrial disorders is much broader than previously thought.	
+Nardecchia et al. (2021)	reports	Nardecchia et al. (2021) reported a 16-year-old girl born to consanguineous Egyptian parents who had severe language delay and profound bilateral sensorineural hearing loss diagnosed at age 4 years, later mild intellectual disability, and progressive visual loss from age 11-14 years with visual acuity of 1/10 bilaterally, red-green dyschromatopsia, and optic atrophy predominantly in the inferior temporal sector. VEP showed increased P100 latency and reduced amplitude, and OCT showed bilateral reduction in retinal nerve fiber layer thickness. She also had diffuse mild muscle weakness, mild postural tremor of the upper limbs, normal brain MRI, and a moderately dysplastic mitral valve with moderate insufficiency, tricuspid insufficiency, and a moderately dilated left atrium.	
+Nardecchia et al. (2021)	reports	Nardecchia et al. (2021) reported that the 6-year-old younger sister of the proband had bilateral sensorineural hearing loss and, at age 6 years, developed decreased visual acuity with optic atrophy (bilateral temporal pallor of the optic nerve head) and divergent strabismus; she also had mild intellectual disability and muscular involvement. In both sisters sensorineural deafness preceded optic atrophy, and lactic acidosis, macrocephaly, peripheral neuropathy, and nephrotic syndrome were absent.	
+Nardecchia et al. (2021)	reports	In 2 Egyptian sisters, born to consanguineous parents, with sensorineural deafness followed by optic atrophy, Nardecchia et al. (2021) identified a homozygous missense variant in the PDSS1 gene, c.735G-T (p.Gln245His), by whole-exome sequencing. The variant, at a highly conserved residue, lay within a 12-Mb region of homozygosity, was absent from gnomAD, and segregated with the disorder: both parents were heterozygous, an unaffected brother was heterozygous, and an unaffected sister was homozygous wildtype. Sanger sequencing of OPA1, OPA3, and WFS1 was negative.	
+PDSS1 c.735G>T / p.Q245H	in_gene	PDSS1	
+Nardecchia et al. (2021)	reports	Nardecchia et al. (2021) noted that visual system involvement in CoQ10 deficiency has been reported only in defects of the earliest steps of CoQ10 synthesis, with optic atrophy in PDSS1 deficiency, and that, in contrast to OPA1 and OPA3 defects, sensorineural deafness appears to precede optic atrophy in PDSS1 deficiency. They suggested PDSS1 deficiency be included in the differential diagnosis of optic atrophy with sensorineural deafness as a potentially treatable condition.	
+Bellusci et al. (2021)	reports	Bellusci et al. (2021) gave a detailed clinical description of a boy with primary CoQ10 deficiency due to biallelic PDSS1 mutations, who had been born prematurely after in vitro fertilization in a pregnancy complicated by twin-twin transfusion. At 5 months of age he had failure to thrive, hypotonia, feeding difficulties, bilateral hearing impairment, pulmonary hypertension, livedo reticularis, and chronic distal phalangeal erythema. The disease progressed to a multisystem disorder with severe developmental delay, pyramidal dysfunction, seizures, tremor, optic atrophy, nystagmus, severe visual and hearing impairment, cystic white matter changes, and chronic heart failure, and he died at 3 years of age. Brain MRI showed mild cerebral atrophy at 12 months and, at 24 months, small necrotic or porencephalic cysts in the white matter around the lateral ventricles and in the commissural fibers.	
+Bellusci et al. (2021)	reports	In the PDSS1 patient described by Bellusci et al. (2021), laboratory tests showed anemia, lactic acidosis, 3-methylglutaconic aciduria, tricarboxylic aciduria, and reduced CoQ10 levels in lymphocytes. The authors stated that this was the first reported patient with PDSS1 mutations with 3-methylglutaconic aciduria.	
+Bellusci et al. (2021)	reports	Bellusci et al. (2021) found biallelic mutations in the PDSS1 gene in their patient with primary CoQ10 deficiency: c.716T>G (p.Val239Gly) and c.1183C>T (p.Arg395Ter) (NM_014317.3).	
+PDSS1 c.1183C>T / c.716T>G / c.nm_014317.3: / p.R395* / p.V239G	in_gene	PDSS1	
+Bellusci et al. (2021)	reports	Bellusci et al. (2021) started oral ubidecarenone (CoQ10) at 15 mg/kg/day at 5 months of age and raised it to 30 mg/kg/day after the genetic diagnosis. This high-dose supplementation did not halt disease progression, and the patient died at 3 years of age.	
+Bellusci et al. (2021)	reports	Bellusci et al. (2021) suggested that the combination of phalangeal erythema, livedo reticularis, and pulmonary hypertension in their PDSS1 patient pointed to microvascular dysfunction as a possible underlying mechanism.	
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	caused_by	PDSS1	17332895,33285023,34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_variant	PDSS1 c.1183C>T / c.716T>G / c.nm_014317.3: / p.R395* / p.V239G	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_variant	PDSS1 c.735G>T / p.Q245H	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_variant	PDSS1 p.D308E	17332895
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	inheritance	Autosomal recessive	17332895,33285023,34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Failure to thrive	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Hypotonia	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Feeding difficulties	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Bilateral sensorineural hearing impairment	33285023,34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Pulmonary arterial hypertension	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Livedo reticularis	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Erythema	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Global developmental delay	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Abnormal pyramidal sign	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Seizure	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Tremor	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Optic atrophy	33285023,34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Nystagmus	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Visual impairment	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Abnormal cerebral white matter morphology	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Cerebral atrophy	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Congestive heart failure	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Death in childhood	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Anemia	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Lactic acidosis	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	3-Methylglutaconic aciduria	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Organic aciduria	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Abnormal circulating coenzyme concentration	34765390
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Delayed speech and language development	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Mild intellectual disability	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Progressive visual loss	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Red-green dyschromatopsia	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Abnormal retinal nerve fiber layer morphology	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Generalized muscle weakness	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Postural tremor	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Mitral regurgitation	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Tricuspid regurgitation	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Left atrial enlargement	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Exotropia	33285023
+COENZYME Q10 DEFICIENCY, PRIMARY, 2	has_phenotype	Decreased activity of mitochondrial respiratory chain	17332895
+Postural tremor	is_a	Tremor	
+Progressive visual loss	is_a	Visual impairment	
+Abnormal cerebral white matter morphology	is_a	Abnormal brain morphology	
+Cerebral atrophy	is_a	Abnormal brain morphology	

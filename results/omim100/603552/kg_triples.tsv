@@ -1,0 +1,56 @@
+subject	predicate	object	pmids
+zur Stadt et al. (2005)	reports	zur Stadt et al. (2005) performed genome-wide homozygosity mapping in a large consanguineous Kurdish kindred with 5 children affected with FHL. They found linkage to a 10-cM region on chromosome 6q24 between D6S1569 and D6S960, which defined a new FHL locus.	
+zur Stadt et al. (2005)	reports	In the consanguineous Kurdish kindred with FHL linked to 6q24, zur Stadt et al. (2005) screened positional candidate genes and identified a homozygous 5-bp deletion in the STX11 gene. Syntaxin-11 protein was absent from the mononuclear cell fraction of patients who were homozygous for the deletion. The same homozygous 5-bp deletion was also found in 2 additional consanguineous Turkish/Kurdish FHL kindreds.	
+STX11 homozygous deletion of 5 bp	in_gene	STX11	
+zur Stadt et al. (2005)	reports	zur Stadt et al. (2005) identified a homozygous 19.2-kb genomic deletion spanning the entire coding region of STX11 (exon 2) in 1 consanguineous Turkish/Kurdish FHL kindred.	
+STX11 19.2 kb genomic deletion spanning the entire coding region of STX11 (exon 2)	in_gene	STX11	
+zur Stadt et al. (2005)	reports	In 2 consanguineous Turkish/Kurdish FHL kindreds, zur Stadt et al. (2005) identified a homozygous nonsense mutation in STX11 that leads to a premature stop codon in the C-terminal end of the protein.	
+STX11 nonsense mutation that leads to a premature stop codon in the C-terminal end of the protein	in_gene	STX11	
+zur Stadt et al. (2005)	reports	Because both STX11 and UNC13D are involved in vesicle trafficking and membrane fusion, zur Stadt et al. (2005) concluded that defects in the endocytotic or exocytotic pathway, in addition to perforin mutations, may be a common mechanism in FHL.	
+zur Stadt et al. (2005)	reports	zur Stadt et al. (2005) noted that FHL is genetically heterogeneous: mutations in PRF1 and UNC13D underlie FHL2 and FHL3, respectively, and the 6q24 locus with STX11 mutations defined a new FHL locus.	
+Zur Stadt et al. (2006)	reports	Zur Stadt et al. (2006) screened 63 unrelated patients with FHL from Turkey (32), Germany (23) and other origins (8) for mutations in STX11, PRF1 and UNC13D. They found mutations in 38 patients: 20 in PRF1, 12 in UNC13D and 6 in STX11. All 6 patients with STX11 mutations were from Turkey; none of the German patients or patients of other origins had STX11 mutations.	
+Zur Stadt et al. (2006)	reports	Zur Stadt et al. (2006) reported that FHL2, FHL3 and FHL4 together accounted for 80% of HLH cases of Turkish origin and 30% of German cases. STX11 mutations (FHL4) were found only in Turkish patients (6 of 32).	
+Zur Stadt et al. (2006)	reports	Zur Stadt et al. (2006) concluded that FHL shows extensive genetic and allelic heterogeneity. Mutations were found in PRF1, UNC13D and STX11, and RAB27A mutations were found in 3 patients with FHL-related Griscelli syndrome type 2.	
+Rudd et al. (2006)	reports	Rudd et al. (2006) performed direct sequencing of STX11 in 28 FHL families without PRF1 mutations and identified 2 different previously reported STX11 mutations, a nonsense mutation and a deletion, in 6 of 34 children from 4 of the 28 unrelated families. STX11 mutations accounted for 14% of the PRF1-negative FHL families in the cohort.	
+STX11 nonsense mutation	in_gene	STX11	
+STX11 deletion	in_gene	STX11	
+Rudd et al. (2006)	reports	Rudd et al. (2006) found that 3 of 6 patients with STX11 mutations experienced long periods (1 year or more) of remission without specific treatment, which is very uncommon in FHL. Despite this milder phenotype, some children with STX11 mutations developed severe psychomotor retardation.	
+Rudd et al. (2006)	reports	Rudd et al. (2006) reported that 2 of 6 patients with STX11 mutations developed myelodysplastic syndrome or acute myelogenous leukemia, and suggested that STX11 mutations may be associated with secondary hematopoietic malignancies.	
+Rudd et al. (2006)	reports	Rudd et al. (2006) concluded that there is segregation of specific clinical features, including disease-free remissions and haematopoietic malignancies, in FHL patients according to underlying genotype, with STX11 mutation carriers showing a milder phenotype.	
+Müller et al. (2014)	reports	Müller et al. (2014) described 3 children (2 males, 1 female) from unrelated consanguineous Pakistani families who presented with HLH at ages 2 months, 5 years, and 48 months. Patients A and B had fever, splenomegaly, hepatomegaly, anemia, neutropenia, thrombocytopenia, hypertriglyceridemia, hypofibrinogenemia, and hyperferritinemia, without hemophagocytosis or neurologic manifestations. They were treated with dexamethasone, cyclosporine A, and etoposide and were in remission at 2 months, but both died; patient A had undergone HSCT at 15 months. Patient C was lost to follow-up.	
+Müller et al. (2014)	reports	Müller et al. (2014) found that all 3 patients had defective NK cell lysis of K562 target cells and defective NK cell degranulation, which were partially restored by IL-2 stimulation; expression of perforin, granzyme B, and CD107a was normal, suggesting intact granule integrity.	
+Müller et al. (2014)	reports	In 3 patients from unrelated consanguineous Pakistani families with FHL4, Müller et al. (2014) identified a novel homozygous c.173T-C transition in the STX11 gene, resulting in a leu58-to-pro (L58P) substitution in an alpha-helix of the predicted Habc domain, by sequencing of UNC13D, STX11, and STXBP2. Parents were heterozygous and had no history of inflammatory disease.	
+STX11 c.173T>C / p.L58P	in_gene	STX11	
+Müller et al. (2014)	reports	Müller et al. (2014) noted that patient A, who also carried a heterozygous UNC13D P271S variant and a homozygous UNC13D R928C variant, presented earlier and showed less restoration of NK cell degranulation after IL-2 stimulation; they suggested the UNC13D variants might contribute to disease severity.	
+UNC13D c.811C>T / p.P271S	in_gene	UNC13D	
+UNC13D c.2782C>T / p.R928C	in_gene	UNC13D	
+Müller et al. (2014)	reports	Müller et al. (2014) found greatly reduced syntaxin-11 expression in PBMCs and LAK cells from patient C, with normal Munc18-2 levels. In transfected HEK293T cells, L58P and an N-peptide R4A mutant were expressed at wildtype levels but failed to bind Munc18-2, whereas the FHL4-associated Q268X mutant bound normally. The authors concluded that both the N-terminus and Habc domain of syntaxin-11 are required for Munc18-2 binding and suggested that loss of this interaction destabilizes syntaxin-11 in patient cells.	
+Locatelli et al. (2020)	reports	Locatelli et al. (2020) reported an open-label, single-group, phase 2-3 study of emapalumab, a human anti-interferon-gamma antibody, given with dexamethasone to patients aged 18 years or younger with primary hemophagocytic lymphohistiocytosis. Of 34 treated patients (27 previously treated and 7 previously untreated), 63% of previously treated patients and 65% of all patients who received emapalumab had a response, which was significantly higher than the prespecified null hypothesis of 40%. Seventy percent of previously treated patients went on to transplantation. Emapalumab was not associated with organ toxicity, but severe infections developed in 10 patients, and treatment was stopped in 1 patient because of disseminated histoplasmosis.	
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	caused_by	STX11	15703195,16582076,24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 c.173T>C / p.L58P	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 19.2 kb genomic deletion spanning the entire coding region of STX11 (exon 2)	15703195
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 deletion	16582076
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 homozygous deletion of 5 bp	15703195
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 nonsense mutation	16582076
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	STX11 nonsense mutation that leads to a premature stop codon in the C-terminal end of the protein	15703195
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	caused_by	UNC13D	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	UNC13D c.2782C>T / p.R928C	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_variant	UNC13D c.811C>T / p.P271S	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	inheritance	Autosomal recessive	15703195,16278825,16582076,24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Fever	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Splenomegaly	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Hepatomegaly	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Anemia	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Decreased total neutrophil count	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Thrombocytopenia	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Hypertriglyceridemia	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Hypofibrinogenemia	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Increased circulating ferritin concentration	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Hemophagocytosis	15703195,16278825,16582076
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Abnormal natural killer cell physiology	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Decreased natural killer cell degranulation	24459464
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Global developmental delay	16582076
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Myelodysplasia	16582076
+HEMOPHAGOCYTIC LYMPHOHISTIOCYTOSIS, FAMILIAL, 4	has_phenotype	Acute myeloid leukemia	16582076
+Global developmental delay	is_a	Abnormality of the nervous system	
+Decreased natural killer cell degranulation	is_a	Abnormal natural killer cell physiology	

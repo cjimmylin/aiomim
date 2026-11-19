@@ -1,0 +1,78 @@
+subject	predicate	object	pmids
+Straub et al. (2018)	reports	Straub et al. (2018) reported on the 229th ENMC international workshop, held in Naarden, the Netherlands, in March 2017, which addressed nomenclature and a reformed classification of the limb-girdle muscular dystrophies.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) reported 15 patients from 9 unrelated families with LGMDR21 from Spain, Bulgaria, Italy, Germany, USA, Iran and the United Arab Emirates. Four of the families were consanguineous. Onset was congenital in 1 patient, infantile (before age 3 years) in 2, and adult in 12. Weakness was proximal, predominated in the lower limbs and progressed slowly. Seven patients with onset in their teens needed a wheelchair between the third and fifth decades. Eleven patients had mild to moderate scapular winging.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) found mild to severe respiratory involvement in 6 patients from their mid-forties onward, whatever the age at onset. Two of these patients used ventilatory support at night. There were no significant bulbar, cardiac or other systemic manifestations. Serum CK was normal in most patients, and the authors noted this as a diagnostic hint that distinguishes LGMDR21 from most other recessive LGMDs.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) described a 24-year-old male with congenital onset (family 2, patient II.1). He presented with hypotonia, then developed proximal lower limb weakness after learning to walk. Later he developed weakness, wasting and contractures in the upper limbs, mild facial weakness, ptosis, nasal voice, elbow contractures, myopathic facies and an arched palate, and he used a wheelchair from age 22. Progression was faster and more severe than in the adult-onset cases.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) described 2 patients with infantile onset. The first, a 46-year-old man homozygous for I129T (family 3), used a wheelchair from age 33 and had ankle contracture, calf hypertrophy, scoliosis and hyperlordosis. The second, a 19-year-old man homozygous for R183W (family 9), used a wheelchair from age 13 and had nystagmus and retinitis pigmentosa.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) reviewed lower limb muscle MRI or CT in 11 of the 15 patients, and all 11 showed an 'inside-to-outside' pattern of fatty degeneration. The inner segments of the vastus lateralis, vastus medialis and vastus intermedius, the posterior thigh compartment and the gastrocnemius were affected first. Lower leg muscles were better preserved than thigh muscles. The pattern was clearest early in the disease but could still be seen in the vastus lateralis at end stage.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) examined muscle biopsies from 9 patients belonging to 6 families. Vastus lateralis biopsies were dystrophic. Biceps brachii biopsies showed mild myopathic features, and some had lobulated fibers. Immunostaining showed reduced glycosylated alpha-dystroglycan at the sarcolemma in all biopsies, while staining for the alpha-dystroglycan core was normal. Western blots confirmed the hypoglycosylation and showed reduced laminin binding.	
+Servián-Morilla et al. (2020)	reports	In patient muscle, Servián-Morilla et al. (2020) found reduced NOTCH1 intracellular domain (NICD) and a significantly reduced number of PAX7-positive satellite cells (5 patients vs 5 controls). There were no or very few eMHC-positive regenerating fibers, whereas disease controls had many. The authors suggested that reduced Notch1 signaling disturbs satellite cell biology and causes the dystrophy. They proposed that alpha-dystroglycan hypoglycosylation contributes as a secondary defect.	
+Servián-Morilla et al. (2020)	reports	Using next-generation sequencing (gene panels or whole-exome sequencing) with Sanger confirmation, Servián-Morilla et al. (2020) identified 9 missense variants and 1 nonsense variant in POGLUT1, homozygous or compound heterozygous, in 15 patients from 9 families with LGMDR21. In every family the variants segregated with disease, and no asymptomatic carriers were found. The novel variants were absent from ExAC or seen in the heterozygous state in at most 2 of more than 60,000 non-Finnish European controls.	
+Servián-Morilla et al. (2020)	reports	In the male patient with congenital-onset disease (family 2, II.1), Servián-Morilla et al. (2020) identified POGLUT1 variants D233E and R279Q, both found by NGS panel sequencing. The clinical table and the myoblast experiments describe him as compound heterozygous (p.D233E/p.R279Q). R279Q had previously been reported in the heterozygous state in a patient with Dowling-Degos disease. Based on the protein structure, R279Q was predicted to interfere with donor substrate binding. The patient's myoblasts proliferated less and differentiated faster than controls.	
+POGLUT1 p.D233E	in_gene	POGLUT1	
+POGLUT1 p.R279Q	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, I129T, in a man with infantile-onset LGMDR21 (family 3). The variant was absent from ExAC. In HEK293T cells the mutant protein was secreted poorly and was not detected in cell lysates, suggesting severe destabilization. It did not rescue Notch1 EGF1-18 secretion in POGLUT1-knockout cells. In Drosophila it was expressed normally but only partially rescued myogenesis.	
+POGLUT1 p.I129T	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, R98W, in 3 sisters with adult-onset LGMDR21 (family 4). The variant was seen in the heterozygous state in 1 ExAC control. In HEK293T cells secretion of the mutant protein was much reduced, and the mutant gave little or no rescue of Notch1 EGF1-18 secretion in POGLUT1-knockout cells. Its expression was also reduced in Drosophila.	
+POGLUT1 p.R98W	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, Y57C, in a woman with adult-onset LGMDR21 (family 5). The mutant protein was secreted normally but had much lower in vitro O-glucosyltransferase activity than wildtype. It only partially rescued indirect flight muscle development in rumi-mutant Drosophila. Structurally, Y57C was predicted to disrupt disulfide bonding.	
+POGLUT1 p.Y57C	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, W308L, in a 22-year-old man with adult-onset LGMDR21 (family 6). The variant was absent from ExAC. The mutant protein was secreted poorly, which suggested destabilization, and it gave little or no rescue of Notch1 EGF1-18 secretion in POGLUT1-knockout cells.	
+POGLUT1 p.W308L	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, C102F, in a 59-year-old man whose disease began in the fourth decade (family 7). The variant was predicted to disrupt a disulfide bond that stabilizes a loop involved in EGF recognition. The mutant protein was secreted poorly, did not rescue Notch1 EGF1-18 secretion, and did not rescue the muscle phenotype in rumi-mutant Drosophila.	
+POGLUT1 p.C102F	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) identified a homozygous POGLUT1 missense variant, R183W, in a man with infantile-onset LGMDR21 (family 9). The variant had previously been described as a Dowling-Degos disease mutation. The mutant protein was secreted normally but had markedly reduced enzymatic activity, and it only partially rescued myogenesis in Drosophila.	
+POGLUT1 p.R183W	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	In 2 brothers with adult-onset LGMDR21 (family 8), Servián-Morilla et al. (2020) identified compound heterozygous POGLUT1 variants: a novel missense variant, Y156N, and a novel nonsense variant, c.552G>A (W184*). W184* was absent from ExAC, and Y156N was found in 2 heterozygous controls. The truncation removes the substrate-binding site. The patients' MRI pattern was typical of the disorder, which the authors took as support for pathogenicity.	
+POGLUT1 p.Y156N	in_gene	POGLUT1	
+POGLUT1 c.552G>A / p.W184*	in_gene	POGLUT1	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) tested patient variants in a Drosophila myogenesis rescue assay in rumi79/79 flies. Wildtype human POGLUT1 fully rescued the shortened indirect flight muscles. D233E, R183W, I129T and Y57C, which were expressed at normal levels, gave only partial rescue, and C102F gave no rescue. The authors concluded that all variants tested reduce the myogenic activity of POGLUT1.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) cultured primary myoblasts from the compound heterozygous D233E/R279Q patient. Compared with controls, these cells proliferated less, had fewer proliferating and self-renewing (PAX7+) cells, had more differentiating cells, and showed increased myogenin expression and fusion index. The authors concluded that slow proliferation and facilitated myogenic differentiation underlie POGLUT1-related muscular dystrophy.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) proposed that LGMDR21 be considered, and POGLUT1 sequenced, in a patient with recessive LGMD who shows alpha-dystroglycan hypoglycosylation, reduced PAX7+ cells and NICD levels on muscle biopsy, and the inside-to-outside MRI pattern. They noted that the pattern must be distinguished from collagen VI myopathy, in which the outer areas of the vastus lateralis degenerate first.	
+Servián-Morilla et al. (2020)	reports	Servián-Morilla et al. (2020) found no relevant intra- or interfamilial variability in clinical features among the adult-onset patients. Across the cohort, the main source of variability was age at onset, which ranged from the first to the fifth decade. The congenital case had additional features (facial involvement, ptosis and contractures) not seen in the adult forms.	
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	caused_by	POGLUT1	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 c.552G>A / p.W184*	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.C102F	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.D233E	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.I129T	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.R183W	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.R279Q	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.R98W	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.W308L	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.Y156N	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_variant	POGLUT1 p.Y57C	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	inheritance	Autosomal recessive	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Proximal lower limb muscle weakness	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Scapular winging	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Slowly progressive	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Respiratory insufficiency due to muscle weakness	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Hypotonia	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Facial palsy	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Ptosis	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Hypernasal speech	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Elbow flexion contracture	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Myopathic facies	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	High palate	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Upper limb muscle weakness	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Ankle contracture	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Calf muscle hypertrophy	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Scoliosis	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Hyperlordosis	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Nystagmus	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Rod-cone dystrophy	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Fatty replacement of skeletal muscle	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Muscular dystrophy	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Abnormal muscle fiber morphology	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Hypoglycosylation of alpha-dystroglycan	31897643
+MUSCULAR DYSTROPHY, LIMB-GIRDLE, AUTOSOMAL RECESSIVE 21	has_phenotype	Abnormal skeletal muscle morphology	31897643
+Proximal lower limb muscle weakness	is_a	Abnormal skeletal muscle morphology	
+Scapular winging	is_a	Abnormal skeletal muscle morphology	
+Muscular dystrophy	is_a	Abnormal skeletal muscle morphology	
+Elbow flexion contracture	is_a	Abnormal skeletal muscle morphology	
+Calf muscle hypertrophy	is_a	Abnormal skeletal muscle morphology	
+Abnormal muscle fiber morphology	is_a	Abnormal skeletal muscle morphology	
+Upper limb muscle weakness	is_a	Abnormal skeletal muscle morphology	
+Fatty replacement of skeletal muscle	is_a	Abnormal skeletal muscle morphology	
+Facial palsy	is_a	Abnormal skeletal muscle morphology	
+Hypoglycosylation of alpha-dystroglycan	is_a	Abnormal muscle fiber morphology	
+Ankle contracture	is_a	Abnormal skeletal muscle morphology	

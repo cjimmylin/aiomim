@@ -1,0 +1,20 @@
+subject	predicate	object	pmids
+Iqbal et al. (2013)	reports	Iqbal et al. (2013) described a consanguineous family in which affected members had moderate intellectual disability, an ADHD-like phenotype, and behavioral problems.	
+Iqbal et al. (2013)	reports	In affected members of a consanguineous family with moderate intellectual disability and an ADHD-like phenotype, Iqbal et al. (2013) identified a homozygous truncating frameshift mutation in the longest isoform of the ANK3 gene, which the authors stated represented the first reported familial mutation in ANK3.	
+ANK3 homozygous truncating frameshift mutation in the longest isoform	in_gene	ANK3	
+Iqbal et al. (2013)	reports	Iqbal et al. (2013) reported a patient with borderline intelligence, severe attention deficit-hyperactivity disorder (ADHD), autism, and sleeping problems in whom all isoforms of the ANK3 gene were disrupted by a balanced translocation.	
+Iqbal et al. (2013)	reports	Iqbal et al. (2013) found memory defects in a Drosophila knockdown model of the ANK3 ortholog. The authors said this supported the causality of the ANK3 mutations in the 2 families and a role for the gene in cognitive function.	
+Hu et al. (2019)	reports	Hu et al. (2019) performed whole exome and whole genome sequencing in 404 consanguineous, predominantly Iranian families with 2 or more affected offspring with intellectual disability. They found likely causative variants in 219 of these families. The variants involved 77 known and 77 novel autosomal recessive intellectual disability (candidate) genes, 21 X-linked genes, and 9 genes previously implicated in diseases other than intellectual disability.	
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	caused_by	ANK3	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_variant	ANK3 homozygous truncating frameshift mutation in the longest isoform	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	inheritance	Autosomal recessive	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Moderate intellectual disability	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Attention deficit hyperactivity disorder	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Atypical behavior	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Borderline intellectual disability	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Autism	23390136
+INTELLECTUAL DEVELOPMENTAL DISORDER, AUTOSOMAL RECESSIVE 37	has_phenotype	Sleep disturbance	23390136
+Attention deficit hyperactivity disorder	is_a	Atypical behavior	
+Borderline intellectual disability	is_a	Intellectual disability	
+Moderate intellectual disability	is_a	Intellectual disability	
+Autism	is_a	Atypical behavior	

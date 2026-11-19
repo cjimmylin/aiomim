@@ -1,0 +1,12 @@
+subject	predicate	object	pmids
+Puls et al. (2003)	reports	Puls et al. (2003) showed linkage of a lower motor neuron disease to a 4-Mb region on chromosome 2p13.	
+Puls et al. (2003)	reports	In a lower motor neuron disease linked to 2p13, Puls et al. (2003) analyzed the gene encoding the largest subunit of the axonal transport protein dynactin. They found a single base-pair change that causes an amino acid substitution, which is predicted to distort the folding of dynactin's microtubule-binding domain.	
+DYNACTIN single base-pair change resulting in an amino-acid substitution	in_gene	DYNACTIN	
+Puls et al. (2003)	reports	In binding assays by Puls et al. (2003), the mutant dynactin protein bound less to microtubules. The authors concluded that dysfunction of dynactin-mediated transport can lead to human motor neuron disease.	
+Münch et al. (2004)	reports	Münch et al. (2004) screened the DCTN1 and cytoplasmic dynein heavy chain (DNCHC1) genes in 250 patients with ALS and 150 unrelated controls. They found heterozygous missense mutations in DCTN1 in 3 patients: T1249I in 1 apparently sporadic ALS case, M571T in 1 person with familial ALS, and R785W in 2 patients with familial ALS from 1 kindred. The R785W variant was also present in 2 unaffected relatives from that kindred. The authors suggested that DCTN1 allelic variants may be a previously unknown genomic risk factor for ALS.	
+DCTN1 p.T1249I	in_gene	DCTN1	
+DCTN1 p.M571T	in_gene	DCTN1	
+DCTN1 p.R785W	in_gene	DCTN1	
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 14	caused_by	DYNACTIN	12627231
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 14	has_variant	DYNACTIN single base-pair change resulting in an amino-acid substitution	12627231
+NEURONOPATHY, DISTAL HEREDITARY MOTOR, AUTOSOMAL DOMINANT 14	has_phenotype	Abnormal lower motor neuron morphology	12627231
