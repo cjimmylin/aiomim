@@ -28,7 +28,7 @@ segments = [
     ("Contradicted", contradicted, "#000000", "white"),
 ]
 
-fig, ax = plt.subplots(figsize=(3.4, 2.55))
+fig, ax = plt.subplots(figsize=(3.4, 2.55), layout="constrained")
 ypos = [2, 1, 0]
 left = [0.0, 0.0, 0.0]
 for label, vals, color, tcol in segments:
@@ -36,26 +36,27 @@ for label, vals, color, tcol in segments:
     ax.barh(ypos, pct, left=left, color=color, height=0.62, label=label,
             edgecolor="white", linewidth=0.5)
     for y, l, p in zip(ypos, left, pct):
-        if p >= 6.5:
+        if p >= 9.5:  # smaller segments are left unlabelled (too narrow at column width)
             ax.text(l + p / 2, y, f"{p:.0f}%", ha="center", va="center", color=tcol,
                     fontsize=8 if p >= 12 else 7)
     left = [l + p for l, p in zip(left, pct)]
 
 for y, s in zip(ypos, share_missed_in_text):
-    ax.text(103, y, s, ha="center", va="center", fontsize=8, color="#D55E00", clip_on=False)
-ax.text(103, 2.36, "In text,\nshare of\nmissed", ha="center", va="bottom", fontsize=7,
+    ax.text(108, y, s, ha="center", va="center", fontsize=8, color="#D55E00", clip_on=False)
+ax.text(108, 2.34, "In text,\nshare of\nmissed", ha="center", va="bottom", fontsize=7,
         color="#D55E00", linespacing=0.95, clip_on=False)
 
 ax.set_yticks(ypos)
 ax.set_yticklabels([f"{l}\nn = {n:,}" for l, n in zip(levels, facts)])
-ax.set_ylabel("Paper read as")
-ax.set_xlim(0, 100)
+ax.set_xlim(0, 115)
+ax.spines["bottom"].set_bounds(0, 100)
 ax.set_xticks([0, 25, 50, 75, 100])
 ax.set_xticklabels(["0%", "25%", "50%", "75%", "100%"])
 ax.set_xlabel("Share of OMIM facts")
 ax.spines[["top", "right"]].set_visible(False)
 ax.tick_params(axis="y", length=0)
-ax.legend(loc="lower left", bbox_to_anchor=(-0.38, 1.02), ncol=2, frameon=False, fontsize=7.5,
-          handlelength=1.0, handletextpad=0.4, columnspacing=0.8)
+handles, labels = ax.get_legend_handles_labels()
+fig.legend(handles, labels, loc="outside upper center", ncol=2, frameon=False, fontsize=7,
+           handlelength=1.0, handletextpad=0.4, columnspacing=0.8, labelspacing=0.3)
 
 fig.savefig(os.environ["PO_OUT"], dpi=300, bbox_inches="tight", facecolor="white")

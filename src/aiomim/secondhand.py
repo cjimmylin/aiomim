@@ -395,11 +395,16 @@ def pool_results(results: list[dict[str, Any]], no_fulltext_draft: list[str] | N
             "coverage_same_paragraphs_n": sum(s["paragraphs"] for s in same), "claims": claims}
 
 
-def reaggregate(run: str, source: str | None = None) -> dict[str, Any]:
+def reaggregate(run: str, source: str | None = None, *, frozen: bool = False, jobs: int = 1,
+                llm=None) -> dict[str, Any]:
     """Rebuild secondhand_check.json/.md from the per-entry result files, without any model call.
 
     Reads runs/<run>/<mim>/secondhand_check/result.json and the source run's
     eval.direct.json files; keeps the failures and usage recorded by the original run.
+    Frozen-list coverage files already written (coverage_frozen.json) are pooled into
+    `coverage_frozen`. With `frozen`, the two drafts of every entry that has a
+    full-text draft are first scored against the frozen fact lists (model calls:
+    marking, and splitting any list missing from the store).
     """
     settings = get_settings()
     run_dir = settings.runs / run
@@ -412,16 +417,261 @@ def reaggregate(run: str, source: str | None = None) -> dict[str, Any]:
     have = {r["mim"] for r in results}
     results += [e for e in old.get("entries", []) if "skipped" in e and e["mim"] not in have]
     results.sort(key=lambda r: r["mim"])
-    summary = pool_results(results, fulltext_draft_missing(settings.runs / source, [r["mim"] for r in results]))
+    missing = fulltext_draft_missing(settings.runs / source, [r["mim"] for r in results])
+    summary = pool_results(results, missing)
     summary.update(source=source, run=run, failures=old.get("failures", {}), usage=old.get("usage", {}),
                    reaggregated_from_entry_files=True)
+    usage_frozen = old.get("coverage_frozen", {}).get("usage")
+    if frozen:
+        llm = llm or LLM(settings)
+        mims = [r["mim"] for r in results if "skipped" not in r and r["mim"] not in missing]
+        _, failed = rescore_frozen_entries(mims, settings.runs / source, run_dir, llm, jobs=jobs)
+        usage_frozen = {"this_pass": llm.usage.summary()["total"], "failures": failed}
+    frozen_summary = pool_frozen(run_dir, results, missing)
+    if frozen_summary:
+        if usage_frozen:
+            frozen_summary["usage"] = usage_frozen
+        summary["coverage_frozen"] = frozen_summary
     _write(run_dir / "secondhand_check.json", summary)
     _write(run_dir / "secondhand_check.md", check_markdown(summary))
     return summary
 
 
+# --------------------------------------------------------------------------- #
+# Coverage on the frozen fact lists
+# --------------------------------------------------------------------------- #
+
+FROZEN_FILE = "coverage_frozen.json"
+CONDITIONS = ("abstract", "secondhand", "fulltext")
+_FROZEN_COUNTS = ("n_facts", "n_judged", "unjudged", "present", "partial", "absent", "contradicted")
+BOOTSTRAP_SEED = 20261119
+
+
+def _draft_hash(path: Path) -> str:
+    from .cache import stable_hash
+
+    return stable_hash(path.read_text(encoding="utf-8"))[:16]
+
+
+def rescore_frozen_entry(mim: str, source_dir: Path, run_dir: Path, llm, store=None) -> dict[str, Any]:
+    """Score the entry's abstract-only and second-hand drafts against the frozen fact lists of the
+    gold paragraphs about the hidden papers, next to the source run's frozen score of its full-text
+    draft (`eval.direct.json` -> `gold_text_frozen`) for the same paragraphs.
+
+    Frozen lists come from the store (`facts.frozen_facts`; a missing one is split there, the normal
+    way). Writes `<run>/<mim>/secondhand_check/coverage_frozen.json` (fact ids, statuses and notes;
+    runs/ is not tracked) and returns it.
+    """
+    from .facts import FactStore, eval_gold_text_frozen, frozen_facts
+
+    store = store or FactStore()
+    src, out = source_dir / mim, run_dir / mim / "secondhand_check"
+    result = json.loads((out / "result.json").read_text(encoding="utf-8"))
+    hidden = set(result["hidden_papers"])
+    gold = GoldEntry.model_validate_json((src / "gold.json").read_text(encoding="utf-8"))
+    gold_h = restrict_gold(gold, hidden)
+    paragraphs = gold_h.scoped_paragraphs
+    levels = {p["pmid"]: p.get("content_level", "not_retrieved") for p in
+              json.loads((src / "papers.json").read_text(encoding="utf-8"))} if (src / "papers.json").exists() else {}
+    blind_levels = {k: ("abstract" if k in hidden and v == "fulltext" else v) for k, v in levels.items()}
+
+    records = frozen_facts(paragraphs, llm, store) if paragraphs else []
+    scores = {}
+    for name in ("abstract", "secondhand"):
+        entry = GeneratedEntry.model_validate_json((out / f"entry.{name}.json").read_text(encoding="utf-8"))
+        scores[name] = eval_gold_text_frozen(entry, gold_h, blind_levels, llm, store, records=records)
+
+    # The source run's frozen scoring covers all of `gold.scoped_paragraphs`, in order;
+    # the paragraphs about the hidden papers are a subsequence of them.
+    ev = json.loads((src / "eval.direct.json").read_text(encoding="utf-8"))
+    full_rows = (ev.get("gold_text_frozen") or {}).get("paragraphs", [])
+    full_by_index = [row for p, row in zip(gold.scoped_paragraphs, full_rows) if set(p.pmids) & hidden] \
+        if len(full_rows) == len(gold.scoped_paragraphs) else []
+
+    rows = []
+    for i, para in enumerate(paragraphs):
+        rec = records[i]
+        row: dict[str, Any] = {"key": rec["key"] if rec else None, "pmids": para.pmids}
+        for name in ("abstract", "secondhand"):
+            got = scores[name].get("paragraphs", [])
+            row[name] = got[i] if i < len(got) and not got[i].get("error") and got[i].get("facts") else None
+        ft = full_by_index[i] if i < len(full_by_index) else None
+        row["fulltext"] = ft if ft and rec and ft.get("key") == rec["key"] and ft.get("facts") \
+            and not ft.get("error") else None
+        rows.append(row)
+    data = {
+        "mim": mim, "split_version": records[0]["version"] if records and records[0] else None,
+        "drafts": {name: _draft_hash(out / f"entry.{name}.json") for name in ("abstract", "secondhand")},
+        "fulltext_source": f"{source_dir.name}/{mim}/eval.direct.json#gold_text_frozen",
+        "fulltext_available": bool(full_rows), "paragraphs": rows,
+    }
+    _write(out / FROZEN_FILE, data)
+    return data
+
+
+def rescore_frozen_entries(mims: list[str], source_dir: Path, run_dir: Path, llm, *, jobs: int = 1
+                           ) -> tuple[list[dict[str, Any]], dict[str, str]]:
+    from .facts import FactStore
+
+    store = FactStore()
+    done, failed = [], {}
+    with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
+        futures = {pool.submit(rescore_frozen_entry, m, source_dir, run_dir, llm, store): m for m in mims}
+        for future in as_completed(futures):
+            mim = futures[future]
+            try:
+                done.append(future.result())
+            except Exception as exc:  # noqa: BLE001 - one bad entry should not lose the rest
+                log.exception("[%s] frozen rescoring failed", mim)
+                failed[mim] = f"{type(exc).__name__}: {exc}"
+    return done, failed
+
+
+def _frozen_counts(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Pooled counts; coverage is present + half partial over the facts judged."""
+    c = {k: sum(r.get(k, 0) for r in rows) for k in _FROZEN_COUNTS}
+    judged = c["n_judged"]
+    return {"paragraphs": len(rows), **c,
+            "coverage": round((c["present"] + 0.5 * c["partial"]) / judged, 4) if judged else None}
+
+
+def _cov(c: dict[str, Any], judged_key: str = "n_judged") -> float | None:
+    n = c.get(judged_key) or 0
+    return (c["present"] + 0.5 * c["partial"]) / n if n else None
+
+
+def _paired_rows(per_entry: list[dict[str, float | None]], seed: int = BOOTSTRAP_SEED) -> dict[str, Any]:
+    """Paired differences over entries (percentage points as fractions), with a bootstrap 95% interval."""
+    import random
+
+    from .compare import _pair_stats
+
+    out = {}
+    for name in ("secondhand", "fulltext"):
+        pairs = [(e[name], e["abstract"]) for e in per_entry if e[name] is not None and e["abstract"] is not None]
+        out[f"{name}_minus_abstract"] = _pair_stats(pairs, True, random.Random(seed)) if pairs else None
+    return out
+
+
+def pool_frozen(run_dir: Path, results: list[dict[str, Any]], no_fulltext_draft: list[str] | None = None
+                ) -> dict[str, Any] | None:
+    """Pool the frozen-list coverage files the way `pool_results` pools coverage.
+
+    Only entries with a full-text draft in the source run; within them only the
+    paragraphs scored under all three conditions, so the three rows share entries,
+    paragraphs and frozen fact lists. Also the paired differences over entries
+    (second-hand minus abstract, full text minus abstract), and the same paired
+    differences on the old per-draft splitting for the same entries.
+    """
+    done = [r for r in results if "skipped" not in r and r["mim"] not in set(no_fulltext_draft or [])]
+    files, stale, absent = {}, [], []
+    for r in done:
+        out = run_dir / r["mim"] / "secondhand_check"
+        path = out / FROZEN_FILE
+        if not path.exists():
+            absent.append(r["mim"])
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if any(not (out / f"entry.{n}.json").exists() or _draft_hash(out / f"entry.{n}.json") != h
+               for n, h in data.get("drafts", {}).items()):
+            stale.append(r["mim"])
+            continue
+        files[r["mim"]] = data
+    if not files:
+        return None
+    pooled_rows: dict[str, list] = {n: [] for n in CONDITIONS}
+    per_entry, per_entry_old, n_dropped = [], [], 0
+    for r in done:
+        data = files.get(r["mim"])
+        if data is None:
+            continue
+        common = [p for p in data["paragraphs"] if all(p.get(n) for n in CONDITIONS)]
+        n_dropped += len(data["paragraphs"]) - len(common)
+        if not common:
+            continue
+        cells = {}
+        for n in CONDITIONS:
+            rows = [p[n] for p in common]
+            pooled_rows[n].extend(rows)
+            cells[n] = _cov(_frozen_counts(rows))
+        per_entry.append({"mim": r["mim"], "paragraphs": len(common), **{n: cells[n] for n in CONDITIONS}})
+        per_entry_old.append({"mim": r["mim"], **{n: _cov(r["coverage"][n], "n_facts") for n in CONDITIONS}})
+    by_condition = {n: _frozen_counts(pooled_rows[n]) for n in CONDITIONS}
+    return {
+        "scoring": "frozen fact lists (facts.FactStore, split once without sight of any draft); full text from the "
+                   "source run's eval.direct.json gold_text_frozen",
+        "n_entries": len(per_entry), "n_paragraphs": by_condition["abstract"]["paragraphs"],
+        "paragraphs_dropped_not_scored_under_all_three": n_dropped,
+        "entries_without_frozen_file": sorted(absent), "entries_with_stale_frozen_file": sorted(stale),
+        "by_condition": by_condition,
+        "paired": _paired_rows(per_entry),
+        "paired_old_scoring_same_entries": _paired_rows(per_entry_old),
+        "bootstrap": {"resamples": 10_000, "seed": BOOTSTRAP_SEED, "unit": "entry",
+                      "statistic": "mean of per-entry coverage differences"},
+        "per_entry": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in e.items()} for e in per_entry],
+    }
+
+
 def _pct(x) -> str:
     return "-" if x is None else f"{100 * x:.1f}%"
+
+
+_NAMES = {"abstract": "Abstract only", "secondhand": "Abstract + second-hand",
+          "fulltext": "Full text (source run's direct draft)"}
+
+
+def _pp(x) -> str:
+    return "-" if x is None else f"{100 * x:+.1f}"
+
+
+def frozen_markdown(f: dict[str, Any], old: dict[str, Any] | None = None) -> list[str]:
+    """The frozen-list coverage section: counts per condition, paired differences, old numbers beside."""
+    lines = [
+        "## OMIM-fact coverage on the frozen fact lists (main measure)",
+        "",
+        "Scoring: **frozen fact lists**. Each gold paragraph about a hidden paper was split into facts once, without "
+        "sight of any draft (the same lists as the main runs), and the two new drafts were marked against them; the "
+        "full-text row is the source run's existing frozen scoring of its direct draft (`eval.direct.json`, "
+        "`gold_text_frozen`) restricted to the same paragraphs. "
+        f"{f['n_entries']} entries with a full-text draft in the source run, {f['n_paragraphs']} paragraphs scored "
+        "under all three conditions (the same entries, paragraphs and fact lists in every row"
+        + (f"; {f['paragraphs_dropped_not_scored_under_all_three']} paragraphs left out because one condition had "
+           "no frozen score" if f.get("paragraphs_dropped_not_scored_under_all_three") else "")
+        + "). Coverage = (present + half of partial) / facts judged.",
+        "",
+        "| Condition | Entries | Paragraphs | Facts judged | Present | Partial | Absent | Contradicted | Coverage "
+        "(frozen) | Coverage (old scoring) |",
+        "|---|---|---|---|---|---|---|---|---|---|",
+    ]
+    for name in CONDITIONS:
+        x = f["by_condition"][name]
+        o = (old or {}).get(name, {}).get("coverage")
+        lines.append(f"| {_NAMES[name]} | {f['n_entries']} | {x['paragraphs']} | {x['n_judged']} | {x['present']} | "
+                     f"{x['partial']} | {x['absent']} | {x['contradicted']} | {_pct(x['coverage'])} | {_pct(o)} |")
+    unjudged = sum(f["by_condition"][n]["unjudged"] for n in CONDITIONS)
+    if unjudged:
+        lines += ["", f"{unjudged} facts got no verdict and are left out of the rates."]
+    lines += ["", f"Paired differences over entries (percentage points of per-entry coverage), bootstrap 95% "
+              f"interval over entries ({f['bootstrap']['resamples']:,} resamples, seed {f['bootstrap']['seed']}); "
+              "the old-scoring column uses the same entries.", "",
+              "| Difference | Entries | Frozen: mean (95% CI) | better / worse / tied | Old scoring: mean (95% CI) | "
+              "better / worse / tied |", "|---|---|---|---|---|---|"]
+    labels = {"secondhand_minus_abstract": "Abstract + second-hand minus abstract only",
+              "fulltext_minus_abstract": "Full text minus abstract only"}
+    for key, label in labels.items():
+        a, b = f["paired"].get(key), f["paired_old_scoring_same_entries"].get(key)
+
+        def cell(p):
+            if not p:
+                return "-", "-"
+            ci = f"{_pp(p['ci95'][0])} to {_pp(p['ci95'][1])}" if p.get("ci95") else "n/a"
+            return f"{_pp(p['difference'])} ({ci})", f"{p['better']} / {p['worse']} / {p['ties']}"
+
+        lines.append(f"| {label} | {a['n'] if a else 0} | {' | '.join(cell(a))} | {' | '.join(cell(b))} |")
+    if f.get("entries_without_frozen_file") or f.get("entries_with_stale_frozen_file"):
+        lines += ["", f"Not in the frozen pooling: no frozen file {f.get('entries_without_frozen_file')}, stale "
+                  f"(draft changed since) {f.get('entries_with_stale_frozen_file')}."]
+    return lines + [""]
 
 
 def check_markdown(s: dict[str, Any]) -> str:
@@ -442,7 +692,12 @@ def check_markdown(s: dict[str, Any]) -> str:
         f"{r['with_passages']} got passages; {r['passages']} passages, {r['chars']:,} characters; retrieval "
         f"{r['retrieval_seconds']} s in all.",
         "",
-        "## OMIM-fact coverage of the gold paragraphs about the hidden papers",
+    ]
+    if s.get("coverage_frozen"):
+        lines += frozen_markdown(s["coverage_frozen"], c)
+    lines += [
+        "## OMIM-fact coverage of the gold paragraphs about the hidden papers"
+        + (" (old scoring: facts split afresh for each draft)" if s.get("coverage_frozen") else ""),
         "",
         f"Pooled over the {s.get('n_entries_coverage', s['n_entries'])} entries that have a full-text draft in the "
         "source run, the same entries for all three conditions"
