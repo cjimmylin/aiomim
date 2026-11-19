@@ -1,17 +1,21 @@
 """Collect a run directory into one self-contained HTML review page.
 
-The page is a single file: CSS, JavaScript and the run's data (as JSON in a
+Small runs give one file: CSS, JavaScript and the run's data (as JSON in a
 `<script type="application/json">` block) are all inlined, so it opens offline
-and under a strict Content-Security-Policy. Paper full text is never embedded;
-only what the page shows is kept.
+and under a strict Content-Security-Policy. Large runs are split: the page keeps
+only what the overview needs (scores and an index of entries) and each entry's
+data goes into `report_data/<entry>.js`, which the page loads with a <script>
+element when the entry is opened (this works from file://, where fetch() does
+not). Paper full text is never embedded; only what the page shows is kept.
 
-    build_report(run_dir)  ->  run_dir / "report.html"
+    build_report(run_dir)  ->  run_dir / "report.html"  [+ run_dir / "report_data/*.js"]
 """
 
 from __future__ import annotations
 
 import json
 import logging
+import re
 from importlib import resources
 from pathlib import Path
 from typing import Any
@@ -22,6 +26,10 @@ log = logging.getLogger(__name__)
 ENTRY_FILES = ("seed.json", "gold.json", "retrieval.json", "papers.json", "extractions.json", "kg.json",
                "usage.json", "updates.json")
 KG_ENTRY_RELATIONS = ("caused_by", "has_variant", "inheritance", "has_phenotype")
+# Above this many bytes of entry data the page is split: report.html + report_data/<entry>.js.
+SPLIT_THRESHOLD = 5_000_000
+DATA_DIR = "report_data"
+REGISTER = "__aiomimRegister"  # global the per-entry data files call; defined in app.js
 
 
 # --------------------------------------------------------------------------- #
@@ -144,7 +152,7 @@ def _slim_gold(raw: dict | None) -> dict | None:
                               for a in raw.get("hpo_annotations") or []]
     out["allelic_variants"] = [
         {**_pick(av, ("omim_id", "gene_symbol", "name", "clinvar_name", "protein_change", "phenotypes")),
-         "paragraphs": [_pick(p, ("text", "pmids", "mims")) for p in av.get("paragraphs") or []]}
+         "n_paragraphs": len(av.get("paragraphs") or [])}
         for av in raw.get("allelic_variants") or []
     ]
     return out
@@ -174,21 +182,32 @@ def _slim_extractions(raw: Any) -> list[dict]:
 
 
 def _slim_kg(raw: Any) -> dict | None:
-    """Graph statistics plus the entity nodes hanging off the entry node, with their papers."""
+    """Graph statistics plus the entity nodes hanging off the entry node, with their papers.
+
+    Variants also carry `gene_id`, from their `in_gene` edge, so the page can draw variant -> gene.
+    """
     if not isinstance(raw, dict):
         return None
     nodes = {n.get("id"): n for n in raw.get("nodes") or [] if isinstance(n, dict)}
+    in_gene: dict[str, str] = {}
+    for e in raw.get("edges") or []:
+        if isinstance(e, dict) and e.get("rel") == "in_gene":
+            in_gene.setdefault(e.get("src", ""), e.get("dst", ""))
     entities = []
     for e in raw.get("edges") or []:
         if not isinstance(e, dict) or e.get("src") != "entry" or e.get("rel") not in KG_ENTRY_RELATIONS:
             continue
-        node = nodes.get(e.get("dst"), {})
-        entities.append({
-            "rel": e["rel"], "id": e.get("dst", ""), "label": node.get("label") or e.get("dst", ""),
-            **_pick(node, ("hpo_id", "gene", "omim_name", "keys")),
+        dst = e.get("dst", "")
+        node = nodes.get(dst, {})
+        ent = {
+            "rel": e["rel"], "id": dst, "label": node.get("label") or dst,
+            **_pick(node, ("hpo_id", "gene", "omim_name")),
             "pmids": e.get("pmids") or ([e["pmid"]] if e.get("pmid") else []),
             **_pick(e, ("absent_in", "n_variants")),
-        })
+        }
+        if dst in in_gene:
+            ent["gene_id"] = in_gene[dst]
+        entities.append(ent)
     return {"stats": raw.get("stats") or {}, "entities": entities}
 
 
@@ -209,6 +228,16 @@ def _slim_retrieval(raw: Any) -> dict | None:
 # --------------------------------------------------------------------------- #
 
 
+def _slim_eval(raw: dict) -> dict:
+    """The eval as written, minus the draft text the page recomputes from the entry (see `_draft_text_for`)."""
+    ev = dict(raw)
+    gt = ev.get("gold_text")
+    if isinstance(gt, dict) and isinstance(gt.get("paragraphs"), list):
+        ev["gold_text"] = {**gt, "paragraphs": [{k: v for k, v in p.items() if k != "draft"}
+                                                for p in gt["paragraphs"] if isinstance(p, dict)]}
+    return ev
+
+
 def _collect_entry(path: Path) -> dict:
     entries = {}
     for s in _strategies_in(path, "entry"):
@@ -219,20 +248,21 @@ def _collect_entry(path: Path) -> dict:
     for s in _strategies_in(path, "eval"):
         raw = _read_json(path / f"eval.{s}.json")
         if isinstance(raw, dict):
-            evals[s] = raw
+            evals[s] = _slim_eval(raw)
     seed = _read_json(path / "seed.json")
+    seed = seed if isinstance(seed, dict) else None
     gold = _slim_gold(_read_json(path / "gold.json"))
     updates = _read_json(path / "updates.json")
-    title = ((seed or {}).get("title") if isinstance(seed, dict) else None) or (gold or {}).get("title")
+    title = (seed or {}).get("title") or (gold or {}).get("title")
     if not title:
         title = next((e.get("title") for e in entries.values() if e.get("title")), None) or path.name
-    mim = (seed or {}).get("mim") if isinstance(seed, dict) else None
-    mim = mim or (gold or {}).get("mim") or next((e.get("mim") for e in entries.values() if e.get("mim")), None)
+    mim = (seed or {}).get("mim") or (gold or {}).get("mim") or next(
+        (e.get("mim") for e in entries.values() if e.get("mim")), None)
     return {
         "dir": path.name,
         "mim": mim,
         "title": title,
-        "seed": seed if isinstance(seed, dict) else None,
+        "seed": seed,
         "gold": gold,
         "retrieval": _slim_retrieval(_read_json(path / "retrieval.json")),
         "papers": _slim_papers(_read_json(path / "papers.json")),
@@ -246,32 +276,110 @@ def _collect_entry(path: Path) -> dict:
     }
 
 
+def _get(node: Any, path: str) -> Any:
+    for key in path.split("."):
+        node = node.get(key) if isinstance(node, dict) else None
+    return node
+
+
+def _row(item: dict, s: str) -> dict:
+    """One score-table row (what the overview shows) for one strategy of one entry."""
+    ev = item["evals"].get(s)
+    en = item["entries"].get(s)
+    aud = (ev or {}).get("faithfulness") or (en or {}).get("audit") or {}
+    gt = (ev or {}).get("gold_text") or {}
+    n_facts = gt.get("n_facts")
+    return {
+        "has_eval": ev is not None,
+        "claim_supported_rate": aud.get("supported_rate"),
+        "claim_error_rate": aud.get("error_rate"),
+        "claims": aud.get("n_claims"),
+        "gold_fact_coverage": gt.get("coverage") if ev else None,
+        "gold_fact_contradicted": gt.get("contradicted") if ev and n_facts else None,
+        "gold_facts": n_facts if ev else None,
+        "hpo_exact_f1": _get(ev, "synopsis.exact.f1"),
+        "hpo_hier_f1": _get(ev, "synopsis.hierarchical.f1"),
+        "variant_recall": _get(ev, "variants.recall"),
+        "gene_f1": _get(ev, "genes.f1"),
+        "inheritance_match": _get(ev, "inheritance.match"),
+        "ref_recall": _get(ev, "references.cited.recall"),
+        "access": (ev or {}).get("gold_reference_access"),
+    }
+
+
+def _paragraph_ids(entry: dict) -> list[str]:
+    """Same order and fallback ids as the page's `paragraphsOf` / `pidOf`."""
+    paras = ([entry["intro"]] if entry.get("intro") else [])
+    paras += [p for s in entry.get("sections") or [] for p in s.get("paragraphs") or []]
+    paras += [p for av in entry.get("allelic_variants") or [] for p in av.get("paragraphs") or []]
+    return [p.get("id") or f"p{i}" for i, p in enumerate(paras)]
+
+
+def _index_row(item: dict, file: str) -> dict:
+    """What the overview needs about an entry without loading the entry itself."""
+    prefix = (item["gold"] or {}).get("prefix") or (item["seed"] or {}).get("prefix") or next(
+        (e.get("prefix") for e in item["entries"].values() if e.get("prefix")), "")
+    return {
+        "dir": item["dir"], "file": file, "mim": item["mim"], "title": item["title"], "prefix": prefix,
+        "strategies": item["strategies"],
+        "has_gold": item["gold"] is not None,
+        "has_updates": item["updates"] is not None,
+        "n_proposals": len((item["updates"] or {}).get("proposals") or []),
+        "pids": {s: _paragraph_ids(e) for s, e in item["entries"].items()},
+        "rows": {s: _row(item, s) for s in item["strategies"]},
+        "generated": sorted({e["meta"].get("generated") for e in item["entries"].values() if e["meta"].get("generated")}),
+        "retrieval_mode": (item["retrieval"] or {}).get("mode"),
+    }
+
+
+def _payload(item: dict) -> dict:
+    keep = ("seed", "gold", "retrieval", "papers", "extractions", "kg", "entries", "evals", "usage", "updates")
+    return {k: item[k] for k in keep}
+
+
+def _file_names(dirs: list[str]) -> list[str]:
+    used: set[str] = set()
+    out = []
+    for d in dirs:
+        base = re.sub(r"[^A-Za-z0-9._-]+", "-", d).strip("-.") or "entry"
+        name, n = base, 2
+        while name.lower() in used:
+            name = f"{base}-{n}"
+            n += 1
+        used.add(name.lower())
+        out.append(name + ".js")
+    return out
+
+
 def collect_report_data(run_dir: Path) -> dict[str, Any]:
+    """Run-level data plus `payloads` ({file name: one entry's payload}) for every entry."""
     run_dir = Path(run_dir)
     summary = _read_json(run_dir / "summary.json")
     if not isinstance(summary, dict):
         summary = None
-    entries = [_collect_entry(p) for p in sorted(run_dir.iterdir()) if _is_entry_dir(p)]
-    generated = sorted({e["meta"].get("generated") for item in entries for e in item["entries"].values()
-                        if e["meta"].get("generated")})
+    comparison = _read_json(run_dir / "comparison.json")
+    items = [_collect_entry(p) for p in sorted(run_dir.iterdir()) if _is_entry_dir(p)]
+    files = _file_names([i["dir"] for i in items])
+    index = [_index_row(item, f) for item, f in zip(items, files)]
     config = (summary or {}).get("config") or {}
     strategies: list[str] = []
-    for item in entries:
+    for item in items:
         for s in item["strategies"]:
             if s not in strategies:
                 strategies.append(s)
-    retrieval = config.get("retrieval") or next(
-        (item["retrieval"]["mode"] for item in entries if item.get("retrieval") and item["retrieval"].get("mode")), None)
+    retrieval = config.get("retrieval") or next((r["retrieval_mode"] for r in index if r["retrieval_mode"]), None)
     return {
-        "format": 1,
+        "format": 2,
         "run": (summary or {}).get("run") or run_dir.name,
         "retrieval": retrieval,
         "strategies": sorted(strategies, key=lambda s: (s != "kg", s != "direct", s)),
-        "generated": generated,
+        "generated": sorted({d for r in index for d in r["generated"]}),
         "usage_total": (summary or {}).get("usage_total") or {},
         "failures": (summary or {}).get("failures") or {},
-        "summary_strategies": (summary or {}).get("strategies") or {},
-        "entries": entries,
+        "comparison": comparison if isinstance(comparison, dict) and comparison.get("overall") else None,
+        "data_dir": DATA_DIR,
+        "entries": index,
+        "payloads": {f: _payload(item) for item, f in zip(items, files)},
     }
 
 
@@ -301,12 +409,37 @@ def render_html(data: dict[str, Any]) -> str:
     return html.replace("@DATA@", json_for_script(data), 1)
 
 
-def build_report(run_dir: Path, out: str | None = None) -> Path:
-    """Write the review page for `run_dir` and return its path (default `run_dir/report.html`)."""
+def entry_script(file: str, payload: dict) -> str:
+    """One entry's data file: a single call to the page's registration function."""
+    return f"window.{REGISTER}({json_for_script(file)},{json_for_script(payload)});\n"
+
+
+def build_report(run_dir: Path, out: str | None = None, split: bool | None = None) -> Path:
+    """Write the review page for `run_dir` and return its path (default `run_dir/report.html`).
+
+    split=None decides by size: one self-contained file while the embedded data stays under
+    SPLIT_THRESHOLD bytes, otherwise `report.html` plus `report_data/<entry>.js`, loaded on demand.
+    """
     run_dir = Path(run_dir)
     if not run_dir.is_dir():
         raise FileNotFoundError(f"run directory not found: {run_dir}")
     path = Path(out) if out else run_dir / "report.html"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(render_html(collect_report_data(run_dir)), encoding="utf-8")
+    data = collect_report_data(run_dir)
+    payloads = data.pop("payloads")
+    scripts = {f: entry_script(f, p) for f, p in payloads.items()}
+    if split is None:
+        split = sum(len(s.encode("utf-8")) for s in scripts.values()) > SPLIT_THRESHOLD
+    data["split"] = bool(split)
+    if split:
+        data_dir = path.parent / DATA_DIR
+        data_dir.mkdir(exist_ok=True)
+        for stale in data_dir.glob("*.js"):
+            if stale.name not in scripts:
+                stale.unlink()
+        for f, text in scripts.items():
+            (data_dir / f).write_text(text, encoding="utf-8")
+    else:
+        data["payloads"] = payloads
+    path.write_text(render_html(data), encoding="utf-8")
     return path

@@ -156,36 +156,72 @@
     return h('span', { class: 'chip ' + d.cls, title: 'How much of the paper could be read: ' + d.label.toLowerCase() }, d.label);
   }
 
-  // ------------------------------------------------------------------ per-entry indexes
+  // ------------------------------------------------------------------ entries: index now, data on demand
+  // DATA.entries is a small index (scores, paragraph ids). Each entry's full data either sits in
+  // DATA.payloads (single-file page) or in report_data/<file>.js, which calls __aiomimRegister.
+  const DATA_DIR = String(DATA.data_dir || 'report_data');
   const usedKeys = new Set();
   const byKey = new Map();
+  const byFile = new Map();
   for (const item of ENTRIES) {
-    item.entries = item.entries || {};
-    item.evals = item.evals || {};
-    item.strategies = (item.strategies && item.strategies.length ? item.strategies : Object.keys(item.entries));
+    item.strategies = Array.isArray(item.strategies) ? item.strategies : [];
+    item.pids = item.pids || {};
+    item.rows = item.rows || {};
     let key = String(item.dir || item.mim || 'entry').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'entry';
     const base = key; let n = 2;
     while (usedKeys.has(key)) key = base + '-' + n++;
     usedKeys.add(key); item.key = key; byKey.set(key, item);
-
-    item.paperBy = new Map();
-    for (const p of item.papers || []) item.paperBy.set(String(p.pmid), p);
-    item.findingBy = new Map();
-    item.extractionBy = new Map();
-    for (const ex of item.extractions || []) {
+    if (item.file) byFile.set(item.file, item);
+    item.loaded = false;
+    item.entries = {}; item.evals = {}; item.papers = []; item.extractions = [];
+    item.paperBy = new Map(); item.findingBy = new Map(); item.extractionBy = new Map(); item.refBy = new Map();
+    item.goldHpo = null;
+  }
+  function attach(item, payload) {
+    Object.assign(item, payload);
+    item.entries = item.entries || {};
+    item.evals = item.evals || {};
+    item.papers = item.papers || [];
+    item.extractions = item.extractions || [];
+    for (const p of item.papers) item.paperBy.set(String(p.pmid), p);
+    for (const ex of item.extractions) {
       item.extractionBy.set(String(ex.pmid), ex);
       for (const f of ex.findings || []) item.findingBy.set(f.id, f);
     }
-    item.goldHpo = null;
     if (item.gold && Array.isArray(item.gold.hpo_annotations)) {
       item.goldHpo = new Set(item.gold.hpo_annotations
         .filter((a) => (a.aspect || 'P') === 'P' && String(a.qualifier || '').toUpperCase() !== 'NOT')
         .map((a) => a.hpo_id));
     }
-    item.refBy = new Map();
     for (const s of item.strategies) for (const r of get(item, 'entries.' + s + '.references') || []) item.refBy.set(String(r.pmid), r);
+    item.loaded = true;
+    item.loadError = null;
   }
-  const HAS_UPDATES = ENTRIES.some((it) => it.updates && Array.isArray(it.updates.proposals));
+  window.__aiomimRegister = function (file, payload) {
+    const item = byFile.get(String(file));
+    if (item && !item.loaded && payload && typeof payload === 'object') attach(item, payload);
+  };
+  if (DATA.payloads) for (const f of Object.keys(DATA.payloads)) window.__aiomimRegister(f, DATA.payloads[f]);
+  delete DATA.payloads;
+
+  const pending = new Map();
+  function loadEntry(item) {
+    if (item.loaded) return Promise.resolve(item);
+    if (pending.has(item.key)) return pending.get(item.key);
+    const pr = new Promise((resolve, reject) => {
+      if (!item.file) { reject(new Error('This entry has no data file.')); return; }
+      const el = document.createElement('script');
+      el.src = DATA_DIR + '/' + encodeURIComponent(item.file);
+      el.async = true;
+      el.onload = () => { el.remove(); if (item.loaded) resolve(item); else reject(new Error('The data file ' + DATA_DIR + '/' + item.file + ' loaded but contained no entry data.')); };
+      el.onerror = () => { el.remove(); reject(new Error('The data file ' + DATA_DIR + '/' + item.file + ' could not be loaded.')); };
+      document.head.append(el);
+    });
+    pending.set(item.key, pr);
+    pr.then(() => pending.delete(item.key), (e) => { pending.delete(item.key); item.loadError = e.message; });
+    return pr;
+  }
+  const HAS_UPDATES = ENTRIES.some((it) => it.has_updates);
 
   function paperLabel(item, pmid) {
     const p = item.paperBy.get(String(pmid));
@@ -210,7 +246,7 @@
   }
   function entryNumber(item, entry) {
     const mim = (entry && entry.mim) || item.mim;
-    const prefix = (entry && entry.prefix) || get(item, 'gold.prefix') || get(item, 'seed.prefix') || '';
+    const prefix = (entry && entry.prefix) || item.prefix || get(item, 'gold.prefix') || get(item, 'seed.prefix') || '';
     return { mim: mim, prefix: prefix };
   }
   function itemName(item) {
@@ -237,10 +273,10 @@
   function loadDecisions() {
     if (!storageOk) return;
     for (const item of ENTRIES) for (const s of item.strategies) {
-      paragraphsOf(item.entries[s]).forEach((x, i) => {
-        const k = dkey(item, s, pidOf(x.p, i));
+      for (const pid of item.pids[s] || []) {
+        const k = dkey(item, s, pid);
         try { const v = window.localStorage.getItem(k); if (v) decisions.set(k, JSON.parse(v)); } catch (e) { /* ignore */ }
-      });
+      }
     }
   }
   function getDecision(item, s, pid) { return decisions.get(dkey(item, s, pid)) || null; }
@@ -257,10 +293,10 @@
     return rec;
   }
   function progressOf(item, s) {
-    const paras = paragraphsOf(item.entries[s]);
+    const pids = item.pids[s] || [];
     let done = 0;
-    paras.forEach((x, i) => { const d = getDecision(item, s, pidOf(x.p, i)); if (d && d.decision) done++; });
-    return { done: done, total: paras.length };
+    pids.forEach((pid) => { const d = getDecision(item, s, pid); if (d && d.decision) done++; });
+    return { done: done, total: pids.length };
   }
   function progressEl(item, s) {
     const pr = progressOf(item, s);
@@ -299,7 +335,7 @@
       if (!item) return { view: 'missing' };
       let strategy = parts[2] && item.strategies.indexOf(parts[2]) >= 0 ? parts[2] : (item.strategies[0] || null);
       let tab = ['review', 'gold', 'evidence', 'updates'].indexOf(parts[1]) >= 0 ? parts[1] : 'review';
-      if (tab === 'review' && !strategy && item.updates) tab = 'updates';
+      if (tab === 'review' && !strategy && item.has_updates) tab = 'updates';
       return { view: 'entry', item: item, tab: tab, strategy: strategy };
     }
     return { view: 'overview' };
@@ -369,27 +405,12 @@
 
   // ------------------------------------------------------------------ scores
   function rowFor(item, s) {
-    const ev = item.evals[s] || null;
-    const en = item.entries[s] || null;
-    const aud = (ev && ev.faithfulness) || (en && en.audit) || null;
-    const g = (ev && ev.gold_text) || {};
-    const val = (v) => (v === undefined ? null : v);
-    return {
-      has: !!(ev || en), hasEval: !!ev,
-      claim_supported_rate: aud ? val(aud.supported_rate) : null,
-      claim_error_rate: aud ? val(aud.error_rate) : null,
-      claims: aud ? val(aud.n_claims) : null,
-      gold_fact_coverage: ev ? val(g.coverage) : null,
-      gold_fact_contradicted: ev && isNum(g.n_facts) && g.n_facts > 0 ? val(g.contradicted) : null,
-      gold_facts: ev ? val(g.n_facts) : null,
-      hpo_exact_f1: get(ev, 'synopsis.exact.f1'),
-      hpo_hier_f1: get(ev, 'synopsis.hierarchical.f1'),
-      variant_recall: get(ev, 'variants.recall'),
-      gene_f1: get(ev, 'genes.f1'),
-      inheritance_match: get(ev, 'inheritance.match'),
-      ref_recall: get(ev, 'references.cited.recall'),
-      access: ev ? ev.gold_reference_access || null : null,
-    };
+    // Rows are computed at build time so the overview needs no entry data.
+    const r = item.rows[s] || {};
+    const out = { has: item.strategies.indexOf(s) >= 0, hasEval: !!r.has_eval };
+    for (const k of Object.keys(r)) out[k] = r[k] === undefined ? null : r[k];
+    for (const m of METRICS) if (!(m.key in out)) out[m.key] = null;
+    return out;
   }
   function meanRow(rows) {
     const out = {};
@@ -445,7 +466,8 @@
       return wrap;
     }
 
-    if (strategies.length > 1) wrap.append(comparisonSection(strategies));
+    if (DATA.comparison) wrap.append(comparisonFromFile(DATA.comparison));
+    else if (strategies.length > 1) wrap.append(comparisonSection(strategies));
 
     // score table
     const s = strategies.indexOf(state.overviewStrategy) >= 0 ? state.overviewStrategy : strategies[0];
@@ -531,9 +553,357 @@
       h('div', null, 'Generated by aiomim. Your decisions are kept in this browser only' + (storageOk ? '' : ' (and this browser is not saving them)') + '; use the export buttons on each entry to keep them.'));
   }
 
+  // ------------------------------------------------------------------ comparison.json (aiomim compare)
+  const cmpKind = (metric) => (/f1/.test(metric) ? 'f1' : 'pct');
+  function fmtCmp(v, kind) {
+    if (!isNum(v)) return '–';
+    return kind === 'f1' ? v.toFixed(2) : (100 * v).toFixed(1) + '%';
+  }
+  function fmtDiff(v, kind) {
+    if (!isNum(v)) return '–';
+    const a = Math.abs(v);
+    const sign = a < 5e-5 ? '' : v > 0 ? '+' : '−';
+    return kind === 'f1' ? sign + a.toFixed(2) : sign + (100 * a).toFixed(1) + ' pp';
+  }
+  function fmtCI(ci, kind) {
+    if (!Array.isArray(ci) || ci.length !== 2) return null;
+    return fmtDiff(ci[0], kind) + ' to ' + fmtDiff(ci[1], kind);
+  }
+  function dirMark(higher) {
+    return h('span', { class: 'dir', title: higher ? 'Higher is better' : 'Lower is better' }, higher ? ' ↑' : ' ↓');
+  }
+  function metricLabel(r) {
+    const sub = /^…/.test(r.label || '');
+    return h('th', { scope: 'row', class: sub ? 'sub' : null }, (r.label || humanize(r.metric)), dirMark(r.higher_is_better !== false));
+  }
+
+  function comparisonFromFile(c) {
+    const sec = h('section', { class: 'section', 'aria-labelledby': 'cmp-h' });
+    const n = c.n_entries || 0;
+    sec.append(h('h2', { id: 'cmp-h' }, 'The two drafts compared'));
+    sec.append(h('p', { class: 'lede small' }, plural(n, 'entry', 'entries') + ' were each drafted both ways from the same papers, so every score is compared entry by entry. ' +
+      'Difference is the evidence-graph draft minus the direct draft, in percentage points (pp) for percentages and in F1 units for F1 scores. ' +
+      '↑ marks scores where higher is better, ↓ where lower is better. The 95% interval is the range the true average difference plausibly lies in; when it spans zero, the data show no clear difference. ' +
+      'No interval is computed for fewer than 5 entries. “Entries better” counts the entries where each draft scored better; the sign test p-value asks whether that split could be chance.'));
+    const rows = c.overall || [];
+    sec.append(h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+      h('caption', { class: 'visually-hidden' }, 'Evidence-graph draft compared with the direct draft, all entries'),
+      h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Score'), h('th', { class: 'n', scope: 'col' }, 'Entries'),
+        h('th', { class: 'n', scope: 'col' }, stratLabel('kg')), h('th', { class: 'n', scope: 'col' }, stratLabel('direct')),
+        h('th', { class: 'n', scope: 'col' }, 'Difference'), h('th', { class: 'n', scope: 'col' }, '95% interval'),
+        h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'Entries where the evidence-graph draft scored better / the direct draft scored better / the same' }, 'Entries better: graph / direct / same')),
+        h('th', { class: 'n', scope: 'col' }, h('abbr', { title: 'Exact two-sided sign test on the entries-better counts (ties left out)' }, 'Sign test p')))),
+      h('tbody', null, rows.map((r) => {
+        const k = cmpKind(r.metric);
+        return h('tr', null, metricLabel(r), h('td', { class: 'n' }, String(r.n != null ? r.n : '–')),
+          h('td', { class: 'n' }, fmtCmp(r.kg, k)), h('td', { class: 'n' }, fmtCmp(r.direct, k)),
+          h('td', { class: 'n strong' }, fmtDiff(r.difference, k)),
+          h('td', { class: 'n' }, fmtCI(r.ci95, k) || h('span', { class: 'muted' }, '–')),
+          h('td', { class: 'n' }, (r.kg_better || 0) + ' / ' + (r.direct_better || 0) + ' / ' + (r.ties || 0)),
+          h('td', { class: 'n' }, isNum(r.sign_test_p) ? r.sign_test_p.toFixed(3) : '–'));
+      })))));
+
+    const breakdown = (title, about, groups, groupLabel) => {
+      const keys = Object.keys(groups || {});
+      if (!keys.length) return null;
+      const metrics = [];
+      for (const g of keys) for (const r of groups[g].metrics || []) if (!metrics.some((m) => m.metric === r.metric)) metrics.push(r);
+      return h('div', { class: 'cmp-block' }, h('h3', null, title), h('p', { class: 'small muted' }, about),
+        h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+          h('caption', { class: 'visually-hidden' }, title),
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Score'),
+            keys.map((g) => h('th', { class: 'n', scope: 'col' }, groupLabel(g), h('div', { class: 'cmp-n' }, plural(groups[g].n || 0, 'entry', 'entries')))))),
+          h('tbody', null, metrics.map((m) => {
+            const k = cmpKind(m.metric);
+            return h('tr', null, metricLabel(m), keys.map((g) => {
+              const r = (groups[g].metrics || []).find((x) => x.metric === m.metric);
+              if (!r) return h('td', { class: 'n muted' }, '–');
+              return h('td', { class: 'n' }, h('div', { class: 'strong' }, fmtDiff(r.difference, k)),
+                h('div', { class: 'cmp-pair' }, fmtCmp(r.kg, k) + ' vs ' + fmtCmp(r.direct, k)),
+                fmtCI(r.ci95, k) ? h('div', { class: 'cmp-pair' }, '95%: ' + fmtCI(r.ci95, k)) : null);
+            }));
+          })))));
+    };
+    const cellNote = 'Each cell: the difference (graph − direct), then the two averages, evidence graph first.';
+    add(sec, breakdown('By when the OMIM entry was created', 'OMIM numbers were assigned in ranges over time, so the number range stands for the era in which the entry was written. ' + cellNote,
+      c.by_stratum, (g) => g));
+    add(sec, breakdown('By how much of the cited literature could be read in full', 'Grouped by the share of the OMIM entry’s references available as full text rather than abstract or title only. ' + cellNote,
+      c.by_access, (g) => humanize(g)));
+
+    const lv = c.by_gold_text_content_level || {};
+    const lk = ['fulltext', 'abstract', 'title', 'not_retrieved'].filter((k) => lv[k]).concat(Object.keys(lv).filter((k) => !LEVEL[k]));
+    if (lk.length) {
+      sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'OMIM facts conveyed, by how much of each paper was readable'),
+        h('p', { class: 'small muted' }, 'All OMIM per-paper facts pooled across entries, grouped by how much of the paper they summarise could be read.'),
+        h('div', { class: 'table-scroll' }, h('table', { class: 'data cmp' },
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, 'Paper readable as'), h('th', { class: 'n', scope: 'col' }, 'Facts judged (graph / direct)'),
+            h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratShort('kg')), h('th', { class: 'n', scope: 'col' }, 'Conveyed: ' + stratShort('direct')),
+            h('th', { class: 'n', scope: 'col' }, 'Contradicted (graph / direct)'))),
+          h('tbody', null, lk.map((k) => {
+            const g = lv[k].kg || {}; const d = lv[k].direct || {};
+            return h('tr', null, h('th', { scope: 'row' }, (LEVEL[k] || { label: humanize(k) }).label),
+              h('td', { class: 'n' }, (g.n_facts || 0) + ' / ' + (d.n_facts || 0)),
+              h('td', { class: 'n' }, fmtCmp(g.coverage, 'pct')), h('td', { class: 'n' }, fmtCmp(d.coverage, 'pct')),
+              h('td', { class: 'n' }, (g.contradicted || 0) + ' / ' + (d.contradicted || 0)));
+          }))))));
+    }
+
+    const pk = get(c, 'pooled.kg'); const pd = get(c, 'pooled.direct');
+    if (pk && pd) {
+      const line = (label, path, kind, sub) => h('tr', null, h('th', { scope: 'row', class: sub ? 'sub' : null }, label),
+        [pk, pd].map((x) => { const v = get(x, path); return h('td', { class: 'n' }, kind === 'pct' ? fmtCmp(v, 'pct') : isNum(v) ? v.toLocaleString('en-US') : '–'); }));
+      sec.append(h('div', { class: 'cmp-block' }, h('h3', null, 'Pooled counts'),
+        h('p', { class: 'small muted' }, 'Totals over all entries, so entries with many claims or facts weigh more than in the averages above.'),
+        h('div', { class: 'table-scroll compare' }, h('table', { class: 'data cmp' },
+          h('thead', null, h('tr', null, h('th', { scope: 'col' }, ''), h('th', { class: 'n', scope: 'col' }, stratLabel('kg')), h('th', { class: 'n', scope: 'col' }, stratLabel('direct')))),
+          h('tbody', null,
+            line('Claims audited', 'claims.n'), line('supported', 'claims.supported', null, true), line('partly supported', 'claims.partially_supported', null, true),
+            line('not supported', 'claims.unsupported', null, true), line('contradicted', 'claims.contradicted', null, true),
+            line('Share supported', 'claims.supported_rate', 'pct'), line('Share not supported or contradicted', 'claims.error_rate', 'pct'),
+            line('OMIM facts judged', 'gold_facts.n_facts'), line('present', 'gold_facts.present', null, true), line('partial', 'gold_facts.partial', null, true),
+            line('absent', 'gold_facts.absent', null, true), line('contradicted', 'gold_facts.contradicted', null, true),
+            line('Share conveyed (partial counts ½)', 'gold_facts.coverage', 'pct'), line('Share contradicted', 'gold_facts.contradiction_rate', 'pct'))))));
+    }
+    return sec;
+  }
+
+  // ------------------------------------------------------------------ evidence graph picture
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  function sv(tag, attrs) {
+    const el = document.createElementNS(SVGNS, tag);
+    for (const k of Object.keys(attrs || {})) { const v = attrs[k]; if (v !== null && v !== undefined && v !== false) el.setAttribute(k, String(v)); }
+    for (let i = 2; i < arguments.length; i++) {
+      const kid = arguments[i];
+      if (kid === null || kid === undefined || kid === false) continue;
+      (Array.isArray(kid) ? kid : [kid]).forEach((c) => { if (c !== null && c !== undefined && c !== false) el.append(c instanceof Node ? c : String(c)); });
+    }
+    return el;
+  }
+  const trunc = (s, n) => { s = String(s || ''); return s.length > n ? s.slice(0, n - 1) + '…' : s; };
+
+  function evidenceGraph(item) {
+    const ents = (item.kg && item.kg.entities) || [];
+    if (!ents.length) return null;
+    const W = 1040, RH = 26, NH = 20, TOP = 34;
+    const X = { paper: 8, mid: 292, entry: 560, right: 812 };
+    const CW = { paper: 196, mid: 200, entry: 176, right: 220 };
+    const CAP_PER_CAT = 6, CAP_PHEN = 42, CAP_VAR = 18, CAP_PAPERS = 30;
+
+    // category of each HPO term, from the clinical synopsis (evidence-graph draft first)
+    const catOf = new Map();
+    for (const s of ['kg'].concat(item.strategies)) for (const it of get(item, 'entries.' + s + '.clinical_synopsis') || []) if (it.hpo_id && !catOf.has(it.hpo_id)) catOf.set(it.hpo_id, it.category || 'Other features');
+
+    const nodes = new Map();   // id -> {id, kind, label, x, y, w, href, title}
+    const rowsMid = [], rowsRight = [], rowsPaper = [];
+    const genes = ents.filter((e) => e.rel === 'caused_by');
+    const variants = ents.filter((e) => e.rel === 'has_variant');
+    const inh = ents.filter((e) => e.rel === 'inheritance');
+    const phen = ents.filter((e) => e.rel === 'has_phenotype');
+    const byPapers = (a, b) => (b.pmids || []).length - (a.pmids || []).length || String(a.label).localeCompare(String(b.label));
+
+    // middle column: each gene followed by its variants
+    const geneIds = genes.map((g) => g.id);
+    for (const v of variants) if (v.gene_id && geneIds.indexOf(v.gene_id) < 0) { geneIds.push(v.gene_id); genes.push({ id: v.gene_id, rel: 'gene_only', label: v.gene_id.replace(/^gene:/, ''), pmids: [] }); }
+    let shownVar = 0;
+    const varsOf = (gid) => variants.filter((v) => v.gene_id === gid).sort(byPapers);
+    const orphanVars = variants.filter((v) => !v.gene_id || geneIds.indexOf(v.gene_id) < 0).sort(byPapers);
+    const pushVar = (v) => { if (shownVar >= CAP_VAR) return false; shownVar++; rowsMid.push({ kind: 'variant', ent: v }); return true; };
+    genes.forEach((g, gi) => {
+      if (gi) rowsMid.push({ kind: 'gap' });
+      rowsMid.push({ kind: 'gene', ent: g });
+      varsOf(g.id).forEach(pushVar);
+    });
+    if (orphanVars.length) { if (rowsMid.length) rowsMid.push({ kind: 'gap' }); orphanVars.forEach(pushVar); }
+    if (variants.length > shownVar) rowsMid.push({ kind: 'more', text: '+' + (variants.length - shownVar) + ' more variants' });
+
+    // right column: inheritance, then phenotypes grouped by synopsis category
+    if (inh.length) { rowsRight.push({ kind: 'head', text: 'Inheritance' }); inh.forEach((e) => rowsRight.push({ kind: 'inheritance', ent: e })); }
+    const cats = new Map();
+    for (const p of phen) { const c = catOf.get(p.hpo_id) || 'Other features'; if (!cats.has(c)) cats.set(c, []); cats.get(c).push(p); }
+    let shownPhen = 0;
+    const catNames = Array.from(cats.keys()).sort((a, b) => (a === 'Other features') - (b === 'Other features') || a.localeCompare(b));
+    for (const c of catNames) {
+      const list = cats.get(c).sort(byPapers);
+      if (rowsRight.length) rowsRight.push({ kind: 'gap' });
+      rowsRight.push({ kind: 'head', text: c, cat: c });
+      const room = Math.max(0, Math.min(CAP_PER_CAT, CAP_PHEN - shownPhen));
+      list.slice(0, room).forEach((p) => rowsRight.push({ kind: 'phenotype', ent: p }));
+      shownPhen += Math.min(room, list.length);
+      if (list.length > room) rowsRight.push({ kind: 'more', text: '+' + (list.length - room) + ' more' });
+    }
+
+    // papers: every paper the graph cites, oldest first
+    const pm = new Set();
+    for (const e of ents) for (const p of e.pmids || []) pm.add(String(p));
+    const paperList = Array.from(pm).map((p) => ({ pmid: p, year: (item.paperBy.get(p) || {}).year || 9999 })).sort((a, b) => a.year - b.year || a.pmid.localeCompare(b.pmid));
+    paperList.slice(0, CAP_PAPERS).forEach((p) => rowsPaper.push({ kind: 'paper', pmid: p.pmid }));
+    if (paperList.length > CAP_PAPERS) rowsPaper.push({ kind: 'more', text: '+' + (paperList.length - CAP_PAPERS) + ' more papers' });
+
+    const heightOf = (rows) => rows.reduce((s, r) => s + (r.kind === 'gap' ? 10 : RH), 0);
+    const H = Math.max(heightOf(rowsMid), heightOf(rowsRight), heightOf(rowsPaper), 3 * RH) + TOP + 12;
+    const place = (rows, col) => {
+      let y = TOP + (H - TOP - 12 - heightOf(rows)) / 2;
+      for (const r of rows) { r.y = y; r.col = col; y += r.kind === 'gap' ? 10 : RH; }
+    };
+    place(rowsPaper, 'paper'); place(rowsMid, 'mid'); place(rowsRight, 'right');
+
+    const edgesG = sv('g', { class: 'kg-edges' });
+    const nodesG = sv('g', { class: 'kg-nodes' });
+    const adj = new Map();
+    const link = (a, b, el) => { [a, b].forEach((x) => { if (!adj.has(x)) adj.set(x, { nodes: new Set(), edges: [] }); }); adj.get(a).nodes.add(b); adj.get(b).nodes.add(a); adj.get(a).edges.push(el); adj.get(b).edges.push(el); };
+    const curve = (x1, y1, x2, y2) => { const dx = Math.max(30, (x2 - x1) / 2); return 'M' + x1 + ' ' + y1 + ' C' + (x1 + dx) + ' ' + y1 + ' ' + (x2 - dx) + ' ' + y2 + ' ' + x2 + ' ' + y2; };
+
+    function nodeEl(id, kind, x, y, w, label, title, href) {
+      const rect = sv('rect', { x: x, y: y, width: w, height: NH, rx: kind === 'paper' ? 3 : 10 });
+      const text = sv('text', { x: x + 8, y: y + NH / 2, 'dominant-baseline': 'central' }, label);
+      const g = sv('g', { class: 'kg-node kg-' + kind, 'data-node': id, tabindex: href ? null : '0' }, sv('title', null, title), rect, text);
+      const el = href ? sv('a', { href: href, target: '_blank', rel: 'noopener noreferrer', class: 'kg-link', 'aria-label': title }, g) : g;
+      if (!href) g.setAttribute('aria-label', title);
+      nodes.set(id, { id: id, x: x, y: y + NH / 2, w: w, g: g });
+      nodesG.append(el);
+      return g;
+    }
+    const charsFor = (w) => Math.floor((w - 14) / 6.4);
+
+    for (const r of rowsPaper) {
+      if (r.kind === 'more') { nodesG.append(sv('text', { class: 'kg-more', x: X.paper + 8, y: r.y + NH / 2, 'dominant-baseline': 'central' }, r.text)); continue; }
+      const p = item.paperBy.get(r.pmid) || {};
+      const label = paperLabel(item, r.pmid);
+      nodeEl('paper:' + r.pmid, 'paper', X.paper, r.y, CW.paper, trunc(label, charsFor(CW.paper)),
+        label + (p.title ? ': ' + p.title : '') + ' (PMID ' + r.pmid + '). Opens PubMed.', pubmedUrl(r.pmid));
+    }
+    for (const r of rowsMid) {
+      if (r.kind === 'gap') continue;
+      if (r.kind === 'more') { nodesG.append(sv('text', { class: 'kg-more', x: X.mid + 8, y: r.y + NH / 2, 'dominant-baseline': 'central' }, r.text)); continue; }
+      const e = r.ent;
+      const label = r.kind === 'variant' ? (e.omim_name || e.label) : e.label;
+      const full = r.kind === 'variant' && e.omim_name ? e.omim_name + ' (' + e.label + ')' : label;
+      const indent = r.kind === 'variant' && e.gene_id ? 14 : 0;
+      nodeEl(e.id, r.kind, X.mid + indent, r.y, CW.mid - indent, trunc(label, charsFor(CW.mid - indent)),
+        (r.kind === 'gene' ? 'Gene ' : 'Variant ') + full + ': ' + plural((e.pmids || []).length, 'supporting paper'));
+    }
+    for (const r of rowsRight) {
+      if (r.kind === 'gap') continue;
+      if (r.kind === 'head') { nodesG.append(sv('text', { class: 'kg-head', x: X.right, y: r.y + NH / 2 + 2, 'dominant-baseline': 'central' }, r.text.toUpperCase())); continue; }
+      if (r.kind === 'more') { nodesG.append(sv('text', { class: 'kg-more', x: X.right + 8, y: r.y + NH / 2, 'dominant-baseline': 'central' }, r.text)); continue; }
+      const e = r.ent;
+      const label = e.label || e.hpo_id || e.id;
+      nodeEl(e.id, r.kind, X.right, r.y, CW.right, trunc(label, charsFor(CW.right)),
+        label + (e.hpo_id ? ' (' + e.hpo_id + ')' : '') + ': ' + plural((e.pmids || []).length, 'supporting paper') + (r.kind === 'phenotype' && e.hpo_id ? '. Opens HPO.' : ''),
+        r.kind === 'phenotype' && e.hpo_id ? hpoUrl(e.hpo_id) : null);
+    }
+    // entry, centred
+    const num = entryNumber(item, null);
+    const ey = H / 2 - 26;
+    const entryG = sv('g', { class: 'kg-node kg-entry', 'data-node': 'entry', tabindex: '0', 'aria-label': 'This entry' },
+      sv('title', null, (num.mim ? num.mim + ' ' : '') + (item.title || '')),
+      sv('rect', { x: X.entry, y: ey, width: CW.entry, height: 52, rx: 6 }),
+      sv('text', { x: X.entry + CW.entry / 2, y: ey + 17, 'text-anchor': 'middle', 'dominant-baseline': 'central', class: 'kg-entry-num' }, num.mim ? (num.prefix ? num.prefix + ' ' : '') + num.mim : 'New entry'),
+      sv('text', { x: X.entry + CW.entry / 2, y: ey + 36, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, trunc(item.title, 21)));
+    nodes.set('entry', { id: 'entry', x: X.entry, y: H / 2, w: CW.entry, g: entryG });
+
+    // edges: paper -> entity (supports), variant -> gene (in gene), entry -> gene / inheritance / phenotype groups
+    const edge = (a, b, d, cls) => { const el = sv('path', { d: d, class: 'kg-edge ' + (cls || '') }); edgesG.append(el); link(a, b, el); return el; };
+    for (const e of ents) {
+      const t = nodes.get(e.id);
+      if (!t) continue;
+      for (const p of e.pmids || []) {
+        const s = nodes.get('paper:' + p);
+        if (s) edge(s.id, t.id, curve(s.x + s.w, s.y, t.x, t.y), 'kg-supports');
+      }
+      if (e.rel === 'has_variant' && e.gene_id && nodes.get(e.gene_id)) {
+        const g = nodes.get(e.gene_id);
+        const xr = X.mid + CW.mid;
+        edge(e.id, g.id, 'M' + xr + ' ' + t.y + ' C' + (xr + 22) + ' ' + t.y + ' ' + (xr + 22) + ' ' + g.y + ' ' + xr + ' ' + g.y, 'kg-ingene');
+      }
+    }
+    const en = nodes.get('entry');
+    const labels = sv('g', { class: 'kg-labels' });
+    let firstGene = true;
+    for (const g of genes) {
+      const n = nodes.get(g.id);
+      if (!n || g.rel !== 'caused_by') continue;
+      edge('entry', g.id, curve(n.x + n.w + 26, n.y, en.x, en.y), 'kg-entryedge');
+      if (firstGene) { labels.append(sv('text', { class: 'kg-rel', x: (n.x + n.w + 26 + en.x) / 2, y: (n.y + en.y) / 2 - 7, 'text-anchor': 'middle' }, 'caused by')); firstGene = false; }
+    }
+    for (const r of rowsRight) {
+      if (r.kind !== 'inheritance' && r.kind !== 'head') continue;
+      if (r.kind === 'head' && !r.cat) continue;
+      const y = r.y + NH / 2;
+      const target = r.kind === 'inheritance' ? r.ent.id : null;
+      const el = sv('path', { d: curve(en.x + en.w, en.y, X.right - 6, y), class: 'kg-edge kg-entryedge' });
+      edgesG.append(el);
+      if (target) link('entry', target, el);
+      else { // a category: the entry links to every phenotype shown under it
+        for (const p of cats.get(r.cat) || []) if (nodes.get(p.id)) link('entry', p.id, el);
+      }
+    }
+    // column headings
+    const heads = sv('g', { class: 'kg-colhead' },
+      sv('text', { x: X.paper, y: 14 }, 'PAPERS (' + paperList.length + ')'),
+      sv('text', { x: X.mid, y: 14 }, 'GENES AND VARIANTS'),
+      sv('text', { x: X.right, y: 14 }, 'INHERITANCE AND FEATURES'));
+
+    const svg = sv('svg', { class: 'kg', viewBox: '0 0 ' + W + ' ' + H, role: 'img', width: W, height: H,
+      'aria-label': 'Evidence graph: ' + paperList.length + ' papers linked to the genes, variants, inheritance and clinical features they support in this entry.' },
+    heads, edgesG, entryG, nodesG, labels);
+    svg.setAttribute('preserveAspectRatio', 'xMidYMin meet');
+
+    // highlight a node's links and neighbours on hover or keyboard focus
+    const on = (id) => {
+      const a = adj.get(id);
+      svg.classList.add('focusing');
+      svg.querySelectorAll('.on').forEach((x) => x.classList.remove('on'));
+      const n = nodes.get(id); if (n) n.g.classList.add('on');
+      if (!a) return;
+      a.edges.forEach((e) => e.classList.add('on'));
+      a.nodes.forEach((x) => { const m = nodes.get(x); if (m) m.g.classList.add('on'); });
+    };
+    const off = () => { svg.classList.remove('focusing'); svg.querySelectorAll('.on').forEach((x) => x.classList.remove('on')); };
+    nodes.forEach((n) => {
+      n.g.addEventListener('pointerenter', () => on(n.id));
+      n.g.addEventListener('pointerleave', off);
+      n.g.addEventListener('focusin', () => on(n.id));
+      n.g.addEventListener('focusout', off);
+    });
+
+    const capped = phen.length > shownPhen || variants.length > shownVar || paperList.length > CAP_PAPERS;
+    return h('figure', { class: 'kg-figure' },
+      h('div', { class: 'kg-scroll' }, svg),
+      h('figcaption', { class: 'small muted' },
+        'Each line from a paper means that paper supports linking the item to this entry. Dashed lines join a variant to its gene; features are grouped by clinical-synopsis heading. ' +
+        'Point at or tab to an item to highlight its links; select a paper to open it in PubMed or a feature to open its HPO page.' +
+        (capped ? ' Some items are summarised as “+N more”; the tables below list everything.' : '')));
+  }
+
   // ------------------------------------------------------------------ entry view
+  function viewLoading(item) {
+    const wrap = h('div', { class: 'wrap' });
+    const num = entryNumber(item, null);
+    wrap.append(h('header', { class: 'entry-head' },
+      h('div', { class: 'entry-number' }, num.mim ? [num.prefix ? h('span', { class: 'prefix' }, num.prefix + ' ') : null, num.mim] : 'New entry (no OMIM number yet)'),
+      h('h1', { class: 'entry-title' }, item.title || item.dir)));
+    if (item.loadError) {
+      wrap.append(h('div', { class: 'empty load-error', role: 'alert', style: 'margin-top:18px' },
+        h('strong', null, 'This entry could not be opened. '), item.loadError,
+        h('p', { style: 'margin-top:8px' }, 'The page keeps each entry in a separate file in the “' + DATA_DIR + '” folder. Keep that folder next to this page (copy or move them together), then try again.'),
+        h('div', { class: 'btn-row', style: 'margin-top:10px' },
+          h('button', { type: 'button', class: 'btn primary', 'data-fid': 'retry', onclick: () => { item.loadError = null; render({ keepScroll: true }); } }, 'Try again'),
+          h('a', { class: 'btn', href: '#overview' }, 'Back to the overview'))));
+      return wrap;
+    }
+    wrap.append(h('div', { class: 'loading', role: 'status', 'aria-live': 'polite' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading the entry…'));
+    loadEntry(item).then(() => rerenderIfShowing(item), () => rerenderIfShowing(item));
+    return wrap;
+  }
+  function rerenderIfShowing(item) {
+    const r = parseHash();
+    if ((r.view === 'entry' && r.item === item) || r.view === 'updates') render({ keepScroll: true });
+  }
+
   function viewEntry(route) {
     const item = route.item;
+    if (!item.loaded) return viewLoading(item);
     const s = route.strategy;
     const entry = s ? item.entries[s] : null;
     const ev = s ? item.evals[s] : null;
@@ -773,13 +1143,7 @@
     // audit
     const checks = p.checks || [];
     body.append(h('div', null, h('h4', null, 'What the audit found (' + plural(checks.length, 'claim') + ')'),
-      checks.length ? h('ul', { class: 'claims' }, checks.map((c) => {
-        const v = VERDICT[c.verdict] || VERDICT.not_checkable;
-        return h('li', { class: 'v-' + v.cls }, h('div', { class: 'chips' }, chip(v), c.pmid ? h('span', { class: 'small' }, 'against ', ext(pubmedUrl(c.pmid), paperLabel(item, c.pmid))) : null),
-          h('div', { class: 'claim-text' }, c.claim || ''),
-          c.evidence_quote ? h('div', { class: 'quote-row' }, h('span', { class: 'small muted' }, 'Evidence in the paper:'), h('blockquote', { class: 'quote' }, c.evidence_quote)) : null,
-          c.explanation ? h('div', { class: 'small' }, c.explanation) : null);
-      })) : h('p', { class: 'muted' }, 'The audit did not check this paragraph, so nothing here has been compared with the papers.')));
+      checks.length ? claimList(item, checks) : h('p', { class: 'muted' }, 'The audit did not check this paragraph, so nothing here has been compared with the papers.')));
 
     // findings
     const fids = p.finding_ids || [];
@@ -814,6 +1178,25 @@
       })) : h('p', { class: 'muted' }, 'This paragraph cites no paper.')));
     panel.append(body);
     return panel;
+  }
+  // Problems first; with many claims, the supported ones fold away so the problems stay in view.
+  const VERDICT_ORDER = { contradicted: 0, unsupported: 1, partially_supported: 2, not_checkable: 3, supported: 4 };
+  function claimItem(item, c) {
+    const v = VERDICT[c.verdict] || VERDICT.not_checkable;
+    return h('li', { class: 'v-' + v.cls }, h('div', { class: 'chips' }, chip(v), c.pmid ? h('span', { class: 'small' }, 'against ', ext(pubmedUrl(c.pmid), paperLabel(item, c.pmid))) : null),
+      h('div', { class: 'claim-text' }, c.claim || ''),
+      c.evidence_quote ? h('div', { class: 'quote-row' }, h('span', { class: 'small muted' }, 'Evidence in the paper:'), h('blockquote', { class: 'quote' }, c.evidence_quote)) : null,
+      c.explanation ? h('div', { class: 'small' }, c.explanation) : null);
+  }
+  function claimList(item, checks) {
+    const sorted = checks.map((c, i) => [c, i]).sort((a, b) => ((VERDICT_ORDER[a[0].verdict] ?? 3) - (VERDICT_ORDER[b[0].verdict] ?? 3)) || a[1] - b[1]).map((x) => x[0]);
+    const ok = sorted.filter((c) => c.verdict === 'supported');
+    const rest = sorted.filter((c) => c.verdict !== 'supported');
+    if (checks.length <= 5 || ok.length < 3) return h('ul', { class: 'claims' }, sorted.map((c) => claimItem(item, c)));
+    return h('div', { class: 'claims-wrap' },
+      rest.length ? h('ul', { class: 'claims' }, rest.map((c) => claimItem(item, c))) : null,
+      h('details', { class: 'more' }, h('summary', null, 'Show ' + plural(ok.length, 'supported claim')),
+        h('ul', { class: 'claims' }, ok.map((c) => claimItem(item, c)))));
   }
   let savedTimer = null;
   function savedNote() {
@@ -854,24 +1237,33 @@
   }
   const safeName = (s) => String(s).replace(/[^A-Za-z0-9._-]+/g, '-').replace(/^-+|-+$/g, '') || 'entry';
   function exportJSON() {
-    const rows = [];
-    for (const item of ENTRIES) for (const s of item.strategies) {
-      paragraphsOf(item.entries[s]).forEach((x, i) => {
-        const pid = pidOf(x.p, i);
-        const d = getDecision(item, s, pid);
-        if (!d) return;
-        rows.push({
-          entry: item.mim || item.dir, entry_title: item.title, draft: s, draft_label: stratLabel(s),
-          paragraph_id: pid, location: x.where, decision: d.decision || null,
-          original_text: x.p.text, edited_text: d.edited || null, comment: d.comment || null,
-          audit_status: x.p.status, pmids: x.p.pmids || [], decided_at: d.updated || null,
+    // Decisions live in the index; their paragraph text needs the entry data, so load it first.
+    const wanted = ENTRIES.filter((item) => item.strategies.some((s) => (item.pids[s] || []).some((pid) => getDecision(item, s, pid))));
+    const missing = wanted.filter((it) => !it.loaded);
+    if (missing.length) toast('Loading ' + plural(missing.length, 'entry', 'entries') + ' for the export…');
+    Promise.all(wanted.map((it) => loadEntry(it).catch(() => null))).then(() => {
+      const rows = [];
+      for (const item of wanted) for (const s of item.strategies) {
+        const paras = item.loaded ? paragraphsOf(item.entries[s]) : [];
+        (item.pids[s] || []).forEach((pid, i) => {
+          const d = getDecision(item, s, pid);
+          if (!d) return;
+          const x = paras[i] && pidOf(paras[i].p, i) === pid ? paras[i] : null;
+          rows.push({
+            entry: item.mim || item.dir, entry_title: item.title, draft: s, draft_label: stratLabel(s),
+            paragraph_id: pid, location: x ? x.where : null, decision: d.decision || null,
+            original_text: x ? x.p.text : null, edited_text: d.edited || null, comment: d.comment || null,
+            audit_status: x ? x.p.status : null, pmids: x ? x.p.pmids || [] : [], decided_at: d.updated || null,
+          });
         });
-      });
-    }
-    const progress = [];
-    for (const item of ENTRIES) for (const s of item.strategies) { const pr = progressOf(item, s); progress.push({ entry: item.mim || item.dir, draft: s, reviewed: pr.done, paragraphs: pr.total }); }
-    const out = { run: RUN, exported_at: new Date().toISOString(), note: 'Curator decisions on machine-drafted OMIM entries.', progress: progress, decisions: rows };
-    download('review-' + safeName(RUN) + '.json', JSON.stringify(out, null, 2) + '\n', 'application/json');
+      }
+      const progress = [];
+      for (const item of ENTRIES) for (const s of item.strategies) { const pr = progressOf(item, s); progress.push({ entry: item.mim || item.dir, draft: s, reviewed: pr.done, paragraphs: pr.total }); }
+      const failed = wanted.filter((it) => !it.loaded).map((it) => it.mim || it.dir);
+      const out = { run: RUN, exported_at: new Date().toISOString(), note: 'Curator decisions on machine-drafted OMIM entries.' +
+        (failed.length ? ' Paragraph text missing for entries whose data file could not be loaded: ' + failed.join(', ') + '.' : ''), progress: progress, decisions: rows };
+      download('review-' + safeName(RUN) + '.json', JSON.stringify(out, null, 2) + '\n', 'application/json');
+    });
   }
   function exportMarkdown(item, s) {
     const entry = item.entries[s];
@@ -946,6 +1338,21 @@
     return seen;
   }
 
+  // Same text as evaluate._draft_text_for: the draft paragraphs citing any of the paragraph's papers.
+  function draftTextFor(entry, pmids) {
+    if (!entry) return '';
+    const wanted = new Set((pmids || []).map(String));
+    const hit = (p) => (p.pmids || []).some((x) => wanted.has(String(x)));
+    const chunks = [];
+    for (const sec of entry.sections || []) for (const p of sec.paragraphs || []) if (hit(p)) chunks.push('[' + (sec.heading || '') + '] ' + p.text);
+    for (const av of entry.allelic_variants || []) for (const p of av.paragraphs || []) if (hit(p)) chunks.push('[Allelic variant ' + (av.name || '') + '] ' + p.text);
+    return chunks.join('\n\n');
+  }
+  function draftFor(entry, gp) {
+    if (typeof gp.draft === 'string') return gp.draft;
+    if (gp._draft === undefined) gp._draft = draftTextFor(entry, gp.pmids);
+    return gp._draft;
+  }
   function goldTab(item, s, entry, ev) {
     const box = h('div', { class: 'section' });
     if (!ev) {
@@ -990,7 +1397,7 @@
             h('span', { class: 'muted' }, isNum(gp.n_facts) && gp.n_facts ? (gp.present || 0) + ' present, ' + (gp.partial || 0) + ' partial, ' + (gp.absent || 0) + ' absent' + (gp.contradicted ? ', ' + gp.contradicted + ' contradicted' : '') + ' · coverage ' + fmt(gp.coverage, 'pct') : 'No facts judged')),
           h('div', { class: 'side-by-side' },
             h('div', null, h('div', { class: 'side-label' }, 'OMIM text (reference)'), h('div', { class: 'side-text' }, gp.reference || '')),
-            h('div', null, h('div', { class: 'side-label' }, 'Draft text citing the same paper'), gp.draft ? h('div', { class: 'side-text' }, gp.draft) : h('div', { class: 'muted small' }, 'The draft has no paragraph citing this paper.'))),
+            h('div', null, h('div', { class: 'side-label' }, 'Draft text citing the same paper'), draftFor(entry, gp) ? h('div', { class: 'side-text' }, draftFor(entry, gp)) : h('div', { class: 'muted small' }, 'The draft has no paragraph citing this paper.'))),
           facts.length ? h('ul', { class: 'facts', 'aria-label': 'Facts in the OMIM paragraph' }, facts.map((f) => h('li', null,
             chip(FACT[f.status] || FACT.absent), h('span', null, f.fact || ''), f.note ? h('span', { class: 'note' }, f.note) : null))) : null));
       });
@@ -1088,6 +1495,8 @@
       h('p', { class: 'small muted' }, 'Built from the extracted facts before the evidence-graph draft was written. Each row lists the papers that support linking it to this entry.'));
     if (!kg || !(kg.entities || []).length) ksec.append(h('div', { class: 'empty' }, 'No evidence graph for this entry (only the evidence-graph draft builds one).'));
     else {
+      add(ksec, evidenceGraph(item));
+      ksec.append(h('p', { class: 'small muted kg-phone-note' }, 'The graph picture is shown on wider screens. The tables below list the same links.'));
       const groups = [
         { rel: 'caused_by', title: 'Causal genes' }, { rel: 'has_variant', title: 'Variants' },
         { rel: 'inheritance', title: 'Mode of inheritance' }, { rel: 'has_phenotype', title: 'Phenotypes' },
@@ -1179,10 +1588,17 @@
     const wrap = h('div', { class: 'wrap' });
     wrap.append(h('div', { class: 'page-head' }, h('div', { class: 'eyebrow' }, 'Run “' + RUN + '”'), h('h1', { class: 'page-title' }, 'Proposed updates'),
       h('p', { class: 'lede' }, 'Suggested additions to existing entries from literature published after the entry’s references. Machine-drafted and not reviewed.')));
-    const items = ENTRIES.filter((it) => it.updates);
+    const items = ENTRIES.filter((it) => it.has_updates);
     if (!items.length) { wrap.append(h('div', { class: 'empty' }, 'This run proposed no updates.')); return wrap; }
     for (const it of items) {
-      wrap.append(h('section', { class: 'section' }, h('h2', null, h('a', { href: entryHash(it, 'updates') }, itemName(it))), updatesBlock(it)));
+      let body;
+      if (it.loaded) body = updatesBlock(it);
+      else if (it.loadError) body = h('div', { class: 'empty load-error', role: 'alert' }, h('strong', null, 'Could not load this entry. '), it.loadError);
+      else {
+        body = h('div', { class: 'loading', role: 'status' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading…');
+        loadEntry(it).then(() => rerenderIfShowing(it), () => rerenderIfShowing(it));
+      }
+      wrap.append(h('section', { class: 'section' }, h('h2', null, h('a', { href: entryHash(it, 'updates') }, itemName(it))), body));
     }
     return wrap;
   }

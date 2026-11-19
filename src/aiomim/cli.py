@@ -171,12 +171,45 @@ def summary(run_name):
 
 @main.command()
 @click.argument("run_name")
+def compare(run_name):
+    """Paired comparison of the evidence-graph strategy against the direct baseline."""
+    from .compare import compare_run, comparison_markdown
+
+    run_dir = get_settings().runs / run_name
+    result = compare_run(run_dir)
+    (run_dir / "comparison.json").write_text(json.dumps(result, indent=2))
+    text = comparison_markdown(result)
+    (run_dir / "comparison.md").write_text(text)
+    click.echo(text)
+
+
+@main.command()
+@click.argument("run_name")
+@click.option("--out", required=True, type=click.Path(), help="Directory to write the shareable copy to.")
+def export(run_name, out):
+    """Copy a run's results to a directory fit for sharing or committing.
+
+    Generated entries, evidence, graphs and scores are copied. Gold-standard text
+    (OMIM-authored paragraphs fetched from ClinVar) is left out: the scores stay,
+    the reference wording does not.
+    """
+    from .export import export_run
+
+    n = export_run(get_settings().runs / run_name, out)
+    click.echo(f"{n} entries exported to {out}")
+
+
+@main.command()
+@click.argument("run_name")
 @click.option("--out", default=None, help="Output HTML path (default: runs/<run>/report.html).")
-def report(run_name, out):
+@click.option("--split/--single", default=None,
+              help="Put each entry's data in report_data/<entry>.js, or everything in one file "
+                   "(default: split when the data exceeds about 5 MB).")
+def report(run_name, out, split):
     """Build the curator review page for a run."""
     from .report.build import build_report
 
-    path = build_report(get_settings().runs / run_name, out)
+    path = build_report(get_settings().runs / run_name, out, split)
     click.echo(f"Report written to {path}")
 
 
@@ -201,6 +234,30 @@ def update(mims, run_name, since, as_of, max_papers):
             b = result["backtest"]
             line += f" | back-test: recovered {len(b['found'])}/{len(b['held_out'])} later OMIM references"
         click.echo(line)
+
+
+@main.command()
+@click.argument("mims", nargs=-1)
+@click.option("--from-file", type=click.Path(exists=True), help="Read MIM numbers from a file (first column).")
+@click.option("--run", "run_name", default="backtest", show_default=True)
+@click.option("--max-papers", default=10, show_default=True)
+def backtest(mims, from_file, run_name, max_papers):
+    """Back-test update discovery: can the references OMIM added later be rediscovered?
+
+    Each entry is rolled back to its earlier references (the cut-off year is chosen
+    so that about the latest third is held out), the later literature is searched,
+    and the proposals are checked against the references that were really added.
+    """
+    from .update import backtest as run_backtest
+
+    mims = list(mims) + (_read_mims(from_file) if from_file else [])
+    result = run_backtest(mims, run_name, max_papers=max_papers)
+    for row in result["entries"]:
+        click.echo(f"{row['mim']}  as of {row['as_of']}: found {row['found']}/{row['held_out']} later references; "
+                   f"{row['n_proposals']} proposals from {row['n_screened']} screened  {row['title'][:44]}")
+    click.echo(f"\n{result['n_entries']} entries: {result['found']} of {result['held_out']} later OMIM references "
+               f"rediscovered (recall {result['recall']}); {result['proposals_not_in_omim']} further proposals "
+               f"are papers OMIM does not cite.")
 
 
 def _fmt(value) -> str:

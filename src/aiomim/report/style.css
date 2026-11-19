@@ -312,3 +312,57 @@ footer.foot { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--l
   .entry-jump select { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Loading state for entries kept in report_data/ */
+.loading { display: flex; align-items: center; gap: 10px; margin-top: 24px; padding: 18px; border: 1px dashed var(--line); border-radius: var(--radius); background: var(--surface); color: var(--muted); }
+.spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--accent); animation: spin .8s linear infinite; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+.load-error { border-style: solid; border-color: var(--bad); }
+
+/* Strategy comparison */
+table.cmp th[scope="row"] { font-weight: 600; text-align: left; min-width: 180px; }
+table.cmp th.sub { font-weight: 400; padding-left: 24px; color: var(--muted); }
+table.cmp .strong { font-weight: 700; }
+table.cmp .dir { color: var(--muted); font-weight: 400; }
+table.cmp thead th { white-space: normal; }
+table.cmp th, table.cmp td { padding: 7px 8px; }
+.claims-wrap { display: grid; gap: 10px; }
+.cmp-n { font-weight: 400; text-transform: none; letter-spacing: 0; }
+.cmp-pair { font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; }
+.cmp-block { display: grid; gap: 8px; margin-top: 10px; }
+.cmp-block h3 { font-size: var(--fs-md); font-weight: 650; }
+
+/* Evidence graph picture (inline SVG; colours from the page tokens) */
+.kg-figure { margin: 0; display: grid; gap: 8px; }
+.kg-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 8px; }
+svg.kg { display: block; width: 100%; min-width: 860px; height: auto; font-family: var(--font-ui); font-size: 12px; }
+svg.kg text { fill: var(--fg); }
+svg.kg .kg-colhead text { fill: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .06em; }
+svg.kg .kg-head { fill: var(--muted); font-size: 10.5px; font-weight: 700; letter-spacing: .06em; }
+svg.kg .kg-more { fill: var(--muted); font-style: italic; }
+svg.kg .kg-rel { fill: var(--muted); font-size: 11px; font-style: italic; }
+svg.kg .kg-node rect { fill: var(--surface); stroke: var(--line); stroke-width: 1; }
+svg.kg .kg-paper rect { fill: var(--surface-2); }
+svg.kg .kg-gene rect { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+svg.kg .kg-gene text { font-weight: 700; }
+svg.kg .kg-variant rect { stroke: var(--accent); }
+svg.kg .kg-variant text { font-family: var(--font-mono); font-size: 11px; }
+svg.kg .kg-inheritance rect { fill: var(--accent-soft); stroke: var(--accent); }
+svg.kg .kg-entry rect { fill: var(--accent); stroke: var(--accent); }
+svg.kg .kg-entry text { fill: var(--accent-fg); font-weight: 600; }
+svg.kg .kg-entry .kg-entry-num { font-family: var(--font-mono); font-weight: 700; }
+svg.kg .kg-edge { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .28; }
+svg.kg .kg-ingene { stroke: var(--accent); stroke-dasharray: 3 3; opacity: .7; }
+svg.kg .kg-entryedge { stroke: var(--accent); opacity: .55; stroke-width: 1.5; }
+svg.kg .kg-node { cursor: default; outline: none; }
+svg.kg .kg-link .kg-node { cursor: pointer; }
+svg.kg .kg-node:focus-visible rect, svg.kg .kg-link:focus-visible rect { stroke: var(--focus); stroke-width: 2.5; }
+svg.kg .kg-link:hover text { text-decoration: underline; }
+svg.kg.focusing .kg-edge { opacity: .05; }
+svg.kg.focusing .kg-edge.on { opacity: .95; stroke: var(--accent); stroke-width: 1.8; }
+svg.kg.focusing .kg-node { opacity: .3; }
+svg.kg.focusing .kg-node.on { opacity: 1; }
+svg.kg.focusing .kg-node.on rect { stroke: var(--accent); stroke-width: 2; }
+.kg-phone-note { display: none; }
+@media (max-width: 700px) { .kg-figure { display: none; } .kg-phone-note { display: block; } }

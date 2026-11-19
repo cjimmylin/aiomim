@@ -28,6 +28,7 @@ from aiomim.models import (
     SynopsisItem,
 )
 from aiomim.pipeline import _paper_record
+from aiomim.report import build as report_build
 from aiomim.report.build import build_report, json_for_script
 
 BREAKOUT = "</script><script>window.pwned=1</script><!--"
@@ -113,20 +114,28 @@ def run_dir(tmp_path: Path) -> Path:
     return run
 
 
+def _payload(data: dict, i: int = 0) -> dict:
+    return data["payloads"][data["entries"][i]["file"]]
+
+
 def test_report_builds_and_embeds_data(run_dir: Path):
     path = build_report(run_dir, None)
     assert path == run_dir / "report.html" and path.is_file()
     html = path.read_text(encoding="utf-8")
     data = _embedded(html)
-    assert data["run"] == "demo"
+    assert data["run"] == "demo" and data["split"] is False
     assert data["strategies"] == ["kg", "direct"]
-    item = data["entries"][0]
-    assert item["mim"] == "500001"
+    index = data["entries"][0]
+    assert index["mim"] == "500001" and index["strategies"] == ["kg", "direct"]
+    assert index["pids"]["kg"] == ["intro", "molecular_genetics.1", "av0002.1"]
+    assert index["rows"]["kg"]["gene_f1"] == 1.0 and index["rows"]["kg"]["claims"] == 2
+    item = _payload(data)
     assert set(item["entries"]) == {"kg", "direct"} and set(item["evals"]) == {"kg", "direct"}
     para = item["entries"]["kg"]["sections"][0]["paragraphs"][0]
     assert para["status"] == "flagged" and para["id"] == "molecular_genetics.1"
     assert item["entries"]["kg"]["intro"]["status"] == "unverified"
     assert item["kg"]["entities"][0]["label"] == "MT-ND6"
+    assert all("draft" not in p for p in item["evals"]["kg"]["gold_text"].get("paragraphs", []))
     assert item["extractions"][0]["findings"][0]["quotes"] == ["nucleotide pair 14459"]
     assert "abstract" not in item["papers"][0]  # paper text is not embedded
     assert item["entries"]["kg"]["meta"]["dropped_ungrounded_count"] == 1
@@ -146,7 +155,7 @@ def test_script_breakout_is_escaped(run_dir: Path):
     # Exactly the two real script elements close; the data cannot add one.
     assert html.count("</script>") == 2
     assert "window.pwned" in html  # still present, but only as escaped JSON text
-    text = _embedded(html)["entries"][0]["entries"]["kg"]["sections"][0]["paragraphs"][0]["text"]
+    text = _payload(_embedded(html))["entries"]["kg"]["sections"][0]["paragraphs"][0]["text"]
     assert BREAKOUT in text
     assert "<" not in json_for_script({"a": "</script>"})
 
@@ -167,10 +176,13 @@ def test_missing_optional_files_do_not_raise(tmp_path: Path):
     data = _embedded(build_report(run, None).read_text(encoding="utf-8"))
     dirs = [e["dir"] for e in data["entries"]]
     assert dirs == ["500002", "500003", "my-new-disorder"]
-    new_item = data["entries"][-1]
-    assert new_item["gold"] is None and new_item["evals"] == {} and new_item["strategies"] == ["kg"]
+    assert data["entries"][-1]["strategies"] == ["kg"] and data["entries"][-1]["has_gold"] is False
+    new_item = _payload(data, -1)
+    assert new_item["gold"] is None and new_item["evals"] == {}
     assert new_item["entries"]["kg"]["audit"]["n_claims"] == 2
-    assert data["entries"][1]["papers"] == []
+    assert data["entries"][-1]["rows"]["kg"]["claim_error_rate"] == 0.5
+    assert _payload(data, 1)["papers"] == []
+    assert data["comparison"] is None
 
 
 def test_empty_run_and_missing_dir(tmp_path: Path):
@@ -178,3 +190,58 @@ def test_empty_run_and_missing_dir(tmp_path: Path):
     assert _embedded(build_report(tmp_path / "empty", None).read_text(encoding="utf-8"))["entries"] == []
     with pytest.raises(FileNotFoundError):
         build_report(tmp_path / "nope", None)
+
+
+def _registered(path: Path) -> tuple[str, dict]:
+    text = path.read_text(encoding="utf-8")
+    m = re.fullmatch(r"window\.__aiomimRegister\((\"[^\"]*\"),(.*)\);\n", text, re.S)
+    assert m, text[:80]
+    return json.loads(m.group(1)), json.loads(m.group(2))
+
+
+def test_split_mode_writes_one_file_per_entry(run_dir: Path, tmp_path: Path):
+    # a second entry with a slug name, and a stale data file from an earlier build
+    entry = _entry("kg")
+    entry.mim = None
+    _write(run_dir / "my-new" / "entry.kg.json", entry.model_dump())
+    stale = run_dir / "report_data" / "gone.js"
+    stale.parent.mkdir(parents=True)
+    stale.write_text("old", encoding="utf-8")
+
+    html = build_report(run_dir, None, split=True).read_text(encoding="utf-8")
+    data = _embedded(html)
+    assert data["split"] is True and "payloads" not in data
+    files = sorted(p.name for p in (run_dir / "report_data").glob("*.js"))
+    assert files == ["500001.js", "my-new.js"] and not stale.exists()
+    name, payload = _registered(run_dir / "report_data" / "500001.js")
+    assert name == "500001" + ".js" and set(payload["entries"]) == {"kg", "direct"}
+    # data files are script too: nothing in them may close a script element
+    raw = (run_dir / "report_data" / "500001.js").read_text(encoding="utf-8")
+    assert "</script" not in raw and BREAKOUT in json.dumps(payload)
+    assert len(html) < 400_000  # the page itself holds only the index
+    low = html.lower()
+    assert "<script src" not in low and "'self'" in low  # data files load at run time, same directory only
+
+
+def test_auto_split_by_size(run_dir: Path, monkeypatch):
+    monkeypatch.setattr(report_build, "SPLIT_THRESHOLD", 10)
+    data = _embedded(build_report(run_dir, None).read_text(encoding="utf-8"))
+    assert data["split"] is True and (run_dir / "report_data" / "500001.js").is_file()
+    monkeypatch.setattr(report_build, "SPLIT_THRESHOLD", 10**9)
+    assert _embedded(build_report(run_dir, None).read_text(encoding="utf-8"))["split"] is False
+
+
+def test_comparison_and_graph_data(run_dir: Path):
+    comparison = {"run": "demo", "n_entries": 1, "overall": [{"metric": "gene_f1", "label": "Causal gene F1", "higher_is_better": True,
+                  "n": 1, "kg": 1.0, "direct": 1.0, "difference": 0.0, "ci95": None, "kg_better": 0, "direct_better": 0,
+                  "ties": 1, "sign_test_p": None}], "pooled": {}, "by_stratum": {}, "by_access": {}}
+    _write(run_dir / "comparison.json", comparison)
+    kg = json.loads((run_dir / "500001" / "kg.json").read_text())
+    kg["nodes"].append({"id": "variant:MT-ND6:m.14459G>A", "type": "Variant", "label": "MT-ND6 m.14459G>A", "omim_name": "MTND6, ALA72VAL"})
+    kg["edges"] += [{"src": "entry", "rel": "has_variant", "dst": "variant:MT-ND6:m.14459G>A", "pmids": ["8016139"]},
+                    {"src": "variant:MT-ND6:m.14459G>A", "rel": "in_gene", "dst": "gene:MT-ND6"}]
+    _write(run_dir / "500001" / "kg.json", kg)
+    data = _embedded(build_report(run_dir, None).read_text(encoding="utf-8"))
+    assert data["comparison"]["overall"][0]["metric"] == "gene_f1"
+    variant = next(e for e in _payload(data)["kg"]["entities"] if e["rel"] == "has_variant")
+    assert variant["gene_id"] == "gene:MT-ND6" and variant["omim_name"] == "MTND6, ALA72VAL"

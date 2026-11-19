@@ -232,6 +232,58 @@ def propose_updates(
     return result
 
 
+def suggest_as_of(years: list[int]) -> int | None:
+    """A cut-off year for a back-test: hold out roughly the latest third of the references.
+
+    Needs at least two references before the cut-off (something to build the
+    baseline from) and at least one from the cut-off year on (something to find).
+    """
+    years = sorted(y for y in years if y)
+    if len(years) < 3:
+        return None
+    for cut in sorted(set(years), key=lambda y: abs(sum(1 for x in years if x >= y) - len(years) / 3)):
+        before, after = sum(1 for x in years if x < cut), sum(1 for x in years if x >= cut)
+        if before >= 2 and after >= 1:
+            return cut
+    return None
+
+
+def backtest(mims: list[str], run_name: str = "backtest", max_papers: int = 10) -> dict[str, Any]:
+    """Back-test update discovery over several entries and pool the result."""
+    from .gold import build_gold
+    from .sources.ncbi import pubmed_fetch
+
+    rows, held, found, proposed = [], 0, 0, 0
+    for mim in mims:
+        gold = build_gold(mim)
+        cut = suggest_as_of([p.year for p in pubmed_fetch(gold.cited_pmids) if p.year])
+        if cut is None:
+            log.info("[%s] skipped: references do not span enough years for a back-test", mim)
+            continue
+        try:
+            result = propose_updates(mim, run_name, max_papers=max_papers, as_of=cut)
+        except Exception as exc:  # noqa: BLE001 - keep the batch going
+            log.warning("[%s] back-test failed: %s", mim, exc)
+            continue
+        b = result["backtest"]
+        held += len(b["held_out"])
+        found += len(b["found"])
+        proposed += len(result["proposals"])
+        rows.append({"mim": mim, "title": result["title"], "as_of": cut, "n_baseline": result["n_baseline"],
+                     "held_out": len(b["held_out"]), "found": len(b["found"]),
+                     "screened_recall": b["screened"]["recall"], "n_screened": result["n_screened"],
+                     "n_proposals": len(result["proposals"]),
+                     "paragraphs_flagged": sum(1 for p in result["proposals"] for x in p["paragraphs"]
+                                               if x["status"] == "flagged")})
+    summary = {
+        "entries": rows, "n_entries": len(rows), "held_out": held, "found": found,
+        "recall": round(found / held, 3) if held else None,
+        "n_proposals": proposed, "proposals_not_in_omim": proposed - found,
+    }
+    _write(get_settings().runs / run_name / "backtest.json", summary)
+    return summary
+
+
 def updates_markdown(result: dict[str, Any]) -> str:
     out = [f"# Proposed updates for OMIM {result['mim']}: {result['title']}",
            f"Literature from {result['since']} onwards that the entry does not cite: {result['n_screened']} papers "
