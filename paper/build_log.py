@@ -70,6 +70,37 @@ VOL = ("Claims audited per entry", "Claims that could not be audited", "Clinical
        "Allelic variants per entry")
 
 
+def sign_tests(report_text: str) -> str:
+    """Compact table of the exact sign tests in a strategies report: the primary endpoint's p-value for
+    each strategy, and the secondary headline measures whose Holm-adjusted p-value is below 0.05."""
+    if "### Full paired statistics" not in report_text:
+        return "(no sign tests in the report)"
+    body = report_text.split("### Full paired statistics", 1)[1]
+    out = ["| Strategy minus direct reading | Primary endpoint: sign test p (better / worse / tied) | "
+           "Secondary headline measures | … with Holm-adjusted p < 0.05 |", "|---|---|---|---|"]
+    for block in body.split("\n#### ")[1:]:
+        name = block.split("\n", 1)[0].replace(" minus Direct reading", "").strip()
+        primary, n_head, hits = "–", 0, []
+        for line in block.splitlines():
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if len(cells) < 10 or cells[0] in ("Metric", "---"):
+                continue
+            metric, bwt, p, holm = cells[0], cells[7], cells[8], cells[9]
+            if "(primary)" in metric:
+                primary = f"{p} ({bwt})"
+            elif "(headline)" in metric:
+                n_head += 1
+                try:
+                    small = float(holm.lstrip("<")) < 0.05
+                except ValueError:
+                    small = False
+                if small:
+                    label = metric.replace("(headline)", "").replace("↑", "").replace("↓", "").strip()
+                    hits.append(f"{label} ({holm}; {cells[4]} points)")
+        out.append(f"| {name} | {primary} | {n_head} | {'; '.join(hits) if hits else 'none'} |")
+    return "\n".join(out)
+
+
 def report(run: str) -> str:
     return read(RUNS / run / "strategies.md")
 
@@ -545,6 +576,15 @@ Volume per entry:
 ### 2.3 Paired differences from direct reading
 
 {section(main, 'Paired differences from the baseline').split('### Full paired statistics')[0].strip()}
+
+### 2.3a Sign tests on the 93 compared entries
+
+Exact two-sided sign test on the paired differences from direct reading (ties dropped). The primary endpoint is not
+adjusted. For the secondary headline measures the sign-test p-value was adjusted by Holm's method across those
+measures within each strategy; the last column lists the measures whose adjusted p-value is below 0.05, with the mean
+paired difference.
+
+{sign_tests(main)}
 
 ### 2.4 Sensitivity: all 100 entries, a missing draft counted as zero
 

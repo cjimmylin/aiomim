@@ -161,6 +161,21 @@ Percentage points, strategy minus baseline, with a bootstrap 95% interval over e
 | Causal gene F1 ↑ | +0.7 (+0.0 to +2.1); 1/0/92 | +0.0 (+0.0 to +0.0); 0/0/93 | -13.6 (-21.5 to -6.1); 2/15/76 | -14.7 (-22.6 to -7.5); 1/15/77 | -3.6 (-8.6 to +0.4); 1/4/88 |
 | Inheritance matches OMIM ↑ | -1.1 (-5.4 to +2.1); 1/2/90 | +0.0 (-3.2 to +3.2); 1/1/91 | -10.8 (-19.4 to -2.1); 3/13/77 | -20.4 (-29.0 to -11.8); 1/20/72 | -2.1 (-8.6 to +4.3); 4/6/83 |
 
+### 2.3a Sign tests on the 93 compared entries
+
+Exact two-sided sign test on the paired differences from direct reading (ties dropped). The primary endpoint is not
+adjusted. For the secondary headline measures the sign-test p-value was adjusted by Holm's method across those
+measures within each strategy; the last column lists the measures whose adjusted p-value is below 0.05, with the mean
+paired difference.
+
+| Strategy minus direct reading | Primary endpoint: sign test p (better / worse / tied) | Secondary headline measures | … with Holm-adjusted p < 0.05 |
+|---|---|---|---|
+| Evidence graph | 0.213 (33 / 45 / 15) | 8 | none |
+| Agentic curator | 0.242 (31 / 42 / 20) | 8 | none |
+| Memory only (control) | <0.001 (7 / 85 / 1) | 8 | Claims supported by cited paper (<0.001; -45.3 points); Claims unsupported or contradicted, before the repair round (<0.001; +22.4 points); OMIM allelic variants recovered (<0.001; -51.3 points); Causal gene F1 (0.011; -13.6 points) |
+| Recall, then verify | <0.001 (2 / 89 / 2) | 8 | Clinical synopsis HPO F1, exact (<0.001; -11.0 points); Clinical synopsis HPO F1, hierarchical (<0.001; -15.7 points); OMIM allelic variants recovered (<0.001; -54.9 points); Causal gene F1 (0.002; -14.7 points); Inheritance matches OMIM (<0.001; -20.4 points) |
+| Case table first | 0.071 (31 / 48 / 14) | 8 | none |
+
 ### 2.4 Sensitivity: all 100 entries, a missing draft counted as zero
 
 All 100 entries of the run. A strategy's missing draft scores 0 on each higher-is-better measure the entry has a gold set for; incomplete drafts are kept as scored. Lower-is-better measures cannot be zero-filled (a missing draft has no errors) and are averaged over the drafts that exist. Missing drafts counted as zero: Evidence graph 1; Direct reading 3; Agentic curator 2.
