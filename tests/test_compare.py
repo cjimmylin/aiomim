@@ -103,3 +103,42 @@ def test_backtest_cutoff_holds_out_about_the_latest_third():
     assert suggest_as_of([2020, 2020, 2021]) == 2021
     assert suggest_as_of([2020, 2020, 2020]) is None                  # nothing later to find
     assert suggest_as_of([2019, 2021]) is None                        # too few references
+
+
+def test_edge_level_graph_comparison(tmp_path):
+    from aiomim.compare import edge_scores, graph_edges, write_graph_comparison
+
+    folder = tmp_path / "run" / "500001"
+    folder.mkdir(parents=True)
+    (folder / "gold.json").write_text(json.dumps({
+        "mim": "500001", "title": "LEBER OPTIC ATROPHY AND DYSTONIA",
+        "genes": [{"symbol": "MT-ND6"}, {"symbol": "MT-ND1"}], "inheritance": ["MT"],
+    }))
+    (folder / "entry.kg.json").write_text(json.dumps({
+        "relationships": [{"gene_symbol": "MT-ND6", "pmids": ["1"]}, {"gene_symbol": "OPA1", "pmids": ["2"]}],
+        "inheritance": ["MT", "AD"],
+        "clinical_synopsis": [
+            {"hpo_id": "HP:0001332", "hpo_label": "Dystonia", "pmids": ["1"]},
+            {"hpo_id": "HP:0007325", "hpo_label": "Generalized dystonia", "pmids": ["1"]}],
+        "allelic_variants": [
+            {"name": "MTND6, ALA72VAL", "hgvs": ["m.14459G>A"], "paragraphs": [{"pmids": ["1"]}]},
+            {"name": "MTND6, NEW", "hgvs": [], "paragraphs": [{"pmids": ["2"]}]}],
+    }))
+    (folder / "eval.kg.json").write_text(json.dumps({
+        "synopsis": {"missed": ["HP:0000648 Optic atrophy"], "extra": ["HP:0007325 Generalized dystonia"]},
+        "variants": {"matched": [{"gold": "516006.0002 MTND6, LDYT14459A", "generated": "MTND6, ALA72VAL"}],
+                     "missed": ["516000.0012 MTND1, 3697G-A"], "in_omim_via_other_paper": []},
+    }))
+    rows = graph_edges(tmp_path / "run", "kg")
+    by = {(r["relation"], r["object_id"]): r["source"] for r in rows}
+    assert by[("caused_by", "MT-ND6")] == "both" and by[("caused_by", "OPA1")] == "generated_only"
+    assert by[("caused_by", "MT-ND1")] == "omim_only"
+    assert by[("inheritance", "MT")] == "both" and by[("inheritance", "AD")] == "generated_only"
+    assert by[("has_phenotype", "HP:0001332")] == "both" and by[("has_phenotype", "HP:0000648")] == "omim_only"
+    assert by[("has_variant", "m.14459G>A")] == "both" and by[("has_variant", "516000.0012")] == "omim_only"
+
+    scores = edge_scores(rows)
+    assert scores["caused_by"] == {"in_both": 1, "generated": 2, "omim": 2, "precision": 0.5, "recall": 0.5, "f1": 0.5}
+    assert scores["has_phenotype"]["precision"] == 0.5 and scores["has_phenotype"]["recall"] == 0.5
+    assert write_graph_comparison(tmp_path / "run")["kg"]["inheritance"]["recall"] == 1.0
+    assert (tmp_path / "run" / "knowledge_graph.kg.tsv").read_text().count("\n") == len(rows) + 1

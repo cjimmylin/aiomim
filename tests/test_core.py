@@ -317,3 +317,19 @@ def test_recalled_omim_cross_references_are_stripped():
     assert cleaned == ("Jun et al. (1994) found an ala72-to-val substitution (A72V) in the MTND6 gene (516006) "
                        "in a family with LHON; it was absent from 125000 controls.")
     assert removed == ["516006.0002", "535000", "540000"]
+
+
+def test_planted_error_rules_change_exactly_one_fact():
+    from aiomim.auditcheck import _swap_count, _swap_inheritance, _swap_residue, _swap_zygosity
+
+    text = ("In 3 sibs from a consanguineous family, Smith et al. (2001) identified a homozygous c.367C-T "
+            "transition in the GENE gene, resulting in an arg123-to-trp (R123W) substitution. The 14-year-old "
+            "proband had onset in 2001; inheritance was autosomal recessive.")
+    assert _swap_count(text)[0].startswith("In 6 sibs from a consanguineous family, Smith et al. (2001)")
+    assert "c.367C-T" in _swap_count(text)[0] and "(2001)" in _swap_count(text)[0]      # variants and years untouched
+    assert "a heterozygous c.367C-T" in _swap_zygosity(text)[0]
+    altered, was, now = _swap_residue(text)
+    assert "arg123-to-ser (R123S)" in altered and (was, now) == ("arg123-to-trp", "arg123-to-ser")
+    assert "autosomal dominant" in _swap_inheritance(text)[0]
+    assert _swap_count("The c.2981-2A-G mutation was found in 1996.") is None
+    assert _swap_residue("No protein change was reported.") is None

@@ -261,6 +261,24 @@ def backtest(mims, from_file, run_name, max_papers):
                f"are papers OMIM does not cite.")
 
 
+@main.command(name="audit-check")
+@click.argument("run_name")
+@click.option("-n", "n", default=60, show_default=True, help="Number of paragraphs to alter.")
+@click.option("--seed", default=11, show_default=True)
+def audit_check(run_name, n, seed):
+    """Measure the audit: plant one known error per paragraph and count how many it catches."""
+    from .auditcheck import run_audit_check
+
+    result = run_audit_check(get_settings().runs / run_name, n=n, seed=seed)
+    o = result["overall"]
+    click.echo(f"{o['n']} altered paragraphs: {o['flagged']} flagged, {o['downgraded_to_partial']} downgraded to "
+               f"partly supported, {o['missed']} still passed as supported (detection {o['detection_rate']}).")
+    for kind, row in result["by_kind"].items():
+        click.echo(f"  {kind:24s} n={row['n']:<3} detected={row['detection_rate']}  missed={row['missed']}")
+    for level, row in result["by_content_level"].items():
+        click.echo(f"  paper read as {level:9s} n={row['n']:<3} detected={row['detection_rate']}  missed={row['missed']}")
+
+
 def _fmt(value) -> str:
     if value is None:
         return "  -  "
