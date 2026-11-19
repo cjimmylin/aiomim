@@ -333,3 +333,24 @@ def test_planted_error_rules_change_exactly_one_fact():
     assert "autosomal dominant" in _swap_inheritance(text)[0]
     assert _swap_count("The c.2981-2A-G mutation was found in 1996.") is None
     assert _swap_residue("No protein change was reported.") is None
+
+
+def test_citation_labels_for_collective_names_and_suffixes():
+    assert Paper(pmid="1", authors=["Epi4K Consortium", "Allen AS", "Berkovic SF"], year=2013).label == \
+        "Epi4K Consortium et al. (2013)"
+    assert Paper(pmid="1", authors=["Smith JR Jr", "Jones K"], year=1999).label == "Smith and Jones (1999)"
+    assert Paper(pmid="1", authors=["De Vries DD", "Went LN", "Bruyn GW"], year=1996).label == "De Vries et al. (1996)"
+
+
+def test_citation_matching_ignores_accents_and_flags_true_unknowns():
+    from aiomim.synthesize import _attach_text_citations, _labels
+
+    papers = [Paper(pmid="1", authors=["Müller T", "A B", "C D"], year=2014),
+              Paper(pmid="2", authors=["Héon E", "A B", "C D"], year=1999),
+              Paper(pmid="3", authors=["van der Knaap MS", "A B", "C D"], year=2005)]
+    para = EntryParagraph(text="Muller et al. (2014) and Heon et al. (1999) agreed with van der Knaap et al. (2005), "
+                               "unlike Novotny et al. (1986).", pmids=[])
+    unknown: list[str] = []
+    _attach_text_citations(para, _labels(papers), unknown)
+    assert sorted(para.pmids) == ["1", "2", "3"]
+    assert unknown == ["Novotny et al. (1986)"]

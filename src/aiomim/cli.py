@@ -261,6 +261,19 @@ def backtest(mims, from_file, run_name, max_papers):
                f"are papers OMIM does not cite.")
 
 
+@main.command()
+@click.argument("run_name")
+def adjudicate(run_name):
+    """Where a draft and OMIM disagree, check the paper to see which one it supports."""
+    from .adjudicate import adjudicate_run
+
+    result = adjudicate_run(get_settings().runs / run_name)
+    for strategy, row in result["by_strategy"].items():
+        click.echo(f"{strategy}: {row['n']} disagreements with OMIM - paper supports the draft in {row['draft']}, "
+                   f"OMIM in {row['reference']}, both in {row['both']}, neither in {row['neither']}; "
+                   f"undecidable from the available text in {row['cannot_tell']}.")
+
+
 @main.command(name="audit-check")
 @click.argument("run_name")
 @click.option("-n", "n", default=60, show_default=True, help="Number of paragraphs to alter.")

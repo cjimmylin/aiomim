@@ -105,6 +105,19 @@ INHERITANCE_COARSE: dict[str, str] = {
 
 ContentLevel = Literal["fulltext", "abstract", "title"]
 
+_INITIALS = re.compile(r"^[A-Z]{1,4}$")
+_NAME_SUFFIX = {"Jr", "Sr", "2nd", "3rd", "4th", "II", "III", "IV"}
+
+
+def _surname(author: str) -> str:
+    """'Novotny EJ' -> 'Novotny', 'Smith JR Jr' -> 'Smith'; a collective name is kept whole."""
+    tokens = author.split()
+    while len(tokens) > 1 and tokens[-1] in _NAME_SUFFIX:
+        tokens.pop()
+    if len(tokens) > 1 and _INITIALS.match(tokens[-1]):
+        tokens.pop()
+    return " ".join(tokens)
+
 
 class Paper(BaseModel):
     """One PubMed record plus whatever text we could legally obtain for it."""
@@ -136,7 +149,7 @@ class Paper(BaseModel):
     def label(self) -> str:
         """OMIM in-text citation label, e.g. 'Novotny et al. (1986)'."""
         year = self.year if self.year else "n.d."
-        last = [a.rsplit(" ", 1)[0] if " " in a else a for a in self.authors]
+        last = [_surname(a) for a in self.authors]
         if not last:
             return f"PMID {self.pmid} ({year})"
         if len(last) == 1:

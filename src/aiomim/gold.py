@@ -191,8 +191,14 @@ def build_gold(mim: str, refresh: bool = False) -> GoldEntry:
                 if sym:
                     from_clinvar.append(GoldGene(symbol=sym, mim=av.omim_id.split(".")[0],
                                                  source="ClinVar OMIM allelic variants"))
-            gold.genes = _merge_genes([from_m2g, from_medgen, from_clinvar])
-            prov["genes"] = "mim2gene_medgen GeneMap; MedGen associated genes; ClinVar OMIM variants; HGNC"
+            # OMIM's gene map (via NCBI) defines the causal genes. A gene whose allelic-variant
+            # text merely mentions this phenotype is not thereby a cause of it, so genes taken
+            # from ClinVar are used only when the gene map lists none (as for mtDNA disorders).
+            gold.genes = _merge_genes([from_m2g, from_medgen])
+            prov["genes"] = "mim2gene_medgen GeneMap; MedGen associated genes; HGNC"
+            if not gold.genes:
+                gold.genes = _merge_genes([from_clinvar])
+                prov["genes"] = "genes of the entry's ClinVar OMIM allelic variants (no gene map row); HGNC"
         else:
             g = mim2gene.gene_for_gene_mim(mim)
             if g is None and gold.symbol:

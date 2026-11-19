@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import logging
 import re
+import unicodedata
 from datetime import date
 
 from pydantic import BaseModel, Field
@@ -260,22 +261,32 @@ def _labels(papers) -> dict[str, list[str]]:
     return out
 
 
+def _fold(text: str) -> str:
+    """Accent- and case-insensitive form for comparing author names: 'Müller et al.' ~ 'Muller et al'."""
+    text = unicodedata.normalize("NFKD", text)
+    text = "".join(ch for ch in text if not unicodedata.combining(ch)).replace("ø", "o").replace("Ø", "O")
+    return re.sub(r"[.,'’`\-]", "", text).lower()
+
+
 def _attach_text_citations(para: EntryParagraph, label_to_pmids: dict[str, list[str]], unknown: list[str]) -> None:
     """Make sure every 'Author et al. (year)' named in the text is among the paragraph's PMIDs.
 
     A citation that matches no supplied paper is recorded: it would be a reference
-    the writer brought in from outside the evidence.
+    the writer brought in from outside the evidence, or one that a supplied paper
+    itself cites.
     """
-    for label, pmids in label_to_pmids.items():
-        if label in para.text and not set(pmids) & set(para.pmids):
+    text = _fold(para.text)
+    known = {_fold(label): pmids for label, pmids in label_to_pmids.items()}
+    for label, pmids in known.items():
+        if label in text and not set(pmids) & set(para.pmids):
             # Ambiguous labels attach every candidate, so the audit checks them all.
             para.pmids.extend(pmids)
     for match in _CITATION.finditer(para.text):
-        found = f"{match.group(1)} ({match.group(2)})"
+        found = _fold(f"{match.group(1)} ({match.group(2)})")
         # The pattern may clip a surname particle ("van der Knaap") or swallow a
         # leading capitalised word ("In Smith"); either way it overlaps a known label.
-        if not any(known.endswith(found) or found.endswith(known) for known in label_to_pmids):
-            unknown.append(found)
+        if not any(label.endswith(found) or found.endswith(label) for label in known):
+            unknown.append(f"{match.group(1)} ({match.group(2)})")
 
 
 def _references(entry: GeneratedEntry, papers: dict[str, Paper]) -> list[Reference]:
