@@ -99,8 +99,7 @@ pill(RX, BX1 - 0.08, 2.32, "Learned curation guide", C_RW, dashed=True, plus=Tru
 ax.plot([LX + LW, RX], [2.55, 2.55], color=C_RW, lw=0.8)
 ax.plot([LX + LW + 0.10, LX + LW + 0.10, RX], [2.55, 2.32, 2.32], color=C_RW, lw=0.8)
 pill(LX, LX + LW, 2.09, "Agentic curator", C_RW)
-txt(RX, 2.14, "dashed, +: add-on, tested", color=INK)
-txt(RX, 2.03, "against its parent", color=INK)
+txt(RX, 2.09, "dashed = add-on to its parent", color=INK, style="italic")
 
 # Extract, then write
 box(BX0, 1.24, BX1, 1.92, ec=C_EW, fc=light(C_EW))
@@ -150,7 +149,7 @@ txt(CX0 + 0.08, 0.78, "allelic-variant descriptions in ClinVar):")
 txt(CX0 + 0.08, 0.63, "476 paragraphs, 6,652 fixed facts")
 txt(CX0 + 0.08, 0.46, "HPO disease annotations: 2,311")
 txt(CX0 + 0.08, 0.31, "OMIM allelic variants in ClinVar: 427")
-txt(CX0 + 0.08, 0.16, "causal gene (gene map); inheritance modes")
+txt(CX0 + 0.08, 0.16, "causal gene; inheritance modes")
 
 # ------------------------------------------------------------------ arrows
 arrow(AX1, 1.75, BX0, 1.75)                       # input -> strategies

@@ -46,3 +46,13 @@ Three paradigm boxes, one control box; add-ons drawn as small dashed attachments
   parent's colour. Input panel and audit/scoring panels neutral grey outlines; primary endpoint in bold.
 - Arrows thin dark grey. No legend box: add-on convention explained by a direct one-line note.
 - No caption or figure number inside the image.
+
+## Revisions after critic rounds
+- Round 1: papers label shortened to "Cited papers R = {d_i}" (overflowed its box); struck-through
+  "causal gene" replaced by plain "causal gene withheld"; Memory-first/Control split moved so
+  "Memory only (no papers)" fits its pill; guards band re-wrapped into four lines in the log's wording
+  ("ontology IDs chosen only from candidates returned by an ontology search ...") and enlarged so it no
+  longer runs into the reference box; add-on convention note added.
+- Round 2: add-on note reduced to one italic line "dashed = add-on to its parent" beside Agentic curator
+  (two-line version touched the box edge); last reference line shortened to "causal gene; inheritance modes"
+  (touched the right edge).

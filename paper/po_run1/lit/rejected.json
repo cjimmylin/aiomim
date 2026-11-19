@@ -4,5 +4,12 @@
     "task_id": "T010",
     "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
     "reason": "s2_disabled;crossref_no_match_61;arxiv_no_match_63"
+  },
+  {
+    "candidate_title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "task_id": "T058",
+    "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+    "reason": "no_abstract",
+    "matched_title": "An Improved Sequentially Rejective Bonferroni Test Procedure"
   }
 ]
