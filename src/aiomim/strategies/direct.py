@@ -290,7 +290,8 @@ def assemble(plan: MEntry | None, paragraphs: dict, variants: dict, partials: li
         if text and len(ids) > 1:
             stats["rejected_longer"] += 1
         # Kept word for word (one source, no text, or a rejected combination):
-        # each unused source as it was. A single source reworded is kept as written.
+        # each unused source as it was. A single source the merge reworded is still
+        # kept in its original words: rewording is allowed only to combine duplicates.
         used.update(fresh)
         stats["kept"] += len(fresh)
         return [DParagraph(text=paragraphs[pid][1].text, pmids=list(paragraphs[pid][1].pmids)) for pid in fresh]
