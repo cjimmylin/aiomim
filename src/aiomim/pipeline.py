@@ -112,8 +112,10 @@ def build_entries(
             if cfg.repair and spec.repair:
                 repair_entry(entry, audit_by_pmid, s_llm)
                 entry.assign_paragraph_ids()
-            entry.meta["audit"] = verdict_counts(entry)
+            # The hook may re-label claims (second-hand support is not support by the
+            # cited paper), so it runs before the verdicts are counted.
             after_audit(strategy, entry, read, out_dir)
+            entry.meta["audit"] = verdict_counts(entry)
         _write(out_dir / f"entry.{strategy}.json", entry.model_dump())
         _write(out_dir / f"entry.{strategy}.md", entry_markdown(entry))
         entries[strategy] = entry

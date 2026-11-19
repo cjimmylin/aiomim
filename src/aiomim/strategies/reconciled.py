@@ -19,6 +19,8 @@ OMIM-like case database (`casebase.json`).
       ─ synopsis, genes, inheritance by the cohort rules; entry by the cohort renderer.
 
 Hard rules applied in code whatever the verifier said (each logged as a rejection):
+the verifier must name the basis of an acceptance, and only "stated in a paper" or
+"identifying details shown" count (not outside knowledge or similarity);
 a proposal needs two or more known record ids and at least one evidence quote found
 verbatim in a supplied paper; a same-individual merge is refused when two sources
 state different sexes; a variant merge is refused across genes.
@@ -115,6 +117,8 @@ class XProposals(BaseModel):
 class XDecision(BaseModel):
     proposal_id: str
     accept: bool
+    basis: Literal["stated_in_paper", "identifying_details", "outside_knowledge", "similarity_only", "contradicted"] = \
+        Field(description="What the decision rests on")
     reason: str
 
 
@@ -162,8 +166,12 @@ coincide. Reject it when the evidence is only similarity (the same variant, the 
 country or ethnicity): unrelated patients with the same variant must stay separate. Reject it when the \
 records contradict identity (an individual reported as male in one and female in the other, a different \
 family structure, a different variant). Reject a variant merge unless the two names denote the same \
-change in the same gene. Decide every proposal by its `proposal_id`, with a one-sentence reason. When in \
-doubt, reject.\
+change in the same gene. Decide only from the quotes, records and sentences shown. Do not use what you know or remember about \
+these papers, these families or the OMIM entry: if the identity follows only from such knowledge, \
+reject. Give each decision's `basis`: stated_in_paper (a paper says these are the same patients), \
+identifying_details (specific details shown here that cannot plausibly coincide), outside_knowledge, \
+similarity_only, or contradicted. Only the first two can support an acceptance. Decide every proposal \
+by its `proposal_id`, with a one-sentence reason. When in doubt, reject.\
 """
 
 # --------------------------------------------------------------------------- #
@@ -590,7 +598,11 @@ def reconcile(seed: Seed, papers: dict[str, Paper], cases: list[PaperCases], llm
     case_merges, variant_merges = [], []
     for it in items:
         d = decisions.get(it["proposal_id"])
-        it["verdict"] = {"accept": bool(d and d.accept), "reason": squash(d.reason) if d else "no decision"}
+        it["verdict"] = {"accept": bool(d and d.accept), "basis": d.basis if d else "",
+                         "reason": squash(d.reason) if d else "no decision"}
+        if it["verdict"]["accept"] and it["verdict"]["basis"] not in ACCEPTABLE_BASIS:
+            it["verdict"]["accept"] = False
+            it["verdict"]["reason"] = f"accepted on the basis '{d.basis}', which cannot support a merge: {it['verdict']['reason']}"
         log_["verified"].append({"proposal_id": it["proposal_id"], **it["verdict"]})
         refusal = _rule_refusal(it, table)
         if not it["verdict"]["accept"] or refusal:
@@ -606,6 +618,9 @@ def reconcile(seed: Seed, papers: dict[str, Paper], cases: list[PaperCases], llm
     log_["variant_merges"] = table.variant_merges
     log_["clusters"] = {m.id: m.sources for m in table.merged.values()}
     return table, log_
+
+
+ACCEPTABLE_BASIS = ("stated_in_paper", "identifying_details")
 
 
 def _sex(value: str) -> str:

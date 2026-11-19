@@ -161,6 +161,8 @@ class ScriptedLLM:
                                      evidence=[E(pmid="333", quote="She was homozygous for the R34W mutation in GENEX.")]),
                 reconciled.XSameCase(record_ids=["R:333:1", "R:222:1"], relation="same_individual",
                                      reason="invented", evidence=[E(pmid="333", quote="The girl was one of the Turkish sibs.")]),
+                reconciled.XSameCase(record_ids=["R:333:1", "R:111:1"], relation="same_individual",
+                                     reason="memory", evidence=[E(pmid="333", quote=C_TEXT.split(". ")[0] + ".")]),
             ],
             same_variants=[],
             conflicts=[reconciled.XConflict(record_ids=["R:111:1", "R:222:1"], field="onset",
@@ -169,9 +171,10 @@ class ScriptedLLM:
     def _XDecisions(self, prompt):
         D = reconciled.XDecision
         return reconciled.XDecisions(decisions=[
-            D(proposal_id="P1", accept=True, reason="the later paper says it re-examined the family"),
-            D(proposal_id="P2", accept=False, reason="only the same variant"),
-            D(proposal_id="P3", accept=True, reason="accepted, but its quote is invented"),
+            D(proposal_id="P1", accept=True, basis="stated_in_paper", reason="the later paper says it re-examined the family"),
+            D(proposal_id="P2", accept=False, basis="similarity_only", reason="only the same variant"),
+            D(proposal_id="P3", accept=True, basis="identifying_details", reason="accepted, but its quote is invented"),
+            D(proposal_id="P4", accept=True, basis="outside_knowledge", reason="I remember these are the same"),
         ])
 
     def _CEntry(self, prompt):
@@ -203,7 +206,7 @@ def test_rereported_family_is_merged_and_counted_once(run):
     assert unit["sources"] == ["R:111:1", "R:222:1"] and unit["pmids"] == ["111", "222"] and unit["n_affected"] == 3
     meta = entry.meta["reconciled"]
     assert (meta["records_before"], meta["records_after"]) == (3, 2)
-    assert (meta["merges_proposed"], meta["merges_accepted"]) == (3, 1)
+    assert (meta["merges_proposed"], meta["merges_accepted"]) == (4, 1)
     # The variant is counted over reconciled units: 3 sibs + 1 girl, not 7.
     assert [(v["id"], v["individuals"]) for v in base["variants"]] == [("V1", 4)]
 
@@ -214,8 +217,10 @@ def test_same_variant_unrelated_patient_stays_separate(run):
     assert rejected["P2"]["by"] == "verifier"
     assert rejected["P3"] == {"proposal_id": "P3", "by": "rule",
                               "reason": "no evidence quote found verbatim in a supplied paper"}
+    # Accepted from memory: turned into a rejection, whatever the verifier's yes.
+    assert rejected["P4"]["by"] == "verifier" and "outside_knowledge" in rejected["P4"]["reason"]
     assert any(u["id"] == "R:333:1" and u["sources"] == ["R:333:1"] for u in base["units"])
-    assert entry.meta["reconciled"]["merges_rejected_by_verifier"] == 1
+    assert entry.meta["reconciled"]["merges_rejected_by_verifier"] == 2
     assert entry.meta["reconciled"]["merges_rejected_by_rule"] == 1
 
 
