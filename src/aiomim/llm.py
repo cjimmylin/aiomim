@@ -87,17 +87,35 @@ class StageUsage:
     output_tokens: int = 0
     list_price_usd: float = 0.0
     seconds: float = 0.0
+    # What these calls cost when made, whether or not this pass read them from cache.
+    # A cached re-run spends nothing, but the method still costs this much to run fresh.
+    full_input_tokens: int = 0
+    full_output_tokens: int = 0
+    full_list_price_usd: float = 0.0
+    full_seconds: float = 0.0
+    turns: int = 0
+
+
+_SUMMED = ("calls", "cached", "input_tokens", "output_tokens", "list_price_usd", "seconds",
+           "full_input_tokens", "full_output_tokens", "full_list_price_usd", "full_seconds", "turns")
 
 
 @dataclass
 class UsageLedger:
     stages: dict[str, StageUsage] = field(default_factory=dict)
+    phase: str = ""
     _lock: threading.Lock = field(default_factory=threading.Lock, repr=False)
 
     def add(self, stage: str, *, cached: bool, meta: dict[str, Any]) -> None:
+        key = f"{self.phase}/{stage}" if self.phase else stage
         with self._lock:
-            s = self.stages.setdefault(stage, StageUsage())
+            s = self.stages.setdefault(key, StageUsage())
             s.calls += 1
+            s.full_input_tokens += int(meta.get("input_tokens", 0))
+            s.full_output_tokens += int(meta.get("output_tokens", 0))
+            s.full_list_price_usd += float(meta.get("cost_usd", 0.0))
+            s.full_seconds += float(meta.get("seconds", 0.0))
+            s.turns += int(meta.get("turns", 1) or 1)
             if cached:
                 s.cached += 1
                 return
@@ -109,10 +127,7 @@ class UsageLedger:
     def summary(self) -> dict[str, Any]:
         with self._lock:
             out = {name: vars(s).copy() for name, s in sorted(self.stages.items())}
-        out["total"] = {
-            key: round(sum(s[key] for s in out.values()), 4)
-            for key in ("calls", "cached", "input_tokens", "output_tokens", "list_price_usd", "seconds")
-        }
+        out["total"] = {key: round(sum(s[key] for s in out.values()), 4) for key in _SUMMED}
         return out
 
 
@@ -133,8 +148,17 @@ class ClaudeCode:
         self._cwd = tempfile.mkdtemp(prefix="aiomim-llm-")
 
     def complete(
-        self, *, system: str, prompt: str, schema: dict[str, Any], model: str, effort: str
+        self, *, system: str, prompt: str, schema: dict[str, Any], model: str, effort: str,
+        tools: tuple[str, ...] = (), workdir: str | None = None, timeout_s: int | None = None,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
+        """One structured completion.
+
+        With no `tools` this is a single model call. With `tools` (read-only file
+        tools such as Read, Grep, Glob) it is an agent session: the model works in
+        `workdir`, calling tools for as many turns as it needs, and the schema
+        applies to its final answer. `--restricted` confines the file tools to that
+        directory and removes anything that could run code or reach the network.
+        """
         cmd = [
             self.settings.claude_bin, "-p",
             "--model", model,
@@ -142,19 +166,22 @@ class ClaudeCode:
             "--output-format", "json",
             "--system-prompt", system,
             "--json-schema", json.dumps(schema),
-            # A pure completion: no tools, no MCP servers, no user/project settings,
-            # no skills, nothing written to the session history.
-            "--tools", "",
+            # No MCP servers, no user/project settings, no skills, nothing written
+            # to the session history.
+            "--tools", ",".join(tools),
             "--strict-mcp-config",
             "--setting-sources", "",
             "--disable-slash-commands",
             "--no-session-persistence",
         ]
+        if tools:
+            cmd.append("--restricted")
+        timeout_s = timeout_s or self.settings.llm_timeout_s
         started = time.time()
         try:
             proc = subprocess.run(
                 cmd, input=prompt, capture_output=True, text=True,
-                cwd=self._cwd, timeout=self.settings.llm_timeout_s,
+                cwd=workdir or self._cwd, timeout=timeout_s,
             )
         except FileNotFoundError as exc:
             raise LLMError(
@@ -162,7 +189,7 @@ class ClaudeCode:
                 "with your Claude subscription, or set AIOMIM_CLAUDE_BIN."
             ) from exc
         except subprocess.TimeoutExpired as exc:
-            raise TimeoutError(f"claude -p exceeded {self.settings.llm_timeout_s}s") from exc
+            raise TimeoutError(f"claude -p exceeded {timeout_s}s") from exc
 
         try:
             result = json.loads(proc.stdout)
@@ -194,6 +221,7 @@ class ClaudeCode:
             "output_tokens": usage.get("output_tokens", 0),
             "cost_usd": result.get("total_cost_usd", 0.0),
             "seconds": round(time.time() - started, 2),
+            "turns": result.get("num_turns", 1),
         }
         return data, meta
 
@@ -219,12 +247,22 @@ class LLM:
         self.cache = DiskCache(self.settings.llm_cache)
         self.usage = UsageLedger()
 
-    def call(self, stage: str, system: str, prompt: str, output: type[T], *, use_cache: bool = True) -> T:
-        """Run one structured completion for `stage` and validate it as `output`."""
+    def call(
+        self, stage: str, system: str, prompt: str, output: type[T], *, use_cache: bool = True,
+        tools: tuple[str, ...] = (), workdir: str | None = None, workspace_key: str = "",
+    ) -> T:
+        """Run one structured completion for `stage` and validate it as `output`.
+
+        `tools` and `workdir` turn the call into an agent session (see
+        `ClaudeCode.complete`); `workspace_key` must then identify the contents of
+        the working directory, so that the cache distinguishes one library of papers
+        from another.
+        """
         model = self.settings.model_for(stage)
         effort = self.settings.effort_for(stage)
         schema = schema_for(output)
-        key = stable_hash(model, effort, system, prompt, schema)
+        key = (stable_hash(model, effort, system, prompt, schema, list(tools), workspace_key) if tools
+               else stable_hash(model, effort, system, prompt, schema))
 
         if use_cache:
             hit = self.cache.get_json(key)
@@ -241,7 +279,9 @@ class LLM:
         for attempt in range(5):
             try:
                 data, meta = self.backend.complete(
-                    system=system, prompt=prompt, schema=schema, model=model, effort=effort
+                    system=system, prompt=prompt, schema=schema, model=model, effort=effort,
+                    tools=tools, workdir=workdir,
+                    timeout_s=self.settings.agent_timeout_s if tools else None,
                 )
                 parsed = output.model_validate(data)
             except (LLMRefusal, LLMLimitReached):

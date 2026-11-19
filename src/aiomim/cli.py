@@ -13,7 +13,12 @@ from .pipeline import RunConfig, collect_summary, run_many, run_seed
 
 
 def _strategies(value: str) -> tuple[str, ...]:
-    return ("kg", "direct") if value == "both" else (value,)
+    from .strategies import parse_strategies
+
+    try:
+        return parse_strategies(value)
+    except ValueError as exc:
+        raise click.BadParameter(str(exc)) from exc
 
 
 @click.group()
@@ -44,8 +49,9 @@ def _read_mims(path: str) -> list[str]:
 @click.option("--run", "run_name", default="default", show_default=True, help="Name of the run directory.")
 @click.option("--retrieval", type=click.Choice(["oracle", "open"]), default="oracle", show_default=True,
               help="oracle: use OMIM's own reference list. open: find the literature from scratch.")
-@click.option("--strategy", type=click.Choice(["kg", "direct", "both"]), default="kg", show_default=True,
-              help="kg: write from the evidence graph. direct: baseline, write straight from the papers.")
+@click.option("--strategy", default="kg", show_default=True,
+              help="How entries are generated: kg, direct, agent, closedbook, recall, cohort; a comma-separated "
+                   "list; 'both' (kg and direct) or 'all'.")
 @click.option("--max-papers", default=25, show_default=True, help="Cap on papers selected by open retrieval.")
 @click.option("--no-verify", is_flag=True, help="Skip the claim-level audit.")
 @click.option("--no-repair", is_flag=True, help="Audit but do not revise flagged paragraphs.")
@@ -171,16 +177,27 @@ def summary(run_name):
 
 @main.command()
 @click.argument("run_name")
-def compare(run_name):
-    """Paired comparison of the evidence-graph strategy against the direct baseline."""
-    from .compare import compare_run, comparison_markdown, edge_markdown, write_graph_comparison
+@click.option("--baseline", default="direct", show_default=True, help="Strategy the others are compared against.")
+def compare(run_name, baseline):
+    """Compare every strategy of a run: scores, paired differences from the baseline, volume and cost."""
+    from .compare import (compare_run, compare_strategies, comparison_markdown, edge_markdown, load_evals,
+                          strategies_markdown, write_graph_comparison)
 
     run_dir = get_settings().runs / run_name
-    result = compare_run(run_dir)
-    result["knowledge_graph_edges"] = write_graph_comparison(run_dir)
-    (run_dir / "comparison.json").write_text(json.dumps(result, indent=2))
-    text = comparison_markdown(result) + "\n" + edge_markdown(result["knowledge_graph_edges"])
-    (run_dir / "comparison.md").write_text(text)
+    present = load_evals(run_dir)
+    edges = write_graph_comparison(run_dir)
+    result = compare_strategies(run_dir, baseline=baseline)
+    result["knowledge_graph_edges"] = edges
+    text = strategies_markdown(result) + "\n" + edge_markdown(edges)
+    (run_dir / "strategies.json").write_text(json.dumps(result, indent=2))
+    (run_dir / "strategies.md").write_text(text)
+    if "kg" in present and "direct" in present:
+        # The detailed two-way comparison of the evidence graph with the direct baseline.
+        pair = compare_run(run_dir)
+        pair["knowledge_graph_edges"] = {k: v for k, v in edges.items() if k in ("kg", "direct")}
+        (run_dir / "comparison.json").write_text(json.dumps(pair, indent=2))
+        (run_dir / "comparison.md").write_text(
+            comparison_markdown(pair) + "\n" + edge_markdown(pair["knowledge_graph_edges"]))
     click.echo(text)
 
 

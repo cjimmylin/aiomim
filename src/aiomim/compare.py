@@ -228,6 +228,253 @@ def comparison_markdown(result: dict[str, Any]) -> str:
 
 
 # --------------------------------------------------------------------------- #
+# Any number of strategies
+# --------------------------------------------------------------------------- #
+
+VOLUME = [
+    ("claims", "Claims audited per entry", "faithfulness.n_claims"),
+    ("synopsis_terms", "Clinical-synopsis HPO terms per entry", "synopsis.exact.n_predicted"),
+    ("variants", "Allelic variants per entry", "variants.n_generated"),
+    ("references", "Papers cited per entry", "references.cited.n_predicted"),
+    ("dropped_paragraphs", "Paragraphs dropped by the grounding guards per entry", "faithfulness.dropped_ungrounded_paragraphs"),
+]
+HEADLINE = ("claim_supported_rate", "claim_error_rate_before_repair", "gold_fact_coverage", "gold_fact_contradiction_rate",
+            "hpo_exact_f1", "hpo_hierarchical_f1", "variant_recall", "gene_f1", "inheritance_match")
+PHASES = ("generate", "audit", "score")
+
+
+def load_evals(run_dir: Path) -> dict[str, dict[str, dict]]:
+    """strategy -> {entry folder -> evaluation}, strategies in registry order."""
+    from .strategies import STRATEGIES
+
+    found: dict[str, dict[str, dict]] = {}
+    for path in sorted(run_dir.glob("*/eval.*.json")):
+        strategy = path.name.split(".")[1]
+        found.setdefault(strategy, {})[path.parent.name] = json.loads(path.read_text())
+    order = [n for n in STRATEGIES if n in found] + sorted(n for n in found if n not in STRATEGIES)
+    return {n: found[n] for n in order}
+
+
+def _paired_vs(pairs: list[tuple[dict, dict]], rng: random.Random, metrics=METRICS) -> list[dict[str, Any]]:
+    """Paired comparison of a strategy (first of each pair) against the baseline (second)."""
+    rows = []
+    for key, label, path, higher_better in metrics:
+        values = [(a, b) for a, b in ((_get(x, path), _get(y, path)) for x, y in pairs) if a is not None and b is not None]
+        if not values:
+            continue
+        diffs = [a - b for a, b in values]
+        better = [d if higher_better else -d for d in diffs]
+        wins, losses = sum(1 for d in better if d > 1e-9), sum(1 for d in better if d < -1e-9)
+        ci = _bootstrap_ci(diffs, rng)
+        rows.append({
+            "metric": key, "label": label, "higher_is_better": higher_better, "n": len(values),
+            "strategy": round(_mean([a for a, _ in values]), 4), "baseline": round(_mean([b for _, b in values]), 4),
+            "difference": round(_mean(diffs), 4), "ci95": [round(ci[0], 4), round(ci[1], 4)] if ci else None,
+            "better": wins, "worse": losses, "ties": len(values) - wins - losses,
+            "sign_test_p": round(pv, 4) if (pv := _sign_test(wins, losses)) is not None else None,
+        })
+    return rows
+
+
+def _means(evals_by_strategy: dict[str, list[dict]], metrics) -> list[dict[str, Any]]:
+    rows = []
+    for item in metrics:
+        key, label, path = item[0], item[1], item[2]
+        values, counts = {}, {}
+        for strategy, evals in evals_by_strategy.items():
+            got = [v for v in (_get(e, path) for e in evals) if v is not None]
+            values[strategy] = round(_mean(got), 4) if got else None
+            counts[strategy] = len(got)
+        rows.append({"metric": key, "label": label, "higher_is_better": item[3] if len(item) > 3 else None,
+                     "values": values, "n": counts})
+    return rows
+
+
+def usage_by_strategy(run_dir: Path, entries: list[str]) -> dict[str, dict[str, Any]]:
+    """What each strategy costs to run from scratch, per entry and in total, split by phase.
+
+    Read from the `full_*` tallies, which record a call's cost whether or not the
+    last pass took it from cache. List price is the API price of the tokens; on a
+    subscription it is a measure of consumption, not a bill.
+    """
+    out: dict[str, dict[str, Any]] = {}
+    for folder in entries:
+        path = run_dir / folder / "usage.json"
+        if not path.exists():
+            continue
+        for strategy, summary in (json.loads(path.read_text()).get("by_strategy") or {}).items():
+            acc = out.setdefault(strategy, {"entries": 0, **{ph: {"calls": 0, "turns": 0, "input_tokens": 0, "output_tokens": 0,
+                                                                "list_price_usd": 0.0, "seconds": 0.0} for ph in (*PHASES, "total")}})
+            acc["entries"] += 1
+            for stage, tally in summary.items():
+                if stage == "total":
+                    continue
+                phase = stage.split("/", 1)[0] if "/" in stage else "generate"
+                for bucket in (phase if phase in PHASES else "generate", "total"):
+                    b = acc[bucket]
+                    b["calls"] += tally.get("calls", 0)
+                    b["turns"] += tally.get("turns", 0)
+                    b["input_tokens"] += tally.get("full_input_tokens", 0)
+                    b["output_tokens"] += tally.get("full_output_tokens", 0)
+                    b["list_price_usd"] += tally.get("full_list_price_usd", 0.0)
+                    b["seconds"] += tally.get("full_seconds", 0.0)
+    for acc in out.values():
+        n = acc["entries"] or 1
+        for bucket in (*PHASES, "total"):
+            b = acc[bucket]
+            b["list_price_usd"] = round(b["list_price_usd"], 2)
+            b["seconds"] = round(b["seconds"], 1)
+            b["per_entry"] = {"calls": round(b["calls"] / n, 1), "list_price_usd": round(b["list_price_usd"] / n, 3),
+                              "input_tokens": round(b["input_tokens"] / n), "output_tokens": round(b["output_tokens"] / n),
+                              "seconds": round(b["seconds"] / n, 1)}
+    return out
+
+
+def compare_strategies(run_dir: Path, baseline: str = "direct", seed: int = 7) -> dict[str, Any]:
+    """All strategies of a run side by side, over the entries every one of them completed."""
+    from .strategies import STRATEGIES
+
+    evals = load_evals(run_dir)
+    if not evals:
+        return {}
+    common = sorted(set.intersection(*(set(v) for v in evals.values())))
+    if baseline not in evals:
+        baseline = next(iter(evals))
+    rng = random.Random(seed)
+    by_strategy = {s: [evals[s][e] for e in common] for s in evals}
+
+    def breakdown(group_of: Callable[[dict], str], order: list[str] | None = None) -> dict[str, Any]:
+        groups: dict[str, list[str]] = {}
+        for folder in common:
+            groups.setdefault(group_of(evals[baseline][folder]), []).append(folder)
+        keys = [g for g in (order or sorted(groups)) if g in groups]
+        headline = [m for m in METRICS if m[0] in HEADLINE]
+        return {g: {"n": len(groups[g]),
+                    "means": _means({s: [evals[s][e] for e in groups[g]] for s in evals}, headline)} for g in keys}
+
+    levels: dict[str, dict[str, dict[str, Any]]] = {}
+    for strategy, items in by_strategy.items():
+        for e in items:
+            for level, tally in (e["gold_text"].get("by_content_level") or {}).items():
+                cell = levels.setdefault(level, {}).setdefault(strategy, {"n_facts": 0, "present": 0, "partial": 0, "contradicted": 0})
+                for k in cell:
+                    cell[k] += tally.get(k, 0) or 0
+    for cells in levels.values():
+        for cell in cells.values():
+            n = cell["n_facts"]
+            cell["coverage"] = round((cell["present"] + 0.5 * cell["partial"]) / n, 4) if n else None
+            cell["contradiction_rate"] = round(cell["contradicted"] / n, 4) if n else None
+
+    return {
+        "run": run_dir.name, "baseline": baseline, "n_entries": len(common),
+        "strategies": [{"name": s, "label": STRATEGIES[s].label if s in STRATEGIES else s,
+                        "summary": STRATEGIES[s].summary if s in STRATEGIES else "", "n_entries": len(evals[s])}
+                       for s in evals],
+        "means": _means(by_strategy, METRICS),
+        "volume": _means(by_strategy, VOLUME),
+        "versus_baseline": {s: _paired_vs(list(zip(by_strategy[s], by_strategy[baseline])), rng)
+                            for s in evals if s != baseline},
+        "pooled": {s: _pooled(items) for s, items in by_strategy.items()},
+        "by_content_level": levels,
+        "by_stratum": breakdown(lambda e: stratum_of(e["mim"])),
+        "by_access": breakdown(access_group, ACCESS_ORDER),
+        "cost": usage_by_strategy(run_dir, common),
+    }
+
+
+def strategies_markdown(result: dict[str, Any]) -> str:
+    names = [s["name"] for s in result["strategies"]]
+    labels = {s["name"]: s["label"] for s in result["strategies"]}
+    head = "| " + " | ".join(["Metric", *[labels[n] for n in names]]) + " |\n|" + "---|" * (len(names) + 1)
+
+    def means_table(rows: list[dict[str, Any]], as_pct: bool = True) -> str:
+        lines = [head]
+        for r in rows:
+            arrow = {True: " ↑", False: " ↓", None: ""}[r.get("higher_is_better")]
+            cells = [(_pct(r["values"][n]) if as_pct else ("–" if r["values"][n] is None else f"{r['values'][n]:.1f}")) for n in names]
+            lines.append(f"| {r['label']}{arrow} | " + " | ".join(cells) + " |")
+        return "\n".join(lines)
+
+    out = [f"# Generation strategies compared — run `{result['run']}`",
+           f"{result['n_entries']} entries, each written by every strategy from the same papers and put through the same "
+           "audit and scoring. Means over entries; ↑ higher is better, ↓ lower is better.",
+           "## The strategies",
+           "\n".join(f"- **{s['label']}** (`{s['name']}`): {s['summary']}" for s in result["strategies"]),
+           "## Scores", means_table(result["means"]),
+           "## How much each strategy writes", means_table(result["volume"], as_pct=False)]
+
+    base = labels[result["baseline"]]
+    out.append(f"## Paired differences from the baseline ({base})")
+    out.append("Percentage points, strategy minus baseline, with a bootstrap 95% interval over entries; then the number "
+               "of entries on which the strategy scored better / worse / the same.")
+    wanted = [m for m in METRICS if m[0] in HEADLINE]
+    lines = ["| Metric | " + " | ".join(labels[n] for n in names if n != result["baseline"]) + " |",
+             "|" + "---|" * len(names)]
+    for key, label, _, higher in wanted:
+        cells = []
+        for n in names:
+            if n == result["baseline"]:
+                continue
+            row = next((r for r in result["versus_baseline"][n] if r["metric"] == key), None)
+            if row is None:
+                cells.append("–")
+                continue
+            ci = f" ({_pp(row['ci95'][0])} to {_pp(row['ci95'][1])})" if row["ci95"] else ""
+            cells.append(f"{_pp(row['difference'])}{ci}; {row['better']}/{row['worse']}/{row['ties']}")
+        lines.append(f"| {label} {'↑' if higher else '↓'} | " + " | ".join(cells) + " |")
+    out.append("\n".join(lines))
+
+    out.append("## Pooled counts")
+    lines = ["| | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
+    for label, group, key in (("Claims audited", "claims", "n"), ("… supported", "claims", "supported"),
+                              ("… partly supported", "claims", "partially_supported"),
+                              ("… unsupported", "claims", "unsupported"), ("… contradicted", "claims", "contradicted"),
+                              ("OMIM facts scored", "gold_facts", "n_facts"), ("… conveyed", "gold_facts", "present"),
+                              ("… partly conveyed", "gold_facts", "partial"), ("… missing", "gold_facts", "absent"),
+                              ("… contradicted", "gold_facts", "contradicted")):
+        lines.append(f"| {label} | " + " | ".join(f"{result['pooled'][n][group][key]:,}" for n in names) + " |")
+    out.append("\n".join(lines))
+
+    if result["by_content_level"]:
+        out.append("## OMIM-fact coverage by how much of the paper was readable")
+        lines = ["| Paper readable as | " + " | ".join(labels[n] for n in names) + " |", "|" + "---|" * (len(names) + 1)]
+        for level in ("fulltext", "abstract", "title", "not_retrieved"):
+            cells = result["by_content_level"].get(level)
+            if cells:
+                lines.append(f"| {level} | " + " | ".join(_pct((cells.get(n) or {}).get("coverage")) for n in names) + " |")
+        out.append("\n".join(lines))
+
+    for title, key in (("## By share of the entry's references readable as full text", "by_access"),
+                       ("## By creation era (MIM number range)", "by_stratum")):
+        out.append(title)
+        for group, block in result[key].items():
+            out.append(f"### {group} — {block['n']} entries")
+            out.append(means_table(block["means"]))
+
+    cost = result.get("cost") or {}
+    if cost:
+        out.append("## What each strategy costs to run")
+        out.append("Per entry, from scratch, at API list prices (a measure of consumption; these runs used a Claude "
+                   "subscription). Generation is the strategy itself; the audit and the scoring are the same procedure "
+                   "for every strategy and cost more or less with the amount of text produced.")
+        lines = ["| Per entry | " + " | ".join(labels[n] for n in names if n in cost) + " |",
+                 "|" + "---|" * (len([n for n in names if n in cost]) + 1)]
+        present = [n for n in names if n in cost]
+        for label, getter in (
+            ("Generation: model calls", lambda c: f"{c['generate']['per_entry']['calls']:.1f}"),
+            ("Generation: list price", lambda c: f"${c['generate']['per_entry']['list_price_usd']:.2f}"),
+            ("Generation: input / output tokens", lambda c: f"{c['generate']['per_entry']['input_tokens']:,} / {c['generate']['per_entry']['output_tokens']:,}"),
+            ("Generation: model time (s)", lambda c: f"{c['generate']['per_entry']['seconds']:.0f}"),
+            ("Audit and repair: list price", lambda c: f"${c['audit']['per_entry']['list_price_usd']:.2f}"),
+            ("Scoring against OMIM: list price", lambda c: f"${c['score']['per_entry']['list_price_usd']:.2f}"),
+            ("Everything: list price", lambda c: f"${c['total']['per_entry']['list_price_usd']:.2f}"),
+        ):
+            lines.append(f"| {label} | " + " | ".join(getter(cost[n]) for n in present) + " |")
+        out.append("\n".join(lines))
+    return "\n\n".join(out) + "\n"
+
+
+# --------------------------------------------------------------------------- #
 # Edge-level comparison of the generated knowledge with OMIM's
 # --------------------------------------------------------------------------- #
 
@@ -316,7 +563,7 @@ def write_graph_comparison(run_dir: Path) -> dict[str, Any]:
     """Write knowledge_graph.<strategy>.tsv for each strategy and return the edge scores."""
     columns = ["mim", "disease", "relation", "object_id", "object_label", "source", "pmids"]
     scores: dict[str, Any] = {}
-    for strategy in ("kg", "direct"):
+    for strategy in load_evals(run_dir):
         rows = graph_edges(run_dir, strategy)
         if not rows:
             continue
@@ -331,14 +578,16 @@ def write_graph_comparison(run_dir: Path) -> dict[str, Any]:
 def edge_markdown(scores: dict[str, Any]) -> str:
     labels = {"caused_by": "Disease → causal gene", "inheritance": "Disease → mode of inheritance",
               "has_phenotype": "Disease → phenotype (HPO, exact id)", "has_variant": "Disease → allelic variant"}
-    names = {"kg": "Evidence graph", "direct": "Direct"}
+    from .strategies import STRATEGIES
+
+    names = {n: (STRATEGIES[n].label if n in STRATEGIES else n) for n in scores}
     lines = ["## Knowledge-graph edges against OMIM (all entries pooled)",
              "Each generated entry is reduced to its edges and set against the same edges in OMIM. Precision is the "
              "share of generated edges that OMIM also has; recall is the share of OMIM's edges that were generated. "
              "A generated edge absent from OMIM is not necessarily wrong: it is one OMIM does not record.",
              "| Edge type | Strategy | In both | Generated | In OMIM | Precision | Recall | F1 |", "|---|---|---|---|---|---|---|---|"]
     for relation in EDGE_RELATIONS:
-        for strategy in ("kg", "direct"):
+        for strategy in scores:
             s = scores.get(strategy, {}).get(relation)
             if s:
                 lines.append(f"| {labels[relation]} | {names[strategy]} | {s['in_both']:,} | {s['generated']:,} | {s['omim']:,} | "

@@ -26,13 +26,11 @@ from typing import Any
 
 from .config import get_settings
 from .evaluate import eval_faithfulness, evaluate_entry, summarize
-from .extract import extract_papers, ground_phenotypes
-from .kg import build_graph
 from .llm import LLM
 from .models import GeneratedEntry, GoldEntry, Paper, PaperExtraction, Seed
 from .render import entry_markdown
 from .retrieve import retrieve_open, retrieve_oracle
-from .synthesize import synthesize_direct, synthesize_from_graph
+from .strategies import STRATEGIES, run_strategy
 from .verify import repair_entry, verdict_counts, verify_entry
 
 log = logging.getLogger(__name__)
@@ -73,55 +71,52 @@ def _paper_record(paper: Paper) -> dict[str, Any]:
     return record
 
 
+def _phase(llm, name: str) -> None:
+    """Tell the usage ledger which phase the coming calls belong to (generate / audit / score)."""
+    usage = getattr(llm, "usage", None)
+    if usage is not None:
+        usage.phase = name
+
+
 def build_entries(
-    seed: Seed, papers: list[Paper], cfg: RunConfig, llm: LLM, out_dir: Path
+    seed: Seed, papers: list[Paper], cfg: RunConfig, llm: LLM, out_dir: Path,
+    llms: dict[str, LLM] | None = None,
 ) -> tuple[dict[str, GeneratedEntry], list[PaperExtraction]]:
-    """Stages 3-6 for one seed and one set of papers."""
+    """Stages 3-6 for one seed and one set of papers, for each requested strategy.
+
+    `llms` gives each strategy its own model wrapper so that calls and tokens are
+    tallied per strategy; without it everything goes through `llm`.
+    """
     by_pmid = {p.pmid: p for p in papers}
     entries: dict[str, GeneratedEntry] = {}
-    extractions: list[PaperExtraction] = []
+    name_ = seed.mim or seed.title
 
-    if "kg" in cfg.strategies:
-        log.info("[%s] extracting findings from %d papers", seed.mim or seed.title, len(papers))
-        extractions = extract_papers(seed, papers, llm)
-        hpo_stats = ground_phenotypes(extractions, llm)
-        _write(out_dir / "extractions.json", [e.model_dump() for e in extractions])
-        kg = build_graph(seed, papers, extractions)
-        _write(out_dir / "kg.json", kg.to_json())
-        _write(out_dir / "kg_triples.tsv",
-               "subject\tpredicate\tobject\tpmids\n" + "\n".join("\t".join(row) for row in kg.triples()) + "\n")
-        log.info("[%s] graph: %s", seed.mim or seed.title, kg.stats()["nodes"])
-        entry = synthesize_from_graph(seed, kg, llm)
-        n_found = sum(len(e.findings) for e in extractions)
-        n_dropped = sum(len(e.dropped_findings) for e in extractions)
-        entry.meta["extraction"] = {
-            "findings_kept": n_found, "findings_dropped_ungrounded": n_dropped,
-            "quote_grounding_rate": round(n_found / (n_found + n_dropped), 3) if n_found + n_dropped else None,
-            "papers_by_relevance": _count(e.relevance for e in extractions),
-            "papers_failed": [e.pmid for e in extractions if e.error and not e.findings],
-            "hpo_resolution": hpo_stats,
-        }
-        entries["kg"] = entry
-
-    if "direct" in cfg.strategies:
-        log.info("[%s] writing direct baseline", seed.mim or seed.title)
-        entries["direct"] = synthesize_direct(seed, papers, llm)
-
-    for strategy, entry in entries.items():
+    for strategy in cfg.strategies:
+        spec = STRATEGIES[strategy]
+        s_llm = (llms or {}).get(strategy, llm)
+        _phase(s_llm, "generate")
+        log.info("[%s] %s: generating from %d papers", name_, strategy, len(papers))
+        entry = run_strategy(strategy, seed, papers, s_llm, out_dir)
         entry.meta["papers_by_content_level"] = _count(p.content_level for p in papers)
-        if cfg.verify:
-            log.info("[%s] auditing %s entry (%d paragraphs)", seed.mim or seed.title, strategy,
-                     len(entry.all_paragraphs()))
-            verify_entry(entry, by_pmid, llm)
+        if cfg.verify and spec.audit:
+            _phase(s_llm, "audit")
+            log.info("[%s] %s: auditing %d paragraphs", name_, strategy, len(entry.all_paragraphs()))
+            verify_entry(entry, by_pmid, s_llm)
             before = eval_faithfulness(entry)
             before.pop("before_repair", None)
             entry.meta["audit_before_repair"] = before
-            if cfg.repair:
-                repair_entry(entry, by_pmid, llm)
+            if cfg.repair and spec.repair:
+                repair_entry(entry, by_pmid, s_llm)
                 entry.assign_paragraph_ids()
             entry.meta["audit"] = verdict_counts(entry)
         _write(out_dir / f"entry.{strategy}.json", entry.model_dump())
         _write(out_dir / f"entry.{strategy}.md", entry_markdown(entry))
+        entries[strategy] = entry
+
+    extractions: list[PaperExtraction] = []
+    if "kg" in entries and (out_dir / "extractions.json").exists():
+        extractions = [PaperExtraction.model_validate(x)
+                       for x in json.loads((out_dir / "extractions.json").read_text(encoding="utf-8"))]
     return entries, extractions
 
 
@@ -139,6 +134,8 @@ def run_entry(mim: str, cfg: RunConfig) -> dict[str, Any]:
     settings = get_settings()
     out_dir = settings.runs / cfg.run / mim
     llm = LLM(settings)
+    # One wrapper per strategy: same cache, separate tallies of calls and tokens.
+    llms = {name: LLM(settings) for name in cfg.strategies}
     started = time.time()
 
     gold: GoldEntry = build_gold(mim)
@@ -159,7 +156,7 @@ def run_entry(mim: str, cfg: RunConfig) -> dict[str, Any]:
     _write(out_dir / "papers.json", [_paper_record(p) for p in papers])
     log.info("[%s] %d papers (%s)", mim, len(papers), _count(p.content_level for p in papers))
 
-    entries, _ = build_entries(seed, papers, cfg, llm, out_dir)
+    entries, _ = build_entries(seed, papers, cfg, llm, out_dir, llms)
 
     result: dict[str, Any] = {"mim": mim, "title": gold.title, "evals": {}}
     if cfg.evaluate:
@@ -168,16 +165,39 @@ def run_entry(mim: str, cfg: RunConfig) -> dict[str, Any]:
         by_pmid = {p.pmid: p for p in papers}
         offered = [p.pmid for p in papers]
         for strategy, entry in entries.items():
-            evaluation = evaluate_entry(entry, gold, by_pmid, llm, offered_pmids=offered)
+            _phase(llms[strategy], "score")
+            evaluation = evaluate_entry(entry, gold, by_pmid, llms[strategy], offered_pmids=offered)
             evaluation["retrieval"] = cfg.retrieval
             _write(out_dir / f"eval.{strategy}.json", evaluation)
             result["evals"][strategy] = evaluation
 
-    usage = llm.usage.summary()
+    usage = merge_usage(out_dir / "usage.json", {"retrieval": llm.usage.summary(),
+                                                 **{name: w.usage.summary() for name, w in llms.items()}})
     usage["wall_seconds"] = round(time.time() - started, 1)
     _write(out_dir / "usage.json", usage)
     result["usage"] = usage
     return result
+
+
+def merge_usage(path: Path, fresh: dict[str, Any]) -> dict[str, Any]:
+    """Per-strategy usage for an entry, keeping the strategies an earlier pass ran.
+
+    `total` adds up this pass only (what was actually spent now); `by_strategy`
+    keeps each strategy's latest tally, whose `full_*` fields say what the strategy
+    costs to run from scratch whether or not this pass hit the cache.
+    """
+    by_strategy: dict[str, Any] = {}
+    if path.exists():
+        try:
+            by_strategy = json.loads(path.read_text(encoding="utf-8")).get("by_strategy", {})
+        except (json.JSONDecodeError, OSError):
+            by_strategy = {}
+    for name, summary in fresh.items():
+        if summary["total"]["calls"]:
+            by_strategy[name] = summary
+    keys = ("calls", "cached", "input_tokens", "output_tokens", "list_price_usd", "seconds")
+    total = {k: round(sum(s["total"].get(k, 0) for s in fresh.values()), 4) for k in keys}
+    return {"by_strategy": by_strategy, "total": total}
 
 
 def run_seed(seed: Seed, cfg: RunConfig, name: str) -> dict[str, GeneratedEntry]:

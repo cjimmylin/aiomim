@@ -434,6 +434,9 @@ class SynopsisItem(BaseModel):
     hpo_label: str = ""
     pmids: list[str] = Field(default_factory=list)
     n_papers: int = 0
+    # Counts over reported individuals, where the strategy tracks them.
+    n_present: int | None = None
+    n_assessed: int | None = None
 
 
 class AllelicVariantEntry(BaseModel):

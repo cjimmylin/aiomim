@@ -92,7 +92,7 @@ def test_export_leaves_gold_text_out(tmp_path):
     assert "reference" not in paragraph and paragraph["facts"] == [{"status": "present"}]
     assert exported["gold_text"]["coverage"] == 0.6           # scores survive
     assert "OMIM-authored wording" not in (out / "100100" / "eval.kg.json").read_text()
-    assert "[entry.kg.md](100100/entry.kg.md)" in (out / "README.md").read_text()
+    assert "[kg](100100/entry.kg.md)" in (out / "README.md").read_text()
 
 
 def test_backtest_cutoff_holds_out_about_the_latest_third():
@@ -142,3 +142,41 @@ def test_edge_level_graph_comparison(tmp_path):
     assert scores["has_phenotype"]["precision"] == 0.5 and scores["has_phenotype"]["recall"] == 0.5
     assert write_graph_comparison(tmp_path / "run")["kg"]["inheritance"]["recall"] == 1.0
     assert (tmp_path / "run" / "knowledge_graph.kg.tsv").read_text().count("\n") == len(rows) + 1
+
+
+def test_all_strategies_side_by_side(tmp_path):
+    from aiomim.compare import compare_strategies, strategies_markdown
+
+    run = _run(tmp_path)
+    for i, folder in enumerate(sorted(p for p in run.iterdir() if p.is_dir())):
+        (folder / "eval.agent.json").write_text(json.dumps(_eval(folder.name, 99, 0.7, 0.45, {"abstract": 3})))
+        usage = {"by_strategy": {
+            "agent": {"generate/agent": {"calls": 1, "turns": 12, "full_input_tokens": 100000, "full_output_tokens": 5000,
+                                         "full_list_price_usd": 1.5, "full_seconds": 200},
+                      "audit/verify": {"calls": 6, "turns": 6, "full_input_tokens": 60000, "full_output_tokens": 9000,
+                                       "full_list_price_usd": 0.9, "full_seconds": 90},
+                      "total": {}},
+            "direct": {"generate/synthesize": {"calls": 1, "turns": 1, "full_input_tokens": 40000,
+                                               "full_output_tokens": 8000, "full_list_price_usd": 0.5, "full_seconds": 60},
+                       "total": {}}}}
+        (folder / "usage.json").write_text(json.dumps(usage))
+    # one entry the agent did not finish: it must drop out of every column, not just the agent's
+    (run / "620200" / "eval.agent.json").unlink()
+
+    result = compare_strategies(run, baseline="direct")
+    assert [s["name"] for s in result["strategies"]] == ["kg", "direct", "agent"]      # registry order
+    assert result["n_entries"] == 5
+    supported = next(r for r in result["means"] if r["metric"] == "claim_supported_rate")
+    assert supported["values"] == {"kg": 0.98, "direct": 0.95, "agent": 0.99}
+    versus = {r["metric"]: r for r in result["versus_baseline"]["agent"]}
+    assert versus["claim_supported_rate"]["difference"] == 0.04 and versus["claim_supported_rate"]["better"] == 5
+    assert versus["gold_fact_coverage"]["difference"] == 0.1
+    assert "direct" not in result["versus_baseline"]
+    cost = result["cost"]["agent"]
+    assert cost["entries"] == 5 and cost["generate"]["per_entry"] == {
+        "calls": 1.0, "list_price_usd": 1.5, "input_tokens": 100000, "output_tokens": 5000, "seconds": 200.0}
+    assert cost["audit"]["per_entry"]["list_price_usd"] == 0.9 and cost["total"]["per_entry"]["list_price_usd"] == 2.4
+    assert result["by_content_level"]["abstract"]["agent"]["coverage"] == 0.7
+    text = strategies_markdown(result)
+    assert "| Metric | Evidence graph | Direct reading | Agentic curator |" in text
+    assert "| Generation: list price | $0.50 | $1.50 |" in text

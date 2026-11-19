@@ -12,7 +12,8 @@ from functools import lru_cache
 from pathlib import Path
 
 # Stages that call the LLM. Each can be pointed at a different model / effort.
-STAGES = ("plan", "triage", "extract", "normalize", "synthesize", "verify", "judge", "update")
+STAGES = ("plan", "triage", "extract", "normalize", "synthesize", "verify", "judge", "update",
+          "agent", "recall", "cases")
 
 DEFAULT_MODEL = "claude-opus-5-5"
 
@@ -27,6 +28,9 @@ DEFAULT_EFFORT = {
     "verify": "medium",
     "judge": "medium",
     "update": "medium",
+    "agent": "high",    # the autonomous curator: reads, checks and writes in one session
+    "recall": "high",   # writing from memory
+    "cases": "medium",  # per-paper case-record extraction
 }
 
 
@@ -44,6 +48,7 @@ class Settings:
     efforts: dict[str, str] = field(default_factory=dict)
     llm_concurrency: int = 4
     llm_timeout_s: int = 900
+    agent_timeout_s: int = 2400
     ncbi_api_key: str | None = None
     ncbi_email: str | None = None
     omim_api_key: str | None = None
@@ -80,6 +85,7 @@ def get_settings() -> Settings:
         efforts=efforts,
         llm_concurrency=int(_env("AIOMIM_LLM_CONCURRENCY", "4")),
         llm_timeout_s=int(_env("AIOMIM_LLM_TIMEOUT", "900")),
+        agent_timeout_s=int(_env("AIOMIM_AGENT_TIMEOUT", "2400")),
         ncbi_api_key=_env("NCBI_API_KEY"),
         ncbi_email=_env("NCBI_EMAIL"),
         omim_api_key=_env("OMIM_API_KEY"),

@@ -587,27 +587,88 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
         + "\n\n".join(blocks)
     )
     raw = llm.call("synthesize", DIRECT_SYSTEM, prompt, DEntry)
+    return draft_to_entry(seed, papers, raw, llm, strategy="direct", gene_facts=gene_facts,
+                          meta={"truncated_papers": truncated})
 
+
+def draft_to_entry(
+    seed: Seed,
+    papers: list[Paper],
+    raw,
+    llm: LLM,
+    *,
+    strategy: str,
+    gene_facts: dict[str, dict[str, str]] | None = None,
+    keep_uncited: bool = False,
+    check_quotes: bool = False,
+    meta: dict | None = None,
+) -> GeneratedEntry:
+    """Turn a model-written draft into a `GeneratedEntry`, applying the same guards for every strategy.
+
+    `raw` has the shape of `DEntry`: an intro, sections of paragraphs, gene
+    relationships, allelic variants and clinical-synopsis phrases, each naming the
+    PMIDs it rests on. Any strategy that has a model write prose directly ends
+    here, so they all get identical treatment:
+
+    * PMIDs that are not among the supplied papers are discarded; author-year
+      citations in the text are mapped to supplied papers, and ones that match none
+      are recorded;
+    * a paragraph left with no supplied paper behind it is dropped, unless
+      `keep_uncited` (used for the memory-only control, whose point is to see what
+      the model writes without sources);
+    * with `check_quotes`, a paragraph that offers verbatim `quotes` must have at
+      least one of them found in a paper it cites, or it is dropped;
+    * OMIM cross-reference numbers the evidence cannot have supplied are stripped;
+    * gene symbols are normalised, and synopsis phrases are mapped to HPO terms by
+      ontology search, never by recall.
+    """
+    from .grounding import SourceIndex
+    from .sources.hpo import get_hpo
+
+    gene_facts = dict(gene_facts or {})
     by_pmid = {p.pmid: p for p in papers}
     label_to_pmid = _labels(papers)
     dropped: list[str] = []
     unknown_citations: list[str] = []
     removed_mims: list[str] = []
+    quote_stats = {"paragraphs_with_quotes": 0, "quotes": 0, "quotes_found": 0, "paragraphs_dropped": 0}
+    indexes: dict[str, SourceIndex] = {}
     # The writer may name a causal gene the seed did not; its MIM number is looked up
     # here so that it counts as supplied reference data, not as recall.
     for rel in raw.relationships:
         _resolve_gene(rel.gene_symbol, gene_facts)
     allowed_mims = {f["mim"] for f in gene_facts.values() if f.get("mim")} | ({seed.mim} if seed.mim else set())
 
-    def paragraph(x: DParagraph, where: str) -> EntryParagraph | None:
+    def quotes_hold(x, pmids: list[str]) -> bool:
+        quotes = [squash(q) for q in (getattr(x, "quotes", None) or []) if squash(q)]
+        if not check_quotes or not quotes:
+            return True
+        quote_stats["paragraphs_with_quotes"] += 1
+        quote_stats["quotes"] += len(quotes)
+        found = 0
+        for quote in quotes:
+            for pmid in pmids:
+                if pmid not in indexes:
+                    indexes[pmid] = SourceIndex(by_pmid[pmid].source_text())
+                if indexes[pmid].contains(quote):
+                    found += 1
+                    break
+        quote_stats["quotes_found"] += found
+        return found > 0
+
+    def paragraph(x, where: str) -> EntryParagraph | None:
         text = _strip_mim_numbers(squash(x.text), allowed_mims, removed_mims)
         if not text:
             return None
-        pmids = [p for p in dict.fromkeys(str(i).strip() for i in x.pmids) if p in by_pmid]
+        pmids = [p for p in dict.fromkeys(str(i).strip() for i in (x.pmids or [])) if p in by_pmid]
         para = EntryParagraph(text=text, pmids=pmids)
         _attach_text_citations(para, label_to_pmid, unknown_citations)
-        if not para.pmids:
+        if not para.pmids and not keep_uncited:
             dropped.append(f"{where}: {text[:120]}")
+            return None
+        if not quotes_hold(x, para.pmids):
+            quote_stats["paragraphs_dropped"] += 1
+            dropped.append(f"{where} (quotes not found in the cited paper): {text[:120]}")
             return None
         return para
 
@@ -622,11 +683,13 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
     ])
 
     for rel in raw.relationships:
-        pmids = [p for p in dict.fromkeys(rel.pmids) if p in by_pmid]
-        if not pmids:
+        pmids = [p for p in dict.fromkeys(str(i).strip() for i in (rel.pmids or [])) if p in by_pmid]
+        if not pmids and not keep_uncited:
             dropped.append(f"relationship: {rel.gene_symbol}")
             continue
         symbol, facts = _resolve_gene(rel.gene_symbol, gene_facts)
+        if any(r.gene_symbol == symbol for r in entry.relationships):
+            continue
         entry.relationships.append(GenePhenotypeRelationship(
             phenotype=seed.title, phenotype_mim=seed.mim or "", gene_symbol=symbol,
             gene_mim=facts.get("mim", ""), location=facts.get("location", ""),
@@ -638,10 +701,8 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
         if paras:
             entry.allelic_variants.append(AllelicVariantEntry(
                 number=len(entry.allelic_variants) + 1, gene_symbol=_resolve_gene(x.gene_symbol, gene_facts)[0],
-                name=squash(x.name), hgvs=x.hgvs, phenotype=squash(x.phenotype), paragraphs=paras,
+                name=squash(x.name), hgvs=list(x.hgvs), phenotype=squash(x.phenotype), paragraphs=paras,
             ))
-
-    from .sources.hpo import get_hpo
 
     hpo = get_hpo()
     resolved, hpo_stats = resolve_hpo_terms([(i.feature, i.hpo_label) for i in raw.clinical_synopsis], llm)
@@ -651,7 +712,7 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
         if not hpo_id or hpo_id in seen:
             continue
         seen.add(hpo_id)
-        pmids = [p for p in dict.fromkeys(item.pmids) if p in by_pmid]
+        pmids = [p for p in dict.fromkeys(str(i).strip() for i in (item.pmids or [])) if p in by_pmid]
         entry.clinical_synopsis.append(SynopsisItem(
             category=hpo.category(hpo_id), feature=squash(item.feature), hpo_id=hpo_id,
             hpo_label=hpo.label(hpo_id), pmids=pmids, n_papers=len(pmids),
@@ -662,10 +723,11 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM) -> GeneratedEnt
     entry.assign_paragraph_ids()
     entry.references = _references(entry, by_pmid)
     entry.meta = {
-        "strategy": "direct", "generated": date.today().isoformat(),
+        "strategy": strategy, "generated": date.today().isoformat(),
         "model": llm.settings.model_for("synthesize"),
         "dropped_ungrounded": dropped, "unknown_citations": sorted(set(unknown_citations)),
-        "removed_cross_references": removed_mims,
-        "truncated_papers": truncated, "hpo_resolution": hpo_stats,
+        "removed_cross_references": removed_mims, "hpo_resolution": hpo_stats,
+        **({"quote_check": quote_stats} if check_quotes else {}),
+        **(meta or {}),
     }
     return entry
