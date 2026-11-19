@@ -158,13 +158,13 @@ B.~Efron.
 \newblock \emph{The Annals of Statistics}, 7:\penalty0 1--26, 1979.
 \newblock \doi{10.1214/aos/1176344552}.
 
-\bibitem[Fernando et~al.(2023)Fernando, Banarse, Michalewski, Osindero, and
+\bibitem[Fernando et~al.(2024)Fernando, Banarse, Michalewski, Osindero, and
   Rocktäschel]{Fernando2023PromptbreederSelfreferential}
 Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, and Tim
   Rocktäschel.
 \newblock {Promptbreeder: Self-Referential Self-Improvement Via Prompt
   Evolution}.
-\newblock arXiv preprint arXiv:2309.16797, 2023.
+\newblock In \emph{International Conference on Machine Learning}, 2024.
 
 \bibitem[Furlan et~al.(2025)Furlan, Moran, Salazar, Rennie, Hoang, wan,
   Mendes~de Aquino, Engchuan, Vorstman, and Scherer]{furlan2025eagleai}
@@ -175,18 +175,21 @@ V.~Furlan, J.~Moran, N.~B. Salazar, O.~Rennie, N.~Hoang, A.~wan, M.~Mendes~de
   spectrum disorder.
 \newblock medRxiv, 2025.
 
-\bibitem[Gao et~al.(2022)Gao, Dai, Pasupat, Chen, Chaganty, Fan, Zhao, Lao,
-  Lee, Juan, et~al.]{Gao2022RarrResearching}
+\bibitem[Gao et~al.(2023{\natexlab{a}})Gao, Dai, Pasupat, Chen, Chaganty, Fan,
+  Zhao, Lao, Lee, Juan, et~al.]{Gao2022RarrResearching}
 Luyu Gao, Zhuyun Dai, Panupong Pasupat, Anthony Chen, Arun~Tejasvi Chaganty,
   Yicheng Fan, Vincent~Y. Zhao, Ni~Lao, Hongrae Lee, Da-Cheng Juan, et~al.
 \newblock {RARR: Researching and Revising What Language Models Say, Using
   Language Models}.
-\newblock arXiv preprint arXiv:2210.08726, 2022.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (Volume 1: Long Papers)}, pp.\  16477--16508,
+  2023{\natexlab{a}}.
+\newblock \doi{10.18653/v1/2023.acl-long.910}.
 
-\bibitem[Gao et~al.(2023)Gao, Yen, Yu, and Chen]{gao2023enabling}
+\bibitem[Gao et~al.(2023{\natexlab{b}})Gao, Yen, Yu, and Chen]{gao2023enabling}
 Tianyu Gao, Howard Yen, Jiatong Yu, and Danqi Chen.
 \newblock Enabling large language models to generate text with citations.
-\newblock In \emph{EMNLP 2023}, 2023.
+\newblock In \emph{EMNLP 2023}, 2023{\natexlab{b}}.
 
 \bibitem[Garcia et~al.(2025)Garcia, Westerfield, Yelemali, Gogate,
   Rivera-Munoz, Du, Dawood, Jolly, Lupski, and Posey]{garcia2025improving}
@@ -267,7 +270,9 @@ Qingyan Guo, Rui Wang, Junliang Guo, Bei Li, Kaitao Song, Xu~Tan, Guoqing Liu,
 Bernal~Jiménez Gutiérrez, Yiheng Shu, Yu~Gu, Michihiro Yasunaga, and Yu~Su.
 \newblock {HippoRAG: Neurobiologically Inspired Long-Term Memory for Large
   Language Models}.
-\newblock arXiv preprint arXiv:2405.14831, 2024.
+\newblock In \emph{Advances in Neural Information Processing Systems 37}, pp.\
+  59532--59569, 2024.
+\newblock \doi{10.52202/079017-1902}.
 
 \bibitem[Hamosh et~al.(2021)Hamosh, Amberger, Bocchini, Scott, and
   Rasmussen]{hamosh2021online}
@@ -302,13 +307,13 @@ M.~Hu, S.~Alkhairy, I.~Lee, R.~T. Pillich, D.~Fong, K.~Smith, R.~Bachelder,
 \newblock \doi{10.1038/s41592-024-02525-x}.
 \newblock PMID: 39609565.
 
-\bibitem[Jain et~al.(2024)Jain, Han, Gu, Li, Yan, Zhang, Wang, Solar-Lezama,
+\bibitem[Jain et~al.(2025)Jain, Han, Gu, Li, Yan, Zhang, Wang, Solar-Lezama,
   Sen, and Stoica]{Jain2024LivecodebenchHolistic}
 Naman Jain, King Han, Alex Gu, Wen-Ding Li, Fanjia Yan, Tianjun Zhang, Sida
   Wang, Armando Solar-Lezama, Koushik Sen, and Ion Stoica.
 \newblock {LiveCodeBench: Holistic and Contamination Free Evaluation of Large
   Language Models for Code}.
-\newblock arXiv preprint arXiv:2403.07974, 2024.
+\newblock In \emph{International Conference on Learning Representations}, 2025.
 
 \bibitem[Jergas \& Baethge(2015)Jergas and Baethge]{jergas2015quotation}
 H.~Jergas and C.~Baethge.
@@ -318,11 +323,12 @@ H.~Jergas and C.~Baethge.
 \newblock \doi{10.7717/peerj.1364}.
 \newblock PMID: 26528420.
 
-\bibitem[Jin et~al.(2023)Jin, Yang, Chen, and Lu]{Jin2023GenegptAugmenting}
+\bibitem[Jin et~al.(2024)Jin, Yang, Chen, and Lu]{Jin2023GenegptAugmenting}
 Qiao Jin, Yifan Yang, Qingyu Chen, and Zhiyong Lu.
 \newblock {GeneGPT: Augmenting Large Language Models with Domain Tools for
   Improved Access to Biomedical Information}.
-\newblock arXiv preprint arXiv:2304.09667, 2023.
+\newblock \emph{Bioinformatics}, 40:\penalty0 btae075, 2024.
+\newblock \doi{10.1093/bioinformatics/btae075}.
 
 \bibitem[Joshi et~al.(2026)Joshi, Shethia, Dao, and Lam]{joshi2026sliders}
 Harshit Joshi, Priyank Shethia, Jadelynn Dao, and Monica~S. Lam.
@@ -385,7 +391,7 @@ Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
   Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen tau Yih, Tim
   Rocktäschel, et~al.
 \newblock {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}.
-\newblock arXiv preprint arXiv:2005.11401, 2020.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2020.
 
 \bibitem[Li et~al.(2025{\natexlab{a}})Li, Zhang, Jiang, Xie, Huang, Wang, and
   Cheng]{Li2025LaraBenchmarking}
@@ -414,22 +420,23 @@ Xiaomei Li, Alex Whan, Meredith McNeil, Samuel~C. Andrew, Xiang Dai, Madeline
 \newblock In \emph{openRxiv}, 2025{\natexlab{c}}.
 \newblock \doi{10.1101/2025.03.30.646211}.
 
-\bibitem[Li et~al.(2024{\natexlab{a}})Li, Cao, Ma, and Sun]{Li2024LongContext}
+\bibitem[Li et~al.(2025{\natexlab{d}})Li, Cao, Ma, and Sun]{Li2024LongContext}
 Xinze Li, Yixin Cao, Yubo Ma, and Aixin Sun.
 \newblock {Long Context vs. RAG for LLMs: An Evaluation and Revisits}.
-\newblock arXiv preprint arXiv:2501.01880, 2024{\natexlab{a}}.
+\newblock arXiv preprint arXiv:2501.01880, 2025{\natexlab{d}}.
 
-\bibitem[Li et~al.(2024{\natexlab{b}})Li, Li, Zhang, Mei, and
-  Bendersky]{li2024retrieval}
+\bibitem[Li et~al.(2024)Li, Li, Zhang, Mei, and Bendersky]{li2024retrieval}
 Zhuowan Li, Cheng Li, Mingyang Zhang, Qiaozhu Mei, and Michael Bendersky.
 \newblock Retrieval augmented generation or long-context {LLMs}? a
   comprehensive study and hybrid approach.
-\newblock In \emph{EMNLP 2024 Industry Track}, 2024{\natexlab{b}}.
+\newblock In \emph{EMNLP 2024 Industry Track}, 2024.
 
 \bibitem[Liu et~al.(2023)Liu, Zhang, and Liang]{Liu2023EvaluatingVerifiability}
 Nelson~F. Liu, Tianyi Zhang, and Percy Liang.
 \newblock {Evaluating Verifiability in Generative Search Engines}.
-\newblock arXiv preprint arXiv:2304.09848, 2023.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}, pp.\  7001--7025, 2023.
+\newblock \doi{10.18653/v1/2023.findings-emnlp.467}.
 
 \bibitem[Liu et~al.(2026)Liu, Jiang, Farook, Sanchez, Pena, and
   Lam]{liu2026datastorm}
@@ -470,7 +477,9 @@ Jakub Lála, Odhran O'Donoghue, Aleksandar Shtedritski, Sam Cox, Samuel~G.
 Potsawee Manakul, Adian Liusie, and Mark J.~F. Gales.
 \newblock {SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for
   Generative Large Language Models}.
-\newblock arXiv preprint arXiv:2303.08896, 2023.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  9004--9017, 2023.
+\newblock \doi{10.18653/v1/2023.emnlp-main.557}.
 
 \bibitem[Min et~al.(2023)Min, Krishna, Lyu, Lewis, Yih, Koh, Iyyer,
   Zettlemoyer, and Hajishirzi]{min2023factscore}
@@ -514,7 +523,9 @@ Krista Opsahl-Ong, Michael~J Ryan, Josh Purtell, David Broman, Christopher
   Potts, Matei Zaharia, and Omar Khattab.
 \newblock {Optimizing Instructions and Demonstrations for Multi-Stage Language
   Model Programs}.
-\newblock arXiv preprint arXiv:2406.11695, 2024.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  9340--9366, 2024.
+\newblock \doi{10.18653/v1/2024.emnlp-main.525}.
 
 \bibitem[Oren et~al.(2024)Oren, Meister, Chatterji, Ladhak, and
   Hashimoto]{oren2024proving}
@@ -534,7 +545,9 @@ Arjun Panickssery, Samuel~R. Bowman, and Shi Feng.
 Reid Pryzant, Dan Iter, Jerry Li, Yin~Tat Lee, Chenguang Zhu, and Michael Zeng.
 \newblock {Automatic Prompt Optimization with ``Gradient Descent'' and Beam
   Search}.
-\newblock arXiv preprint arXiv:2305.03495, 2023.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  7957--7968, 2023.
+\newblock \doi{10.18653/v1/2023.emnlp-main.494}.
 
 \bibitem[Queen et~al.(2025)Queen, Zhang, and Zou]{queen2025cgbench}
 Owen Queen, Harrison~G. Zhang, and James Zou.
@@ -542,13 +555,13 @@ Owen Queen, Harrison~G. Zhang, and James Zou.
   clinical genetics research.
 \newblock In \emph{NeurIPS 2025}, 2025.
 
-\bibitem[Ravaut et~al.(2024)Ravaut, Ding, Jiao, Chen, Li, Zhao, Qin, Xiong, and
+\bibitem[Ravaut et~al.(2025)Ravaut, Ding, Jiao, Chen, Li, Zhao, Qin, Xiong, and
   Joty]{Ravaut2024ComprehensiveSurvey}
 Mathieu Ravaut, Bosheng Ding, Fangkai Jiao, Hailin Chen, Xingxuan Li, Ruochen
   Zhao, Chengwei Qin, Caiming Xiong, and Shafiq Joty.
 \newblock {A Comprehensive Survey of Contamination Detection Methods in Large
   Language Models}.
-\newblock arXiv preprint arXiv:2404.00699, 2024.
+\newblock \emph{Transactions on Machine Learning Research}, 2025.
 
 \bibitem[Roberts et~al.(2023)Roberts, Thakur, Herlihy, White, and
   Dooley]{Roberts2023DataContamination}
@@ -631,12 +644,12 @@ Yijia Shao, Yucheng Jiang, Theodore~A. Kanell, Peter Xu, Omar Khattab, and
   large language models.
 \newblock In \emph{NAACL 2024}, 2024.
 
-\bibitem[Shi et~al.(2023)Shi, Ajith, Xia, Huang, Liu, Blevins, Chen, and
+\bibitem[Shi et~al.(2024)Shi, Ajith, Xia, Huang, Liu, Blevins, Chen, and
   Zettlemoyer]{Shi2023DetectingPretraining}
 Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra
   Blevins, Danqi Chen, and Luke Zettlemoyer.
 \newblock {Detecting Pretraining Data from Large Language Models}.
-\newblock arXiv preprint arXiv:2310.16789, 2023.
+\newblock In \emph{International Conference on Learning Representations}, 2024.
 
 \bibitem[Singh et~al.(2025)Singh, Chang, Anastasiades, Haddad, Naik, Tanaka,
   Zamarron, Nguyen, Hwang, Dunkleberger, et~al.]{singh2025ai2}
@@ -658,7 +671,9 @@ Michael~D. Skarlinski, Sam Cox, Jon~M. Laurent, James~D. Braza, Michaela Hinks,
 Yixiao Song, Yekyung Kim, and Mohit Iyyer.
 \newblock {VERISCORE: Evaluating the factuality of verifiable claims in
   long-form text generation}.
-\newblock arXiv preprint arXiv:2406.19276, 2024.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2024}, pp.\  9447--9474, 2024.
+\newblock \doi{10.18653/v1/2024.findings-emnlp.552}.
 
 \bibitem[Strande et~al.(2017)Strande, Riggs, Buchanan, Ceyhan-Birsoy,
   DiStefano, Dwight, Goldstein, Ghosh, Seifert, Sneddon,
