@@ -104,3 +104,26 @@
 - **Framing of the task and the reference.** Each strategy writes a whole entry, but the primary endpoint scores only
   what the draft says about each cited paper against variant-centred curator paragraphs. Do not let the title, abstract
   or introduction suggest that agreement with whole OMIM entries is measured.
+
+## Added after the second review round (numbers are in the log)
+
+- **Strategies compared on the facts the text states (log 2.10a).** Every fixed fact carries a stored judgement of
+  whether the text available for its paper states it. On stated facts the reading strategies convey most of them and
+  on facts not stated almost none; that contrast, with the hidden-full-text experiment, is the evidence that access
+  bounds agreement. The comparison also answers the objection that the strategies look close only because most facts
+  were unavailable: give the differences from direct reading on stated facts. Say that the restriction creates a
+  ceiling of its own (most entries tie on abstract-only papers) and that the judgement of what the text states is the
+  model's. The case table's deficit is larger on stated facts, most of all on full-text papers.
+- **The ablation set and the main comparison (log 5, note).** The ablation reuses the main run's drafts for the
+  unmodified strategies; where its estimate differs from the main comparison's access groups, the reason is which
+  entries are averaged. For the evidence graph the sign of the difference from direct reading is not consistent
+  across groups of entries. Do not present "the strategies separate where more full text is readable" as a finding
+  for the reading strategies in general: what is consistent is that the case table falls behind where full text is
+  readable; the across-entry comparison is observational.
+- **Replicate noise is a yardstick, not a test.** The bootstrap interval over entries is the test of a difference.
+  The replicate-noise half-width says how much a difference of that kind moves when generation, audit and scoring are
+  repeated. Do not write "within" or "exceeds" the half-width as if it were a significance threshold.
+- **The planted-error test is not a sensitivity estimate.** It shows that blunt single-value substitutions in
+  paragraphs the audit had passed are caught; say so in those words.
+- **Venue fit.** The paper is an evaluation and benchmark contribution: a controlled comparison of system designs for
+  evidence-grounded generation, with measurement lessons that apply to evaluating such systems generally.
