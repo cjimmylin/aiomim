@@ -41,6 +41,7 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field
 
+from ..llm import LLMRefusal
 from ..models import GeneratedEntry, Paper, SectionName, Seed, squash
 from ..synthesize import (
     DIRECT_SYSTEM,
@@ -423,8 +424,11 @@ def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS)
             failed.append({"batch": n, "pmids": [p.pmid for p in batch], "error": f"{type(reply).__name__}: {reply}"[:300]})
         else:
             partials.append((batch, reply))
-    if not partials:
-        raise RuntimeError(f"direct: every batch failed ({failed[0]['error'] if failed else 'no batches'})")
+    if failed or not partials:
+        # A draft built from only some of the batches would be scored as though it
+        # had read every paper. No draft is the honest outcome.
+        raise LLMRefusal(f"direct: {len(failed)} of {len(batches)} batches failed "
+                         f"({failed[0]['error'] if failed else 'no batches'})")
 
     merge_stats: dict = {}
     if len(partials) == 1:
