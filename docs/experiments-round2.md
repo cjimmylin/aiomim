@@ -135,6 +135,37 @@ Run on 20–21 November 2026 at the reduced sizes. Every number below is in the 
 family wrote, audited and judged everything, as in the rest of the study, and no person checked any judgement. With 4
 to 10 entries per experiment these results show directions and large effects only.
 
+## A1. Natural large-entry tier — `results/largeft/large_tier.md`
+
+Eight entries were selected by the rule (from a seeded sample of 200 eligible entries with 30–150 references, the 8
+with the most references readable in full: 9 to 33 of 63 to 148 references, 290,000 to 998,000 characters of supplied
+text). Four were run, in rule order, before the cap (1,338 calls): 155600, 168600, 152700 and 114500, each with
+375,000 to 998,000 characters, and direct reading needing two prompts and a merge on three of them.
+
+**No new entry was completed by all four strategies, so the planned comparison has no new entry in it.** The model's
+safety filter stopped at least one strategy on every one of the four:
+
+| Strategy | Complete | Incomplete (a per-paper call stopped) | No draft (the writer stopped) |
+|---|---|---|---|
+| Direct reading | 1 | 0 | 3 |
+| Agentic curator | 2 | 0 | 2 |
+| Evidence graph | 0 | 4 | 0 |
+| Case table first | 0 | 3 | 1 |
+
+- Per-paper extraction was stopped for 37 papers (evidence graph) and 25 papers (case table first) across the four
+  entries. Nothing was retried.
+- The tier's comparison therefore rests on the earlier 12 entries alone, which are nearly all abstracts: on the 10 of
+  them every strategy completed, the agentic curator is −0.6 points from direct reading (−2.1 to +0.7), the evidence
+  graph +0.7 (−2.7 to +3.4) and case table first +0.4 (−1.4 to +2.3). The earlier exploratory finding that the case
+  table was ahead on large entries (+1.8) does not hold under this analysis.
+- On the one new entry where every strategy wrote something (152700): direct reading 52.3%, agentic curator 51.5%,
+  case table first 49.6% with two papers lost, evidence graph 39.8% with three papers lost. One entry; not a result.
+- Even where drafts exist the measure is weak here: the curator paragraphs that are scored concern 5–10% of each new
+  entry's references.
+- What A1 shows is about completion, not coverage: on large entries with much readable text the safety filter, not
+  the strategy, decided which drafts exist. A strategy that makes one call per entry loses the whole entry; a
+  strategy that makes one call per paper almost always loses some papers.
+
 ## A2. Controlled padding — `results/padding/padding.md`
 
 Six entries were run (the pilot showed eight would not fit the reduced cap; 685 calls). Median input 39,450
@@ -226,3 +257,40 @@ Thirty items per class (540 calls). Counts are over items where the truth is kno
   curator fact.
 - Limits: the citation swaps are easy cases (the swapped paper is usually about something else); the qualifier rules
   have 2 to 8 items each; the completeness check and its judge are the same model.
+
+# What the round shows
+
+1. **Larger inputs.** Padding an entry's own papers with up to thirty times as much unrelated text did not lower any
+   strategy's coverage of the entry's facts, and direct reading across three prompts lost nothing (6 entries). That
+   answers the objection in its narrow form: input size as such did not penalise direct reading. It does not answer
+   it for large sets of relevant papers: the natural large-entry tier produced no entry that every strategy
+   completed. In both experiments, strategies that make one call per paper lost papers to the safety filter as the
+   number of papers grew.
+2. **Published systems.** On the same papers and model, PaperQA2's document-query pipeline conveyed 14.5 points fewer
+   curator-written facts than direct reading on 10 entries (worse on 9), and GraphRAG about 13 points fewer on 4, at
+   5 to 33 times the cost and with fewer claims judged supported. STORM could not be run with this model. The systems
+   were run at one setting each and PaperQA2 without its agent, so this is not a ranking of the systems; it does
+   show that our implementations were not weak stand-ins for these designs on this task.
+3. **Audit coverage.** The claim-level audit catches wrong citations and conflation across papers and does not flag
+   unaltered text. It cannot see an added irrelevant citation, rarely sees a claim made broader by a dropped
+   qualifier, and cannot see omissions; a separate completeness check recovers about half of planted omissions and
+   two fifths of real ones, with many listed items the curators did not record.
+
+## Usage
+
+About 4,600 new model calls in all (A1 1,338; A2 685; B about 2,050 including scoring; C 540), against the reduced
+plan of about 5,400; roughly $350–400 at list price.
+
+## Deviations from the design
+
+- Sizes were reduced to about a third before any run finished (table above), and two experiments ended below their
+  reduced size because entries cost more calls than projected: A1 ran 4 new entries (planned 8, floor 6) and A2 ran 6
+  (planned 8). GraphRAG ran on 4 entries (floor 6). In each case the call cap was kept.
+- A1: the candidate sample was 200 (design 400); the comparison on facts the supplied text states was not made.
+- A2: the strict completion rule leaves 2 entries; the table reported allows per-paper losses on added papers.
+- B: PaperQA2 ran without its agent; its first run had the embedding cut and was repeated without it; STORM produced
+  nothing; GraphRAG global search was added; the audit covers the 4 common entries; the strategies' drafts are after
+  their repair round and the systems' drafts had none.
+- C: 30 items per class; the natural-omission part used 60 of 130 eligible facts; one unaltered audit served as the
+  control for all classes.
+- The machine restarted twice during the runs; interrupted jobs were resumed from their files and caches.
