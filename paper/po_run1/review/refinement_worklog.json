@@ -254,5 +254,85 @@
         "Matched-ablation table not returned to the main text: no room within 10 pages after adding the stated-facts table."
       ]
     }
+  },
+  "v5": {
+    "round": 5,
+    "scores_before": {
+      "Originality": 2.0,
+      "Quality": 3.0,
+      "Clarity": 2.0,
+      "Significance": 2.0,
+      "Soundness": 3.0,
+      "Presentation": 2.0,
+      "Contribution": 2.0,
+      "Overall": 5.0,
+      "Confidence": 4.0
+    },
+    "scores_after": {
+      "Originality": 2.0,
+      "Quality": 3.0,
+      "Clarity": 2.0,
+      "Significance": 2.0,
+      "Soundness": 3.0,
+      "Presentation": 2.0,
+      "Contribution": 2.0,
+      "Overall": 5.0,
+      "Confidence": 4.0
+    },
+    "deltas": {
+      "Originality": 0.0,
+      "Quality": 0.0,
+      "Clarity": 0.0,
+      "Significance": 0.0,
+      "Soundness": 0.0,
+      "Presentation": 0.0,
+      "Contribution": 0.0
+    },
+    "total_gain": 0,
+    "total_drop": 0,
+    "outcome": "ACCEPTED_NEUTRAL_IMPROVEMENT",
+    "accept": true,
+    "continue": true,
+    "agent_plan": {
+      "round": 5,
+      "trigger": "New experiments (log section 14: 14.1 large real entries, 14.2 controlled padding, 14.3 released systems, 14.4 audit coverage; section 13 usage totals), not a new review. Reference review: review/review_v3.json.",
+      "input_tex": "final_paper.tex (identical to latex/formatted_v1.tex)",
+      "output_tex": "latex/refined_v5.tex",
+      "addressed_weaknesses": [
+        "v3 W8 (strategies are in-house implementations, not GraphRAG/PaperQA2/STORM): new Sec. 4.4 'Released systems on the same papers and model' with main-text Table 3 (wide format: PaperQA2's 10 entries; the 4 entries both systems completed; facts conveyed, on stated / not-stated facts, characters, calls, list price, claims judged supported). PaperQA2 -14.5 (-21.8 to -7.0), 1/9/0, sign p=0.021; GraphRAG local -13.4 (-25.3 to -1.5) on 4 entries with the no-test caveat (smallest attainable p 0.125); global search -13.6 as secondary; STORM 0 of 10 (30 of 30 chain-of-thought research prompts stopped, plain prompts answered, nothing reworded or retried). Every notes.md qualification is in the main text: same papers and model via a local adapter; one setting each with own code/prompts/defaults, changed only where integration required (Appendix Tables 32-33); our six section questions; one small local embedding model; interface ignores temperature and length limits; PaperQA2 without its agent because it needs function calling; GraphRAG = first four entries of a seeded order that fitted the call budget; strategies' drafts repaired, systems' not. Allowed claim only ('not outperformed ... on these entries and settings'; 'not a ranking ... says nothing about their published results').",
+        "v3 W4 / Limitation 3 (regime of 2-12 references that fit one prompt; inputs too large untested): Sec. 4.5 now 'More full text, larger inputs and large entries' with (a) padding as a within-entry manipulation (6 entries, median 39,450 -> about 500,000 -> about 1,200,000 characters; no strategy lost more than about a point; direct reading's rise within run-to-run noise, not a gain; added papers off-topic and ignored, so size not crowding; per-paper losses allowed, symmetric rule leaves 2 entries, changes -3.0 to +4.7, same order) and (b) large real entries as a finding about completion (4 entries, 76-148 references; at least one strategy stopped on every entry; no new entry compared; curator paragraphs cover 5-10% of references; large sets of relevant papers remain untested).",
+        "v3 W9 (planted-error test limited to single-value substitutions) and old Limitation (ix): 'Omissions and misattributed citations remain untested' replaced by a paragraph on six planted classes (30 items each): swaps 30/30 and 26/26 (easy cases), moved sentence 25/25, deleted negation 8/8, hedge 2/8, count/zygosity/one family 1/14 (2-8 items per rule), added irrelevant citation 0/30 (best-verdict rule), omissions 0/30 by construction, 0 of 113 controls flagged; natural over-citation 4-7% of (claim, cited paper) pairs for the reading strategies, 27% memory-only, with the repair-round exclusion caveat; completeness check 16/29 in full, 24/29 in full or in part vs 0 and 2 of 29 unaltered, 24 of 60 natural omissions, about ten listed per paper with a fifth matching any curator fact, same model as judge. 'Fidelity, not correctness' kept.",
+        "v3 W1 (no human validation) and W3 (single model family): not addressable; Limitation (i) kept unchanged and first; abstract last sentence and Conclusion keep 'No judgement was validated by a person'."
+      ],
+      "integrated_answers": [
+        "No v3 question asks about the new experiments directly; the relevant weaknesses (published systems, regime/large inputs, audit coverage) are answered in Sec. 4.4, 4.5 and 4.6 as above.",
+        "Q2/Q3 (second judge or writer model family) remain unanswered by design; stated as Limitation (i) and in the abstract."
+      ],
+      "actions_taken": [
+        "Abstract: one sentence added for the released systems (PaperQA2 and GraphRAG conveyed fewer facts than direct reading at higher cost, 10 and 4 entries; STORM could not run with this model); cuts elsewhere ('so the generation strategy is the only variable', 'no arm repaired', shorter first and completion sentences). 198 words.",
+        "Introduction: contribution (2) adds released PaperQA2 and GraphRAG pipelines, (4) adds the six-class planted-error stress test; findings paragraph adds that padding tests size alone and large sets of relevant papers remain untested; 'measurement lessons not specific to this domain' clause removed (review W3 over-generality); text-mining background sentence and resource citations dropped for space.",
+        "Section 3.2: 'published systems were not run' -> 'released systems: Section 4.4'.",
+        "Section 4 opening: takeaways rewritten as six items (adds released systems, input size/large entries, audit classes) plus one statement that these experiments use 4 to 10 entries and 30 items per class and show directions and large effects only.",
+        "New Sec. 4.4 and Table 3; Sec. 4.5 merged observational strata with padding and large entries; Sec. 4.6 audit rewritten as above. Matched ablation, contamination check and add-ons folded into Sec. 4.2 as bold paragraphs (labels sec:ablation, sec:memory, sec:addons retained).",
+        "Discussion: one sentence that unrelated padding did not change the conclusion and released pipelines of two designs did not do better at the settings tested; measurement lessons add 'keep per-paper audit verdicts (best verdict hides over-citation)' and 'test a released pipeline with its intended model (STORM could not run here)'.",
+        "Limitations: (i) unchanged and first; (viii) rewritten (size alone tested by padding with unrelated text; large sets of relevant papers not comparable because of stopped replies); (ix) rewritten (over-citation, most broadened claims and omissions not caught; stress test small); new (x) released systems at one setting each, PaperQA2 without its agent, STORM not at all; cost moved to (xi).",
+        "Conclusion: one sentence added (released PaperQA2/GraphRAG fewer facts at higher cost on 10 and 4 entries; STORM could not run with this model).",
+        "Reproducibility: usage 43,096 calls, 314 million input and 75 million output tokens, about $3,294; pointer to Appendix J.1 for versions, entry points and changed settings.",
+        "Appendix A table: rows added for released systems, padding, second-round large entries, six planted classes, completeness check, citation precision; disagreements row now points to App. I.3.",
+        "New Appendix J (second round): intro on reduced sizes and exploratory status; J.1 released systems (how run, deviations 1-7, STORM; Tables 31 run/versions/entry points, 32-33 changed settings condensed and split by package to fit a page, 34 per-system results on own entries with intervals and sign tests, 35 strategies on the same entries, 36 text/calls/cost/time with audit-and-repair costs and GraphRAG citation-mapping shares, 37 audit without repair); J.2 padding (design, what strategies did with added papers, deviations; Tables 38 sizes per level and per entry, 39 completion, 40 6-entry coverage with changes, differences from direct reading, interaction and own-complete-set levels, 41 2-entry symmetric rule, 42 calls/cost/time); J.3 large entries (selection, caps, deviations, outcome; Table 43 per entry and per strategy completion/stops/calls/cost); J.4 audit coverage (construction, completeness check, citation precision, deviations and cost; Tables 44 per class with verdict distribution, 45 per qualifier rule, 46 completeness check incl. natural omissions, 47 citation precision per strategy). No code names, file names or process language in captions or column heads; project tag header described as 'a bookkeeping header'.",
+        "Material moved from main text to appendix: secondary-measure definitions (App. B), secondary measures and cost of the main comparison (App. C), plus-text ablation result (App. F), draft-reference disagreements 22/1/1/13 (App. I.3), 'no fact went unjudged' and evidence-graph quote discard (App. B).",
+        "Related Work shortened by 24.2% (938 -> 711 rendered words) by deleting whole clauses with their citations (HPO concept recognition taggers; gene-function agent, severity annotation, ontology-curation agents; database tools / gene-set / prioritisation / diagnostics evaluations; Self-RAG clause; DocETL and DataStorm; HippoRAG retrieval clause; contamination surveys; SelfCheckGPT; TextGrad; VeriScore; human audit of generative search engines; quotation-accuracy review). No remaining sentence changed in what it says about a cited paper.",
+        "Captions shortened (Figures 1-5, Tables 1-2) without dropping caveats; coverage formula inlined; Appendix float pages top-packed (\\@fpsep without fil stretch) so new tables do not spread.",
+        "po.py check: no unknown keys, balanced environments. po.py compile: ok, 45 pages, 0 overfull boxes, no undefined references; main text (through Conclusion) ends at the bottom of page 10."
+      ],
+      "ignored_requests": [
+        "Human/curator validation of fact, 'stated' and audit judgements (v3 Q1) - not run; Limitation (i).",
+        "Second judge or writer model family (v3 Q2, Q3) - not run; Limitation (i).",
+        "PaperQA2 with its agent, GraphRAG on more entries, STORM rerun with reworded prompts - not run, not promised; stated as Limitation (x) and in Sec. 4.4.",
+        "Comparison of strategies on large sets of relevant papers - not possible from the log (no new large entry completed by every strategy); stated as untested.",
+        "Ratios such as '25 to 80 times the calls' or '5 to 33 times the cost' and the summed round total of 4,591 calls (design document, not in the log) - not used; the paper says 'several to many times' per notes.md and gives the per-entry figures from the log.",
+        "Claims that GraphRAG global search's 20.5% on unstated facts 'comes mostly from one entry and points to memory' (design document only) - not used; the value is reported in Appendix Table 34 without interpretation."
+      ]
+    }
   }
 }
