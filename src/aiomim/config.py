@@ -13,7 +13,8 @@ from pathlib import Path
 
 # Stages that call the LLM. Each can be pointed at a different model / effort.
 STAGES = ("plan", "triage", "extract", "normalize", "synthesize", "verify", "judge", "update",
-          "agent", "recall", "cases", "reconcile", "reflect", "extract_matched", "cases_matched")
+          "agent", "recall", "cases", "reconcile", "reflect", "extract_matched", "cases_matched",
+          "complete", "revise", "merge_drafts")
 
 DEFAULT_MODEL = "claude-opus-5-5"
 
@@ -36,6 +37,13 @@ DEFAULT_EFFORT = {
     # Per-paper extraction at the same effort as the writers, for the matched ablations.
     "extract_matched": "high",
     "cases_matched": "high",
+    # The completeness check of the audit stress test (`auditstress.COMPLETE_SYSTEM`). It ran
+    # at "medium" before it was listed here (the fallback), so its cache keys are unchanged.
+    "complete": "medium",
+    # Improvements on direct reading (`strategies.direct_complete`, `strategies.direct_ensemble`):
+    # revising a draft with the omissions the check listed, and merging three drafts into one.
+    "revise": "high",
+    "merge_drafts": "high",
 }
 
 

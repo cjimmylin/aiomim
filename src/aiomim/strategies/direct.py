@@ -393,13 +393,20 @@ def cited_in(raw: DEntry) -> set[str]:
 # --------------------------------------------------------------------------- #
 
 
-def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS) -> GeneratedEntry:
+def draft_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS,
+                  system: str = DIRECT_SYSTEM) -> tuple[DEntry, dict, dict]:
+    """The batched writer's merged draft, before the guards: (draft, nomenclature facts, meta).
+
+    `system` is the writer's system prompt for every batch (direct reading's by
+    default; a variant of direct reading passes its own). The merge of the partial
+    entries is the same whatever the writer's prompt.
+    """
     batches = plan_batches(papers, budget)
     gene_ref, gene_facts = _gene_reference(seed.gene_symbols)
     built = [batch_prompt(seed, batch, gene_ref, budget) for batch in batches]
     log.info("[%s] direct: %d papers, %d characters, read in %d batches", seed.mim or seed.title,
              len(papers), source_chars(papers), len(batches))
-    replies = llm.map("synthesize", DIRECT_SYSTEM, [b[0] for b in built], DEntry)
+    replies = llm.map("synthesize", system, [b[0] for b in built], DEntry)
 
     # A reply with no paragraph at all is what the CLI hands back when the model
     # abandons a long structured answer (seen on large entries: the response is
@@ -410,7 +417,7 @@ def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS)
         if isinstance(reply, DEntry) and not any(squash(x.text) for x in _all_paragraphs(reply)):
             retried.append(i + 1)
             try:
-                replies[i] = llm.call("synthesize", DIRECT_SYSTEM, built[i][0], DEntry, use_cache=False)
+                replies[i] = llm.call("synthesize", system, built[i][0], DEntry, use_cache=False)
             except Exception as exc:  # noqa: BLE001 - recorded as a failed batch below
                 replies[i] = exc
             if isinstance(replies[i], DEntry) and not any(squash(x.text) for x in _all_paragraphs(replies[i])):

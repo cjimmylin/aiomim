@@ -603,11 +603,11 @@ def paper_blocks(papers: list[Paper]) -> tuple[list[str], list[str]]:
     return blocks, truncated
 
 
-def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
-                      strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
-    """All papers in one prompt. `extra_rules` is appended to the system prompt, for
-    strategies that are direct reading plus something (a learned guide, second-hand
-    evidence); with none, the prompt is exactly the baseline's."""
+def direct_prompt(seed: Seed, papers: list[Paper]) -> tuple[str, list[str], dict[str, dict[str, str]]]:
+    """The direct writer's user prompt: header, HGNC reference data, the papers as
+    `paper_blocks` lays them out. Returns the prompt, the PMIDs that were cut and the
+    nomenclature facts. `synthesize_direct` and the strategies built on direct reading
+    all use it, so their writer calls carry the baseline's prompt exactly."""
     blocks, truncated = paper_blocks(papers)
     gene_ref, gene_facts = _gene_reference(seed.gene_symbols)
     prompt = (
@@ -615,6 +615,15 @@ def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules:
         f"Reference data from HGNC (nomenclature only, not literature evidence):\n{gene_ref or 'none supplied'}\n\n"
         + "\n\n".join(blocks)
     )
+    return prompt, truncated, gene_facts
+
+
+def synthesize_direct(seed: Seed, papers: list[Paper], llm: LLM, *, extra_rules: str = "",
+                      strategy: str = "direct", meta: dict | None = None) -> GeneratedEntry:
+    """All papers in one prompt. `extra_rules` is appended to the system prompt, for
+    strategies that are direct reading plus something (a learned guide, second-hand
+    evidence); with none, the prompt is exactly the baseline's."""
+    prompt, truncated, gene_facts = direct_prompt(seed, papers)
     system = DIRECT_SYSTEM + (f"\n\n{extra_rules.strip()}" if extra_rules.strip() else "")
     raw = llm.call("synthesize", system, prompt, DEntry, accept=has_content)
     return draft_to_entry(seed, papers, raw, llm, strategy=strategy, gene_facts=gene_facts,
