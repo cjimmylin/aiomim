@@ -20,3 +20,6 @@ runs/
 results/**/report.html
 results/**/report.fragment.html
 results/**/report_data/
+
+# Per-system virtual environments of Experiment B (src/aiomim/external/README.md).
+.venvs/

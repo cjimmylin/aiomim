@@ -1,5 +1,8 @@
 """The one local embedding model every system uses: BAAI/bge-small-en-v1.5 through fastembed (ONNX).
 
+fastembed serves this model from its ONNX export `Qdrant/bge-small-en-v1.5-onnx-Q`
+(`model_optimized.onnx`, 384 dimensions, inputs truncated at 512 tokens, vectors normalised).
+
 The model files are downloaded once from the Hugging Face hub into `<home>/models/fastembed`
 (AIOMIM_HOME, default data/) and read from there afterwards. Embedding inputs never leave
 the machine.
@@ -37,7 +40,10 @@ class LocalEmbedder:
             from fastembed import TextEmbedding
 
             self._cache.mkdir(parents=True, exist_ok=True)
-            self._model = TextEmbedding(self.name, cache_dir=str(self._cache))
+            try:   # once downloaded, never touch the hub again
+                self._model = TextEmbedding(self.name, cache_dir=str(self._cache), local_files_only=True)
+            except Exception:  # noqa: BLE001 - first use: download from the Hugging Face hub
+                self._model = TextEmbedding(self.name, cache_dir=str(self._cache))
         return self._model
 
     def embed(self, texts: list[str]) -> list[list[float]]:

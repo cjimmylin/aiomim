@@ -141,11 +141,14 @@ def _word(token: str) -> str:
     return lead + out + trail
 
 
-def ordinary_title(title: str) -> str:
-    """'CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE' -> 'Charcot-Marie-Tooth disease, axonal, type 2EE'."""
+def ordinary_title(title: str, *, capitalise: bool = True) -> str:
+    """'CHARCOT-MARIE-TOOTH DISEASE, AXONAL, TYPE 2EE' -> 'Charcot-Marie-Tooth disease, axonal, type 2EE'.
+
+    With `capitalise=False` the first letter is left as the rules make it, for use inside a
+    sentence ('atrial standstill 1', 'Noonan syndrome-like disorder ...')."""
     words = [_word(t) for t in title.split()]
     text = " ".join(words)
-    return text[:1].upper() + text[1:] if text else text
+    return text[:1].upper() + text[1:] if text and capitalise else text
 
 
 # --------------------------------------------------------------------------- #

@@ -18,6 +18,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+# Experiment B harness (aiomim.external): the local embedding model behind the adapter.
+external = ["fastembed>=0.9"]
 
 [project.scripts]
 aiomim = "aiomim.cli:main"

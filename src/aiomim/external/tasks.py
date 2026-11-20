@@ -5,14 +5,16 @@ questions, are given the same six section questions per entry; their answers are
 concatenated in this order. The wording is neutral: it names the disorder, asks for
 statements supported by and cited to the supplied papers, and says nothing about how the
 answer is scored or about any reference fact list. The title is the OMIM title in ordinary
-capitalisation (`corpus.ordinary_title`); the causal gene is not named.
+capitalisation (`corpus.ordinary_title`; in the questions without the sentence-initial capital);
+the causal gene is not named.
 """
 
 from __future__ import annotations
 
 from .corpus import ordinary_title
 
-#: (section key, section heading, question template). `{title}` is the title in ordinary capitalisation.
+#: (section key, section heading, question template). `{title}` is the title in ordinary capitalisation,
+#: as it stands inside a sentence (no capital first letter unless the word keeps one).
 SECTION_QUESTIONS: tuple[tuple[str, str, str], ...] = (
     ("description", "Description",
      "What is {title}? Give a concise description of the disorder: its main features, its cause as far as "
@@ -44,7 +46,7 @@ def storm_topic(title: str) -> str:
 
 def section_questions(title: str) -> list[dict[str, str]]:
     """The six questions for one entry: [{key, section, question}], in their fixed order."""
-    t = ordinary_title(title)
+    t = ordinary_title(title, capitalise=False)   # the title stands inside a sentence
     return [{"key": key, "section": heading, "question": template.format(title=t)}
             for key, heading, template in SECTION_QUESTIONS]
 
