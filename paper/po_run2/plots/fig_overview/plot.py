@@ -97,10 +97,9 @@ CX0, CX1 = 3.22, 5.48
 
 # ====================================================================== Column C: audit and scoring
 TX = CX0 + 0.07   # text left
-IND = 0.0         # continuation indent, set from the arrow width below
-txt(CX0, HEAD, "One audit, every draft", size=FH, weight="bold")
+txt(CX0, HEAD, "One audit", size=FH, weight="bold")
 _t = txt(0, 0, ARROW, family="DejaVu Sans")
-IND = _t.get_window_extent(_R).width / fig.dpi + 0.035
+IND = _t.get_window_extent(_R).width / fig.dpi + 0.035   # continuation indent = arrow + gap
 _t.remove()
 audit = [(["paragraph", ARROW, "atomic claims $c$, cited papers $R(c)$"], 0),
          ([ARROW, "verdict per cited paper + verbatim quote"], 0),
@@ -114,7 +113,7 @@ a_bot = a_top - (0.075 + (len(audit) - 1) * LH + 0.07)
 box(CX0, a_bot, CX1, a_top, ec=INK)
 
 y_sh = a_bot - 0.105
-txt(CX0, y_sh, "One scoring, every draft", size=FH, weight="bold")
+txt(CX0, y_sh, "One scoring", size=FH, weight="bold")
 s_top = a_bot - 0.20
 x_down = CX1 - 0.32
 arrow(x_down, a_bot, x_down, s_top)                       # audited draft -> scoring
@@ -354,7 +353,7 @@ ax.set_ylim(y_min, 0)
 print(f"figsize {W} x {H:.3f} in; bottoms: A {A_CONTENT_BOTTOM:.3f} B {B_BOTTOM:.3f} C {C_BOTTOM:.3f}")
 
 out = os.environ["PO_OUT"]
-fig.savefig(out, dpi=300, facecolor="white", bbox_inches="tight", pad_inches=0.02)
+fig.savefig(out, dpi=300, facecolor="white", bbox_inches="tight", pad_inches=0)
 root, ext = os.path.splitext(out)
 if ext.lower() != ".pdf":
-    fig.savefig(root + ".pdf", facecolor="white", bbox_inches="tight", pad_inches=0.02)
+    fig.savefig(root + ".pdf", facecolor="white", bbox_inches="tight", pad_inches=0)

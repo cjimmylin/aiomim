@@ -1,0 +1,17 @@
+[
+ {
+  "round": 1,
+  "critic_suggestions": "Presentation: the three access-level page icons render blank (body lines hidden under the white page fill); the Liberation Sans arrow glyph in the audit and scoring steps is tiny and sits on the baseline, unlike the drawn arrows; the 'D' label is cramped against the fan-in bracket (strategy-to-audit gap 0.14 in); 'set by open access' is 0.018 in from its box edge; column A content ends about 0.3 in above columns B and C, and the scoring frame bottom does not line up with the strategy column. Content: every element and label matches idea.md (Core idea, Formal setup) and log Sec. 1.1, 1.3, 1.4 and 15; required wording ('curator-written per-paper text: OMIM allelic-variant descriptions in ClinVar', 'HPO disease annotations') is verbatim; no strategy count; no text below 7 pt.",
+  "changed": true
+ },
+ {
+  "round": 2,
+  "critic_suggestions": "Content: the headers 'One audit, every draft' / 'One scoring, every draft' overclaim for the audit: the memory-only control is audited without repair (log 1.3) and the reading-better arms were audited without repair on a sample of 20 of their 41 entries (log Sec. 15). Use the outline's 'One audit' / 'One scoring' and put the exceptions in the caption. Presentation: saving with a tight bbox and 0.02 in pad makes the PNG 5.54 in wide, so at text width the 7 pt text would print at about 6.95 pt; save with pad 0 so the file is exactly 5.5 in wide.",
+  "changed": true
+ },
+ {
+  "round": 3,
+  "critic_suggestions": "No changes needed.",
+  "changed": false
+ }
+]

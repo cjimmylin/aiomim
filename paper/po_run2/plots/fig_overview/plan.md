@@ -78,3 +78,21 @@ the add-on convention, "one model writes every draft", and every result.
 - Add-ons: dashed grey edge, no colour (no palette colour exists for them).
 - Access-level icons black outline with grey body lines. Padlock and "withheld" text mid grey.
 - No legend, no title, no caption or figure number inside the image.
+
+## Revisions after critic rounds
+- Round 1: page icons were blank (their body lines sat under the white page fill) -> lines drawn above the fill;
+  Liberation Sans' arrow glyph prints tiny and on the baseline -> every in-text arrow drawn in DejaVu Sans with
+  continuation lines indented to the text after the arrow; the "D" label was cramped against the fan-in bracket ->
+  gap between strategy and audit columns widened from 0.14 to 0.20 in; "set by open access" sat 0.018 in from its box
+  edge -> column A inner boxes widened; column A content ended 0.3 in above the others -> icon pitch and gaps
+  increased, padlock centred in the remaining space; scoring frame bottom aligned with the strategy column.
+- Round 2: content: "One audit, every draft" overclaimed (the memory-only control is audited without repair, log
+  1.3; the reading-better arms were audited without repair on 20 of 41 entries, log Sec. 15) -> headers are the
+  outline's "One audit" and "One scoring"; the exceptions go to the caption. Presentation: bbox tight with 0.02 in
+  pad made the PNG 5.54 in wide, so 7 pt text would print at about 6.95 pt at text width -> saved with pad 0; the file
+  is exactly 5.5 x 3.10 in (PNG 1650 x 930 px at 300 dpi; PDF 5.5 x 3.10 in, fonts embedded).
+- Round 3: no changes needed.
+
+## Final
+5.5 x 3.10 in (about 16:9), smallest text 7.0 pt (body), headers 7.5 pt bold; 71 text elements, none overlapping,
+none crossing a box edge (checked programmatically from the rendered text extents).
