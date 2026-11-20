@@ -6,6 +6,7 @@ Offline: a scripted model and stubbed ontology and nomenclature services.
 from __future__ import annotations
 
 import dataclasses
+import json
 import random
 import re
 import sys
@@ -338,3 +339,117 @@ def test_audit_sample_is_the_designed_draw_and_is_never_redrawn(tmp_path, monkey
     assert directplus.draw_audit_sample("t", 20, 20261120) == chosen          # same draw: kept
     with pytest.raises(RuntimeError):
         directplus.draw_audit_sample("t", 20, 1)                               # another draw: refused
+
+
+# --------------------------------------------------------------------------- #
+# D4: the checklist draft, then the completeness pass
+# --------------------------------------------------------------------------- #
+
+FROZEN = {  # sha256 of the prompts frozen after the pilot; D2's cached replies depend on them
+    "REVISE_SYSTEM": "d0c7c1e8d88e5f34629fa910fe904380c7d6e9d27b272a3c2cbfe95268b059cb",
+    "CHECKLIST_SYSTEM": "230ad062e758ce3cf07ae127573f0167b84caa1c08ee6204e48031e68a23b5d0",
+    "MERGE_DRAFTS_SYSTEM": "500db52ac702f5cb8fa116e03aba16bb30c1bcd59b94f6919bf537d137cef68f",
+}
+
+
+def test_frozen_prompts_are_unchanged():
+    import hashlib
+    got = {"REVISE_SYSTEM": direct_complete.REVISE_SYSTEM, "CHECKLIST_SYSTEM": direct_checklist.CHECKLIST_SYSTEM,
+           "MERGE_DRAFTS_SYSTEM": direct_ensemble.MERGE_DRAFTS_SYSTEM}
+    assert {k: hashlib.sha256(v.encode()).hexdigest() for k, v in got.items()} == FROZEN
+
+
+def test_d4_revision_prompt_differs_from_d2s_only_in_the_house_style():
+    from aiomim.strategies import direct_checklist_complete as d4
+    style = direct_checklist.checklist_style()
+    assert d4.REVISE_CHECKLIST_SYSTEM.endswith(style)
+    assert d4.REVISE_CHECKLIST_SYSTEM.replace(style, STYLE) == direct_complete.REVISE_SYSTEM
+    for word in ("reasoning", "think", "thought", "rationale", "explain"):
+        assert word not in d4.REVISE_CHECKLIST_SYSTEM.lower()
+
+
+def test_d4_starts_from_the_checklist_draft_and_runs_d2s_procedure(tmp_path):
+    from aiomim.strategies import direct_checklist_complete as d4
+    llm = ScriptedLLM()
+    entry = d4.run(SEED, papers(), llm, tmp_path)
+    (writer,) = [c for c in llm.calls if c[1] == "DEntry" and c[0] == "synthesize"]
+    d1 = ScriptedLLM()
+    direct_checklist.run(SEED, papers(), d1, tmp_path)
+    (d1_writer,) = [c for c in d1.calls if c[1] == "DEntry"]
+    assert writer == d1_writer                      # the very call D1 made, so its cached reply is read
+    checks = [c for c in llm.calls if c[0] == "complete"]
+    assert len(checks) == 3 and all(c[2] == direct_complete.COMPLETE_SYSTEM for c in checks)
+    (revise,) = [c for c in llm.calls if c[0] == "revise"]
+    assert revise[2] == d4.REVISE_CHECKLIST_SYSTEM
+    rec = entry.meta["direct_checklist_complete"]
+    assert entry.meta["strategy"] == "direct_checklist_complete" and "direct_complete" not in entry.meta
+    assert (rec["omissions_listed"], rec["omissions_kept"]) == (2, 1)
+    assert (tmp_path / "direct_checklist_complete.json").exists()
+    assert not (tmp_path / "direct_complete.json").exists()   # D2's working file is never overwritten
+
+
+def test_d4_completion_rules(tmp_path):
+    from aiomim import directplus
+    from aiomim.compare import _papers_failed
+    from aiomim.strategies import direct_checklist_complete as d4
+    entry = d4.run(SEED, papers(), ScriptedLLM(stop_check_pmid="333"), tmp_path)
+    assert entry.meta["direct_checklist_complete"]["papers_failed"] == ["333"]
+    assert _papers_failed(entry.meta) == ["333"]
+    assert directplus.INCOMPLETE_KEY["direct_checklist_complete"] == "direct_checklist_complete"
+    with pytest.raises(LLMRefusal):
+        d4.run(SEED, papers(), ScriptedLLM(stop_stage="revise"), tmp_path)
+
+
+def test_d4_cache_miss_raises_and_never_writes_a_draft(tmp_path):
+    from aiomim.llm import LLM
+    from aiomim.strategies import direct_checklist_complete as d4
+
+    class NoCalls:
+        def complete(self, **kw):
+            raise AssertionError("a model call was made")
+
+    llm = LLM(dataclasses.replace(get_settings(), home=tmp_path))   # an empty cache
+    llm.backend = NoCalls()
+    with pytest.raises(RuntimeError, match="direct_checklist"):
+        d4.run(SEED, papers(), llm, tmp_path)
+
+
+def test_ledger_caps_are_separate_for_the_extension(tmp_path):
+    from aiomim import directplus
+    from aiomim.llm import LLMLimitReached
+
+    class Inner:
+        def complete(self, **kw):
+            return {}, {"cost_usd": 0.5, "input_tokens": 10, "output_tokens": 2}
+
+    ledger = tmp_path / "ledger.json"
+    ledger.write_text(json.dumps({"calls": 3, "cost_usd": 1.0, "input_tokens": 0, "output_tokens": 0,
+                                  "safety_stops": 0, "refusals": 0, "errors": 0, "by_stage": {"high": 3}}))
+    first = directplus.LedgerBackend(Inner(), ledger, None, 4)
+    ext = directplus.LedgerBackend(Inner(), ledger, "direct_checklist_complete", 2)
+    first.complete(effort="high")                        # the first four arms reach their cap of 4
+    with pytest.raises(LLMLimitReached):
+        first.complete(effort="high")
+    ext.complete(effort="medium")                        # the extension has its own cap
+    ext.complete(effort="medium")
+    with pytest.raises(LLMLimitReached):
+        ext.complete(effort="medium")
+    data = json.loads(ledger.read_text())
+    assert data["calls"] == 6 and data["extensions"]["direct_checklist_complete"]["calls"] == 2
+    view = directplus.first_four_ledger(data)
+    assert (view["calls"], view["cost_usd"], view["by_stage"]) == (4, 1.5, {"high": 4})
+    assert "extensions" not in view
+
+
+def test_completion_reads_d4s_failed_checks(tmp_path):
+    from aiomim import directplus
+    d = tmp_path / "600001"
+    d.mkdir()
+    for arm in directplus.ALL_ARMS:
+        (d / f"eval.{arm}.json").write_text(json.dumps({}))
+        meta = {"direct_checklist_complete": {"papers_failed": ["1"]}} if arm == "direct_checklist_complete" else {}
+        (d / f"entry.{arm}.json").write_text(json.dumps({"meta": meta}))
+    status = directplus.completion(tmp_path, ["600001"], directplus.ALL_ARMS)
+    assert status["direct_checklist_complete"]["600001"] == "incomplete"
+    assert all(status[a]["600001"] == "complete" for a in directplus.ARMS)
+    assert set(directplus.completion(tmp_path, ["600001"])) == set(directplus.ARMS)   # the first four's view

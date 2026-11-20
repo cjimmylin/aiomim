@@ -42,14 +42,14 @@ from ..evaluate import _draft_text_for
 from ..gaps import per_paper_chars
 from ..llm import LLMLimitReached, LLMRefusal
 from ..models import GeneratedEntry, Paper, Seed, squash
-from ..synthesize import STYLE, DEntry, _header, draft_to_entry, has_content, paper_blocks
+from ..synthesize import DIRECT_SYSTEM, STYLE, DEntry, _header, draft_to_entry, has_content, paper_blocks
 from . import direct
 
 log = logging.getLogger(__name__)
 
 RECORD = "direct_complete.json"
 
-REVISE_SYSTEM = f"""\
+_REVISE_HEAD = """\
 You are a senior curator revising a draft entry for OMIM (Online Mendelian Inheritance in Man). A checker \
 compared the draft with each paper it rests on and listed findings that the paper reports and that the \
 draft leaves out, each with the passage of the paper that states it. You are given the text of those \
@@ -72,8 +72,15 @@ order. Do not shorten, reword, merge or drop anything the draft already says.
 
 Write the added text in the house style of the draft:
 
-{STYLE}\
 """
+
+
+def revise_system(style: str) -> str:
+    """The revision prompt, embedding the house style the draft was written in."""
+    return _REVISE_HEAD + style
+
+
+REVISE_SYSTEM = revise_system(STYLE)
 
 
 # --------------------------------------------------------------------------- #
@@ -208,14 +215,24 @@ def cache_only(llm):
     return clone
 
 
-def baseline_draft(seed: Seed, papers: list[Paper], llm) -> tuple[DEntry, dict, dict]:
-    """Direct reading's draft (the writer's reply), from the cache only."""
+def cached_draft(seed: Seed, papers: list[Paper], llm, system: str = DIRECT_SYSTEM,
+                 source: str = "direct") -> tuple[DEntry, dict, dict]:
+    """A direct-reading writer's draft (the writer's reply under `system`), from the cache only.
+
+    A miss raises: the arm must start from the draft the `source` arm wrote, never
+    from a fresh one.
+    """
     try:
-        return direct.draft(seed, papers, cache_only(llm))
+        return direct.draft(seed, papers, cache_only(llm), system=system)
     except LLMRefusal:
         raise
     except Exception as exc:  # noqa: BLE001 - a miss must not turn into a fresh, different draft
-        raise RuntimeError(f"direct reading's draft is not in the cache ({exc}); run `direct` first") from exc
+        raise RuntimeError(f"the `{source}` draft is not in the cache ({exc}); run `{source}` first") from exc
+
+
+def baseline_draft(seed: Seed, papers: list[Paper], llm) -> tuple[DEntry, dict, dict]:
+    """Direct reading's draft (the writer's reply), from the cache only."""
+    return cached_draft(seed, papers, llm)
 
 
 def _write_json(path: Path, data: Any) -> None:
@@ -227,9 +244,23 @@ def _write_json(path: Path, data: Any) -> None:
 
 def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
     raw, gene_facts, meta = baseline_draft(seed, papers, llm)
+    return completeness_pass(seed, papers, llm, out_dir, raw, gene_facts, meta, strategy="direct_complete",
+                             draft_strategy="direct", revise=REVISE_SYSTEM, record_file=RECORD)
+
+
+def completeness_pass(seed: Seed, papers: list[Paper], llm, out_dir: Path, raw: DEntry, gene_facts: dict,
+                      meta: dict, *, strategy: str, draft_strategy: str, revise: str,
+                      record_file: str) -> GeneratedEntry:
+    """Steps 2-4 on a given draft: the check per paper, the revision, the guards.
+
+    `strategy` names the arm (and its record in `meta`); `draft_strategy` the arm whose
+    draft is revised; `revise` is the revision's system prompt, which embeds the house
+    style that draft was written in. The record goes to `meta[strategy]` and to
+    `record_file` in the entry folder.
+    """
     # The draft as scored: the guards applied (citations from the text attached, uncited
     # paragraphs dropped). The check reads what this draft says about each paper.
-    base_entry = draft_to_entry(seed, papers, raw, llm, strategy="direct", gene_facts=dict(gene_facts))
+    base_entry = draft_to_entry(seed, papers, raw, llm, strategy=draft_strategy, gene_facts=dict(gene_facts))
 
     jobs = check_jobs(base_entry, papers)
     replies = llm.map("complete", COMPLETE_SYSTEM, [j[2] for j in jobs], XOmissions)
@@ -258,16 +289,16 @@ def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
     if kept:
         prompt = revise_prompt(seed, papers, raw, kept)
         # A stopped revision raises LLMRefusal: no draft.
-        revised = llm.call("revise", REVISE_SYSTEM, prompt, DEntry, accept=has_content)
+        revised = llm.call("revise", revise, prompt, DEntry, accept=has_content)
         revised, enforced = enforce_unchanged(raw, revised)
         record["revision"] = {"called": True, "prompt_chars": len(prompt), **enforced,
                               **diff_stats(raw, revised, set(kept))}
     else:
         revised = raw
         record["revision"] = {"called": False}
-    _write_json(Path(out_dir) / RECORD, {**record, "per_paper": per_paper})
-    log.info("[%s] direct_complete: %d omissions listed, %d kept on %d papers%s", seed.mim or seed.title,
+    _write_json(Path(out_dir) / record_file, {**record, "per_paper": per_paper})
+    log.info("[%s] %s: %d omissions listed, %d kept on %d papers%s", seed.mim or seed.title, strategy,
              record["omissions_listed"], record["omissions_kept"], len(kept),
              f"; {len(failed)} checks failed" if failed else "")
-    return draft_to_entry(seed, papers, revised, llm, strategy="direct_complete", gene_facts=gene_facts,
-                          meta={**meta, "direct_complete": record})
+    return draft_to_entry(seed, papers, revised, llm, strategy=strategy, gene_facts=gene_facts,
+                          meta={**meta, strategy: record})

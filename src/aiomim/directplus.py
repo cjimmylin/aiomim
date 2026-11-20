@@ -10,6 +10,18 @@ Four arms on the same entries and papers, all without a repair round:
     direct_complete   D2, `strategies.direct_complete`.
     direct_ensemble   D3, `strategies.direct_ensemble`.
 
+Added after those four were run (the extension; docs/direct-improvements.md):
+
+    direct_checklist_complete  D4, `strategies.direct_checklist_complete`: D1's draft from
+                      the cache, then D2's completeness pass. It is added to a finished run
+                      with `run --arms direct_checklist_complete`; the four arms' files are
+                      left as they are (a step whose file exists is skipped, so resuming
+                      makes no call for them). Its new calls are counted in the same ledger
+                      under `extensions.direct_checklist_complete` and capped there
+                      (`EXTENSIONS`, 700 with its pilot); the first four arms' cap counts
+                      the rest. `report` keeps the four-arm sections as they were and adds
+                      a separate D4 section once D4 has results.
+
 Per entry and arm: generation; the claim-level audit (`verify.verify_entry`, no repair);
 scoring against the frozen fact lists exactly as `rescore` marks a draft
 (`facts.eval_gold_text_frozen`), plus the measures of `evaluate` that need no
@@ -22,6 +34,8 @@ final draft; only text the repair round changed costs judge calls.
     python -m aiomim.directplus run --run NAME [--arms ...] [--jobs 2] [--limit N]
     python -m aiomim.directplus summarise --run NAME
     python -m aiomim.directplus project --pilot NAME --entries-file evalsets/omim100.test.tsv
+    python -m aiomim.directplus report --run NAME [--out results/direct_improve]
+    python -m aiomim.directplus project-extension [--run direct_improve --pilot direct_improve_pilot]
 
 Layout (runs/ is not tracked; OMIM-derived files stay there):
 
@@ -62,6 +76,13 @@ log = logging.getLogger(__name__)
 BASELINE = "direct"
 ARMS = ("direct", "direct_checklist", "direct_complete", "direct_ensemble")
 VARIANTS = ARMS[1:]
+# Arms added after the first four were run, each with its own cap of new calls (pilot included),
+# counted in the same ledger but checked apart from the first four arms' cap.
+EXTENSIONS = {"direct_checklist_complete": 700}
+EXTENSION = "direct_checklist_complete"
+ALL_ARMS = (*ARMS, *EXTENSIONS)
+# Where an arm records the papers whose completeness check failed (an incomplete entry).
+INCOMPLETE_KEY = {"direct_complete": "direct_complete", "direct_checklist_complete": "direct_checklist_complete"}
 SOURCE_RUN = "omim100"
 CALL_CAP = 2200
 LEDGER = "direct_improve.ledger.json"
@@ -72,7 +93,7 @@ AUDIT_SAMPLE = "audit_sample.json"
 AUDIT_SEED = 20261120       # docs/direct-improvements.md, "Pilot and changes made before the test run"
 AUDIT_N = 20
 
-_ledger_backend = None
+_ledger_backends: dict[str | None, Any] = {}
 _ledger_lock = threading.Lock()
 
 
@@ -156,22 +177,118 @@ def entries_of(run_dir: Path) -> list[str]:
 # --------------------------------------------------------------------------- #
 
 
-def budget_backend():
-    """One backend for every wrapper: counts new calls in one ledger and stops at the cap."""
-    global _ledger_backend
+_LEDGER_FIELDS = ("calls", "cost_usd", "input_tokens", "output_tokens", "safety_stops", "refusals", "errors")
+
+
+class LedgerBackend:
+    """Counts every new call in the shared ledger and halts at a cap.
+
+    `group` None is the first four arms: their cap (`CALL_CAP`) counts every call in
+    the ledger except those of the extension arms. An extension arm (`EXTENSIONS`)
+    counts its calls under `extensions.<arm>` as well as in the totals, and has its own
+    cap. The ledger keeps the shape `auditstress.BudgetBackend` wrote (including its
+    `by_stage`, which is keyed by effort), so the first four arms' figures are the
+    totals minus the extensions. A file lock guards the ledger across processes.
+    """
+
+    def __init__(self, inner, ledger: Path, group: str | None, cap: int):
+        self.inner, self.ledger, self.group, self.cap = inner, ledger, group, cap
+        self.lock = threading.Lock()
+
+    def _read(self) -> dict[str, Any]:
+        if self.ledger.exists():
+            return json.loads(self.ledger.read_text())
+        return {**{k: 0 for k in _LEDGER_FIELDS}, "cost_usd": 0.0, "by_stage": {}}
+
+    def _update(self, change) -> dict[str, Any]:
+        import fcntl
+        self.ledger.parent.mkdir(parents=True, exist_ok=True)
+        with self.lock, open(self.ledger.with_suffix(".lock"), "w") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            data = self._read()
+            result = change(data)
+            tmp = self.ledger.with_suffix(".tmp")
+            tmp.write_text(json.dumps(data, indent=1))
+            tmp.replace(self.ledger)
+            return result
+
+    def _bump(self, data: dict[str, Any], **delta: float) -> None:
+        targets = [data]
+        if self.group:
+            ext = data.setdefault("extensions", {}).setdefault(
+                self.group, {**{k: 0 for k in _LEDGER_FIELDS}, "cost_usd": 0.0, "by_stage": {}, "cap": self.cap})
+            targets.append(ext)
+        for t in targets:
+            for k, v in delta.items():
+                if k == "effort":
+                    t["by_stage"][v] = t["by_stage"].get(v, 0) + 1
+                elif k == "cost_usd":
+                    t[k] = round(t.get(k, 0.0) + v, 4)
+                else:
+                    t[k] = t.get(k, 0) + v
+
+    def used(self, data: dict[str, Any]) -> int:
+        ext = data.get("extensions", {})
+        if self.group:
+            return ext.get(self.group, {}).get("calls", 0)
+        return data.get("calls", 0) - sum(v.get("calls", 0) for v in ext.values())
+
+    def complete(self, **kw):
+        from .llm import LLMLimitReached, LLMRefusal
+
+        def take(data):
+            if self.used(data) >= self.cap:
+                return False
+            self._bump(data, calls=1)
+            return True
+
+        if not self._update(take):
+            who = self.group or "the first four arms"
+            raise LLMLimitReached(f"directplus call cap of {self.cap} reached for {who}")
+        try:
+            out, meta = self.inner.complete(**kw)
+        except LLMRefusal:
+            self._update(lambda d: self._bump(d, refusals=1))
+            raise
+        except Exception:
+            self._update(lambda d: self._bump(d, errors=1))
+            raise
+        self._update(lambda d: self._bump(
+            d, cost_usd=float(meta.get("cost_usd") or 0), input_tokens=int(meta.get("input_tokens") or 0),
+            output_tokens=int(meta.get("output_tokens") or 0), safety_stops=1 if meta.get("safety_stops") else 0,
+            effort=kw.get("effort", "?")))
+        return out, meta
+
+
+def budget_backend(arm: str | None = None):
+    """The backend for an arm: the extension arms' own, or the first four arms' shared one."""
+    group = arm if arm in EXTENSIONS else None
     with _ledger_lock:
-        if _ledger_backend is None:
-            from .auditstress import BudgetBackend
+        if group not in _ledger_backends:
             from .llm import ClaudeCode
             settings = get_settings()
-            _ledger_backend = BudgetBackend(ClaudeCode(settings), settings.runs / LEDGER, CALL_CAP)
-        return _ledger_backend
+            _ledger_backends[group] = LedgerBackend(ClaudeCode(settings), settings.runs / LEDGER, group,
+                                                    EXTENSIONS[group] if group else CALL_CAP)
+        return _ledger_backends[group]
 
 
-def new_llm(phase: str):
+def first_four_ledger(data: dict[str, Any] | None) -> dict[str, Any] | None:
+    """The ledger as the first four arms' report reads it: totals minus the extension arms."""
+    if data is None:
+        return None
+    out = {k: v for k, v in data.items() if k != "extensions"}
+    for ext in data.get("extensions", {}).values():
+        for k in _LEDGER_FIELDS:
+            out[k] = round(out.get(k, 0) - ext.get(k, 0), 4) if k == "cost_usd" else out.get(k, 0) - ext.get(k, 0)
+        out["by_stage"] = {e: n - ext.get("by_stage", {}).get(e, 0) for e, n in out.get("by_stage", {}).items()}
+        out["by_stage"] = {e: n for e, n in out["by_stage"].items() if n}
+    return out
+
+
+def new_llm(phase: str, arm: str | None = None):
     from .llm import LLM
     llm = LLM(get_settings())
-    llm.backend = budget_backend()
+    llm.backend = budget_backend(arm)
     llm.usage.phase = phase
     return llm
 
@@ -310,7 +427,7 @@ def generate_and_audit(e: Entry, arm: str) -> None:
     from .verify import verify_entry
 
     started = time.time()
-    llm = new_llm("generate")
+    llm = new_llm("generate", arm)
     try:
         entry = run_strategy(arm, e.seed, e.papers, llm, e.dir)
     except LLMRefusal as exc:
@@ -326,7 +443,7 @@ def generate_and_audit(e: Entry, arm: str) -> None:
         _save_entry(e, arm, entry)
         return
     t_audit = time.time()
-    llm_a = new_llm("audit")
+    llm_a = new_llm("audit", arm)
     read = audit_papers(arm, e.papers, e.dir)
     verify_entry(entry, {p.pmid: p for p in read}, llm_a)
     after_audit(arm, entry, read, e.dir)
@@ -350,7 +467,7 @@ def draft_only(run_dir: Path, mim: str, arms: tuple[str, ...]) -> None:
         if arm == BASELINE or (e.dir / f"draft.{arm}.json").exists():
             continue
         started = time.time()
-        llm = new_llm("generate")
+        llm = new_llm("generate", arm)
         try:
             entry = run_strategy(arm, e.seed, e.papers, llm, e.dir)
             _write(e.dir / f"draft.{arm}.json", entry.model_dump())
@@ -371,7 +488,7 @@ def score(e: Entry, arm: str) -> None:
     from .facts import FactStore, eval_gold_text_frozen, frozen_facts
 
     started = time.time()
-    llm = new_llm("score")
+    llm = new_llm("score", arm)
     entry = GeneratedEntry.model_validate(_read(e.dir / f"entry.{arm}.json"))
     gold = e.gold
     levels = {r["pmid"]: r.get("content_level", "not_retrieved") for r in e.records}
@@ -474,7 +591,7 @@ def entry_rows(run_dir: Path) -> list[dict[str, Any]]:
     for mim in entries_of(run_dir):
         d = run_dir / mim
         usage = _read(d / "usage.json").get("arms", {}) if (d / "usage.json").exists() else {}
-        for arm in ARMS:
+        for arm in ALL_ARMS:
             if not (d / f"eval.{arm}.json").exists():
                 continue
             ev, en = _read(d / f"eval.{arm}.json"), _read(d / f"entry.{arm}.json")
@@ -484,7 +601,7 @@ def entry_rows(run_dir: Path) -> list[dict[str, Any]]:
             meta = en.get("meta") or {}
             row = {
                 "mim": mim, "arm": arm, "stopped": ev.get("stopped"),
-                "incomplete": (meta.get("direct_complete") or {}).get("papers_failed") or [],
+                "incomplete": (meta.get(INCOMPLETE_KEY.get(arm, "")) or {}).get("papers_failed") or [],
                 "coverage": fr.get("coverage"), "n_facts": fr.get("n_judged"),
                 "by_level": {k: v.get("coverage") for k, v in (fr.get("by_content_level") or {}).items()},
                 "chars": _chars(en), "claims": f.get("n_claims"),
@@ -502,8 +619,8 @@ def entry_rows(run_dir: Path) -> list[dict[str, Any]]:
                                                                     "full_list_price_usd", "wall_seconds")}
                             for s in STEPS if s in u},
             }
-            if arm == "direct_complete" and meta.get("direct_complete"):
-                dc = meta["direct_complete"]
+            if arm in INCOMPLETE_KEY and meta.get(INCOMPLETE_KEY[arm]):
+                dc = meta[INCOMPLETE_KEY[arm]]
                 rev = dc.get("revision") or {}
                 row["d2"] = {k: dc.get(k) for k in ("papers_checked", "omissions_listed", "omissions_kept",
                                                     "papers_failed")}
@@ -521,10 +638,12 @@ def entry_rows(run_dir: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def paired(rows: list[dict[str, Any]], key: str = "coverage", arms: tuple[str, ...] = VARIANTS
+def paired(rows: list[dict[str, Any]], key: str = "coverage", arms: tuple[str, ...] | None = None
            ) -> dict[str, Any]:
     """Each arm minus the baseline over entries every arm completed; Holm across the arms (sign tests)."""
     from .compare import _holm, _pair_stats
+    present = {r["arm"] for r in rows}
+    arms = arms or tuple(a for a in ALL_ARMS if a != BASELINE and a in present)
     by = defaultdict(dict)
     for r in rows:
         by[r["mim"]][r["arm"]] = r
@@ -554,7 +673,7 @@ def summarise(name: str) -> dict[str, Any]:
     rows = entry_rows(run_dir)
     result: dict[str, Any] = {"run": name, "rows": rows, "primary": paired(rows)}
     means = {}
-    for arm in ARMS:
+    for arm in ALL_ARMS:
         mine = [r for r in rows if r["arm"] == arm and not r["stopped"]]
         if not mine:
             continue
@@ -641,17 +760,18 @@ MEASURES = (  # (key, label, availability restriction, paper level)
 CLAIM_KINDS = ("supported", "partially_supported", "unsupported", "contradicted")
 
 
-def completion(run_dir: Path, mims: list[str]) -> dict[str, dict[str, str]]:
+def completion(run_dir: Path, mims: list[str], arms: tuple[str, ...] = ARMS) -> dict[str, dict[str, str]]:
     """arm -> entry -> complete | incomplete | no_draft | not_run (the design's completion rule)."""
-    out: dict[str, dict[str, str]] = {arm: {} for arm in ARMS}
+    out: dict[str, dict[str, str]] = {arm: {} for arm in arms}
     for mim in mims:
-        for arm in ARMS:
+        for arm in arms:
             ev, en = run_dir / mim / f"eval.{arm}.json", run_dir / mim / f"entry.{arm}.json"
             if not ev.exists() or not en.exists():
                 out[arm][mim] = "not_run"
             elif _read(ev).get("stopped"):
                 out[arm][mim] = "no_draft"
-            elif ((_read(en).get("meta") or {}).get("direct_complete") or {}).get("papers_failed"):
+            elif arm in INCOMPLETE_KEY and ((_read(en).get("meta") or {}).get(INCOMPLETE_KEY[arm]) or {}).get(
+                    "papers_failed"):
                 out[arm][mim] = "incomplete"
             else:
                 out[arm][mim] = "complete"
@@ -835,14 +955,209 @@ def final_report(name: str, out_dir: Path | None = None) -> dict[str, Any]:
         "claims_audited_entries": claims,
         "size": size, "variants": variants, "cost": cost, "stops": stops,
         "d2_completeness_pass": d2, "d3_merge": d3,
-        "ledger": _read(ledger_path) if ledger_path.exists() else None, "cap": CALL_CAP,
+        "ledger": first_four_ledger(_read(ledger_path) if ledger_path.exists() else None), "cap": CALL_CAP,
         "per_entry": {arm: {m: {k: v for k, v in r.items() if k not in ("join",)} for m, r in per[arm].items()}
                       for arm in ARMS},
     }
+    if any((run_dir / m / f"eval.{EXTENSION}.json").exists() for m in mims):
+        result["extension"] = extension_report(run_dir, mims, audited)
     out_dir.mkdir(parents=True, exist_ok=True)
     _write(out_dir / "direct_improve.json", result)
     (out_dir / "direct_improve.md").write_text(report_markdown(result), encoding="utf-8")
     return result
+
+
+def _omission_row(run_dir: Path, mim: str, arm: str) -> dict[str, Any] | None:
+    path = run_dir / mim / f"entry.{arm}.json"
+    if not path.exists():
+        return None
+    meta = (_read(path).get("meta") or {})
+    if meta.get("stopped"):
+        return {"no_draft": True}
+    rec = meta.get(INCOMPLETE_KEY[arm]) or {}
+    rev = rec.get("revision") or {}
+    return {"papers_checked": rec.get("papers_checked"), "papers_failed": rec.get("papers_failed") or [],
+            "omissions_listed": rec.get("omissions_listed"), "omissions_kept": rec.get("omissions_kept"),
+            "revised": rev.get("called"), "sentences_added": rev.get("sentences_added"),
+            "sentences_completed_or_removed": rev.get("sentences_removed"),
+            "added_citing_other_papers_only": rev.get("added_citing_other_papers_only"),
+            "kept_fields_changed_by_model": [k for k in ("relationships_changed", "synopsis_changed",
+                                                         "variants_changed", "intro_changed") if rev.get(k)],
+            "pmids_lost": rev.get("pmids_lost") or [], "chars_before": rev.get("chars_before"),
+            "chars_after": rev.get("chars_after")}
+
+
+def extension_report(run_dir: Path, mims: list[str], audited: list[str]) -> dict[str, Any]:
+    """D4 against the first four arms, on the entries complete for all five (the symmetric rule).
+
+    Primary: D4 minus the baseline. Secondary: D4 minus D2 and D4 minus D1. Each with
+    the bootstrap interval, better / worse / tied and the exact sign test (unadjusted;
+    the primary is a single comparison).
+    """
+    from .compare import _pair_stats
+
+    arms = ALL_ARMS
+    status = completion(run_dir, mims, arms)
+    common = [m for m in mims if all(status[a][m] == "complete" for a in arms)]
+    per: dict[str, dict[str, dict[str, Any]]] = {a: {} for a in arms}
+    for a in arms:
+        for m in mims:
+            if status[a][m] in ("complete", "incomplete"):
+                per[a][m] = {**entry_measures(run_dir, m, a), **_usage_row(run_dir, m, a)}
+            elif status[a][m] == "no_draft":
+                per[a][m] = {"no_draft": True, **_usage_row(run_dir, m, a)}
+    comparisons = (("D4_minus_baseline", BASELINE, "primary"), ("D4_minus_D2", "direct_complete", "secondary"),
+                   ("D4_minus_D1", "direct_checklist", "secondary"))
+    facts: dict[str, Any] = {}
+    for key, label, _, _ in MEASURES:
+        block: dict[str, Any] = {"label": label, "means": {}, "comparisons": {}}
+        for a in arms:
+            vals = [per[a][m][key] for m in common if per[a][m].get(key) is not None]
+            block["means"][a] = {"mean_over_entries": _mean(vals), "n_entries": len(vals)}
+        for name, other, role in comparisons:
+            pairs = [(per[EXTENSION][m][key], per[other][m][key]) for m in common
+                     if per[EXTENSION][m].get(key) is not None and per[other][m].get(key) is not None]
+            if pairs:
+                block["comparisons"][name] = {"role": role, "versus": other,
+                                              **_pair_stats(pairs, True, random.Random(BOOTSTRAP_SEED))}
+        facts[key] = block
+
+    claims = {}
+    for a in arms:
+        rows = [per[a][m] for m in audited if m in per[a] and not per[a][m].get("no_draft")]
+        pooled = {k: sum(r.get(k, 0) for r in rows) for k in (*CLAIM_KINDS, "not_checkable", "claims_checkable")}
+        n = pooled["claims_checkable"]
+        claims[a] = {"n_entries": len(rows), **pooled,
+                     "shares_of_checkable": {k: round(pooled[k] / n, 4) if n else None for k in CLAIM_KINDS},
+                     "entries_with_not_checkable": sorted(m for m in audited if m in per[a]
+                                                          and per[a][m].get("not_checkable"))}
+    claims_common = sorted(set(audited) & set(common))
+    size, variants, cost = {}, {}, {}
+    for a in arms:
+        rows = [per[a][m] for m in common]
+        size[a] = {"chars_per_entry": _mean([r["chars"] for r in rows]),
+                   "checkable_claims_per_audited_entry": _mean([per[a][m]["claims_checkable"] for m in claims_common])}
+        variants[a] = {"recall_mean": _mean([r["variant_recall"] for r in rows]),
+                       "n_entries_with_omim_variants": sum(1 for r in rows if r["variant_recall"] is not None),
+                       "precision_mean": _mean([r["variant_precision"] for r in rows]),
+                       "n_entries_for_precision": sum(1 for r in rows if r["variant_precision"] is not None)}
+        ran = [per[a][m] for m in mims if m in per[a]]
+        cost[a] = {"entries": len(ran), "calls_new_total": sum(r["calls_new"] for r in ran),
+                   "calls_new_per_entry": _mean([r["calls_new"] for r in ran]),
+                   "usd_new_total": round(sum(r["usd_new"] for r in ran), 2),
+                   "usd_new_per_entry": _mean([r["usd_new"] for r in ran]),
+                   "usd_method_per_entry": _mean([r["usd_method"] for r in ran]),
+                   "wall_minutes_per_entry": _mean([r["wall_seconds"] / 60 for r in ran])}
+
+    # Omissions: D4 against D2 on the entries where both wrote a draft.
+    pairs = []
+    for m in mims:
+        d4, d2 = _omission_row(run_dir, m, EXTENSION), _omission_row(run_dir, m, "direct_complete")
+        if d4 and d2 and not d4.get("no_draft") and not d2.get("no_draft"):
+            pairs.append({"mim": m, "d4": d4, "d2": d2})
+    tot = lambda arm, k: sum((p[arm][k] or 0) for p in pairs)  # noqa: E731
+    kept_diff = [(p["d4"]["omissions_kept"] or 0) - (p["d2"]["omissions_kept"] or 0) for p in pairs]
+    omissions = {
+        "n_entries": len(pairs),
+        "totals": {arm: {k: tot(arm, k) for k in ("omissions_listed", "omissions_kept", "sentences_added",
+                                                  "sentences_completed_or_removed")} for arm in ("d4", "d2")},
+        "kept_d4_fewer_more_equal": [sum(1 for d in kept_diff if d < 0), sum(1 for d in kept_diff if d > 0),
+                                     sum(1 for d in kept_diff if d == 0)],
+        "d4_added_citing_other_papers_only": tot("d4", "added_citing_other_papers_only"),
+        "d4_entries_model_changed_carried_over_field": [p["mim"] for p in pairs if p["d4"]["kept_fields_changed_by_model"]],
+        "d4_entries_citations_lost": [p["mim"] for p in pairs if p["d4"]["pmids_lost"]],
+        "per_entry": pairs,
+    }
+    stops = {"no_draft": {m: _read(run_dir / m / f"eval.{EXTENSION}.json").get("stopped")
+                          for m in mims if status[EXTENSION][m] == "no_draft"},
+             "checks_failed": {m: ((_read(run_dir / m / f"entry.{EXTENSION}.json").get("meta") or {})
+                                   .get(EXTENSION) or {}).get("failures")
+                               for m in mims if status[EXTENSION][m] == "incomplete"},
+             "safety_stops_by_step": {}}
+    for m in mims:
+        for step, k in (per[EXTENSION].get(m, {}).get("safety_stops") or {}).items():
+            stops["safety_stops_by_step"][step] = stops["safety_stops_by_step"].get(step, 0) + k
+    ledger_path = run_dir.parent / LEDGER
+    ledger = (_read(ledger_path).get("extensions", {}).get(EXTENSION) if ledger_path.exists() else None)
+    return {
+        "arm": EXTENSION, "design": "docs/direct-improvements.md, 'Extension: checklist and completeness pass "
+                                    "together (D4)'",
+        "completion": {a: {"counts": {k: sum(1 for v in status[a].values() if v == k)
+                                      for k in ("complete", "incomplete", "no_draft", "not_run")},
+                           "not_complete": {m: v for m, v in status[a].items() if v != "complete"}} for a in arms},
+        "compared_entries": common, "n_compared": len(common),
+        "sign_tests": "unadjusted (primary: one comparison; secondaries reported as such)",
+        "facts_conveyed": facts, "claims_audited_entries": claims, "audited_entries": audited,
+        "size": size, "variants": variants, "cost": cost, "omissions_d4_vs_d2": omissions, "stops": stops,
+        "ledger": ledger, "cap": EXTENSIONS[EXTENSION],
+    }
+
+
+def extension_markdown(x: dict[str, Any]) -> list[str]:
+    pct = lambda v: "–" if v is None else f"{100 * v:.1f}%"  # noqa: E731
+    pp = lambda v: "–" if v is None else f"{100 * v:+.1f}"  # noqa: E731
+    lab = {**LABELS, EXTENSION: "D4 checklist + completeness pass"}
+    L = ["", "---", "", "# Extension: D4, the checklist draft with the completeness pass", "",
+         f"Designed after the first four arms were run ({x['design']}). D4 starts from D1's checklist draft (from the "
+         "cache) and applies D2's completeness pass. The first four arms are not re-run; the sections above are "
+         f"unchanged. Comparisons use the {x['n_compared']} entries complete for all five arms (the symmetric rule). "
+         "Primary: D4 minus the baseline; secondary: D4 minus D2 and D4 minus D1. Differences in percentage points with "
+         "a 95% percentile bootstrap interval over entries (seed 7, 10,000 resamples), better/worse/tied and an exact "
+         "sign test, unadjusted.", "",
+         "## Completion, all five arms", "", "| Arm | Complete | Incomplete | No draft | Not run | Entries not complete |",
+         "|---|---|---|---|---|---|"]
+    for a, c in x["completion"].items():
+        k = c["counts"]
+        L.append(f"| {lab[a]} | {k['complete']} | {k['incomplete']} | {k['no_draft']} | {k['not_run']} | "
+                 f"{', '.join(f'{m} ({v})' for m, v in c['not_complete'].items()) or '–'} |")
+    names = {"D4_minus_baseline": "D4 − baseline (primary)", "D4_minus_D2": "D4 − D2 (secondary)",
+             "D4_minus_D1": "D4 − D1 (secondary)"}
+    for key, block in x["facts_conveyed"].items():
+        means = "; ".join(f"{lab[a]} {pct(block['means'][a]['mean_over_entries'])}" for a in ALL_ARMS)
+        L += ["", f"## D4: {block['label']}", "", f"Means over the compared entries: {means}.", "",
+              "| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |", "|---|---|---|---|---|---|"]
+        for name, v in block["comparisons"].items():
+            ci = f"{pp(v['ci95'][0])} to {pp(v['ci95'][1])}" if v.get("ci95") else "–"
+            L.append(f"| {names[name]} | {v['n']} | {pp(v['difference'])} | {ci} | {v['better']}/{v['worse']}/"
+                     f"{v['ties']} | {_p(v['sign_test_p'])} |")
+    L += ["", f"## D4: claims judged by the audit ({len(x['audited_entries'])} audited entries, as above)", "",
+          "| Arm | Entries | Checkable claims | Supported | Partly | Unsupported | Contradicted | Not checkable |",
+          "|---|---|---|---|---|---|---|---|"]
+    for a, c in x["claims_audited_entries"].items():
+        sh = c["shares_of_checkable"]
+        L.append(f"| {lab[a]} | {c['n_entries']} | {c['claims_checkable']:,} | {c['supported']:,} ({pct(sh['supported'])}) "
+                 f"| {c['partially_supported']:,} ({pct(sh['partially_supported'])}) | {c['unsupported']:,} "
+                 f"({pct(sh['unsupported'])}) | {c['contradicted']:,} ({pct(sh['contradicted'])}) | {c['not_checkable']:,} |")
+    L += ["", "## D4: size, variants, calls and price", "",
+          "| Arm | Characters per entry | Checkable claims per audited entry | Variant recall | Variant precision | "
+          "New calls per entry | List price per entry, new | List price per entry, method |",
+          "|---|---|---|---|---|---|---|---|"]
+    for a in ALL_ARMS:
+        sz, v, c = x["size"][a], x["variants"][a], x["cost"][a]
+        L.append(f"| {lab[a]} | {sz['chars_per_entry'] or 0:,.0f} | {sz['checkable_claims_per_audited_entry'] or 0:.0f} | "
+                 f"{pct(v['recall_mean'])} | {pct(v['precision_mean'])} | {c['calls_new_per_entry'] or 0:.1f} | "
+                 f"${c['usd_new_per_entry'] or 0:.2f} | ${c['usd_method_per_entry'] or 0:.2f} |")
+    o = x["omissions_d4_vs_d2"]
+    t4, t2 = o["totals"]["d4"], o["totals"]["d2"]
+    f, mo, eq = o["kept_d4_fewer_more_equal"]
+    L += ["", "## D4 and D2: omissions listed and added", "",
+          f"On the {o['n_entries']} entries where both wrote a draft: omissions listed D4 {t4['omissions_listed']:,} vs D2 "
+          f"{t2['omissions_listed']:,}; kept (quote verified) D4 {t4['omissions_kept']:,} vs D2 {t2['omissions_kept']:,} "
+          f"(D4 fewer on {f} entries, more on {mo}, equal on {eq}); sentences added by the revision D4 "
+          f"{t4['sentences_added']:,} vs D2 {t2['sentences_added']:,}; existing sentences completed D4 "
+          f"{t4['sentences_completed_or_removed']:,} vs D2 {t2['sentences_completed_or_removed']:,}. D4 sentences added that "
+          f"cite only papers without listed omissions: {o['d4_added_citing_other_papers_only']}; entries where the model "
+          f"changed a carried-over field: {', '.join(o['d4_entries_model_changed_carried_over_field']) or 'none'}; "
+          f"citations lost: {', '.join(o['d4_entries_citations_lost']) or 'none'}."]
+    st = x["stops"]
+    L += ["", "## D4: stops and calls", "",
+          f"No draft: {', '.join(f'{m} ({v})' for m, v in st['no_draft'].items()) or 'none'}. Completeness checks failed: "
+          f"{st['checks_failed'] or 'none'}. Safety stops by step: {st['safety_stops_by_step'] or 'none'}."]
+    lg = x.get("ledger")
+    if lg:
+        L.append(f"D4 calls in the ledger (pilot included): {lg['calls']:,} of its {x['cap']:,} cap, ${lg['cost_usd']:.2f} "
+                 f"list price; safety stops {lg['safety_stops']}, refusals {lg['refusals']}, errors {lg['errors']}.")
+    return L
 
 
 LABELS = {"direct": "Baseline (direct, before repair)", "direct_checklist": "D1 checklist",
@@ -942,6 +1257,8 @@ def report_markdown(r: dict[str, Any]) -> str:
     if lg:
         L += ["", f"Calls: {lg['calls']:,} new model calls of the {r['cap']:,} cap (pilot included), ${lg['cost_usd']:.2f} "
                   f"list price; safety stops {lg['safety_stops']}, refusals {lg['refusals']}, errors {lg['errors']}."]
+    if r.get("extension"):
+        L += extension_markdown(r["extension"])
     return "\n".join(L) + "\n"
 
 
@@ -1047,6 +1364,80 @@ def project(pilot: str, mims: list[str], source: str = SOURCE_RUN) -> dict[str, 
             "headroom_after_evaluation": CALL_CAP - used - variants_total}
 
 
+def project_extension(run: str, pilot: str, arm: str = EXTENSION, like: str = "direct_complete") -> dict[str, Any]:
+    """New calls, list price and time for an extension arm on a finished run, without a model call.
+
+    `like` is the arm whose procedure the extension repeats (D4 repeats D2's). Its actual
+    usage per entry and step in `run` is scaled, step by step, by the ratio of the
+    extension's usage to `like`'s on the pilot's entries. In the pilot, `like`'s
+    generation was first made in the draft step (`progress.log`), the extension's in
+    its run. An entry where `like` wrote no draft gets the mean of `like`'s drafted
+    entries with the same audit status (audited or not).
+    """
+    run_dir, pilot_dir = run_dir_of(run), run_dir_of(pilot)
+    first = {}
+    for line in (pilot_dir / "progress.log").read_text(encoding="utf-8").splitlines():
+        row = json.loads(line)
+        if row.get("step") == "draft only":
+            first[(row["mim"], row["arm"])] = row
+    pilot_sum: dict[str, dict[str, float]] = {a: defaultdict(float) for a in (arm, like)}
+    for mim in entries_of(pilot_dir):
+        u = _read(pilot_dir / mim / "usage.json")["arms"]
+        if arm not in u or like not in u:
+            continue
+        for a in (arm, like):
+            for step in STEPS:
+                b = u[a].get(step) or {}
+                calls, usd = b.get("calls", 0) - b.get("cached", 0), b.get("list_price_usd", 0.0)
+                if step == "generate" and (mim, a) in first:
+                    calls = first[(mim, a)]["calls"] - first[(mim, a)]["cached"]
+                    usd = first[(mim, a)]["usd"]
+                pilot_sum[a][f"{step}_calls"] += calls
+                pilot_sum[a][f"{step}_usd"] += usd
+                pilot_sum[a][f"{step}_minutes"] += (first[(mim, a)]["seconds"] if step == "generate" and (mim, a) in first
+                                                    else b.get("wall_seconds", 0)) / 60
+    ratio = {k: (pilot_sum[arm][k] / pilot_sum[like][k] if pilot_sum[like][k] else 1.0) for k in pilot_sum[like]}
+
+    mims = entries_of(run_dir)
+    sample = audit_sample(run_dir)
+    audited = sample if sample is not None else set(mims)
+    rows = {}
+    for mim in mims:
+        u = (_read(run_dir / mim / "usage.json").get("arms", {}) if (run_dir / mim / "usage.json").exists() else {})
+        stopped = _read(run_dir / mim / f"eval.{like}.json").get("stopped") if (run_dir / mim / f"eval.{like}.json").exists() else "not run"
+        if stopped or like not in u:
+            rows[mim] = None
+            continue
+        rows[mim] = {f"{step}_{k}": ((u[like].get(step) or {}).get(src, 0) - ((u[like].get(step) or {}).get("cached", 0)
+                                                                                if k == "calls" else 0)) / (60 if k == "minutes" else 1)
+                     for step in STEPS for k, src in (("calls", "calls"), ("usd", "list_price_usd"),
+                                                      ("minutes", "wall_seconds"))}
+    keys = [f"{step}_{k}" for step in STEPS for k in ("calls", "usd", "minutes")]
+    for mim, r in rows.items():
+        if r is None:
+            peers = [rows[m] for m in mims if rows[m] is not None and ((m in audited) == (mim in audited))]
+            rows[mim] = {k: statistics.mean(p[k] for p in peers) for k in keys}
+            rows[mim]["imputed"] = True
+    projected = {k: sum(r[k] * ratio.get(k, 1.0) for r in rows.values()) for k in keys}
+    calls = sum(projected[f"{s}_calls"] for s in STEPS)
+    usd = sum(projected[f"{s}_usd"] for s in STEPS)
+    minutes = sum(projected[f"{s}_minutes"] for s in STEPS)
+    like_calls = sum(r[f"{s}_calls"] for r in rows.values() for s in STEPS)
+    ledger_path = run_dir.parent / LEDGER
+    used = (_read(ledger_path).get("extensions", {}).get(arm, {}).get("calls", 0) if ledger_path.exists() else 0)
+    return {
+        "arm": arm, "like": like, "run": run, "pilot": pilot, "n_entries": len(mims),
+        "entries_imputed": sorted(m for m, r in rows.items() if r.get("imputed")),
+        "pilot_ratio_by_step": {k: round(v, 3) for k, v in ratio.items()},
+        "like_actual_new_calls_with_imputation": round(like_calls),
+        "projected": {"new_calls": round(calls), "list_price_usd": round(usd, 2),
+                      "minutes_one_entry_at_a_time": round(minutes), "hours_with_3_jobs_approx": round(minutes / 60 / 3, 1),
+                      **{k: round(v, 1) for k, v in projected.items()}},
+        "extension_calls_used_so_far": used, "extension_cap": EXTENSIONS.get(arm),
+        "headroom_after": EXTENSIONS.get(arm, 0) - used - round(calls),
+    }
+
+
 def baseline_judge_calls(mims: list[str], source: str = SOURCE_RUN) -> dict[str, Any]:
     """Judge calls the baseline needs: gold paragraphs whose cited draft text the repair round changed (no model call)."""
     from .evaluate import _draft_text_for
@@ -1119,6 +1510,9 @@ def main(argv: list[str] | None = None) -> None:
     fr = sub.add_parser("report")
     fr.add_argument("--run", required=True)
     fr.add_argument("--out", default="results/direct_improve")
+    pe = sub.add_parser("project-extension")
+    pe.add_argument("--run", default="direct_improve")
+    pe.add_argument("--pilot", default="direct_improve_pilot")
     p = sub.add_parser("project")
     p.add_argument("--pilot", required=True)
     p.add_argument("--entries-file", required=True)
@@ -1132,7 +1526,7 @@ def main(argv: list[str] | None = None) -> None:
             print("audit sample:", draw_audit_sample(args.run, args.audit_sample))
     elif args.cmd == "run":
         arms = tuple(a.strip() for a in args.arms.split(",") if a.strip())
-        unknown = set(arms) - set(ARMS)
+        unknown = set(arms) - set(ALL_ARMS)
         if unknown:
             raise SystemExit(f"unknown arms: {unknown}")
         print(json.dumps(run(args.run, arms, _mims(args.entries, None), args.jobs, args.limit), indent=1))
@@ -1157,6 +1551,10 @@ def main(argv: list[str] | None = None) -> None:
     elif args.cmd == "report":
         final_report(args.run, Path(args.out))
         print((Path(args.out) / "direct_improve.md").read_text())
+    elif args.cmd == "project-extension":
+        result = project_extension(args.run, args.pilot)
+        _write(run_dir_of(args.pilot) / "projection.extension.json", result)
+        print(json.dumps(result, indent=1))
     elif args.cmd == "project":
         mims = _mims(None, args.entries_file) or []
         src_root = run_dir_of(args.source)
