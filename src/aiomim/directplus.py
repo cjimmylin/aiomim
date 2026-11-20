@@ -293,6 +293,35 @@ def generate_and_audit(e: Entry, arm: str) -> None:
     e.save_usage(arm, "audit", _usage(llm_a, t_audit))
 
 
+def draft_only(run_dir: Path, mim: str, arms: tuple[str, ...]) -> None:
+    """Generation alone, for reading drafts during the pilot: `draft.<arm>.json|.md`, no audit, no score.
+
+    The writer replies are cached, so the full run later regenerates the same drafts
+    at no cost; only the audit and scoring are left for drafts that are kept.
+    """
+    from .llm import LLMRefusal
+    from .render import entry_markdown
+    from .strategies import run_strategy
+
+    e = Entry(run_dir, mim)
+    for arm in arms:
+        if arm == BASELINE or (e.dir / f"draft.{arm}.json").exists():
+            continue
+        started = time.time()
+        llm = new_llm("generate")
+        try:
+            entry = run_strategy(arm, e.seed, e.papers, llm, e.dir)
+            _write(e.dir / f"draft.{arm}.json", entry.model_dump())
+            _write(e.dir / f"draft.{arm}.md", entry_markdown(entry))
+        except LLMRefusal as exc:
+            _write(e.dir / f"draft.{arm}.json", {"stopped": str(exc)})
+        u = _usage(llm, started)
+        _progress(run_dir, mim=mim, arm=arm, step="draft only", calls=u["calls"], cached=u["cached"],
+                  usd=u["list_price_usd"], seconds=u["wall_seconds"])
+        log.info("[%s] %s drafted: %d calls (%d cached), $%.2f, %.0f s", mim, arm, u["calls"], u["cached"],
+                 u["list_price_usd"], u["wall_seconds"])
+
+
 def score(e: Entry, arm: str) -> None:
     """Scores without the adaptive curator-text judge: frozen facts as `rescore` marks them, and the rest."""
     from .evaluate import (eval_faithfulness, eval_genes, eval_inheritance, eval_references, eval_synopsis,
@@ -561,91 +590,85 @@ def markdown(r: dict[str, Any]) -> str:
 # --------------------------------------------------------------------------- #
 
 
+def _stage_calls(block: dict[str, Any]) -> dict[str, dict[str, float]]:
+    """stage -> fresh calls, list price and call seconds of one step's usage block."""
+    out = {}
+    for key, v in (block.get("by_stage") or {}).items():
+        stage = key.split("/", 1)[-1]
+        out[stage] = {"calls": v["calls"] - v["cached"], "usd": v["list_price_usd"], "seconds": v["seconds"]}
+    return out
+
+
 def project(pilot: str, mims: list[str], source: str = SOURCE_RUN) -> dict[str, Any]:
-    """Calls, list price and time for the evaluation, from the pilot and the source run's own usage.
+    """New calls, list price and time for the evaluation entries, from the pilot (no model call).
 
-    Per arm and entry: generation as measured in the pilot, scaled per paper where it
-    grows with the papers (D2's checks); audit and scoring as the source run spent them
-    on direct reading's draft of that entry, scaled by the pilot's ratio of the arm's
-    audit (or scoring) calls to the baseline's audit calls in the source run. The
-    baseline itself costs judge calls only where the repair round changed the text.
+    Per arm, each step's fresh calls are modelled on what drives them:
+      generation   D1: per entry; D2: the checks per paper, the revision per entry;
+                   D3: per entry (two drafts, the merge); HPO resolution per entry.
+      audit        the source run's audit calls on direct reading's draft of the same
+                   entry (claim extraction plus one call per paper), times the arm's
+                   ratio to them in the pilot.
+      scoring      one mark call per gold paragraph in scope, times the pilot's ratio,
+                   plus the variant judge at the pilot's rate.
+    Price per call is the pilot's mean for that arm and stage; time is the pilot's
+    mean wall time per entry and arm (entries run one at a time).
     """
-    run_dir = run_dir_of(pilot)
-    src_root = run_dir_of(source)
-    rows = entry_rows(run_dir)
-    by = defaultdict(dict)
-    for r in rows:
-        by[r["mim"]][r["arm"]] = r
+    run_dir, src_root = run_dir_of(pilot), run_dir_of(source)
+    usage_of = lambda mim: _read(src_root / mim / "usage.json")["by_strategy"]["direct"]  # noqa: E731
+    n_marks_of = lambda root, mim: len(GoldEntry.model_validate(_read(root / mim / "gold.json")).scoped_paragraphs)  # noqa: E731
 
-    def src_usage(mim: str) -> dict[str, Any]:
-        u = _read(src_root / mim / "usage.json")["by_strategy"]["direct"]
-        return u
-
-    def stage(u: dict, key: str, field: str) -> float:
-        return float((u.get(key) or {}).get(field, 0))
-
-    ratios: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
-    gen: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
-    for mim, arms in by.items():
-        u = src_usage(mim)
-        n_papers = len(_read(run_dir / mim / "papers.json"))
-        base_audit_calls = stage(u, "audit/verify", "calls")
-        base_audit_usd = stage(u, "audit/verify", "full_list_price_usd")
-        base_audit_s = stage(u, "audit/verify", "full_seconds")
-        base_score_calls = max(1.0, len([p for p in (_read(src_root / mim / "eval.direct.json").get("gold_text_frozen")
-                                                      or {}).get("paragraphs", [])]))
-        for arm, r in arms.items():
-            if arm == BASELINE or r["stopped"]:
-                continue
-            st = r["by_step"]
-            g = st.get("generate") or {}
-            gen[arm]["calls"].append((g.get("calls", 0) - g.get("cached", 0)))
-            gen[arm]["calls_per_paper"].append((g.get("calls", 0) - g.get("cached", 0)) / n_papers)
-            gen[arm]["usd"].append(g.get("list_price_usd", 0))
-            gen[arm]["usd_per_paper"].append(g.get("list_price_usd", 0) / n_papers)
-            gen[arm]["wall"].append(g.get("wall_seconds", 0))
-            a, s = st.get("audit") or {}, st.get("score") or {}
-            if base_audit_calls:
-                ratios[arm]["audit_calls"].append((a.get("calls", 0) - a.get("cached", 0)) / base_audit_calls)
-                ratios[arm]["audit_usd"].append(a.get("list_price_usd", 0) / max(1e-9, base_audit_usd))
-                ratios[arm]["audit_wall"].append(a.get("wall_seconds", 0) / max(1e-9, base_audit_s))
-            ratios[arm]["score_calls"].append((s.get("calls", 0) - s.get("cached", 0)) / base_score_calls)
-            ratios[arm]["score_usd_per_call"].append(s.get("list_price_usd", 0) / max(1, s.get("calls", 0) - s.get("cached", 0)))
-            ratios[arm]["score_wall"].append(s.get("wall_seconds", 0))
-
-    mean = lambda xs: statistics.mean(xs) if xs else 0.0  # noqa: E731
-    out_rows = []
-    totals: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
-    for mim in mims:
-        u = src_usage(mim)
-        n_papers = len(_read(src_root / mim / "papers.json"))
-        audit_calls = stage(u, "audit/verify", "calls")
-        audit_usd = stage(u, "audit/verify", "full_list_price_usd")
-        audit_s = stage(u, "audit/verify", "full_seconds")
-        n_marks = len((_read(src_root / mim / "eval.direct.json").get("gold_text_frozen") or {}).get("paragraphs", []))
+    acc: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
+    price: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))   # arm -> stage -> usd per call
+    for mim in entries_of(run_dir):
+        d = run_dir / mim
+        if not (d / "usage.json").exists():
+            continue
+        usage = _read(d / "usage.json")["arms"]
+        n_papers = len(_read(d / "papers.json"))
+        src_audit = (usage_of(mim).get("audit/verify") or {}).get("calls", 0)
+        n_marks = n_marks_of(run_dir, mim)
         for arm in VARIANTS:
-            per_paper = arm == "direct_complete"
-            g_calls = mean(gen[arm]["calls_per_paper"]) * n_papers if per_paper else mean(gen[arm]["calls"])
-            g_usd = mean(gen[arm]["usd_per_paper"]) * n_papers if per_paper else mean(gen[arm]["usd"])
-            calls = g_calls + mean(ratios[arm]["audit_calls"]) * audit_calls + mean(ratios[arm]["score_calls"]) * n_marks
-            usd = g_usd + mean(ratios[arm]["audit_usd"]) * audit_usd + \
-                mean(ratios[arm]["score_usd_per_call"]) * mean(ratios[arm]["score_calls"]) * n_marks
-            wall = mean(gen[arm]["wall"]) + mean(ratios[arm]["audit_wall"]) * audit_s / 4 + mean(ratios[arm]["score_wall"])
-            totals[arm]["calls"] += calls
-            totals[arm]["usd"] += usd
-            totals[arm]["wall"] += wall
-            out_rows.append({"mim": mim, "arm": arm, "calls": round(calls, 1), "usd": round(usd, 2),
-                             "wall_seconds": round(wall)})
+            u = usage.get(arm) or {}
+            if not all(step in u for step in STEPS):
+                continue
+            gen, aud, sco = (_stage_calls(u[step]) for step in STEPS)
+            for stage_map in (gen, aud, sco):
+                for stage, v in stage_map.items():
+                    if v["calls"]:
+                        price[arm][stage].append(v["usd"] / v["calls"])
+            for stage, v in gen.items():
+                acc[arm][f"generate/{stage}"].append(v["calls"] / (n_papers if stage == "complete" else 1))
+            acc[arm]["audit_ratio"].append(aud.get("verify", {}).get("calls", 0) / max(1, src_audit))
+            acc[arm]["mark_ratio"].append(sco.get("judge", {}).get("calls", 0) / max(1, n_marks))
+            acc[arm]["wall"].append(sum(u[step].get("wall_seconds", 0) for step in STEPS))
+    mean = lambda xs: statistics.mean(xs) if xs else 0.0  # noqa: E731
+
+    per_arm: dict[str, dict[str, float]] = {}
+    for arm in VARIANTS:
+        if not acc[arm]:
+            continue
+        calls_by_stage: dict[str, float] = defaultdict(float)
+        for mim in mims:
+            n_papers = len(_read(src_root / mim / "papers.json"))
+            src_audit = (usage_of(mim).get("audit/verify") or {}).get("calls", 0)
+            n_marks = n_marks_of(src_root, mim)
+            for key, xs in acc[arm].items():
+                if key.startswith("generate/"):
+                    calls_by_stage[key] += mean(xs) * (n_papers if key == "generate/complete" else 1)
+            calls_by_stage["audit/verify"] += mean(acc[arm]["audit_ratio"]) * src_audit
+            calls_by_stage["score/judge"] += mean(acc[arm]["mark_ratio"]) * n_marks
+        usd = sum(c * mean(price[arm][key.split("/", 1)[1]]) for key, c in calls_by_stage.items())
+        per_arm[arm] = {"calls": round(sum(calls_by_stage.values()), 1),
+                        "calls_by_stage": {k: round(v, 1) for k, v in calls_by_stage.items()},
+                        "usd": round(usd, 2), "hours_one_at_a_time": round(mean(acc[arm]["wall"]) * len(mims) / 3600, 1),
+                        "pilot_wall_seconds_per_entry": round(mean(acc[arm]["wall"])),
+                        "pilot_ratios": {k: round(mean(v), 3) for k, v in acc[arm].items() if not k.startswith("gen")}}
     ledger = run_dir.parent / LEDGER
     used = _read(ledger)["calls"] if ledger.exists() else 0
-    total_calls = sum(t["calls"] for t in totals.values())
-    return {"pilot": pilot, "n_entries": len(mims), "pilot_calls_so_far": used,
-            "per_arm": {a: {k: round(v, 1) for k, v in t.items()} for a, t in totals.items()},
-            "evaluation_calls_variants": round(total_calls),
-            "remaining_under_cap": CALL_CAP - used,
-            "rows": out_rows,
-            "ratios": {a: {k: round(mean(v), 3) for k, v in r.items()} for a, r in ratios.items()},
-            "generation": {a: {k: round(mean(v), 3) for k, v in g.items()} for a, g in gen.items()}}
+    variants_total = round(sum(a["calls"] for a in per_arm.values()))
+    return {"pilot": pilot, "n_entries": len(mims), "per_arm": per_arm,
+            "variant_arms_calls": variants_total, "calls_used_so_far": used, "cap": CALL_CAP,
+            "headroom_after_evaluation": CALL_CAP - used - variants_total}
 
 
 def baseline_judge_calls(mims: list[str], source: str = SOURCE_RUN) -> dict[str, Any]:
@@ -708,6 +731,11 @@ def main(argv: list[str] | None = None) -> None:
     r.add_argument("--entries")
     r.add_argument("--jobs", type=int, default=1)
     r.add_argument("--limit", type=int)
+    d = sub.add_parser("draft")
+    d.add_argument("--run", required=True)
+    d.add_argument("--arms", default=",".join(VARIANTS))
+    d.add_argument("--entries")
+    d.add_argument("--jobs", type=int, default=1)
     m = sub.add_parser("summarise")
     m.add_argument("--run", required=True)
     p = sub.add_parser("project")
@@ -725,6 +753,20 @@ def main(argv: list[str] | None = None) -> None:
         if unknown:
             raise SystemExit(f"unknown arms: {unknown}")
         print(json.dumps(run(args.run, arms, _mims(args.entries, None), args.jobs, args.limit), indent=1))
+    elif args.cmd == "draft":
+        arms = tuple(a.strip() for a in args.arms.split(",") if a.strip())
+        run_dir = run_dir_of(args.run)
+        todo = _mims(args.entries, None) or entries_of(run_dir)
+        from .sources.hpo import get_hpo
+        get_hpo()
+        with ThreadPoolExecutor(max_workers=max(1, args.jobs)) as pool:
+            for mim, fut in [(m_, pool.submit(draft_only, run_dir, m_, arms)) for m_ in todo]:
+                try:
+                    fut.result()
+                except Exception as exc:  # noqa: BLE001
+                    log.exception("[%s] drafting failed", mim)
+                    _progress(run_dir, mim=mim, error=f"{type(exc).__name__}: {exc}"[:300])
+        print(json.dumps(budget_backend()._read(), indent=1))
     elif args.cmd == "summarise":
         result = summarise(args.run)
         print((run_dir_of(args.run) / "directplus.md").read_text())
@@ -737,8 +779,9 @@ def main(argv: list[str] | None = None) -> None:
                     and not _read(src_root / m / "entry.direct.json").get("meta", {}).get("stopped")]
         result = project(args.pilot, eligible, args.source)
         result["baseline_judge_calls"] = baseline_judge_calls(eligible, args.source)
+        result["headroom_after_evaluation"] -= result["baseline_judge_calls"]["total"]
         _write(run_dir_of(args.pilot) / "projection.json", result)
-        print(json.dumps({k: v for k, v in result.items() if k != "rows"}, indent=1))
+        print(json.dumps(result, indent=1))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,52 @@
+{
+ "round": 6,
+ "trigger": "Final correction pass: independent number check of v5 (review/number_check_v5.md, 16 items) and framing items B1-B6 from the area chair's weaknesses in review/review_v5.json.",
+ "input_tex": "latex/refined_v5.tex",
+ "output_tex": "latex/refined_v6.tex",
+ "change_list": "review/final_pass_v6_changes.md",
+ "compile": "po.py check: no unknown citation keys, no missing figures, balanced environments. po.py compile: ok, 45 pages, no undefined citations or references, 0 overfull hboxes. Main text ends with the Conclusion at the bottom of page 10; Ethics and Reproducibility statements start page 11. Abstract 198 words (whitespace split; 204 with hyphenated compounds split).",
+ "addressed_weaknesses": [
+  "Statistical framing of the strategy comparison (AC weakness 4): the abstract, Takeaway (2), the Sec. 4.2 heading and Introduction para 4 now say the three reading strategies differ by under a point, with intervals that include or touch zero, instead of 'within about a point'/'close'. The abstract states the case-table-first result as a mean difference of 1.9 points with an interval excluding zero and sign test p = 0.071 (log 2.3, 2.3a).",
+  "Strategy confounded with implementation; matched ablation reported selectively (AC weakness 5): Sec. 4.2 now gives the matched evidence graph next to case table first's matched step: evidence graph +1.0 -> +1.8 (+0.4 to +3.3) against direct reading on the 38 ablation entries, step +0.8 (-0.5 to +2.1) (log 5), with references to Appendix Tables tab:app_abl_means and tab:app_abl_diff.",
+  "Padding result summarised selectively (AC weakness 10): Sec. 4.5 reports direct reading's change at both sizes, +3.6 (+1.0 to +5.9) and +3.2 (-0.7 to +6.8), 5/1/0 at each, sign test p = 0.219; the reason it is not read as a gain (earlier-generation drafts, no replicate); the P1 interactions -2.8 (-4.3 to -1.1), -3.8 (-7.5 to -0.3), -4.6 (-7.2 to -1.5) with their cause (direct reading's rise, the others' own changes at most 1.0 point); P2 intervals include zero (log 14.2). Takeaway (4) carries the 6-entry/losses-allowed scope and direct reading's rise at both sizes.",
+  "Released-system comparison foregrounded with generic names (AC weakness 8): systems named as run in the abstract (PaperQA2's document-query pipeline; GraphRAG with local search; 10 and 4 entries), contribution (2), Takeaway (3) ('On these entries and settings') and the Conclusion; 'generation calls and cost' scoped (P4); Table 3 'Supp.' labelled pooled over claims (P3); GraphRAG global search given with its interval (log 14.3).",
+  "Half credit for 'partly present' (AC weakness 7): Sec. 4.2 gives levels without partial credit, 42.4/42.0/41.9/40.8% for direct reading, evidence graph, agentic curator and case table first, same order (log 2.2), marked as levels only.",
+  "Audit's 'rarely' for broadened claims (AC weakness on audit; Question 12): Sec. 4.6 says deleted negations plant contradictions, not broadenings, and that on reading 2 hedge and about 3 zygosity edits are nearly meaning-preserving and 1 hedge edit degenerate (App. J.4; log 14.4 pilot review); counts 8/8, 2/8, 1/14 and 2-8 items per rule kept.",
+  "Limitations the reviewers call understated (one model family; no human validation; same model judges 'stated' and 'conveyed'; safety-filter stops): Limitations (i)-(xi), the Sec. 4.3 caveat on the same model judging both, the Takeaways' closing sentence, the abstract's last sentence and the Conclusion's last sentence are unchanged in strength."
+ ],
+ "integrated_answers": [
+  "Q3 (equivalence framing): the paper no longer phrases the near-null as closeness; it states the differences and that their intervals include or touch zero. No equivalence test, margin or minimum detectable difference is reported (none in the log).",
+  "Q4 (sensitivity to half credit): Sec. 4.2 gives the levels without partial credit from log 2.2; paired differences without partial credit are not in the log and are not reported.",
+  "Q8 (P1 interactions and direct reading's P1 rise): reported in Sec. 4.5 with intervals and the reason the rise is not read as a gain; App. J.2 gives the within-entry SDs 2.5 and 4.0 points (log 4.2, 14.2).",
+  "Q9 (matched evidence graph +1.8 vs 'three are close'): the +1.8 (+0.4 to +3.3) on the 38 full-text-weighted ablation entries is reported in Sec. 4.2; Sec. 4.5 keeps the by-group estimates (-1.2 where half or more is full text, +3.1 elsewhere).",
+  "Q12 (qualifier-deletion items that barely change the claim): the reading of the edits is now stated in Sec. 4.6."
+ ],
+ "actions_taken": [
+  "Number check: all 16 items applied (P1-P5, W1-W11). P2: 'p = 0.22' written as p = 0.219 (log 0.2188, three decimals); its closing clause replaced by the B3 sentence; 'about 4 points' removed; App. J.2 now gives 2.5 and 4.0 points as in the regenerated log 14.2. W1: 'GraphRAG with local search' (B1, notes.md) used in place of 'GraphRAG's local search'; the abstract wording follows B1.",
+  "B1: abstract rewritten within 200 words (198); consistent wording in Introduction para 4, Takeaway (2) and the Sec. 4.2 heading.",
+  "B2: Sec. 4.2 matched-ablation sentence extended with the evidence graph's matched difference and step (log 5).",
+  "B3: Sec. 4.5 padding paragraph and Takeaway (4) (log 14.2).",
+  "B4: Sec. 4.6 qualifier sentence (App. J.4; log 14.4).",
+  "B5: Sec. 4.2 sentence with levels without partial credit (log 2.2; Appendix Table tab:app_full).",
+  "B6: no limitation or caveat softened or removed; Limitations (i)-(xi) unchanged.",
+  "GROUNDING section 1: intervals added beside two numbers that lacked them: second-hand evidence +1.8 (+1.0 to +2.8) (log 6.3) and GraphRAG global search -13.6 (-27.1 to -5.4) (log 14.3).",
+  "Length: cuts in Introduction para 1, contributions, Related Work paras 1, 2 and 5, Figure 1 caption, Sec. 3.1-3.3, Table 1 caption (redundant subscript note), Sec. 4.2 (replicate-noise paragraph joined to the first paragraph; contamination and add-on sentences tightened), Sec. 4.3 ('Two caveats apply' removed, both caveats kept), Sec. 4.5 (evidence-graph by-group clause tightened; large-entry clause duplicated by the next sentence removed), Sec. 4.6 (single-value sentence tightened). Every cut is listed in the change list.",
+  "Appendix: P1 caption, W6 jargon, W7 rounding, W8 table references, W9 'capped', W10 one sentence.",
+  "No change to references.bib, citation_map.json, style files, figures or plot scripts; no citation key added."
+ ],
+ "ignored_requests": [
+  "Human validation study of fact splits, fact marks, 'stated' judgements and audit verdicts (Q1): not in the raw materials; not promised.",
+  "Re-judging with a second model family and regenerating drafts with a second writer (Q2): not run; not promised.",
+  "TOST at a stated margin, minimum detectable difference, Holm adjustment of the primary endpoint across five comparisons (Q3): not in the log.",
+  "Paired differences without partial credit; length-normalised, precision-aware or per-claim endpoints (Q4): only levels without partial credit are in the log (reported); the rest not computed.",
+  "Characterisation of stopped entries and papers; restriction to entries with no stopped call; running large entries and STORM through another interface or model (Q5): not in the log.",
+  "Forced context budget or harder full-text-only subset (Q6): not run.",
+  "Table 2 by creation band and for the 2026 entries (Q7): not in the log.",
+  "Splitting the matched ablation into its two component changes (Q9): not run.",
+  "Released systems scored before repair, PaperQA2 with its agent, default embedders, more GraphRAG entries (Q10): not run.",
+  "Correctness check of draft statements outside the reference (Q11): not run.",
+  "Scaling up the qualifier-deletion classes (Q12): not run.",
+  "Release of fact-list identifiers, prompts, reply cache and a versioned rebuild procedure (Q13): the paper keeps its existing statement about released score files and harness; nothing further promised.",
+  "A worked example of an entry, fact list and audited draft paragraph (AC weakness 12): would need material and space beyond the 10-page main text; not added."
+ ]
+}
