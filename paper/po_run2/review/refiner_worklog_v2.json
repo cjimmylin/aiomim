@@ -1,0 +1,297 @@
+{
+ "round": 2,
+ "input_tex": "latex/draft_v0.tex",
+ "output_tex": "latex/refined_v2.tex",
+ "reused_from": "latex/refined_v1.tex (definitions paragraph, reuse paragraph, settings paragraph, suggestive case-table wording, limitations structure, ethics and reproducibility statements, appendix experiment table with status column, reading-better sensitivity table), each edited as listed below",
+ "compile": {
+  "ok": true,
+  "pages_total": 54,
+  "main_text_ends_on_page": 10,
+  "overfull_hboxes": 0,
+  "undefined_references": 0,
+  "undefined_citations": 0
+ },
+ "check": {
+  "unknown_cite_keys": [],
+  "missing_figures": [],
+  "unbalanced_environments": {}
+ },
+ "title": "Writing Knowledge-Base Entries from Cited Papers, Scored on Curators' Per-Paper Facts",
+ "title_lines": 2,
+ "abstract_words": 199,
+ "addressed_weaknesses": [
+  {
+   "weakness": "v0 W1: no human validation; one model family makes every judgement",
+   "status": "acknowledged; cannot be fixed with existing data",
+   "change": "Limitation (i) first: no person validated any judgement; says what expert labels on a stratified sample with chance-corrected agreement would establish and that 95.7% agreement between two judgings is self-consistency only; a manual check of not-stated facts would show how much of that contrast is mechanical. Experiments intro and contributions state that no person validated the judgements.",
+   "evidence": "log 4.1 (3498 of 3654, 95.7%); log 12; notes 'Not done, and not to be promised'"
+  },
+  {
+   "weakness": "v0 W2: stated/not-stated contrast partly mechanical",
+   "status": "addressed by rescoping",
+   "change": "Access claim is led by the hidden-full-text experiment in abstract, introduction and Sec. 4.1. Where the split is shown, one sentence says it agrees with that result but holds partly by construction because 'stated' needs a quote the model found. Fig. 2(b,c), Fig. 3 restrictions and the appendix table are labelled post hoc.",
+   "evidence": "log 6.2; log 2.10a; notes 'The access claim'"
+  },
+  {
+   "weakness": "v0 W3: unmatched settings in the headline comparison; claims inconsistent with the matched ablation",
+   "status": "addressed by rewriting and rescoping (matched run on all 93 entries not available)",
+   "change": "Sec. 3.2 states in the main text that per-paper extraction ran at medium effort and synopsis terms (and the case table's inheritance) were assigned by rule in the main comparison. 'No design conveyed more than direct reading' is kept only 'at the main settings'. New post hoc paragraph 'Settings and entry sets' in Sec. 4.2: on the 38 ablation entries the evidence graph was already +1.0 (-0.9 to +2.8) and the case table -2.3 at the main settings; matching moved the case table +2.1 (+1.1 to +3.2; 25/8) and the graph only +0.8 (-0.5 to +2.1); the graph's sign is -1.2 / +3.1 on the two halves of the ablation entries. Supported claim used everywhere: designs differ by a few points either way, which is ahead depends on the entries compared and, for the case table, on settings, every such difference small against the 43.7 points full text adds. Table 1 holds the main comparison only; new Appendix Table (tab:app_abl_main) puts the main-settings rows of the same 38 entries beside the matched rows. Nothing about the matched evidence graph appears in abstract or introduction.",
+   "evidence": "log 1.2; log 5 (means, steps, each-strategy-vs-direct, 'The ablation set and the main comparison'); notes 'What the ablation shows' and 'Scope the strategy claim'"
+  },
+  {
+   "weakness": "v0 W4: tested regime favours direct reading; many-relevant-papers regime untested",
+   "status": "acknowledged; cannot be fixed with existing data",
+   "change": "Discussion states the regime (most papers abstracts; 2,669 of 6,239 facts not stated; stated full-text facts on 40 entries). Limitation (iii) rewritten per notes: size tested only by padding with unrelated text; large sets of relevant papers could not be compared because of stopped replies; matched settings on 38 entries; one implementation per paradigm. Large-entry and padding runs reduced to one sentence each (Sec. 4.4) with details in Appendix K.",
+   "evidence": "log 2.10a; log 14.1; log 14.2; notes 'Limitations after this round'"
+  },
+  {
+   "weakness": "v0 W5: reference narrow and indirect; title overclaims; reusability unclear",
+   "status": "addressed",
+   "change": "New two-line title names the task and the endpoint ('Writing Knowledge-Base Entries from Cited Papers, Scored on Curators' Per-Paper Facts'). Abstract and introduction say curator-written, variant-centred per-paper text and that only what a draft says about each cited paper is scored. Sec. 3.1 adds log 1.1: 327 of 515 cited papers have an in-scope paragraph (81/96 full text, 221/345 abstract, 25/74 title); what a draft says about the others is not scored. 'Reuse' paragraph: fact lists not redistributed, rebuilding requires re-splitting, fresh-split stability unmeasured, per-draft splitting ran 2-5 points higher with the same order, differences within one split are comparable. Contribution (1) reworded to a harness releasing drafts, verdicts and scores but not curator text. Limitation (v).",
+   "evidence": "log 1.1; log 4.4; log 8 (24% counterpart); notes 'Reuse of the benchmark', 'Scope of the reference', 'Title'"
+  },
+  {
+   "weakness": "v0 W6: fragile inference and selection (case-table p=0.071, post hoc -8.4 restriction, stop-driven selection, no ITT for completeness arms)",
+   "status": "addressed where data exist",
+   "change": "Case-table deficit called suggestive with the sign test, the missing adjustment and the zero-filled interval; the -8.4 restriction labelled post hoc and no longer called 'the stronger evidence'. New 'Status of each analysis' paragraph lists every choice made after results were seen. Post hoc stopped-revision sensitivity (log 15.1) in Sec. 4.3: kept draft +3.1 (+1.8 to +4.3; 32/7/2) and +2.4; zero -4.8 and -3.5 with intervals including zero; gain depends on keeping the unrevised draft (also in introduction). Limitation (ii): the safety filter removed entries unevenly, reasons not visible. Appendix notes that the 3 entries the completeness pass lost are the 3 on which the evidence graph lost a paper.",
+   "evidence": "log 2.3a, 2.4, 2.10a, 2.1, 15, 15.1; notes 'The case table's deficit', 'Stopped entries in the reading-better arms'"
+  },
+  {
+   "weakness": "v0 W7: strategies developed on evaluation entries; memorisation confound",
+   "status": "acknowledged; partly addressed",
+   "change": "Definitions say what each held-out set is held out from (2026 entries: all development; reading-better split: prompt design and guide learning, not the main strategies). Limitation (ix). Memory paragraph gives memory-only coverage by band, the 2026 entries (five strategies, 20 of 30 compared), header-only gene F1 by band (88.9-100% vs 41.2%), the exploratory decline of abstract-only coverage (49.8% to 37.9%), and the oldest band's 34.9% as observed and not analysed. Provenance: 24 of 1,420 (1.7%) in full and 58 of 583 (10.0%) in part stated in no supplied text, post hoc, not separable into recall, inference or misjudgement.",
+   "evidence": "log 2.10, 2.11, 3.1, 10; notes '2026 entries', 'Held-out', 'Patterns the log shows but does not explain'"
+  },
+  {
+   "weakness": "v0 W8: only one proprietary model",
+   "status": "acknowledged; cannot be fixed",
+   "change": "Limitation (ii) states what a judge and a writer from a second family would establish (self-preference, correlated stated/conveyed errors, transfer of the access effect and the order of strategies, notably to smaller-context models). Nothing promised.",
+   "evidence": "log 12 ('No second model was tested'); notes 'Still not done'"
+  },
+  {
+   "weakness": "v0 W9: released-pipeline comparison too prominent and not like for like",
+   "status": "addressed",
+   "change": "Removed from the introduction's findings and contributions. Main text keeps one sentence (Sec. 4.4) pointing to Appendix J. The caveats and the allowed claim, with STORM's portability finding, moved to a new 'What the comparison shows' paragraph in Appendix J.",
+   "evidence": "log 14.3; notes 'Released systems' (both rounds)"
+  },
+  {
+   "weakness": "v0 W10: audit stress test small and partly easy",
+   "status": "acknowledged; scoped",
+   "change": "Sec. 4.5 labels the six classes exploratory, says swaps are easy cases, gives per-rule counts (negation 8/8 with 2 only under the widened rule; hedge 2/8; count 1/4; zygosity 0/8; one family 0/2), says the controls passed once and the rows are not sensitivity estimates, and that the false-flag cost of an any-cited-paper-fails rule was not evaluated. Limitation (xi) says what a larger stress test would give.",
+   "evidence": "log 11, 14.4"
+  },
+  {
+   "weakness": "v0 W11: modest novelty; recall-then-verify low coverage by construction",
+   "status": "addressed by framing",
+   "change": "Related work states the contribution is the controlled measurement, not a new strategy. Recall, then verify is presented as the memory-first paradigm's verified variant that shows how much of memory survives verification (coverage 14.6% vs memory draft 15.1%; judged supported 50.8% to 94.2%), not as a coverage competitor.",
+   "evidence": "log 1.3, 2.2, 12; notes 'Recall, then verify', 'Venue fit'"
+  },
+  {
+   "weakness": "v0 W12: presentation dense; definitions scattered; exploratory runs interleaved; settings only in appendix; four-line title",
+   "status": "addressed",
+   "change": "One 'Definitions' paragraph in Sec. 3.3 (fact, present/partly present, coverage, mean over entries vs pooled, stated, stopped reply, completes, symmetric rule, repaired/unrepaired, like for like, held out). One 'Status of each analysis' paragraph. Runs on 10 or fewer entries reduced to one sentence each in Sec. 4.4. Settings in Sec. 3.2. Prose gives one estimate with its interval per claim. Title two lines; abstract 199 words.",
+   "evidence": "notes 'Presentation (all three reviewers)', 'Terms', 'Forking paths'"
+  },
+  {
+   "weakness": "v1 new: matched-ablation headline was mainly an entry-set effect",
+   "status": "fixed",
+   "change": "No matched evidence-graph result in abstract or introduction; Sec. 4.2 and Appendix F attribute the graph's +1.8 mostly to the +1.0 these entries already show at the main settings; the clear settings effect is the case table's +2.1.",
+   "evidence": "log 5; notes 'What the ablation shows (corrected after the review of v1)'"
+  },
+  {
+   "weakness": "v1 new: recall-only endpoint, no length or precision counterpart; 'without lowering' wording",
+   "status": "addressed with existing data; a length-controlled endpoint is not in the log",
+   "change": "Draft length beside every coverage gain: completeness pass 14,412 vs 10,802 characters and 164 vs 129 checkable claims per audited entry; checklist 11,837; combined arm 14,963 vs 10,826; merge 14,245; Table 1 gains a 'Claims' column (audited claims per entry: 113.5 and 117.9 vs 101.0). Sec. 3.3 says the endpoint rewards recall. Fidelity wording is 'did not fall on the 20 audited entries (97.2% against 97.0%; no interval)'. Limitation (iv) says what a length-controlled endpoint would establish.",
+   "evidence": "log 2.2 (claims audited per entry); log 15 size tables; notes 'Length', 'No equivalence claims'"
+  },
+  {
+   "weakness": "v1 new: safety-filter stops as strategy-dependent selection",
+   "status": "partly addressed; stops cannot be characterised by topic",
+   "change": "Stopped-entry sensitivity reported in the main text; limitation (ii) says stops removed entries unevenly for reasons not visible; appendix records that the same three entries lost a paper in the evidence graph and the whole draft in the completeness pass.",
+   "evidence": "log 2.1, 15, 15.1"
+  },
+  {
+   "weakness": "v1 new: analytic flexibility high relative to effect sizes",
+   "status": "addressed",
+   "change": "Sec. 3.3 lists every choice made after results were seen, (a)-(i): fixed fact lists; symmetric rule (after the 2.1-point analysis); matched ablation; stated/not-stated restrictions and provenance; scoring the hidden-full-text arm before repair; unaltered re-audit; widened claim-selection rule; the fourth reading-better arm (designed after the other arms' held-out results, evaluated on the same entries); the stopped-entry sensitivity. Pre-specified analyses named. Appendix Table 2 status column uses pre-specified / post hoc / exploratory / secondary.",
+   "evidence": "log 4.4, 5, 6.2, 11, 12, 14.4, 15, 15.1; notes 'Forking paths'"
+  },
+  {
+   "weakness": "v1 new: reusable-benchmark contribution weaker than claimed",
+   "status": "addressed",
+   "change": "Contribution (1) reworded; 'Reuse' paragraph and limitation (v).",
+   "evidence": "notes 'Reuse of the benchmark'"
+  },
+  {
+   "weakness": "v1 new: non-inferiority claims without margins or intervals",
+   "status": "addressed",
+   "change": "Abstract no longer says 'not distinguishable from reading all papers in one prompt' or 'without lowering'; main text says 'not an equivalence claim' with intervals and entry counts and 'did not fall on the 20 audited entries (no interval)'.",
+   "evidence": "notes 'No equivalence claims'"
+  },
+  {
+   "weakness": "v1 new: released-pipeline comparison too much main-text space",
+   "status": "addressed",
+   "change": "One sentence in Sec. 4.4.",
+   "evidence": "notes 'Released systems' (after v1)"
+  },
+  {
+   "weakness": "v1 new: density and coined terminology; title does not say what the task is",
+   "status": "addressed",
+   "change": "Plain-word definitions of like for like, stopped reply, unrepaired, completes; new title.",
+   "evidence": "notes 'Terms', 'Title'"
+  },
+  {
+   "weakness": "v1 new: internal inconsistencies (91 vs 96 hidden papers; negation counted as a class; unexplained dashes; two interval sets for the same ablation estimates)",
+   "status": "fixed",
+   "change": "(i) Sec. 4.1, Appendix G and Appendix Table 2: the experiment used the 49 entries with a full-text paper an in-scope paragraph is about and hid all 91 of their full-text papers; the other 5 full-text papers have no in-scope paragraph. (ii) Negation is one of five deletion rules of the 30-item deleted-qualifier class (11 of 30 caught; 8/8 negations, 2 only under the widened rule) in Sec. 4.5, Fig. 4 caption and the rules table caption. (iii) The matched block left Table 1; every dash in every table now has a caption note (not applicable, not computed, not recorded, not reported, or no draft), and 'n/r' marks variant precision not reported for two ablation arms. (iv) Appendix F now quotes only the ablation table's intervals for the 38-entry estimates and refers to the strata table for the 21-entry group; the separately bootstrapped duplicates were removed.",
+   "evidence": "log 1.1, 6.2, 5, 14.4, 2.9"
+  },
+  {
+   "weakness": "v1 decision: 'added after review' labels",
+   "status": "fixed",
+   "change": "All such labels removed from text, tables and captions; analyses labelled pre-specified, post hoc or exploratory. The PDF text contains no mention of reviews or reviewers.",
+   "evidence": "notes 'No mention of reviews'"
+  }
+ ],
+ "integrated_answers": [
+  {
+   "question": "Which analyses were pre-specified (stated/not-stated restriction, -8.4)?",
+   "answer_location": "Sec. 3.3 'Status of each analysis'; Sec. 4.2 labels the -8.4 restriction post hoc; Appendix Table 2 status column"
+  },
+  {
+   "question": "Reading-better results with stopped entries scored as zero or as the fallback draft",
+   "answer_location": "Sec. 4.3 'Stopped revisions' (post hoc) and Appendix Table tab:app_better_itt",
+   "source": "log 15.1"
+  },
+  {
+   "question": "Why does the hidden-full-text experiment hide 91 papers when 96 are readable in full?",
+   "answer_location": "Sec. 4.1, Appendix G, Appendix Table 2",
+   "source": "log 6.2"
+  },
+  {
+   "question": "How many of the 515 cited papers have an in-scope curator paragraph?",
+   "answer_location": "Sec. 3.1 'Reference'",
+   "source": "log 1.1"
+  },
+  {
+   "question": "Was the matched ablation's lead a settings effect, and why are the extraction settings unmatched?",
+   "answer_location": "Sec. 3.2 settings; Sec. 4.2 'Settings and entry sets'; Appendix F and tab:app_abl_main",
+   "source": "log 1.2, 5"
+  },
+  {
+   "question": "How much does the entry header reveal the causal gene?",
+   "answer_location": "Sec. 4.2 'Memory first and contamination' (memory gene F1 88.9-100% in older bands, 41.2% from 620000 on)",
+   "source": "log 2.11"
+  },
+  {
+   "question": "Why is direct reading low in the classic band?",
+   "answer_location": "Sec. 4.2, reported as observed and not analysed",
+   "source": "log 2.11; notes"
+  },
+  {
+   "question": "Will fact lists be released or reconstructable; how stable is a re-split?",
+   "answer_location": "Sec. 3.1 'Reuse'; limitation (v); Ethics and Reproducibility statements",
+   "source": "log 4.4; notes"
+  },
+  {
+   "question": "How much abstract-only coverage comes from outside the supplied text?",
+   "answer_location": "Sec. 4.1 'Missed and conveyed facts'",
+   "source": "log 3.1"
+  },
+  {
+   "question": "Has an any-cited-paper-fails aggregation rule been evaluated?",
+   "answer_location": "Sec. 4.5: not evaluated, false-flag cost unknown",
+   "source": "log 14.4"
+  },
+  {
+   "question": "Draft length for the reading-better arms and extract-then-write drafts",
+   "answer_location": "Sec. 4.3 (characters, checkable claims) and Table 1 'Claims' column",
+   "source": "log 2.2, 15"
+  },
+  {
+   "question": "Sensitivity to partial credit",
+   "answer_location": "Appendix C: full-credit-only levels keep the order; differences under full credit for the restrictions not reported",
+   "source": "log 2.2"
+  }
+ ],
+ "actions_taken": [
+  "Wrote a new main text from draft_v0 (reusing refined_v1 wording that the v1 reviews did not fault) and attached the refined_v1 appendix, then edited the appendix.",
+  "Title shortened to two lines naming task and endpoint; abstract rewritten to 199 words with the hidden-full-text result, the scoped strategy claim, the completeness-pass gain with draft length, and the audit and validation limits; no matched-ablation, equivalence or 'without lowering' wording.",
+  "Introduction: released systems and the matched evidence graph removed; findings scoped to the main settings and to entry sets; completeness gain given with draft length and dependence on the stopped-revision rule.",
+  "Sec. 3: reference scope from log 1.1; Reuse paragraph; main-comparison extraction effort and rule-based synopsis terms stated in the main text; Definitions paragraph; Status-of-analysis paragraph listing every choice made after results were seen.",
+  "Sec. 4.1: hidden-full-text experiment first, like for like before repair (+43.7, +38.3 to +49.1; 45/0/1), with the 49/91/5 paper accounting; cross-paper access levels called observational; stated/not-stated split labelled post hoc and partly by construction.",
+  "Sec. 4.2: Table 1 main comparison only, with an audited-claims-per-entry column; case table 'suggestive'; post hoc 'Settings and entry sets' paragraph; recall-then-verify framed as memory-first verified variant; header gene F1 and oldest-band pattern reported as observed.",
+  "Sec. 4.3: pre-specified first three arms vs post hoc fourth arm; draft length beside each gain; fidelity 'did not fall on the 20 audited entries (no interval)'; post hoc stopped-revision sensitivity.",
+  "Sec. 4.4: runs on 10 or fewer entries reduced to one sentence each.",
+  "Sec. 4.5: negation counted as a rule of the deleted-qualifier class, with the widened-rule caveat; Figure 4 caption rewritten accordingly (figure file unchanged).",
+  "Sec. 5: discussion of the regime; limitations ordered (human validation, second model family, large inputs, recall-only endpoint, ...) each with what the missing check would establish; conclusion folded into Sec. 5 as a run-in paragraph to fit the page limit.",
+  "Appendix: status labels renamed to pre-specified / post hoc / exploratory / secondary; new matched-ablation table with main-settings rows of the same 38 entries; Appendix F paragraph rewritten without duplicate intervals; Appendix G hidden-paper accounting; reading-better design paragraph says what the split is held out from and that the fourth arm is post hoc; released-systems findings paragraph; padding result paragraph (direct reading's rise not read as a gain); every dash in a table explained in its caption; 'added after review' removed everywhere.",
+  "Compiled with po.py compile (no errors, no overfull boxes, no undefined references or citations; 54 pages, main text ends on page 10) and ran po.py check (no unknown keys, no missing figures, environments balanced). Figure files and palette unchanged."
+ ],
+ "ignored_requests": [
+  {
+   "request": "Expert annotation of a stratified sample with chance-corrected agreement; manual check of not-stated facts",
+   "reason": "No human validation exists in the log; limitation (i) says what it would establish."
+  },
+  {
+   "request": "Judge or writer from a second model family (re-score replicate subset; smaller-context writer)",
+   "reason": "Not run (log 12); limitation (ii) says what it would establish."
+  },
+  {
+   "request": "Matched configuration as the main comparison on all 93 entries",
+   "reason": "Matched settings exist only for the 38 ablation entries (log 5); limitation (iii)."
+  },
+  {
+   "request": "Length-controlled endpoint or length-matched direct-reading control",
+   "reason": "Not in the log; draft length is reported beside each gain and limitation (iv) says what it would establish."
+  },
+  {
+   "request": "Characterise safety-filter stops by topic, size or era; best/worst-case bounds or imputation",
+   "reason": "Reasons are not visible and no such analysis is in the log; only the zero-fill and kept-draft sensitivity analyses exist (log 2.4, 15.1)."
+  },
+  {
+   "request": "Comparable results on large sets of relevant papers",
+   "reason": "No large entry was completed by every strategy (log 14.1); limitation (iii)."
+  },
+  {
+   "request": "Direct reading through the released systems' six-question protocol (like-for-like released-systems run)",
+   "reason": "Not run; limitation (xii) says what it would establish."
+  },
+  {
+   "request": "Larger audit stress test, harder swaps, per-paper aggregation rule false-flag rate",
+   "reason": "Not run; limitation (xi) and Sec. 4.5 state it."
+  },
+  {
+   "request": "Post hoc equivalence test (TOST) or non-inferiority margin; full audit of all 38 reading-better entries",
+   "reason": "Not in the log; the text makes no equivalence claim and reports the 20-entry audit without an interval."
+  },
+  {
+   "request": "Effect of hiding full text on HPO-synopsis measures; share of draft text citing in-scope papers",
+   "reason": "Not in the log."
+  },
+  {
+   "request": "Paired differences under full credit only for each restriction",
+   "reason": "Not in the log; Appendix C says so."
+  },
+  {
+   "request": "Fresh re-split of 20-50 entries; hashed fact release or scoring service",
+   "reason": "Not measured or available; Reuse paragraph and limitation (v)."
+  },
+  {
+   "request": "Number of prompt iterations per strategy; fresh held-out rerun of the main comparison",
+   "reason": "Not in the log; limitation (ix)."
+  },
+  {
+   "request": "Supplementary material for the hidden papers",
+   "reason": "Supplements were not retrieved (log 1.1); limitation (vii)."
+  },
+  {
+   "request": "Fact types behind the case table's deficit; explanation of the classic band's low coverage",
+   "reason": "No such analysis in the log; the band pattern is reported as observed only."
+  },
+  {
+   "request": "Move to a datasets-and-benchmarks or biomedical venue",
+   "reason": "Venue is set by the project (ICLR main conference)."
+  }
+ ]
+}
