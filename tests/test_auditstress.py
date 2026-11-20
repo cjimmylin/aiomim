@@ -236,8 +236,9 @@ def test_tally_c4_added_paper_verdicts():
 
 
 def test_tally_c6_and_natural():
-    items = [{"id": "C6.0", "deleted_sentence": "x"}, {"id": "C6.1", "deleted_sentence": "y"}]
-    om = {"finding": "f", "quote": "q", "quote_verified": True}
+    items = [{"id": "C6.0", "deleted_sentence": "Onset was at 7 years."},
+             {"id": "C6.1", "deleted_sentence": "Onset was at 9 years."}]
+    om = {"finding": "onset at 7 years", "quote": "q", "quote_verified": True}
     done = {"0-2": {"results": {
         "C6.0": {"altered": {"error": None, "omissions": [om, om], "judge": [{"n": 1, "match": "full"}],
                              "mechanical": True, "mechanical_verified": True},
@@ -276,3 +277,11 @@ def test_budget_backend_stops_at_cap(tmp_path):
         b.complete(effort="medium")
     led = json.loads((tmp_path / "ledger.json").read_text())
     assert led["calls"] == 2 and led["cost_usd"] == 1.0
+
+
+def test_numbers_in_reads_words_and_thousands():
+    assert A.numbers_in("two-point lod 2.11 in a 4-cM region; 1,012 patients, 3 sibs") == {"2", "2.11", "4", "1012", "3"}
+    s = "A scan gave a maximum 2-point lod score of 2.11 for markers in a 4-cM region."
+    assert A.mechanical_match(s, ["a maximum two-point lod score of 2.11 ... a 4-cM region"]) is True
+    assert A.mechanical_match("The deletion removes 3 amino acids (Pro102_Val104del).",
+                              ["The deletion removes 3 amino acids, p.P102-V104del."]) is True

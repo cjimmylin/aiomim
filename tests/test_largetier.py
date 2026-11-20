@@ -121,3 +121,12 @@ def test_read_timing_sums_resumed_passes(tmp_path):
     t = lt.read_timing(p)
     assert t[("600116", "direct")] == {"wall_seconds": 160, "passes": 2, "new_calls": 6, "usd_now": 0.7, "ok": True}
     assert t[("600116", "kg")]["new_calls"] == 0 and not t[("600116", "kg")]["ok"]
+
+
+def test_exact_top_k_batched_gives_the_same_top():
+    true = {str(i): (i * 7) % 11 for i in range(1, 30)}
+    bounds = {m: v + (int(m) % 3) for m, v in true.items()}
+    full = sorted(true, key=lambda m: lt.rank_key(m, true[m]))[:5]
+    for batch in (1, 2, 4, 7):
+        top, resolved = lt.exact_top_k(bounds, lambda m: true[m], 5, batch=batch)
+        assert top == full

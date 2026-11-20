@@ -228,6 +228,31 @@ def _write(path: Path, data: Any) -> None:
     write(path, data)
 
 
+def load_cached_papers(pmids: list[str]):
+    """Papers with their text, from a frozen copy under runs/padding/papers/ when there is one.
+
+    The first load goes through `sources.fulltext.load_papers` (HTTP cache; some full-text lookups
+    are slow even when cached), and the result is kept, so every later step reads exactly the same
+    text. Returns the papers in input order."""
+    from .models import Paper
+    from .sources.fulltext import load_papers
+
+    store = run_dir() / "papers"
+    out: dict[str, Any] = {}
+    missing = []
+    for pmid in dict.fromkeys(pmids):
+        path = store / f"{pmid}.json"
+        if path.exists():
+            out[pmid] = Paper.model_validate_json(path.read_text(encoding="utf-8"))
+        else:
+            missing.append(pmid)
+    if missing:
+        for paper in load_papers(missing, with_fulltext=True, max_workers=16):
+            out[paper.pmid] = paper
+            _write(store / f"{paper.pmid}.json", paper.model_dump_json())
+    return [out[p] for p in pmids if p in out]
+
+
 def _evalset_rows() -> list[dict[str, str]]:
     with open(EVALSET, encoding="utf-8") as fh:
         return list(csv.DictReader((line for line in fh if not line.startswith("#")), delimiter="\t"))
@@ -342,7 +367,7 @@ def build(entries: list[str] | None = None, n: int = N_ENTRIES) -> dict[str, Any
     pool = collect_pool(_settings().runs)
     pool_pmids = sorted(pool)
     log.info("pool: %d full-text papers cited in existing runs; loading their text (cached)", len(pool_pmids))
-    texts = {p.pmid: p for p in load_papers(pool_pmids, with_fulltext=True)}
+    texts = {p.pmid: p for p in load_cached_papers(pool_pmids)}
     for pmid in list(pool):
         paper = texts.get(pmid)
         if paper is None or paper.content_level != "fulltext":
@@ -356,7 +381,7 @@ def build(entries: list[str] | None = None, n: int = N_ENTRIES) -> dict[str, Any
         src = src_root / mim
         own_records = _read(src / "papers.json")
         own = [r["pmid"] for r in own_records]
-        own_papers = {p.pmid: p for p in load_papers(own, with_fulltext=True)}
+        own_papers = {p.pmid: p for p in load_cached_papers(own)}
         own_chars = sum(len(own_papers[p].source_text()) for p in own)
         genes = _entry_genes(src)
         for pmid, info in pool.items():
@@ -404,7 +429,7 @@ def level_papers(mim: str, level: str, inputs: dict[str, Any]):
     from .sources.fulltext import load_papers
 
     supplied = inputs["entries"][mim]["levels"][level]["supplied"]
-    papers = {p.pmid: p for p in load_papers(supplied, with_fulltext=True)}
+    papers = {p.pmid: p for p in load_cached_papers(supplied)}
     missing = [p for p in supplied if p not in papers]
     if missing:
         raise RuntimeError(f"[{mim}] {level}: papers not loaded: {missing}")
@@ -441,7 +466,7 @@ def rebuild_p0(mim: str) -> dict[str, Any]:
 
     src, out = _settings().runs / SOURCE_RUN / mim, run_dir() / "P0" / mim
     seed = Seed.model_validate_json((src / "seed.json").read_text(encoding="utf-8"))
-    papers = load_papers([r["pmid"] for r in _read(src / "papers.json")], with_fulltext=True)
+    papers = load_cached_papers([r["pmid"] for r in _read(src / "papers.json")])
     report: dict[str, Any] = {}
     for strategy in STRATEGIES:
         llm = LLM()
@@ -679,12 +704,19 @@ def _usage_cell(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return cell
 
 
-def summarise() -> dict[str, Any]:
+def summarise(n_entries: int | None = None) -> dict[str, Any]:
+    """`n_entries`: the first n entries of the build (in entry-number order); default all with P1/P2 drafts."""
     inputs = load_inputs()
     entries = list(inputs["entries"])
+    if n_entries is None:
+        entries = [m for m in entries if any((run_dir() / lv / m).glob("usage.*.json") for lv in PADDED)]
+    else:
+        entries = entries[:n_entries]
     root = run_dir()
 
     status: dict[str, dict[str, dict[str, str]]] = {lv: {s: {} for s in STRATEGIES} for lv in LEVELS}
+    # Secondary rule: a per-paper failure on an added (off-topic) paper only does not make a draft incomplete.
+    status_own: dict[str, dict[str, dict[str, str]]] = {lv: {s: {} for s in STRATEGIES} for lv in LEVELS}
     cov: dict[str, dict[str, dict[str, float | None]]] = {lv: {s: {} for s in STRATEGIES} for lv in LEVELS}
     reasons: dict[str, Any] = {}
     gen_usage: dict[str, dict[str, list]] = {lv: {s: [] for s in STRATEGIES} for lv in LEVELS}
@@ -712,12 +744,17 @@ def summarise() -> dict[str, Any]:
                                    "error": _read(out / f"error.{s}.json").get("error")})
                 cls = classify(ev, meta if entry is not None else None)
                 status[level][s][mim] = cls
+                status_own[level][s][mim] = cls
                 if meta.get("stopped"):
                     stops.append({"mim": mim, "level": level, "strategy": s, "reason": str(meta["stopped"])[:200]})
                 if cls == "incomplete":
-                    reasons.setdefault(level, {}).setdefault(s, {})[mim] = next(
-                        v["papers_failed"] for v in meta.values()
-                        if isinstance(v, dict) and isinstance(v.get("papers_failed"), list) and v["papers_failed"])
+                    failed = next(v["papers_failed"] for v in meta.values()
+                                  if isinstance(v, dict) and isinstance(v.get("papers_failed"), list)
+                                  and v["papers_failed"])
+                    reasons.setdefault(level, {}).setdefault(s, {})[mim] = {
+                        "own": sorted(set(failed) & own), "added": sorted(set(failed) & added)}
+                    if not set(failed) & own:
+                        status_own[level][s][mim] = "complete"
                 if ev and not ev.get("stopped"):
                     cov[level][s][mim] = coverage(ev.get("gold_text_frozen"))
                     score_usage[level][s].append(ev.get("score_usage"))
@@ -738,6 +775,7 @@ def summarise() -> dict[str, Any]:
                     caps[level][s].append({"mim": mim, **_caps(s, meta, own, added, rec["levels"][level])})
 
     sets = complete_sets(status, entries)
+    sets_own = complete_sets(status_own, entries)
     result: dict[str, Any] = {
         "experiment": "A2 controlled padding of the input (docs/experiments-round2.md)",
         "entries": entries,
@@ -746,7 +784,7 @@ def summarise() -> dict[str, Any]:
                        "levels": {lv: {k: r["levels"][lv][k] for k in ("n_papers", "n_added", "chars",
                                                                        "own_share_of_chars")}
                                   for lv in LEVELS}}
-                   for m, r in inputs["entries"].items()},
+                   for m, r in inputs["entries"].items() if m in entries},
         "input_summary": {lv: _input_summary([inputs["entries"][m]["levels"][lv] for m in entries]) for lv in LEVELS},
         "completion": {lv: {s: _count(status[lv][s].values()) | {"not_complete": sorted(
             m for m, c in status[lv][s].items() if c != "complete")} for s in STRATEGIES} for lv in LEVELS},
@@ -754,6 +792,7 @@ def summarise() -> dict[str, Any]:
         "stops": stops,
         "errors": errors,
         "complete_sets": sets,
+        "complete_sets_failures_on_added_allowed": sets_own,
     }
 
     def mean(values):
@@ -761,7 +800,7 @@ def summarise() -> dict[str, Any]:
         return round(sum(vals) / len(vals), 4) if vals else None
 
     analyses: dict[str, Any] = {}
-    for name, members in (("all_levels", sets["all"]),):
+    for name, members in (("all_levels", sets["all"]), ("all_levels_failures_on_added_allowed", sets_own["all"])):
         a: dict[str, Any] = {"n_entries": len(members), "entries": members, "coverage": {}, "change_from_P0": {},
                              "difference_from_direct": {}}
         for lv in LEVELS:
@@ -776,7 +815,8 @@ def summarise() -> dict[str, Any]:
         a["change_minus_direct_change"] = {
             lv: {s: paired([(cov[lv][s][m] - cov["P0"][s][m], cov[lv]["direct"][m] - cov["P0"]["direct"][m])
                             for m in members]) for s in STRATEGIES if s != "direct"} for lv in PADDED}
-        a["ranking"] = {lv: sorted(STRATEGIES, key=lambda s: -(a["coverage"][lv][s] or -1)) for lv in LEVELS}
+        a["ranking"] = ({lv: sorted(STRATEGIES, key=lambda s: -(a["coverage"][lv][s] or -1)) for lv in LEVELS}
+                        if members else {lv: [] for lv in LEVELS})
         analyses[name] = a
     per_level = {}
     for lv in LEVELS:
@@ -917,6 +957,32 @@ def _pp(row) -> str:
             + (f"; p={row['sign_test_p']}" if row.get("sign_test_p") is not None else ""))
 
 
+def _coverage_block(a: dict[str, Any], title: str) -> list[str]:
+    lines = [title.format(n=a["n_entries"]), "", f"Entries: {', '.join(a['entries']) or 'none'}.", "",
+             "| Strategy | P0 | P1 | P2 | P1 − P0 [95% CI]; better/worse/tied | P2 − P0 [95% CI]; better/worse/tied |",
+             "|---|---|---|---|---|---|"]
+    for s in STRATEGIES:
+        lines.append(f"| {LABELS[s]} | {_pct(a['coverage']['P0'][s])} | {_pct(a['coverage']['P1'][s])} | "
+                     f"{_pct(a['coverage']['P2'][s])} | {_pp(a['change_from_P0'][s]['P1'])} | "
+                     f"{_pp(a['change_from_P0'][s]['P2'])} |")
+    lines += ["", "Differences in percentage points; bootstrap interval over entries (10,000 resamples; none below 5 "
+              f"entries); with {a['n_entries']} entries the intervals are indicative only.", "",
+              "Difference from direct reading at each level:", "",
+              "| Strategy | P0 | P1 | P2 |", "|---|---|---|---|"]
+    for s in STRATEGIES:
+        if s != "direct":
+            lines.append(f"| {LABELS[s]} | " + " | ".join(_pp(a["difference_from_direct"][lv][s]) for lv in LEVELS) + " |")
+    lines += ["", "Strategy-by-size interaction (change from P0 minus direct reading's change from P0):", "",
+              "| Strategy | P1 | P2 |", "|---|---|---|"]
+    for s in STRATEGIES:
+        if s != "direct":
+            lines.append(f"| {LABELS[s]} | " + " | ".join(_pp(a["change_minus_direct_change"][lv][s]) for lv in PADDED) + " |")
+    if a["n_entries"]:
+        lines += ["", "Ranking by mean coverage: " + "; ".join(
+            f"{lv}: " + " > ".join(LABELS[s] for s in a["ranking"][lv]) for lv in LEVELS), ""]
+    return lines
+
+
 def markdown(r: dict[str, Any]) -> str:
     a = r["analysis"]["all_levels"]
     lines = [
@@ -963,29 +1029,11 @@ def markdown(r: dict[str, Any]) -> str:
     if r["errors"]:
         lines += ["Errors (no draft): " + "; ".join(f"{x['mim']} {x['level']} {x['strategy']}: {x['error'][:80]}"
                                                     for x in r["errors"]), ""]
-    lines += [f"## Coverage on the {a['n_entries']} entries every strategy completed at every level", "",
-              "| Strategy | P0 | P1 | P2 | P1 − P0 [95% CI]; better/worse/tied | P2 − P0 [95% CI]; better/worse/tied |",
-              "|---|---|---|---|---|---|"]
-    for s in STRATEGIES:
-        lines.append(f"| {LABELS[s]} | {_pct(a['coverage']['P0'][s])} | {_pct(a['coverage']['P1'][s])} | "
-                     f"{_pct(a['coverage']['P2'][s])} | {_pp(a['change_from_P0'][s]['P1'])} | "
-                     f"{_pp(a['change_from_P0'][s]['P2'])} |")
-    lines += ["", "Differences in percentage points; bootstrap interval over entries (10,000 resamples); "
-              f"with {a['n_entries']} entries the intervals are indicative only.", "",
-              "### Difference from direct reading at each level", "",
-              "| Strategy | P0 | P1 | P2 |", "|---|---|---|---|"]
-    for s in STRATEGIES:
-        if s == "direct":
-            continue
-        lines.append(f"| {LABELS[s]} | " + " | ".join(_pp(a["difference_from_direct"][lv][s]) for lv in LEVELS) + " |")
-    lines += ["", "### Strategy-by-size interaction: change from P0 minus direct reading's change from P0", "",
-              "| Strategy | P1 | P2 |", "|---|---|---|"]
-    for s in STRATEGIES:
-        if s == "direct":
-            continue
-        lines.append(f"| {LABELS[s]} | " + " | ".join(_pp(a["change_minus_direct_change"][lv][s]) for lv in PADDED) + " |")
-    lines += ["", "Ranking by mean coverage: " + "; ".join(
-        f"{lv}: " + " > ".join(LABELS[s] for s in a["ranking"][lv]) for lv in LEVELS), ""]
+    lines += _coverage_block(a, "## Coverage on the {n} entries every strategy completed at every level "
+                                "(symmetric rule of compare.py)")
+    b = r["analysis"]["all_levels_failures_on_added_allowed"]
+    lines += _coverage_block(b, "## Secondary: coverage on the {n} entries complete at every level when a per-paper "
+                                "failure on an added (off-topic) paper is allowed")
     lines += ["### Each level on its own complete set", "", "| Level | Entries | " +
               " | ".join(LABELS[s] for s in STRATEGIES) + " |", "|---|---|" + "---|" * len(STRATEGIES)]
     for lv in LEVELS:
@@ -1041,7 +1089,8 @@ def main(argv: list[str] | None = None) -> None:
     s.add_argument("--entries", default=None)
     s.add_argument("--levels", default=",".join(LEVELS))
     s.add_argument("--workers", type=int, default=4)
-    sub.add_parser("summarise", help="write results/padding/")
+    sm = sub.add_parser("summarise", help="write results/padding/")
+    sm.add_argument("-n", type=int, default=None, help="the first n entries of the build")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S")
     logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -1059,7 +1108,7 @@ def main(argv: list[str] | None = None) -> None:
     elif args.cmd == "score":
         score(split(args.entries), split(args.levels), args.workers)
     elif args.cmd == "summarise":
-        result = summarise()
+        result = summarise(args.n)
         print(markdown(result))
 
 

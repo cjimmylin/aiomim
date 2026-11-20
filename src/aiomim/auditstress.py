@@ -143,6 +143,7 @@ _VARIANT_PATTERNS: list[tuple[str, re.Pattern]] = [
     ("p", re.compile(rf"(?<![\w.])[{_AA1}]\d{{1,5}}(?:[{_AA1}*X]|fs\*?\d*|del)(?![\w])")),    # R123W, A2V
     ("c", re.compile(r"\b[cgmn]\.[-*]?\d+(?:[+-]\d+)?(?:_[-*]?\d+(?:[+-]\d+)?)?"
                      r"(?:[ACGT]>[ACGT]|delins[ACGT]+|del[ACGT]*|dup[ACGT]*|ins[ACGT]+|inv)")),
+    ("c", re.compile(r"\b[cgmn]\.[-*]?\d+(?:[+-]\d+)?[ACGT]-[ACGT]\b")),                     # OMIM c.2981-2A-G
     ("c", re.compile(r"(?<![\w.])-?\d+(?:[+-]\d+)?[ACGT]-[ACGT]\b")),                         # OMIM 367C-T
     ("c", re.compile(r"(?<![\w.])[ACGT]\d{2,6}[ACGT](?![\w])")),                              # legacy C367T
 ]
@@ -176,8 +177,12 @@ def variant_mentions(text: str) -> dict[str, set[str]]:
     """Variant names found in `text`, each with its keys; mentions that give no key are dropped."""
     text = _normalise_hgvs(text or "")
     out: dict[str, set[str]] = {}
+    taken: list[tuple[int, int]] = []
     for kind, pattern in _VARIANT_PATTERNS:
         for m in pattern.finditer(text):
+            if any(a < m.end() and m.start() < b for a, b in taken):
+                continue   # part of a longer name already read ("2A-G" inside "c.2981-2A-G")
+            taken.append(m.span())
             mention = m.group(0).rstrip(").,;")
             keys = mention_keys(mention, kind)
             if keys:
@@ -211,26 +216,29 @@ _PEOPLE = (r"(?:patients?|famil(?:y|ies)|individuals?|probands?|cases?|sibs?|sib
 
 
 def _rule_count(text: str) -> list[tuple[int, int]]:
+    # "in 2 of 5 patients": the phrase must end in a people noun or at a clause boundary, so that the
+    # deletion leaves a sentence ("abnormal in 8 of 55 (15%) samples" is not taken).
     spans = [m.span() for m in re.finditer(
-        rf",?\s(?:in|of|among) {_NUMW} (?:of|out of) (?:the )?{_NUMW}(?: (?:[a-z-]+ ){{0,2}}?{_PEOPLE})?\b", text, re.I)]
-    spans += [m.span() for m in re.finditer(rf"\s\({_NUMW} (?:of|out of) {_NUMW}(?: [a-z-]+){{0,3}}\)", text, re.I)]
+        rf",?\s(?:in|among) {_NUMW} (?:of|out of) (?:the )?{_NUMW}(?:(?: [a-z-]+){{0,2}}? {_PEOPLE}\b|(?=[,.;]))", text)]
+    spans += [m.span() for m in re.finditer(rf"\s\({_NUMW} (?:of|out of) {_NUMW}(?: [a-z-]+){{0,3}}\)", text)]
     spans += [m.span() for m in re.finditer(r"\s\(\d+/\d+\)", text)]
     return spans
 
 
+_FUNCTION_WORDS = r"(?:for|in|at|with|and|or|to|of|state|form|by|on|as|from)\b"
+
+
 def _rule_zygosity(text: str) -> list[tuple[int, int]]:
-    spans = [m.span() for m in re.finditer(
-        r",?\s(?:in (?:the )?|in a )?(?:compound )?(?:homozygous|heterozygous|hemizygous|heteroplasmic|homoplasmic) "
-        r"(?:state|form)\b", text)]
-    spans += [m.span() for m in re.finditer(
-        r"\b(?:compound )?(?:homozygous|heterozygous|hemizygous|heteroplasmic|homoplasmic) (?=[a-z])(?!state|form)",
+    # Only the adjective before a noun ("a homozygous missense mutation"); "heterozygous for" and
+    # "in compound heterozygous state" are not taken, deleting them leaves no sentence.
+    return [m.span() for m in re.finditer(
+        rf"\b(?:compound )?(?:homozygous|heterozygous|hemizygous|heteroplasmic|homoplasmic) (?=[a-z])(?!{_FUNCTION_WORDS})",
         text)]
-    return spans
 
 
 def _rule_single(text: str) -> list[tuple[int, int]]:
     return [m.span() for m in re.finditer(
-        r",?\s(?:in|from|of) (?:one|a single) (?:[A-Za-z-]+ ){0,2}?"
+        r"(?<!\bas),?\s(?:in|from|of) (?:one|a single) (?:[A-Za-z-]+ ){0,2}?"
         r"(?:family|kindred|pedigree|patient|proband|individual|child|boy|girl|man|woman|case)\b", text)]
 
 
@@ -244,7 +252,7 @@ def _rule_negation(text: str) -> list[tuple[int, int]]:
 def _rule_hedge(text: str) -> list[tuple[int, int]]:
     spans = [m.span() for m in re.finditer(
         r"\b(?:most )?(?:possibly|probably|presumably|putatively|potentially|apparently)\s", text)]
-    spans += [m.span() for m in re.finditer(r"\b(?:most )?likely\s(?!to\b)", text)]
+    spans += [m.span() for m in re.finditer(r"(?<!\bmore )(?<!\bless )\b(?:most )?likely\s(?!to\b|than\b)", text)]
     spans += [m.span() for m in re.finditer(r"\bputative\s", text)]
     return spans
 
@@ -287,7 +295,8 @@ def apply_rule(text: str, rule: str) -> dict[str, Any] | None:
     after = delete_span(text, span)
     if after == text:
         return None
-    sent = next(((a, b) for a, b in sentence_spans(text) if a <= span[0] < b), (0, len(text)))
+    inside = span[0] + (len(text[span[0]:span[1]]) - len(text[span[0]:span[1]].lstrip(" ,")))
+    sent = next(((a, b) for a, b in sentence_spans(text) if a <= inside < b), (0, len(text)))
     before_sentence = text[sent[0]:sent[1]]
     after_sentence = delete_span(before_sentence, (span[0] - sent[0], span[1] - sent[0]))
     return {"rule": rule, "deleted": text[span[0]:span[1]].strip(" ,"), "before_sentence": before_sentence,
@@ -299,32 +308,51 @@ def apply_rule(text: str, rule: str) -> dict[str, Any] | None:
 # --------------------------------------------------------------------------- #
 
 _YEAR = re.compile(r"^(?:19|20)\d\d$")
+_NUMBER = re.compile(r"(?<![\w.,])(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)(?![\w]|,\d{3})")
+_NUMBER_WORDS = {w: str(i) for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve".split())}
+
+
+def numbers_in(text: str) -> set[str]:
+    """Numbers in `text` as digits: '1,012' -> '1012', 'two' -> '2' (number words up to twelve)."""
+    words = re.sub(r"\b(" + "|".join(_NUMBER_WORDS) + r")\b", lambda m: _NUMBER_WORDS[m.group(1).lower()],
+                   text or "", flags=re.I)
+    return {n.replace(",", "") for n in _NUMBER.findall(words)}
 
 
 def distinctive(sentence: str) -> dict[str, Any]:
-    """Variant keys and numbers of a sentence, years and MIM numbers left out."""
-    keys = exact_keys(variant_mentions(sentence))
-    variant_text = " ".join(variant_mentions(sentence))
+    """Variant keys and numbers of a sentence, years, MIM numbers and the numbers inside variant names left out."""
+    mentions = variant_mentions(sentence)
+    keys = exact_keys(mentions)
+    stripped = re.sub(r"\b[A-Z][\w'-]+(?: and [A-Z][\w'-]+| et al\.)?,? \(?\d{4}\)?", " ", sentence)
+    for v in mentions:
+        stripped = stripped.replace(v, " ")
+    numbers = sorted({n for n in numbers_in(stripped) if not _YEAR.match(n) and len(n) != 6},
+                     key=lambda x: (len(x), x))
+    return {"keys": sorted(keys), "numbers": numbers, "has_variant_text": bool(mentions)}
+
+
+def _selection_numbers(sentence: str) -> list[str]:
+    """The numbers C6's sentence selection uses (digits only, as when the items were built and frozen)."""
     stripped = re.sub(r"\b[A-Z][\w'-]+(?: and [A-Z][\w'-]+| et al\.)?,? \(?\d{4}\)?", " ", sentence)
     for v in variant_mentions(sentence):
         stripped = stripped.replace(v, " ")
-    numbers = sorted({n for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w])", stripped)
-                      if not _YEAR.match(n) and len(n) != 6}, key=lambda s: (len(s), s))
-    return {"keys": sorted(keys), "numbers": numbers, "has_variant_text": bool(variant_text)}
+    return sorted({n for n in re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w])", stripped)
+                   if not _YEAR.match(n) and len(n) != 6}, key=lambda x: (len(x), x))
 
 
 def mechanical_match(sentence: str, omission_texts: list[str]) -> bool | None:
-    """Does any listed omission carry the sentence's variant (by key) or all its numbers? None if nothing distinctive."""
+    """Does a listed omission name one of the sentence's variants (by key), or carry all its numbers?
+
+    None when the sentence has nothing distinctive to look for.
+    """
     d = distinctive(sentence)
     if not d["keys"] and not d["numbers"]:
         return None
     for text in omission_texts:
-        if d["keys"]:
-            if set(d["keys"]) & exact_keys(variant_mentions(text)):
-                return True
-            continue
-        toks = set(re.findall(r"(?<![\w.])\d+(?:\.\d+)?(?![\w])", text))
-        if all(n in toks for n in d["numbers"]):
+        if d["keys"] and set(d["keys"]) & exact_keys(variant_mentions(text)):
+            return True
+        if d["numbers"] and set(d["numbers"]) <= numbers_in(text):
             return True
     return False
 
@@ -374,16 +402,37 @@ def load_as_run(entry_dir: Path) -> dict[str, Paper]:
     """The entry's papers at the access level the run recorded: full text fetched only for papers the run
     read in full (cached), so a paper the run had only as an abstract is not looked up again (and cannot
     gain text the writer never had)."""
+    from .http import get_http
     from .sources.fulltext import fetch_fulltext
     from .sources.ncbi import pubmed_fetch
     records = json.loads((entry_dir / "papers.json").read_text(encoding="utf-8"))
     level = {r["pmid"]: r.get("content_level") for r in records}
     out = {}
-    for p in pubmed_fetch([r["pmid"] for r in records]):
-        if level.get(p.pmid) == "fulltext":
-            got = fetch_fulltext(p)
-            if got:
-                p = p.model_copy(update={"fulltext": got[0], "fulltext_source": got[1]})
+    # Cached responses are what the run read: use them whatever their age (an expired entry would
+    # otherwise be fetched again, slowly, and might differ from what the writer and the audit saw).
+    # Nothing is fetched afresh: a request not answered from the cache fails at once, as the
+    # run's own failed lookups did (they are not cached, and retrying them is slow).
+    from .http import HttpError
+    http = get_http()
+    cache = http.cache
+    original, request = cache.get_text, http._request
+
+    def offline(url, *a, **k):
+        raise HttpError("offline: not in the HTTP cache", status=None, url=url)
+
+    cache.get_text = lambda key, max_age_s=None: original(key, None)  # type: ignore[method-assign]
+    http._request = offline  # type: ignore[method-assign]
+    try:
+        fetched = pubmed_fetch([r["pmid"] for r in records])
+        for i, p in enumerate(fetched):
+            if level.get(p.pmid) == "fulltext":
+                got = fetch_fulltext(p)
+                if got:
+                    fetched[i] = p.model_copy(update={"fulltext": got[0], "fulltext_source": got[1]})
+    finally:
+        cache.get_text = original  # type: ignore[method-assign]
+        http._request = request  # type: ignore[method-assign]
+    for p in fetched:
         if level.get(p.pmid) and p.content_level != level[p.pmid]:
             log.warning("[%s] paper %s reads as %s, run had %s", entry_dir.name, p.pmid, p.content_level,
                         level[p.pmid])
@@ -426,6 +475,10 @@ class Library:
         for papers in self._papers.values():
             if pmid in papers:
                 return papers[pmid]
+        for path in sorted(self.run_dir.glob("*/papers.json")):   # a paper of an entry not loaded yet
+            if path.parent.name not in self._papers and pmid in path.read_text():
+                if pmid in self.papers(path.parent.name):
+                    return self._papers[path.parent.name][pmid]
         raise KeyError(pmid)
 
     def source(self, pmid: str) -> str:
@@ -536,7 +589,7 @@ def build_items(run_dir: Path, n: int = DEFAULT_N, seed: int = DEFAULT_SEED, lib
             cands = []
             for k, (a, z) in enumerate(spans[1:], 1):
                 sentence = b["text"][a:z]
-                d = distinctive(sentence)
+                d = {"keys": sorted(exact_keys(variant_mentions(sentence))), "numbers": _selection_numbers(sentence)}
                 if not d["keys"] and not d["numbers"]:
                     continue
                 rest = draft_about(entry, b["pmid"], {b["paragraph_id"]: b["text"][:a] + b["text"][z:]})
@@ -1337,6 +1390,12 @@ def tally_c6(items: list[dict[str, Any]], done: dict[str, Any]) -> dict[str, Any
     for arm in ("altered", "control"):
         rs = [(it, rows[it["id"]][arm]) for it in items if it["id"] in rows and arm in rows[it["id"]]]
         ok = [(it, r) for it, r in rs if not r["error"]]
+        for it, r in ok:   # recomputed here, so a change of the matching rule needs no new calls
+            if "deleted_sentence" in it:
+                r["mechanical"] = mechanical_match(it["deleted_sentence"],
+                                                   [o["finding"] + " " + o["quote"] for o in r["omissions"]])
+                r["mechanical_verified"] = mechanical_match(
+                    it["deleted_sentence"], [o["finding"] + " " + o["quote"] for o in r["omissions"] if o["quote_verified"]])
         n_om = [len(r["omissions"]) for _, r in ok]
         n_ver = [sum(o["quote_verified"] for o in r["omissions"]) for _, r in ok]
         mech = [r["mechanical"] for _, r in ok if r["mechanical"] is not None]

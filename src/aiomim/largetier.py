@@ -53,7 +53,8 @@ MIN_HPO, MIN_PARAGRAPHS = 5, 1
 SAMPLE_SIZE = 200          # design: up to 400; cut to 200 at the coordinator's request (slow lookup)
 N_SELECT = 8               # design: 16; reduced to 8 at the user's request (smaller budget)
 MIN_FULLTEXT = 5
-SELECT_SEED = 2611          # chosen for this experiment; recorded in the evaluation set's header
+SELECT_SEED = 2611
+RESOLVE_PARALLEL = 4          # chosen for this experiment; recorded in the evaluation set's header
 
 # --------------------------------------------------------------------------- #
 # Pure helpers (unit-tested)
@@ -82,22 +83,34 @@ def rank_key(mim: str, n_fulltext: int) -> tuple[int, int]:
     return (-n_fulltext, int(mim))
 
 
-def exact_top_k(bounds: dict[str, int], resolve: Callable[[str], int], k: int) -> tuple[list[str], dict[str, int]]:
+def exact_top_k(bounds: dict[str, int], resolve: Callable[[str], int], k: int, batch: int = 1,
+                mapper: Callable | None = None) -> tuple[list[str], dict[str, int]]:
     """The k entries with the highest resolved count, resolving as few as possible.
 
     `bounds[m]` is an upper bound on `resolve(m)`. Entries are resolved in order of
     (-bound, mim); resolution stops when the next entry cannot displace the current k-th
     (its bound is lower than the k-th count, or equal with a higher MIM number, since ties
-    go to the lower number). Returns the top k (in rank order) and every resolved count.
+    go to the lower number). With `batch` > 1, up to `batch` entries are resolved at a time
+    through `mapper` (e.g. a thread pool's map); that may resolve a few more entries than
+    needed but never changes the result. Returns the top k (in rank order) and every
+    resolved count.
     """
+    mapper = mapper or map
     order = sorted(bounds, key=lambda m: rank_key(m, bounds[m]))
     resolved: dict[str, int] = {}
-    for mim in order:
-        if len(resolved) >= k:
-            kth = sorted(resolved, key=lambda m: rank_key(m, resolved[m]))[k - 1]
-            if rank_key(mim, bounds[mim]) > rank_key(kth, resolved[kth]):
-                break
-        resolved[mim] = resolve(mim)
+
+    def can_enter(mim: str) -> bool:
+        if len(resolved) < k:
+            return True
+        kth = sorted(resolved, key=lambda m: rank_key(m, resolved[m]))[k - 1]
+        return rank_key(mim, bounds[mim]) <= rank_key(kth, resolved[kth])
+
+    i = 0
+    while i < len(order) and can_enter(order[i]):
+        chunk = order[i:i + max(1, batch)]
+        for mim, count in zip(chunk, mapper(resolve, chunk)):
+            resolved[mim] = count
+        i += len(chunk)
     top = sorted(resolved, key=lambda m: rank_key(m, resolved[m]))[:k]
     return top, resolved
 
@@ -259,7 +272,12 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None, sample_
                  bounds[mim]["n_refs"], bounds[mim]["n_pmc"])
         return described[mim]["n_fulltext"]
 
-    top, resolved = exact_top_k({m: b["n_pmc"] for m, b in bounds.items()}, resolve, n_select)
+    from concurrent.futures import ThreadPoolExecutor
+
+    # Europe PMC answers a full-text request in up to ~30 s, so a few entries are resolved at once.
+    with ThreadPoolExecutor(max_workers=RESOLVE_PARALLEL) as pool:
+        top, resolved = exact_top_k({m: b["n_pmc"] for m, b in bounds.items()}, resolve, n_select,
+                                    batch=RESOLVE_PARALLEL, mapper=pool.map)
     threshold = threshold_used([resolved[m] for m in top])
 
     rows = []
