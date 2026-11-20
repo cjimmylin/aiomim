@@ -24,6 +24,12 @@ scoring and can be compared entry by entry.
                 conflicts; the entry is rendered from the reconciled database.
     guided      direct reading with a curation guide learned from the misses and
                 extras of other entries (a training split) appended to the prompt.
+    direct_checklist  direct reading with the house style's per-paper guidance made
+                into an explicit list of what a curator records about each paper.
+    direct_complete   direct reading's draft, a completeness check per paper, then
+                one revision adding the omissions the check listed (quotes verified).
+    direct_ensemble   direct reading's draft and two fresh samples, merged into one
+                draft keeping every distinct statement (citations unioned mechanically).
 
 A strategy module exposes `run(seed, papers, llm, out_dir) -> GeneratedEntry`. It
 may write its own working files into `out_dir`. Two optional hooks:
@@ -85,6 +91,13 @@ STRATEGIES: dict[str, StrategySpec] = {s.name: s for s in (
                  "Case table with extraction at the writer's effort and synopsis terms and inheritance chosen by the writer."),
     StrategySpec("cohort_hybrid", "Case table plus text",
                  "As the matched case table, and the writer also reads the papers' text."),
+    # Improvements on direct reading (docs/direct-improvements.md); evaluated without repair.
+    StrategySpec("direct_checklist", "Direct reading, curator checklist",
+                 "Direct reading; the house style's per-paper guidance is an explicit list of what a curator records."),
+    StrategySpec("direct_complete", "Direct reading, completeness pass",
+                 "Direct reading's draft; a per-paper omission check, then one revision adding the listed omissions."),
+    StrategySpec("direct_ensemble", "Direct reading, three-draft merge",
+                 "Direct reading's draft and two fresh samples, merged keeping every distinct statement."),
 )}
 
 # What 'all' means on the command line: the strategies of the first comparison.
