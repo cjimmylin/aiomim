@@ -1484,6 +1484,103 @@ def _mims(entries: str | None, entries_file: str | None) -> list[str] | None:
     return None
 
 
+#: The arm whose draft each completeness-pass arm revises (taken from the cache, the same text): what is left
+#: when the revision is stopped. `recommended` keeps that draft unrevised; the evaluated arms recorded no draft.
+DRAFT_OF = {"direct_complete": "direct", "direct_checklist_complete": "direct_checklist"}
+SENSITIVITY_RULES = ("as_zero", "draft_kept")
+
+
+def missing_sensitivity(run_dir: Path, mims: list[str]) -> dict[str, Any]:
+    """Every entry of the run, with the entries an arm lost to a stopped reply put back two ways.
+
+    `as_zero`: a missing draft scores 0 on each fact measure the entry has facts for (the rule of the main
+    comparison's sensitivity analysis, log 2.4); incomplete drafts are kept as scored. `draft_kept`: where a
+    completeness-pass arm's revision was stopped, the draft it would have revised is scored instead (the
+    baseline's draft for D2, D1's for D4; `DRAFT_OF`), which is what the adopted `recommended` strategy does. Both
+    against the baseline, which completed every entry here: difference, bootstrap interval, better / worse /
+    tied and the exact sign test, unadjusted. Stored scores only; no model call.
+    """
+    from .compare import _pair_stats
+
+    status = completion(run_dir, mims, ALL_ARMS)
+    if any(status[BASELINE][m] != "complete" for m in mims):
+        raise RuntimeError("the baseline is not complete on every entry; the comparison below assumes it is")
+    scored = {a: {m: entry_measures(run_dir, m, a) for m in mims if status[a][m] in ("complete", "incomplete")}
+              for a in ALL_ARMS}
+    lost = {a: sorted(m for m in mims if status[a][m] == "no_draft") for a in ALL_ARMS}
+    not_run = {a: sorted(m for m in mims if status[a][m] == "not_run") for a in ALL_ARMS}
+    if any(not_run.values()):
+        raise RuntimeError(f"arms not run on every entry: { {a: v for a, v in not_run.items() if v} }")
+
+    def value(arm: str, mim: str, key: str, rule: str) -> float | None:
+        if mim in scored[arm]:
+            return scored[arm][mim][key]
+        base = scored[BASELINE][mim]
+        if base[key] is None:                      # the entry has no facts in this restriction
+            return None
+        if rule == "as_zero" or arm not in DRAFT_OF:
+            return 0.0
+        return scored[DRAFT_OF[arm]][mim][key]
+
+    out: dict[str, Any] = {
+        "n_entries": len(mims), "lost_to_a_stop": {a: v for a, v in lost.items() if v},
+        "incomplete_kept_as_scored": {a: sorted(m for m in mims if status[a][m] == "incomplete")
+                                      for a in ALL_ARMS if any(status[a][m] == "incomplete" for m in mims)},
+        "draft_of": DRAFT_OF, "bootstrap": {"seed": BOOTSTRAP_SEED}, "measures": {}}
+    for key, label, _, _ in MEASURES:
+        block: dict[str, Any] = {"label": label}
+        for rule in SENSITIVITY_RULES:
+            rows: dict[str, Any] = {}
+            for arm in ALL_ARMS:
+                vals = {m: value(arm, m, key, rule) for m in mims}
+                rows[arm] = {"mean_over_entries": _mean(list(vals.values())),
+                             "n_entries": sum(1 for v in vals.values() if v is not None)}
+                if arm != BASELINE:
+                    pairs = [(vals[m], scored[BASELINE][m][key]) for m in mims
+                             if vals[m] is not None and scored[BASELINE][m][key] is not None]
+                    rows[arm]["versus_baseline"] = _pair_stats(pairs, True, random.Random(BOOTSTRAP_SEED))
+            block[rule] = rows
+        out["measures"][key] = block
+    return out
+
+
+def sensitivity_markdown(r: dict[str, Any]) -> str:
+    lab = {**LABELS, EXTENSION: "D4 checklist + completeness pass"}
+    rule_text = {"as_zero": "A missing draft counted as zero",
+                 "draft_kept": "A stopped revision replaced by the draft it would have revised (as `recommended` does)"}
+    L = ["# Improving on direct reading: every entry, stopped entries put back", "",
+         f"All {r['n_entries']} entries of the run (the baseline completed every one). Two rules for an entry an arm "
+         "lost to a stopped reply: counted as zero (as in the main comparison's sensitivity analysis), or, for the "
+         "completeness-pass arms, the draft the revision would have revised is scored in its place (the baseline's "
+         "draft for D2, D1's checklist draft for D4; the same text, taken from the cache). The second is what the "
+         "adopted `recommended` strategy does when its revision is stopped. Incomplete drafts (a stopped check on one "
+         "paper) are kept as scored under both rules. Differences are arm minus baseline in percentage points, mean "
+         f"over entries, 95% percentile bootstrap interval (10,000 resamples, seed {r['bootstrap']['seed']}), entries "
+         "better / worse / tied, exact sign test, unadjusted. Stored scores only; no model call.", "",
+         "Entries lost to a stopped reply: " + "; ".join(f"{lab[a]} {len(v)} ({', '.join(v)})"
+                                                         for a, v in r["lost_to_a_stop"].items()) + ".",
+         "Incomplete, kept as scored: " + "; ".join(f"{lab[a]} {len(v)} ({', '.join(v)})"
+                                                     for a, v in r["incomplete_kept_as_scored"].items()) + ".", ""]
+    for key, block in r["measures"].items():
+        L += [f"## {block['label']}", ""]
+        for rule in SENSITIVITY_RULES:
+            L += [f"### {rule_text[rule]}", "",
+                  "| Arm | Mean over entries | Entries | Difference | 95% CI | Better/worse/tied | Sign p |",
+                  "|---|---|---|---|---|---|---|"]
+            for arm, row in block[rule].items():
+                c = row.get("versus_baseline")
+                if c is None:
+                    L.append(f"| {lab[arm]} | {_pct(row['mean_over_entries'])} | {row['n_entries']} | – | – | – | – |")
+                    continue
+                ci = f"{100 * c['ci95'][0]:+.1f} to {100 * c['ci95'][1]:+.1f}" if c["ci95"] else "–"
+                p = c["sign_test_p"]
+                ps = "–" if p is None else ("<0.001" if p < 0.001 else f"{p:.3f}")
+                L.append(f"| {lab[arm]} | {_pct(row['mean_over_entries'])} | {row['n_entries']} | "
+                         f"{100 * c['difference']:+.1f} | {ci} | {c['better']}/{c['worse']}/{c['ties']} | {ps} |")
+            L.append("")
+    return "\n".join(L)
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(prog="python -m aiomim.directplus")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1510,6 +1607,10 @@ def main(argv: list[str] | None = None) -> None:
     fr = sub.add_parser("report")
     fr.add_argument("--run", required=True)
     fr.add_argument("--out", default="results/direct_improve")
+    se = sub.add_parser("sensitivity", help="Every entry, with entries lost to a stop counted as zero or "
+                                            "replaced by the unrevised draft (stored scores only).")
+    se.add_argument("--run", default="direct_improve")
+    se.add_argument("--out", default="results/direct_improve")
     pe = sub.add_parser("project-extension")
     pe.add_argument("--run", default="direct_improve")
     pe.add_argument("--pilot", default="direct_improve_pilot")
@@ -1551,6 +1652,13 @@ def main(argv: list[str] | None = None) -> None:
     elif args.cmd == "report":
         final_report(args.run, Path(args.out))
         print((Path(args.out) / "direct_improve.md").read_text())
+    elif args.cmd == "sensitivity":
+        run_dir = run_dir_of(args.run)
+        result = missing_sensitivity(run_dir, entries_of(run_dir))
+        out = Path(args.out)
+        _write(out / "sensitivity.json", result)
+        (out / "sensitivity.md").write_text(sensitivity_markdown(result) + "\n", encoding="utf-8")
+        print((out / "sensitivity.md").read_text())
     elif args.cmd == "project-extension":
         result = project_extension(args.run, args.pilot)
         _write(run_dir_of(args.pilot) / "projection.extension.json", result)

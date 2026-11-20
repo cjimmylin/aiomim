@@ -157,7 +157,22 @@ lowered. Code names: `direct` direct reading; `direct_checklist` D1; `direct_com
     body = []
     for line in read(path).splitlines():
         body.append("##" + line if line.startswith("#") else line)
-    return head + "\nFrom `results/direct_improve/direct_improve.md`.\n\n" + "\n".join(body).strip() + "\n"
+    out = head + "\nFrom `results/direct_improve/direct_improve.md`.\n\n" + "\n".join(body).strip() + "\n"
+    sens = ROOT / "results/direct_improve/sensitivity.md"
+    if sens.exists():
+        lines = read(sens).splitlines()
+        out += """
+### 15.1 Sensitivity: every entry, stopped entries put back
+
+Added after the paper's first review round (not in the evaluation design; stored scores only, no new model calls).
+The comparison above uses only the entries complete for every arm, as the design specified; this one keeps all 41
+entries and puts back the entries the completeness-pass arms lost to a stopped revision, in two ways. The result file
+is reproduced below with its headings lowered (its title dropped).
+
+From `results/direct_improve/sensitivity.md`.
+
+""" + "\n".join("##" + ln if ln.startswith("#") else ln for ln in lines[1:]).strip() + "\n"
+    return out
 
 
 def report(run: str) -> str:

@@ -211,3 +211,52 @@ planted items per class show directions and large effects only. Say so once wher
   among the limitations.
 - **Figures.** Every figure must be legible at the width it is printed (no text below 7 pt), use one colour per
   strategy consistently across figures, and carry no text that belongs in the caption.
+
+## Added after the first review of the next version (draft v0 of run 2; numbers are in the log)
+
+- **Stopped entries in the reading-better arms (log 15.1, added after this review, not pre-specified).** On all 41
+  entries, with the entries the completeness-pass arms lost to a stopped revision put back: if the draft the revision
+  would have revised is scored in their place (what the adopted default does), the checklist with the completeness
+  pass conveys 3.1 points more than direct reading (+1.8 to +4.3; 32/7/2) and the completeness pass alone 2.4 (+1.5 to
+  +3.4); if a lost entry counts as zero, the two arms as evaluated are below direct reading on the mean (−4.8 and
+  −3.5, intervals including zero) although they are better on more entries. Say both, and say that the gain depends
+  on keeping the draft when the revision is stopped. Label the analysis as added after review.
+- **Scope the strategy claim.** "No other design conveyed more than direct reading" holds at the main comparison's
+  settings only. With extraction at the writers' effort and the writer choosing synopsis terms (38 entries, log 5),
+  the evidence graph conveyed 1.8 points more than direct reading (+0.4 to +3.3; 24/10) and the case table's deficit
+  shrank to −0.2. State in the main text, where the settings are introduced (not only in an appendix), that per-paper
+  extraction ran at medium effort and synopsis terms were assigned by rule in the main comparison. The supported
+  claim: the designs differ by a few points either way, the order of close designs depends on settings, and every such
+  difference is small against the effect of access to full text. Rewrite the introduction, discussion and conclusion
+  sentences that say the designs did not beat direct reading.
+- **The case table's deficit.** Its interval excludes zero but its sign test does not reach 0.05, the five
+  comparisons with direct reading are not adjusted, and counting missing drafts as zero gives an interval including
+  zero (log 2.3a, 2.4). Call it suggestive. The restriction to facts stated in full-text papers (log 2.10a) was added
+  after the first results, not specified in advance: say so wherever it is used, and do not call it "the stronger
+  evidence".
+- **The access claim.** Let the hidden-full-text experiment carry it (the within-paper comparison). The stated /
+  not-stated split is consistent with it but partly by construction: "stated" needs a quote the model found, so facts
+  that need inference are more likely classed as not stated. Say this in one sentence where the split is shown.
+- **Released systems.** Remove them from the introduction's list of findings and contributions. Keep one short
+  paragraph in the results (what was run, on how many entries, the caveats in the earlier note) and the detail in the
+  appendix.
+- **Recall, then verify.** Its writer adds nothing from the papers, so its low coverage is by construction. Present it
+  as the memory-first paradigm's verified variant and say what it shows (how much of memory survives verification),
+  not as a competitor on coverage.
+- **Reuse of the benchmark.** The fixed fact lists contain curator wording and are not redistributed. A new strategy
+  can be scored against the same denominators only by someone who rebuilds the reference under the rights holder's
+  terms and re-splits it. How much a fresh split by the same procedure moves levels was not measured; a different
+  procedure (splitting afresh for each draft, log 4.4) ran 2–5 points higher with the same ordering. Differences
+  measured within one split are the comparable quantity. Say this plainly in the benchmark description and the limitations.
+- **Title.** At most two lines. It must not claim more than is measured: the endpoint is facts from variant-centred
+  curator paragraphs about the cited papers, not whole knowledge-base entries.
+- **Presentation (all three reviewers).** Put the definitions a reader needs (fact, conveyed and partly conveyed,
+  stated in the supplied text, pooled over facts versus mean over entries, completion and the symmetric rule, repaired
+  versus unrepaired drafts) in one place in the method section. Separate pre-specified results from exploratory and
+  post-hoc ones, and label the latter. Runs on 10 or fewer entries go to the appendix with one sentence each in the
+  main text. In prose, give one estimate with its interval per claim and leave the rest to tables. Fewer, plainer
+  sentences; no claim should need more than one hedge.
+- **Patterns the log shows but does not explain** (e.g. direct reading's lower coverage in the oldest creation band).
+  Mention them only as observed; do not invent explanations.
+- **Not done, and not to be promised:** no human validation of any judgement, no judge or writer from a second model
+  family, no comparable large-entry results. These remain the first limitations. Say what each would establish.
