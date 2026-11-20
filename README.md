@@ -174,6 +174,16 @@ aiomim gold 500001                       # what gold-standard material exists fo
 aiomim run 500001 --run demo             # replicate the entry and score it
 ```
 
+`aiomim run` writes entries with the **recommended** strategy unless `--strategy` says otherwise: where at least one
+cited paper is readable in full, a direct-reading draft written with a curator checklist, then a completeness pass
+that checks each paper for findings the draft omits and adds only those it can quote from the paper; where no paper is
+readable in full, plain direct reading. If the model's safety filter stops the completeness pass's revision, the
+checklist draft is kept unrevised (recorded in the entry's `meta.recommended`); nothing is retried. Like every
+strategy, the draft then goes through the claim-level audit and one repair round. Why this one: on 35 held-out
+entries with full text it conveyed 3.3 points more curator facts than direct reading (95% interval +2.0 to +4.7) with
+no loss of fidelity, at about twice the cost ([`docs/direct-improvements.md`](docs/direct-improvements.md)); one model
+family did all the judging.
+
 ```bash
 aiomim report demo                       # build runs/demo/report.html, the curator review page
 ```
@@ -187,7 +197,7 @@ network or model calls. Outputs go to `runs/<run>/<mim>/`.
 |---|---|
 | `aiomim gold MIM…` | Show the gold standard available for each entry. |
 | `aiomim select --from 2026/01/01 --to 2026/11/30` | List entries created in a date window with their gold coverage, to build an evaluation set (entries newer than the model's training data are the cleanest test). |
-| `aiomim run MIM… [--retrieval oracle\|open] [--strategy NAMES\|all] [--jobs N]` | Replicate existing entries and score them. `NAMES` is a comma-separated list of strategies; `all` means the six compared head to head. |
+| `aiomim run MIM… [--retrieval oracle\|open] [--strategy NAMES\|all] [--jobs N]` | Replicate existing entries and score them. The default strategy is `recommended`; `NAMES` is a comma-separated list of strategies; `all` means the six compared head to head. |
 | `aiomim create --title "…" --gene SYMBOL [--pmid …]` | Draft a **new** entry from a title, gene and optional seed papers. |
 | `aiomim update MIM… [--as-of YEAR]` | Propose **updates** to an existing entry from literature it does not cite; `--as-of` back-tests against the references OMIM later added. |
 | `aiomim backtest MIM…` | Back-test update discovery over several entries and pool the result. |

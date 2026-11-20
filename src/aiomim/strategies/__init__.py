@@ -32,6 +32,8 @@ scoring and can be compared entry by entry.
                 draft keeping every distinct statement (citations unioned mechanically).
     direct_checklist_complete  the checklist draft, then the completeness pass of
                 direct_complete (its revision prompt with the checklist house style).
+    recommended  the adopted default: direct_checklist_complete where a paper is readable
+                in full (a stopped revision keeps the checklist draft), else direct reading.
 
 A strategy module exposes `run(seed, papers, llm, out_dir) -> GeneratedEntry`. It
 may write its own working files into `out_dir`. Two optional hooks:
@@ -102,6 +104,10 @@ STRATEGIES: dict[str, StrategySpec] = {s.name: s for s in (
                  "Direct reading's draft and two fresh samples, merged keeping every distinct statement."),
     StrategySpec("direct_checklist_complete", "Direct reading, checklist plus completeness pass",
                  "The curator-checklist draft; a per-paper omission check, then one revision adding the listed omissions."),
+    # The adopted way of writing an entry (docs/direct-improvements.md): the default of `aiomim run`.
+    StrategySpec("recommended", "Recommended",
+                 "Checklist draft plus completeness pass where a paper is readable in full, else direct reading; "
+                 "a stopped revision keeps the checklist draft."),
 )}
 
 # What 'all' means on the command line: the strategies of the first comparison.

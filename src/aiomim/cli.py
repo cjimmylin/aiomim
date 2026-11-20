@@ -49,9 +49,11 @@ def _read_mims(path: str) -> list[str]:
 @click.option("--run", "run_name", default="default", show_default=True, help="Name of the run directory.")
 @click.option("--retrieval", type=click.Choice(["oracle", "open"]), default="oracle", show_default=True,
               help="oracle: use OMIM's own reference list. open: find the literature from scratch.")
-@click.option("--strategy", default="kg", show_default=True,
-              help="How entries are generated: kg, direct, agent, closedbook, recall, cohort; a comma-separated "
-                   "list; 'both' (kg and direct) or 'all'.")
+@click.option("--strategy", default="recommended", show_default=True,
+              help="How entries are generated: recommended (the adopted default: checklist draft plus completeness "
+                   "pass where a paper is readable in full, else direct reading), or any strategy by name (kg, "
+                   "direct, agent, closedbook, recall, cohort, ...); a comma-separated list; 'both' (kg and "
+                   "direct) or 'all' (the six compared head to head).")
 @click.option("--max-papers", default=25, show_default=True, help="Cap on papers selected by open retrieval.")
 @click.option("--no-verify", is_flag=True, help="Skip the claim-level audit.")
 @click.option("--no-repair", is_flag=True, help="Audit but do not revise flagged paragraphs.")

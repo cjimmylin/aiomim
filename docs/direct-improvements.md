@@ -176,3 +176,15 @@ compared on 35 entries; the four earlier arms' 38-entry results above are unchan
   stopped replies (6 of 41 against 3 for the completeness pass and none for direct reading).
 - **Reading:** the combination has the best point estimate and is a reasonable default where full text is available;
   most of its gain is the completeness pass's. Every judgement is the same model's.
+
+## Adopted (20 November 2026)
+
+The checklist with the completeness pass is the project's default way of writing an entry: strategy `recommended`,
+the default of `aiomim run` (`src/aiomim/strategies/recommended.py`). Where at least one supplied paper is readable
+in full it runs D4's procedure; where none is, plain direct reading, since no variant helped on abstract-only papers
+and the extra calls only add chances of a stopped reply. One difference from the evaluated arm, because this is a way
+of producing entries rather than an experimental arm: if the safety filter stops the revision, the checklist draft is
+kept unrevised and the entry's `meta.recommended` records it (in the evaluation such an entry counted as having no
+draft). Nothing is retried or reworded. The audit and its repair round apply as for every strategy. The study's
+comparisons, `--strategy all` and the paper are unchanged. Checked end to end on one entry with full text (route:
+checklist draft with the completeness pass) and one without (route: direct reading).
