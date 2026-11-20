@@ -143,7 +143,9 @@ the three tested on 41 held-out entries with full text all helped a little, with
 supplied text better can add: a completeness pass (check each paper for omissions, then revise) conveyed 2.6 more
 points of curator facts with no loss of fidelity at about twice the cost; merging three drafts conveyed 3.1 more but
 partly from outside the papers and with more unsupported claims; a curator checklist in the prompt added 1.6 at no
-cost ([`results/direct_improve/`](results/direct_improve/)). Access to full text remains the larger lever.
+cost; the checklist and the completeness pass together conveyed 3.3 more on 35 entries, little more than the
+completeness pass alone ([`results/direct_improve/`](results/direct_improve/)). Access to full text remains the
+larger lever.
 
 A curator reviews a run on a single page: the draft in OMIM's layout, the audit's verdict and evidence for every
 claim, the comparison with OMIM, the evidence graph, and accept / edit / reject for each paragraph. To browse the

@@ -7576,5 +7576,1912 @@
         "calls_new_score": 5
       }
     }
+  },
+  "extension": {
+    "arm": "direct_checklist_complete",
+    "design": "docs/direct-improvements.md, 'Extension: checklist and completeness pass together (D4)'",
+    "completion": {
+      "direct": {
+        "counts": {
+          "complete": 41,
+          "incomplete": 0,
+          "no_draft": 0,
+          "not_run": 0
+        },
+        "not_complete": {}
+      },
+      "direct_checklist": {
+        "counts": {
+          "complete": 41,
+          "incomplete": 0,
+          "no_draft": 0,
+          "not_run": 0
+        },
+        "not_complete": {}
+      },
+      "direct_complete": {
+        "counts": {
+          "complete": 38,
+          "incomplete": 0,
+          "no_draft": 3,
+          "not_run": 0
+        },
+        "not_complete": {
+          "118210": "no_draft",
+          "617232": "no_draft",
+          "621030": "no_draft"
+        }
+      },
+      "direct_ensemble": {
+        "counts": {
+          "complete": 41,
+          "incomplete": 0,
+          "no_draft": 0,
+          "not_run": 0
+        },
+        "not_complete": {}
+      },
+      "direct_checklist_complete": {
+        "counts": {
+          "complete": 35,
+          "incomplete": 2,
+          "no_draft": 4,
+          "not_run": 0
+        },
+        "not_complete": {
+          "118210": "no_draft",
+          "613744": "incomplete",
+          "615817": "incomplete",
+          "617232": "no_draft",
+          "620249": "no_draft",
+          "621030": "no_draft"
+        }
+      }
+    },
+    "compared_entries": [
+      "251950",
+      "603689",
+      "604307",
+      "604928",
+      "606763",
+      "607602",
+      "607721",
+      "607734",
+      "607876",
+      "608133",
+      "611521",
+      "614651",
+      "614856",
+      "615073",
+      "615268",
+      "615582",
+      "615710",
+      "615972",
+      "616151",
+      "617153",
+      "617927",
+      "618343",
+      "618400",
+      "618808",
+      "618875",
+      "619124",
+      "619201",
+      "620022",
+      "620029",
+      "620098",
+      "620402",
+      "620481",
+      "620662",
+      "620851",
+      "621313"
+    ],
+    "n_compared": 35,
+    "sign_tests": "unadjusted (primary: one comparison; secondaries reported as such)",
+    "facts_conveyed": {
+      "all": {
+        "label": "All facts",
+        "means": {
+          "direct": {
+            "mean_over_entries": 0.6007,
+            "n_entries": 35
+          },
+          "direct_checklist": {
+            "mean_over_entries": 0.6178,
+            "n_entries": 35
+          },
+          "direct_complete": {
+            "mean_over_entries": 0.6261,
+            "n_entries": 35
+          },
+          "direct_ensemble": {
+            "mean_over_entries": 0.6323,
+            "n_entries": 35
+          },
+          "direct_checklist_complete": {
+            "mean_over_entries": 0.6337,
+            "n_entries": 35
+          }
+        },
+        "comparisons": {
+          "D4_minus_baseline": {
+            "role": "primary",
+            "versus": "direct",
+            "n": 35,
+            "difference": 0.033,
+            "ci95": [
+              0.0198,
+              0.0467
+            ],
+            "median_difference": 0.0263,
+            "better": 27,
+            "worse": 6,
+            "ties": 2,
+            "sign_test_p": 0.0003,
+            "ci_unreliable": false
+          },
+          "D4_minus_D2": {
+            "role": "secondary",
+            "versus": "direct_complete",
+            "n": 35,
+            "difference": 0.0075,
+            "ci95": [
+              -0.0041,
+              0.0185
+            ],
+            "median_difference": 0.0079,
+            "better": 19,
+            "worse": 10,
+            "ties": 6,
+            "sign_test_p": 0.136,
+            "ci_unreliable": false
+          },
+          "D4_minus_D1": {
+            "role": "secondary",
+            "versus": "direct_checklist",
+            "n": 35,
+            "difference": 0.0159,
+            "ci95": [
+              0.0068,
+              0.0246
+            ],
+            "median_difference": 0.0125,
+            "better": 27,
+            "worse": 6,
+            "ties": 2,
+            "sign_test_p": 0.0003,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "stated": {
+        "label": "Facts the supplied text states",
+        "means": {
+          "direct": {
+            "mean_over_entries": 0.9107,
+            "n_entries": 35
+          },
+          "direct_checklist": {
+            "mean_over_entries": 0.9259,
+            "n_entries": 35
+          },
+          "direct_complete": {
+            "mean_over_entries": 0.9443,
+            "n_entries": 35
+          },
+          "direct_ensemble": {
+            "mean_over_entries": 0.9414,
+            "n_entries": 35
+          },
+          "direct_checklist_complete": {
+            "mean_over_entries": 0.9564,
+            "n_entries": 35
+          }
+        },
+        "comparisons": {
+          "D4_minus_baseline": {
+            "role": "primary",
+            "versus": "direct",
+            "n": 35,
+            "difference": 0.0457,
+            "ci95": [
+              0.0258,
+              0.0662
+            ],
+            "median_difference": 0.0294,
+            "better": 24,
+            "worse": 4,
+            "ties": 7,
+            "sign_test_p": 0.0002,
+            "ci_unreliable": false
+          },
+          "D4_minus_D2": {
+            "role": "secondary",
+            "versus": "direct_complete",
+            "n": 35,
+            "difference": 0.0121,
+            "ci95": [
+              -0.0022,
+              0.0257
+            ],
+            "median_difference": 0.0102,
+            "better": 18,
+            "worse": 9,
+            "ties": 8,
+            "sign_test_p": 0.1221,
+            "ci_unreliable": false
+          },
+          "D4_minus_D1": {
+            "role": "secondary",
+            "versus": "direct_checklist",
+            "n": 35,
+            "difference": 0.0305,
+            "ci95": [
+              0.0174,
+              0.0458
+            ],
+            "median_difference": 0.0172,
+            "better": 22,
+            "worse": 2,
+            "ties": 11,
+            "sign_test_p": 0.0,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "stated_fulltext": {
+        "label": "… on papers readable in full",
+        "means": {
+          "direct": {
+            "mean_over_entries": 0.8839,
+            "n_entries": 32
+          },
+          "direct_checklist": {
+            "mean_over_entries": 0.906,
+            "n_entries": 32
+          },
+          "direct_complete": {
+            "mean_over_entries": 0.9283,
+            "n_entries": 32
+          },
+          "direct_ensemble": {
+            "mean_over_entries": 0.922,
+            "n_entries": 32
+          },
+          "direct_checklist_complete": {
+            "mean_over_entries": 0.9466,
+            "n_entries": 32
+          }
+        },
+        "comparisons": {
+          "D4_minus_baseline": {
+            "role": "primary",
+            "versus": "direct",
+            "n": 32,
+            "difference": 0.0626,
+            "ci95": [
+              0.0397,
+              0.0869
+            ],
+            "median_difference": 0.06,
+            "better": 23,
+            "worse": 4,
+            "ties": 5,
+            "sign_test_p": 0.0003,
+            "ci_unreliable": false
+          },
+          "D4_minus_D2": {
+            "role": "secondary",
+            "versus": "direct_complete",
+            "n": 32,
+            "difference": 0.0182,
+            "ci95": [
+              0.0007,
+              0.0369
+            ],
+            "median_difference": 0.0078,
+            "better": 16,
+            "worse": 9,
+            "ties": 7,
+            "sign_test_p": 0.2295,
+            "ci_unreliable": false
+          },
+          "D4_minus_D1": {
+            "role": "secondary",
+            "versus": "direct_checklist",
+            "n": 32,
+            "difference": 0.0406,
+            "ci95": [
+              0.0217,
+              0.0617
+            ],
+            "median_difference": 0.0277,
+            "better": 21,
+            "worse": 3,
+            "ties": 8,
+            "sign_test_p": 0.0003,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "stated_abstract": {
+        "label": "… on papers readable as abstract only",
+        "means": {
+          "direct": {
+            "mean_over_entries": 0.9651,
+            "n_entries": 28
+          },
+          "direct_checklist": {
+            "mean_over_entries": 0.9669,
+            "n_entries": 28
+          },
+          "direct_complete": {
+            "mean_over_entries": 0.9759,
+            "n_entries": 28
+          },
+          "direct_ensemble": {
+            "mean_over_entries": 0.9758,
+            "n_entries": 28
+          },
+          "direct_checklist_complete": {
+            "mean_over_entries": 0.9797,
+            "n_entries": 28
+          }
+        },
+        "comparisons": {
+          "D4_minus_baseline": {
+            "role": "primary",
+            "versus": "direct",
+            "n": 28,
+            "difference": 0.0146,
+            "ci95": [
+              -0.006,
+              0.0393
+            ],
+            "median_difference": 0.0,
+            "better": 7,
+            "worse": 3,
+            "ties": 18,
+            "sign_test_p": 0.3438,
+            "ci_unreliable": false
+          },
+          "D4_minus_D2": {
+            "role": "secondary",
+            "versus": "direct_complete",
+            "n": 28,
+            "difference": 0.0038,
+            "ci95": [
+              -0.0091,
+              0.0152
+            ],
+            "median_difference": 0.0,
+            "better": 7,
+            "worse": 4,
+            "ties": 17,
+            "sign_test_p": 0.5488,
+            "ci_unreliable": false
+          },
+          "D4_minus_D1": {
+            "role": "secondary",
+            "versus": "direct_checklist",
+            "n": 28,
+            "difference": 0.0128,
+            "ci95": [
+              -0.0028,
+              0.0347
+            ],
+            "median_difference": 0.0,
+            "better": 5,
+            "worse": 2,
+            "ties": 21,
+            "sign_test_p": 0.4531,
+            "ci_unreliable": false
+          }
+        }
+      },
+      "not_stated": {
+        "label": "Facts the supplied text does not state",
+        "means": {
+          "direct": {
+            "mean_over_entries": 0.0981,
+            "n_entries": 33
+          },
+          "direct_checklist": {
+            "mean_over_entries": 0.0962,
+            "n_entries": 33
+          },
+          "direct_complete": {
+            "mean_over_entries": 0.0965,
+            "n_entries": 33
+          },
+          "direct_ensemble": {
+            "mean_over_entries": 0.1124,
+            "n_entries": 33
+          },
+          "direct_checklist_complete": {
+            "mean_over_entries": 0.1006,
+            "n_entries": 33
+          }
+        },
+        "comparisons": {
+          "D4_minus_baseline": {
+            "role": "primary",
+            "versus": "direct",
+            "n": 33,
+            "difference": 0.0025,
+            "ci95": [
+              -0.012,
+              0.0179
+            ],
+            "median_difference": 0.0,
+            "better": 10,
+            "worse": 8,
+            "ties": 15,
+            "sign_test_p": 0.8145,
+            "ci_unreliable": false
+          },
+          "D4_minus_D2": {
+            "role": "secondary",
+            "versus": "direct_complete",
+            "n": 33,
+            "difference": 0.0041,
+            "ci95": [
+              -0.0131,
+              0.0232
+            ],
+            "median_difference": 0.0,
+            "better": 11,
+            "worse": 10,
+            "ties": 12,
+            "sign_test_p": 1.0,
+            "ci_unreliable": false
+          },
+          "D4_minus_D1": {
+            "role": "secondary",
+            "versus": "direct_checklist",
+            "n": 33,
+            "difference": 0.0044,
+            "ci95": [
+              -0.0065,
+              0.0183
+            ],
+            "median_difference": 0.0,
+            "better": 5,
+            "worse": 7,
+            "ties": 21,
+            "sign_test_p": 0.7744,
+            "ci_unreliable": false
+          }
+        }
+      }
+    },
+    "claims_audited_entries": {
+      "direct": {
+        "n_entries": 20,
+        "supported": 2501,
+        "partially_supported": 71,
+        "unsupported": 6,
+        "contradicted": 0,
+        "not_checkable": 67,
+        "claims_checkable": 2578,
+        "shares_of_checkable": {
+          "supported": 0.9701,
+          "partially_supported": 0.0275,
+          "unsupported": 0.0023,
+          "contradicted": 0.0
+        },
+        "entries_with_not_checkable": [
+          "615710"
+        ]
+      },
+      "direct_checklist": {
+        "n_entries": 20,
+        "supported": 2889,
+        "partially_supported": 70,
+        "unsupported": 8,
+        "contradicted": 2,
+        "not_checkable": 87,
+        "claims_checkable": 2969,
+        "shares_of_checkable": {
+          "supported": 0.9731,
+          "partially_supported": 0.0236,
+          "unsupported": 0.0027,
+          "contradicted": 0.0007
+        },
+        "entries_with_not_checkable": [
+          "615710"
+        ]
+      },
+      "direct_complete": {
+        "n_entries": 20,
+        "supported": 3185,
+        "partially_supported": 89,
+        "unsupported": 4,
+        "contradicted": 0,
+        "not_checkable": 85,
+        "claims_checkable": 3278,
+        "shares_of_checkable": {
+          "supported": 0.9716,
+          "partially_supported": 0.0272,
+          "unsupported": 0.0012,
+          "contradicted": 0.0
+        },
+        "entries_with_not_checkable": [
+          "615710"
+        ]
+      },
+      "direct_ensemble": {
+        "n_entries": 20,
+        "supported": 3091,
+        "partially_supported": 116,
+        "unsupported": 14,
+        "contradicted": 4,
+        "not_checkable": 106,
+        "claims_checkable": 3225,
+        "shares_of_checkable": {
+          "supported": 0.9584,
+          "partially_supported": 0.036,
+          "unsupported": 0.0043,
+          "contradicted": 0.0012
+        },
+        "entries_with_not_checkable": [
+          "615710"
+        ]
+      },
+      "direct_checklist_complete": {
+        "n_entries": 20,
+        "supported": 3126,
+        "partially_supported": 81,
+        "unsupported": 9,
+        "contradicted": 1,
+        "not_checkable": 182,
+        "claims_checkable": 3217,
+        "shares_of_checkable": {
+          "supported": 0.9717,
+          "partially_supported": 0.0252,
+          "unsupported": 0.0028,
+          "contradicted": 0.0003
+        },
+        "entries_with_not_checkable": [
+          "615710",
+          "620481"
+        ]
+      }
+    },
+    "audited_entries": [
+      "604928",
+      "606763",
+      "607602",
+      "607734",
+      "607876",
+      "608133",
+      "611521",
+      "614651",
+      "614856",
+      "615710",
+      "617927",
+      "618400",
+      "618808",
+      "618875",
+      "619201",
+      "620022",
+      "620029",
+      "620098",
+      "620481",
+      "620662"
+    ],
+    "size": {
+      "direct": {
+        "chars_per_entry": 10825.7714,
+        "checkable_claims_per_audited_entry": 128.9
+      },
+      "direct_checklist": {
+        "chars_per_entry": 11926.6857,
+        "checkable_claims_per_audited_entry": 148.45
+      },
+      "direct_complete": {
+        "chars_per_entry": 14357.3714,
+        "checkable_claims_per_audited_entry": 163.9
+      },
+      "direct_ensemble": {
+        "chars_per_entry": 14308.9714,
+        "checkable_claims_per_audited_entry": 161.25
+      },
+      "direct_checklist_complete": {
+        "chars_per_entry": 14963.4,
+        "checkable_claims_per_audited_entry": 160.85
+      }
+    },
+    "variants": {
+      "direct": {
+        "recall_mean": 0.8272,
+        "n_entries_with_omim_variants": 35,
+        "precision_mean": 0.8594,
+        "n_entries_for_precision": 35
+      },
+      "direct_checklist": {
+        "recall_mean": 0.8177,
+        "n_entries_with_omim_variants": 35,
+        "precision_mean": 0.8646,
+        "n_entries_for_precision": 35
+      },
+      "direct_complete": {
+        "recall_mean": 0.8272,
+        "n_entries_with_omim_variants": 35,
+        "precision_mean": 0.8594,
+        "n_entries_for_precision": 35
+      },
+      "direct_ensemble": {
+        "recall_mean": 0.8224,
+        "n_entries_with_omim_variants": 35,
+        "precision_mean": 0.8195,
+        "n_entries_for_precision": 35
+      },
+      "direct_checklist_complete": {
+        "recall_mean": 0.8177,
+        "n_entries_with_omim_variants": 35,
+        "precision_mean": 0.8646,
+        "n_entries_for_precision": 35
+      }
+    },
+    "cost": {
+      "direct": {
+        "entries": 41,
+        "calls_new_total": 8,
+        "calls_new_per_entry": 0.1951,
+        "usd_new_total": 0.33,
+        "usd_new_per_entry": 0.0081,
+        "usd_method_per_entry": 1.09,
+        "wall_minutes_per_entry": 0.4402
+      },
+      "direct_checklist": {
+        "entries": 41,
+        "calls_new_total": 416,
+        "calls_new_per_entry": 10.1463,
+        "usd_new_total": 46.66,
+        "usd_new_per_entry": 1.138,
+        "usd_method_per_entry": 1.1511,
+        "wall_minutes_per_entry": 2.5788
+      },
+      "direct_complete": {
+        "entries": 41,
+        "calls_new_total": 530,
+        "calls_new_per_entry": 12.9268,
+        "usd_new_total": 66.59,
+        "usd_new_per_entry": 1.6243,
+        "usd_method_per_entry": 2.1018,
+        "wall_minutes_per_entry": 3.1311
+      },
+      "direct_ensemble": {
+        "entries": 41,
+        "calls_new_total": 489,
+        "calls_new_per_entry": 11.9268,
+        "usd_new_total": 74.72,
+        "usd_new_per_entry": 1.8225,
+        "usd_method_per_entry": 2.3234,
+        "wall_minutes_per_entry": 3.8024
+      },
+      "direct_checklist_complete": {
+        "entries": 41,
+        "calls_new_total": 513,
+        "calls_new_per_entry": 12.5122,
+        "usd_new_total": 65.82,
+        "usd_new_per_entry": 1.6053,
+        "usd_method_per_entry": 2.1054,
+        "wall_minutes_per_entry": 3.2746
+      }
+    },
+    "omissions_d4_vs_d2": {
+      "n_entries": 37,
+      "totals": {
+        "d4": {
+          "omissions_listed": 600,
+          "omissions_kept": 600,
+          "sentences_added": 730,
+          "sentences_completed_or_removed": 118
+        },
+        "d2": {
+          "omissions_listed": 736,
+          "omissions_kept": 735,
+          "sentences_added": 908,
+          "sentences_completed_or_removed": 126
+        }
+      },
+      "kept_d4_fewer_more_equal": [
+        27,
+        6,
+        4
+      ],
+      "d4_added_citing_other_papers_only": 0,
+      "d4_entries_model_changed_carried_over_field": [],
+      "d4_entries_citations_lost": [],
+      "per_entry": [
+        {
+          "mim": "251950",
+          "d4": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 36,
+            "omissions_kept": 36,
+            "revised": true,
+            "sentences_added": 45,
+            "sentences_completed_or_removed": 10,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 26241,
+            "chars_after": 32211
+          },
+          "d2": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 53,
+            "omissions_kept": 53,
+            "revised": true,
+            "sentences_added": 57,
+            "sentences_completed_or_removed": 9,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 20880,
+            "chars_after": 28692
+          }
+        },
+        {
+          "mim": "603689",
+          "d4": {
+            "papers_checked": 8,
+            "papers_failed": [],
+            "omissions_listed": 9,
+            "omissions_kept": 9,
+            "revised": true,
+            "sentences_added": 9,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14070,
+            "chars_after": 15016
+          },
+          "d2": {
+            "papers_checked": 8,
+            "papers_failed": [],
+            "omissions_listed": 12,
+            "omissions_kept": 12,
+            "revised": true,
+            "sentences_added": 16,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13387,
+            "chars_after": 15706
+          }
+        },
+        {
+          "mim": "604307",
+          "d4": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 19,
+            "omissions_kept": 19,
+            "revised": true,
+            "sentences_added": 19,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13784,
+            "chars_after": 16471
+          },
+          "d2": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 17,
+            "omissions_kept": 17,
+            "revised": true,
+            "sentences_added": 25,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 12124,
+            "chars_after": 16020
+          }
+        },
+        {
+          "mim": "604928",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 11,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7805,
+            "chars_after": 9172
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 9,
+            "omissions_kept": 9,
+            "revised": true,
+            "sentences_added": 10,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7861,
+            "chars_after": 8893
+          }
+        },
+        {
+          "mim": "606763",
+          "d4": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 9,
+            "omissions_kept": 9,
+            "revised": true,
+            "sentences_added": 10,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8049,
+            "chars_after": 9886
+          },
+          "d2": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 13,
+            "omissions_kept": 13,
+            "revised": true,
+            "sentences_added": 13,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 6860,
+            "chars_after": 8708
+          }
+        },
+        {
+          "mim": "607602",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 1,
+            "omissions_kept": 1,
+            "revised": true,
+            "sentences_added": 1,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 6063,
+            "chars_after": 6145
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 2,
+            "omissions_kept": 2,
+            "revised": true,
+            "sentences_added": 2,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 6431,
+            "chars_after": 6625
+          }
+        },
+        {
+          "mim": "607721",
+          "d4": {
+            "papers_checked": 11,
+            "papers_failed": [],
+            "omissions_listed": 46,
+            "omissions_kept": 46,
+            "revised": true,
+            "sentences_added": 52,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13755,
+            "chars_after": 22453
+          },
+          "d2": {
+            "papers_checked": 11,
+            "papers_failed": [],
+            "omissions_listed": 52,
+            "omissions_kept": 52,
+            "revised": true,
+            "sentences_added": 70,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14558,
+            "chars_after": 23442
+          }
+        },
+        {
+          "mim": "607734",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 9,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9648,
+            "chars_after": 11445
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 7,
+            "omissions_kept": 7,
+            "revised": true,
+            "sentences_added": 8,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9934,
+            "chars_after": 11163
+          }
+        },
+        {
+          "mim": "607876",
+          "d4": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 21,
+            "omissions_kept": 21,
+            "revised": true,
+            "sentences_added": 25,
+            "sentences_completed_or_removed": 8,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 17224,
+            "chars_after": 20934
+          },
+          "d2": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 24,
+            "omissions_kept": 24,
+            "revised": true,
+            "sentences_added": 32,
+            "sentences_completed_or_removed": 13,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 17622,
+            "chars_after": 21540
+          }
+        },
+        {
+          "mim": "608133",
+          "d4": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 13,
+            "omissions_kept": 13,
+            "revised": true,
+            "sentences_added": 17,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13990,
+            "chars_after": 16234
+          },
+          "d2": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 11,
+            "omissions_kept": 11,
+            "revised": true,
+            "sentences_added": 13,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 12294,
+            "chars_after": 13794
+          }
+        },
+        {
+          "mim": "611521",
+          "d4": {
+            "papers_checked": 8,
+            "papers_failed": [],
+            "omissions_listed": 34,
+            "omissions_kept": 34,
+            "revised": true,
+            "sentences_added": 50,
+            "sentences_completed_or_removed": 7,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 21756,
+            "chars_after": 28383
+          },
+          "d2": {
+            "papers_checked": 8,
+            "papers_failed": [],
+            "omissions_listed": 45,
+            "omissions_kept": 45,
+            "revised": true,
+            "sentences_added": 58,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 19418,
+            "chars_after": 28347
+          }
+        },
+        {
+          "mim": "613744",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [
+              "30127434"
+            ],
+            "omissions_listed": 19,
+            "omissions_kept": 19,
+            "revised": true,
+            "sentences_added": 20,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 10829,
+            "chars_after": 13951
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 36,
+            "omissions_kept": 36,
+            "revised": true,
+            "sentences_added": 38,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 10560,
+            "chars_after": 16841
+          }
+        },
+        {
+          "mim": "614651",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 15,
+            "omissions_kept": 15,
+            "revised": true,
+            "sentences_added": 16,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9739,
+            "chars_after": 12251
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 15,
+            "omissions_kept": 15,
+            "revised": true,
+            "sentences_added": 18,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8220,
+            "chars_after": 10877
+          }
+        },
+        {
+          "mim": "614856",
+          "d4": {
+            "papers_checked": 7,
+            "papers_failed": [],
+            "omissions_listed": 15,
+            "omissions_kept": 15,
+            "revised": true,
+            "sentences_added": 19,
+            "sentences_completed_or_removed": 5,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 15408,
+            "chars_after": 17902
+          },
+          "d2": {
+            "papers_checked": 7,
+            "papers_failed": [],
+            "omissions_listed": 17,
+            "omissions_kept": 17,
+            "revised": true,
+            "sentences_added": 19,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14597,
+            "chars_after": 17451
+          }
+        },
+        {
+          "mim": "615073",
+          "d4": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 3,
+            "omissions_kept": 3,
+            "revised": true,
+            "sentences_added": 3,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9388,
+            "chars_after": 9890
+          },
+          "d2": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 7,
+            "omissions_kept": 7,
+            "revised": true,
+            "sentences_added": 12,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9016,
+            "chars_after": 10777
+          }
+        },
+        {
+          "mim": "615268",
+          "d4": {
+            "papers_checked": 9,
+            "papers_failed": [],
+            "omissions_listed": 20,
+            "omissions_kept": 20,
+            "revised": true,
+            "sentences_added": 20,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9477,
+            "chars_after": 12431
+          },
+          "d2": {
+            "papers_checked": 9,
+            "papers_failed": [],
+            "omissions_listed": 22,
+            "omissions_kept": 22,
+            "revised": true,
+            "sentences_added": 20,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8148,
+            "chars_after": 11796
+          }
+        },
+        {
+          "mim": "615582",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 32,
+            "omissions_kept": 32,
+            "revised": true,
+            "sentences_added": 37,
+            "sentences_completed_or_removed": 11,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 15207,
+            "chars_after": 19369
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 33,
+            "omissions_kept": 33,
+            "revised": true,
+            "sentences_added": 39,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14729,
+            "chars_after": 19744
+          }
+        },
+        {
+          "mim": "615710",
+          "d4": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 19,
+            "omissions_kept": 19,
+            "revised": true,
+            "sentences_added": 21,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 17816,
+            "chars_after": 21136
+          },
+          "d2": {
+            "papers_checked": 10,
+            "papers_failed": [],
+            "omissions_listed": 27,
+            "omissions_kept": 27,
+            "revised": true,
+            "sentences_added": 36,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 15193,
+            "chars_after": 19785
+          }
+        },
+        {
+          "mim": "615817",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [
+              "33749590"
+            ],
+            "omissions_listed": 1,
+            "omissions_kept": 1,
+            "revised": true,
+            "sentences_added": 1,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7938,
+            "chars_after": 8164
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 9,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7465,
+            "chars_after": 8887
+          }
+        },
+        {
+          "mim": "615972",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 10,
+            "omissions_kept": 10,
+            "revised": true,
+            "sentences_added": 15,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8654,
+            "chars_after": 10368
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 15,
+            "omissions_kept": 15,
+            "revised": true,
+            "sentences_added": 17,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8255,
+            "chars_after": 10392
+          }
+        },
+        {
+          "mim": "616151",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 19,
+            "omissions_kept": 19,
+            "revised": true,
+            "sentences_added": 36,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 11395,
+            "chars_after": 17435
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 23,
+            "omissions_kept": 23,
+            "revised": true,
+            "sentences_added": 44,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 10547,
+            "chars_after": 16138
+          }
+        },
+        {
+          "mim": "617153",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 10,
+            "omissions_kept": 10,
+            "revised": true,
+            "sentences_added": 13,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 5843,
+            "chars_after": 7894
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 14,
+            "omissions_kept": 14,
+            "revised": true,
+            "sentences_added": 15,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 4400,
+            "chars_after": 7307
+          }
+        },
+        {
+          "mim": "617927",
+          "d4": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 6,
+            "omissions_kept": 6,
+            "revised": true,
+            "sentences_added": 8,
+            "sentences_completed_or_removed": 4,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7433,
+            "chars_after": 8196
+          },
+          "d2": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 4,
+            "omissions_kept": 4,
+            "revised": true,
+            "sentences_added": 4,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7074,
+            "chars_after": 7677
+          }
+        },
+        {
+          "mim": "618343",
+          "d4": {
+            "papers_checked": 7,
+            "papers_failed": [],
+            "omissions_listed": 24,
+            "omissions_kept": 24,
+            "revised": true,
+            "sentences_added": 27,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13849,
+            "chars_after": 19438
+          },
+          "d2": {
+            "papers_checked": 7,
+            "papers_failed": [],
+            "omissions_listed": 24,
+            "omissions_kept": 24,
+            "revised": true,
+            "sentences_added": 29,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13253,
+            "chars_after": 18169
+          }
+        },
+        {
+          "mim": "618400",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 28,
+            "omissions_kept": 28,
+            "revised": true,
+            "sentences_added": 31,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7580,
+            "chars_after": 11770
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 24,
+            "omissions_kept": 24,
+            "revised": true,
+            "sentences_added": 31,
+            "sentences_completed_or_removed": 8,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 9024,
+            "chars_after": 12632
+          }
+        },
+        {
+          "mim": "618808",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 7,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 3715,
+            "chars_after": 5080
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 6,
+            "omissions_kept": 6,
+            "revised": true,
+            "sentences_added": 5,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 3481,
+            "chars_after": 4703
+          }
+        },
+        {
+          "mim": "618875",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 3,
+            "omissions_kept": 3,
+            "revised": true,
+            "sentences_added": 3,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 8613,
+            "chars_after": 9037
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 9,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 6478,
+            "chars_after": 8240
+          }
+        },
+        {
+          "mim": "619124",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 18,
+            "omissions_kept": 18,
+            "revised": true,
+            "sentences_added": 18,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 21856,
+            "chars_after": 25153
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 22,
+            "omissions_kept": 22,
+            "revised": true,
+            "sentences_added": 26,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14352,
+            "chars_after": 18829
+          }
+        },
+        {
+          "mim": "619201",
+          "d4": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 4,
+            "omissions_kept": 4,
+            "revised": true,
+            "sentences_added": 4,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7125,
+            "chars_after": 7737
+          },
+          "d2": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 8,
+            "omissions_kept": 8,
+            "revised": true,
+            "sentences_added": 7,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 6366,
+            "chars_after": 7248
+          }
+        },
+        {
+          "mim": "620022",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 25,
+            "omissions_kept": 25,
+            "revised": true,
+            "sentences_added": 31,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13958,
+            "chars_after": 17660
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 29,
+            "omissions_kept": 29,
+            "revised": true,
+            "sentences_added": 32,
+            "sentences_completed_or_removed": 9,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 13256,
+            "chars_after": 16748
+          }
+        },
+        {
+          "mim": "620029",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 32,
+            "omissions_kept": 32,
+            "revised": true,
+            "sentences_added": 46,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 12607,
+            "chars_after": 21001
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 36,
+            "omissions_kept": 36,
+            "revised": true,
+            "sentences_added": 63,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 11272,
+            "chars_after": 19263
+          }
+        },
+        {
+          "mim": "620098",
+          "d4": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 20,
+            "omissions_kept": 20,
+            "revised": true,
+            "sentences_added": 21,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 10720,
+            "chars_after": 14541
+          },
+          "d2": {
+            "papers_checked": 5,
+            "papers_failed": [],
+            "omissions_listed": 27,
+            "omissions_kept": 26,
+            "revised": true,
+            "sentences_added": 27,
+            "sentences_completed_or_removed": 0,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7135,
+            "chars_after": 12557
+          }
+        },
+        {
+          "mim": "620402",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 23,
+            "omissions_kept": 23,
+            "revised": true,
+            "sentences_added": 36,
+            "sentences_completed_or_removed": 8,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 10555,
+            "chars_after": 14266
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 23,
+            "omissions_kept": 23,
+            "revised": true,
+            "sentences_added": 27,
+            "sentences_completed_or_removed": 3,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 12009,
+            "chars_after": 15758
+          }
+        },
+        {
+          "mim": "620481",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 11,
+            "omissions_kept": 11,
+            "revised": true,
+            "sentences_added": 11,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14176,
+            "chars_after": 16509
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 19,
+            "omissions_kept": 19,
+            "revised": true,
+            "sentences_added": 25,
+            "sentences_completed_or_removed": 10,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 12948,
+            "chars_after": 16499
+          }
+        },
+        {
+          "mim": "620662",
+          "d4": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 10,
+            "omissions_kept": 10,
+            "revised": true,
+            "sentences_added": 12,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 5953,
+            "chars_after": 8140
+          },
+          "d2": {
+            "papers_checked": 4,
+            "papers_failed": [],
+            "omissions_listed": 16,
+            "omissions_kept": 16,
+            "revised": true,
+            "sentences_added": 18,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 5813,
+            "chars_after": 9278
+          }
+        },
+        {
+          "mim": "620851",
+          "d4": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 18,
+            "omissions_kept": 18,
+            "revised": true,
+            "sentences_added": 23,
+            "sentences_completed_or_removed": 6,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 16794,
+            "chars_after": 20480
+          },
+          "d2": {
+            "papers_checked": 3,
+            "papers_failed": [],
+            "omissions_listed": 25,
+            "omissions_kept": 25,
+            "revised": true,
+            "sentences_added": 31,
+            "sentences_completed_or_removed": 8,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 14791,
+            "chars_after": 20301
+          }
+        },
+        {
+          "mim": "621313",
+          "d4": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 3,
+            "omissions_kept": 3,
+            "revised": true,
+            "sentences_added": 3,
+            "sentences_completed_or_removed": 1,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7187,
+            "chars_after": 7684
+          },
+          "d2": {
+            "papers_checked": 2,
+            "papers_failed": [],
+            "omissions_listed": 3,
+            "omissions_kept": 3,
+            "revised": true,
+            "sentences_added": 3,
+            "sentences_completed_or_removed": 2,
+            "added_citing_other_papers_only": 0,
+            "kept_fields_changed_by_model": [],
+            "pmids_lost": [],
+            "chars_before": 7174,
+            "chars_after": 7407
+          }
+        }
+      ]
+    },
+    "stops": {
+      "no_draft": {
+        "118210": "the model's safety filter stopped this reply",
+        "617232": "the model's safety filter stopped this reply",
+        "620249": "the model's safety filter stopped this reply",
+        "621030": "the model's safety filter stopped this reply"
+      },
+      "checks_failed": {
+        "613744": {
+          "30127434": "stopped: LLMRefusal: the model's safety filter stopped this reply"
+        },
+        "615817": {
+          "33749590": "stopped: LLMRefusal: the model's safety filter stopped this reply"
+        }
+      },
+      "safety_stops_by_step": {
+        "generate": 6,
+        "audit": 2
+      }
+    },
+    "ledger": {
+      "calls": 572,
+      "cost_usd": 74.5266,
+      "input_tokens": 6832157,
+      "output_tokens": 1552655,
+      "safety_stops": 9,
+      "refusals": 0,
+      "errors": 0,
+      "by_stage": {
+        "medium": 528,
+        "high": 44
+      },
+      "cap": 700
+    },
+    "cap": 700
   }
 }

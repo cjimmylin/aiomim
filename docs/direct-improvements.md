@@ -148,3 +148,31 @@ entries, same scoring and stated / not-stated split, audit without repair on the
 completion rules. Comparisons use the entries complete for all five arms. Primary for the extension: D4 minus the
 baseline; secondary: D4 minus D2 and D4 minus D1. The four arms already run are not re-run. Cap: 700 new calls for
 D4, pilot (the three training entries) included. Piloted first; the test entries are run from the owner's session.
+
+### Result of the extension (`results/direct_improve/direct_improve.md`, section "Extension: D4")
+
+572 new calls including the pilot ($75 at list price), 9 replies stopped by the safety filter (none retried). D4 was
+complete on 35 of 41 entries (2 incomplete, 4 without a draft, every loss a stopped reply), so the five arms are
+compared on 35 entries; the four earlier arms' 38-entry results above are unchanged.
+
+| On the 35 entries | Baseline | D1 checklist | D2 completeness pass | D3 merge | D4 both |
+|---|---|---|---|---|---|
+| Facts conveyed | 60.1% | 61.8% | 62.6% | 63.2% | 63.4% |
+| Facts the text states | 91.1% | 92.6% | 94.4% | 94.1% | 95.6% |
+| … on full-text papers | 88.4% | 90.6% | 92.8% | 92.2% | 94.7% |
+| Facts the text does not state | 9.8% | 9.6% | 9.7% | 11.2% | 10.1% |
+| Claims judged supported (20 audited entries) | 97.0% | 97.3% | 97.2% | 95.8% | 97.2% |
+| List price per entry | $1.09 | $1.15 | $2.10 | $2.32 | $2.11 |
+
+- **D4 against the baseline (primary):** +3.3 points (+2.0 to +4.7; better on 27, worse on 6, tied on 2); +4.6 on
+  facts the text states and +6.3 (+4.0 to +8.7) on those of full-text papers; +0.2 (−1.2 to +1.8) on facts the text
+  does not state, so the gain comes from the papers. Claims judged supported are unchanged (97.2%; 9 unsupported and 1
+  contradicted against 6 and 0).
+- **D4 against each part:** +1.6 (+0.7 to +2.5) over the checklist alone, but only +0.8 (−0.4 to +1.8) over the
+  completeness pass alone, not distinguishable from zero (on full-text papers' stated facts +1.8, +0.1 to +3.7, sign
+  test p = 0.23). The two overlap: the completeness pass already recovers most of what the checklist adds, and on a
+  checklist draft it finds fewer omissions to fill (600 against 735 on the same 37 entries).
+- **Cost and completion:** the same price as the completeness pass alone ($2.11 per entry), but more entries lost to
+  stopped replies (6 of 41 against 3 for the completeness pass and none for direct reading).
+- **Reading:** the combination has the best point estimate and is a reasonable default where full text is available;
+  most of its gain is the completeness pass's. Every judgement is the same model's.
