@@ -43,6 +43,17 @@ A controlled benchmark in which the generation strategy is the only thing that v
 - **Access as an experimental variable.** Papers are readable in full, as an abstract, or as a title only, depending on
   open access. A within-paper experiment hides the full text of papers that have one, so the effect of access is
   measured on the same papers and not only across different ones.
+- **Released systems as reference points.** PaperQA2, GraphRAG and STORM, run with their own code, prompts and
+  defaults on the same papers and the same model, so that the study's own implementations can be compared with
+  released pipelines of the same designs.
+- **Input size as an experimental variable.** The same entries, papers and fact lists, with the input grown by
+  unrelated full-text papers to several times what one prompt holds.
+- **The audit's blind spots, measured.** Six classes of planted error (misattributed citations, conflation across
+  papers, an added irrelevant citation, a dropped qualifier, an omitted finding) with unaltered controls.
+- **Improving on the baseline.** Approaches that change how the supplied text is read, chosen from a review of ten by
+  where direct reading loses facts, piloted on training entries and evaluated on held-out entries: a curator checklist,
+  a completeness pass (a per-paper omission check, then a revision adding only quoted findings), a merge of three
+  drafts, and the checklist with the completeness pass.
 
 ## Formal setup
 
@@ -81,6 +92,11 @@ A controlled benchmark in which the generation strategy is the only thing that v
    the source, not correctness.
 5. A memory-only control by entry creation date as a contamination check, and negative results for
    verify-after-recall, for a learned curation guide and for reconciliation at this entry size.
+6. Released pipelines of three published designs, run on the same papers and model, as reference points: two convey
+   fewer curator-written facts than direct reading at several times the cost, and one cannot run with this model.
+7. Within what access allows, a measured gain from reading better: a completeness pass recovers part of what direct
+   reading misses in the text it was given, with no loss of fidelity, while merging samples gains partly from outside
+   the papers; and evidence that input size alone, up to several prompts, does not lower coverage.
 
 ## Design rationale
 

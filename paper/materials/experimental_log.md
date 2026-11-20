@@ -1044,8 +1044,8 @@ The 30 entries were chosen by creation date alone: the newest qualifying entries
 
 ## 13. Total model usage
 
-All experiments, pilots and re-scoring: 43,096 cached model calls, 314 million input and
-75 million output tokens, about $3,294 at list price.
+All experiments, pilots and re-scoring: 45,291 cached model calls, 338 million input and
+82 million output tokens, about $3,587 at list price.
 
 ## 14. Second round of experiments (20-21 November 2026)
 
@@ -2014,3 +2014,215 @@ New model calls: 540 (cap 600); safety-filter stops: 2; refusals raised: 0; fail
 - Unaltered controls are one audit of the union of all classes' unaltered paragraphs (113 paragraphs), not a separate control per class; each class's control figures are read from it for that class's own paragraphs.
 - Papers are loaded at the access level the run recorded, from cached responses only (no new fetches); every paper's access level matched papers.json.
 - Safety-filter stops: 2, both on the completeness check of item C6.24 (the altered and the unaltered draft text of the same paper). Recorded, not retried; C6 completeness figures are over 29 items.
+
+## 15. Improving on direct reading (20 November 2026)
+
+Ten approaches were reviewed (`docs/direct-improvements.md`, evidence in `docs/direct-improvements-evidence.md`);
+the three judged most likely to help at feasible cost were implemented, piloted on three training entries with the
+prompts then frozen, and evaluated on the 41 entries of the held-out test split that have at least one paper
+readable in full; a fourth arm combining the first two was designed and run afterwards (the "Extension" below).
+Arms: D1, direct reading with a curator checklist in the house style (what a curator records about each paper);
+D2, a completeness pass (for each paper, a check listing findings the paper states that the draft omits, each with a
+quote verified in the paper, then one revision adding only those); D3, three direct-reading drafts merged keeping
+every distinct statement; D4, the checklist draft followed by the completeness pass. No repair round for any arm; the
+baseline is direct reading's draft before repair. Claim-level audit without repair on a seeded sample of 20 of the
+41 entries. The approach with the largest expected effect, reading papers that are free to read but not openly
+licensed (about a third of all curator facts concern such papers), could not be tested under the project's access
+rules. After the evaluation, D4 was adopted as the pipeline's default way of writing an entry where a paper is
+readable in full; that is a project decision, not a result. The result file is reproduced below with its headings
+lowered. Code names: `direct` direct reading; `direct_checklist` D1; `direct_complete` D2; `direct_ensemble` D3;
+`direct_checklist_complete` D4.
+
+From `results/direct_improve/direct_improve.md`.
+
+### Improving on direct reading: evaluation (run `direct_improve`)
+
+41 entries with at least one paper readable in full and a direct-reading draft; 38 complete for every arm are compared. No repair round for any arm. Facts conveyed = (present + half of partial) / judged frozen facts, mean over entries. Differences are arm minus baseline in percentage points with a 95% percentile bootstrap interval over entries (10,000 resamples, seed 7), entries better/worse/tied, exact sign test, Holm-adjusted across the three arms. Whether the supplied text states a fact is the stored availability judgement (a model judgement with verified quotes, not checked by a curator).
+
+#### Completion
+
+| Arm | Complete | Incomplete | No draft | Not run | Entries not complete |
+|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 41 | 0 | 0 | 0 | – |
+| D1 checklist | 41 | 0 | 0 | 0 | – |
+| D2 completeness pass | 38 | 0 | 3 | 0 | 118210 (no_draft), 617232 (no_draft), 621030 (no_draft) |
+| D3 three-draft merge | 41 | 0 | 0 | 0 | – |
+
+#### All facts
+
+| Arm | Mean over entries | Entries | Facts per entry | Difference | 95% CI | Better/worse/tied | Sign p | Holm p |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 60.3% | 38 | 80.7 | – | – | – | – | – |
+| D1 checklist | 61.9% | 38 | 80.7 | +1.6 | +0.5 to +2.7 | 23/11/4 | 0.058 | 0.058 |
+| D2 completeness pass | 62.9% | 38 | 80.7 | +2.6 | +1.7 to +3.6 | 28/4/6 | 0.000 | 0.000 |
+| D3 three-draft merge | 63.4% | 38 | 80.7 | +3.1 | +2.1 to +4.2 | 31/3/4 | 0.000 | 0.000 |
+
+#### Facts the supplied text states
+
+| Arm | Mean over entries | Entries | Facts per entry | Difference | 95% CI | Better/worse/tied | Sign p | Holm p |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 91.3% | 38 | 40.2 | – | – | – | – | – |
+| D1 checklist | 92.7% | 38 | 40.2 | +1.4 | +0.0 to +2.7 | 17/9/12 | 0.169 | 0.169 |
+| D2 completeness pass | 94.7% | 38 | 40.2 | +3.4 | +2.1 to +4.8 | 24/3/11 | 0.000 | 0.000 |
+| D3 three-draft merge | 94.2% | 38 | 40.2 | +2.9 | +1.7 to +4.2 | 23/1/14 | 0.000 | 0.000 |
+
+#### … on papers readable in full
+
+| Arm | Mean over entries | Entries | Facts per entry | Difference | 95% CI | Better/worse/tied | Sign p | Holm p |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 88.5% | 34 | 28.0 | – | – | – | – | – |
+| D1 checklist | 90.5% | 34 | 28.0 | +2.0 | +0.4 to +3.7 | 16/7/11 | 0.093 | 0.093 |
+| D2 completeness pass | 93.0% | 34 | 28.0 | +4.5 | +2.9 to +6.3 | 22/1/11 | 0.000 | 0.000 |
+| D3 three-draft merge | 92.1% | 34 | 28.0 | +3.7 | +2.1 to +5.5 | 23/3/8 | 0.000 | 0.000 |
+
+#### … on papers readable as abstract only
+
+| Arm | Mean over entries | Entries | Facts per entry | Difference | 95% CI | Better/worse/tied | Sign p | Holm p |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 96.9% | 31 | 11.9 | – | – | – | – | – |
+| D1 checklist | 97.0% | 31 | 11.9 | +0.2 | -1.0 to +1.3 | 4/4/23 | 1.000 | 1.000 |
+| D2 completeness pass | 97.8% | 31 | 11.9 | +1.0 | -0.3 to +2.9 | 5/4/22 | 1.000 | 1.000 |
+| D3 three-draft merge | 97.8% | 31 | 11.9 | +1.0 | +0.1 to +2.1 | 6/2/23 | 0.289 | 0.867 |
+
+#### Facts the supplied text does not state
+
+| Arm | Mean over entries | Entries | Facts per entry | Difference | 95% CI | Better/worse/tied | Sign p | Holm p |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 10.5% | 36 | 25.5 | – | – | – | – | – |
+| D1 checklist | 10.2% | 36 | 25.5 | -0.3 | -1.9 to +1.3 | 11/9/16 | 0.824 | 1.000 |
+| D2 completeness pass | 10.3% | 36 | 25.5 | -0.1 | -1.3 to +0.7 | 6/3/27 | 0.508 | 1.000 |
+| D3 three-draft merge | 12.0% | 36 | 25.5 | +1.5 | +0.4 to +2.7 | 17/2/17 | 0.001 | 0.002 |
+
+#### Claims judged by the audit (20 audited entries)
+
+Audited entries (random.Random(20261120).sample(sorted(entries), 20)): 604928, 606763, 607602, 607734, 607876, 608133, 611521, 614651, 614856, 615710, 617927, 618400, 618808, 618875, 619201, 620022, 620029, 620098, 620481, 620662. Shares are over checkable claims; a stopped audit call leaves its paper's claims not checkable and does not affect completion.
+
+| Arm | Entries | Checkable claims | Supported | Partly | Unsupported | Contradicted | Not checkable | Entries with not-checkable claims |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 20 | 2,578 | 2,501 (97.0%) | 71 (2.8%) | 6 (0.2%) | 0 (0.0%) | 67 | 615710 |
+| D1 checklist | 20 | 2,969 | 2,889 (97.3%) | 70 (2.4%) | 8 (0.3%) | 2 (0.1%) | 87 | 615710 |
+| D2 completeness pass | 20 | 3,278 | 3,185 (97.2%) | 89 (2.7%) | 4 (0.1%) | 0 (0.0%) | 85 | 615710 |
+| D3 three-draft merge | 20 | 3,225 | 3,091 (95.8%) | 116 (3.6%) | 14 (0.4%) | 4 (0.1%) | 106 | 615710 |
+
+#### Size, variants, calls and price
+
+| Arm | Characters per entry | Checkable claims per audited entry | Variant recall (entries) | Variant precision (entries) | New calls per entry (generate / audit / score) | List price per entry, new | List price per entry, method | Wall minutes per entry |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 10,802 | 129 | 82.6% (38) | 87.1% (38) | 0.2 (0.0 / 0.0 / 0.2) | $0.01 | $1.09 | 0.4 |
+| D1 checklist | 11,837 | 148 | 81.7% (38) | 87.5% (38) | 10.1 (1.8 / 2.9 / 5.5) | $1.14 | $1.15 | 2.6 |
+| D2 completeness pass | 14,412 | 164 | 82.6% (38) | 87.1% (38) | 12.9 (6.1 / 2.9 / 3.9) | $1.62 | $2.10 | 3.1 |
+| D3 three-draft merge | 14,245 | 161 | 82.2% (38) | 83.4% (38) | 11.9 (3.5 / 2.8 / 5.6) | $1.82 | $2.32 | 3.8 |
+
+Characters and variants are over the compared entries; calls and price over every entry the arm ran. 'New' counts calls made in this run (the baseline's draft and audit come from the cache); 'method' is what the arm costs from scratch, including the cached baseline draft that D2 and D3 start from.
+
+#### Stops
+
+- Baseline (direct, before repair): no draft 0; safety stops by step {'audit': 1}
+- D1 checklist: no draft 0; safety stops by step {'audit': 1}
+- D2 completeness pass: no draft 3 (118210, 617232, 621030); safety stops by step {'generate': 3, 'audit': 1}
+- D3 three-draft merge: no draft 0; safety stops by step {'audit': 1}
+
+#### D2: what the completeness pass did
+
+Entries 38; omissions listed 768, kept (quote verified) 767; revision called on 38; sentences added 959, of which citing only papers without listed omissions 0; entries where the model changed a carried-over field: none; citations lost: none.
+
+#### D3: what the merge did
+
+Entries 41; draft paragraphs 2,486 merged into 852 (807 from more than one draft); rejected as longer than their sources 0; unknown IDs 0; unsourced paragraphs dropped 0; draft paragraphs left out and put back 0, left out and not put back (their papers cited elsewhere) 0; variant groups restored 0; citations lost: none. Sentences of each draft with at least 85% of their content words in the merged draft (rough): A 3,454 of 3,550; B 3,401 of 3,556; C 3,324 of 3,479.
+
+Calls: 1,624 new model calls of the 2,200 cap (pilot included), $217.54 list price; safety stops 7, refusals 0, errors 1.
+
+---
+
+### Extension: D4, the checklist draft with the completeness pass
+
+Designed after the first four arms were run (docs/direct-improvements.md, 'Extension: checklist and completeness pass together (D4)'). D4 starts from D1's checklist draft (from the cache) and applies D2's completeness pass. The first four arms are not re-run; the sections above are unchanged. Comparisons use the 35 entries complete for all five arms (the symmetric rule). Primary: D4 minus the baseline; secondary: D4 minus D2 and D4 minus D1. Differences in percentage points with a 95% percentile bootstrap interval over entries (seed 7, 10,000 resamples), better/worse/tied and an exact sign test, unadjusted.
+
+#### Completion, all five arms
+
+| Arm | Complete | Incomplete | No draft | Not run | Entries not complete |
+|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 41 | 0 | 0 | 0 | – |
+| D1 checklist | 41 | 0 | 0 | 0 | – |
+| D2 completeness pass | 38 | 0 | 3 | 0 | 118210 (no_draft), 617232 (no_draft), 621030 (no_draft) |
+| D3 three-draft merge | 41 | 0 | 0 | 0 | – |
+| D4 checklist + completeness pass | 35 | 2 | 4 | 0 | 118210 (no_draft), 613744 (incomplete), 615817 (incomplete), 617232 (no_draft), 620249 (no_draft), 621030 (no_draft) |
+
+#### D4: All facts
+
+Means over the compared entries: Baseline (direct, before repair) 60.1%; D1 checklist 61.8%; D2 completeness pass 62.6%; D3 three-draft merge 63.2%; D4 checklist + completeness pass 63.4%.
+
+| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |
+|---|---|---|---|---|---|
+| D4 − baseline (primary) | 35 | +3.3 | +2.0 to +4.7 | 27/6/2 | 0.000 |
+| D4 − D2 (secondary) | 35 | +0.8 | -0.4 to +1.8 | 19/10/6 | 0.136 |
+| D4 − D1 (secondary) | 35 | +1.6 | +0.7 to +2.5 | 27/6/2 | 0.000 |
+
+#### D4: Facts the supplied text states
+
+Means over the compared entries: Baseline (direct, before repair) 91.1%; D1 checklist 92.6%; D2 completeness pass 94.4%; D3 three-draft merge 94.1%; D4 checklist + completeness pass 95.6%.
+
+| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |
+|---|---|---|---|---|---|
+| D4 − baseline (primary) | 35 | +4.6 | +2.6 to +6.6 | 24/4/7 | 0.000 |
+| D4 − D2 (secondary) | 35 | +1.2 | -0.2 to +2.6 | 18/9/8 | 0.122 |
+| D4 − D1 (secondary) | 35 | +3.0 | +1.7 to +4.6 | 22/2/11 | 0.000 |
+
+#### D4: … on papers readable in full
+
+Means over the compared entries: Baseline (direct, before repair) 88.4%; D1 checklist 90.6%; D2 completeness pass 92.8%; D3 three-draft merge 92.2%; D4 checklist + completeness pass 94.7%.
+
+| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |
+|---|---|---|---|---|---|
+| D4 − baseline (primary) | 32 | +6.3 | +4.0 to +8.7 | 23/4/5 | 0.000 |
+| D4 − D2 (secondary) | 32 | +1.8 | +0.1 to +3.7 | 16/9/7 | 0.230 |
+| D4 − D1 (secondary) | 32 | +4.1 | +2.2 to +6.2 | 21/3/8 | 0.000 |
+
+#### D4: … on papers readable as abstract only
+
+Means over the compared entries: Baseline (direct, before repair) 96.5%; D1 checklist 96.7%; D2 completeness pass 97.6%; D3 three-draft merge 97.6%; D4 checklist + completeness pass 98.0%.
+
+| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |
+|---|---|---|---|---|---|
+| D4 − baseline (primary) | 28 | +1.5 | -0.6 to +3.9 | 7/3/18 | 0.344 |
+| D4 − D2 (secondary) | 28 | +0.4 | -0.9 to +1.5 | 7/4/17 | 0.549 |
+| D4 − D1 (secondary) | 28 | +1.3 | -0.3 to +3.5 | 5/2/21 | 0.453 |
+
+#### D4: Facts the supplied text does not state
+
+Means over the compared entries: Baseline (direct, before repair) 9.8%; D1 checklist 9.6%; D2 completeness pass 9.7%; D3 three-draft merge 11.2%; D4 checklist + completeness pass 10.1%.
+
+| Comparison | Entries | Difference | 95% CI | Better/worse/tied | Sign p |
+|---|---|---|---|---|---|
+| D4 − baseline (primary) | 33 | +0.2 | -1.2 to +1.8 | 10/8/15 | 0.815 |
+| D4 − D2 (secondary) | 33 | +0.4 | -1.3 to +2.3 | 11/10/12 | 1.000 |
+| D4 − D1 (secondary) | 33 | +0.4 | -0.7 to +1.8 | 5/7/21 | 0.774 |
+
+#### D4: claims judged by the audit (20 audited entries, as above)
+
+| Arm | Entries | Checkable claims | Supported | Partly | Unsupported | Contradicted | Not checkable |
+|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 20 | 2,578 | 2,501 (97.0%) | 71 (2.8%) | 6 (0.2%) | 0 (0.0%) | 67 |
+| D1 checklist | 20 | 2,969 | 2,889 (97.3%) | 70 (2.4%) | 8 (0.3%) | 2 (0.1%) | 87 |
+| D2 completeness pass | 20 | 3,278 | 3,185 (97.2%) | 89 (2.7%) | 4 (0.1%) | 0 (0.0%) | 85 |
+| D3 three-draft merge | 20 | 3,225 | 3,091 (95.8%) | 116 (3.6%) | 14 (0.4%) | 4 (0.1%) | 106 |
+| D4 checklist + completeness pass | 20 | 3,217 | 3,126 (97.2%) | 81 (2.5%) | 9 (0.3%) | 1 (0.0%) | 182 |
+
+#### D4: size, variants, calls and price
+
+| Arm | Characters per entry | Checkable claims per audited entry | Variant recall | Variant precision | New calls per entry | List price per entry, new | List price per entry, method |
+|---|---|---|---|---|---|---|---|
+| Baseline (direct, before repair) | 10,826 | 129 | 82.7% | 85.9% | 0.2 | $0.01 | $1.09 |
+| D1 checklist | 11,927 | 148 | 81.8% | 86.5% | 10.1 | $1.14 | $1.15 |
+| D2 completeness pass | 14,357 | 164 | 82.7% | 85.9% | 12.9 | $1.62 | $2.10 |
+| D3 three-draft merge | 14,309 | 161 | 82.2% | 82.0% | 11.9 | $1.82 | $2.32 |
+| D4 checklist + completeness pass | 14,963 | 161 | 81.8% | 86.5% | 12.5 | $1.61 | $2.11 |
+
+#### D4 and D2: omissions listed and added
+
+On the 37 entries where both wrote a draft: omissions listed D4 600 vs D2 736; kept (quote verified) D4 600 vs D2 735 (D4 fewer on 27 entries, more on 6, equal on 4); sentences added by the revision D4 730 vs D2 908; existing sentences completed D4 118 vs D2 126. D4 sentences added that cite only papers without listed omissions: 0; entries where the model changed a carried-over field: none; citations lost: none.
+
+#### D4: stops and calls
+
+No draft: 118210 (the model's safety filter stopped this reply), 617232 (the model's safety filter stopped this reply), 620249 (the model's safety filter stopped this reply), 621030 (the model's safety filter stopped this reply). Completeness checks failed: {'613744': {'30127434': "stopped: LLMRefusal: the model's safety filter stopped this reply"}, '615817': {'33749590': "stopped: LLMRefusal: the model's safety filter stopped this reply"}}. Safety stops by step: {'generate': 6, 'audit': 2}.
+D4 calls in the ledger (pilot included): 572 of its 700 cap, $74.53 list price; safety stops 9, refusals 0, errors 0.

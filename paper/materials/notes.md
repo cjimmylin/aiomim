@@ -179,3 +179,35 @@ planted items per class show directions and large effects only. Say so once wher
   compared because of stopped replies. Rewrite the audit item: over-citation, broadened claims and omissions are not
   caught; the stress test is small. Add: released systems were run at one setting each, PaperQA2 without its agent,
   STORM not at all.
+
+## Added for the next version (improving on direct reading, log section 15)
+
+- **What may be claimed.** On held-out entries that have at least one paper readable in full (41 entries; 38 or 35
+  compared, by the symmetric completion rule): the completeness pass and the checklist with the completeness pass
+  convey more curator facts than direct reading, the gain comes from facts the supplied text states (most on full-text
+  papers), facts the text does not state do not change, and claims judged supported do not fall. Give the intervals,
+  better/worse/tied and sign tests from the log, and say which comparison set each figure comes from (38 entries for the
+  first four arms, 35 for the five-arm comparison).
+- **The merge of three drafts.** Its gain is partly on facts the supplied text does not state, and it has more
+  unsupported and contradicted claims and lower variant precision. Do not present it as an improvement in fidelity;
+  say that sampling and merging brings in content the papers do not support.
+- **The checklist.** A small gain whose interval excludes zero but whose sign test does not reach 0.05 after Holm
+  adjustment. Combined with the completeness pass it adds little over the completeness pass alone (interval includes
+  zero). Say the two overlap.
+- **Scope.** The arms were designed after the main study, on the same model; prompts were written on three training
+  entries and frozen before the held-out entries were run; the combined arm was designed after the other four had run.
+  No arm was tested on entries without full text; on abstract-only papers no arm moved coverage by more than about a
+  point. The gains are of the size the headroom analysis allowed for reading better (a few points), far below what
+  access to full text adds. Extra calls cost entries to stopped replies (3 and 6 of 41 for the two completeness arms,
+  none for direct reading); report completion.
+- **Free-to-read papers.** The approach with the largest expected effect, reading the papers that are free to read but
+  not openly licensed (about a third of curator facts concern them), was not tested: the project uses only openly
+  licensed text. It may be stated as the largest remaining lever, with the log's figures, not as a result.
+- **Adoption.** The pipeline now uses the checklist with the completeness pass by default where a paper is readable in
+  full. That is a project decision; the paper may mention it in the reproducibility statement but must not present it
+  as a finding.
+- **Still not done.** No second model family has been run (an OpenAI study is designed but has not been run: do not
+  mention it as planned work or report anything from it), and no human has validated any judgement. These stay first
+  among the limitations.
+- **Figures.** Every figure must be legible at the width it is printed (no text below 7 pt), use one colour per
+  strategy consistently across figures, and carry no text that belongs in the caption.

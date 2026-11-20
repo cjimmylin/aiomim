@@ -131,6 +131,35 @@ then verify.
     return "\n".join(out)
 
 
+def direct_improvements() -> str:
+    """Section 15: improving on direct reading (docs/direct-improvements.md), from its result file."""
+    path = ROOT / "results/direct_improve/direct_improve.md"
+    head = """## 15. Improving on direct reading (20 November 2026)
+
+Ten approaches were reviewed (`docs/direct-improvements.md`, evidence in `docs/direct-improvements-evidence.md`);
+the three judged most likely to help at feasible cost were implemented, piloted on three training entries with the
+prompts then frozen, and evaluated on the 41 entries of the held-out test split that have at least one paper
+readable in full; a fourth arm combining the first two was designed and run afterwards (the "Extension" below).
+Arms: D1, direct reading with a curator checklist in the house style (what a curator records about each paper);
+D2, a completeness pass (for each paper, a check listing findings the paper states that the draft omits, each with a
+quote verified in the paper, then one revision adding only those); D3, three direct-reading drafts merged keeping
+every distinct statement; D4, the checklist draft followed by the completeness pass. No repair round for any arm; the
+baseline is direct reading's draft before repair. Claim-level audit without repair on a seeded sample of 20 of the
+41 entries. The approach with the largest expected effect, reading papers that are free to read but not openly
+licensed (about a third of all curator facts concern such papers), could not be tested under the project's access
+rules. After the evaluation, D4 was adopted as the pipeline's default way of writing an entry where a paper is
+readable in full; that is a project decision, not a result. The result file is reproduced below with its headings
+lowered. Code names: `direct` direct reading; `direct_checklist` D1; `direct_complete` D2; `direct_ensemble` D3;
+`direct_checklist_complete` D4.
+"""
+    if not path.exists():
+        return head + "\n(not run: the result file is missing)\n"
+    body = []
+    for line in read(path).splitlines():
+        body.append("##" + line if line.startswith("#") else line)
+    return head + "\nFrom `results/direct_improve/direct_improve.md`.\n\n" + "\n".join(body).strip() + "\n"
+
+
 def report(run: str) -> str:
     return read(RUNS / run / "strategies.md")
 
@@ -933,6 +962,7 @@ All experiments, pilots and re-scoring: {calls:,} cached model calls, {inp / 1e6
 {out / 1e6:.0f} million output tokens, about ${cost:,.0f} at list price.
 """)
     parts.append(second_round())
+    parts.append(direct_improvements())
     return "\n".join(parts)
 
 
