@@ -73,3 +73,75 @@ def test_convert_uses_session_contexts_for_bare_keys():
                            "contexts": [{"id": "pqac-7c33d06c", "docname": "Rendu2019-31705625"}]}]}
     blocks, notes = convert("621313", result, {"31705625"})
     assert blocks[0]["pmids"] == ["31705625"] and notes["questions"][0]["bare_keys"] == 1
+
+
+# --------------------------------------------------------------------------- #
+# Opt-in pooling of long embedding inputs (aiomim.external.embed)
+# --------------------------------------------------------------------------- #
+
+import re as _re
+
+from aiomim.external import embed as _embed
+
+
+def _ws_encode(text):
+    """Whitespace tokenizer: offsets of each word."""
+    return [m.span() for m in _re.finditer(r"\S+", text)]
+
+
+class _FakeModel:
+    """Vector = (number of words, 1.0); records each embed call."""
+
+    def __init__(self):
+        self.calls = []
+
+    def embed(self, texts, batch_size=64):
+        self.calls.append(list(texts))
+        return [[float(len(t.split())), 1.0] for t in texts]
+
+
+def _fake_embedder(mode):
+    e = _embed.LocalEmbedder(cache=__import__("pathlib").Path("/nonexistent"), long_inputs=mode)
+    e._model = _FakeModel()
+    e._encode_fn, e._max_tokens = _ws_encode, 4
+    return e
+
+
+def test_split_windows_consecutive_and_fitting():
+    text = "a b c d e f g h i j"
+    assert _embed.split_windows(text, _ws_encode, 4) == ["a b c d", "e f g h", "i j"]
+    assert _embed.split_windows("a b c", _ws_encode, 4) == ["a b c"]
+    assert _embed.split_windows("a b c d", _ws_encode, 4) == ["a b c d"]
+
+
+def test_mean_normalised():
+    v = _embed.mean_normalised([[1.0, 0.0], [0.0, 1.0]])
+    assert abs(v[0] - 2 ** -0.5) < 1e-12 and abs(sum(x * x for x in v) - 1) < 1e-12
+
+
+def test_default_mode_unchanged_and_rejects_bad_mode():
+    e = _fake_embedder("truncate")
+    assert e.embed(["a b c d e f"]) == [[6.0, 1.0]]          # passed through whole, no windowing
+    assert e.name == _embed.EMBED_MODEL
+    import pytest
+
+    with pytest.raises(ValueError):
+        _embed.LocalEmbedder(long_inputs="other")
+
+
+def test_pool_mode_short_inputs_take_the_default_call():
+    d, p = _fake_embedder("truncate"), _fake_embedder("pool")
+    short = ["a b", "c d e"]
+    assert p.embed(short) == d.embed(short)
+    assert p._model.calls == [short]                          # one call, same batch, same order
+
+
+def test_pool_mode_long_input_windows_averaged():
+    p = _fake_embedder("pool")
+    out = p.embed(["x y", "a b c d e f g h i j"])
+    assert out[0] == [2.0, 1.0]                               # short input untouched
+    assert p._model.calls[1] == ["a b c d", "e f g h", "i j"]
+    mean = [(4 + 4 + 2) / 3, 1.0]
+    norm = sum(x * x for x in mean) ** 0.5
+    assert out[1] == [x / norm for x in mean]
+    assert p.name.startswith(_embed.EMBED_MODEL) and p.name != _embed.EMBED_MODEL

@@ -1243,12 +1243,24 @@ def _flat(done: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return out
 
 
+_STOP = {"the", "a", "an", "of", "in", "and", "was", "were", "with", "to", "for", "by", "that", "this", "is",
+         "are", "et", "al", "on", "as", "at", "from", "had", "has", "their", "they", "which", "it", "be", "been"}
+
+
 def claim_overlap(claim: str, sentence: str) -> float:
-    stop = {"the", "a", "an", "of", "in", "and", "was", "were", "with", "to", "for", "by", "that", "this", "is",
-            "are", "et", "al", "on", "as", "at", "from", "had", "has", "their", "they", "which"}
-    c = [t for t in tokens(claim) if t not in stop]
-    s = {t for t in tokens(sentence) if t not in stop}
+    c = [t for t in tokens(claim) if t not in _STOP]
+    s = {t for t in tokens(sentence) if t not in _STOP}
     return sum(1 for t in c if t in s) / len(c) if c else 0.0
+
+
+def deletion_window(before: str, after: str, width: int = 4) -> set[str]:
+    """Content words next to the point where `before` and `after` differ (the deleted phrase's neighbours)."""
+    p = 0
+    while p < min(len(before), len(after)) and before[p] == after[p]:
+        p += 1
+    left = [t for t in tokens(after[:p]) if t not in _STOP][-width:]
+    right = [t for t in tokens(after[p:]) if t not in _STOP][:width]
+    return set(left + right)
 
 
 def planted_claims(cls: str, item: dict[str, Any], claims: list[dict[str, Any]], lib: Library | None = None,
@@ -1272,8 +1284,12 @@ def planted_claims(cls: str, item: dict[str, Any], claims: list[dict[str, Any]],
         return [i for i, c in enumerate(claims) if exact_keys(variant_mentions(c["text"])) & moved]
     if cls == "C5":
         sentence = item["before_sentence"] if control else item["after_sentence"]
+        window = deletion_window(item["before_sentence"], item["after_sentence"])
+        if control:
+            window |= {t for t in tokens(item["deleted"]) if t not in _STOP}
         scores = [claim_overlap(c["text"], sentence) for c in claims]
-        picked = [i for i, s in enumerate(scores) if s >= 0.6]
+        picked = [i for i, s in enumerate(scores)
+                  if s >= 0.6 or len(window & set(tokens(claims[i]["text"]))) >= 2]
         if not picked and scores and max(scores) > 0:
             picked = [scores.index(max(scores))]
         return picked
@@ -1485,12 +1501,12 @@ DECISIONS = [
     "occur in the new paper; C3 items when none of the moved sentence's variants occurs in B.",
     "Planted claim: C1 and C4 every claim; C2 claims naming a variant absent from the new paper; C3 claims naming the "
     "moved variant; C5 claims taken from the altered sentence (at least 60% of a claim's content words in the "
-    "sentence, else the best-overlapping claim); C6 none. An item counts as 'planted claim flagged' when any planted "
+    "sentence, or at least two of the content words next to the deletion point, else the best-overlapping claim); C6 none. An item counts as 'planted claim flagged' when any planted "
     "claim is unsupported or contradicted. Control analogue: the same rule on the unaltered paragraph (for C3, the "
     "moved sentence's claims in paper A's own paragraph, against paper A).",
     "C6 deleted sentence: not the first sentence, carrying a variant or a number (years and MIM numbers aside) that "
     "appears nowhere else in the draft's text citing that paper. Mechanical match: a listed omission names one of the "
-    "sentence's variants (by key), or, for a sentence without variants, carries all its numbers. Judge match: stage "
+    "sentence's variants (by key) or carries all its numbers (number words read as digits). Judge match: stage "
     "'judge'. The draft text given to the check is all paragraphs of the entry citing the paper (as in scoring).",
     "The audit is run on items in fixed chunks of 5 (one claim-decomposition call per chunk, then one call per cited "
     "paper), not on one 60-paragraph holder as the single-value test did (decomposition batches of 25); this lets the "

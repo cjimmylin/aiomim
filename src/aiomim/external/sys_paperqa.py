@@ -32,6 +32,17 @@ from pathlib import Path
 from typing import Any
 
 SYSTEM = "paperqa"
+SYSTEM_POOLED = "paperqa_pooled"     # the same run with the adapter's opt-in pooling of long embedding inputs
+POOLED_SETTING = {
+    "setting": "embedding input length (adapter /v1/embeddings, long_inputs='pool')",
+    "default": "bge-small-en-v1.5 truncates every input at 512 tokens, so a default 5,000-character PaperQA chunk "
+               "(about 1,100-1,300 tokens) is embedded from its first ~510 tokens only",
+    "value": "an input over 510 tokens (model tokenizer, without [CLS]/[SEP]) is split into consecutive "
+             "non-overlapping windows of at most 510 tokens; each is embedded, the vectors are averaged "
+             "(unweighted) and re-normalised; shorter inputs are embedded exactly as before",
+    "reason": "the 512-token cut is an artefact of the shared local embedding model, not of PaperQA2 (whose "
+              "default embedding, text-embedding-3-small, takes 8,191 tokens); pooling embeds the whole chunk",
+}
 PACKAGE = "paper-qa"
 ROOT = Path(__file__).resolve().parents[3]
 VENV_PY = ROOT / ".venvs" / "paperqa" / "bin" / "python"
@@ -222,11 +233,14 @@ def probe() -> dict[str, Any]:
             "stderr_tail": proc.stderr[-2000:]}
 
 
-def run_entry(mim: str, *, force: bool = False) -> dict[str, Any]:
+def run_entry(mim: str, *, force: bool = False, pooled: bool = False) -> dict[str, Any]:
     from .adapt import entry_dir, load_output, save_output
     from .corpus import export_entry
-    from .shim import ShimServer
+    from .embed import LocalEmbedder
+    from .shim import Shim, ShimServer
     from .tasks import section_questions
+
+    SYSTEM = SYSTEM_POOLED if pooled else globals()["SYSTEM"]  # noqa: N806
 
     folder = entry_dir(SYSTEM, mim)
     if not force and load_output(SYSTEM, mim) is not None:
@@ -239,7 +253,9 @@ def run_entry(mim: str, *, force: bool = False) -> dict[str, Any]:
     n_before = len(_ledger_rows(ledger, tag))
     result_path = folder / "paperqa_result.json"
     started = time.time()
-    with ShimServer(tag=tag, ledger=ledger, max_concurrency=MAX_CONCURRENCY) as base_url, \
+    shim = Shim(tag=tag, ledger=ledger, max_concurrency=MAX_CONCURRENCY,
+                embedder=LocalEmbedder(long_inputs="pool") if pooled else None)
+    with ShimServer(shim=shim) as base_url, \
             OutboundLogger(folder / "outbound.log") as proxy:
         proc = subprocess.run([str(VENV_PY), "-I", str(RUNNER), "--base-url", base_url,
                                "--corpus", str(folder / "corpus"), "--questions", str(folder / "questions.json"),
@@ -274,7 +290,7 @@ def run_entry(mim: str, *, force: bool = False) -> dict[str, Any]:
         "meta": {
             "package": PACKAGE, "version": result.get("version"), "versions": versions,
             "entry_point": "paperqa.Docs.aadd (one document per paper) + Docs.aquery (one per question)",
-            "settings_changed": changed_settings(),
+            "settings_changed": changed_settings() + ([POOLED_SETTING] if pooled else []),
             # fresh model calls ever made for this entry (all runs; a re-run is served from the cache)
             "calls": sum(int(r.get("model_calls") or 1) for r in _ledger_rows(ledger, tag)
                          if r.get("endpoint") == "/v1/chat/completions" and r.get("status") == 200
@@ -299,6 +315,8 @@ def main(argv: list[str] | None = None) -> None:
     r = sub.add_parser("run")
     r.add_argument("entries", nargs="*")
     r.add_argument("--force", action="store_true")
+    r.add_argument("--pooled-embeddings", action="store_true",
+                   help=f"adapter pools long embedding inputs; saved as system {SYSTEM_POOLED}")
     args = ap.parse_args(argv)
     if args.cmd == "probe":
         print(json.dumps(probe(), indent=1))
@@ -308,7 +326,7 @@ def main(argv: list[str] | None = None) -> None:
         from .corpus import main_set
 
         for mim in args.entries or main_set():
-            print(json.dumps(run_entry(mim, force=args.force)), flush=True)
+            print(json.dumps(run_entry(mim, force=args.force, pooled=args.pooled_embeddings)), flush=True)
 
 
 if __name__ == "__main__":

@@ -285,3 +285,14 @@ def test_numbers_in_reads_words_and_thousands():
     assert A.mechanical_match(s, ["a maximum two-point lod score of 2.11 ... a 4-cM region"]) is True
     assert A.mechanical_match("The deletion removes 3 amino acids (Pro102_Val104del).",
                               ["The deletion removes 3 amino acids, p.P102-V104del."]) is True
+
+
+def test_c5_planted_claim_uses_words_next_to_the_deletion():
+    item = {"before_sentence": "Pancreas size was reduced, but the patients were not deficient in exocrine enzymes.",
+            "after_sentence": "Pancreas size was reduced, but the patients were deficient in exocrine enzymes.",
+            "deleted": "not"}
+    claims = _claims(("Pancreas size was reduced in the infants described by Smith et al. (2010).", "supported"),
+                     ("The infants described by Smith et al. (2010) were deficient in exocrine pancreatic enzymes.",
+                      "contradicted"))
+    assert 1 in A.planted_claims("C5", item, claims)
+    assert A.deletion_window(item["before_sentence"], item["after_sentence"]) >= {"patients", "deficient"}
