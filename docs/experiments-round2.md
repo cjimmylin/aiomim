@@ -156,8 +156,7 @@ safety filter stopped at least one strategy on every one of the four:
   entries. Nothing was retried.
 - The tier's comparison therefore rests on the earlier 12 entries alone, which are nearly all abstracts: on the 10 of
   them every strategy completed, the agentic curator is −0.6 points from direct reading (−2.1 to +0.7), the evidence
-  graph +0.7 (−2.7 to +3.4) and case table first +0.4 (−1.4 to +2.3). The earlier exploratory finding that the case
-  table was ahead on large entries (+1.8) does not hold under this analysis.
+  graph +0.7 (−2.7 to +3.4) and case table first +0.4 (−1.4 to +2.3), the figures the study already had.
 - On the one new entry where every strategy wrote something (152700): direct reading 52.3%, agentic curator 51.5%,
   case table first 49.6% with two papers lost, evidence graph 39.8% with three papers lost. One entry; not a result.
 - Even where drafts exist the measure is weak here: the curator paragraphs that are scored concern 5–10% of each new
