@@ -277,8 +277,9 @@ Thirty items per class (540 calls). Counts are over items where the truth is kno
 
 ## Usage
 
-About 4,600 new model calls in all (A1 1,338; A2 685; B about 2,050 including scoring; C 540), against the reduced
-plan of about 5,400; roughly $350–400 at list price.
+4,591 new model calls in all (A1 1,338; A2 685; C 540; B the rest, including scoring), against the reduced plan of
+about 5,400; about $400 at list price (the project's total went from 38,505 calls and $2,896 to 43,096 calls and
+$3,294).
 
 ## Deviations from the design
 

@@ -1005,7 +1005,8 @@ The 30 entries were chosen by creation date alone: the newest qualifying entries
 
 - **Planted errors.** In 60 paragraphs the audit had passed, one fact was altered by rule (a count, a zygosity, a
   residue or a mode of inheritance). The audit flagged all 60, each on a claim containing the altered value. The test
-  measures sensitivity to blunt single-fact substitutions only; omissions and misattributions are not tested. In 6 of
+  measures sensitivity to blunt single-fact substitutions only; misattributed citations, conflation, dropped
+  qualifiers and omissions were tested later (section 14.4). In 6 of
   the 60 other claims were also flagged.
 - **Audit control: the same paragraphs unaltered.** The 60 paragraphs were audited again as written, with fresh model calls (replicate salt `auditctl1`) and the procedure of the planted test. 0 of 60 had at least one claim flagged; 0 of 361 claims were flagged (0 unsupported, 0 contradicted) and 6 came back partly supported; 3 could not be audited. Safety stops: 0. The paragraphs were selected for having passed the audit once, so this is the rate at which a re-audit flags a paragraph that passed before, not the false-flag rate on arbitrary paragraphs.
 - **Disagreements between a draft and the reference.** Facts on which a direct-reading draft contradicted the OMIM
@@ -1036,11 +1037,980 @@ The 30 entries were chosen by creation date alone: the newest qualifying entries
   contradicted.
 - One model family wrote, audited and judged everything. No person has read any draft, verdict or fact judgement.
 - Strategies were developed on the same entries they are evaluated on.
-- Published systems (for example SLIDERS, PaperQA2) were not run; the strategies are our own implementations of the
-  ideas.
+- Published systems: PaperQA2 (its document-query pipeline, without its agent) and GraphRAG were run as released on
+  10 and 4 entries, and STORM could not be run with this model (section 14). SLIDERS and others were not run. The
+  strategies are our own implementations of the ideas.
 - No second model was tested.
 
 ## 13. Total model usage
 
-All experiments, pilots and re-scoring: 38,505 cached model calls, 260 million input and
-69 million output tokens, about $2,896 at list price.
+All experiments, pilots and re-scoring: 43,096 cached model calls, 314 million input and
+75 million output tokens, about $3,294 at list price.
+
+## 14. Second round of experiments (20-21 November 2026)
+
+Design, reduced sizes, summary and deviations: `docs/experiments-round2.md`. Sizes are small (4 to 10 entries per
+experiment, 30 planted items per class): the results show directions and large effects only. The result files are
+reproduced below with their headings lowered. Where they say "strategy" names in code form: `direct` direct reading,
+`agent` agentic curator, `kg` evidence graph, `cohort` case table first, `closedbook` memory only, `recall` recall,
+then verify.
+
+### 14.1 Natural large-entry tier (A1)
+
+From `results/largeft/large_tier.md`.
+
+#### Experiment A1: natural large-entry tier
+
+Generated 2026-11-20T07:41:00 by `python -m aiomim.largetier analyze`. **The 12 large12 entries were scored after the audit's repair round; the new entries were generated and scored without audit or repair. The combined tier mixes the two.**
+
+New entries run: 4 (155600, 168600, 152700, 114500), the first in rule order of `evalsets/largeft8.tsv`; the header of that file gives the rule, seed, candidates and shortlist.
+
+Measure: OMIM facts conveyed: share of the fixed (frozen) fact list of the entry's in-scope curator paragraphs that the draft text citing the paper conveys (present = 1, partial = 0.5), mean over entries. Paired differences are strategy minus direct reading, in percentage points, with a percentile bootstrap 95% interval (10,000 resamples, seed 7; none below 3 entries) and an exact two-sided sign test on better/worse (ties dropped). No correction for multiple comparisons.
+
+##### Deviations from the design
+
+- Sample of up to 200 eligible entries (design: 400) and 8 new entries selected (design: 16; reduced sizes: 8).
+- Only the first 4 selected entries in rule order were run (reduced sizes: 8, floor 6): the 1,500-call cap allowed no more (an entry cost about 250-330 new calls, most of it per-paper extraction for the evidence graph and the case table).
+- The split on facts the supplied text states was not made (reduced sizes: only if it fits).
+- The selection was resolved in three passes across machine restarts; counts resolved earlier were reused from its log. The first three entries were run before it finished, each only once its place in the top 8 was certain from the bounds (times in the header of evalsets/largeft8.tsv).
+
+##### Completion
+
+complete = draft written and every per-paper call succeeded; incomplete = draft written but a per-paper extraction call was stopped by the safety filter and the paper was dropped (evidence graph, case table); no draft = the writer (or a direct-reading batch) was stopped, or the strategy did not run.
+
+| Group | Strategy | complete | incomplete | no draft |
+|---|---|---|---|---|
+| combined | Direct reading | 12 | 0 | 4 |
+| combined | Agentic curator | 14 | 0 | 2 |
+| combined | Evidence graph | 11 | 4 | 1 |
+| combined | Case table first | 10 | 5 | 1 |
+| new | Direct reading | 1 | 0 | 3 |
+| new | Agentic curator | 2 | 0 | 2 |
+| new | Evidence graph | 0 | 4 | 0 |
+| new | Case table first | 0 | 3 | 1 |
+| old | Direct reading | 11 | 0 | 1 |
+| old | Agentic curator | 12 | 0 | 0 |
+| old | Evidence graph | 11 | 0 | 1 |
+| old | Case table first | 10 | 2 | 0 |
+
+Safety-filter stops on the new entries (recorded, never retried):
+
+| Strategy | writer stopped (no draft) | entries with stopped papers | papers stopped |
+|---|---|---|---|
+| Direct reading | 3 | 0 | 0 |
+| Agentic curator | 2 | 0 | 0 |
+| Evidence graph | 0 | 4 | 37 |
+| Case table first | 1 | 3 | 25 |
+
+##### Facts conveyed on entries every strategy completed (the design's comparison)
+
+| Group | n | Strategy | mean % | vs direct (pp) | 95% CI | better / worse / tied | sign p |
+|---|---|---|---|---|---|---|---|
+| All compared entries (old + new) | 10 | Direct reading | 45.5 | – | – | – | – |
+| All compared entries (old + new) | 10 | Agentic curator | 44.9 | -0.6 | [-2.1, +0.7] | 2 / 6 / 2 | 0.289 |
+| All compared entries (old + new) | 10 | Evidence graph | 46.3 | +0.7 | [-2.7, +3.4] | 6 / 3 / 1 | 0.508 |
+| All compared entries (old + new) | 10 | Case table first | 46.0 | +0.4 | [-1.4, +2.3] | 5 / 4 / 1 | 1.000 |
+| New entries alone (no audit) | 0 | Direct reading | – | – | – | – | – |
+| New entries alone (no audit) | 0 | Agentic curator | – | – | – | – | – |
+| New entries alone (no audit) | 0 | Evidence graph | – | – | – | – | – |
+| New entries alone (no audit) | 0 | Case table first | – | – | – | – | – |
+| large12 alone (after repair) | 10 | Direct reading | 45.5 | – | – | – | – |
+| large12 alone (after repair) | 10 | Agentic curator | 44.9 | -0.6 | [-2.1, +0.7] | 2 / 6 / 2 | 0.289 |
+| large12 alone (after repair) | 10 | Evidence graph | 46.3 | +0.7 | [-2.7, +3.4] | 6 / 3 / 1 | 0.508 |
+| large12 alone (after repair) | 10 | Case table first | 46.0 | +0.4 | [-1.4, +2.3] | 5 / 4 / 1 | 1.000 |
+| All compared, supplied characters at or below the median | 5 | Direct reading | 37.8 | – | – | – | – |
+| All compared, supplied characters at or below the median | 5 | Agentic curator | 37.7 | -0.1 | [-0.7, +0.6] | 1 / 2 / 2 | 1.000 |
+| All compared, supplied characters at or below the median | 5 | Evidence graph | 39.5 | +1.7 | [-0.1, +4.3] | 3 / 1 / 1 | 0.625 |
+| All compared, supplied characters at or below the median | 5 | Case table first | 38.4 | +0.7 | [-1.4, +3.3] | 2 / 2 / 1 | 1.000 |
+| All compared, supplied characters above the median | 5 | Direct reading | 53.3 | – | – | – | – |
+| All compared, supplied characters above the median | 5 | Agentic curator | 52.2 | -1.1 | [-3.9, +1.6] | 1 / 4 / 0 | 0.375 |
+| All compared, supplied characters above the median | 5 | Evidence graph | 53.1 | -0.2 | [-6.7, +4.4] | 3 / 2 / 0 | 1.000 |
+| All compared, supplied characters above the median | 5 | Case table first | 53.5 | +0.2 | [-2.6, +2.8] | 3 / 2 / 0 | 1.000 |
+| New alone, at or below their median | 0 | Direct reading | – | – | – | – | – |
+| New alone, at or below their median | 0 | Agentic curator | – | – | – | – | – |
+| New alone, at or below their median | 0 | Evidence graph | – | – | – | – | – |
+| New alone, at or below their median | 0 | Case table first | – | – | – | – | – |
+| New alone, above their median | 0 | Direct reading | – | – | – | – | – |
+| New alone, above their median | 0 | Agentic curator | – | – | – | – | – |
+| New alone, above their median | 0 | Evidence graph | – | – | – | – | – |
+| New alone, above their median | 0 | Case table first | – | – | – | – | – |
+
+Median supplied characters of the compared entries: 56,818 (all); no new entry is compared.
+
+##### Secondary view: every strategy wrote a scored draft (stopped papers included)
+
+Not in the design. Incomplete drafts were written without the papers whose extraction the safety filter stopped, so a strategy's score here mixes method and stops; read it as a description, not a test.
+
+| Group | n | Strategy | mean % | vs direct (pp) | 95% CI | better / worse / tied | sign p |
+|---|---|---|---|---|---|---|---|
+| All compared entries (old + new) | 11 | Direct reading | 46.2 | – | – | – | – |
+| All compared entries (old + new) | 11 | Agentic curator | 45.5 | -0.6 | [-1.9, +0.5] | 2 / 7 / 2 | 0.180 |
+| All compared entries (old + new) | 11 | Evidence graph | 45.7 | -0.5 | [-4.3, +2.8] | 6 / 4 / 1 | 0.754 |
+| All compared entries (old + new) | 11 | Case table first | 46.3 | +0.1 | [-1.5, +1.9] | 5 / 5 / 1 | 1.000 |
+| New entries alone (no audit) | 1 | Direct reading | 52.3 | – | – | – | – |
+| New entries alone (no audit) | 1 | Agentic curator | 51.5 | -0.8 | – | 0 / 1 / 0 | 1.000 |
+| New entries alone (no audit) | 1 | Evidence graph | 39.8 | -12.5 | – | 0 / 1 / 0 | 1.000 |
+| New entries alone (no audit) | 1 | Case table first | 49.6 | -2.7 | – | 0 / 1 / 0 | 1.000 |
+| All compared, supplied characters above the median | 5 | Direct reading | 52.5 | – | – | – | – |
+| All compared, supplied characters above the median | 5 | Agentic curator | 51.4 | -1.1 | [-3.9, +1.6] | 1 / 4 / 0 | 0.375 |
+| All compared, supplied characters above the median | 5 | Evidence graph | 49.2 | -3.3 | [-10.2, +3.6] | 2 / 3 / 0 | 1.000 |
+| All compared, supplied characters above the median | 5 | Case table first | 51.9 | -0.6 | [-3.2, +2.4] | 2 / 3 / 0 | 1.000 |
+
+Median supplied characters of these entries: 59,100.
+
+Pairwise with direct reading, on entries where both wrote a scored draft (stopped papers included):
+
+| Group | Strategy | n | strategy % | direct % | vs direct (pp) | 95% CI | better / worse / tied | sign p | entries |
+|---|---|---|---|---|---|---|---|---|---|
+| All compared entries (old + new) | Agentic curator | 12 | 44.8 | 45.5 | -0.6 | [-1.8, +0.5] | 2 / 8 / 2 | 0.109 | 128100, 152700*, 175200, 258870, 600116, 601419, 607060, 609016, 613095, 613470, 613679, 621314 |
+| All compared entries (old + new) | Evidence graph | 11 | 45.7 | 46.2 | -0.5 | [-4.3, +2.8] | 6 / 4 / 1 | 0.754 | 128100, 152700*, 175200, 258870, 600116, 601419, 609016, 613095, 613470, 613679, 621314 |
+| All compared entries (old + new) | Case table first | 12 | 45.7 | 45.5 | +0.2 | [-1.4, +1.9] | 6 / 5 / 1 | 1.000 | 128100, 152700*, 175200, 258870, 600116, 601419, 607060, 609016, 613095, 613470, 613679, 621314 |
+| New entries alone (no audit) | Agentic curator | 1 | 51.5 | 52.3 | -0.8 | – | 0 / 1 / 0 | 1.000 | 152700* |
+| New entries alone (no audit) | Evidence graph | 1 | 39.8 | 52.3 | -12.5 | – | 0 / 1 / 0 | 1.000 | 152700* |
+| New entries alone (no audit) | Case table first | 1 | 49.6 | 52.3 | -2.7 | – | 0 / 1 / 0 | 1.000 | 152700* |
+
+(* new entry)
+
+##### Per entry
+
+refs = references; full = readable in full; chars = characters supplied (title, abstract, full text); prompts = writer prompts of direct reading (batches + merge; * planned, the writer was stopped); cut = papers/characters direct reading's prompt shortened; ext cut = papers over the 180,000-character extraction cap; paras/facts = in-scope curator paragraphs and fixed facts; refs scored = references the scored paragraphs are about (share of all references). Coverage % per strategy; (i) incomplete, with papers stopped; (–) no draft. agent unread = papers the agentic curator did not open.
+
+| Entry | tier | refs | full | chars | prompts | cut | ext cut | paras | facts | refs scored | direct | agent | kg | cohort | agent unread |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 258870 | old | 34 | 0 | 33,745 | 1 | 0/0 | 0 | 13 | 83 | 2 (5.9%) | 11.4 | 10.2 | 10.8 | 10.8 | 0 |
+| 128100 | old | 60 | 1 | 71,650 | 1 | 0/0 | 0 | 10 | 157 | 10 (16.7%) | 52.2 | 46.5 | 57.3 | 54.1 | 0 |
+| 180300 | old | 73 | 16 | 648,575 | 3* | 0/0 | 0 | 10 | 90 | 9 (12.3%) | – | 47.2 | 56.1 | 58.9 (i, 9) | 4 |
+| 600116 | old | 39 | 3 | 132,106 | 1 | 3/25,174 | 0 | 14 | 163 | 9 (23.1%) | 37.1 | 36.8 | 36.2 | 34.7 | 0 |
+| 607060 | old | 44 | 5 | 215,334 | 1 | 4/77,703 | 0 | 16 | 150 | 14 (31.8%) | 37.7 | 37.3 | – | 38.7 (i, 2) | 0 |
+| 609016 | old | 30 | 1 | 67,818 | 1 | 1/13,328 | 0 | 7 | 59 | 5 (16.7%) | 77.1 | 80.5 | 81.4 | 81.4 | 0 |
+| 613679 | old | 35 | 0 | 31,849 | 1 | 0/0 | 0 | 9 | 97 | 13 (37.1%) | 52.1 | 52.1 | 58.8 | 49.5 | 0 |
+| 613470 | old | 31 | 0 | 21,025 | 1 | 0/0 | 0 | 5 | 46 | 3 (9.7%) | 54.3 | 55.4 | 54.3 | 54.3 | 0 |
+| 621314 | old | 45 | 2 | 108,471 | 1 | 2/29,922 | 0 | 5 | 48 | 4 (8.9%) | 43.8 | 41.7 | 31.2 | 39.6 | 0 |
+| 175200 | old | 75 | 0 | 54,535 | 1 | 0/0 | 0 | 14 | 118 | 6 (8.0%) | 39.4 | 39.0 | 41.1 | 40.3 | 0 |
+| 601419 | old | 37 | 1 | 59,100 | 1 | 0/0 | 0 | 18 | 256 | 19 (51.3%) | 56.4 | 55.5 | 59.4 | 57.8 | 0 |
+| 613095 | old | 33 | 0 | 39,040 | 1 | 0/0 | 0 | 8 | 79 | 5 (15.2%) | 31.6 | 31.6 | 32.3 | 37.3 | 0 |
+| 155600 | new | 119 | 33 | 998,176 | 3* | 0/0 | 0 | 6 | 53 | 6 (5.0%) | – | – | 48.1 (i, 20) | 52.8 (i, 18) | – |
+| 168600 | new | 133 | 19 | 604,761 | 3* | 0/0 | 0 | 16 | 152 | 10 (7.5%) | – | 41.8 | 46.4 (i, 7) | 47.0 (i, 5) | 0 |
+| 152700 | new | 148 | 14 | 614,865 | 3 | 0/0 | 0 | 14 | 133 | 14 (9.5%) | 52.3 | 51.5 | 39.8 (i, 3) | 49.6 (i, 2) | 13 |
+| 114500 | new | 76 | 12 | 375,649 | 1* | 8/95,140 | 0 | 15 | 94 | 6 (7.9%) | – | – | 48.9 (i, 7) | – | – |
+
+##### Caps that truncated the input
+
+Direct reading: one prompt holds 600,000 characters; above that the papers are split into batches of that size and the partial drafts merged, and only a paper longer than a whole batch is cut; in one prompt each paper is cut to max(20,000, 600,000 / papers) characters. Evidence graph and case table: each paper's extraction reads at most 180,000 characters.
+
+- 600116 (old): direct reading cut 3 papers by 25,174 characters; extraction cut 0 papers
+- 607060 (old): direct reading cut 4 papers by 77,703 characters; extraction cut 0 papers
+- 609016 (old): direct reading cut 1 papers by 13,328 characters; extraction cut 0 papers
+- 621314 (old): direct reading cut 2 papers by 29,922 characters; extraction cut 0 papers
+- 114500 (new): direct reading cut 8 papers by 95,140 characters (as planned: the writer was stopped, so no draft was written from it); extraction cut 0 papers
+
+
+
+##### Calls, cost and time (new entries)
+
+Calls and list-price cost as made fresh (generation; scoring = adaptive judge, variant match and fixed-fact marking); wall-clock = the CLI pass for that entry and strategy (generation + scoring), summed over resumed passes; new calls = calls not answered from the cache in this experiment's passes.
+
+| Strategy | entries | generate calls | score calls | generate $ | score $ | wall-clock h | new calls here |
+|---|---|---|---|---|---|---|---|
+| Direct reading | 4 | 9 | 66 | 17.19 | 1.49 | 0.61 | 126 |
+| Agentic curator | 4 | 6 | 81 | 9.03 | 1.99 | 0.83 | 64 |
+| Evidence graph | 4 | 484 | 105 | 35.64 | 2.73 | 0.98 | 589 |
+| Case table first | 4 | 484 | 90 | 35.92 | 2.28 | 0.92 | 559 |
+
+New model calls made by this experiment: 1338 of the 1500 cap (1338 counted per pass in runs/largeft/timing.tsv, plus 0 made by a pass the machine restart interrupted).
+
+| Entry | Strategy | status | gen calls | gen $ | score calls | marking calls | wall s | new calls |
+|---|---|---|---|---|---|---|---|---|
+| 155600 | direct | no_draft | 2 | 6.91 | 6 | – | 577 | 14 |
+| 155600 | agent | no_draft | 1 | 1.77 | 6 | – | 653 | 1 |
+| 155600 | kg | incomplete | 121 | 11.9 | 12 | 6 | 981 | 133 |
+| 155600 | cohort | incomplete | 121 | 11.18 | 13 | 6 | 999 | 134 |
+| 168600 | direct | no_draft | 2 | 4.1 | 16 | – | 454 | 34 |
+| 168600 | agent | complete | 2 | 2.54 | 31 | 14 | 883 | 31 |
+| 168600 | kg | incomplete | 135 | 8.81 | 33 | 16 | 971 | 168 |
+| 168600 | cohort | incomplete | 135 | 9.25 | 33 | 16 | 813 | 168 |
+| 152700 | direct | complete | 4 | 3.68 | 29 | 14 | 644 | 47 |
+| 152700 | agent | complete | 2 | 2.89 | 29 | 14 | 793 | 31 |
+| 152700 | kg | incomplete | 150 | 9.44 | 29 | 14 | 930 | 179 |
+| 152700 | cohort | incomplete | 150 | 9.7 | 29 | 14 | 916 | 179 |
+| 114500 | direct | no_draft | 1 | 2.5 | 15 | – | 511 | 31 |
+| 114500 | agent | no_draft | 1 | 1.83 | 15 | – | 671 | 1 |
+| 114500 | kg | incomplete | 78 | 5.49 | 31 | 15 | 658 | 109 |
+| 114500 | cohort | no_draft | 78 | 5.79 | 15 | – | 588 | 78 |
+
+### 14.2 Controlled padding of the input (A2)
+
+From `results/padding/padding.md`.
+
+#### A2. Controlled padding of the input
+
+Design: `docs/experiments-round2.md`, section A2. Generated by `python -m aiomim.padding summarise`. Coverage is the share of the entry's own frozen OMIM facts conveyed (present + half of partial, over judged facts), credited to draft paragraphs citing the paper. No audit and no repair at any level.
+
+Entries (6): 606763, 611521, 613730, 614501, 614651, 615073.
+
+##### Input sizes
+
+| Level | Characters (min / median / max) | Papers (min / median / max) | Added papers (median) | Own text share (median) |
+|---|---|---|---|---|
+| P0 | 18,467 / 39,450 / 177,882 | 2 / 2.0 / 8 | 0.0 | 100.0% |
+| P1 | 485,611 / 498,324 / 523,126 | 9 / 14.0 / 18 | 9.5 | 8.0% |
+| P2 | 1,174,338 / 1,190,742 / 1,237,103 | 27 / 32.5 / 37 | 28.0 | 3.3% |
+
+Per entry (papers / characters):
+
+| Entry | Own papers | P0 chars | P1 papers | P1 chars | P2 papers | P2 chars |
+|---|---|---|---|---|---|---|
+| 606763 | 2 | 50,324 | 9 | 485,611 | 27 | 1,174,338 |
+| 611521 | 8 | 177,882 | 18 | 497,146 | 35 | 1,237,103 |
+| 613730 | 2 | 28,577 | 18 | 499,502 | 37 | 1,223,212 |
+| 614501 | 2 | 100,676 | 10 | 507,075 | 33 | 1,192,908 |
+| 614651 | 4 | 18,467 | 13 | 523,126 | 32 | 1,181,234 |
+| 615073 | 2 | 22,540 | 15 | 496,427 | 30 | 1,188,576 |
+
+##### Completion
+
+| Level | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|
+| P0 | 6 / 0 / 0 | 6 / 0 / 0 | 6 / 0 / 0 | 6 / 0 / 0 |
+| P1 | 6 / 0 / 0 | 6 / 0 / 0 | 5 / 1 / 0 (611521) | 3 / 3 / 0 (606763, 611521, 615073) |
+| P2 | 6 / 0 / 0 | 6 / 0 / 0 | 3 / 3 / 0 (606763, 611521, 614501) | 3 / 3 / 0 (606763, 611521, 615073) |
+
+Complete / incomplete / no draft. Entries every strategy completed at every level: 2 (613730, 614651).
+
+##### Coverage on the 2 entries every strategy completed at every level (symmetric rule of compare.py)
+
+Entries: 613730, 614651.
+
+| Strategy | P0 | P1 | P2 | P1 − P0 [95% CI]; better/worse/tied | P2 − P0 [95% CI]; better/worse/tied |
+|---|---|---|---|---|---|
+| Direct reading | 73.4% | 78.1% | 76.9% | +4.7 [n<5]; 2/0/0; p=0.5 | +3.5 [n<5]; 2/0/0; p=0.5 |
+| Agentic curator | 70.6% | 71.0% | 72.7% | +0.4 [n<5]; 1/0/1; p=1.0 | +2.1 [n<5]; 2/0/0; p=0.5 |
+| Evidence graph | 64.8% | 65.6% | 63.5% | +0.8 [n<5]; 1/0/1; p=1.0 | -1.2 [n<5]; 0/1/1; p=1.0 |
+| Case table first | 62.8% | 59.8% | 59.8% | -3.0 [n<5]; 0/2/0; p=0.5 | -3.0 [n<5]; 0/2/0; p=0.5 |
+
+Differences in percentage points; bootstrap interval over entries (10,000 resamples; none below 5 entries); with 2 entries the intervals are indicative only.
+
+Difference from direct reading at each level:
+
+| Strategy | P0 | P1 | P2 |
+|---|---|---|---|
+| Agentic curator | -2.9 [n<5]; 0/1/1; p=1.0 | -7.1 [n<5]; 0/2/0; p=0.5 | -4.2 [n<5]; 0/2/0; p=0.5 |
+| Evidence graph | -8.7 [n<5]; 0/2/0; p=0.5 | -12.6 [n<5]; 0/2/0; p=0.5 | -13.4 [n<5]; 0/2/0; p=0.5 |
+| Case table first | -10.7 [n<5]; 0/2/0; p=0.5 | -18.3 [n<5]; 0/2/0; p=0.5 | -17.1 [n<5]; 0/2/0; p=0.5 |
+
+Strategy-by-size interaction (change from P0 minus direct reading's change from P0):
+
+| Strategy | P1 | P2 |
+|---|---|---|
+| Agentic curator | -4.3 [n<5]; 0/2/0; p=0.5 | -1.4 [n<5]; 1/1/0; p=1.0 |
+| Evidence graph | -3.9 [n<5]; 0/2/0; p=0.5 | -4.7 [n<5]; 0/2/0; p=0.5 |
+| Case table first | -7.7 [n<5]; 0/2/0; p=0.5 | -6.4 [n<5]; 0/2/0; p=0.5 |
+
+Ranking by mean coverage: P0: Direct reading > Agentic curator > Evidence graph > Case table first; P1: Direct reading > Agentic curator > Evidence graph > Case table first; P2: Direct reading > Agentic curator > Evidence graph > Case table first
+
+##### Secondary: coverage on the 6 entries complete at every level when a per-paper failure on an added (off-topic) paper is allowed
+
+Entries: 606763, 611521, 613730, 614501, 614651, 615073.
+
+| Strategy | P0 | P1 | P2 | P1 − P0 [95% CI]; better/worse/tied | P2 − P0 [95% CI]; better/worse/tied |
+|---|---|---|---|---|---|
+| Direct reading | 71.3% | 74.9% | 74.5% | +3.6 [+1.0, +5.9]; 5/1/0; p=0.2188 | +3.2 [-0.7, +6.8]; 5/1/0; p=0.2188 |
+| Agentic curator | 69.8% | 70.6% | 70.3% | +0.8 [-0.4, +2.1]; 3/1/2; p=0.625 | +0.5 [-3.4, +4.4]; 4/2/0; p=0.6875 |
+| Evidence graph | 73.5% | 73.3% | 74.1% | -0.1 [-2.1, +1.8]; 2/2/2; p=1.0 | +0.7 [-1.0, +2.5]; 3/2/1; p=1.0 |
+| Case table first | 70.0% | 69.0% | 69.1% | -1.0 [-2.1, +0.0]; 0/2/4; p=0.5 | -0.9 [-2.1, +0.1]; 1/2/3; p=1.0 |
+
+Differences in percentage points; bootstrap interval over entries (10,000 resamples; none below 5 entries); with 6 entries the intervals are indicative only.
+
+Difference from direct reading at each level:
+
+| Strategy | P0 | P1 | P2 |
+|---|---|---|---|
+| Agentic curator | -1.5 [-3.7, +0.8]; 1/3/2; p=0.625 | -4.2 [-7.0, -1.3]; 1/5/0; p=0.2188 | -4.2 [-9.9, -0.2]; 2/4/0; p=0.6875 |
+| Evidence graph | +2.2 [-5.9, +9.9]; 4/2/0; p=0.6875 | -1.6 [-10.8, +7.7]; 2/4/0; p=0.6875 | -0.4 [-9.2, +7.0]; 4/2/0; p=0.6875 |
+| Case table first | -1.2 [-9.8, +9.2]; 2/4/0; p=0.6875 | -5.8 [-15.0, +4.6]; 2/4/0; p=0.6875 | -5.4 [-13.6, +2.8]; 2/4/0; p=0.6875 |
+
+Strategy-by-size interaction (change from P0 minus direct reading's change from P0):
+
+| Strategy | P1 | P2 |
+|---|---|---|
+| Agentic curator | -2.8 [-4.3, -1.1]; 1/5/0; p=0.2188 | -2.7 [-9.1, +2.0]; 3/3/0; p=1.0 |
+| Evidence graph | -3.8 [-7.5, -0.3]; 1/4/1; p=0.375 | -2.5 [-5.7, +1.2]; 2/4/0; p=0.6875 |
+| Case table first | -4.6 [-7.2, -1.5]; 1/5/0; p=0.2188 | -4.2 [-7.7, +0.1]; 1/5/0; p=0.2188 |
+
+Ranking by mean coverage: P0: Evidence graph > Direct reading > Case table first > Agentic curator; P1: Direct reading > Evidence graph > Agentic curator > Case table first; P2: Direct reading > Evidence graph > Agentic curator > Case table first
+
+###### Each level on its own complete set
+
+| Level | Entries | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|
+| P0 | 6 | 71.3% | 69.8% | 73.5% | 70.0% |
+| P1 | 3 | 74.7% | 68.8% | 72.3% | 68.5% |
+| P2 | 2 | 76.9% | 72.7% | 63.5% | 59.8% |
+
+##### Citations of added papers
+
+| Level | Strategy | Mean share of paragraphs citing an added paper | Paragraphs citing added / all | Paragraphs attributing a statement about the disorder to an added paper | Drafts with one |
+|---|---|---|---|---|---|
+| P1 | Direct reading | 0.0% | 0 / 115 | 0 | none |
+| P1 | Agentic curator | 0.0% | 0 / 115 | 0 | none |
+| P1 | Evidence graph | 0.0% | 0 / 137 | 0 | none |
+| P1 | Case table first | 0.0% | 0 / 127 | 0 | none |
+| P2 | Direct reading | 0.0% | 0 / 118 | 0 | none |
+| P2 | Agentic curator | 0.0% | 0 / 117 | 0 | none |
+| P2 | Evidence graph | 0.0% | 0 / 140 | 0 | none |
+| P2 | Case table first | 0.0% | 0 / 131 | 0 | none |
+
+##### Caps that applied
+
+```
+{
+ "P0": {
+  "direct": {
+   "drafts": 6,
+   "batched": 0,
+   "prompts": {
+    "1": 6
+   },
+   "per_paper_cap_range": [
+    75000,
+    300000
+   ],
+   "drafts_with_own_paper_truncated": [
+    "611521"
+   ],
+   "own_papers_truncated": 1,
+   "added_papers_truncated": 0,
+   "drafts_losing_a_pmid_in_merge": []
+  },
+  "agent": {
+   "drafts": 6,
+   "own_papers_not_opened": 0,
+   "drafts_with_own_paper_not_opened": [],
+   "added_papers_opened": 0,
+   "added_papers_not_opened": 0
+  },
+  "kg": {
+   "drafts": 6,
+   "papers_failed": 0,
+   "relevance": {
+    "primary": 17,
+    "supporting": 3
+   }
+  },
+  "cohort": {
+   "drafts": 6,
+   "papers_failed": 0,
+   "relevance": {
+    "primary": 17,
+    "supporting": 3
+   }
+  }
+ },
+ "P1": {
+  "direct": {
+   "drafts": 6,
+   "batched": 0,
+   "prompts": {
+    "1": 6
+   },
+   "per_paper_cap_range": [
+    33333,
+    66666
+   ],
+   "drafts_with_own_paper_truncated": [
+    "611521"
+   ],
+   "own_papers_truncated": 2,
+   "added_papers_truncated": 24,
+   "drafts_losing_a_pmid_in_merge": []
+  },
+  "agent": {
+   "drafts": 6,
+   "own_papers_not_opened": 0,
+   "drafts_with_own_paper_not_opened": [],
+   "added_papers_opened": 5,
+   "added_papers_not_opened": 58
+  },
+  "kg": {
+   "drafts": 6,
+   "papers_failed": 1,
+   "relevance": {
+    "not_relevant": 59,
+    "primary": 18,
+    "background": 3,
+    "supporting": 3
+   }
+  },
+  "cohort": {
+   "drafts": 6,
+   "papers_failed": 3,
+   "relevance": {
+    "not_relevant": 59,
+    "primary": 18,
+    "background": 3,
+    "supporting": 3
+   }
+  }
+ },
+ "P2": {
+  "direct": {
+   "drafts": 6,
+   "batched": 6,
+   "prompts": {
+    "3": 6
+   },
+   "per_paper_cap_range": [
+    null,
+    null
+   ],
+   "drafts_with_own_paper_truncated": [],
+   "own_papers_truncated": 0,
+   "added_papers_truncated": 0,
+   "drafts_losing_a_pmid_in_merge": []
+  },
+  "agent": {
+   "drafts": 6,
+   "own_papers_not_opened": 0,
+   "drafts_with_own_paper_not_opened": [],
+   "added_papers_opened": 0,
+   "added_papers_not_opened": 174
+  },
+  "kg": {
+   "drafts": 6,
+   "papers_failed": 3,
+   "relevance": {
+    "not_relevant": 159,
+    "primary": 22,
+    "background": 9,
+    "supporting": 4
+   }
+  },
+  "cohort": {
+   "drafts": 6,
+   "papers_failed": 5,
+   "relevance": {
+    "not_relevant": 163,
+    "primary": 22,
+    "background": 6,
+    "supporting": 3
+   }
+  }
+ }
+}
+```
+
+##### Calls, cost and time
+
+| Level | Strategy | Drafts | Generation calls (new) | Generation list price, as if fresh | Scoring calls (new) | Wall-clock per entry (median, s) |
+|---|---|---|---|---|---|---|
+| P0 | Direct reading | 6 | 12 (0) | $2.41 | 34 (1) | – |
+| P0 | Agentic curator | 6 | 11 (0) | $2.57 | 34 (0) | – |
+| P0 | Evidence graph | 6 | 32 (0) | $4.24 | 34 (1) | – |
+| P0 | Case table first | 6 | 31 (0) | $4.58 | 34 (0) | – |
+| P1 | Direct reading | 6 | 12 (11) | $9.15 | 34 (34) | 116.4 |
+| P1 | Agentic curator | 6 | 12 (12) | $2.51 | 34 (34) | 124.4 |
+| P1 | Evidence graph | 6 | 95 (74) | $14.32 | 34 (34) | 211.6 |
+| P1 | Case table first | 6 | 94 (73) | $14.85 | 34 (20) | 171.2 |
+| P2 | Direct reading | 6 | 29 (29) | $25.14 | 34 (34) | 149.4 |
+| P2 | Agentic curator | 6 | 10 (10) | $2.74 | 34 (34) | 143.9 |
+| P2 | Evidence graph | 6 | 206 (119) | $30.59 | 34 (34) | 205.7 |
+| P2 | Case table first | 6 | 205 (114) | $31.05 | 34 (15) | 155.8 |
+
+New model calls in all (these entries): 683.
+
+##### Decisions and deviations
+
+- Deviation (user's request, smaller budget): 8 entries planned instead of 12, P2 at about 1,200,000 characters instead of 1,800,000, at most 800 new model calls. The pilot (first 2 entries) cost about 125 new calls per entry, projecting about 1,000 for 8, so the entries were reduced in order to 6 (the floor allowed).
+- Entries: ablation40 entries complete for every ablation variant (results/ablation40/strategies.json) with at least half their papers in full text, in entry-number order; all four strategies completed them in runs/omim100.
+- Added papers: full-text papers already fetched for entries of existing runs; excluded: the entry's own papers, papers cited by any entry sharing a causal gene with it, papers whose text names one of its genes, papers whose citing entry has no gold record (gene unknown), and papers over 180,000 characters (the extraction cap). Seeded per entry; P1's additions are a prefix of P2's seeded order; each level stops at the paper that brings the total nearest the target.
+- Supplied order is shuffled with the entry's seed, but direct reading and the agent's index sort papers by year and the extract-then-write strategies read each paper separately, so the order has little effect.
+- P0: the runs/omim100 drafts before repair, rebuilt from the model cache with a cache-only backend (0 misses for every draft; the cached audit and repair replayed on the rebuild reproduce the stored final drafts exactly). Scoring P0 needed new judge calls only where the cited draft text differs from the scored final draft.
+- No audit and no repair at any level. Coverage = (present + 0.5 partial) / judged facts of the entry's own frozen lists, credited to paragraphs citing the paper (eval_gold_text_frozen, as rescore).
+- Completion follows compare.py: a per-paper extraction failure makes a draft incomplete. Every such failure here was a safety-filter stop on an added (off-topic) paper, so a secondary analysis allows failures on added papers.
+- P1/P2 drafts are fresh generations; P0 drafts were generated earlier. Run-to-run variation of single-entry coverage is about 4 points (within-entry SD, results/replicate30), so changes of a few points over 6 entries are within noise.
+- Wall-clock is per task with at most 4 model calls in flight across all tasks, so it includes waiting for a slot.
+
+### 14.3 Published systems as released (B)
+
+From `results/external/external.md`.
+
+#### Experiment B: published systems as released
+
+Design: `docs/experiments-round2.md`, section B, at the reduced sizes. OMIM facts conveyed (present + half partial, over judged facts of the fixed lists); comparison strategies from run omim100 on the same entries. Paired differences from direct reading are in points: mean (bootstrap 95% interval over entries); better/worse/tied; exact sign test p. With 4 or 10 entries the intervals are wide and the sign test cannot reach p < 0.05 with 4 entries (the smallest possible p is 0.125): every result here is exploratory.
+
+##### What was run
+
+| System | Package and version | Entry point | Entries attempted | Completed | Safety stops | Role |
+|---|---|---|---|---|---|---|
+| PaperQA2 | paper-qa 2026.8.12 | paperqa.Docs.aadd (one document per paper) + Docs.aquery (one per question) | 10 | 10 | 0 | main PaperQA2 result (whole-chunk embeddings) |
+| PaperQA2, 512-token embedding cut | paper-qa 2026.8.12 | paperqa.Docs.aadd (one document per paper) + Docs.aquery (one per question) | 10 | 10 | 0 | sensitivity result (the shared embedder's 512-token cut) |
+| GraphRAG local | graphrag 3.3.0 | `graphrag index --method standard` (CLI), then `graphrag.cli.query.run_local_search` per question with the CLI's defaults | 4 | 4 | 0 | main GraphRAG result (local search, the CLI's default) |
+| GraphRAG global | graphrag 3.3.0 | the same indexes as GraphRAG local; `graphrag.cli.query.run_global_search` per question with the CLI's defaults | 4 | 4 | 0 | GraphRAG global search on the same indexes |
+| STORM | knowledge-storm 1.1.1 | `STORMWikiRunner.run` (research, outline, article, polish) with its default arguments | 10 | 0 | 30 | no article produced |
+
+STORM: completion 0 of 10. The model's safety filter stopped every chain-of-thought prompt of STORM's research stage (30 of 30 fresh requests; the 20 plain outline prompts were answered), so no article was produced; nothing was retried or reworded. There is nothing to score.
+
+GraphRAG ran on 4 entries: the fixed rule takes entries in the seeded order while they fit in 1,000 model calls; the fifth entry (611521) did not fit in what was left, so the run stopped below the design's floor of 6.
+
+##### Side by side on the 4 entries every system completed
+
+Entries: 615582, 616326, 620029, 621313.
+
+| Measure | PaperQA2 | PaperQA2, 512-token embedding cut | GraphRAG local | GraphRAG global | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | 49.6% (n=4) | 49.6% (n=4) | 46.2% (n=4) | 46.0% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 56.5% (n=4) |
+| (b) facts conveyed, credited anywhere in the draft | 51.6% (n=4) | 51.3% (n=4) | 47.3% (n=4) | 47.7% (n=4) | 61.5% (n=4) | 60.9% (n=4) | 60.8% (n=4) | 56.5% (n=4) |
+| (c) (a) on facts the supplied text states | 73.9% (n=4) | 75.2% (n=4) | 65.8% (n=4) | 68.2% (n=4) | 88.8% (n=4) | 88.4% (n=4) | 92.0% (n=4) | 86.8% (n=4) |
+| (c) (a) on facts the supplied text does not state | 2.1% (n=4) | 3.1% (n=4) | 4.1% (n=4) | 20.5% (n=4) | 3.0% (n=4) | 2.9% (n=4) | 1.1% (n=4) | 2.0% (n=4) |
+| (c) (b) on facts the supplied text states | 76.4% (n=4) | 76.5% (n=4) | 68.0% (n=4) | 67.4% (n=4) | 90.4% (n=4) | 90.7% (n=4) | 91.5% (n=4) | 84.2% (n=4) |
+| (c) (b) on facts the supplied text does not state | 4.5% (n=4) | 5.2% (n=4) | 4.8% (n=4) | 21.5% (n=4) | 4.6% (n=4) | 4.7% (n=4) | 3.5% (n=4) | 3.2% (n=4) |
+| (c) (a) on facts the supplied text states or partly states | 70.0% (n=4) | 70.3% (n=4) | 61.9% (n=4) | 61.0% (n=4) | 83.2% (n=4) | 83.0% (n=4) | 85.5% (n=4) | 80.4% (n=4) |
+| (c) (b) on facts the supplied text states or partly states | 72.0% (n=4) | 72.3% (n=4) | 63.8% (n=4) | 62.3% (n=4) | 84.9% (n=4) | 84.7% (n=4) | 86.0% (n=4) | 79.4% (n=4) |
+
+Paired differences from direct reading:
+
+| Measure | PaperQA2 | PaperQA2, 512-token embedding cut | GraphRAG local | GraphRAG global | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | -10.0 (-18.5 to -2.8); 0/4/0; p=0.125; n=4 | -10.0 (-20.2 to +0.2); 1/3/0; p=0.625; n=4 | -13.4 (-25.3 to -1.5); 1/3/0; p=0.625; n=4 | -13.6 (-27.1 to -5.4); 0/4/0; p=0.125; n=4 | +0.0 (-1.8 to +1.8); 2/2/0; p=1.000; n=4 | -0.0 (-4.9 to +4.2); 2/1/1; p=1.000; n=4 | -3.1 (-6.5 to +0.1); 1/3/0; p=0.625; n=4 |
+| (b) facts conveyed, credited anywhere in the draft | -9.8 (-19.6 to -2.9); 0/4/0; p=0.125; n=4 | -10.1 (-21.8 to -0.2); 1/3/0; p=0.625; n=4 | -14.2 (-26.8 to -2.0); 1/3/0; p=0.625; n=4 | -13.8 (-27.8 to -2.9); 0/4/0; p=0.125; n=4 | -0.6 (-2.9 to +2.1); 1/2/1; p=1.000; n=4 | -0.7 (-7.6 to +5.5); 1/1/2; p=1.000; n=4 | -5.0 (-7.0 to -1.7); 0/3/1; p=0.250; n=4 |
+| (c) (a) on facts the supplied text states | -14.9 (-25.6 to -5.0); 0/4/0; p=0.125; n=4 | -13.6 (-27.4 to +0.2); 1/3/0; p=0.625; n=4 | -23.0 (-45.8 to -1.8); 1/3/0; p=0.625; n=4 | -20.6 (-33.9 to -7.3); 0/4/0; p=0.125; n=4 | -0.4 (-2.9 to +2.4); 1/2/1; p=1.000; n=4 | +3.2 (-4.7 to +10.7); 3/1/0; p=0.625; n=4 | -2.0 (-4.9 to +3.1); 1/3/0; p=0.625; n=4 |
+| (c) (a) on facts the supplied text does not state | -0.9 (-5.4 to +2.8); 1/1/2; p=1.000; n=4 | +0.1 (-3.4 to +3.8); 1/1/2; p=1.000; n=4 | +1.1 (+0.0 to +2.1); 2/0/2; p=0.500; n=4 | +17.5 (+0.4 to +50.2); 3/0/1; p=0.250; n=4 | -0.1 (-0.9 to +0.7); 1/1/2; p=1.000; n=4 | -1.9 (-4.7 to +0.0); 0/2/2; p=0.500; n=4 | -1.0 (-2.0 to +0.0); 0/2/2; p=0.500; n=4 |
+| (c) (b) on facts the supplied text states | -14.1 (-24.6 to -5.9); 0/4/0; p=0.125; n=4 | -13.9 (-27.2 to -0.7); 1/3/0; p=0.625; n=4 | -22.4 (-41.4 to -3.4); 1/3/0; p=0.625; n=4 | -23.0 (-40.8 to -5.2); 0/4/0; p=0.125; n=4 | +0.2 (-2.3 to +2.8); 2/2/0; p=1.000; n=4 | +1.1 (-7.5 to +8.9); 2/1/1; p=1.000; n=4 | -6.2 (-10.9 to -0.8); 1/3/0; p=0.625; n=4 |
+| (c) (b) on facts the supplied text does not state | -0.0 (-2.0 to +1.9); 1/1/2; p=1.000; n=4 | +0.6 (+0.0 to +1.9); 1/0/3; p=1.000; n=4 | +0.2 (-1.3 to +1.9); 1/1/2; p=1.000; n=4 | +16.9 (+0.0 to +50.0); 2/0/2; p=0.500; n=4 | +0.1 (-0.9 to +1.3); 1/1/2; p=1.000; n=4 | -1.1 (-2.1 to +0.0); 0/2/2; p=0.500; n=4 | -1.4 (-3.4 to +0.0); 0/2/2; p=0.500; n=4 |
+
+Per entry, (a) / (b):
+
+| Entry | PaperQA2 | PaperQA2, 512-token embedding cut | GraphRAG local | GraphRAG global | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|---|---|---|
+| 615582 | 37.5% / 41.8% | 33.2% / 38.5% | 42.4% / 43.8% | 41.8% / 46.1% | 48.7% / 50.3% | 51.3% / 53.6% | 54.3% / 57.6% | 45.4% / 44.4% |
+| 616326 | 36.2% / 40.1% | 42.1% / 45.4% | 18.4% / 24.3% | 30.3% / 29.6% | 40.1% / 43.4% | 37.5% / 43.4% | 41.4% / 43.4% | 41.4% / 43.4% |
+| 620029 | 59.4% / 59.4% | 57.8% / 56.2% | 53.9% / 50.8% | 78.9% / 82.8% | 82.8% / 84.4% | 83.6% / 80.5% | 75.8% / 74.2% | 75.0% / 77.3% |
+| 621313 | 65.3% / 65.3% | 65.3% / 65.3% | 70.3% / 70.3% | 33.1% / 32.2% | 66.9% / 67.8% | 66.1% / 66.1% | 66.9% / 67.8% | 64.4% / 61.0% |
+
+Text, calls, cost and time per entry (means over these entries):
+
+| Arm | Characters | No mapped citation | Calls | Input tokens | Output tokens | List price | Model seconds | Wall seconds |
+|---|---|---|---|---|---|---|---|---|
+| PaperQA2 | 15,445 | 1.9% | 57.0 | 199,000 | 28,972 | $2.17 | 490 | 165 (n=3) |
+| PaperQA2, 512-token embedding cut | 15,002 | 1.0% | 57.0 | 190,249 | 28,044 | $2.08 | 481 | 245 (n=4) |
+| GraphRAG local | 37,932 | 19.5% | 134.8 | 699,331 | 199,975 | $9.29 | 1,990 | 962 (n=4) |
+| GraphRAG global | 63,752 | 13.7% | 165.2 | 1,288,343 | 289,518 | $12.14 | 2,844 | 1,328 (n=4) |
+| Direct reading | 11,127 | 0.0% | 2.0 | 26,655 | 8,893 | $0.36 | 70 | not recorded |
+| Agentic curator | 11,651 | 0.0% | 2.0 | 63,673 | 12,852 | $0.39 | 105 | not recorded |
+| Evidence graph | 14,232 | 0.0% | 7.2 | 60,772 | 23,895 | $0.80 | 185 | not recorded |
+| Case table first | 14,256 | 0.0% | 7.2 | 72,123 | 26,896 | $0.88 | 207 | not recorded |
+
+- GraphRAG local: share of characters by kind of mapping: sources 68.9%, entities/relationships only 11.6%, community reports only 0.0%, none 19.5%.
+- GraphRAG global: share of characters by kind of mapping: sources 0.0%, entities/relationships only 0.0%, community reports only 86.3%, none 13.7%.
+- Direct reading: audit and repair round 6.5 calls, $0.93, 201 model seconds per entry (not included above).
+- Agentic curator: audit and repair round 6.5 calls, $0.98, 227 model seconds per entry (not included above).
+- Evidence graph: audit and repair round 7.5 calls, $1.19, 272 model seconds per entry (not included above).
+- Case table first: audit and repair round 7.5 calls, $1.21, 291 model seconds per entry (not included above).
+
+##### PaperQA2 on its own entries
+
+Role: main PaperQA2 result (whole-chunk embeddings). Entries attempted: 10; completed: 10.
+
+| Measure | PaperQA2 | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | 47.4% (n=10) | 61.9% (n=10) | 61.9% (n=10) | 61.7% (n=10) | 57.6% (n=10) |
+| (b) facts conveyed, credited anywhere in the draft | 50.8% (n=10) | 63.7% (n=10) | 62.2% (n=10) | 63.1% (n=10) | 57.7% (n=10) |
+| (c) (a) on facts the supplied text states | 70.4% (n=10) | 88.8% (n=10) | 89.5% (n=10) | 92.1% (n=10) | 84.8% (n=10) |
+| (c) (a) on facts the supplied text does not state | 6.2% (n=10) | 11.8% (n=10) | 10.6% (n=10) | 5.5% (n=10) | 6.4% (n=10) |
+| (c) (b) on facts the supplied text states | 72.8% (n=10) | 90.3% (n=10) | 90.5% (n=10) | 92.7% (n=10) | 84.4% (n=10) |
+| (c) (b) on facts the supplied text does not state | 11.5% (n=10) | 13.6% (n=10) | 11.7% (n=10) | 7.3% (n=10) | 7.0% (n=10) |
+| (c) (a) on facts the supplied text states or partly states | 64.3% (n=10) | 81.7% (n=10) | 82.0% (n=10) | 84.2% (n=10) | 77.9% (n=10) |
+| (c) (b) on facts the supplied text states or partly states | 67.2% (n=10) | 83.4% (n=10) | 82.4% (n=10) | 85.4% (n=10) | 77.6% (n=10) |
+
+Paired differences from direct reading:
+
+| Measure | PaperQA2 | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | -14.5 (-21.8 to -7.0); 1/9/0; p=0.021; n=10 | -0.1 (-2.2 to +1.9); 5/5/0; p=1.000; n=10 | -0.2 (-4.1 to +3.4); 4/4/2; p=1.000; n=10 | -4.4 (-8.6 to -0.2); 3/7/0; p=0.344; n=10 |
+| (b) facts conveyed, credited anywhere in the draft | -12.8 (-19.2 to -6.1); 1/9/0; p=0.021; n=10 | -1.5 (-3.1 to +0.1); 1/5/4; p=0.219; n=10 | -0.6 (-4.4 to +3.2); 4/4/2; p=1.000; n=10 | -6.0 (-9.7 to -2.2); 1/7/2; p=0.070; n=10 |
+| (c) (a) on facts the supplied text states | -18.4 (-25.5 to -10.7); 1/9/0; p=0.021; n=10 | +0.7 (-2.0 to +3.3); 4/4/2; p=1.000; n=10 | +3.3 (-1.4 to +8.0); 6/3/1; p=0.508; n=10 | -4.0 (-7.6 to +0.0); 2/7/1; p=0.180; n=10 |
+| (c) (a) on facts the supplied text does not state | -5.7 (-11.5 to -0.4); 2/6/2; p=0.289; n=10 | -1.2 (-3.3 to +0.6); 3/4/3; p=1.000; n=10 | -6.3 (-16.4 to +1.6); 1/6/3; p=0.125; n=10 | -5.4 (-14.8 to +1.4); 3/5/2; p=0.727; n=10 |
+| (c) (b) on facts the supplied text states | -17.5 (-24.4 to -9.9); 1/9/0; p=0.021; n=10 | +0.2 (-2.0 to +2.3); 5/5/0; p=1.000; n=10 | +2.4 (-2.2 to +6.8); 6/3/1; p=0.508; n=10 | -5.9 (-9.7 to -1.5); 3/7/0; p=0.344; n=10 |
+| (c) (b) on facts the supplied text does not state | -2.0 (-4.7 to +0.4); 2/6/2; p=0.289; n=10 | -1.9 (-4.7 to +0.4); 2/4/4; p=0.688; n=10 | -6.2 (-14.4 to -0.1); 1/7/2; p=0.070; n=10 | -6.6 (-15.3 to -0.7); 1/5/4; p=0.219; n=10 |
+| (c) (a) on facts the supplied text states or partly states | -17.4 (-24.9 to -9.0); 1/9/0; p=0.021; n=10 | +0.3 (-2.5 to +2.8); 6/4/0; p=0.754; n=10 | +2.4 (-1.4 to +6.2); 5/4/1; p=1.000; n=10 | -3.8 (-7.7 to +0.4); 3/7/0; p=0.344; n=10 |
+| (c) (b) on facts the supplied text states or partly states | -16.2 (-23.2 to -8.6); 1/9/0; p=0.021; n=10 | -1.1 (-3.2 to +1.0); 4/6/0; p=0.754; n=10 | +2.0 (-2.5 to +6.2); 5/4/1; p=1.000; n=10 | -5.8 (-9.8 to -1.5); 2/7/1; p=0.180; n=10 |
+
+Text, calls, cost and time per entry (means over these entries):
+
+| Arm | Characters | No mapped citation | Calls | Input tokens | Output tokens | List price | Model seconds | Wall seconds |
+|---|---|---|---|---|---|---|---|---|
+| PaperQA2 | 14,849 | 1.6% | 57.6 | 202,536 | 27,790 | $2.18 | 480 | 167 (n=8) |
+| Direct reading | 12,143 | 0.0% | 2.0 | 34,447 | 9,128 | $0.43 | 73 | not recorded |
+| Agentic curator | 11,675 | 0.0% | 2.0 | 103,517 | 14,026 | $0.46 | 114 | not recorded |
+| Evidence graph | 14,406 | 0.0% | 7.6 | 73,145 | 24,773 | $0.89 | 190 | not recorded |
+| Case table first | 13,776 | 0.0% | 7.6 | 82,262 | 26,849 | $0.97 | 208 | not recorded |
+
+- Direct reading: audit and repair round 8.4 calls, $1.20, 243 model seconds per entry (not included above).
+- Agentic curator: audit and repair round 7.7 calls, $1.10, 237 model seconds per entry (not included above).
+- Evidence graph: audit and repair round 8.9 calls, $1.33, 294 model seconds per entry (not included above).
+- Case table first: audit and repair round 7.4 calls, $1.26, 289 model seconds per entry (not included above).
+
+Settings changed from the defaults of paper-qa 2026.8.12:
+
+| Setting | Default | Value | Reason |
+|---|---|---|---|
+| llm | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | answer writing; the local adapter in front of the project's one model (no other provider) |
+| llm_config (api_base, api_key, timeout) | None (router built from llm, provider endpoint, provider key from env, LiteLLM default timeout) | package's default router layout + api_base=<adapter>, api_key=sk-local-dummy, timeout=900 | point the answer role at the adapter; dummy key; adapter asks for a client timeout >= 900 s (its queue is capped at 3 concurrent calls) |
+| summary_llm (+ summary_llm_config, same router change) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | contextual summaries of evidence; the local adapter in front of the project's one model (no other provider) |
+| agent.agent_llm (+ agent_llm_config) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | pointed at the adapter for safety; not used by Docs.aquery (no call was made in this role) |
+| parsing.enrichment_llm (+ enrichment_llm_config) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | media enrichment of PDFs; pointed at the adapter for safety; not used for .txt papers (no call was made in this role) |
+| embedding (+ embedding_config kwargs api_base, api_key) | text-embedding-3-small | openai/bge-small-en-v1.5 via adapter /v1/embeddings (fastembed BAAI/bge-small-en-v1.5, 384 dims) | the one local embedding model shared by all systems; no hosted embedding |
+| parsing.use_doc_details | True | False | no outside metadata lookup (Crossref, Semantic Scholar, Unpaywall, OpenAlex, retractions, journal quality); citation and title are supplied instead |
+| Docs.aadd(citation=, docname=, title=) | None: citation inferred by `llm` from the first chunk; docname derived from it (Author+Year) | citation = the paper's reference line (first line of <pmid>.txt, from the export); docname = <Surname><Year>-<PMID> from papers.csv; title from papers.csv | corpus = exactly the entry's papers, one document each; no call or lookup spent on metadata; citations in answers map back to the PubMed id unambiguously |
+| entry point | agent_query with agent_type 'ToolSelector' (pqa ask) | Docs.aadd per paper, then Docs.aquery per question (the README's 'Manual (No Agent)' usage) | the default agent selects tools by function calling, which the adapter refuses; the 'fake' agent also ends with a function-calling Complete step (select_tool with tool_choice) that the adapter refuses; Docs.aquery needs none and keeps retrieval, contextual summaries and answer |
+| environment | LiteLLM fetches its model cost map from GitHub; telemetry defaults | LITELLM_LOCAL_MODEL_COST_MAP=True, LITELLM_TELEMETRY=False, DO_NOT_TRACK=1, ANONYMIZED_TELEMETRY=False, OTEL_SDK_DISABLED=true, HF_HUB_OFFLINE=1, TIKTOKEN_CACHE_DIR=<local>; outbound proxy = a local logger that refuses and records every non-local connection | no outside service is contacted; any attempt is logged |
+| embedding input length (adapter /v1/embeddings, long_inputs='pool') | bge-small-en-v1.5 truncates every input at 512 tokens, so a default 5,000-character PaperQA chunk (about 1,100-1,300 tokens) is embedded from its first ~510 tokens only | an input over 510 tokens (model tokenizer, without [CLS]/[SEP]) is split into consecutive non-overlapping windows of at most 510 tokens; each is embedded, the vectors are averaged (unweighted) and re-normalised; shorter inputs are embedded exactly as before | the 512-token cut is an artefact of the shared local embedding model, not of PaperQA2 (whose default embedding, text-embedding-3-small, takes 8,191 tokens); pooling embeds the whole chunk |
+
+##### PaperQA2, 512-token embedding cut on its own entries
+
+Role: sensitivity result (the shared embedder's 512-token cut). Entries attempted: 10; completed: 10.
+
+| Measure | PaperQA2, 512-token embedding cut | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | 49.1% (n=10) | 61.9% (n=10) | 61.9% (n=10) | 61.7% (n=10) | 57.6% (n=10) |
+| (b) facts conveyed, credited anywhere in the draft | 51.5% (n=10) | 63.7% (n=10) | 62.2% (n=10) | 63.1% (n=10) | 57.7% (n=10) |
+| (c) (a) on facts the supplied text states | 72.4% (n=10) | 88.8% (n=10) | 89.5% (n=10) | 92.1% (n=10) | 84.8% (n=10) |
+| (c) (a) on facts the supplied text does not state | 7.1% (n=10) | 11.8% (n=10) | 10.6% (n=10) | 5.5% (n=10) | 6.4% (n=10) |
+| (c) (b) on facts the supplied text states | 74.0% (n=10) | 90.3% (n=10) | 90.5% (n=10) | 92.7% (n=10) | 84.4% (n=10) |
+| (c) (b) on facts the supplied text does not state | 10.6% (n=10) | 13.6% (n=10) | 11.7% (n=10) | 7.3% (n=10) | 7.0% (n=10) |
+| (c) (a) on facts the supplied text states or partly states | 66.5% (n=10) | 81.7% (n=10) | 82.0% (n=10) | 84.2% (n=10) | 77.9% (n=10) |
+| (c) (b) on facts the supplied text states or partly states | 68.6% (n=10) | 83.4% (n=10) | 82.4% (n=10) | 85.4% (n=10) | 77.6% (n=10) |
+
+Paired differences from direct reading:
+
+| Measure | PaperQA2, 512-token embedding cut | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | -12.9 (-21.5 to -4.9); 2/8/0; p=0.109; n=10 | -0.1 (-2.2 to +1.9); 5/5/0; p=1.000; n=10 | -0.2 (-4.1 to +3.4); 4/4/2; p=1.000; n=10 | -4.4 (-8.6 to -0.2); 3/7/0; p=0.344; n=10 |
+| (b) facts conveyed, credited anywhere in the draft | -12.2 (-19.7 to -4.7); 2/8/0; p=0.109; n=10 | -1.5 (-3.1 to +0.1); 1/5/4; p=0.219; n=10 | -0.6 (-4.4 to +3.2); 4/4/2; p=1.000; n=10 | -6.0 (-9.7 to -2.2); 1/7/2; p=0.070; n=10 |
+| (c) (a) on facts the supplied text states | -16.4 (-25.1 to -7.9); 2/8/0; p=0.109; n=10 | +0.7 (-2.0 to +3.3); 4/4/2; p=1.000; n=10 | +3.3 (-1.4 to +8.0); 6/3/1; p=0.508; n=10 | -4.0 (-7.6 to +0.0); 2/7/1; p=0.180; n=10 |
+| (c) (a) on facts the supplied text does not state | -4.7 (-13.6 to +2.3); 4/4/2; p=1.000; n=10 | -1.2 (-3.3 to +0.6); 3/4/3; p=1.000; n=10 | -6.3 (-16.4 to +1.6); 1/6/3; p=0.125; n=10 | -5.4 (-14.8 to +1.4); 3/5/2; p=0.727; n=10 |
+| (c) (b) on facts the supplied text states | -16.3 (-24.5 to -7.8); 2/8/0; p=0.109; n=10 | +0.2 (-2.0 to +2.3); 5/5/0; p=1.000; n=10 | +2.4 (-2.2 to +6.8); 6/3/1; p=0.508; n=10 | -5.9 (-9.7 to -1.5); 3/7/0; p=0.344; n=10 |
+| (c) (b) on facts the supplied text does not state | -3.0 (-8.9 to +1.2); 3/3/4; p=1.000; n=10 | -1.9 (-4.7 to +0.4); 2/4/4; p=0.688; n=10 | -6.2 (-14.4 to -0.1); 1/7/2; p=0.070; n=10 | -6.6 (-15.3 to -0.7); 1/5/4; p=0.219; n=10 |
+| (c) (a) on facts the supplied text states or partly states | -15.2 (-23.9 to -6.4); 1/9/0; p=0.021; n=10 | +0.3 (-2.5 to +2.8); 6/4/0; p=0.754; n=10 | +2.4 (-1.4 to +6.2); 5/4/1; p=1.000; n=10 | -3.8 (-7.7 to +0.4); 3/7/0; p=0.344; n=10 |
+| (c) (b) on facts the supplied text states or partly states | -14.8 (-22.9 to -6.4); 2/8/0; p=0.109; n=10 | -1.1 (-3.2 to +1.0); 4/6/0; p=0.754; n=10 | +2.0 (-2.5 to +6.2); 5/4/1; p=1.000; n=10 | -5.8 (-9.8 to -1.5); 2/7/1; p=0.180; n=10 |
+
+Text, calls, cost and time per entry (means over these entries):
+
+| Arm | Characters | No mapped citation | Calls | Input tokens | Output tokens | List price | Model seconds | Wall seconds |
+|---|---|---|---|---|---|---|---|---|
+| PaperQA2, 512-token embedding cut | 14,633 | 1.4% | 57.6 | 194,940 | 27,094 | $2.10 | 472 | 244 (n=10) |
+| Direct reading | 12,143 | 0.0% | 2.0 | 34,447 | 9,128 | $0.43 | 73 | not recorded |
+| Agentic curator | 11,675 | 0.0% | 2.0 | 103,517 | 14,026 | $0.46 | 114 | not recorded |
+| Evidence graph | 14,406 | 0.0% | 7.6 | 73,145 | 24,773 | $0.89 | 190 | not recorded |
+| Case table first | 13,776 | 0.0% | 7.6 | 82,262 | 26,849 | $0.97 | 208 | not recorded |
+
+- Direct reading: audit and repair round 8.4 calls, $1.20, 243 model seconds per entry (not included above).
+- Agentic curator: audit and repair round 7.7 calls, $1.10, 237 model seconds per entry (not included above).
+- Evidence graph: audit and repair round 8.9 calls, $1.33, 294 model seconds per entry (not included above).
+- Case table first: audit and repair round 7.4 calls, $1.26, 289 model seconds per entry (not included above).
+
+Settings changed from the defaults of paper-qa 2026.8.12:
+
+| Setting | Default | Value | Reason |
+|---|---|---|---|
+| llm | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | answer writing; the local adapter in front of the project's one model (no other provider) |
+| llm_config (api_base, api_key, timeout) | None (router built from llm, provider endpoint, provider key from env, LiteLLM default timeout) | package's default router layout + api_base=<adapter>, api_key=sk-local-dummy, timeout=900 | point the answer role at the adapter; dummy key; adapter asks for a client timeout >= 900 s (its queue is capped at 3 concurrent calls) |
+| summary_llm (+ summary_llm_config, same router change) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | contextual summaries of evidence; the local adapter in front of the project's one model (no other provider) |
+| agent.agent_llm (+ agent_llm_config) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | pointed at the adapter for safety; not used by Docs.aquery (no call was made in this role) |
+| parsing.enrichment_llm (+ enrichment_llm_config) | gpt-4o-2024-11-20 | openai/claude-opus-5-5 | media enrichment of PDFs; pointed at the adapter for safety; not used for .txt papers (no call was made in this role) |
+| embedding (+ embedding_config kwargs api_base, api_key) | text-embedding-3-small | openai/bge-small-en-v1.5 via adapter /v1/embeddings (fastembed BAAI/bge-small-en-v1.5, 384 dims) | the one local embedding model shared by all systems; no hosted embedding |
+| parsing.use_doc_details | True | False | no outside metadata lookup (Crossref, Semantic Scholar, Unpaywall, OpenAlex, retractions, journal quality); citation and title are supplied instead |
+| Docs.aadd(citation=, docname=, title=) | None: citation inferred by `llm` from the first chunk; docname derived from it (Author+Year) | citation = the paper's reference line (first line of <pmid>.txt, from the export); docname = <Surname><Year>-<PMID> from papers.csv; title from papers.csv | corpus = exactly the entry's papers, one document each; no call or lookup spent on metadata; citations in answers map back to the PubMed id unambiguously |
+| entry point | agent_query with agent_type 'ToolSelector' (pqa ask) | Docs.aadd per paper, then Docs.aquery per question (the README's 'Manual (No Agent)' usage) | the default agent selects tools by function calling, which the adapter refuses; the 'fake' agent also ends with a function-calling Complete step (select_tool with tool_choice) that the adapter refuses; Docs.aquery needs none and keeps retrieval, contextual summaries and answer |
+| environment | LiteLLM fetches its model cost map from GitHub; telemetry defaults | LITELLM_LOCAL_MODEL_COST_MAP=True, LITELLM_TELEMETRY=False, DO_NOT_TRACK=1, ANONYMIZED_TELEMETRY=False, OTEL_SDK_DISABLED=true, HF_HUB_OFFLINE=1, TIKTOKEN_CACHE_DIR=<local>; outbound proxy = a local logger that refuses and records every non-local connection | no outside service is contacted; any attempt is logged |
+
+##### GraphRAG local on its own entries
+
+Role: main GraphRAG result (local search, the CLI's default). Entries attempted: 4; completed: 4.
+
+| Measure | GraphRAG local | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | 46.2% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 56.5% (n=4) |
+| (b) facts conveyed, credited anywhere in the draft | 47.3% (n=4) | 61.5% (n=4) | 60.9% (n=4) | 60.8% (n=4) | 56.5% (n=4) |
+| (c) (a) on facts the supplied text states | 65.8% (n=4) | 88.8% (n=4) | 88.4% (n=4) | 92.0% (n=4) | 86.8% (n=4) |
+| (c) (a) on facts the supplied text does not state | 4.1% (n=4) | 3.0% (n=4) | 2.9% (n=4) | 1.1% (n=4) | 2.0% (n=4) |
+| (c) (b) on facts the supplied text states | 68.0% (n=4) | 90.4% (n=4) | 90.7% (n=4) | 91.5% (n=4) | 84.2% (n=4) |
+| (c) (b) on facts the supplied text does not state | 4.8% (n=4) | 4.6% (n=4) | 4.7% (n=4) | 3.5% (n=4) | 3.2% (n=4) |
+| (c) (a) on facts the supplied text states or partly states | 61.9% (n=4) | 83.2% (n=4) | 83.0% (n=4) | 85.5% (n=4) | 80.4% (n=4) |
+| (c) (b) on facts the supplied text states or partly states | 63.8% (n=4) | 84.9% (n=4) | 84.7% (n=4) | 86.0% (n=4) | 79.4% (n=4) |
+
+Paired differences from direct reading:
+
+| Measure | GraphRAG local | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | -13.4 (-25.3 to -1.5); 1/3/0; p=0.625; n=4 | +0.0 (-1.8 to +1.8); 2/2/0; p=1.000; n=4 | -0.0 (-4.9 to +4.2); 2/1/1; p=1.000; n=4 | -3.1 (-6.5 to +0.1); 1/3/0; p=0.625; n=4 |
+| (b) facts conveyed, credited anywhere in the draft | -14.2 (-26.8 to -2.0); 1/3/0; p=0.625; n=4 | -0.6 (-2.9 to +2.1); 1/2/1; p=1.000; n=4 | -0.7 (-7.6 to +5.5); 1/1/2; p=1.000; n=4 | -5.0 (-7.0 to -1.7); 0/3/1; p=0.250; n=4 |
+| (c) (a) on facts the supplied text states | -23.0 (-45.8 to -1.8); 1/3/0; p=0.625; n=4 | -0.4 (-2.9 to +2.4); 1/2/1; p=1.000; n=4 | +3.2 (-4.7 to +10.7); 3/1/0; p=0.625; n=4 | -2.0 (-4.9 to +3.1); 1/3/0; p=0.625; n=4 |
+| (c) (a) on facts the supplied text does not state | +1.1 (+0.0 to +2.1); 2/0/2; p=0.500; n=4 | -0.1 (-0.9 to +0.7); 1/1/2; p=1.000; n=4 | -1.9 (-4.7 to +0.0); 0/2/2; p=0.500; n=4 | -1.0 (-2.0 to +0.0); 0/2/2; p=0.500; n=4 |
+| (c) (b) on facts the supplied text states | -22.4 (-41.4 to -3.4); 1/3/0; p=0.625; n=4 | +0.2 (-2.3 to +2.8); 2/2/0; p=1.000; n=4 | +1.1 (-7.5 to +8.9); 2/1/1; p=1.000; n=4 | -6.2 (-10.9 to -0.8); 1/3/0; p=0.625; n=4 |
+| (c) (b) on facts the supplied text does not state | +0.2 (-1.3 to +1.9); 1/1/2; p=1.000; n=4 | +0.1 (-0.9 to +1.3); 1/1/2; p=1.000; n=4 | -1.1 (-2.1 to +0.0); 0/2/2; p=0.500; n=4 | -1.4 (-3.4 to +0.0); 0/2/2; p=0.500; n=4 |
+| (c) (a) on facts the supplied text states or partly states | -21.3 (-39.5 to -3.1); 1/3/0; p=0.625; n=4 | -0.2 (-2.9 to +2.4); 2/2/0; p=1.000; n=4 | +2.3 (-4.5 to +9.4); 2/1/1; p=1.000; n=4 | -2.8 (-7.0 to +2.2); 1/3/0; p=0.625; n=4 |
+| (c) (b) on facts the supplied text states or partly states | -21.1 (-39.1 to -2.9); 1/3/0; p=0.625; n=4 | -0.2 (-3.2 to +2.8); 2/2/0; p=1.000; n=4 | +1.2 (-7.3 to +9.4); 2/1/1; p=1.000; n=4 | -5.5 (-8.7 to -0.8); 1/3/0; p=0.625; n=4 |
+
+Text, calls, cost and time per entry (means over these entries):
+
+| Arm | Characters | No mapped citation | Calls | Input tokens | Output tokens | List price | Model seconds | Wall seconds |
+|---|---|---|---|---|---|---|---|---|
+| GraphRAG local | 37,932 | 19.5% | 134.8 | 699,331 | 199,975 | $9.29 | 1,990 | 962 (n=4) |
+| Direct reading | 11,127 | 0.0% | 2.0 | 26,655 | 8,893 | $0.36 | 70 | not recorded |
+| Agentic curator | 11,651 | 0.0% | 2.0 | 63,673 | 12,852 | $0.39 | 105 | not recorded |
+| Evidence graph | 14,232 | 0.0% | 7.2 | 60,772 | 23,895 | $0.80 | 185 | not recorded |
+| Case table first | 14,256 | 0.0% | 7.2 | 72,123 | 26,896 | $0.88 | 207 | not recorded |
+
+- GraphRAG local: share of characters by kind of mapping: sources 68.9%, entities/relationships only 11.6%, community reports only 0.0%, none 19.5%.
+- Direct reading: audit and repair round 6.5 calls, $0.93, 201 model seconds per entry (not included above).
+- Agentic curator: audit and repair round 6.5 calls, $0.98, 227 model seconds per entry (not included above).
+- Evidence graph: audit and repair round 7.5 calls, $1.19, 272 model seconds per entry (not included above).
+- Case table first: audit and repair round 7.5 calls, $1.21, 291 model seconds per entry (not included above).
+
+Settings changed from the defaults of graphrag 3.3.0:
+
+| Setting | Default | Value | Reason |
+|---|---|---|---|
+| completion_models.default_completion_model.model | gpt-4.1 | openai/claude-opus-5-5 | the project's one model through the local adapter |
+| completion_models.default_completion_model.api_base | (none: the provider's public endpoint) | ${GRAPHRAG_API_BASE} = http://127.0.0.1:<port>/v1 | the local adapter (127.0.0.1 only) |
+| completion_models.default_completion_model.api_key | ${GRAPHRAG_API_KEY} (.env: <API_KEY>) | sk-local-dummy (in .env) | dummy key; the adapter needs none and no real key is passed to the package |
+| completion_models.default_completion_model.call_args | {} (LiteLLM/OpenAI client defaults: its own timeout and retries) | {"extra_headers": {"X-Aiomim-Tag": "<system>/<mim>/<step>"}, "max_retries": 0, "timeout": 1800} | client timeout 1800 s (a call can take minutes); the OpenAI client's own retries off (GraphRAG's retry and the adapter's retry remain); ledger tag header (bookkeeping only) |
+| completion_models.default_completion_model.retry | {"max_retries": "(unset: package default 7)", "type": "exponential_backoff"} | {"max_retries": 2, "type": "exponential_backoff"} | few client retries: the adapter already retries transient failures with back-off; max_retries must be > 1 for this retry type |
+| embedding_models.default_embedding_model.model | text-embedding-3-large | openai/bge-small-en-v1.5 | the adapter's local embedding model (BAAI/bge-small-en-v1.5, 384 dimensions), the same for all systems |
+| embedding_models.default_embedding_model.api_base | (none: the provider's public endpoint) | ${GRAPHRAG_API_BASE} = http://127.0.0.1:<port>/v1 | the local adapter (127.0.0.1 only) |
+| embedding_models.default_embedding_model.api_key | ${GRAPHRAG_API_KEY} (.env: <API_KEY>) | sk-local-dummy (in .env) | dummy key; the adapter needs none and no real key is passed to the package |
+| embedding_models.default_embedding_model.call_args | {} (LiteLLM/OpenAI client defaults: its own timeout and retries) | {"extra_headers": {"X-Aiomim-Tag": "<system>/<mim>/<step>"}, "max_retries": 0, "timeout": 1800} | client timeout 1800 s (a call can take minutes); the OpenAI client's own retries off (GraphRAG's retry and the adapter's retry remain); ledger tag header (bookkeeping only) |
+| embedding_models.default_embedding_model.retry | {"max_retries": "(unset: package default 7)", "type": "exponential_backoff"} | {"max_retries": 2, "type": "exponential_backoff"} | few client retries: the adapter already retries transient failures with back-off; max_retries must be > 1 for this retry type |
+| extract_graph.completion_model_id | default_completion_model | completion_extract_graph | a copy of default_completion_model that differs only in the ledger tag header (<system>/<mim>/extract_graph), to count calls by workflow step; requests are otherwise identical |
+| summarize_descriptions.completion_model_id | default_completion_model | completion_summarize_descriptions | a copy of default_completion_model that differs only in the ledger tag header (<system>/<mim>/summarize_descriptions), to count calls by workflow step; requests are otherwise identical |
+| community_reports.completion_model_id | default_completion_model | completion_community_reports | a copy of default_completion_model that differs only in the ledger tag header (<system>/<mim>/community_reports), to count calls by workflow step; requests are otherwise identical |
+| local_search.completion_model_id | default_completion_model | completion_local_search | a copy of default_completion_model that differs only in the ledger tag header (<system>/<mim>/local_search), to count calls by workflow step; requests are otherwise identical |
+| global_search.completion_model_id | default_completion_model | completion_global_search | a copy of default_completion_model that differs only in the ledger tag header (<system>/<mim>/global_search), to count calls by workflow step; requests are otherwise identical |
+| concurrent_requests | 25 | 3 | the adapter's concurrency cap (3), so GraphRAG does not flood it |
+| input/ (input_storage.base_dir, input.type text) | (empty folder) | the entry's exported papers, one <pmid>.txt per paper | the corpus: exactly the supplied papers; GraphRAG's text reader titles each document by its file name, which maps it back to the PubMed id |
+| environment | (inherited) | fresh environment: no proxy variables, no provider keys; LITELLM_LOCAL_MODEL_COST_MAP=True, LITELLM_TELEMETRY=False, ANONYMIZED_TELEMETRY=False, DO_NOT_TRACK=1, OTEL_SDK_DISABLED=true, HF_HUB_OFFLINE=1, TIKTOKEN_CACHE_DIR=data/cache/tiktoken | telemetry off, nothing reaches an outside service; tiktoken encodings filled once beforehand |
+| vector_store.vector_size (effective; not set by us) | 3072 | 384 | a consequence of the embedding model, not a change in settings.yaml: the package's own validate_config detects the model's 384-dimensional vectors and overrides vector_size (logged as a warning) |
+
+##### GraphRAG global on its own entries
+
+Role: GraphRAG global search on the same indexes. Entries attempted: 4; completed: 4.
+
+| Measure | GraphRAG global | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | 46.0% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 59.6% (n=4) | 56.5% (n=4) |
+| (b) facts conveyed, credited anywhere in the draft | 47.7% (n=4) | 61.5% (n=4) | 60.9% (n=4) | 60.8% (n=4) | 56.5% (n=4) |
+| (c) (a) on facts the supplied text states | 68.2% (n=4) | 88.8% (n=4) | 88.4% (n=4) | 92.0% (n=4) | 86.8% (n=4) |
+| (c) (a) on facts the supplied text does not state | 20.5% (n=4) | 3.0% (n=4) | 2.9% (n=4) | 1.1% (n=4) | 2.0% (n=4) |
+| (c) (b) on facts the supplied text states | 67.4% (n=4) | 90.4% (n=4) | 90.7% (n=4) | 91.5% (n=4) | 84.2% (n=4) |
+| (c) (b) on facts the supplied text does not state | 21.5% (n=4) | 4.6% (n=4) | 4.7% (n=4) | 3.5% (n=4) | 3.2% (n=4) |
+| (c) (a) on facts the supplied text states or partly states | 61.0% (n=4) | 83.2% (n=4) | 83.0% (n=4) | 85.5% (n=4) | 80.4% (n=4) |
+| (c) (b) on facts the supplied text states or partly states | 62.3% (n=4) | 84.9% (n=4) | 84.7% (n=4) | 86.0% (n=4) | 79.4% (n=4) |
+
+Paired differences from direct reading:
+
+| Measure | GraphRAG global | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|
+| (a) facts conveyed, credited to paragraphs citing the paper | -13.6 (-27.1 to -5.4); 0/4/0; p=0.125; n=4 | +0.0 (-1.8 to +1.8); 2/2/0; p=1.000; n=4 | -0.0 (-4.9 to +4.2); 2/1/1; p=1.000; n=4 | -3.1 (-6.5 to +0.1); 1/3/0; p=0.625; n=4 |
+| (b) facts conveyed, credited anywhere in the draft | -13.8 (-27.8 to -2.9); 0/4/0; p=0.125; n=4 | -0.6 (-2.9 to +2.1); 1/2/1; p=1.000; n=4 | -0.7 (-7.6 to +5.5); 1/1/2; p=1.000; n=4 | -5.0 (-7.0 to -1.7); 0/3/1; p=0.250; n=4 |
+| (c) (a) on facts the supplied text states | -20.6 (-33.9 to -7.3); 0/4/0; p=0.125; n=4 | -0.4 (-2.9 to +2.4); 1/2/1; p=1.000; n=4 | +3.2 (-4.7 to +10.7); 3/1/0; p=0.625; n=4 | -2.0 (-4.9 to +3.1); 1/3/0; p=0.625; n=4 |
+| (c) (a) on facts the supplied text does not state | +17.5 (+0.4 to +50.2); 3/0/1; p=0.250; n=4 | -0.1 (-0.9 to +0.7); 1/1/2; p=1.000; n=4 | -1.9 (-4.7 to +0.0); 0/2/2; p=0.500; n=4 | -1.0 (-2.0 to +0.0); 0/2/2; p=0.500; n=4 |
+| (c) (b) on facts the supplied text states | -23.0 (-40.8 to -5.2); 0/4/0; p=0.125; n=4 | +0.2 (-2.3 to +2.8); 2/2/0; p=1.000; n=4 | +1.1 (-7.5 to +8.9); 2/1/1; p=1.000; n=4 | -6.2 (-10.9 to -0.8); 1/3/0; p=0.625; n=4 |
+| (c) (b) on facts the supplied text does not state | +16.9 (+0.0 to +50.0); 2/0/2; p=0.500; n=4 | +0.1 (-0.9 to +1.3); 1/1/2; p=1.000; n=4 | -1.1 (-2.1 to +0.0); 0/2/2; p=0.500; n=4 | -1.4 (-3.4 to +0.0); 0/2/2; p=0.500; n=4 |
+| (c) (a) on facts the supplied text states or partly states | -22.2 (-37.8 to -9.4); 0/4/0; p=0.125; n=4 | -0.2 (-2.9 to +2.4); 2/2/0; p=1.000; n=4 | +2.3 (-4.5 to +9.4); 2/1/1; p=1.000; n=4 | -2.8 (-7.0 to +2.2); 1/3/0; p=0.625; n=4 |
+| (c) (b) on facts the supplied text states or partly states | -22.6 (-39.0 to -6.1); 0/4/0; p=0.125; n=4 | -0.2 (-3.2 to +2.8); 2/2/0; p=1.000; n=4 | +1.2 (-7.3 to +9.4); 2/1/1; p=1.000; n=4 | -5.5 (-8.7 to -0.8); 1/3/0; p=0.625; n=4 |
+
+Text, calls, cost and time per entry (means over these entries):
+
+| Arm | Characters | No mapped citation | Calls | Input tokens | Output tokens | List price | Model seconds | Wall seconds |
+|---|---|---|---|---|---|---|---|---|
+| GraphRAG global | 63,752 | 13.7% | 165.2 | 1,288,343 | 289,518 | $12.14 | 2,844 | 1,328 (n=4) |
+| Direct reading | 11,127 | 0.0% | 2.0 | 26,655 | 8,893 | $0.36 | 70 | not recorded |
+| Agentic curator | 11,651 | 0.0% | 2.0 | 63,673 | 12,852 | $0.39 | 105 | not recorded |
+| Evidence graph | 14,232 | 0.0% | 7.2 | 60,772 | 23,895 | $0.80 | 185 | not recorded |
+| Case table first | 14,256 | 0.0% | 7.2 | 72,123 | 26,896 | $0.88 | 207 | not recorded |
+
+- GraphRAG global: share of characters by kind of mapping: sources 0.0%, entities/relationships only 0.0%, community reports only 86.3%, none 13.7%.
+- Direct reading: audit and repair round 6.5 calls, $0.93, 201 model seconds per entry (not included above).
+- Agentic curator: audit and repair round 6.5 calls, $0.98, 227 model seconds per entry (not included above).
+- Evidence graph: audit and repair round 7.5 calls, $1.19, 272 model seconds per entry (not included above).
+- Case table first: audit and repair round 7.5 calls, $1.21, 291 model seconds per entry (not included above).
+
+Settings changed from the defaults of graphrag 3.3.0:
+
+The same table as GraphRAG local.
+
+##### STORM on its own entries
+
+Role: no article produced. Entries attempted: 10; completed: 0; stopped: 10.
+
+Requests per entry: 5.0 distinct (50 fresh in all), $0.07 at list price.
+
+Settings changed from the defaults of knowledge-storm 1.1.1:
+
+| Setting | Default | Value | Reason |
+|---|---|---|---|
+| LM, all five roles (conv_simulator_lm, question_asker_lm, outline_gen_lm, article_gen_lm, article_polish_lm) | STORMWikiLMConfigs.init_openai_model: LitellmModel gpt-4o-mini-2024-07-18 (conversation, question asking), gpt-4-0125-preview (outline), gpt-4o-2024-05-13 (article, polish) | LitellmModel openai/claude-opus-5-5, api_base = local adapter, api_key = dummy | the local adapter in front of the project's one model (Claude Opus 5.5, effort medium) |
+| LM temperature / top_p / max_tokens | temperature 1.0, top_p 0.9; max_tokens 500 / 500 / 400 / 700 / 4000 per role | sent unchanged, but ignored by the adapter (the command-line model takes no sampling or length parameters; replies are not cut at max_tokens) | the adapter cannot pass them to the model; recorded, not chosen |
+| LM request timeout | LiteLLM default (600 s) | 1800 s | adapter calls queue behind a concurrency cap of 3 and can take minutes; the harness asks for >= 900 s |
+| retriever (rm) | a web search API (YouRM / BingSearch / ... in the examples) | VectorRM over the entry's supplied papers only (offline Qdrant on disk), k = search_top_k = 3 | the papers may not go to an outside service; the corpus is exactly the supplied papers |
+| VectorRM corpus CSV | user supplied (content, title, url, description) | one row per supplied paper: content = the exported <pmid>.txt (reference line, title, abstract, full text as the entry's access level allows); title = paper title; url = https://pubmed.ncbi.nlm.nih.gov/<pmid>/ (identifier only, never fetched); description = the reference line | the corpus is exactly the supplied papers; the url identifies the PubMed id for citation mapping |
+| VectorRM / QdrantVectorStoreManager embedding_model | BAAI/bge-m3 (1024 dims) | BAAI/bge-small-en-v1.5 (384 dims), loaded locally by the package's own HuggingFaceEmbeddings | the small local embedding model used by all three systems |
+| VectorRM / QdrantVectorStoreManager device | mps | cpu | no Apple GPU (or any GPU) on this machine |
+| Qdrant collection vector size | 1024 (hard-coded in QdrantVectorStoreManager._check_create_collection) | 384: the collection is created with this size before the package's own builder is called (the builder then loads it instead of creating it) | a hard-coded 1024 cannot hold 384-dimensional vectors; smallest change |
+| qdrant_client.Document | `from qdrant_client import Document` in QdrantVectorStoreManager.create_or_update_vector_store (fails: qdrant-client has no such name in any release checked, 1.7-1.20) | the name is set to langchain_core.documents.Document (the class the code uses: page_content, metadata, split by the LangChain text splitter) before the builder is called | the released corpus builder cannot run otherwise; smallest change, no behaviour added |
+| dependency versions (unpinned by knowledge-storm 1.1.1) | whatever the resolver picks: uv picked sentence-transformers 2.2.2 + transformers 4.17.0 (fails to import: huggingface_hub has no cached_download) and qdrant-client 1.20.0 (no QdrantClient.search, which langchain_qdrant.Qdrant, used by VectorRM, calls) | sentence-transformers 5.7.0 (newest), transformers 4.57.6; qdrant-client 1.15.1 (newest release with QdrantClient.search); torch 2.15.0+cpu | the newest versions with which the released VectorRM path imports and runs |
+| telemetry / outside calls | LiteLLM telemetry off (set by the package); cost map local (set by the package); Hugging Face hub online | also LITELLM_TELEMETRY=False, HF_HUB_OFFLINE=1, TRANSFORMERS_OFFLINE=1, HF_HUB_DISABLE_TELEMETRY=1, ANONYMIZED_TELEMETRY=False, DO_NOT_TRACK=1; models fetched once beforehand; no other provider key in the environment | nothing but the adapter and the Wikipedia pages of the perspective step may be reached |
+| LiteLLM disk cache location | ~/.storm_local_cache | HOME set to runs/external/storm/_home, so the cache is runs/external/storm/_home/.storm_local_cache | keep the run's files inside the run folder; caching behaviour unchanged |
+
+##### Claim-level audit without repair (4 common entries)
+
+Systems: paragraphs with mapped citations, audited here. Comparison strategies: the stored audit of their drafts before their repair round (run omim100), on the same entries.
+
+| Arm | Paragraphs | Claims | Supported | Partly supported | Unsupported | Contradicted | Not checkable |
+|---|---|---|---|---|---|---|---|
+| PaperQA2 | 128 | 853 | 780 (91.4%) | 66 (7.7%) | 2 (0.2%) | 5 (0.6%) | 0 (0.0%) |
+| GraphRAG local | 283 | 1382 | 1241 (89.8%) | 107 (7.7%) | 33 (2.4%) | 1 (0.1%) | 0 (0.0%) |
+| Direct reading | 87 | 581 | 571 (98.3%) | 10 (1.7%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Agentic curator | 92 | 644 | 635 (98.6%) | 9 (1.4%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| Evidence graph | 127 | 770 | 746 (96.9%) | 21 (2.7%) | 3 (0.4%) | 0 (0.0%) | 0 (0.0%) |
+| Case table first | 125 | 866 | 836 (96.5%) | 29 (3.4%) | 1 (0.1%) | 0 (0.0%) | 0 (0.0%) |
+
+##### Deviations from the design
+
+1. Reduced sizes (decided before any run finished, at the project owner's request): PaperQA2 and STORM on the first 10 entries of the seeded order instead of 24; GraphRAG within 1,000 model calls (floor 6 entries) instead of 3,000 (floor 12). Every result here is exploratory.
+2. PaperQA2 was run without its agent: `Docs.aadd` per paper and `Docs.aquery` per question (the README's 'Manual (No Agent)' usage) instead of the default `agent_query` (`pqa ask`). The default agent selects tools by function calling, and the 'fake' agent ends with a function-calling Complete step; the adapter in front of the project's command-line model cannot serve tool calls. Retrieval, contextual summaries and the answer step are PaperQA2's own; the agent's iterative search and its decision to stop are not exercised.
+3. Embedding cut and re-run: the shared local embedder (bge-small-en-v1.5) truncates at 512 tokens, so the first PaperQA2 run (`paperqa`) embedded only the first ~510 tokens of each ~5,000-character chunk. PaperQA2 was re-run with whole-chunk embeddings (windows of 510 tokens averaged; `paperqa_pooled`), which is reported as the main result; the first run is kept as a sensitivity result. Requests identical between the two runs were served from the cache in the second, so its fresh calls understate what a stand-alone run costs (calls here count every distinct request once, wherever it was first made).
+4. GraphRAG on 4 entries (621313, 615582, 616326, 620029), below the design's floor of 6: the fixed in-order rule stopped when the fifth entry (611521) did not fit in what was left of the 1,000-call cap (the operator's projection; the tally in the ledgers is 698 calls, including the global-search queries and a smoke test).
+5. GraphRAG global search was added on the same 4 indexes (the CLI default is local search, which is the main GraphRAG result). Its citations name community reports only; a report is mapped to the papers of the text units its community's entities came from, a looser mapping than PaperQA2's (named papers) or local search's (text units, entities, relationships; a block's papers are the union over every record it cites, counting only records the query showed the model).
+6. STORM did not complete any entry: the model's safety filter stopped every chain-of-thought prompt of its research stage (30 of 30 fresh requests stopped; the 20 plain outline prompts were answered), so no article was produced. Per the rules, nothing was retried or reworded. STORM is reported as completion 0 of 10.
+7. The comparison strategies' drafts (run omim100) are the published drafts, after their one audit-and-repair round; the systems' drafts had none. The design treats every arm alike without repair; the repair round moved coverage by about 0.2 points in the hidden-full-text experiment, so this favours the comparison strategies very slightly at most. Their (a) and (c) come from stored marks; (b) from stored whole-draft marks where present, otherwise scored here once (the same path).
+8. Bookkeeping corrected in this summary: calls, tokens and cost count each distinct request once with the figures it had when made (the ledgers' `full_*` totals count cached re-runs again; PaperQA2's first-run entry 621313 was re-saved from the cache twice, tripling its `full_*` figures); the saved `seconds` of that entry (6.9 s) is a cached re-save and its real wall time (177.2 s) is taken from `runs/external/paperqa/pilot.log`; GraphRAG local's query seconds are the sum of per-question seconds in `meta` (no query-run record), added to the recorded index time. PaperQA2 (whole-chunk) entries 301059 and 621313 were served entirely from the cache (all requests identical to the first run) and have no wall time of their own; its other entries' wall times understate a stand-alone run for the same reason.
+9. Wall-clock time is not recorded per strategy in run omim100 (only per entry for all strategies together); for the comparison strategies, time is the sum of model-call seconds (`model_seconds`), which is also given for the systems. Systems ran with the adapter's concurrency cap of 3; the comparison strategies' generation is mostly one or a few calls.
+10. Systems were asked six fixed section questions (PaperQA2, GraphRAG) and their answers concatenated; the comparison strategies write an OMIM-style entry in one pass. GraphRAG's answers include headings and framing lines as separate blocks; all text counts for (b) and the uncited share.
+11. The claim-level audit without repair was run on the 4 entries both PaperQA2 and GraphRAG completed, not on every entry of each system, on every paragraph with mapped citations.
+12. Judge noise: (b) credits facts anywhere in the draft and should not fall below (a), but it does on 5 system entries (paperqa/620029, paperqa/620249, graphrag/620029, graphrag_global/616326, graphrag_global/621313): the two are separate judge passes, so differences of a few points between them are within the judge's noise.
+13. Extent of the comparison strategies' repair round on these 10 entries (paragraphs revised / deleted / in the final drafts): Direct reading 3 / 0 / 234; Agentic curator 2 / 0 / 240; Evidence graph 5 / 0 / 317; Case table first 1 / 0 / 291.
+
+### 14.4 Audit coverage: planted errors beyond single values (C)
+
+From `results/omim100/audit_stress.md`.
+
+#### Audit coverage: planted errors beyond single values (Experiment C, run omim100)
+
+Planted in the 'kg' drafts; natural omissions from the 'direct' drafts. Seed 23, replicate salt 'auditstress-1'. Pool of passed single-paper paragraphs: 1494.
+
+##### Audit on planted errors
+
+| Class | Items | Truth known | Paragraph flagged | Planted claim flagged | Control paragraph flagged | Control planted-claim analogue flagged |
+|---|---|---|---|---|---|---|
+| C1 citation swap, other entry | 30 | 30 | 30/30 (100%) | 30/30 (100%) | 0/30 (0%) | 0/30 (0%) |
+| C2 citation swap, same entry | 30 | 26 | 26/26 (100%) | 26/26 (100%) | 0/26 (0%) | 0/26 (0%) |
+| C3 conflation | 30 | 25 | 25/25 (100%) | 25/25 (100%) | 0/25 (0%) | 0/25 (0%) |
+| C4 over-citation | 30 | 30 | 0/30 (0%) | 0/30 (0%) | 0/30 (0%) | 0/30 (0%) |
+| C5 dropped qualifier | 30 | 30 | 11/30 (37%) | 11/30 (37%) | 0/30 (0%) | 0/30 (0%) |
+| C6 omitted finding | 30 | 30 | 0/30 (0%) | 0/0 (n/a) | 0/30 (0%) | 0/0 (n/a) |
+
+Counts are over truth-known items. 'Planted claim flagged': at least one planted claim unsupported or contradicted, over items where a planted claim was identified. C4's expected outcome is a pass (the claim takes the best cited paper's verdict); C6's is a pass (the audit judges only what is written).
+
+- C2 truth unknown (variant occurs in the new paper's text): 4 items, paragraph flagged 4, planted-claim-analogue flagged 0/0.
+- C3 truth unknown (variant occurs in the new paper's text): 5 items, paragraph flagged 5, planted-claim-analogue flagged 4/5.
+
+###### Verdict on the planted claim (worst planted claim per item, truth-known items)
+
+| Class | contradicted | unsupported | partially supported | supported | not checkable |
+|---|---|---|---|---|---|
+| C1 | 5 | 25 | 0 | 0 | 0 |
+| C2 | 10 | 16 | 0 | 0 | 0 |
+| C3 | 2 | 23 | 0 | 0 | 0 |
+| C4 | 0 | 0 | 1 | 29 | 0 |
+| C5 | 11 | 0 | 4 | 15 | 0 |
+| C6 | 0 | 0 | 0 | 0 | 0 |
+
+Claim level (C1, C4: every claim is planted):
+
+- C1: 173 of 173 claims flagged (100%).
+- C4: 0 of 178 claims flagged (0%).
+
+###### C4: the added paper's own verdicts
+
+Of 178 claims, the decomposer attributed 176 to the added paper. Its own verdicts: not_attributed 2, unsupported 176. Share judged supported or partly by the added (unrelated) paper: 0%; flagged: 100%.
+
+###### C5 by deletion rule
+
+| Rule | Items | Paragraph flagged | Planted claim flagged | Worst verdict |
+|---|---|---|---|---|
+| count | 4 | 1 | 1/4 | contradicted 1, partially_supported 1, supported 2 |
+| hedge | 8 | 2 | 2/8 | contradicted 2, partially_supported 2, supported 4 |
+| negation | 8 | 8 | 8/8 | contradicted 8 |
+| single family or patient | 2 | 0 | 0/2 | supported 2 |
+| zygosity | 8 | 0 | 0/8 | partially_supported 1, supported 7 |
+
+###### Control (all unaltered paragraphs, re-audited fresh)
+
+113 paragraphs, 0 flagged (0%); 733 claims, 0 flagged (0.0), 15 partly supported.
+
+##### C6 completeness check
+
+###### Planted deletions
+
+| | Items | Omissions listed (mean / median) | Deleted sentence listed: mechanical | judge full | judge full or partial |
+|---|---|---|---|---|---|
+| Sentence deleted | 30 | 6.03 / 5 | 22/29 (76%) | 16/29 (55%) | 24/29 (83%) |
+| Unaltered (false-alarm side) | 30 | 5.59 / 3 | 4/29 (14%) | 0/29 (0%) | 2/29 (7%) |
+
+Quotes verified: 175 of 175 omissions (deleted), 162 of 162 (unaltered). Judge full matches with a verified quote: 16 (deleted), 0 (unaltered).
+
+###### Natural omissions (direct-reading drafts)
+
+28 papers (0 failed), 60 curator facts stated in the text the writer had but absent from the draft. Listed by the check (judge 'states it'): 24 (40%); including 'states part': 28 (47%); with a verified quote: 24 (40%).
+
+Omissions listed: 284 (10.14 per paper; 284 with a verified quote). Matching any curator fact about the paper: 56 (20%); including partial matches 83 (29%).
+
+##### Citation precision (stored audits, no new calls)
+
+Paragraphs citing two or more papers; each (claim, paper the claim is attributed to) pair's own verdict.
+
+| Strategy | Entries replayed | Multi-citation paragraphs (replayed / all) | Pairs | Not supported | Supported or partly | Claims passing with a non-supporting cited paper |
+|---|---|---|---|---|---|---|
+| kg | 80 | 209 / 272 | 1438 | 6% | 94% | 76 of 991 |
+| direct | 84 | 338 / 442 | 2493 | 7% | 93% | 142 of 1782 |
+| agent | 87 | 335 / 400 | 2262 | 4% | 96% | 78 of 1772 |
+| cohort | 78 | 242 / 306 | 1846 | 7% | 93% | 118 of 1254 |
+| recall | 88 | 137 / 165 | 830 | 3% | 97% | 25 of 708 |
+| closedbook | 100 | 39 / 39 | 166 | 27% | 73% | 17 of 121 |
+
+##### Calls and cost
+
+New model calls: 540 (cap 600); safety-filter stops: 2; refusals raised: 0; failed calls: 0; list-price cost $43.7849.
+
+##### Decisions
+
+- Strategy planted in: the evidence-graph drafts ('kg') of run omim100, as the single-value planted test, with its selection rule (paragraphs passed as fully supported, citing one paper, longer than 150 characters); at most 3 items per entry per class. One seeded order of that pool serves all classes, so classes share paragraphs and one control audit of the union of their unaltered paragraphs serves every class.
+- C3 is planted in the same 'kg' drafts, not the direct-reading drafts: its truth (the moved variant does not occur in paper B's text) is decided mechanically from the paper text, so it needs no stored omission judgement, and keeping one strategy keeps the classes comparable. The moved sentence names a variant and carries no author citation (so it is not explicitly attributed to paper A); it is inserted at a seeded sentence boundary after B's first sentence; B must not already name that variant.
+- C6's planted deletions are in the 'kg' drafts; C6's natural omissions use the direct-reading drafts ('direct'), where the stored judgements are: curator facts of gold paragraphs citing one paper, marked absent from the draft and stated (verdict 'yes', quote verified) in the text the writer had. Facts marked partly conveyed or partly stated are not targets.
+- Citation swaps (C1, C2) and over-citation (C4) change the in-text author-year label as well as the cited PMID (only paragraphs whose label occurs in the text are used): 'A et al. (2000)' -> 'B et al. (2010)' for swaps, 'A et al. (2000) and B et al. (2010)' or '(A et al., 2000; B et al., 2010)' for over-citation. The new paper of C1 and C4 is a random readable paper (abstract or full text) of another entry; of C2 a random readable other paper of the same entry.
+- Variant occurrence (C2, C3) is decided on the text the auditor reads (title, abstract and full text cut at 180,000 characters). A variant occurs if any of its protein or nucleotide keys (kg.protein_key / nucleotide_key, so one- and three-letter, 'arg123-to-trp', p. and c. forms meet), its residue or nucleotide position, or its raw name occurs in the paper. C2 items are truth-known when the paragraph names at least one variant that does not occur in the new paper; C3 items when none of the moved sentence's variants occurs in B.
+- Planted claim: C1 and C4 every claim; C2 claims naming a variant absent from the new paper; C3 claims naming the moved variant; C5 claims taken from the altered sentence (at least 60% of a claim's content words in the sentence, or at least two of the content words next to the deletion point, else the best-overlapping claim); C6 none. An item counts as 'planted claim flagged' when any planted claim is unsupported or contradicted. Control analogue: the same rule on the unaltered paragraph (for C3, the moved sentence's claims in paper A's own paragraph, against paper A).
+- C6 deleted sentence: not the first sentence, carrying a variant or a number (years and MIM numbers aside) that appears nowhere else in the draft's text citing that paper. Mechanical match: a listed omission names one of the sentence's variants (by key) or carries all its numbers (number words read as digits). Judge match: stage 'judge'. The draft text given to the check is all paragraphs of the entry citing the paper (as in scoring).
+- The audit is run on items in fixed chunks of 5 (one claim-decomposition call per chunk, then one call per cited paper), not on one 60-paragraph holder as the single-value test did (decomposition batches of 25); this lets the pilot's calls be reused and the run resume. All calls are made under the replicate salt 'auditstress-1', so altered and control audits are fresh and from the same run.
+- Per-paper verdicts are kept by `auditstress.audit_paragraphs`, which runs the audit's own prompts and best-verdict rule (verify._decompose, verify._audit_prompt); a unit test checks it agrees with verify.verify_entry.
+- Citation precision: the run's entry files keep only each claim's best verdict, not every paper's. Per-paper verdicts were recovered by replaying the stored audit from the model-reply cache with a backend that refuses any uncached call (no new calls). That is possible only for entries the repair round left unchanged; entries with a revised or deleted paragraph are excluded, and a paragraph is kept only if the replayed best verdict of every claim equals the stored one.
+
+##### Pilot review
+
+- Pilot: 5 items of each class, 20 controls, 5 C6 completeness items, 5 natural papers: 94 calls; estimate for the full run about 555 calls (under the 600 cap), so 30 per class were kept.
+- C5 rules were tightened once before the pilot after reading the built edits (no calls involved): zygosity no longer deletes before 'for'/'in ... state' (left no sentence), counts must end in a people noun or a clause boundary, sentence-initial 'In 2 of 5' is not taken, 'more/less likely' and 'likely to/than' are not taken, 'as in one patient' is not taken.
+- All 30 C5 edits were then read. hedge (8): 5 change the claim (e.g. 'possibly transient' -> 'transient', 'likely pathogenic' -> 'pathogenic'), 2 are nearly meaning-preserving because the sentence still reads 'suggested that', 1 degenerate ('pathogenic or likely pathogenic' -> 'pathogenic or pathogenic'). negation (8): all grammatical, all reverse the claim (so they plant contradictions, not broadening). zygosity (8): all grammatical; about 3 nearly meaning-preserving where de novo or dominant inheritance implies heterozygosity. count (4): 2 clean, 1 ungrammatical ('Variants were familial in which inheritance could be determined'), 1 awkward. single family/patient (2): both clean. No rule mostly produced ungrammatical or meaning-preserving edits, so all five survive.
+- C6 mechanical matching was corrected after the pilot (no new calls; recomputed at summary time): number words and thousands separators are read as digits, and a listed omission matches on all the sentence's numbers even when the sentence also names a variant (variant names written with a hyphen, 'p.P102-V104del', do not parse as keys).
+- After the main run, the C5 planted-claim selector was widened (no new calls; recomputed at summary time): a claim also counts as taken from the altered sentence when it contains two of the content words next to the deletion point. Two flagged negation items (C5.5, C5.18) had been missed by the overlap rule alone because the decomposer had added context words to the claim.
+
+##### Deviations from the design
+
+- Size: 30 items per class instead of the design's 'about 60', and at most 600 new model calls instead of 1,200 (pilot included), at the user's request for a smaller budget. Items were built and run as 30 per class from the start (seeded order).
+- Natural omissions capped at 60 curator facts (seeded sample, facts of papers readable in full taken first): 60 of the 130 eligible facts, on 28 papers. The design did not set a cap.
+- Audit grouping: items are audited in fixed chunks of 5 (one claim-decomposition call per chunk), where the single-value test audited all 60 in one holder (decomposition batches of 25). Prompts and verdict rules are otherwise the audit's own.
+- Citation precision could not be read from 'the existing audit files': the entry files keep only each claim's best verdict. Per-paper verdicts were recovered without new calls by replaying the audit from the model-reply cache, which is possible only for entries whose paragraphs the repair round left unchanged (about 80-88% of entries per strategy; all closed-book entries, which have no repair).
+- Unaltered controls are one audit of the union of all classes' unaltered paragraphs (113 paragraphs), not a separate control per class; each class's control figures are read from it for that class's own paragraphs.
+- Papers are loaded at the access level the run recorded, from cached responses only (no new fetches); every paper's access level matched papers.json.
+- Safety-filter stops: 2, both on the completeness check of item C6.24 (the altered and the unaltered draft text of the same paper). Recorded, not retried; C6 completeness figures are over 29 items.

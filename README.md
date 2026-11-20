@@ -122,6 +122,22 @@ no curator has read any draft or judgement.
     the 85 references OMIM cites, and 47% of what it selected is in OMIM's list
     ([`results/open10/`](results/open10/)).
 
+**A second round of experiments** tested three objections to the study at small scale (4 to 10 entries each;
+design, results and deviations in [`docs/experiments-round2.md`](docs/experiments-round2.md)):
+
+- **Larger inputs.** Padding an entry's own papers with up to thirty times as much unrelated full text did not lower
+  any strategy's coverage, and direct reading across three prompts lost nothing
+  ([`results/padding/`](results/padding/)). On four real entries with 76–148 references and much readable text, the
+  model's safety filter stopped at least one strategy every time, so no comparison could be made there
+  ([`results/largeft/`](results/largeft/)).
+- **Published systems.** On the same papers and model, PaperQA2's document-query pipeline conveyed 14.5 points fewer
+  OMIM facts than direct reading on 10 entries and GraphRAG about 13 fewer on 4, at 5 to 33 times the cost; STORM
+  could not be run with this model ([`results/external/`](results/external/)). Each system ran at one setting, and
+  PaperQA2 without its agent.
+- **Audit coverage.** The audit caught every planted wrong citation and every sentence moved between papers, and
+  flagged no unaltered paragraph. It cannot see an added irrelevant citation or an omission, and it caught a dropped
+  qualifier 11 times in 30 ([`audit_stress.md`](results/omim100/audit_stress.md)).
+
 A curator reviews a run on a single page: the draft in OMIM's layout, the audit's verdict and evidence for every
 claim, the comparison with OMIM, the evidence graph, and accept / edit / reject for each paragraph. To browse the
 results in this repository:

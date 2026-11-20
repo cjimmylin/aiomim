@@ -101,6 +101,36 @@ def sign_tests(report_text: str) -> str:
     return "\n".join(out)
 
 
+SECOND_ROUND = (
+    ("14.1 Natural large-entry tier (A1)", "results/largeft/large_tier.md"),
+    ("14.2 Controlled padding of the input (A2)", "results/padding/padding.md"),
+    ("14.3 Published systems as released (B)", "results/external/external.md"),
+    ("14.4 Audit coverage: planted errors beyond single values (C)", "results/omim100/audit_stress.md"),
+)
+
+
+def second_round() -> str:
+    """Section 14: the second round of experiments, taken verbatim from their result files."""
+    out = ["""## 14. Second round of experiments (20-21 November 2026)
+
+Design, reduced sizes, summary and deviations: `docs/experiments-round2.md`. Sizes are small (4 to 10 entries per
+experiment, 30 planted items per class): the results show directions and large effects only. The result files are
+reproduced below with their headings lowered. Where they say "strategy" names in code form: `direct` direct reading,
+`agent` agentic curator, `kg` evidence graph, `cohort` case table first, `closedbook` memory only, `recall` recall,
+then verify.
+"""]
+    for title, rel in SECOND_ROUND:
+        path = ROOT / rel
+        if not path.exists():
+            out.append(f"### {title}\n\n(not run: `{rel}` is missing)\n")
+            continue
+        body = []
+        for line in read(path).splitlines():
+            body.append("###" + line if line.startswith("#") else line)
+        out.append(f"### {title}\n\nFrom `{rel}`.\n\n" + "\n".join(body).strip() + "\n")
+    return "\n".join(out)
+
+
 def report(run: str) -> str:
     return read(RUNS / run / "strategies.md")
 
@@ -860,7 +890,8 @@ on 2, and the evidence graph lost a paper on 7.
 
 - **Planted errors.** In 60 paragraphs the audit had passed, one fact was altered by rule (a count, a zygosity, a
   residue or a mode of inheritance). The audit flagged all 60, each on a claim containing the altered value. The test
-  measures sensitivity to blunt single-fact substitutions only; omissions and misattributions are not tested. In 6 of
+  measures sensitivity to blunt single-fact substitutions only; misattributed citations, conflation, dropped
+  qualifiers and omissions were tested later (section 14.4). In 6 of
   the 60 other claims were also flagged.
 {audit_control_item(actl)}
 - **Disagreements between a draft and the reference.** Facts on which a direct-reading draft contradicted the OMIM
@@ -891,8 +922,9 @@ on 2, and the evidence graph lost a paper on 7.
   contradicted.
 - One model family wrote, audited and judged everything. No person has read any draft, verdict or fact judgement.
 - Strategies were developed on the same entries they are evaluated on.
-- Published systems (for example SLIDERS, PaperQA2) were not run; the strategies are our own implementations of the
-  ideas.
+- Published systems: PaperQA2 (its document-query pipeline, without its agent) and GraphRAG were run as released on
+  10 and 4 entries, and STORM could not be run with this model (section 14). SLIDERS and others were not run. The
+  strategies are our own implementations of the ideas.
 - No second model was tested.
 
 ## 13. Total model usage
@@ -900,6 +932,7 @@ on 2, and the evidence graph lost a paper on 7.
 All experiments, pilots and re-scoring: {calls:,} cached model calls, {inp / 1e6:.0f} million input and
 {out / 1e6:.0f} million output tokens, about ${cost:,.0f} at list price.
 """)
+    parts.append(second_round())
     return "\n".join(parts)
 
 
