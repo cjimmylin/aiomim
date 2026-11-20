@@ -1,0 +1,147 @@
+# Experiment A1 (docs/experiments-round2.md): 8 new entries for the natural large-entry tier.
+# Deviation from the design: design: sample of up to 400, 16 entries; run: sample of up to 200 and 8 entries (smaller budget at the user's request).
+# Rule: eligible phenotype entries (causal gene recorded, >= 5 HPO phenotype annotations, >= 1 OMIM paragraph about a cited paper) with 30-150 references, in no existing evaluation set; seeded random sample of up to 200; the 8 with the most references readable in full (ties by entry number), requiring >= 5.
+# Seed 2611 (candidates sorted by MIM number, then random.Random(seed).shuffle); 6581 candidate phenotype entries with a gene link and HPO annotations, not in an existing evaluation set (142 excluded); 3417 walked to find 200 eligible (the sample).
+# Full-text count: PubMed records of every cited paper fetched in batches; papers with a PMC id give an upper bound (n_pmc); entries resolved with the project's access resolution (evalset.describe_papers) in descending order of the bound until no unresolved bound could reach the last selected place (124 resolved).
+# Every selected entry has at least 5 references readable in full (lowest: 9).
+# Selection finished: 124 of 200 sampled entries resolved; the 76 unresolved have bounds <= 8, below the last selected count (9), so none can enter.
+# Top 8 from the resolved counts: 155600 168600 152700 114500 603075 222100 273300 312750 (same as the rows below).
+# Run entry 155600: place in the top 8 certain from 03:39:32 (log line 5 of the 'resolved' lines), run started 04:04:39; final rank 1.
+# Run entry 168600: place in the top 8 certain from 04:47:31 (log line 38 of the 'resolved' lines), run started 04:58:39; final rank 2.
+# Run entry 152700: place in the top 8 certain from 05:27:58 (log line 65 of the 'resolved' lines), run started 06:02:10; final rank 3.
+# Run entry 114500: place in the top 8 certain from 05:41:25 (log line 79 of the 'resolved' lines), run started 06:59:52; final rank 4.
+# Run in A1 (generated and scored, run largeft), in rule order: 155600 168600 152700 114500; selected but not run: 603075 222100 273300 312750 (budget: see results/largeft/large_tier.md).
+# Shortlist (resolved entries, rank order): mim n_refs n_pmc n_fulltext source_chars selected run (source_chars '-': count reused from an interrupted pass's log, characters not recomputed; run = generated and scored in run largeft)
+#   155600 119 54 33 998176 yes yes
+#   168600 133 39 19 604761 yes yes
+#   152700 148 46 14 614865 yes yes
+#   114500 76 22 12 375649 yes yes
+#   603075 86 25 10 427455 yes no
+#   222100 142 50 9 572305 yes no
+#   273300 63 24 9 290519 yes no
+#   312750 114 31 9 349006 yes no
+#   607485 54 20 9 - no no
+#   105400 117 33 8 - no no
+#   256700 71 21 7 - no no
+#   105830 124 42 6 - no no
+#   147060 41 13 6 - no no
+#   147950 53 21 6 - no no
+#   158350 96 29 6 - no no
+#   601144 33 9 6 234423 no no
+#   135100 45 13 5 - no no
+#   165500 41 12 5 241926 no no
+#   137580 89 30 4 - no no
+#   145980 55 12 4 - no no
+#   162400 33 10 4 144912 no no
+#   178600 39 12 4 177606 no no
+#   187300 111 16 4 - no no
+#   188400 109 32 4 - no no
+#   229300 141 35 4 - no no
+#   248200 38 14 4 - no no
+#   270400 108 18 4 - no no
+#   118450 71 17 3 - no no
+#   132400 36 10 3 195614 no no
+#   147920 62 9 3 127143 no no
+#   154700 130 37 3 - no no
+#   182290 43 17 3 - no no
+#   272800 98 33 3 - no no
+#   301500 137 34 3 - no no
+#   306900 125 42 3 - no no
+#   307800 63 10 3 155688 no no
+#   311250 91 22 3 - no no
+#   106100 84 17 2 - no no
+#   106210 65 15 2 - no no
+#   117550 58 14 2 - no no
+#   123400 72 10 2 129218 no no
+#   143890 142 38 2 - no no
+#   151623 44 14 2 - no no
+#   166210 61 18 2 - no no
+#   171400 94 16 2 - no no
+#   183090 74 11 2 149280 no no
+#   192430 84 23 2 - no no
+#   207900 32 10 2 87541 no no
+#   213600 43 9 2 77612 no no
+#   214500 53 11 2 120787 no no
+#   232200 63 13 2 - no no
+#   245200 68 14 2 - no no
+#   253400 40 13 2 - no no
+#   256300 42 10 2 95278 no no
+#   257220 82 19 2 - no no
+#   276900 49 9 2 125109 no no
+#   300029 36 18 2 - no no
+#   301000 95 17 2 - no no
+#   308700 44 9 2 87799 no no
+#   309400 97 18 2 - no no
+#   312080 61 20 2 - no no
+#   602771 36 11 2 108725 no no
+#   603041 30 10 2 89258 no no
+#   101000 71 24 1 - no no
+#   103580 78 24 1 - no no
+#   109150 117 15 1 - no no
+#   117000 41 8 1 62366 no no
+#   118220 73 22 1 - no no
+#   127300 41 9 1 54049 no no
+#   142623 57 16 1 - no no
+#   145600 63 11 1 79595 no no
+#   167250 35 13 1 - no no
+#   193400 101 14 1 - no no
+#   203100 49 9 1 69270 no no
+#   207800 33 10 1 49290 no no
+#   214100 66 17 1 - no no
+#   219800 60 12 1 64601 no no
+#   222300 50 15 1 - no no
+#   223100 57 12 1 100209 no no
+#   226600 54 15 1 - no no
+#   235400 59 9 1 75352 no no
+#   242860 40 9 1 63458 no no
+#   277900 123 23 1 - no no
+#   300755 56 11 1 62644 no no
+#   309000 37 11 1 63857 no no
+#   310400 55 14 1 - no no
+#   312600 49 20 1 - no no
+#   614962 33 10 1 40193 no no
+#   100800 109 23 0 - no no
+#   101400 35 12 0 - no no
+#   102700 96 34 0 - no no
+#   105210 73 18 0 - no no
+#   110100 52 16 0 - no no
+#   119300 38 13 0 - no no
+#   130000 47 10 0 27135 no no
+#   131100 115 21 0 - no no
+#   161400 45 11 0 38502 no no
+#   174900 39 9 0 35476 no no
+#   182600 45 11 0 36657 no no
+#   182900 66 12 0 48379 no no
+#   193500 55 15 0 - no no
+#   200100 39 14 0 - no no
+#   213700 37 9 0 35834 no no
+#   236200 97 29 0 - no no
+#   236250 45 11 0 53150 no no
+#   244400 83 15 0 - no no
+#   250800 54 12 0 34596 no no
+#   251260 31 13 0 - no no
+#   253600 53 16 0 - no no
+#   256450 58 12 0 76396 no no
+#   259900 45 11 0 39325 no no
+#   260400 48 9 0 42994 no no
+#   263200 56 12 0 65317 no no
+#   266200 57 11 0 44775 no no
+#   268800 47 9 0 41068 no no
+#   276700 64 18 0 - no no
+#   277700 62 11 0 57130 no no
+#   278700 45 9 0 38531 no no
+#   300100 144 24 0 - no no
+#   301040 33 12 0 29378 no no
+#   301050 96 26 0 - no no
+#   303100 44 11 0 45271 no no
+#   308240 46 9 0 42604 no no
+#   310600 50 15 0 - no no
+mim	stratum	n_refs	n_hpo	n_omim_paragraphs	n_pmc	n_papers	n_fulltext	n_abstract	n_title	source_chars	genes	inheritance	title
+155600	classic (1xxxxx-5xxxxx)	119	6	6	54	119	33	57	29	998176	BRAF,STK11	AD	MELANOMA, CUTANEOUS MALIGNANT, SUSCEPTIBILITY TO, 1
+168600	classic (1xxxxx-5xxxxx)	133	24	16	39	133	19	93	21	604761	ADH1C,GBA1,MAPT,ATXN3,ATXN2,ATXN8OS,TBP	AD	PARKINSON DISEASE, LATE-ONSET
+152700	classic (1xxxxx-5xxxxx)	148	21	14	46	148	14	113	21	614865	TREX1,DNASE1,FCGR2A,FCGR2B	AD	SYSTEMIC LUPUS ERYTHEMATOSUS
+114500	classic (1xxxxx-5xxxxx)	76	6	15	22	76	12	55	9	375649	DLC1,CTNNB1,DCC,FLCN,EP300,AKT1,FGFR3,RAD54B,MLH3,APC,MCC,NRAS,PDGFRL,PIK3CA,PLA2G2A,PTPN12,PTPRJ,BAX,CCND1,SRC,BRAF,AURKA,BUB1,BUB1B,TLR2,TP53,AXIN2	AD,SOMATIC_MOSAIC	COLORECTAL CANCER
+603075	600000-609999	86	9	3	25	86	10	70	6	427455	CFHR3,CFHR1,APOE,HMCN1	AD	MACULAR DEGENERATION, AGE-RELATED, 1
+222100	classic (1xxxxx-5xxxxx)	142	8	10	50	142	9	107	26	572305	IL6,HNF1A		TYPE 1 DIABETES MELLITUS
+273300	classic (1xxxxx-5xxxxx)	63	5	9	24	63	9	43	11	290519	FGFR3,KIT,STK11,BCL10	SOMATIC_MOSAIC	TESTICULAR GERM CELL TUMOR
+312750	classic (1xxxxx-5xxxxx)	114	33	31	31	114	9	94	11	349006	MECP2	XLD	RETT SYNDROME

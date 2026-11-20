@@ -1,0 +1,2979 @@
+{
+ "experiment": "A1 natural large-entry tier (docs/experiments-round2.md)",
+ "generated": "2026-11-20T07:41:00",
+ "measure": "OMIM facts conveyed: share of the fixed (frozen) fact list of the entry's in-scope curator paragraphs that the draft text citing the paper conveys (present = 1, partial = 0.5), mean over entries",
+ "note_on_tiers": "The 12 large12 entries were scored after the audit's repair round; the new entries were generated and scored without audit or repair. The combined tier mixes the two.",
+ "completion": {
+  "combined": {
+   "direct": {
+    "complete": 12,
+    "incomplete": 0,
+    "no_draft": 4
+   },
+   "agent": {
+    "complete": 14,
+    "incomplete": 0,
+    "no_draft": 2
+   },
+   "kg": {
+    "complete": 11,
+    "incomplete": 4,
+    "no_draft": 1
+   },
+   "cohort": {
+    "complete": 10,
+    "incomplete": 5,
+    "no_draft": 1
+   }
+  },
+  "new": {
+   "direct": {
+    "complete": 1,
+    "incomplete": 0,
+    "no_draft": 3
+   },
+   "agent": {
+    "complete": 2,
+    "incomplete": 0,
+    "no_draft": 2
+   },
+   "kg": {
+    "complete": 0,
+    "incomplete": 4,
+    "no_draft": 0
+   },
+   "cohort": {
+    "complete": 0,
+    "incomplete": 3,
+    "no_draft": 1
+   }
+  },
+  "old": {
+   "direct": {
+    "complete": 11,
+    "incomplete": 0,
+    "no_draft": 1
+   },
+   "agent": {
+    "complete": 12,
+    "incomplete": 0,
+    "no_draft": 0
+   },
+   "kg": {
+    "complete": 11,
+    "incomplete": 0,
+    "no_draft": 1
+   },
+   "cohort": {
+    "complete": 10,
+    "incomplete": 2,
+    "no_draft": 0
+   }
+  }
+ },
+ "comparison": {
+  "combined": {
+   "n_entries": 10,
+   "entries": [
+    "258870",
+    "128100",
+    "600116",
+    "609016",
+    "613679",
+    "613470",
+    "621314",
+    "175200",
+    "601419",
+    "613095"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.4554
+    },
+    "agent": {
+     "mean": 0.4493,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4493,
+      "mean_baseline": 0.4554,
+      "mean_diff": -0.0061,
+      "ci95": [
+       -0.0208,
+       0.0066
+      ],
+      "better": 2,
+      "worse": 6,
+      "tied": 2,
+      "sign_p": 0.2891
+     }
+    },
+    "kg": {
+     "mean": 0.4628,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4628,
+      "mean_baseline": 0.4554,
+      "mean_diff": 0.0074,
+      "ci95": [
+       -0.0273,
+       0.0342
+      ],
+      "better": 6,
+      "worse": 3,
+      "tied": 1,
+      "sign_p": 0.5078
+     }
+    },
+    "cohort": {
+     "mean": 0.4598,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4598,
+      "mean_baseline": 0.4554,
+      "mean_diff": 0.0044,
+      "ci95": [
+       -0.0136,
+       0.0231
+      ],
+      "better": 5,
+      "worse": 4,
+      "tied": 1,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "new": {
+   "n_entries": 0,
+   "entries": [],
+   "strategies": {
+    "direct": {
+     "mean": null
+    },
+    "agent": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "kg": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "cohort": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    }
+   }
+  },
+  "old": {
+   "n_entries": 10,
+   "entries": [
+    "258870",
+    "128100",
+    "600116",
+    "609016",
+    "613679",
+    "613470",
+    "621314",
+    "175200",
+    "601419",
+    "613095"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.4554
+    },
+    "agent": {
+     "mean": 0.4493,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4493,
+      "mean_baseline": 0.4554,
+      "mean_diff": -0.0061,
+      "ci95": [
+       -0.0208,
+       0.0066
+      ],
+      "better": 2,
+      "worse": 6,
+      "tied": 2,
+      "sign_p": 0.2891
+     }
+    },
+    "kg": {
+     "mean": 0.4628,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4628,
+      "mean_baseline": 0.4554,
+      "mean_diff": 0.0074,
+      "ci95": [
+       -0.0273,
+       0.0342
+      ],
+      "better": 6,
+      "worse": 3,
+      "tied": 1,
+      "sign_p": 0.5078
+     }
+    },
+    "cohort": {
+     "mean": 0.4598,
+     "vs_direct": {
+      "n": 10,
+      "mean_strategy": 0.4598,
+      "mean_baseline": 0.4554,
+      "mean_diff": 0.0044,
+      "ci95": [
+       -0.0136,
+       0.0231
+      ],
+      "better": 5,
+      "worse": 4,
+      "tied": 1,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "combined_lower_half_chars": {
+   "n_entries": 5,
+   "entries": [
+    "258870",
+    "613679",
+    "613470",
+    "175200",
+    "613095"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.3776
+    },
+    "agent": {
+     "mean": 0.3766,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.3766,
+      "mean_baseline": 0.3776,
+      "mean_diff": -0.001,
+      "ci95": [
+       -0.0074,
+       0.0058
+      ],
+      "better": 1,
+      "worse": 2,
+      "tied": 2,
+      "sign_p": 1.0
+     }
+    },
+    "kg": {
+     "mean": 0.3946,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.3946,
+      "mean_baseline": 0.3776,
+      "mean_diff": 0.017,
+      "ci95": [
+       -0.001,
+       0.043
+      ],
+      "better": 3,
+      "worse": 1,
+      "tied": 1,
+      "sign_p": 0.625
+     }
+    },
+    "cohort": {
+     "mean": 0.3844,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.3844,
+      "mean_baseline": 0.3776,
+      "mean_diff": 0.0068,
+      "ci95": [
+       -0.014,
+       0.033
+      ],
+      "better": 2,
+      "worse": 2,
+      "tied": 1,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "combined_upper_half_chars": {
+   "n_entries": 5,
+   "entries": [
+    "128100",
+    "600116",
+    "609016",
+    "621314",
+    "601419"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.5332
+    },
+    "agent": {
+     "mean": 0.522,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.522,
+      "mean_baseline": 0.5332,
+      "mean_diff": -0.0112,
+      "ci95": [
+       -0.0388,
+       0.0156
+      ],
+      "better": 1,
+      "worse": 4,
+      "tied": 0,
+      "sign_p": 0.375
+     }
+    },
+    "kg": {
+     "mean": 0.531,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.531,
+      "mean_baseline": 0.5332,
+      "mean_diff": -0.0022,
+      "ci95": [
+       -0.0672,
+       0.0436
+      ],
+      "better": 3,
+      "worse": 2,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    },
+    "cohort": {
+     "mean": 0.5352,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.5352,
+      "mean_baseline": 0.5332,
+      "mean_diff": 0.002,
+      "ci95": [
+       -0.0262,
+       0.0276
+      ],
+      "better": 3,
+      "worse": 2,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "new_lower_half_chars": {
+   "n_entries": 0,
+   "entries": [],
+   "strategies": {
+    "direct": {
+     "mean": null
+    },
+    "agent": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "kg": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "cohort": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    }
+   }
+  },
+  "new_upper_half_chars": {
+   "n_entries": 0,
+   "entries": [],
+   "strategies": {
+    "direct": {
+     "mean": null
+    },
+    "agent": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "kg": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    },
+    "cohort": {
+     "mean": null,
+     "vs_direct": {
+      "n": 0,
+      "mean_strategy": null,
+      "mean_baseline": null,
+      "mean_diff": null,
+      "ci95": null,
+      "better": 0,
+      "worse": 0,
+      "tied": 0,
+      "sign_p": null
+     }
+    }
+   }
+  }
+ },
+ "median_supplied_chars": {
+  "combined_compared": 56817.5,
+  "new_compared": null,
+  "combined_drafted": 59100
+ },
+ "secondary_all_drafted": {
+  "combined": {
+   "n_entries": 11,
+   "entries": [
+    "258870",
+    "128100",
+    "600116",
+    "609016",
+    "613679",
+    "613470",
+    "621314",
+    "175200",
+    "601419",
+    "613095",
+    "152700"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.4615
+    },
+    "agent": {
+     "mean": 0.4553,
+     "vs_direct": {
+      "n": 11,
+      "mean_strategy": 0.4553,
+      "mean_baseline": 0.4615,
+      "mean_diff": -0.0063,
+      "ci95": [
+       -0.0195,
+       0.0055
+      ],
+      "better": 2,
+      "worse": 7,
+      "tied": 2,
+      "sign_p": 0.1797
+     }
+    },
+    "kg": {
+     "mean": 0.4569,
+     "vs_direct": {
+      "n": 11,
+      "mean_strategy": 0.4569,
+      "mean_baseline": 0.4615,
+      "mean_diff": -0.0046,
+      "ci95": [
+       -0.0431,
+       0.0282
+      ],
+      "better": 6,
+      "worse": 4,
+      "tied": 1,
+      "sign_p": 0.7539
+     }
+    },
+    "cohort": {
+     "mean": 0.4631,
+     "vs_direct": {
+      "n": 11,
+      "mean_strategy": 0.4631,
+      "mean_baseline": 0.4615,
+      "mean_diff": 0.0015,
+      "ci95": [
+       -0.0154,
+       0.0195
+      ],
+      "better": 5,
+      "worse": 5,
+      "tied": 1,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "new": {
+   "n_entries": 1,
+   "entries": [
+    "152700"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.523
+    },
+    "agent": {
+     "mean": 0.515,
+     "vs_direct": {
+      "n": 1,
+      "mean_strategy": 0.515,
+      "mean_baseline": 0.523,
+      "mean_diff": -0.008,
+      "ci95": null,
+      "better": 0,
+      "worse": 1,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    },
+    "kg": {
+     "mean": 0.398,
+     "vs_direct": {
+      "n": 1,
+      "mean_strategy": 0.398,
+      "mean_baseline": 0.523,
+      "mean_diff": -0.125,
+      "ci95": null,
+      "better": 0,
+      "worse": 1,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    },
+    "cohort": {
+     "mean": 0.496,
+     "vs_direct": {
+      "n": 1,
+      "mean_strategy": 0.496,
+      "mean_baseline": 0.523,
+      "mean_diff": -0.027,
+      "ci95": null,
+      "better": 0,
+      "worse": 1,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    }
+   }
+  },
+  "combined_upper_half_chars": {
+   "n_entries": 5,
+   "entries": [
+    "128100",
+    "600116",
+    "609016",
+    "621314",
+    "152700"
+   ],
+   "strategies": {
+    "direct": {
+     "mean": 0.525
+    },
+    "agent": {
+     "mean": 0.514,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.514,
+      "mean_baseline": 0.525,
+      "mean_diff": -0.011,
+      "ci95": [
+       -0.0388,
+       0.0156
+      ],
+      "better": 1,
+      "worse": 4,
+      "tied": 0,
+      "sign_p": 0.375
+     }
+    },
+    "kg": {
+     "mean": 0.4918,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.4918,
+      "mean_baseline": 0.525,
+      "mean_diff": -0.0332,
+      "ci95": [
+       -0.1022,
+       0.0358
+      ],
+      "better": 2,
+      "worse": 3,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    },
+    "cohort": {
+     "mean": 0.5188,
+     "vs_direct": {
+      "n": 5,
+      "mean_strategy": 0.5188,
+      "mean_baseline": 0.525,
+      "mean_diff": -0.0062,
+      "ci95": [
+       -0.0324,
+       0.0242
+      ],
+      "better": 2,
+      "worse": 3,
+      "tied": 0,
+      "sign_p": 1.0
+     }
+    }
+   }
+  }
+ },
+ "secondary_pairwise": {
+  "combined": {
+   "agent": {
+    "entries": [
+     "128100",
+     "152700",
+     "175200",
+     "258870",
+     "600116",
+     "601419",
+     "607060",
+     "609016",
+     "613095",
+     "613470",
+     "613679",
+     "621314"
+    ],
+    "n": 12,
+    "mean_strategy": 0.4484,
+    "mean_baseline": 0.4545,
+    "mean_diff": -0.0061,
+    "ci95": [
+     -0.0183,
+     0.0048
+    ],
+    "better": 2,
+    "worse": 8,
+    "tied": 2,
+    "sign_p": 0.1094
+   },
+   "kg": {
+    "entries": [
+     "128100",
+     "152700",
+     "175200",
+     "258870",
+     "600116",
+     "601419",
+     "609016",
+     "613095",
+     "613470",
+     "613679",
+     "621314"
+    ],
+    "n": 11,
+    "mean_strategy": 0.4569,
+    "mean_baseline": 0.4615,
+    "mean_diff": -0.0046,
+    "ci95": [
+     -0.0431,
+     0.0282
+    ],
+    "better": 6,
+    "worse": 4,
+    "tied": 1,
+    "sign_p": 0.7539
+   },
+   "cohort": {
+    "entries": [
+     "128100",
+     "152700",
+     "175200",
+     "258870",
+     "600116",
+     "601419",
+     "607060",
+     "609016",
+     "613095",
+     "613470",
+     "613679",
+     "621314"
+    ],
+    "n": 12,
+    "mean_strategy": 0.4567,
+    "mean_baseline": 0.4545,
+    "mean_diff": 0.0022,
+    "ci95": [
+     -0.0136,
+     0.0186
+    ],
+    "better": 6,
+    "worse": 5,
+    "tied": 1,
+    "sign_p": 1.0
+   }
+  },
+  "new": {
+   "agent": {
+    "entries": [
+     "152700"
+    ],
+    "n": 1,
+    "mean_strategy": 0.515,
+    "mean_baseline": 0.523,
+    "mean_diff": -0.008,
+    "ci95": null,
+    "better": 0,
+    "worse": 1,
+    "tied": 0,
+    "sign_p": 1.0
+   },
+   "kg": {
+    "entries": [
+     "152700"
+    ],
+    "n": 1,
+    "mean_strategy": 0.398,
+    "mean_baseline": 0.523,
+    "mean_diff": -0.125,
+    "ci95": null,
+    "better": 0,
+    "worse": 1,
+    "tied": 0,
+    "sign_p": 1.0
+   },
+   "cohort": {
+    "entries": [
+     "152700"
+    ],
+    "n": 1,
+    "mean_strategy": 0.496,
+    "mean_baseline": 0.523,
+    "mean_diff": -0.027,
+    "ci95": null,
+    "better": 0,
+    "worse": 1,
+    "tied": 0,
+    "sign_p": 1.0
+   }
+  }
+ },
+ "stops_new_entries": {
+  "direct": {
+   "writer_stopped": 3,
+   "entries_with_stopped_papers": 0,
+   "papers_stopped": 0
+  },
+  "agent": {
+   "writer_stopped": 2,
+   "entries_with_stopped_papers": 0,
+   "papers_stopped": 0
+  },
+  "kg": {
+   "writer_stopped": 0,
+   "entries_with_stopped_papers": 4,
+   "papers_stopped": 37
+  },
+  "cohort": {
+   "writer_stopped": 1,
+   "entries_with_stopped_papers": 3,
+   "papers_stopped": 25
+  }
+ },
+ "cost_new_entries": {
+  "direct": {
+   "entries": 4,
+   "generate_calls": 9,
+   "score_calls": 66,
+   "generate_usd": 17.19,
+   "score_usd": 1.49,
+   "wall_seconds": 2186,
+   "new_calls_this_experiment": 126
+  },
+  "agent": {
+   "entries": 4,
+   "generate_calls": 6,
+   "score_calls": 81,
+   "generate_usd": 9.03,
+   "score_usd": 1.99,
+   "wall_seconds": 3000,
+   "new_calls_this_experiment": 64
+  },
+  "kg": {
+   "entries": 4,
+   "generate_calls": 484,
+   "score_calls": 105,
+   "generate_usd": 35.64,
+   "score_usd": 2.73,
+   "wall_seconds": 3540,
+   "new_calls_this_experiment": 589
+  },
+  "cohort": {
+   "entries": 4,
+   "generate_calls": 484,
+   "score_calls": 90,
+   "generate_usd": 35.92,
+   "score_usd": 2.28,
+   "wall_seconds": 3316,
+   "new_calls_this_experiment": 559
+  }
+ },
+ "total_new_calls_this_experiment": 1338,
+ "budget": {
+  "cap": 1500,
+  "counted_in_timing": 1338,
+  "uncounted_interrupted_passes": 0
+ },
+ "entries": [
+  {
+   "mim": "258870",
+   "tier": "large12 (audit + repair)",
+   "title": "GYRATE ATROPHY OF CHOROID AND RETINA",
+   "n_refs": 34,
+   "n_papers": 34,
+   "n_fulltext": 0,
+   "n_abstract": 29,
+   "n_title": 5,
+   "supplied_chars": 33745,
+   "largest_paper_chars": 2275,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.114,
+     "n_judged": 83,
+     "unjudged": 0,
+     "marking_calls": 13,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.38,
+       "call_seconds": 81
+      },
+      "audit": {
+       "calls": 43,
+       "usd": 1.82,
+       "call_seconds": 487
+      },
+      "score": {
+       "calls": 13,
+       "usd": 0.32,
+       "call_seconds": 136,
+       "judge_calls": 13
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 34,
+     "papers_not_read": 0,
+     "coverage": 0.102,
+     "n_judged": 83,
+     "unjudged": 0,
+     "marking_calls": 13,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.74,
+       "call_seconds": 180
+      },
+      "audit": {
+       "calls": 36,
+       "usd": 1.67,
+       "call_seconds": 439
+      },
+      "score": {
+       "calls": 14,
+       "usd": 0.34,
+       "call_seconds": 130,
+       "judge_calls": 14
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.108,
+     "n_judged": 83,
+     "unjudged": 0,
+     "marking_calls": 13,
+     "usage": {
+      "generate": {
+       "calls": 36,
+       "usd": 1.72,
+       "call_seconds": 418
+      },
+      "audit": {
+       "calls": 37,
+       "usd": 2.01,
+       "call_seconds": 526
+      },
+      "score": {
+       "calls": 26,
+       "usd": 0.71,
+       "call_seconds": 224,
+       "judge_calls": 26
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.108,
+     "n_judged": 83,
+     "unjudged": 0,
+     "marking_calls": 13,
+     "usage": {
+      "generate": {
+       "calls": 36,
+       "usd": 1.82,
+       "call_seconds": 455
+      },
+      "audit": {
+       "calls": 36,
+       "usd": 1.91,
+       "call_seconds": 492
+      },
+      "score": {
+       "calls": 27,
+       "usd": 0.72,
+       "call_seconds": 295,
+       "judge_calls": 27
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 13,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 13,
+   "curator_paragraphs_out_of_scope": 26,
+   "fixed_facts": 83,
+   "refs_scored": 2,
+   "refs_scored_share": 0.0588
+  },
+  {
+   "mim": "128100",
+   "tier": "large12 (audit + repair)",
+   "title": "DYSTONIA 1, TORSION, AUTOSOMAL DOMINANT",
+   "n_refs": 60,
+   "n_papers": 60,
+   "n_fulltext": 1,
+   "n_abstract": 43,
+   "n_title": 16,
+   "supplied_chars": 71650,
+   "largest_paper_chars": 16702,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.522,
+     "n_judged": 157,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.69,
+       "call_seconds": 147
+      },
+      "audit": {
+       "calls": 56,
+       "usd": 2.54,
+       "call_seconds": 658
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.33,
+       "call_seconds": 123,
+       "judge_calls": 11
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 60,
+     "papers_not_read": 0,
+     "coverage": 0.465,
+     "n_judged": 157,
+     "unjudged": 0,
+     "marking_calls": 9,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.88,
+       "call_seconds": 194
+      },
+      "audit": {
+       "calls": 47,
+       "usd": 2.18,
+       "call_seconds": 566
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.3,
+       "call_seconds": 88,
+       "judge_calls": 11
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.573,
+     "n_judged": 157,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 62,
+       "usd": 2.91,
+       "call_seconds": 727
+      },
+      "audit": {
+       "calls": 58,
+       "usd": 3.29,
+       "call_seconds": 854
+      },
+      "score": {
+       "calls": 21,
+       "usd": 0.68,
+       "call_seconds": 179,
+       "judge_calls": 21
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.541,
+     "n_judged": 157,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 62,
+       "usd": 3.0,
+       "call_seconds": 926
+      },
+      "audit": {
+       "calls": 61,
+       "usd": 3.41,
+       "call_seconds": 931
+      },
+      "score": {
+       "calls": 21,
+       "usd": 0.69,
+       "call_seconds": 165,
+       "judge_calls": 21
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 10,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 10,
+   "curator_paragraphs_out_of_scope": 15,
+   "fixed_facts": 157,
+   "refs_scored": 10,
+   "refs_scored_share": 0.1667
+  },
+  {
+   "mim": "180300",
+   "tier": "large12 (audit + repair)",
+   "title": "RHEUMATOID ARTHRITIS",
+   "n_refs": 73,
+   "n_papers": 73,
+   "n_fulltext": 16,
+   "n_abstract": 51,
+   "n_title": 6,
+   "supplied_chars": 648575,
+   "largest_paper_chars": 148461,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "no_draft",
+     "reason": "direct: 1 of 2 batches failed (LLMRefusal: the model's safety filter stopped this reply)",
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 2.62,
+       "call_seconds": 179
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 10,
+       "usd": 0.21,
+       "call_seconds": 50,
+       "judge_calls": 10
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 69,
+     "papers_not_read": 4,
+     "coverage": 0.472,
+     "n_judged": 90,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 2.05,
+       "call_seconds": 408
+      },
+      "audit": {
+       "calls": 62,
+       "usd": 5.09,
+       "call_seconds": 876
+      },
+      "score": {
+       "calls": 10,
+       "usd": 0.27,
+       "call_seconds": 72,
+       "judge_calls": 10
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.561,
+     "n_judged": 90,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 75,
+       "usd": 6.63,
+       "call_seconds": 1293
+      },
+      "audit": {
+       "calls": 71,
+       "usd": 6.15,
+       "call_seconds": 1157
+      },
+      "score": {
+       "calls": 21,
+       "usd": 0.64,
+       "call_seconds": 196,
+       "judge_calls": 21
+      }
+     }
+    },
+    "cohort": {
+     "status": "incomplete",
+     "papers_failed": 9,
+     "coverage": 0.589,
+     "n_judged": 90,
+     "unjudged": 0,
+     "marking_calls": 10,
+     "usage": {
+      "generate": {
+       "calls": 75,
+       "usd": 6.65,
+       "call_seconds": 1384
+      },
+      "audit": {
+       "calls": 68,
+       "usd": 6.1,
+       "call_seconds": 1159
+      },
+      "score": {
+       "calls": 21,
+       "usd": 0.58,
+       "call_seconds": 179,
+       "judge_calls": 21
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 10,
+   "direct_prompts": 3,
+   "direct_prompts_planned_only": true,
+   "direct_batched": true,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "direct_merge": {},
+   "curator_paragraphs": 10,
+   "curator_paragraphs_out_of_scope": 20,
+   "fixed_facts": 90,
+   "refs_scored": 9,
+   "refs_scored_share": 0.1233
+  },
+  {
+   "mim": "600116",
+   "tier": "large12 (audit + repair)",
+   "title": "PARKINSON DISEASE 2, AUTOSOMAL RECESSIVE JUVENILE",
+   "n_refs": 39,
+   "n_papers": 39,
+   "n_fulltext": 3,
+   "n_abstract": 34,
+   "n_title": 2,
+   "supplied_chars": 132106,
+   "largest_paper_chars": 34747,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.371,
+     "n_judged": 163,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.77,
+       "call_seconds": 141
+      },
+      "audit": {
+       "calls": 41,
+       "usd": 2.79,
+       "call_seconds": 686
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.49,
+       "call_seconds": 122,
+       "judge_calls": 15
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 39,
+     "papers_not_read": 0,
+     "coverage": 0.368,
+     "n_judged": 163,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.35,
+       "call_seconds": 308
+      },
+      "audit": {
+       "calls": 42,
+       "usd": 2.95,
+       "call_seconds": 704
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.49,
+       "call_seconds": 130,
+       "judge_calls": 15
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.362,
+     "n_judged": 163,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 41,
+       "usd": 3.12,
+       "call_seconds": 738
+      },
+      "audit": {
+       "calls": 46,
+       "usd": 3.9,
+       "call_seconds": 984
+      },
+      "score": {
+       "calls": 29,
+       "usd": 1.0,
+       "call_seconds": 262,
+       "judge_calls": 29
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.347,
+     "n_judged": 163,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 41,
+       "usd": 3.31,
+       "call_seconds": 784
+      },
+      "audit": {
+       "calls": 43,
+       "usd": 3.51,
+       "call_seconds": 871
+      },
+      "score": {
+       "calls": 29,
+       "usd": 1.01,
+       "call_seconds": 252,
+       "judge_calls": 29
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 14,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 3,
+   "direct_cut_chars": 25174,
+   "direct_truncated_recorded": 3,
+   "curator_paragraphs": 14,
+   "curator_paragraphs_out_of_scope": 33,
+   "fixed_facts": 163,
+   "refs_scored": 9,
+   "refs_scored_share": 0.2308
+  },
+  {
+   "mim": "607060",
+   "tier": "large12 (audit + repair)",
+   "title": "PARKINSON DISEASE 8, AUTOSOMAL DOMINANT",
+   "n_refs": 44,
+   "n_papers": 44,
+   "n_fulltext": 5,
+   "n_abstract": 35,
+   "n_title": 4,
+   "supplied_chars": 215334,
+   "largest_paper_chars": 79378,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.377,
+     "n_judged": 150,
+     "unjudged": 0,
+     "marking_calls": 15,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.29,
+       "call_seconds": 236
+      },
+      "audit": {
+       "calls": 46,
+       "usd": 2.91,
+       "call_seconds": 646
+      },
+      "score": {
+       "calls": 17,
+       "usd": 0.46,
+       "call_seconds": 116,
+       "judge_calls": 17
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 44,
+     "papers_not_read": 0,
+     "coverage": 0.373,
+     "n_judged": 150,
+     "unjudged": 0,
+     "marking_calls": 15,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.23,
+       "call_seconds": 293
+      },
+      "audit": {
+       "calls": 46,
+       "usd": 2.93,
+       "call_seconds": 613
+      },
+      "score": {
+       "calls": 17,
+       "usd": 0.45,
+       "call_seconds": 116,
+       "judge_calls": 17
+      }
+     }
+    },
+    "kg": {
+     "status": "no_draft",
+     "reason": "the model's safety filter stopped this reply",
+     "usage": {
+      "generate": {
+       "calls": 46,
+       "usd": 3.51,
+       "call_seconds": 803
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 16,
+       "usd": 0.31,
+       "call_seconds": 100,
+       "judge_calls": 16
+      }
+     }
+    },
+    "cohort": {
+     "status": "incomplete",
+     "papers_failed": 2,
+     "coverage": 0.387,
+     "n_judged": 150,
+     "unjudged": 0,
+     "marking_calls": 16,
+     "usage": {
+      "generate": {
+       "calls": 46,
+       "usd": 3.5,
+       "call_seconds": 822
+      },
+      "audit": {
+       "calls": 44,
+       "usd": 3.22,
+       "call_seconds": 742
+      },
+      "score": {
+       "calls": 33,
+       "usd": 0.92,
+       "call_seconds": 296,
+       "judge_calls": 33
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 16,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 4,
+   "direct_cut_chars": 77703,
+   "direct_truncated_recorded": 4,
+   "curator_paragraphs": 16,
+   "curator_paragraphs_out_of_scope": 29,
+   "fixed_facts": 150,
+   "refs_scored": 14,
+   "refs_scored_share": 0.3182
+  },
+  {
+   "mim": "609016",
+   "tier": "large12 (audit + repair)",
+   "title": "LONG-CHAIN 3-HYDROXYACYL-CoA DEHYDROGENASE DEFICIENCY",
+   "n_refs": 30,
+   "n_papers": 30,
+   "n_fulltext": 1,
+   "n_abstract": 25,
+   "n_title": 4,
+   "supplied_chars": 67818,
+   "largest_paper_chars": 33328,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.771,
+     "n_judged": 59,
+     "unjudged": 0,
+     "marking_calls": 7,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.51,
+       "call_seconds": 108
+      },
+      "audit": {
+       "calls": 33,
+       "usd": 2.07,
+       "call_seconds": 511
+      },
+      "score": {
+       "calls": 7,
+       "usd": 0.21,
+       "call_seconds": 57,
+       "judge_calls": 7
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 30,
+     "papers_not_read": 0,
+     "coverage": 0.805,
+     "n_judged": 59,
+     "unjudged": 0,
+     "marking_calls": 7,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.01,
+       "call_seconds": 231
+      },
+      "audit": {
+       "calls": 36,
+       "usd": 2.17,
+       "call_seconds": 514
+      },
+      "score": {
+       "calls": 7,
+       "usd": 0.21,
+       "call_seconds": 49,
+       "judge_calls": 7
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.814,
+     "n_judged": 59,
+     "unjudged": 0,
+     "marking_calls": 7,
+     "usage": {
+      "generate": {
+       "calls": 32,
+       "usd": 2.07,
+       "call_seconds": 498
+      },
+      "audit": {
+       "calls": 34,
+       "usd": 2.41,
+       "call_seconds": 589
+      },
+      "score": {
+       "calls": 14,
+       "usd": 0.44,
+       "call_seconds": 115,
+       "judge_calls": 14
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.814,
+     "n_judged": 59,
+     "unjudged": 0,
+     "marking_calls": 7,
+     "usage": {
+      "generate": {
+       "calls": 32,
+       "usd": 2.15,
+       "call_seconds": 509
+      },
+      "audit": {
+       "calls": 40,
+       "usd": 2.62,
+       "call_seconds": 640
+      },
+      "score": {
+       "calls": 14,
+       "usd": 0.39,
+       "call_seconds": 108,
+       "judge_calls": 14
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 7,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 1,
+   "direct_cut_chars": 13328,
+   "direct_truncated_recorded": 1,
+   "curator_paragraphs": 7,
+   "curator_paragraphs_out_of_scope": 5,
+   "fixed_facts": 59,
+   "refs_scored": 5,
+   "refs_scored_share": 0.1667
+  },
+  {
+   "mim": "613679",
+   "tier": "large12 (audit + repair)",
+   "title": "PROTHROMBIN DEFICIENCY, CONGENITAL",
+   "n_refs": 35,
+   "n_papers": 35,
+   "n_fulltext": 0,
+   "n_abstract": 23,
+   "n_title": 12,
+   "supplied_chars": 31849,
+   "largest_paper_chars": 2837,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.521,
+     "n_judged": 97,
+     "unjudged": 0,
+     "marking_calls": 9,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.47,
+       "call_seconds": 117
+      },
+      "audit": {
+       "calls": 36,
+       "usd": 2.03,
+       "call_seconds": 558
+      },
+      "score": {
+       "calls": 10,
+       "usd": 0.33,
+       "call_seconds": 91,
+       "judge_calls": 10
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 35,
+     "papers_not_read": 0,
+     "coverage": 0.521,
+     "n_judged": 97,
+     "unjudged": 0,
+     "marking_calls": 8,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.63,
+       "call_seconds": 167
+      },
+      "audit": {
+       "calls": 26,
+       "usd": 1.75,
+       "call_seconds": 458
+      },
+      "score": {
+       "calls": 10,
+       "usd": 0.32,
+       "call_seconds": 77,
+       "judge_calls": 10
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.588,
+     "n_judged": 97,
+     "unjudged": 0,
+     "marking_calls": 9,
+     "usage": {
+      "generate": {
+       "calls": 37,
+       "usd": 1.82,
+       "call_seconds": 498
+      },
+      "audit": {
+       "calls": 40,
+       "usd": 2.33,
+       "call_seconds": 579
+      },
+      "score": {
+       "calls": 19,
+       "usd": 0.64,
+       "call_seconds": 178,
+       "judge_calls": 19
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.495,
+     "n_judged": 97,
+     "unjudged": 0,
+     "marking_calls": 9,
+     "usage": {
+      "generate": {
+       "calls": 37,
+       "usd": 1.9,
+       "call_seconds": 505
+      },
+      "audit": {
+       "calls": 35,
+       "usd": 2.6,
+       "call_seconds": 651
+      },
+      "score": {
+       "calls": 19,
+       "usd": 0.68,
+       "call_seconds": 194,
+       "judge_calls": 19
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 9,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 9,
+   "curator_paragraphs_out_of_scope": 8,
+   "fixed_facts": 97,
+   "refs_scored": 13,
+   "refs_scored_share": 0.3714
+  },
+  {
+   "mim": "613470",
+   "tier": "large12 (audit + repair)",
+   "title": "ANEMIA, CONGENITAL, NONSPHEROCYTIC HEMOLYTIC, 4",
+   "n_refs": 31,
+   "n_papers": 31,
+   "n_fulltext": 0,
+   "n_abstract": 20,
+   "n_title": 11,
+   "supplied_chars": 21025,
+   "largest_paper_chars": 2383,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.543,
+     "n_judged": 46,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.37,
+       "call_seconds": 92
+      },
+      "audit": {
+       "calls": 41,
+       "usd": 1.74,
+       "call_seconds": 446
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.15,
+       "call_seconds": 36,
+       "judge_calls": 6
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 31,
+     "papers_not_read": 0,
+     "coverage": 0.554,
+     "n_judged": 46,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.51,
+       "call_seconds": 138
+      },
+      "audit": {
+       "calls": 35,
+       "usd": 1.52,
+       "call_seconds": 381
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.15,
+       "call_seconds": 38,
+       "judge_calls": 6
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.543,
+     "n_judged": 46,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 33,
+       "usd": 1.59,
+       "call_seconds": 400
+      },
+      "audit": {
+       "calls": 43,
+       "usd": 2.17,
+       "call_seconds": 568
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.31,
+       "call_seconds": 98,
+       "judge_calls": 11
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.543,
+     "n_judged": 46,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 33,
+       "usd": 1.67,
+       "call_seconds": 431
+      },
+      "audit": {
+       "calls": 45,
+       "usd": 2.46,
+       "call_seconds": 659
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.3,
+       "call_seconds": 83,
+       "judge_calls": 11
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 5,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 5,
+   "curator_paragraphs_out_of_scope": 5,
+   "fixed_facts": 46,
+   "refs_scored": 3,
+   "refs_scored_share": 0.0968
+  },
+  {
+   "mim": "621314",
+   "tier": "large12 (audit + repair)",
+   "title": "POMPE DISEASE, LATE-ONSET",
+   "n_refs": 45,
+   "n_papers": 45,
+   "n_fulltext": 2,
+   "n_abstract": 33,
+   "n_title": 10,
+   "supplied_chars": 108471,
+   "largest_paper_chars": 36903,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.438,
+     "n_judged": 48,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.71,
+       "call_seconds": 162
+      },
+      "audit": {
+       "calls": 45,
+       "usd": 2.62,
+       "call_seconds": 603
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.17,
+       "call_seconds": 36,
+       "judge_calls": 6
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 45,
+     "papers_not_read": 0,
+     "coverage": 0.417,
+     "n_judged": 48,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.24,
+       "call_seconds": 269
+      },
+      "audit": {
+       "calls": 46,
+       "usd": 2.59,
+       "call_seconds": 611
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.18,
+       "call_seconds": 45,
+       "judge_calls": 6
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.312,
+     "n_judged": 48,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 47,
+       "usd": 2.72,
+       "call_seconds": 624
+      },
+      "audit": {
+       "calls": 47,
+       "usd": 3.14,
+       "call_seconds": 759
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.32,
+       "call_seconds": 75,
+       "judge_calls": 11
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.396,
+     "n_judged": 48,
+     "unjudged": 0,
+     "marking_calls": 5,
+     "usage": {
+      "generate": {
+       "calls": 48,
+       "usd": 2.95,
+       "call_seconds": 675
+      },
+      "audit": {
+       "calls": 49,
+       "usd": 3.03,
+       "call_seconds": 742
+      },
+      "score": {
+       "calls": 11,
+       "usd": 0.33,
+       "call_seconds": 87,
+       "judge_calls": 11
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 5,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 2,
+   "direct_cut_chars": 29922,
+   "direct_truncated_recorded": 2,
+   "curator_paragraphs": 5,
+   "curator_paragraphs_out_of_scope": 16,
+   "fixed_facts": 48,
+   "refs_scored": 4,
+   "refs_scored_share": 0.0889
+  },
+  {
+   "mim": "175200",
+   "tier": "large12 (audit + repair)",
+   "title": "PEUTZ-JEGHERS SYNDROME",
+   "n_refs": 75,
+   "n_papers": 75,
+   "n_fulltext": 0,
+   "n_abstract": 51,
+   "n_title": 24,
+   "supplied_chars": 54535,
+   "largest_paper_chars": 2087,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.394,
+     "n_judged": 118,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.73,
+       "call_seconds": 171
+      },
+      "audit": {
+       "calls": 78,
+       "usd": 3.05,
+       "call_seconds": 712
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.41,
+       "call_seconds": 115,
+       "judge_calls": 15
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 75,
+     "papers_not_read": 0,
+     "coverage": 0.39,
+     "n_judged": 118,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.93,
+       "call_seconds": 229
+      },
+      "audit": {
+       "calls": 71,
+       "usd": 2.81,
+       "call_seconds": 663
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.4,
+       "call_seconds": 108,
+       "judge_calls": 15
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.411,
+     "n_judged": 118,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 77,
+       "usd": 3.36,
+       "call_seconds": 803
+      },
+      "audit": {
+       "calls": 80,
+       "usd": 3.66,
+       "call_seconds": 909
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.89,
+       "call_seconds": 247,
+       "judge_calls": 29
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.403,
+     "n_judged": 118,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 77,
+       "usd": 3.51,
+       "call_seconds": 867
+      },
+      "audit": {
+       "calls": 82,
+       "usd": 3.72,
+       "call_seconds": 908
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.87,
+       "call_seconds": 240,
+       "judge_calls": 29
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 14,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 14,
+   "curator_paragraphs_out_of_scope": 4,
+   "fixed_facts": 118,
+   "refs_scored": 6,
+   "refs_scored_share": 0.08
+  },
+  {
+   "mim": "601419",
+   "tier": "large12 (audit + repair)",
+   "title": "MYOPATHY, MYOFIBRILLAR, 1",
+   "n_refs": 37,
+   "n_papers": 37,
+   "n_fulltext": 1,
+   "n_abstract": 32,
+   "n_title": 4,
+   "supplied_chars": 59100,
+   "largest_paper_chars": 14924,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.564,
+     "n_judged": 256,
+     "unjudged": 0,
+     "marking_calls": 18,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.77,
+       "call_seconds": 196
+      },
+      "audit": {
+       "calls": 38,
+       "usd": 2.66,
+       "call_seconds": 662
+      },
+      "score": {
+       "calls": 19,
+       "usd": 0.67,
+       "call_seconds": 165,
+       "judge_calls": 19
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 37,
+     "papers_not_read": 0,
+     "coverage": 0.555,
+     "n_judged": 256,
+     "unjudged": 0,
+     "marking_calls": 18,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 1.07,
+       "call_seconds": 261
+      },
+      "audit": {
+       "calls": 37,
+       "usd": 2.51,
+       "call_seconds": 627
+      },
+      "score": {
+       "calls": 19,
+       "usd": 0.67,
+       "call_seconds": 157,
+       "judge_calls": 19
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.594,
+     "n_judged": 256,
+     "unjudged": 0,
+     "marking_calls": 18,
+     "usage": {
+      "generate": {
+       "calls": 39,
+       "usd": 2.73,
+       "call_seconds": 648
+      },
+      "audit": {
+       "calls": 39,
+       "usd": 3.27,
+       "call_seconds": 822
+      },
+      "score": {
+       "calls": 37,
+       "usd": 1.39,
+       "call_seconds": 318,
+       "judge_calls": 37
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.578,
+     "n_judged": 256,
+     "unjudged": 0,
+     "marking_calls": 18,
+     "usage": {
+      "generate": {
+       "calls": 39,
+       "usd": 3.3,
+       "call_seconds": 775
+      },
+      "audit": {
+       "calls": 39,
+       "usd": 3.19,
+       "call_seconds": 800
+      },
+      "score": {
+       "calls": 37,
+       "usd": 1.31,
+       "call_seconds": 305,
+       "judge_calls": 37
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 18,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 18,
+   "curator_paragraphs_out_of_scope": 4,
+   "fixed_facts": 256,
+   "refs_scored": 19,
+   "refs_scored_share": 0.5135
+  },
+  {
+   "mim": "613095",
+   "tier": "large12 (audit + repair)",
+   "title": "POLYCYSTIC KIDNEY DISEASE 2 WITH OR WITHOUT POLYCYSTIC LIVER DISEASE",
+   "n_refs": 33,
+   "n_papers": 33,
+   "n_fulltext": 0,
+   "n_abstract": 31,
+   "n_title": 2,
+   "supplied_chars": 39040,
+   "largest_paper_chars": 2120,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.316,
+     "n_judged": 79,
+     "unjudged": 0,
+     "marking_calls": 8,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.46,
+       "call_seconds": 109
+      },
+      "audit": {
+       "calls": 36,
+       "usd": 1.87,
+       "call_seconds": 489
+      },
+      "score": {
+       "calls": 9,
+       "usd": 0.24,
+       "call_seconds": 71,
+       "judge_calls": 9
+      }
+     }
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 33,
+     "papers_not_read": 0,
+     "coverage": 0.316,
+     "n_judged": 79,
+     "unjudged": 0,
+     "marking_calls": 8,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 0.63,
+       "call_seconds": 156
+      },
+      "audit": {
+       "calls": 38,
+       "usd": 1.75,
+       "call_seconds": 428
+      },
+      "score": {
+       "calls": 9,
+       "usd": 0.23,
+       "call_seconds": 61,
+       "judge_calls": 9
+      }
+     }
+    },
+    "kg": {
+     "status": "complete",
+     "coverage": 0.323,
+     "n_judged": 79,
+     "unjudged": 0,
+     "marking_calls": 8,
+     "usage": {
+      "generate": {
+       "calls": 35,
+       "usd": 1.73,
+       "call_seconds": 419
+      },
+      "audit": {
+       "calls": 39,
+       "usd": 2.11,
+       "call_seconds": 542
+      },
+      "score": {
+       "calls": 17,
+       "usd": 0.46,
+       "call_seconds": 143,
+       "judge_calls": 17
+      }
+     }
+    },
+    "cohort": {
+     "status": "complete",
+     "coverage": 0.373,
+     "n_judged": 79,
+     "unjudged": 0,
+     "marking_calls": 8,
+     "usage": {
+      "generate": {
+       "calls": 35,
+       "usd": 1.86,
+       "call_seconds": 464
+      },
+      "audit": {
+       "calls": 40,
+       "usd": 2.29,
+       "call_seconds": 583
+      },
+      "score": {
+       "calls": 17,
+       "usd": 0.51,
+       "call_seconds": 147,
+       "judge_calls": 17
+      }
+     }
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 8,
+   "direct_prompts": 1,
+   "direct_batched": false,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 8,
+   "curator_paragraphs_out_of_scope": 3,
+   "fixed_facts": 79,
+   "refs_scored": 5,
+   "refs_scored_share": 0.1515
+  },
+  {
+   "mim": "155600",
+   "tier": "largeft (no audit)",
+   "title": "MELANOMA, CUTANEOUS MALIGNANT, SUSCEPTIBILITY TO, 1",
+   "n_refs": 119,
+   "n_papers": 119,
+   "n_fulltext": 33,
+   "n_abstract": 57,
+   "n_title": 29,
+   "supplied_chars": 998176,
+   "largest_paper_chars": 56673,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "no_draft",
+     "reason": "direct: 2 of 2 batches failed (LLMRefusal: the model's safety filter stopped this reply)",
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 6.91,
+       "call_seconds": 480
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.17,
+       "call_seconds": 27,
+       "judge_calls": 6
+      }
+     },
+     "wall_seconds": 577,
+     "new_calls": 14
+    },
+    "agent": {
+     "status": "no_draft",
+     "reason": "the model's safety filter stopped this reply",
+     "usage": {
+      "generate": {
+       "calls": 1,
+       "usd": 1.77,
+       "call_seconds": 381
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 6,
+       "usd": 0.17,
+       "call_seconds": 27,
+       "judge_calls": 6
+      }
+     },
+     "wall_seconds": 653,
+     "new_calls": 1
+    },
+    "kg": {
+     "status": "incomplete",
+     "papers_failed": 20,
+     "coverage": 0.481,
+     "n_judged": 53,
+     "unjudged": 0,
+     "marking_calls": 6,
+     "usage": {
+      "generate": {
+       "calls": 121,
+       "usd": 11.9,
+       "call_seconds": 2368
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 12,
+       "usd": 0.35,
+       "call_seconds": 89,
+       "judge_calls": 12
+      }
+     },
+     "wall_seconds": 981,
+     "new_calls": 133
+    },
+    "cohort": {
+     "status": "incomplete",
+     "papers_failed": 18,
+     "coverage": 0.528,
+     "n_judged": 53,
+     "unjudged": 0,
+     "marking_calls": 6,
+     "usage": {
+      "generate": {
+       "calls": 121,
+       "usd": 11.18,
+       "call_seconds": 1992
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 13,
+       "usd": 0.38,
+       "call_seconds": 88,
+       "judge_calls": 13
+      }
+     },
+     "wall_seconds": 999,
+     "new_calls": 134
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 6,
+   "direct_prompts": 3,
+   "direct_prompts_planned_only": true,
+   "direct_batched": true,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "direct_merge": {},
+   "curator_paragraphs": 6,
+   "curator_paragraphs_out_of_scope": 32,
+   "fixed_facts": 53,
+   "refs_scored": 6,
+   "refs_scored_share": 0.0504
+  },
+  {
+   "mim": "168600",
+   "tier": "largeft (no audit)",
+   "title": "PARKINSON DISEASE, LATE-ONSET",
+   "n_refs": 133,
+   "n_papers": 133,
+   "n_fulltext": 19,
+   "n_abstract": 93,
+   "n_title": 21,
+   "supplied_chars": 604761,
+   "largest_paper_chars": 51557,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "no_draft",
+     "reason": "direct: 2 of 2 batches failed (LLMRefusal: the model's safety filter stopped this reply)",
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 4.1,
+       "call_seconds": 514
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 16,
+       "usd": 0.32,
+       "call_seconds": 70,
+       "judge_calls": 16
+      }
+     },
+     "wall_seconds": 454,
+     "new_calls": 34
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 133,
+     "papers_not_read": 0,
+     "coverage": 0.418,
+     "n_judged": 152,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 2.54,
+       "call_seconds": 532
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 31,
+       "usd": 0.81,
+       "call_seconds": 211,
+       "judge_calls": 31
+      }
+     },
+     "wall_seconds": 883,
+     "new_calls": 31
+    },
+    "kg": {
+     "status": "incomplete",
+     "papers_failed": 7,
+     "coverage": 0.464,
+     "n_judged": 152,
+     "unjudged": 0,
+     "marking_calls": 16,
+     "usage": {
+      "generate": {
+       "calls": 135,
+       "usd": 8.81,
+       "call_seconds": 1842
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 33,
+       "usd": 0.91,
+       "call_seconds": 224,
+       "judge_calls": 33
+      }
+     },
+     "wall_seconds": 971,
+     "new_calls": 168
+    },
+    "cohort": {
+     "status": "incomplete",
+     "papers_failed": 5,
+     "coverage": 0.47,
+     "n_judged": 152,
+     "unjudged": 0,
+     "marking_calls": 16,
+     "usage": {
+      "generate": {
+       "calls": 135,
+       "usd": 9.25,
+       "call_seconds": 1913
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 33,
+       "usd": 0.91,
+       "call_seconds": 240,
+       "judge_calls": 33
+      }
+     },
+     "wall_seconds": 813,
+     "new_calls": 168
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 16,
+   "direct_prompts": 3,
+   "direct_prompts_planned_only": true,
+   "direct_batched": true,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "direct_merge": {},
+   "curator_paragraphs": 16,
+   "curator_paragraphs_out_of_scope": 130,
+   "fixed_facts": 152,
+   "refs_scored": 10,
+   "refs_scored_share": 0.0752
+  },
+  {
+   "mim": "152700",
+   "tier": "largeft (no audit)",
+   "title": "SYSTEMIC LUPUS ERYTHEMATOSUS",
+   "n_refs": 148,
+   "n_papers": 148,
+   "n_fulltext": 14,
+   "n_abstract": 113,
+   "n_title": 21,
+   "supplied_chars": 614865,
+   "largest_paper_chars": 94294,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "complete",
+     "coverage": 0.523,
+     "n_judged": 133,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 4,
+       "usd": 3.68,
+       "call_seconds": 462
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.74,
+       "call_seconds": 165,
+       "judge_calls": 29
+      }
+     },
+     "wall_seconds": 644,
+     "new_calls": 47
+    },
+    "agent": {
+     "status": "complete",
+     "papers_read": 135,
+     "papers_not_read": 13,
+     "coverage": 0.515,
+     "n_judged": 133,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 2,
+       "usd": 2.89,
+       "call_seconds": 580
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.75,
+       "call_seconds": 183,
+       "judge_calls": 29
+      }
+     },
+     "wall_seconds": 793,
+     "new_calls": 31
+    },
+    "kg": {
+     "status": "incomplete",
+     "papers_failed": 3,
+     "coverage": 0.398,
+     "n_judged": 133,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 150,
+       "usd": 9.44,
+       "call_seconds": 1926
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.73,
+       "call_seconds": 171,
+       "judge_calls": 29
+      }
+     },
+     "wall_seconds": 930,
+     "new_calls": 179
+    },
+    "cohort": {
+     "status": "incomplete",
+     "papers_failed": 2,
+     "coverage": 0.496,
+     "n_judged": 133,
+     "unjudged": 0,
+     "marking_calls": 14,
+     "usage": {
+      "generate": {
+       "calls": 150,
+       "usd": 9.7,
+       "call_seconds": 1994
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 29,
+       "usd": 0.73,
+       "call_seconds": 164,
+       "judge_calls": 29
+      }
+     },
+     "wall_seconds": 916,
+     "new_calls": 179
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 14,
+   "direct_prompts": 3,
+   "direct_batched": true,
+   "direct_cut_papers": 0,
+   "direct_cut_chars": 0,
+   "direct_truncated_recorded": 0,
+   "direct_merge": {
+    "partial_paragraphs": 148,
+    "merged_paragraphs": 145,
+    "pmids_lost_in_merge": 0
+   },
+   "curator_paragraphs": 14,
+   "curator_paragraphs_out_of_scope": 56,
+   "fixed_facts": 133,
+   "refs_scored": 14,
+   "refs_scored_share": 0.0946
+  },
+  {
+   "mim": "114500",
+   "tier": "largeft (no audit)",
+   "title": "COLORECTAL CANCER",
+   "n_refs": 76,
+   "n_papers": 76,
+   "n_fulltext": 12,
+   "n_abstract": 55,
+   "n_title": 9,
+   "supplied_chars": 375649,
+   "largest_paper_chars": 41637,
+   "extract_cut_papers": 0,
+   "strategies": {
+    "direct": {
+     "status": "no_draft",
+     "reason": "the model's safety filter stopped this reply",
+     "usage": {
+      "generate": {
+       "calls": 1,
+       "usd": 2.5,
+       "call_seconds": 375
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.26,
+       "call_seconds": 53,
+       "judge_calls": 15
+      }
+     },
+     "wall_seconds": 511,
+     "new_calls": 31
+    },
+    "agent": {
+     "status": "no_draft",
+     "reason": "the model's safety filter stopped this reply",
+     "usage": {
+      "generate": {
+       "calls": 1,
+       "usd": 1.83,
+       "call_seconds": 429
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.26,
+       "call_seconds": 53,
+       "judge_calls": 15
+      }
+     },
+     "wall_seconds": 671,
+     "new_calls": 1
+    },
+    "kg": {
+     "status": "incomplete",
+     "papers_failed": 7,
+     "coverage": 0.489,
+     "n_judged": 94,
+     "unjudged": 0,
+     "marking_calls": 15,
+     "usage": {
+      "generate": {
+       "calls": 78,
+       "usd": 5.49,
+       "call_seconds": 1169
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 31,
+       "usd": 0.74,
+       "call_seconds": 166,
+       "judge_calls": 31
+      }
+     },
+     "wall_seconds": 658,
+     "new_calls": 109
+    },
+    "cohort": {
+     "status": "no_draft",
+     "reason": "the model's safety filter stopped this reply",
+     "usage": {
+      "generate": {
+       "calls": 78,
+       "usd": 5.79,
+       "call_seconds": 1229
+      },
+      "audit": {
+       "calls": 0,
+       "usd": 0,
+       "call_seconds": 0
+      },
+      "score": {
+       "calls": 15,
+       "usd": 0.26,
+       "call_seconds": 53,
+       "judge_calls": 15
+      }
+     },
+     "wall_seconds": 588,
+     "new_calls": 78
+    }
+   },
+   "fact_split_calls_cached_or_fresh": 15,
+   "direct_prompts": 1,
+   "direct_prompts_planned_only": true,
+   "direct_batched": false,
+   "direct_cut_papers": 8,
+   "direct_cut_chars": 95140,
+   "direct_truncated_recorded": 0,
+   "curator_paragraphs": 15,
+   "curator_paragraphs_out_of_scope": 109,
+   "fixed_facts": 94,
+   "refs_scored": 6,
+   "refs_scored_share": 0.0789
+  }
+ ],
+ "deviations": [
+  "Sample of up to 200 eligible entries (design: 400) and 8 new entries selected (design: 16; reduced sizes: 8).",
+  "Only the first 4 selected entries in rule order were run (reduced sizes: 8, floor 6): the 1,500-call cap allowed no more (an entry cost about 250-330 new calls, most of it per-paper extraction for the evidence graph and the case table).",
+  "The split on facts the supplied text states was not made (reduced sizes: only if it fits).",
+  "The selection was resolved in three passes across machine restarts; counts resolved earlier were reused from its log. The first three entries were run before it finished, each only once its place in the top 8 was certain from the bounds (times in the header of evalsets/largeft8.tsv)."
+ ]
+}

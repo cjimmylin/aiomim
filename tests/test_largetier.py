@@ -138,3 +138,74 @@ def test_counts_from_log_reads_resolved_lines_last_wins():
              "03:53:27 INFO    resolved 222100: 9 of 142 readable in full (bound 50)",
              "04:00:00 INFO    resolved 155600: 33 of 119 readable in full (bound 54)"]
     assert lt.counts_from_log(lines) == {"222100": 9, "155600": 33}
+
+
+def test_resolution_events_in_log_order():
+    lines = ["03:26:51 INFO    resolved 222100: 9 of 142 readable in full (bound 50)",
+             "=== restart ===",
+             "03:30:17 INFO    resolved 155600: 33 of 119 readable in full (bound 54)"]
+    assert lt.resolution_events(lines) == [("03:26:51", "222100", 9), ("03:30:17", "155600", 33)]
+
+
+def test_first_certain_waits_until_fewer_than_k_could_rank_above():
+    bounds = {"1": 10, "2": 9, "3": 8, "4": 3}
+    events = [("t1", "3", 6), ("t2", "1", 2), ("t3", "2", 7)]
+    # k = 1: "3" (6) is certain only once both "1" and "2" are resolved below or above it.
+    assert lt.first_certain(events, bounds, "3", 1) is None          # "2" (7) ranks above it
+    assert lt.first_certain(events, bounds, "2", 1) == (2, "t3")
+    # k = 2: after "1" resolves to 2, only "2" (bound 9) could be above "3".
+    assert lt.first_certain(events, bounds, "3", 2) == (1, "t2")
+
+
+def test_selection_state_finished_and_threats():
+    bounds = {"1": 10, "2": 9, "3": 8, "4": 5, "5": 7}
+    st = lt.selection_state(bounds, {"1": 9, "2": 7, "3": 6}, 2)
+    assert st["top"] == ["1", "2"] and st["finished"] and st["could_displace"] == []
+    assert st["max_unresolved_bound"] == 7 and st["unresolved"] == ["4", "5"]
+    st = lt.selection_state(bounds, {"1": 9, "2": 6, "3": 6}, 2)
+    assert st["could_displace"] == ["5"] and not st["finished"]      # bound 7 > 6
+    st = lt.selection_state({"1": 4, "7": 6}, {"1": 4}, 2)
+    assert st["could_displace"] == ["7"]                             # fewer than k resolved
+
+
+def test_text_windows_and_leaked():
+    assert lt.text_windows("a  b", 60) == ["a b"]
+    w = lt.text_windows("x" * 100, 60, 30)
+    assert len(w) == 2 and all(len(s) == 60 for s in w)
+    gold = ["Davies et al. (2002) identified a transversion in exon 15 of the gene that leads to a substitution.",
+            "short fact"]
+    hay = "prefix Davies et al. (2002) identified a transversion in exon 15 of the gene that leads to a substitution. end"
+    assert lt.leaked(gold, hay) and not lt.leaked(gold, "unrelated text " * 20)
+    assert lt.leaked(["short fact"], "short fact") == []               # below the length floor
+
+
+def _rec(mim, **cov):
+    st = {}
+    for s in lt.STRATEGIES:
+        v = cov.get(s)
+        if v is None:
+            st[s] = {"status": "no_draft"}
+        elif isinstance(v, tuple):
+            st[s] = {"status": "incomplete", "coverage": v[0]}
+        else:
+            st[s] = {"status": "complete", "coverage": v}
+    return {"mim": mim, "strategies": st}
+
+
+def test_compare_block_and_pairwise_views():
+    recs = [_rec("1", direct=0.5, agent=0.4, kg=0.6, cohort=0.5),
+            _rec("2", direct=0.3, agent=0.3, kg=(0.2,), cohort=0.4),
+            _rec("3", agent=0.7, kg=0.6, cohort=0.6)]
+    assert lt.compare_block(recs)["entries"] == ["1"]
+    assert lt.compare_block(recs, allow_incomplete=True)["entries"] == ["1", "2"]
+    pw = lt.pairwise_with_direct(recs)
+    assert pw["agent"]["entries"] == ["1", "2"] and pw["kg"]["entries"] == ["1", "2"]
+    assert pw["agent"]["worse"] == 1 and pw["agent"]["tied"] == 1
+
+
+def test_run_entries_needs_every_strategy(tmp_path):
+    p = tmp_path / "timing.tsv"
+    rows = [f"1\t{s}\t0\t1\t1\t0\t1\t1\t0\t0" for s in lt.STRATEGIES]
+    rows += [f"2\t{s}\t0\t1\t1\t0\t1\t1\t0\t0" for s in lt.STRATEGIES[:3]]
+    p.write_text("\n".join(rows) + "\n")
+    assert lt.run_entries(p) == ["1"]
