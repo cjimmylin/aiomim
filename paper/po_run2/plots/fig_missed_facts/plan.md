@@ -61,3 +61,13 @@ segment).
   statistic other than the per-row fact count and the outline's share column.
 - Axis: x ticks 0 %, 25 %, 50 %, 75 %, 100 %, label "Share of OMIM facts"; bottom spine bounded to 0-100; no top,
   right or left spine; no grid (bars cover it).
+
+## Revisions after critic rounds (final state)
+
+- Legend: 2 x 2, ordered so each row reads in bar order (Conveyed in full | Missed, stated / Missed, partly stated |
+  Missed, not stated), placed above the bars and left of the share column so the two never read as one block.
+- Margins 0.82 in (row labels) / 0.80 in (share column) / 0.48 in (x axis) / 0.50 in (legend); axes 3.88 in wide, so
+  every segment except Abstract-only "stated" holds its count; that sliver (46) is labelled just above the bar.
+- Not-stated hatch "\\\\" in #8C8C8C and x label "% of fixed facts" with ticks 0-100, as in fig_access_bound (b).
+- White label box (pad 1 pt) behind counts on hatched segments.
+- Final: 5.5 x 3.09 in, all text 8 pt (smallest 8 pt), Liberation Sans embedded (TrueType) in the PDF.

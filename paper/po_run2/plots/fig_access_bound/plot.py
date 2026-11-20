@@ -44,7 +44,7 @@ GRID = "#E6E6E6"
 
 # ---------------------------------------------------------------- data (copied from the log)
 # (a) log Sec. 6.2, mean over 46 entries; full text = before the repair round (79.8%, 'Repair parity')
-A_LABELS = ["Abstract\nonly", "Abstract +\nsecond-hand", "Full text"]
+A_LABELS = ["Abstract\nonly", "Abstract +\nsecond-\nhand", "Full text"]
 A_VALUES = [36.1, 40.9, 79.8]
 
 # (b) log Sec. 2.10a 'The facts, by availability' (pooled over facts)
@@ -60,13 +60,14 @@ assert sum(B_FACTS) == 6239 and sum(B_STATED) == 2372 and sum(B_PARTLY) == 1198 
 # (c) log Sec. 2.10a 'Summary: mean over entries' (Stated n = 89 entries, Not stated n = 90 entries)
 C_ROWS = ["Direct reading", "Agentic curator", "Evidence graph", "Case table first", "Recall, then verify",
           "Memory only (control)"]
+C_TICKS = [r.replace(" (control)", "\n(control)") for r in C_ROWS]  # two lines: keeps the label column narrow
 C_STATED = [94.4, 93.6, 94.2, 91.0, 28.8, 23.3]
 C_NOT = [6.9, 6.3, 5.5, 5.9, 2.1, 8.2]
 
 # ---------------------------------------------------------------- figure
 fig = plt.figure(figsize=(5.5, 2.36), layout="constrained")
 fig.get_layout_engine().set(w_pad=0.03, h_pad=0.02, wspace=0.06)
-gs = fig.add_gridspec(1, 3, width_ratios=[1.0, 1.0, 1.15])
+gs = fig.add_gridspec(1, 3, width_ratios=[1.35, 1.0, 1.16])
 axa, axb, axc = (fig.add_subplot(gs[0, i]) for i in range(3))
 
 # ---- (a) vertical bars, direct reading in its strategy colour; fill encodes what was readable
@@ -79,7 +80,7 @@ for x, v, st in zip(xa, A_VALUES, styles):
     axa.text(x, v + 2.0, f"{v:.1f}%", ha="center", va="bottom", fontsize=FS)
 axa.set_xticks(xa, A_LABELS)
 axa.tick_params(axis="x", length=0)
-axa.set_xlim(-0.55, 2.55)
+axa.set_xlim(-0.45, 2.45)
 axa.set_ylim(0, 100)
 axa.set_yticks([0, 25, 50, 75, 100])
 axa.set_ylabel("% of fixed facts conveyed")
@@ -109,12 +110,13 @@ assert all(abs(l - 100.0) < 1e-9 for l in left)
 axb.set_yticks(yb, [f"{lev}\n{n:,} facts" for lev, n in zip(B_LEVELS, B_FACTS)])
 axb.tick_params(axis="y", length=0)
 axb.set_xlim(0, 100)
-axb.set_ylim(-0.45, 3.05)
+axb.set_ylim(-0.45, 3.0)
 axb.set_xticks([0, 25, 50, 75, 100])
 axb.set_xlabel("% of fixed facts")
 axb.spines[["top", "right", "left"]].set_visible(False)
-axb.legend(loc="upper left", bbox_to_anchor=(-0.02, 1.0), ncol=3, frameon=False, handlelength=1.0,
-           handleheight=0.9, handletextpad=0.3, columnspacing=0.6, borderaxespad=0.0, borderpad=0.0)
+leg_b = axb.legend(loc="upper left", bbox_to_anchor=(0.0, 1.0), ncol=2, frameon=False, handlelength=1.0,
+                   handleheight=0.9, handletextpad=0.3, columnspacing=0.8, labelspacing=0.3, borderaxespad=0.0,
+                   borderpad=0.0)
 
 # ---- (c) dumbbell, one row per strategy (means over entries)
 yc = list(range(len(C_ROWS)))[::-1]  # direct reading on top
@@ -125,7 +127,7 @@ for y, name, s, n in zip(yc, C_ROWS, C_STATED, C_NOT):
              clip_on=False)
     axc.plot([n], [y], marker="o", markersize=5, markerfacecolor="white", markeredgecolor=c,
              markeredgewidth=1.0, linestyle="none", zorder=3, clip_on=False)
-axc.set_yticks(yc, C_ROWS)
+axc.set_yticks(yc, C_TICKS)
 axc.tick_params(axis="y", length=0)
 axc.set_ylim(-0.6, len(C_ROWS) - 0.4)
 axc.set_xlim(0, 100)
@@ -143,7 +145,7 @@ axc.legend(handles=handles, loc="lower right", bbox_to_anchor=(1.0, 0.02), frame
 # ---- panel letters: reserve space with left titles, then align them to the left edge of each panel's labels
 letters = {}
 for ax, letter in zip((axa, axb, axc), "abc"):
-    letters[ax] = ax.set_title(f"({letter})", loc="left", fontsize=8, fontweight="bold", pad=3)
+    letters[ax] = ax.set_title(f"({letter})", loc="left", fontsize=8, fontweight="bold", pad=6)
 
 fig.canvas.draw()
 fig.set_layout_engine("none")  # freeze the constrained layout before the fine adjustments below
@@ -154,7 +156,7 @@ for t, l, p in seg_labels:
     x0 = axb.transData.transform((l, 0))[0]
     x1 = axb.transData.transform((l + p, 0))[0]
     w = t.get_window_extent(renderer).width
-    if w + 4 > (x1 - x0):  # 4 px margin at 300-dpi-equivalent canvas units
+    if w + 2 * 0.02 * fig.dpi > (x1 - x0):  # at least 0.02 in clear on each side
         t.set_visible(False)
 
 for ax, title in letters.items():

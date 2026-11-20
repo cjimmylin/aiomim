@@ -1,0 +1,12 @@
+[
+  {
+    "round": 1,
+    "critic_suggestions": "Content: all 28 estimates and intervals match experimental_log.md (Sec. 2.10a summary table 'Difference from Direct reading'; Sec. 15 tables 'All facts', '... on papers readable in full', '... on papers readable as abstract only', 'Facts the supplied text does not state' for D1-D3 and the D4 'D4 - baseline (primary)' rows), checked by a script that parses the log; no caption text in the image; two blocks with their own header, baseline-naming x label and n. Presentation: (1) markers (3.3 pt) hide the short intervals, e.g. agentic curator all facts -1.3 to +0.0 is almost invisible; shrink markers and whiskers slightly. (2) The x range -15.5 to +10.5 wastes width; -15 to +9.5 still holds every interval (-14.3 to +8.7) and drop the edge gridlines. (3) Row label 'Checklist + completeness / pass (35)' splits the arm's name; break after '+' instead.",
+    "changed": true
+  },
+  {
+    "round": 2,
+    "critic_suggestions": "Content unchanged and still matching the log (script re-check). Presentation: with one -15 to +9.5 range in all four facets, 1 point is about 1 mm at print width and the short intervals (agentic curator all facts -1.3 to +0.0; completeness pass not stated -1.3 to +0.7) are barely wider than their markers, because one interval (case table first, stated full-text, -14.3) sets the range for every panel. Keep one common scale (same inches per point in every panel) but let each facet span only what its data need: all facts -5.5 to +6, stated full-text -15 to +9.5, stated abstract-only and not stated -5.5 to +5.5; panel widths proportional to span (about 1.7x the resolution). After that change, the '+5' and '-5' tick labels at the abstract-only / not-stated boundary nearly touch and the abstract-only header crowds 'Not stated': widen the gap between facet panels from 0.11 in to 0.18 in.",
+    "changed": true
+  }
+]

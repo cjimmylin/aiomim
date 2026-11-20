@@ -32,21 +32,26 @@ BLOCK_B = [
     ("Checklist (38)",          "#8C8C8C", [(1.6, 0.5, 2.7), (2.0, 0.4, 3.7), (0.2, -1.0, 1.3), (-0.3, -1.9, 1.3)]),
     ("Completeness pass (38)",  "#3D6F98", [(2.6, 1.7, 3.6), (4.5, 2.9, 6.3), (1.0, -0.3, 2.9), (-0.1, -1.3, 0.7)]),
     ("Three-draft merge (38)",  "#555555", [(3.1, 2.1, 4.2), (3.7, 2.1, 5.5), (1.0, 0.1, 2.1), (1.5, 0.4, 2.7)]),
-    ("Checklist + completeness\npass (35)", "#003A5E",
+    ("Checklist +\ncompleteness pass (35)", "#003A5E",
      [(3.3, 2.0, 4.7), (6.3, 4.0, 8.7), (1.5, -0.6, 3.9), (0.2, -1.2, 1.8)]),
 ]
 # Not drawn (off scale, Sec. 2.10a): memory only (control) and recall, then verify, -34.0 to -77.6 on these facets.
 
-XLIM = (-15.5, 10.5)
-XTICKS = [-10, -5, 0, 5]
+# One common x SCALE (same inches per percentage point in every panel); each facet spans only the range its
+# data need (all intervals lie inside), so short intervals are not squeezed by the one wide interval (-14.3).
+XLIMS = [(-5.5, 6.0), (-15.0, 9.5), (-5.5, 5.5), (-5.5, 5.5)]
+XTICKS = [[-5, 0, 5], [-10, -5, 0, 5], [-5, 0, 5], [-5, 0, 5]]
 
 # ---- layout in inches (measured from the top of the figure) ----
 W = 5.5
 LEFT = 1.20            # panels start here (row labels to the left)
 RIGHT = 5.46
-GAP = 0.11             # between facet panels
+GAP = 0.18             # between facet panels (room for edge tick labels of neighbouring panels)
 PITCH = 0.205          # row pitch
-PW = (RIGHT - LEFT - 3 * GAP) / 4
+SPAN = [hi - lo for lo, hi in XLIMS]
+PPI = (RIGHT - LEFT - 3 * GAP) / sum(SPAN)          # inches per percentage point, all panels
+PWS = [sp * PPI for sp in SPAN]                     # panel widths
+X0S = [LEFT + sum(PWS[:j]) + j * GAP for j in range(4)]
 
 TOP_COLHEAD = 0.0      # column headers (two lines)
 A_HEAD = 0.30          # block a header baseline region
@@ -73,21 +78,20 @@ def block(rows, top, height, marker, ms, xlabel, dotted_before=None):
     axes = []
     n = len(rows)
     for j in range(4):
-        x0 = LEFT + j * (PW + GAP)
-        ax = fig.add_axes([fx(x0), fy(top + height), PW / W, height / H])
-        ax.set_xlim(*XLIM)
+        ax = fig.add_axes([fx(X0S[j]), fy(top + height), PWS[j] / W, height / H])
+        ax.set_xlim(*XLIMS[j])
         ax.set_ylim(n - 0.5, -0.5)  # first row at top
         ax.axvline(0, color="black", lw=0.6, zorder=1)
-        for gx in (-15, -10, -5, 5, 10):
+        for gx in [t for t in XTICKS[j] if t != 0]:
             ax.axvline(gx, color="0.9", lw=0.4, zorder=0)
         if dotted_before is not None:
             ax.axhline(dotted_before - 0.5, color="0.6", lw=0.5, ls=(0, (1, 1.5)), zorder=0)
         for i, (lab, col, vals) in enumerate(rows):
             est, lo, hi = vals[j]
             ax.errorbar(est, i, xerr=[[est - lo], [hi - est]], fmt=marker, color=col, mec=col, mfc=col,
-                        ms=ms, elinewidth=1.1, capsize=1.6, capthick=0.8, zorder=3)
-        ax.set_xticks(XTICKS)
-        ax.set_xticklabels([("+" if t > 0 else "") + f"{t}".replace("-", "−") for t in XTICKS])
+                        ms=ms, elinewidth=1.0, capsize=1.6, capthick=0.8, zorder=3)
+        ax.set_xticks(XTICKS[j])
+        ax.set_xticklabels([("+" if t > 0 else "") + f"{t}".replace("-", "\u2212") for t in XTICKS[j]])
         ax.set_yticks(range(n))
         if j == 0:
             ax.set_yticklabels([r[0] for r in rows])
@@ -104,7 +108,7 @@ def block(rows, top, height, marker, ms, xlabel, dotted_before=None):
 
 # column headers (facets), drawn once above block a
 for j, f in enumerate(FACETS):
-    xc = LEFT + j * (PW + GAP) + PW / 2
+    xc = X0S[j] + PWS[j] / 2
     fig.text(fx(xc), fy(TOP_COLHEAD + 0.255), f, ha="center", va="bottom", fontsize=7.5, linespacing=1.15)
 
 # block headers
@@ -117,8 +121,8 @@ fig.text(fx(0.17), fy(B_HEAD + 0.12), "Ways of reading better (held-out entries 
 sep_y = fy(B_HEAD - 0.06)
 fig.add_artist(Line2D([fx(0.02), fx(RIGHT)], [sep_y, sep_y], color="0.6", lw=0.5))
 
-block(BLOCK_A, A_TOP, A_H, "o", 3.3, "Difference from direct reading after repair (percentage points)")
-block(BLOCK_B, B_TOP, B_H, "D", 3.0, "Difference from direct reading before repair (percentage points)",
+block(BLOCK_A, A_TOP, A_H, "o", 2.7, "Difference from direct reading after repair (percentage points)")
+block(BLOCK_B, B_TOP, B_H, "D", 2.6, "Difference from direct reading before repair (percentage points)",
       dotted_before=3)
 
 out = os.environ["PO_OUT"]

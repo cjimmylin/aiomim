@@ -33,10 +33,10 @@ for i in range(3):
     assert stated[i] + partly[i] + not_stated[i] == not_fully[i]
     assert conveyed[i] + not_fully[i] + contradicted[i] == facts[i]
 
-# ---- style: greys from fig_access_bound panel (b) + direct reading's black for its conveyed facts ----
+# ---- style: greys from fig_access_bound panel (b) + direct reading's blue (#0072B2) for its conveyed facts ----
 GREY_STATED, GREY_PARTLY, HATCH_GREY = "#3B3B3B", "#9E9E9E", "#8C8C8C"  # as fig_access_bound (b)
 segments = [  # label, counts, face, hatch, text colour
-    ("Conveyed in full", conveyed, "#000000", None, "white"),
+    ("Conveyed in full", conveyed, "#0072B2", None, "white"),
     ("Missed, stated", stated, GREY_STATED, None, "white"),
     ("Missed, partly stated", partly, GREY_PARTLY, None, "black"),
     ("Missed, not stated", not_stated, "white", "\\\\\\\\", "black"),  # hatch as fig_access_bound (b)
@@ -65,7 +65,7 @@ for label, counts, face, hatch, tcol in segments:
     for y, l, p, c in zip(ypos, left, pct, counts):
         # label a segment with its log count only if the number fits inside at print size (~0.2 in for 3 digits)
         if p / 100 * ax_w_in >= 0.065 * len(f"{c:,}") + 0.04:
-            box = dict(facecolor="white", edgecolor="none", pad=0.6) if hatch else None
+            box = dict(facecolor="white", edgecolor="none", pad=1.0) if hatch else None
             ax.text(l + p / 2, y, f"{c:,}", ha="center", va="center", color=tcol, fontsize=FS, bbox=box, zorder=4)
         elif c > 0:  # too narrow to hold its count (Abstract only, stated: 46): count just above the sliver
             ax.annotate(f"{c:,}", (l + p / 2, y + BH / 2), xytext=(0, 1.5), textcoords="offset points",
