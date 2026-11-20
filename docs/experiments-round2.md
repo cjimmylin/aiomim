@@ -114,3 +114,17 @@ claim; the same for controls. From existing audit files, with no new calls: cita
 ## Budget
 
 About 15,000 new model calls in all (A1 4,500; A2 2,000; B 7,000; C 1,200), each experiment stopping at its cap.
+
+## Reduced sizes (same day, before any run finished)
+
+The round was cut to about a third at the project owner's request. The questions, measures and analysis are as
+written above; only the sizes change. With these sizes every result is exploratory.
+
+| Experiment | As designed | As run |
+|---|---|---|
+| A1 natural large-entry tier | 16 new entries; 4,500 calls | 8 new entries (20 with the existing 12); 1,500 calls; the split on facts the text states only if it fits |
+| A2 controlled padding | 12 entries; P2 about 1,800,000 characters; 2,500 calls | 8 entries; P2 about 1,200,000 characters (still more than one prompt); 800 calls |
+| B published systems | 24 entries for PaperQA2 and STORM; GraphRAG within 3,000 calls | 10 entries for PaperQA2 and STORM; GraphRAG on at least 6 of them within 1,000 calls; about 2,500 calls in all |
+| C audit coverage | about 60 items per class; 1,200 calls | about 30 items per class; 600 calls |
+
+About 5,400 new model calls in all.
