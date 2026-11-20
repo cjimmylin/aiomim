@@ -21,8 +21,12 @@ its own x axis with tick labels, and its own x-axis label that names its baselin
 
 Facets (columns, same in both blocks, headers drawn once above block a):
 "All facts" | "Stated, full-text papers" | "Stated, abstract-only papers" | "Not stated".
-Row labels drawn once per block at the left. One shared x range in every panel: -15.5 to +10.5, ticks -10, -5,
-0, +5 (gridlines also at -15 and +10 unlabelled), vertical line at 0 in each panel.
+Row labels drawn once per block at the left. One common x SCALE in every panel (0.064 in, about 1.6 mm, per
+percentage point), each facet spanning only the range its data need (critic round 2): all facts -5.5 to +6;
+stated, full-text papers -15 to +9.5; stated, abstract-only papers -5.5 to +5.5; not stated -5.5 to +5.5; panel
+widths proportional to span, 0.18 in gaps. Ticks -5, 0, +5 (and -10 in the full-text facet), light gridlines at the
+non-zero ticks, vertical line at 0 in each panel. (The outline asked for one range of about -15 to +10 in every
+panel; with it 1 point was about 1 mm and the short intervals were hidden by their markers.)
 No equivalence band, no replicate-noise band. No numeric labels (they do not fit without overlap at this
 scale; values are in the caption/text and listed below).
 
@@ -69,6 +73,13 @@ not drawn (not among the four facets). Per-panel n are in the caption, not in th
   arms that include the completeness pass in dark blues, arms without it in greys (rule by construction,
   not by result): checklist #8C8C8C, completeness pass #3D6F98, three-draft merge #555555,
   checklist + completeness pass #003A5E. None equals #0072B2, #56B4E9 or #000000.
-- Markers: circles (block a), diamonds (block b); whiskers 1.1 pt with small caps.
+- Markers: circles 2.7 pt (block a), diamonds 2.6 pt (block b); whiskers 1.0 pt with 1.6 pt caps.
 - Thin light x grid (0.9 grey, 0.4 pt), no top/right spines, no legend (rows are directly labelled), no title,
   no caption text, no "Figure N".
+
+## Final render
+5.48 x 2.72 in at 300 dpi (PNG) plus PDF (Liberation Sans embedded); include at width=\linewidth (scale ~1.0).
+Smallest text 7 pt (tick labels, row labels, x labels); facet and block headers 7.5 pt; block letters 8 pt bold.
+Off-scale rows omitted, as stated in the caption: memory only and recall, then verify are off scale on all facts
+and both stated facets (-34.0 to -77.6) but on scale on 'Not stated' (memory only +1.3 [-1.4, +4.6]; recall, then
+verify -4.8 [-6.7, -3.0]; Sec. 2.10a); the caption gives those two values.

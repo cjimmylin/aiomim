@@ -80,7 +80,7 @@ for x, v, st in zip(xa, A_VALUES, styles):
     axa.text(x, v + 2.0, f"{v:.1f}%", ha="center", va="bottom", fontsize=FS)
 axa.set_xticks(xa, A_LABELS)
 axa.tick_params(axis="x", length=0)
-axa.set_xlim(-0.45, 2.45)
+axa.set_xlim(-0.41, 2.41)
 axa.set_ylim(0, 100)
 axa.set_yticks([0, 25, 50, 75, 100])
 axa.set_ylabel("% of fixed facts conveyed")
@@ -103,7 +103,7 @@ for name, vals, st, tcol in segs:
     axb.barh(yb, pct, left=left, height=BH, linewidth=0.5, label=name, **st)
     for y, l, p in zip(yb, left, pct):
         bbox = dict(boxstyle="square,pad=0.08", facecolor="white", edgecolor="none") if st["hatch"] else None
-        t = axb.text(l + p / 2, y, f"{p:.0f}%", ha="center", va="center", color=tcol, fontsize=FS, bbox=bbox)
+        t = axb.text(l + p / 2, y, f"{p:.0f}", ha="center", va="center", color=tcol, fontsize=FS, bbox=bbox)
         seg_labels.append((t, l, p))
     left = [l + p for l, p in zip(left, pct)]
 assert all(abs(l - 100.0) < 1e-9 for l in left)
@@ -114,7 +114,11 @@ axb.set_ylim(-0.45, 3.0)
 axb.set_xticks([0, 25, 50, 75, 100])
 axb.set_xlabel("% of fixed facts")
 axb.spines[["top", "right", "left"]].set_visible(False)
-leg_b = axb.legend(loc="upper left", bbox_to_anchor=(0.0, 1.0), ncol=2, frameon=False, handlelength=1.0,
+# anchored right during layout so it stays inside the row-label margin; left-aligned with the labels after layout
+hb, lb = axb.get_legend_handles_labels()
+order = [0, 2, 1]  # matplotlib fills legend columns first: row 1 = Stated | Partly stated, row 2 = Not stated
+leg_b = axb.legend([hb[i] for i in order], [lb[i] for i in order], loc="upper right", bbox_to_anchor=(1.0, 1.0),
+                   ncol=2, frameon=False, handlelength=1.0,
                    handleheight=0.9, handletextpad=0.3, columnspacing=0.8, labelspacing=0.3, borderaxespad=0.0,
                    borderpad=0.0)
 
@@ -128,7 +132,7 @@ for y, name, s, n in zip(yc, C_ROWS, C_STATED, C_NOT):
     axc.plot([n], [y], marker="o", markersize=5, markerfacecolor="white", markeredgecolor=c,
              markeredgewidth=1.0, linestyle="none", zorder=3, clip_on=False)
 axc.set_yticks(yc, C_TICKS)
-axc.tick_params(axis="y", length=0)
+axc.tick_params(axis="y", length=0, pad=6)  # clear of hollow markers drawn left of x = 0
 axc.set_ylim(-0.6, len(C_ROWS) - 0.4)
 axc.set_xlim(0, 100)
 axc.set_xticks([0, 25, 50, 75, 100])
@@ -139,8 +143,8 @@ axc.spines[["top", "right", "left"]].set_visible(False)
 handles = [Line2D([], [], marker="o", markersize=5, color=G_STATED, linestyle="none", label="Stated"),
            Line2D([], [], marker="o", markersize=5, markerfacecolor="white", markeredgecolor=G_STATED,
                   markeredgewidth=1.0, linestyle="none", label="Not stated")]
-axc.legend(handles=handles, loc="lower right", bbox_to_anchor=(1.0, 0.02), frameon=False, handletextpad=0.2,
-           borderaxespad=0.0, labelspacing=0.35)
+axc.legend(handles=handles, loc="lower right", bbox_to_anchor=(1.0, 0.02), frameon=False, handlelength=0.8,
+           handletextpad=0.4, borderaxespad=0.0, borderpad=0.0, labelspacing=0.35)
 
 # ---- panel letters: reserve space with left titles, then align them to the left edge of each panel's labels
 letters = {}
@@ -156,13 +160,16 @@ for t, l, p in seg_labels:
     x0 = axb.transData.transform((l, 0))[0]
     x1 = axb.transData.transform((l + p, 0))[0]
     w = t.get_window_extent(renderer).width
-    if w + 2 * 0.02 * fig.dpi > (x1 - x0):  # at least 0.02 in clear on each side
+    if w + 2 * 0.015 * fig.dpi > (x1 - x0):  # at least 0.015 in clear on each side
         t.set_visible(False)
 
 for ax, title in letters.items():
     x_disp = ax.yaxis.get_tightbbox(renderer).x0
     x_axes = ax.transAxes.inverted().transform((x_disp, 0))[0]
     title.set_x(x_axes)
+    if ax is axb:  # legend of (b) starts at the left edge of the row labels, under the panel letter
+        leg_b.set_loc("upper left")
+        leg_b.set_bbox_to_anchor((x_axes, 1.0), transform=axb.transAxes)
 
 out = os.environ["PO_OUT"]
 fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.02, facecolor="white")

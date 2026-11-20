@@ -1,0 +1,12 @@
+[
+  {
+    "round": 1,
+    "critic_suggestions": "Content: all values checked against the log. (a) 36.1 / 40.9 / 79.8% = means over the 46 entries, full text BEFORE the repair round (Sec. 6.2, 'OMIM facts conveyed on the fixed fact lists' and 'Repair parity'); (b) 1,639 = 1,246/253/140, 4,221 = 1,099/883/2,239, 379 = 27/62/290 (Sec. 2.10a 'The facts, by availability'), drawn shares 76/15/9, 26/21/53, 7/16/77; (c) stated 94.4/93.6/94.2/91.0/28.8/23.3 and not stated 6.9/6.3/5.5/5.9/2.1/8.2 (Sec. 2.10a 'Summary: mean over entries'), rows in the specified order. No caption text, titles or statistics in the image; min font 7 pt; output 5.48 x 2.36 in (prints 1:1 at the 5.5 in text width). Presentation: (1) in (b) the 15% partly-stated segment of the full-text row was unlabelled while the 16% segment of the title-only row was labelled (fit test missed by 0.002 in): relax the side margin from 0.02 to 0.015 in so every segment >= 15% is labelled and the 9% and 7% segments stay unlabelled; (2) the (b) legend read 'Stated, Not stated / Partly stated' (column-major fill): reorder so it reads Stated, Partly stated, Not stated. Earlier visualizer iterations (before this round) fixed overlapping x tick labels in (a), a (b) legend wider than its panel that squeezed every panel, '%' signs that did not fit inside segments, and the (c) legend covering the memory-only row.",
+    "changed": true
+  },
+  {
+    "round": 2,
+    "critic_suggestions": "Values unchanged and correct (re-checked against log Sec. 6.2 and 2.10a); '15' now labelled, 9% and 7% segments unlabelled (too narrow; counts go in the caption). Full-resolution crops: (1) in (c) the tick label 'Recall, then verify' touches its hollow marker at 2.1% (markers are drawn unclipped left of x = 0 and the tick pad was 1.5 pt): raise the y tick pad of (c) to 6 pt; (2) in (a) the gap between 'Abstract' and 'Abstract +' is about 3 pt: tighten the x padding (xlim -0.45..2.45 -> -0.41..2.41) to widen the bar spacing slightly. Legend order in (b) now Stated, Partly stated, Not stated.",
+    "changed": true
+  }
+]

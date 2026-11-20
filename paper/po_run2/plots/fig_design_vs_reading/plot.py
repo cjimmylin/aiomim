@@ -45,7 +45,7 @@ XTICKS = [[-5, 0, 5], [-10, -5, 0, 5], [-5, 0, 5], [-5, 0, 5]]
 # ---- layout in inches (measured from the top of the figure) ----
 W = 5.5
 LEFT = 1.20            # panels start here (row labels to the left)
-RIGHT = 5.46
+RIGHT = 5.44           # keeps the tight-cropped output <= 5.5 in, so 7 pt prints at 7 pt
 GAP = 0.18             # between facet panels (room for edge tick labels of neighbouring panels)
 PITCH = 0.205          # row pitch
 SPAN = [hi - lo for lo, hi in XLIMS]

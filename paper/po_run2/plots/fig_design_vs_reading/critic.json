@@ -8,5 +8,10 @@
     "round": 2,
     "critic_suggestions": "Content unchanged and still matching the log (script re-check). Presentation: with one -15 to +9.5 range in all four facets, 1 point is about 1 mm at print width and the short intervals (agentic curator all facts -1.3 to +0.0; completeness pass not stated -1.3 to +0.7) are barely wider than their markers, because one interval (case table first, stated full-text, -14.3) sets the range for every panel. Keep one common scale (same inches per point in every panel) but let each facet span only what its data need: all facts -5.5 to +6, stated full-text -15 to +9.5, stated abstract-only and not stated -5.5 to +5.5; panel widths proportional to span (about 1.7x the resolution). After that change, the '+5' and '-5' tick labels at the abstract-only / not-stated boundary nearly touch and the abstract-only header crowds 'Not stated': widen the gap between facet panels from 0.11 in to 0.18 in.",
     "changed": true
+  },
+  {
+    "round": 3,
+    "critic_suggestions": "Content re-verified against the log (0 mismatches); no caption text, title or n-list in the image; each block names its baseline in its x label and its n in its header or row labels; no equivalence or noise band. Tick labels and facet headers no longer collide. Caption note: memory only and recall, then verify are off scale only on all facts and the two stated facets (-34.0 to -77.6); on 'Not stated' they would be on scale (memory only +1.3, -1.4 to +4.6; recall, then verify -4.8, -6.7 to -3.0, Sec. 2.10a), so the caption must say that rather than 'off scale' throughout. Presentation: the tight-cropped PNG is 5.503 in wide, a hair over the 5.5 in text width (7 pt would print at 6.996 pt); move the right panel edge in by 0.02 in. No other change needed.",
+    "changed": true
   }
 ]
