@@ -137,8 +137,9 @@ planted items per class show directions and large effects only. Say so once wher
   grown with unrelated full-text papers to about 500,000 and about 1,200,000 characters (three prompts and a merge for
   direct reading). No strategy lost more than about a point; direct reading across several prompts lost nothing. Say
   that the added papers were off-topic and were ignored (no draft cited one; the agent opened few or none), so this
-  tests input size, not crowding by relevant papers. Direct reading's rise is within run-to-run noise: do not call it
-  a gain. The per-paper strategies lost added papers to stopped extraction calls; the reported table allows those
+  tests input size, not crowding by relevant papers. Report direct reading's rise at both sizes with its intervals (it
+  excludes zero at the first size); do not call it a gain, because the unpadded drafts are an earlier generation with
+  no replicate, so the change mixes input size with run-to-run variation. The per-paper strategies lost added papers to stopped extraction calls; the reported table allows those
   losses, and under the symmetric completion rule only 2 entries remain. Do not claim that larger inputs do not matter
   in general.
 - **Large real entries (log 14.1).** On four new entries with 76–148 references and much readable text, the model's

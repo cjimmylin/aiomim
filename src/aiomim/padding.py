@@ -961,9 +961,10 @@ NOTES = [
     "frozen lists, credited to paragraphs citing the paper (eval_gold_text_frozen, as rescore).",
     "Completion follows compare.py: a per-paper extraction failure makes a draft incomplete. Every such failure here "
     "was a safety-filter stop on an added (off-topic) paper, so a secondary analysis allows failures on added papers.",
-    "P1/P2 drafts are fresh generations; P0 drafts were generated earlier. Run-to-run variation of single-entry "
-    "coverage is about 4 points (within-entry SD, results/replicate30), so changes of a few points over 6 entries "
-    "are within noise.",
+    "P1/P2 drafts are fresh generations; P0 drafts were generated earlier. A change from P0 therefore mixes input "
+    "size with run-to-run variation (within-entry SD of single-entry coverage in results/replicate30: 2.5 points for "
+    "direct reading, 4.0 for the evidence graph); there is no P0 replicate, so a rise of a few points over 6 entries "
+    "is not read as a gain.",
     "Wall-clock is per task with at most 4 model calls in flight across all tasks, so it includes waiting for a slot.",
 ]
 

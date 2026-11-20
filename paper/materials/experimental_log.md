@@ -1527,7 +1527,7 @@ New model calls in all (these entries): 683.
 - P0: the runs/omim100 drafts before repair, rebuilt from the model cache with a cache-only backend (0 misses for every draft; the cached audit and repair replayed on the rebuild reproduce the stored final drafts exactly). Scoring P0 needed new judge calls only where the cited draft text differs from the scored final draft.
 - No audit and no repair at any level. Coverage = (present + 0.5 partial) / judged facts of the entry's own frozen lists, credited to paragraphs citing the paper (eval_gold_text_frozen, as rescore).
 - Completion follows compare.py: a per-paper extraction failure makes a draft incomplete. Every such failure here was a safety-filter stop on an added (off-topic) paper, so a secondary analysis allows failures on added papers.
-- P1/P2 drafts are fresh generations; P0 drafts were generated earlier. Run-to-run variation of single-entry coverage is about 4 points (within-entry SD, results/replicate30), so changes of a few points over 6 entries are within noise.
+- P1/P2 drafts are fresh generations; P0 drafts were generated earlier. A change from P0 therefore mixes input size with run-to-run variation (within-entry SD of single-entry coverage in results/replicate30: 2.5 points for direct reading, 4.0 for the evidence graph); there is no P0 replicate, so a rise of a few points over 6 entries is not read as a gain.
 - Wall-clock is per task with at most 4 model calls in flight across all tasks, so it includes waiting for a slot.
 
 ### 14.3 Published systems as released (B)
