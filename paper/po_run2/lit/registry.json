@@ -1,0 +1,1859 @@
+{
+  "acomprehensiveandquantitativecomparisonoftextminingin15millionfulltextarticlesversustheircorrespondingabstracts": {
+    "citation_key": "Westergaard2018ComprehensiveQuantitative",
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [
+      "David Westergaard",
+      "Hans-Henrik Stærfeldt",
+      "Christian Tønsberg",
+      "Lars Juhl Jensen",
+      "Søren Brunak"
+    ],
+    "venue": "PLOS Computational Biology",
+    "year": 2018,
+    "abstract": "[Summary from web search, not the published abstract] Compares text mining on about 15 million full-text articles with their abstracts and finds full text consistently yields more results.",
+    "citation_count": 149,
+    "sections": [],
+    "reason": "Full text vs abstract for text mining.",
+    "journal": "PLOS Computational Biology",
+    "volume": "14",
+    "pages": "e1005962",
+    "publication_date": "2018-02-15",
+    "external_ids": {
+      "DOI": "10.1371/journal.pcbi.1005962"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "thestructuralandcontentaspectsofabstractsversusbodiesoffulltextjournalarticlesaredifferent": {
+    "citation_key": "Cohen2010StructuralContent",
+    "title": "The structural and content aspects of abstracts versus bodies of full text journal articles are different",
+    "authors": [
+      "K Bretonnel Cohen",
+      "Helen L Johnson",
+      "Karin Verspoor",
+      "Christophe Roeder",
+      "Lawrence E Hunter"
+    ],
+    "venue": "BMC Bioinformatics",
+    "year": 2010,
+    "abstract": "[Summary from web search, not the published abstract] Shows abstracts and article bodies differ structurally and in content, affecting text-mining performance.",
+    "citation_count": 108,
+    "sections": [],
+    "reason": "Abstract-only vs full-text consequences.",
+    "journal": "BMC Bioinformatics",
+    "volume": "11",
+    "pages": null,
+    "publication_date": "2010-09-29",
+    "external_ids": {
+      "DOI": "10.1186/1471-2105-11-492"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "pubtatorcentralautomatedconceptannotationforbiomedicalfulltextarticles": {
+    "citation_key": "Wei2019PubtatorCentral",
+    "title": "PubTator central: automated concept annotation for biomedical full text articles",
+    "authors": [
+      "Chih-Hsuan Wei",
+      "Alexis Allot",
+      "Robert Leaman",
+      "Zhiyong Lu"
+    ],
+    "venue": "Nucleic Acids Research",
+    "year": 2019,
+    "abstract": "PubTator Central (https://www.ncbi.nlm.nih.gov/research/pubtator/) is a web service for viewing and retrieving bioconcept annotations in full text biomedical articles. PubTator Central (PTC) provides automated annotations from state-of-the-art text mining systems for genes/proteins, genetic variants, diseases, chemicals, species and cell lines, all available for immediate download. PTC annotates PubMed (29 million abstracts) and the PMC Text Mining subset (3 million full text articles). The new PTC web interface allows users to build full text document collections and visualize concept annotations in each document. Annotations are downloadable in multiple formats (XML, JSON and tab delimited) via the online interface, a RESTful web service and bulk FTP. Improved concept identification systems and a new disambiguation module based on deep learning increase annotation accuracy, and the new server-side architecture is significantly faster. PTC is synchronized with PubMed and PubMed Central, with new articles added daily. The original PubTator service has served annotated abstracts for ∼300 million requests, enabling third-party research in use cases such as biocuration support, gene prioritization, genetic disease analysis, and literature-based knowledge discovery. We demonstrate the full text results in PTC significantly increase biomedical concept coverage and anticipate this expansion will both enhance existing downstream applications and enable new use cases.",
+    "citation_count": 362,
+    "sections": [],
+    "reason": "Open-access full-text resource for text mining.",
+    "journal": "Nucleic Acids Research",
+    "volume": "47",
+    "pages": "W587-W593",
+    "publication_date": "2019-05-22",
+    "external_ids": {
+      "DOI": "10.1093/nar/gkz389"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "identifyingandextractingrarediseasesandtheirphenotypeswithlargelanguagemodels": {
+    "citation_key": "Shyr2024IdentifyingExtracting",
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [
+      "Cathy Shyr",
+      "Yan Hu",
+      "Lisa Bastarache",
+      "Alex Cheng",
+      "Rizwan Hamid",
+      "Paul Harris",
+      "Hua Xu"
+    ],
+    "venue": "Journal of Healthcare Informatics Research",
+    "year": 2024,
+    "abstract": "Phenotyping is critical for informing rare disease diagnosis and treatment, but disease phenotypes are often embedded in unstructured text. While natural language processing (NLP) can automate extraction, a major bottleneck is developing annotated corpora. Recently, prompt learning with large language models (LLMs) has been shown to lead to generalizable results without any (zero-shot) or few annotated samples (few-shot), but none have explored this for rare diseases. Our work is the first to study prompt learning for identifying and extracting rare disease phenotypes in the zero- and few-shot settings. We compared the performance of prompt learning with ChatGPT and fine-tuning with BioClinicalBERT. We engineered novel prompts for ChatGPT to identify and extract rare diseases and their phenotypes (e.g., diseases, symptoms, and signs), established a benchmark for evaluating its performance, and conducted an in-depth error analysis. Overall, fine-tuning BioClinicalBERT resulted in higher performance (F1 of 0.689) than ChatGPT (F1 of 0.472 and 0.610 in the zero- and few-shot settings, respectively). However, ChatGPT achieved higher accuracy for rare diseases and signs in the one-shot setting (F1 of 0.778 and 0.725). Conversational, sentence-based prompts generally achieved higher accuracy than structured lists. Prompt learning using ChatGPT has the potential to match or outperform fine-tuning BioClinicalBERT at extracting rare diseases and signs with just one annotated sample. G... [Truncated]",
+    "citation_count": 63,
+    "sections": [],
+    "reason": "Phenotype extraction.",
+    "journal": "Journal of Healthcare Informatics Research",
+    "volume": "8",
+    "pages": "438-461",
+    "publication_date": "2024-01-05",
+    "external_ids": {
+      "DOI": "10.1007/s41666-023-00155-0"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "geneagentselfverificationlanguageagentforgenesetknowledgediscoveryusingdomaindatabases": {
+    "citation_key": "Wang2024GeneagentSelfverification",
+    "title": "GeneAgent: Self-verification Language Agent for Gene Set Knowledge Discovery using Domain Databases",
+    "authors": [
+      "Zhizheng Wang",
+      "Qiao Jin",
+      "Chih-Hsuan Wei",
+      "Shubo Tian",
+      "Po-Ting Lai",
+      "Qingqing Zhu",
+      "Chi-Ping Day",
+      "Christina Ross",
+      "Zhiyong Lu"
+    ],
+    "venue": "arXiv preprint arXiv:2405.16205",
+    "year": 2024,
+    "abstract": "Gene set knowledge discovery is essential for advancing human functional genomics. Recent studies have shown promising performance by harnessing the power of Large Language Models (LLMs) on this task. Nonetheless, their results are subject to several limitations common in LLMs such as hallucinations. In response, we present GeneAgent, a first-of-its-kind language agent featuring self-verification capability. It autonomously interacts with various biological databases and leverages relevant domain knowledge to improve accuracy and reduce hallucination occurrences. Benchmarking on 1,106 gene sets from different sources, GeneAgent consistently outperforms standard GPT-4 by a significant margin. Moreover, a detailed manual review confirms the effectiveness of the self-verification module in minimizing hallucinations and generating more reliable analytical narratives. To demonstrate its practical utility, we apply GeneAgent to seven novel gene sets derived from mouse B2905 melanoma cell lines, with expert evaluations showing that GeneAgent offers novel insights into gene functions and subsequently expedites knowledge discovery.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Self-verification against domain databases.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-05-25",
+    "external_ids": {
+      "ArXiv": "2405.16205"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "selfcheckgptzeroresourceblackboxhallucinationdetectionforgenerativelargelanguagemodels": {
+    "citation_key": "Manakul2023SelfcheckgptZeroresource",
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [
+      "Potsawee Manakul",
+      "Adian Liusie",
+      "Mark J. F. Gales"
+    ],
+    "venue": "arXiv preprint arXiv:2303.08896",
+    "year": 2023,
+    "abstract": "Generative Large Language Models (LLMs) such as GPT-3 are capable of generating highly fluent responses to a wide variety of user prompts. However, LLMs are known to hallucinate facts and make non-factual statements which can undermine trust in their output. Existing fact-checking approaches either require access to the output probability distribution (which may not be available for systems such as ChatGPT) or external databases that are interfaced via separate, often complex, modules. In this work, we propose \"SelfCheckGPT\", a simple sampling-based approach that can be used to fact-check the responses of black-box models in a zero-resource fashion, i.e. without an external database. SelfCheckGPT leverages the simple idea that if an LLM has knowledge of a given concept, sampled responses are likely to be similar and contain consistent facts. However, for hallucinated facts, stochastically sampled responses are likely to diverge and contradict one another. We investigate this approach by using GPT-3 to generate passages about individuals from the WikiBio dataset, and manually annotate the factuality of the generated passages. We demonstrate that SelfCheckGPT can: i) detect non-factual and factual sentences; and ii) rank passages in terms of factuality. We compare our approach to several baselines and show that our approach has considerably higher AUC-PR scores in sentence-level hallucination detection and higher correlation scores in passage-level factuality assessment compare... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Consistency-based verification of generations.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-03-15",
+    "external_ids": {
+      "ArXiv": "2303.08896"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "datacontaminationthroughthelensoftime": {
+    "citation_key": "Roberts2023DataContamination",
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [
+      "Manley Roberts",
+      "Himanshu Thakur",
+      "Christine Herlihy",
+      "Colin White",
+      "Samuel Dooley"
+    ],
+    "venue": "arXiv preprint arXiv:2310.10628",
+    "year": 2023,
+    "abstract": "Recent claims about the impressive abilities of large language models (LLMs) are often supported by evaluating publicly available benchmarks. Since LLMs train on wide swaths of the internet, this practice raises concerns of data contamination, i.e., evaluating on examples that are explicitly or implicitly included in the training data. Data contamination remains notoriously challenging to measure and mitigate, even with partial attempts like controlled experimentation of training data, canary strings, or embedding similarities. In this work, we conduct the first thorough longitudinal analysis of data contamination in LLMs by using the natural experiment of training cutoffs in GPT models to look at benchmarks released over time. Specifically, we consider two code/mathematical problem-solving datasets, Codeforces and Project Euler, and find statistically significant trends among LLM pass rate vs. GitHub popularity and release date that provide strong evidence of contamination. By open-sourcing our dataset, raw results, and evaluation framework, our work paves the way for rigorous analyses of data contamination in modern models. We conclude with a discussion of best practices and future steps for publicly releasing benchmarks in the age of LLMs that train on webscale data.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Time-based contamination analysis.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-16",
+    "external_ids": {
+      "ArXiv": "2310.10628"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "asurveyondatacontaminationforlargelanguagemodels": {
+    "citation_key": "Cheng2025SurveyData",
+    "title": "A Survey on Data Contamination for Large Language Models",
+    "authors": [
+      "Yuxing Cheng",
+      "Yi Chang",
+      "Yuan Wu"
+    ],
+    "venue": "arXiv preprint arXiv:2502.14425",
+    "year": 2025,
+    "abstract": "Recent advancements in Large Language Models (LLMs) have demonstrated significant progress in various areas, such as text generation and code synthesis. However, the reliability of performance evaluation has come under scrutiny due to data contamination-the unintended overlap between training and test datasets. This overlap has the potential to artificially inflate model performance, as LLMs are typically trained on extensive datasets scraped from publicly available sources. These datasets often inadvertently overlap with the benchmarks used for evaluation, leading to an overestimation of the models' true generalization capabilities. In this paper, we first examine the definition and impacts of data contamination. Secondly, we review methods for contamination-free evaluation, focusing on three strategies: data updating-based methods, data rewriting-based methods, and prevention-based methods. Specifically, we highlight dynamic benchmarks and LLM-driven evaluation methods. Finally, we categorize contamination detecting methods based on model information dependency: white-Box, gray-Box, and black-Box detection approaches. Our survey highlights the requirements for more rigorous evaluation protocols and proposes future directions for addressing data contamination challenges.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Survey.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-02-20",
+    "external_ids": {
+      "ArXiv": "2502.14425"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "evaluationdatacontaminationinllmshowdowemeasureitandwhendoesitmatter": {
+    "citation_key": "Singh2024EvaluationData",
+    "title": "Evaluation data contamination in LLMs: how do we measure it and (when) does it matter?",
+    "authors": [
+      "Aaditya K. Singh",
+      "Muhammed Yusuf Kocyigit",
+      "Andrew Poulton",
+      "David Esiobu",
+      "Maria Lomeli",
+      "Gergely Szilvasy",
+      "Dieuwke Hupkes"
+    ],
+    "venue": "arXiv preprint arXiv:2411.03923",
+    "year": 2024,
+    "abstract": "Hampering the interpretation of benchmark scores, evaluation data contamination has become a growing concern in the evaluation of LLMs, and an active area of research studies its effects. While evaluation data contamination is easily understood intuitively, it is surprisingly difficult to define precisely which samples should be considered contaminated and, consequently, how it impacts benchmark scores. We propose that these questions should be addressed together and that contamination metrics can be assessed based on whether models benefit from the examples they mark contaminated. We propose a novel analysis method called ConTAM, and show with a large scale survey of existing and novel n-gram based contamination metrics across 13 benchmarks and 7 models from 2 different families that ConTAM can be used to better understand evaluation data contamination and its effects. We find that contamination may have a much larger effect than reported in recent LLM releases and benefits models differently at different scales. We also find that considering only the longest contaminated substring provides a better signal than considering a union of all contaminated substrings, and that doing model and benchmark specific threshold analysis greatly increases the specificity of the results. Lastly, we investigate the impact of hyperparameter choices, finding that, among other things, both using larger values of n and disregarding matches that are infrequent in the pre-training data lead to ma... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Measuring contamination effect.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-11-06",
+    "external_ids": {
+      "ArXiv": "2411.03923"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "recentadvancesinlargelangaugemodelbenchmarksagainstdatacontaminationfromstatictodynamicevaluation": {
+    "citation_key": "Chen2025RecentAdvances",
+    "title": "Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation",
+    "authors": [
+      "Simin Chen",
+      "Yiming Chen",
+      "Zexin Li",
+      "Yifan Jiang",
+      "Zhongwei Wan",
+      "Yixin He",
+      "Dezhi Ran",
+      "Tianle Gu",
+      "Haizhou Li",
+      "Tao Xie",
+      "Baishakhi Ray"
+    ],
+    "venue": "arXiv preprint arXiv:2502.17521",
+    "year": 2025,
+    "abstract": "Data contamination has received increasing attention in the era of large language models (LLMs) due to their reliance on vast Internet-derived training corpora. To mitigate the risk of potential data contamination, LLM benchmarking has undergone a transformation from static to dynamic benchmarking. In this work, we conduct an in-depth analysis of existing static to dynamic benchmarking methods aimed at reducing data contamination risks. We first examine methods that enhance static benchmarks and identify their inherent limitations. We then highlight a critical gap-the lack of standardized criteria for evaluating dynamic benchmarks. Based on this observation, we propose a series of optimal design principles for dynamic benchmarking and analyze the limitations of existing dynamic benchmarks. This survey provides a concise yet comprehensive overview of recent advancements in data contamination research, offering valuable insights and a clear guide for future research efforts. We maintain a GitHub repository to continuously collect both static and dynamic benchmarking methods for LLMs. The repository can be found at this link.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Contamination and dynamic benchmarks.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-02-23",
+    "external_ids": {
+      "ArXiv": "2502.17521"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "datacontaminationquizatooltodetectandestimatecontaminationinlargelanguagemodels": {
+    "citation_key": "Golchin2025DataContamination",
+    "title": "Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models",
+    "authors": [
+      "Shahriar Golchin",
+      "Mihai Surdeanu"
+    ],
+    "venue": "Transactions of the Association for Computational Linguistics",
+    "year": 2025,
+    "abstract": "We propose the Data Contamination Quiz (DCQ), a simple and effective approach to detect data contamination in large language models (LLMs) and estimate the amount of it. Specifically, we frame data contamination detection as a series of multiple-choice questions, devising a quiz format wherein three perturbed versions of each instance, subsampled from a specific dataset partition, are created. These changes only include word-level perturbations. The generated perturbations, along with the original dataset instance, form the options in the DCQ, with an extra option accommodating the selection of none of the provided options. Given that the only distinguishing signal among the options is the exact wording with respect to the original dataset instance, an LLM, when tasked with identifying the original dataset instance, gravitates towards selecting the original one if it has been exposed to it. While accounting for positional biases in LLMs, the quiz performance reveals the contamination level for the tested model with the dataset partition to which the quiz pertains. Applied to various datasets and LLMs, under controlled and uncontrolled contamination, our findings—while fully lacking access to training data and model parameters—suggest that DCQ achieves state-of-the-art results and uncovers greater contamination levels through memorization compared to existing methods. Also, it proficiently bypasses more safety filters, especially those set to avoid generating copyrighted conte... [Truncated]",
+    "citation_count": 13,
+    "sections": [],
+    "reason": "Follow-up contamination detection by the same authors.",
+    "journal": "Transactions of the Association for Computational Linguistics",
+    "volume": "13",
+    "pages": "809-830",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1162/tacl.a.20"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "automaticpromptoptimizationwithgradientdescentandbeamsearch": {
+    "citation_key": "Pryzant2023AutomaticPrompt",
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [
+      "Reid Pryzant",
+      "Dan Iter",
+      "Jerry Li",
+      "Yin Tat Lee",
+      "Chenguang Zhu",
+      "Michael Zeng"
+    ],
+    "venue": "arXiv preprint arXiv:2305.03495",
+    "year": 2023,
+    "abstract": "Large Language Models (LLMs) have shown impressive performance as general purpose agents, but their abilities remain highly dependent on prompts which are hand written with onerous trial-and-error effort. We propose a simple and nonparametric solution to this problem, Automatic Prompt Optimization (APO), which is inspired by numerical gradient descent to automatically improve prompts, assuming access to training data and an LLM API. The algorithm uses minibatches of data to form natural language \"gradients\" that criticize the current prompt. The gradients are then \"propagated\" into the prompt by editing the prompt in the opposite semantic direction of the gradient. These gradient descent steps are guided by a beam search and bandit selection procedure which significantly improves algorithmic efficiency. Preliminary results across three benchmark NLP tasks and the novel problem of LLM jailbreak detection suggest that Automatic Prompt Optimization can outperform prior prompt editing techniques and improve an initial prompt's performance by up to 31%, by using data to rewrite vague task descriptions into more precise annotation instructions.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Textual-gradient prompt optimisation.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-05-04",
+    "external_ids": {
+      "ArXiv": "2305.03495"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "optimizinginstructionsanddemonstrationsformultistagelanguagemodelprograms": {
+    "citation_key": "Opsahlong2024OptimizingInstructions",
+    "title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    "authors": [
+      "Krista Opsahl-Ong",
+      "Michael J Ryan",
+      "Josh Purtell",
+      "David Broman",
+      "Christopher Potts",
+      "Matei Zaharia",
+      "Omar Khattab"
+    ],
+    "venue": "arXiv preprint arXiv:2406.11695",
+    "year": 2024,
+    "abstract": "Language Model Programs, i.e. sophisticated pipelines of modular language model (LM) calls, are increasingly advancing NLP tasks, but they require crafting prompts that are jointly effective for all modules. We study prompt optimization for LM programs, i.e. how to update these prompts to maximize a downstream metric without access to module-level labels or gradients. To make this tractable, we factorize our problem into optimizing the free-form instructions and few-shot demonstrations of every module and introduce several strategies to craft task-grounded instructions and navigate credit assignment across modules. Our strategies include (i) program- and data-aware techniques for proposing effective instructions, (ii) a stochastic mini-batch evaluation function for learning a surrogate model of our objective, and (iii) a meta-optimization procedure in which we refine how LMs construct proposals over time. Using these insights we develop MIPRO, a novel algorithm for optimizing LM programs. MIPRO outperforms baseline optimizers on five of seven diverse multi-stage LM programs using a best-in-class open-source model (Llama-3-8B), by as high as 13% accuracy. We have released our new optimizers and benchmark in DSPy at http://dspy.ai",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Prompt optimiser with search budget.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-17",
+    "external_ids": {
+      "ArXiv": "2406.11695"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelsarehumanlevelpromptengineers": {
+    "citation_key": "Zhou2022LargeLanguage",
+    "title": "Large Language Models Are Human-Level Prompt Engineers",
+    "authors": [
+      "Yongchao Zhou",
+      "Andrei Ioan Muresanu",
+      "Ziwen Han",
+      "Keiran Paster",
+      "Silviu Pitis",
+      "Harris Chan",
+      "Jimmy Ba"
+    ],
+    "venue": "arXiv preprint arXiv:2211.01910",
+    "year": 2022,
+    "abstract": "By conditioning on natural language instructions, large language models (LLMs) have displayed impressive capabilities as general-purpose computers. However, task performance depends significantly on the quality of the prompt used to steer the model, and most effective prompts have been handcrafted by humans. Inspired by classical program synthesis and the human approach to prompt engineering, we propose Automatic Prompt Engineer (APE) for automatic instruction generation and selection. In our method, we treat the instruction as the \"program,\" optimized by searching over a pool of instruction candidates proposed by an LLM in order to maximize a chosen score function. To evaluate the quality of the selected instruction, we evaluate the zero-shot performance of another LLM following the selected instruction. Experiments on 24 NLP tasks show that our automatically generated instructions outperform the prior LLM baseline by a large margin and achieve better or comparable performance to the instructions generated by human annotators on 19/24 tasks. We conduct extensive qualitative and quantitative analyses to explore the performance of APE. We show that APE-engineered prompts can be applied to steer models toward truthfulness and/or informativeness, as well as to improve few-shot learning performance by simply prepending them to standard in-context learning prompts. Please check out our webpage at https://sites.google.com/view/automatic-prompt-engineer.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Instruction induction/search.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2022-11-03",
+    "external_ids": {
+      "ArXiv": "2211.01910"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelsasoptimizers": {
+    "citation_key": "Yang2023LargeLanguage",
+    "title": "Large Language Models as Optimizers",
+    "authors": [
+      "Chengrun Yang",
+      "Xuezhi Wang",
+      "Yifeng Lu",
+      "Hanxiao Liu",
+      "Quoc V. Le",
+      "Denny Zhou",
+      "Xinyun Chen"
+    ],
+    "venue": "arXiv preprint arXiv:2309.03409",
+    "year": 2023,
+    "abstract": "Optimization is ubiquitous. While derivative-based algorithms have been powerful tools for various problems, the absence of gradient imposes challenges on many real-world applications. In this work, we propose Optimization by PROmpting (OPRO), a simple and effective approach to leverage large language models (LLMs) as optimizers, where the optimization task is described in natural language. In each optimization step, the LLM generates new solutions from the prompt that contains previously generated solutions with their values, then the new solutions are evaluated and added to the prompt for the next optimization step. We first showcase OPRO on linear regression and traveling salesman problems, then move on to our main application in prompt optimization, where the goal is to find instructions that maximize the task accuracy. With a variety of LLMs, we demonstrate that the best prompts optimized by OPRO outperform human-designed prompts by up to 8% on GSM8K, and by up to 50% on Big-Bench Hard tasks. Code at https://github.com/google-deepmind/opro.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "LLM-driven prompt optimisation.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-09-07",
+    "external_ids": {
+      "ArXiv": "2309.03409"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "textgradautomaticdifferentiationviatext": {
+    "citation_key": "Yuksekgonul2024TextgradAutomatic",
+    "title": "TextGrad: Automatic \"Differentiation\" via Text",
+    "authors": [
+      "Mert Yuksekgonul",
+      "Federico Bianchi",
+      "Joseph Boen",
+      "Sheng Liu",
+      "Zhi Huang",
+      "Carlos Guestrin",
+      "James Zou"
+    ],
+    "venue": "arXiv preprint arXiv:2406.07496",
+    "year": 2024,
+    "abstract": "AI is undergoing a paradigm shift, with breakthroughs achieved by systems orchestrating multiple large language models (LLMs) and other complex components. As a result, developing principled and automated optimization methods for compound AI systems is one of the most important new challenges. Neural networks faced a similar challenge in its early days until backpropagation and automatic differentiation transformed the field by making optimization turn-key. Inspired by this, we introduce TextGrad, a powerful framework performing automatic ``differentiation'' via text. TextGrad backpropagates textual feedback provided by LLMs to improve individual components of a compound AI system. In our framework, LLMs provide rich, general, natural language suggestions to optimize variables in computation graphs, ranging from code snippets to molecular structures. TextGrad follows PyTorch's syntax and abstraction and is flexible and easy-to-use. It works out-of-the-box for a variety of tasks, where the users only provide the objective function without tuning components or prompts of the framework. We showcase TextGrad's effectiveness and generality across a diverse range of applications, from question answering and molecule optimization to radiotherapy treatment planning. Without modifying the framework, TextGrad improves the zero-shot accuracy of GPT-4o in Google-Proof Question Answering from $51\\%$ to $55\\%$, yields $20\\%$ relative performance gain in optimizing LeetCode-Hard coding prob... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Text feedback optimisation.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-11",
+    "external_ids": {
+      "ArXiv": "2406.07496"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "dspycompilingdeclarativelanguagemodelcallsintoselfimprovingpipelines": {
+    "citation_key": "Khattab2023DspyCompiling",
+    "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+    "authors": [
+      "Omar Khattab",
+      "Arnav Singhvi",
+      "Paridhi Maheshwari",
+      "Zhiyuan Zhang",
+      "Keshav Santhanam",
+      "Sri Vardhamanan",
+      "Saiful Haq",
+      "Ashutosh Sharma",
+      "Thomas T. Joshi",
+      "Hanna Moazam",
+      "Heather Miller",
+      "Matei Zaharia",
+      "Christopher Potts"
+    ],
+    "venue": "arXiv preprint arXiv:2310.03714",
+    "year": 2023,
+    "abstract": "The ML community is rapidly exploring techniques for prompting language models (LMs) and for stacking them into pipelines that solve complex tasks. Unfortunately, existing LM pipelines are typically implemented using hard-coded \"prompt templates\", i.e. lengthy strings discovered via trial and error. Toward a more systematic approach for developing and optimizing LM pipelines, we introduce DSPy, a programming model that abstracts LM pipelines as text transformation graphs, i.e. imperative computational graphs where LMs are invoked through declarative modules. DSPy modules are parameterized, meaning they can learn (by creating and collecting demonstrations) how to apply compositions of prompting, finetuning, augmentation, and reasoning techniques. We design a compiler that will optimize any DSPy pipeline to maximize a given metric. We conduct two case studies, showing that succinct DSPy programs can express and optimize sophisticated LM pipelines that reason about math word problems, tackle multi-hop retrieval, answer complex questions, and control agent loops. Within minutes of compiling, a few lines of DSPy allow GPT-3.5 and llama2-13b-chat to self-bootstrap pipelines that outperform standard few-shot prompting (generally by over 25% and 65%, respectively) and pipelines with expert-created demonstrations (by up to 5-46% and 16-40%, respectively). On top of that, DSPy programs compiled to open and relatively small LMs like 770M-parameter T5 and llama2-13b-chat are competitive ... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Framework for prompt optimisation.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-05",
+    "external_ids": {
+      "ArXiv": "2310.03714"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "reflexionlanguageagentswithverbalreinforcementlearning": {
+    "citation_key": "Shinn2023ReflexionLanguage",
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [
+      "Noah Shinn",
+      "Federico Cassano",
+      "Edward Berman",
+      "Ashwin Gopinath",
+      "Karthik Narasimhan",
+      "Shunyu Yao"
+    ],
+    "venue": "arXiv preprint arXiv:2303.11366",
+    "year": 2023,
+    "abstract": "Large language models (LLMs) have been increasingly used to interact with external environments (e.g., games, compilers, APIs) as goal-driven agents. However, it remains challenging for these language agents to quickly and efficiently learn from trial-and-error as traditional reinforcement learning methods require extensive training samples and expensive model fine-tuning. We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback. Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials. Reflexion is flexible enough to incorporate various types (scalar values or free-form language) and sources (external or internally simulated) of feedback signals, and obtains significant improvements over a baseline agent across diverse tasks (sequential decision-making, coding, language reasoning). For example, Reflexion achieves a 91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%. We also conduct ablation and analysis studies using different feedback signals, feedback incorporation methods, and agent types, and provide insights into how they affect performance.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Verbal feedback learning.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-03-20",
+    "external_ids": {
+      "ArXiv": "2303.11366"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "bootstrapmethodsanotherlookatthejackknife": {
+    "citation_key": "Efron1979BootstrapMethods",
+    "title": "Bootstrap Methods: Another Look at the Jackknife",
+    "authors": [
+      "B. Efron"
+    ],
+    "venue": "The Annals of Statistics",
+    "year": 1979,
+    "abstract": "We discuss the following problem: given a random sample $\\mathbf{X} = (X_1, X_2, \\cdots, X_n)$ from an unknown probability distribution $F$, estimate the sampling distribution of some prespecified random variable $R(\\mathbf{X}, F)$, on the basis of the observed data $\\mathbf{x}$. (Standard jackknife theory gives an approximate mean and variance in the case $R(\\mathbf{X}, F) = \\theta(\\hat{F}) - \\theta(F), \\theta$ some parameter of interest.) A general method, called the \"bootstrap,\" is introduced, and shown to work satisfactorily on a variety of estimation problems. The jackknife is shown to be a linear approximation method for the bootstrap. The exposition proceeds by a series of examples: variance of the sample median, error rates in a linear discriminant analysis, ratio estimation, estimating regression parameters, etc.",
+    "citation_count": 13374,
+    "sections": [],
+    "reason": "Primary bootstrap paper.",
+    "journal": "The Annals of Statistics",
+    "volume": "7",
+    "pages": "1-26",
+    "publication_date": "1979-01-01",
+    "external_ids": {
+      "DOI": "10.1214/aos/1176344552"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "acategorizationapproachtoautomatedontologicalfunctionannotation": {
+    "citation_key": "Verspoor2006CategorizationApproach",
+    "title": "A categorization approach to automated ontological function annotation",
+    "authors": [
+      "Karin Verspoor",
+      "Judith Cohn",
+      "Susan Mniszewski",
+      "Cliff Joslyn"
+    ],
+    "venue": "Protein Science",
+    "year": 2006,
+    "abstract": "Automated function prediction (AFP) methods increasingly use knowledge discovery algorithms to map sequence, structure, literature, and/or pathway information about proteins whose functions are unknown into functional ontologies, typically (a portion of) the Gene Ontology (GO). While there are a growing number of methods within this paradigm, the general problem of assessing the accuracy of such prediction algorithms has not been seriously addressed. We present first an application for function prediction from protein sequences using the POSet Ontology Categorizer (POSOC) to produce new annotations by analyzing collections of GO nodes derived from annotations of protein BLAST neighborhoods. We then also present hierarchical precision and hierarchical recall as new evaluation metrics for assessing the accuracy of any predictions in hierarchical ontologies, and discuss results on a test set of protein sequences. We show that our method provides substantially improved hierarchical precision (measure of predictions made that are correct) when applied to the nearest BLAST neighbors of target proteins, as compared with simply imputing that neighborhood's annotations to the target. Moreover, when our method is applied to a broader BLAST neighborhood, hierarchical precision is enhanced even further. In all cases, such increased hierarchical precision performance is purchased at a modest expense of hierarchical recall (measure of all annotations that get predicted at all).",
+    "citation_count": 51,
+    "sections": [],
+    "reason": "Origin of hierarchical precision/recall for ontology terms.",
+    "journal": "Protein Science",
+    "volume": "15",
+    "pages": "1544-1549",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1110/ps.062184006"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "veriscoreevaluatingthefactualityofverifiableclaimsinlongformtextgeneration": {
+    "citation_key": "Song2024VeriscoreEvaluating",
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [
+      "Yixiao Song",
+      "Yekyung Kim",
+      "Mohit Iyyer"
+    ],
+    "venue": "arXiv preprint arXiv:2406.19276",
+    "year": 2024,
+    "abstract": "Existing metrics for evaluating the factuality of long-form text, such as FACTSCORE (Min et al., 2023) and SAFE (Wei et al., 2024), decompose an input text into \"atomic claims\" and verify each against a knowledge base like Wikipedia. These metrics are not suitable for most generation tasks because they assume that every claim is verifiable (i.e., can plausibly be proven true or false). We address this issue with VERISCORE, a metric for diverse long-form generation tasks that contain both verifiable and unverifiable content. VERISCORE can be effectively implemented with either closed or fine-tuned open-weight language models, and human evaluation confirms that VERISCORE's extracted claims are more sensible than those from competing methods across eight different long-form tasks. We use VERISCORE to evaluate generations from 16 different models across multiple long-form tasks and find that while GPT-4o is the best-performing model overall, open-weight models such as Mixtral-8x22 are closing the gap. We show that an LM's VERISCORE on one task (e.g., biography generation) does not necessarily correlate to its VERISCORE on a different task (e.g., long-form QA), highlighting the need for expanding factuality evaluation across tasks with varying fact density.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Claim-level factuality metric for long-form text",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-27",
+    "external_ids": {
+      "ArXiv": "2406.19276"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "retrievalaugmentedgenerationforknowledgeintensivenlptasks": {
+    "citation_key": "Lewis2020RetrievalaugmentedGeneration",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [
+      "Patrick Lewis",
+      "Ethan Perez",
+      "Aleksandra Piktus",
+      "Fabio Petroni",
+      "Vladimir Karpukhin",
+      "Naman Goyal",
+      "Heinrich Küttler",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Tim Rocktäschel",
+      "Sebastian Riedel",
+      "Douwe Kiela"
+    ],
+    "venue": "arXiv preprint arXiv:2005.11401",
+    "year": 2020,
+    "abstract": "Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pre-trained models with a differentiable access mechanism to explicit non-parametric memory can overcome this issue, but have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) -- models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, the other can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledge-intensive NLP tasks and set the state-of-the-art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we f... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Foundational RAG",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2020-05-22",
+    "external_ids": {
+      "ArXiv": "2005.11401"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "measuringattributioninnaturallanguagegenerationmodels": {
+    "citation_key": "Rashkin2021MeasuringAttribution",
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [
+      "Hannah Rashkin",
+      "Vitaly Nikolaev",
+      "Matthew Lamm",
+      "Lora Aroyo",
+      "Michael Collins",
+      "Dipanjan Das",
+      "Slav Petrov",
+      "Gaurav Singh Tomar",
+      "Iulia Turc",
+      "David Reitter"
+    ],
+    "venue": "arXiv preprint arXiv:2112.12870",
+    "year": 2021,
+    "abstract": "With recent improvements in natural language generation (NLG) models for various applications, it has become imperative to have the means to identify and evaluate whether NLG output is only sharing verifiable information about the external world. In this work, we present a new evaluation framework entitled Attributable to Identified Sources (AIS) for assessing the output of natural language generation models, when such output pertains to the external world. We first define AIS and introduce a two-stage annotation pipeline for allowing annotators to appropriately evaluate model output according to AIS guidelines. We empirically validate this approach on generation datasets spanning three tasks (two conversational QA datasets, a summarization dataset, and a table-to-text dataset) via human evaluation studies that suggest that AIS could serve as a common framework for measuring whether model-generated statements are supported by underlying sources. We release guidelines for the human evaluation studies.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Attribution evaluation of generated text against sources",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2021-12-23",
+    "external_ids": {
+      "ArXiv": "2112.12870"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "evaluatingverifiabilityingenerativesearchengines": {
+    "citation_key": "Liu2023EvaluatingVerifiability",
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [
+      "Nelson F. Liu",
+      "Tianyi Zhang",
+      "Percy Liang"
+    ],
+    "venue": "arXiv preprint arXiv:2304.09848",
+    "year": 2023,
+    "abstract": "Generative search engines directly generate responses to user queries, along with in-line citations. A prerequisite trait of a trustworthy generative search engine is verifiability, i.e., systems should cite comprehensively (high citation recall; all statements are fully supported by citations) and accurately (high citation precision; every cite supports its associated statement). We conduct human evaluation to audit four popular generative search engines -- Bing Chat, NeevaAI, perplexity.ai, and YouChat -- across a diverse set of queries from a variety of sources (e.g., historical Google user queries, dynamically-collected open-ended questions on Reddit, etc.). We find that responses from existing generative search engines are fluent and appear informative, but frequently contain unsupported statements and inaccurate citations: on average, a mere 51.5% of generated sentences are fully supported by citations and only 74.5% of citations support their associated sentence. We believe that these results are concerningly low for systems that may serve as a primary tool for information-seeking users, especially given their facade of trustworthiness. We hope that our results further motivate the development of trustworthy generative search engines and help researchers and users better understand the shortcomings of existing commercial systems.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Audit of whether cited sources support generated claims",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-04-19",
+    "external_ids": {
+      "ArXiv": "2304.09848"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "webgptbrowserassistedquestionansweringwithhumanfeedback": {
+    "citation_key": "Nakano2021WebgptBrowserassisted",
+    "title": "WebGPT: Browser-assisted question-answering with human feedback",
+    "authors": [
+      "Reiichiro Nakano",
+      "Jacob Hilton",
+      "Suchir Balaji",
+      "Jeff Wu",
+      "Long Ouyang",
+      "Christina Kim",
+      "Christopher Hesse",
+      "Shantanu Jain",
+      "Vineet Kosaraju",
+      "William Saunders",
+      "Xu Jiang",
+      "Karl Cobbe",
+      "Tyna Eloundou",
+      "Gretchen Krueger",
+      "Kevin Button",
+      "Matthew Knight",
+      "Benjamin Chess",
+      "John Schulman"
+    ],
+    "venue": "arXiv preprint arXiv:2112.09332",
+    "year": 2021,
+    "abstract": "We fine-tune GPT-3 to answer long-form questions using a text-based web-browsing environment, which allows the model to search and navigate the web. By setting up the task so that it can be performed by humans, we are able to train models on the task using imitation learning, and then optimize answer quality with human feedback. To make human evaluation of factual accuracy easier, models must collect references while browsing in support of their answers. We train and evaluate our models on ELI5, a dataset of questions asked by Reddit users. Our best model is obtained by fine-tuning GPT-3 using behavior cloning, and then performing rejection sampling against a reward model trained to predict human preferences. This model's answers are preferred by humans 56% of the time to those of our human demonstrators, and 69% of the time to the highest-voted answer from Reddit.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Early cited long-form answer generation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2021-12-17",
+    "external_ids": {
+      "ArXiv": "2112.09332"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "selfraglearningtoretrievegenerateandcritiquethroughselfreflection": {
+    "citation_key": "Asai2023SelfragLearning",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [
+      "Akari Asai",
+      "Zeqiu Wu",
+      "Yizhong Wang",
+      "Avirup Sil",
+      "Hannaneh Hajishirzi"
+    ],
+    "venue": "arXiv preprint arXiv:2310.11511",
+    "year": 2023,
+    "abstract": "Despite their remarkable capabilities, large language models (LLMs) often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is necessary, or passages are relevant, diminishes LM versatility or can lead to unhelpful response generation. We introduce a new framework called Self-Reflective Retrieval-Augmented Generation (Self-RAG) that enhances an LM's quality and factuality through retrieval and self-reflection. Our framework trains a single arbitrary LM that adaptively retrieves passages on-demand, and generates and reflects on retrieved passages and its own generations using special tokens, called reflection tokens. Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. Experiments show that Self-RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, Self-RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form gener... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Retrieval-augmented generation with critique",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-17",
+    "external_ids": {
+      "ArXiv": "2310.11511"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "rarrresearchingandrevisingwhatlanguagemodelssayusinglanguagemodels": {
+    "citation_key": "Gao2022RarrResearching",
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [
+      "Luyu Gao",
+      "Zhuyun Dai",
+      "Panupong Pasupat",
+      "Anthony Chen",
+      "Arun Tejasvi Chaganty",
+      "Yicheng Fan",
+      "Vincent Y. Zhao",
+      "Ni Lao",
+      "Hongrae Lee",
+      "Da-Cheng Juan",
+      "Kelvin Guu"
+    ],
+    "venue": "arXiv preprint arXiv:2210.08726",
+    "year": 2022,
+    "abstract": "Language models (LMs) now excel at many tasks such as few-shot learning, question answering, reasoning, and dialog. However, they sometimes generate unsupported or misleading content. A user cannot easily determine whether their outputs are trustworthy or not, because most LMs do not have any built-in mechanism for attribution to external evidence. To enable attribution while still preserving all the powerful advantages of recent generation models, we propose RARR (Retrofit Attribution using Research and Revision), a system that 1) automatically finds attribution for the output of any text generation model and 2) post-edits the output to fix unsupported content while preserving the original output as much as possible. When applied to the output of several state-of-the-art LMs on a diverse set of generation tasks, we find that RARR significantly improves attribution while otherwise preserving the original input to a much greater degree than previously explored edit models. Furthermore, the implementation of RARR requires only a handful of training examples, a large language model, and standard web search.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Draft-then-verify with attribution",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2022-10-17",
+    "external_ids": {
+      "ArXiv": "2210.08726"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "reframingaiforrarediseaserecognition": {
+    "citation_key": "Wei2026ReframingAi",
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [
+      "Wei-Qi Wei",
+      "Chao Yan",
+      "Wu-Chen Su",
+      "Yi Xin",
+      "Monika Grabowska",
+      "Vern Kerchberger",
+      "Victor Borza",
+      "Jinlian Wang",
+      "Liwei Wang",
+      "Rui Li",
+      "Jacob Lynn",
+      "Alyson Dickson",
+      "Cathy Shyr",
+      "QiPing Feng",
+      "C Stein",
+      "Kai Wang",
+      "Peter Embí",
+      "Bradley Malin",
+      "Hongfang Liu"
+    ],
+    "venue": "Springer Science and Business Media LLC",
+    "year": 2026,
+    "abstract": "Abstract Rare diseases affect over 300 million people worldwide, yet patients often endure years-long diagnostic delays that limit timely intervention and trial opportunities. Computational rare disease recognition (RDR) remains constrained by knowledge resources that are often incomplete, heterogeneous, and dependent on extensive multi-disciplinary expert curation that cannot scale. Large language models (LLMs) applied directly for end-to-end diagnosis or disease discrimination face similar knowledge bottlenecks while also raising concerns around cost, reproducibility, and data governance. Here, we introduce GEN-KnowRD, a knowledge-layer-first framework that leverages LLMs to generate schema-guided rare disease profiles, systematically assesses their quality, and constructs a computable knowledge base (PheMAP-RD) for local deployment. GEN-KnowRD integrates this knowledge into lightweight inference pipelines for both general-purpose disease screening and specialized early discrimination from longitudinal electronic health records. In tests using six public benchmarks for general-purpose screening (9,290 patients spanning 798 rare diseases), GEN-KnowRD substantially improved disease ranking versus 1) a state-of-the-art, HPO-centered diagnostic framework (up to 345.8% improvement in top-1 success), 2) advanced end-to-end LLM reasoning (up to 129.1% improvement), and 3) a variant of GEN-KnowRD instantiated with expert-curated knowledge rather than LLM-generated profiles. In two ... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "GEN-KnowRD named in notes",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2026-04-02",
+    "external_ids": {
+      "DOI": "10.21203/rs.3.rs-9036259/v1"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "genewhispererenhancingmanualgenomeannotationwithlargelanguagemodels": {
+    "citation_key": "Li2025GenewhispererEnhancing",
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [
+      "Xiaomei Li",
+      "Alex Whan",
+      "Meredith McNeil",
+      "Samuel C. Andrew",
+      "Xiang Dai",
+      "Madeline Fechner",
+      "Cécile Paris",
+      "Rad Suchecki"
+    ],
+    "venue": "openRxiv",
+    "year": 2025,
+    "abstract": "Genome annotation is critical for understanding functional elements within genomes. Manual curation is a common practice for identifying the functions of genes, particularly those missed by automated annotation pipelines. However, this process is notoriously labour-intensive and time-consuming. In response to these challenges, we present GeneWhisperer, an innovative assistant system designed to facilitate the manual gene functional annotation process. Utilizing a large language model (LLM) agent, GeneWhisperer provides users access to tools appropriate for specific curation tasks in genome annotation. Featuring a conversational interface, GeneWhisperer fosters effective collaboration between human experts and AI. By synergizing the capabilities of AI with human expertise, GeneWhisperer offers a promising approach to advancing our understanding of gene functions and streamlining the gene annotation process.",
+    "citation_count": 2,
+    "sections": [],
+    "reason": "LLM-assisted genome annotation curation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-04-01",
+    "external_ids": {
+      "DOI": "10.1101/2025.03.30.646211"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "highthroughputphenotypingofclinicaltextusinglargelanguagemodels": {
+    "citation_key": "Hier2024HighthroughputPhenotyping",
+    "title": "High-Throughput Phenotyping of Clinical Text Using Large Language Models",
+    "authors": [
+      "Daniel B. Hier",
+      "S. Ilyas Munzir",
+      "Anne Stahlfeld",
+      "Tayo Obafemi-Ajayi",
+      "Michael D. Carrithers"
+    ],
+    "venue": "arXiv preprint arXiv:2408.01214",
+    "year": 2024,
+    "abstract": "High-throughput phenotyping automates the mapping of patient signs to standardized ontology concepts and is essential for precision medicine. This study evaluates the automation of phenotyping of clinical summaries from the Online Mendelian Inheritance in Man (OMIM) database using large language models. Due to their rich phenotype data, these summaries can be surrogates for physician notes. We conduct a performance comparison of GPT-4 and GPT-3.5-Turbo. Our results indicate that GPT-4 surpasses GPT-3.5-Turbo in identifying, categorizing, and normalizing signs, achieving concordance with manual annotators comparable to inter-rater agreement. Despite some limitations in sign normalization, the extensive pre-training of GPT-4 results in high performance and generalizability across several phenotyping tasks while obviating the need for manually annotated training data. Large language models are expected to be the dominant method for automating high-throughput phenotyping of clinical text.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "LLM phenotype extraction from OMIM clinical text",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-08-02",
+    "external_ids": {
+      "ArXiv": "2408.01214"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "genegptaugmentinglargelanguagemodelswithdomaintoolsforimprovedaccesstobiomedicalinformation": {
+    "citation_key": "Jin2023GenegptAugmenting",
+    "title": "GeneGPT: Augmenting Large Language Models with Domain Tools for Improved Access to Biomedical Information",
+    "authors": [
+      "Qiao Jin",
+      "Yifan Yang",
+      "Qingyu Chen",
+      "Zhiyong Lu"
+    ],
+    "venue": "arXiv preprint arXiv:2304.09667",
+    "year": 2023,
+    "abstract": "While large language models (LLMs) have been successfully applied to various tasks, they still face challenges with hallucinations. Augmenting LLMs with domain-specific tools such as database utilities can facilitate easier and more precise access to specialized knowledge. In this paper, we present GeneGPT, a novel method for teaching LLMs to use the Web APIs of the National Center for Biotechnology Information (NCBI) for answering genomics questions. Specifically, we prompt Codex to solve the GeneTuring tests with NCBI Web APIs by in-context learning and an augmented decoding algorithm that can detect and execute API calls. Experimental results show that GeneGPT achieves state-of-the-art performance on eight tasks in the GeneTuring benchmark with an average score of 0.83, largely surpassing retrieval-augmented LLMs such as the new Bing (0.44), biomedical LLMs such as BioMedLM (0.08) and BioGPT (0.04), as well as GPT-3 (0.16) and ChatGPT (0.12). Our further analyses suggest that: (1) API demonstrations have good cross-task generalizability and are more useful than documentations for in-context learning; (2) GeneGPT can generalize to longer chains of API calls and answer multi-hop questions in GeneHop, a novel dataset introduced in this work; (3) Different types of errors are enriched in different tasks, providing valuable insights for future improvements.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "LLMs using NCBI tools",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-04-19",
+    "external_ids": {
+      "ArXiv": "2304.09667"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "longcontextvsragforllmsanevaluationandrevisits": {
+    "citation_key": "Li2024LongContext",
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [
+      "Xinze Li",
+      "Yixin Cao",
+      "Yubo Ma",
+      "Aixin Sun"
+    ],
+    "venue": "arXiv preprint arXiv:2501.01880",
+    "year": 2024,
+    "abstract": "Extending context windows (i.e., Long Context, LC) and using retrievers to selectively access relevant information (i.e., Retrieval-Augmented Generation, RAG) are the two main strategies to enable LLMs to incorporate extremely long external contexts. This paper revisits recent studies on this topic, highlighting their key insights and discrepancies. We then provide a more comprehensive evaluation by filtering out questions answerable without external context, identifying the most effective retrieval methods, and expanding the datasets. We show that LC generally outperforms RAG in question-answering benchmarks, especially for Wikipedia-based questions. Summarization-based retrieval performs comparably to LC, while chunk-based retrieval lags behind. However, RAG has advantages in dialogue-based and general question queries. These insights underscore the trade-offs between RAG and LC strategies, offering guidance for future optimization of LLMs with external knowledge sources. We also provide an in-depth discussion on this topic, highlighting the overlooked importance of context relevance in existing studies.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "RAG vs long-context comparison",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-12-27",
+    "external_ids": {
+      "ArXiv": "2501.01880"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "larabenchmarkingretrievalaugmentedgenerationandlongcontextllmsnosilverbulletforlcorragrouting": {
+    "citation_key": "Li2025LaraBenchmarking",
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [
+      "Kuan Li",
+      "Liwen Zhang",
+      "Yong Jiang",
+      "Pengjun Xie",
+      "Fei Huang",
+      "Shuai Wang",
+      "Minhao Cheng"
+    ],
+    "venue": "arXiv preprint arXiv:2502.09977",
+    "year": 2025,
+    "abstract": "Effectively incorporating external knowledge into Large Language Models (LLMs) is crucial for enhancing their capabilities and addressing real-world needs. Retrieval-Augmented Generation (RAG) offers an effective method for achieving this by retrieving the most relevant fragments into LLMs. However, the advancements in context window size for LLMs offer an alternative approach, raising the question of whether RAG remains necessary for effectively handling external knowledge. Several existing studies provide inconclusive comparisons between RAG and long-context (LC) LLMs, largely due to limitations in the benchmark designs. In this paper, we present LaRA, a novel benchmark specifically designed to rigorously compare RAG and LC LLMs. LaRA encompasses 2326 test cases across four practical QA task categories and three types of naturally occurring long texts. Through systematic evaluation of seven open-source and four proprietary LLMs, we find that the optimal choice between RAG and LC depends on a complex interplay of factors, including the model's parameter size, long-text capabilities, context length, task type, and the characteristics of the retrieved chunks. Our findings provide actionable guidelines for practitioners to effectively leverage both RAG and LC approaches in developing and deploying LLM applications. Our code and dataset is provided at: \\href{https://github.com/Alibaba-NLP/LaRA}{\\textbf{https://github.com/Alibaba-NLP/LaRA}}.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Benchmark comparing RAG and long context",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-02-14",
+    "external_ids": {
+      "ArXiv": "2502.09977"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "indefenseofragintheeraoflongcontextlanguagemodels": {
+    "citation_key": "Yu2024DefenseRag",
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [
+      "Tan Yu",
+      "Anbang Xu",
+      "Rama Akkiraju"
+    ],
+    "venue": "arXiv preprint arXiv:2409.01666",
+    "year": 2024,
+    "abstract": "Overcoming the limited context limitations in early-generation LLMs, retrieval-augmented generation (RAG) has been a reliable solution for context-based answer generation in the past. Recently, the emergence of long-context LLMs allows the models to incorporate much longer text sequences, making RAG less attractive. Recent studies show that long-context LLMs significantly outperform RAG in long-context applications. Unlike the existing works favoring the long-context LLM over RAG, we argue that the extremely long context in LLMs suffers from a diminished focus on relevant information and leads to potential degradation in answer quality. This paper revisits the RAG in long-context answer generation. We propose an order-preserve retrieval-augmented generation (OP-RAG) mechanism, which significantly improves the performance of RAG for long-context question-answer applications. With OP-RAG, as the number of retrieved chunks increases, the answer quality initially rises, and then declines, forming an inverted U-shaped curve. There exist sweet points where OP-RAG could achieve higher answer quality with much less tokens than long-context LLM taking the whole context as input. Extensive experiments on public benchmark demonstrate the superiority of our OP-RAG.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "RAG vs long-context",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-09-03",
+    "external_ids": {
+      "ArXiv": "2409.01666"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "openscholarsynthesizingscientificliteraturewithretrievalaugmentedlms": {
+    "citation_key": "Asai2024OpenscholarSynthesizing",
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [
+      "Akari Asai",
+      "Jacqueline He",
+      "Rulin Shao",
+      "Weijia Shi",
+      "Amanpreet Singh",
+      "Joseph Chee Chang",
+      "Kyle Lo",
+      "Luca Soldaini",
+      "Sergey Feldman",
+      "Mike D'arcy",
+      "David Wadden",
+      "Matt Latzke",
+      "Minyang Tian",
+      "Pan Ji",
+      "Shengyan Liu",
+      "Hao Tong",
+      "Bohao Wu",
+      "Yanyu Xiong",
+      "Luke Zettlemoyer",
+      "Graham Neubig",
+      "Dan Weld",
+      "Doug Downey",
+      "Wen-tau Yih",
+      "Pang Wei Koh",
+      "Hannaneh Hajishirzi"
+    ],
+    "venue": "arXiv preprint arXiv:2411.14199",
+    "year": 2024,
+    "abstract": "Scientific progress depends on researchers' ability to synthesize the growing body of literature. Can large language models (LMs) assist scientists in this task? We introduce OpenScholar, a specialized retrieval-augmented LM that answers scientific queries by identifying relevant passages from 45 million open-access papers and synthesizing citation-backed responses. To evaluate OpenScholar, we develop ScholarQABench, the first large-scale multi-domain benchmark for literature search, comprising 2,967 expert-written queries and 208 long-form answers across computer science, physics, neuroscience, and biomedicine. On ScholarQABench, OpenScholar-8B outperforms GPT-4o by 5% and PaperQA2 by 7% in correctness, despite being a smaller, open model. While GPT4o hallucinates citations 78 to 90% of the time, OpenScholar achieves citation accuracy on par with human experts. OpenScholar's datastore, retriever, and self-feedback inference loop also improves off-the-shelf LMs: for instance, OpenScholar-GPT4o improves GPT-4o's correctness by 12%. In human evaluations, experts preferred OpenScholar-8B and OpenScholar-GPT4o responses over expert-written ones 51% and 70% of the time, respectively, compared to GPT4o's 32%. We open-source all of our code, models, datastore, data and a public demo.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Literature synthesis with citations",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-11-21",
+    "external_ids": {
+      "ArXiv": "2411.14199"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "hipporagneurobiologicallyinspiredlongtermmemoryforlargelanguagemodels": {
+    "citation_key": "Gutirrez2024HipporagNeurobiologically",
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [
+      "Bernal Jiménez Gutiérrez",
+      "Yiheng Shu",
+      "Yu Gu",
+      "Michihiro Yasunaga",
+      "Yu Su"
+    ],
+    "venue": "arXiv preprint arXiv:2405.14831",
+    "year": 2024,
+    "abstract": "In order to thrive in hostile and ever-changing natural environments, mammalian brains evolved to store large amounts of knowledge about the world and continually integrate new information while avoiding catastrophic forgetting. Despite the impressive accomplishments, large language models (LLMs), even with retrieval-augmented generation (RAG), still struggle to efficiently and effectively integrate a large amount of new experiences after pre-training. In this work, we introduce HippoRAG, a novel retrieval framework inspired by the hippocampal indexing theory of human long-term memory to enable deeper and more efficient knowledge integration over new experiences. HippoRAG synergistically orchestrates LLMs, knowledge graphs, and the Personalized PageRank algorithm to mimic the different roles of neocortex and hippocampus in human memory. We compare HippoRAG with existing RAG methods on multi-hop question answering and show that our method outperforms the state-of-the-art methods remarkably, by up to 20%. Single-step retrieval with HippoRAG achieves comparable or better performance than iterative retrieval like IRCoT while being 10-30 times cheaper and 6-13 times faster, and integrating HippoRAG into IRCoT brings further substantial gains. Finally, we show that our method can tackle new types of scenarios that are out of reach of existing methods. Code and data are available at https://github.com/OSU-NLP-Group/HippoRAG.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Graph-structured retrieval memory",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-05-23",
+    "external_ids": {
+      "ArXiv": "2405.14831"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "chainofagentslargelanguagemodelscollaboratingonlongcontexttasks": {
+    "citation_key": "Zhang2024ChainAgents",
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [
+      "Yusen Zhang",
+      "Ruoxi Sun",
+      "Yanfei Chen",
+      "Tomas Pfister",
+      "Rui Zhang",
+      "Sercan Ö. Arik"
+    ],
+    "venue": "arXiv preprint arXiv:2406.02818",
+    "year": 2024,
+    "abstract": "Addressing the challenge of effectively processing long contexts has become a critical issue for Large Language Models (LLMs). Two common strategies have emerged: 1) reducing the input length, such as retrieving relevant chunks by Retrieval-Augmented Generation (RAG), and 2) expanding the context window limit of LLMs. However, both strategies have drawbacks: input reduction has no guarantee of covering the part with needed information, while window extension struggles with focusing on the pertinent information for solving the task. To mitigate these limitations, we propose Chain-of-Agents (CoA), a novel framework that harnesses multi-agent collaboration through natural language to enable information aggregation and context reasoning across various LLMs over long-context tasks. CoA consists of multiple worker agents who sequentially communicate to handle different segmented portions of the text, followed by a manager agent who synthesizes these contributions into a coherent final output. CoA processes the entire input by interleaving reading and reasoning, and it mitigates long context focus issues by assigning each agent a short context. We perform comprehensive evaluation of CoA on a wide range of long-context tasks in question answering, summarization, and code completion, demonstrating significant improvements by up to 10% over strong baselines of RAG, Full-Context, and multi-agent LLMs.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Multi-agent long-context reading",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-04",
+    "external_ids": {
+      "ArXiv": "2406.02818"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelsarebetterreasonerswithselfverification": {
+    "citation_key": "Weng2022LargeLanguage",
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [
+      "Yixuan Weng",
+      "Minjun Zhu",
+      "Fei Xia",
+      "Bin Li",
+      "Shizhu He",
+      "Shengping Liu",
+      "Bin Sun",
+      "Kang Liu",
+      "Jun Zhao"
+    ],
+    "venue": "arXiv preprint arXiv:2212.09561",
+    "year": 2022,
+    "abstract": "Recently, with the chain of thought (CoT) prompting, large language models (LLMs), e.g., GPT-3, have shown strong reasoning ability in several natural language processing tasks such as arithmetic, commonsense, and logical reasoning. However, LLMs with CoT require multi-step prompting and multi-token prediction, which is highly sensitive to individual mistakes and vulnerable to error accumulation. The above issues make the LLMs need the ability to verify the answers. In fact, after inferring conclusions in some thinking decision tasks, people often check them by re-verifying steps to avoid some mistakes. In this paper, we propose and prove that LLMs also have similar self-verification abilities. We take the conclusion obtained by CoT as one of the conditions for solving the original problem. By performing a backward verification of the answers that LLM deduced for itself, we can obtain interpretable answer validation scores to select the candidate answer with the highest score. Experimental results demonstrate that the proposed method can improve the reasoning performance on various arithmetic, commonsense, and logical reasoning datasets. Our code is publicly available at: https://github.com/WENGSYX/Self-Verification.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Self-verification",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2022-12-19",
+    "external_ids": {
+      "ArXiv": "2212.09561"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "largelanguagemodelscannotselfcorrectreasoningyet": {
+    "citation_key": "Huang2023LargeLanguage",
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [
+      "Jie Huang",
+      "Xinyun Chen",
+      "Swaroop Mishra",
+      "Huaixiu Steven Zheng",
+      "Adams Wei Yu",
+      "Xinying Song",
+      "Denny Zhou"
+    ],
+    "venue": "arXiv preprint arXiv:2310.01798",
+    "year": 2023,
+    "abstract": "Large Language Models (LLMs) have emerged as a groundbreaking technology with their unparalleled text generation capabilities across various applications. Nevertheless, concerns persist regarding the accuracy and appropriateness of their generated content. A contemporary methodology, self-correction, has been proposed as a remedy to these issues. Building upon this premise, this paper critically examines the role and efficacy of self-correction within LLMs, shedding light on its true potential and limitations. Central to our investigation is the notion of intrinsic self-correction, whereby an LLM attempts to correct its initial responses based solely on its inherent capabilities, without the crutch of external feedback. In the context of reasoning, our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction. Drawing from these insights, we offer suggestions for future research and practical applications in this field.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Limits of post-hoc self-correction",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-03",
+    "external_ids": {
+      "ArXiv": "2310.01798"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "livecodebenchholisticandcontaminationfreeevaluationoflargelanguagemodelsforcode": {
+    "citation_key": "Jain2024LivecodebenchHolistic",
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [
+      "Naman Jain",
+      "King Han",
+      "Alex Gu",
+      "Wen-Ding Li",
+      "Fanjia Yan",
+      "Tianjun Zhang",
+      "Sida Wang",
+      "Armando Solar-Lezama",
+      "Koushik Sen",
+      "Ion Stoica"
+    ],
+    "venue": "arXiv preprint arXiv:2403.07974",
+    "year": 2024,
+    "abstract": "Large Language Models (LLMs) applied to code-related applications have emerged as a prominent field, attracting significant interest from both academia and industry. However, as new and improved LLMs are developed, existing evaluation benchmarks (e.g., HumanEval, MBPP) are no longer sufficient for assessing their capabilities. In this work, we propose LiveCodeBench, a comprehensive and contamination-free evaluation of LLMs for code, which continuously collects new problems over time from contests across three competition platforms, namely LeetCode, AtCoder, and CodeForces. Notably, our benchmark also focuses on a broader range of code related capabilities, such as self-repair, code execution, and test output prediction, beyond just code generation. Currently, LiveCodeBench hosts four hundred high-quality coding problems that were published between May 2023 and May 2024. We have evaluated 18 base LLMs and 34 instruction-tuned LLMs on LiveCodeBench. We present empirical findings on contamination, holistic performance comparisons, potential overfitting in existing benchmarks as well as individual model comparisons. We will release all prompts and model completions for further community analysis, along with a general toolkit for adding new scenarios and model",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Time-based splits",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-03-12",
+    "external_ids": {
+      "ArXiv": "2403.07974"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "livebenchachallengingcontaminationlimitedllmbenchmark": {
+    "citation_key": "White2024LivebenchChallenging",
+    "title": "LiveBench: A Challenging, Contamination-Limited LLM Benchmark",
+    "authors": [
+      "Colin White",
+      "Samuel Dooley",
+      "Manley Roberts",
+      "Arka Pal",
+      "Ben Feuer",
+      "Siddhartha Jain",
+      "Ravid Shwartz-Ziv",
+      "Neel Jain",
+      "Khalid Saifullah",
+      "Sreemanti Dey",
+      " Shubh-Agrawal",
+      "Sandeep Singh Sandha",
+      "Siddartha Naidu",
+      "Chinmay Hegde",
+      "Yann LeCun",
+      "Tom Goldstein",
+      "Willie Neiswanger",
+      "Micah Goldblum"
+    ],
+    "venue": "arXiv preprint arXiv:2406.19314",
+    "year": 2024,
+    "abstract": "Test set contamination, wherein test data from a benchmark ends up in a newer model's training set, is a well-documented obstacle for fair LLM evaluation and can quickly render benchmarks obsolete. To mitigate this, many recent benchmarks crowdsource new prompts and evaluations from human or LLM judges; however, these can introduce significant biases, and break down when scoring hard questions. In this work, we introduce a new benchmark for LLMs designed to be resistant to both test set contamination and the pitfalls of LLM judging and human crowdsourcing. We release LiveBench, the first benchmark that (1) contains frequently-updated questions from recent information sources, (2) scores answers automatically according to objective ground-truth values, and (3) contains a wide variety of challenging tasks, spanning math, coding, reasoning, language, instruction following, and data analysis. To achieve this, LiveBench contains questions that are based on recently-released math competitions, arXiv papers, news articles, and datasets, and it contains harder, contamination-limited versions of tasks from previous benchmarks such as Big-Bench Hard, AMPS, and IFEval. We evaluate many prominent closed-source models, as well as dozens of open-source models ranging from 0.5B to 405B in size. LiveBench is difficult, with top models achieving below 70% accuracy. We release all questions, code, and model answers. Questions are added and updated on a monthly basis, and we release new tasks a... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Frequently updated benchmark to limit contamination",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-27",
+    "external_ids": {
+      "ArXiv": "2406.19314"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "benchmarkdatacontaminationoflargelanguagemodelsasurvey": {
+    "citation_key": "Xu2024BenchmarkData",
+    "title": "Benchmark Data Contamination of Large Language Models: A Survey",
+    "authors": [
+      "Cheng Xu",
+      "Shuhao Guan",
+      "Derek Greene",
+      "M-Tahar Kechadi"
+    ],
+    "venue": "arXiv preprint arXiv:2406.04244",
+    "year": 2024,
+    "abstract": "The rapid development of Large Language Models (LLMs) like GPT-4, Claude-3, and Gemini has transformed the field of natural language processing. However, it has also resulted in a significant issue known as Benchmark Data Contamination (BDC). This occurs when language models inadvertently incorporate evaluation benchmark information from their training data, leading to inaccurate or unreliable performance during the evaluation phase of the process. This paper reviews the complex challenge of BDC in LLM evaluation and explores alternative assessment methods to mitigate the risks associated with traditional benchmarks. The paper also examines challenges and future directions in mitigating BDC risks, highlighting the complexity of the issue and the need for innovative solutions to ensure the reliability of LLM evaluation in real-world applications.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Contamination survey",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-06",
+    "external_ids": {
+      "ArXiv": "2406.04244"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "detectingpretrainingdatafromlargelanguagemodels": {
+    "citation_key": "Shi2023DetectingPretraining",
+    "title": "Detecting Pretraining Data from Large Language Models",
+    "authors": [
+      "Weijia Shi",
+      "Anirudh Ajith",
+      "Mengzhou Xia",
+      "Yangsibo Huang",
+      "Daogao Liu",
+      "Terra Blevins",
+      "Danqi Chen",
+      "Luke Zettlemoyer"
+    ],
+    "venue": "arXiv preprint arXiv:2310.16789",
+    "year": 2023,
+    "abstract": "Although large language models (LLMs) are widely deployed, the data used to train them is rarely disclosed. Given the incredible scale of this data, up to trillions of tokens, it is all but certain that it includes potentially problematic text such as copyrighted materials, personally identifiable information, and test data for widely reported reference benchmarks. However, we currently have no way to know which data of these types is included or in what proportions. In this paper, we study the pretraining data detection problem: given a piece of text and black-box access to an LLM without knowing the pretraining data, can we determine if the model was trained on the provided text? To facilitate this study, we introduce a dynamic benchmark WIKIMIA that uses data created before and after model training to support gold truth detection. We also introduce a new detection method Min-K% Prob based on a simple hypothesis: an unseen example is likely to contain a few outlier words with low probabilities under the LLM, while a seen example is less likely to have words with such low probabilities. Min-K% Prob can be applied without any knowledge about the pretraining corpus or any additional training, departing from previous detection methods that require training a reference model on data that is similar to the pretraining data. Moreover, our experiments demonstrate that Min-K% Prob achieves a 7.4% improvement on WIKIMIA over these previous methods. We apply Min-K% Prob to three real-... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Membership inference for pretraining data",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-10-25",
+    "external_ids": {
+      "ArXiv": "2310.16789"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "dontmakeyourllmanevaluationbenchmarkcheater": {
+    "citation_key": "Zhou2023DontMake",
+    "title": "Don't Make Your LLM an Evaluation Benchmark Cheater",
+    "authors": [
+      "Kun Zhou",
+      "Yutao Zhu",
+      "Zhipeng Chen",
+      "Wentong Chen",
+      "Wayne Xin Zhao",
+      "Xu Chen",
+      "Yankai Lin",
+      "Ji-Rong Wen",
+      "Jiawei Han"
+    ],
+    "venue": "arXiv preprint arXiv:2311.01964",
+    "year": 2023,
+    "abstract": "Large language models~(LLMs) have greatly advanced the frontiers of artificial intelligence, attaining remarkable improvement in model capacity. To assess the model performance, a typical approach is to construct evaluation benchmarks for measuring the ability level of LLMs in different aspects. Despite that a number of high-quality benchmarks have been released, the concerns about the appropriate use of these benchmarks and the fair comparison of different models are increasingly growing. Considering these concerns, in this paper, we discuss the potential risk and impact of inappropriately using evaluation benchmarks and misleadingly interpreting the evaluation results. Specially, we focus on a special issue that would lead to inappropriate evaluation, \\ie \\emph{benchmark leakage}, referring that the data related to evaluation sets is occasionally used for model training. This phenomenon now becomes more common since pre-training data is often prepared ahead of model test. We conduct extensive experiments to study the effect of benchmark leverage, and find that it can dramatically boost the evaluation results, which would finally lead to an unreliable assessment of model performance. To improve the use of existing evaluation benchmarks, we finally present several guidelines for both LLM developers and benchmark maintainers. We hope this work can draw attention to appropriate training and evaluation of LLMs.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Effects of benchmark leakage",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-11-03",
+    "external_ids": {
+      "ArXiv": "2311.01964"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "selfrefineiterativerefinementwithselffeedback": {
+    "citation_key": "Madaan2023SelfrefineIterative",
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [
+      "Aman Madaan",
+      "Niket Tandon",
+      "Prakhar Gupta",
+      "Skyler Hallinan",
+      "Luyu Gao",
+      "Sarah Wiegreffe",
+      "Uri Alon",
+      "Nouha Dziri",
+      "Shrimai Prabhumoye",
+      "Yiming Yang",
+      "Shashank Gupta",
+      "Bodhisattwa Prasad Majumder",
+      "Katherine Hermann",
+      "Sean Welleck",
+      "Amir Yazdanbakhsh",
+      "Peter Clark"
+    ],
+    "venue": "arXiv preprint arXiv:2303.17651",
+    "year": 2023,
+    "abstract": "Like humans, large language models (LLMs) do not always generate the best output on their first try. Motivated by how humans refine their written text, we introduce Self-Refine, an approach for improving initial outputs from LLMs through iterative feedback and refinement. The main idea is to generate an initial output using an LLMs; then, the same LLMs provides feedback for its output and uses it to refine itself, iteratively. Self-Refine does not require any supervised training data, additional training, or reinforcement learning, and instead uses a single LLM as the generator, refiner, and feedback provider. We evaluate Self-Refine across 7 diverse tasks, ranging from dialog response generation to mathematical reasoning, using state-of-the-art (GPT-3.5, ChatGPT, and GPT-4) LLMs. Across all evaluated tasks, outputs generated with Self-Refine are preferred by humans and automatic metrics over those generated with the same LLM using conventional one-step generation, improving by ~20% absolute on average in task performance. Our work demonstrates that even state-of-the-art LLMs like GPT-4 can be further improved at test time using our simple, standalone approach.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Iterative revision after generation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-03-30",
+    "external_ids": {
+      "ArXiv": "2303.17651"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "promptbreederselfreferentialselfimprovementviapromptevolution": {
+    "citation_key": "Fernando2023PromptbreederSelfreferential",
+    "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+    "authors": [
+      "Chrisantha Fernando",
+      "Dylan Banarse",
+      "Henryk Michalewski",
+      "Simon Osindero",
+      "Tim Rocktäschel"
+    ],
+    "venue": "arXiv preprint arXiv:2309.16797",
+    "year": 2023,
+    "abstract": "Popular prompt strategies like Chain-of-Thought Prompting can dramatically improve the reasoning abilities of Large Language Models (LLMs) in various domains. However, such hand-crafted prompt-strategies are often sub-optimal. In this paper, we present Promptbreeder, a general-purpose self-referential self-improvement mechanism that evolves and adapts prompts for a given domain. Driven by an LLM, Promptbreeder mutates a population of task-prompts, and subsequently evaluates them for fitness on a training set. Crucially, the mutation of these task-prompts is governed by mutation-prompts that the LLM generates and improves throughout evolution in a self-referential way. That is, Promptbreeder is not just improving task-prompts, but it is also improving the mutationprompts that improve these task-prompts. Promptbreeder outperforms state-of-the-art prompt strategies such as Chain-of-Thought and Plan-and-Solve Prompting on commonly used arithmetic and commonsense reasoning benchmarks. Furthermore, Promptbreeder is able to evolve intricate task-prompts for the challenging problem of hate speech classification.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Evolutionary prompt optimisation",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-09-28",
+    "external_ids": {
+      "ArXiv": "2309.16797"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "evopromptconnectingllmswithevolutionaryalgorithmsyieldspowerfulpromptoptimizers": {
+    "citation_key": "Guo2023EvopromptConnecting",
+    "title": "EvoPrompt: Connecting LLMs with Evolutionary Algorithms Yields Powerful Prompt Optimizers",
+    "authors": [
+      "Qingyan Guo",
+      "Rui Wang",
+      "Junliang Guo",
+      "Bei Li",
+      "Kaitao Song",
+      "Xu Tan",
+      "Guoqing Liu",
+      "Jiang Bian",
+      "Yujiu Yang"
+    ],
+    "venue": "arXiv preprint arXiv:2309.08532",
+    "year": 2023,
+    "abstract": "Large Language Models (LLMs) excel in various tasks, but they rely on carefully crafted prompts that often demand substantial human effort. To automate this process, in this paper, we propose a novel framework for discrete prompt optimization, called EvoPrompt, which borrows the idea of evolutionary algorithms (EAs) as they exhibit good performance and fast convergence. To enable EAs to work on discrete prompts, which are natural language expressions that need to be coherent and human-readable, we connect LLMs with EAs. This approach allows us to simultaneously leverage the powerful language processing capabilities of LLMs and the efficient optimization performance of EAs. Specifically, abstaining from any gradients or parameters, EvoPrompt starts from a population of prompts and iteratively generates new prompts with LLMs based on the evolutionary operators, improving the population based on the development set. We optimize prompts for both closed- and open-source LLMs including GPT-3.5 and Alpaca, on 31 datasets covering language understanding, generation tasks, as well as BIG-Bench Hard (BBH) tasks. EvoPrompt significantly outperforms human-engineered prompts and existing methods for automatic prompt generation (e.g., up to 25% on BBH). Furthermore, EvoPrompt demonstrates that connecting LLMs with EAs creates synergies, which could inspire further research on the combination of LLMs and conventional algorithms.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "EvoPrompt",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-09-15",
+    "external_ids": {
+      "ArXiv": "2309.08532"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "agenticcontextengineeringevolvingcontextsforselfimprovinglanguagemodels": {
+    "citation_key": "Zhang2025AgenticContext",
+    "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+    "authors": [
+      "Qizheng Zhang",
+      "Changran Hu",
+      "Shubhangi Upasani",
+      "Boyuan Ma",
+      "Fenglu Hong",
+      "Vamsidhar Kamanuru",
+      "Jay Rainton",
+      "Chen Wu",
+      "Mengmeng Ji",
+      "Hanchen Li",
+      "Urmish Thakker",
+      "James Zou",
+      "Kunle Olukotun"
+    ],
+    "venue": "arXiv preprint arXiv:2510.04618",
+    "year": 2025,
+    "abstract": "Large language model (LLM) applications such as agents and domain-specific reasoning increasingly rely on context adaptation: modifying inputs with instructions, strategies, or evidence, rather than weight updates. Prior approaches improve usability but often suffer from brevity bias, which drops domain insights for concise summaries, and from context collapse, where iterative rewriting erodes details over time. We introduce ACE (Agentic Context Engineering), a framework that treats contexts as evolving playbooks that accumulate, refine, and organize strategies through a modular process of generation, reflection, and curation. ACE prevents collapse with structured, incremental updates that preserve detailed knowledge and scale with long-context models. Across agent and domain-specific benchmarks, ACE optimizes contexts both offline (e.g., system prompts) and online (e.g., agent memory), consistently outperforming strong baselines: +10.6% on agents and +8.6% on finance, while significantly reducing adaptation latency and rollout cost. Notably, ACE could adapt effectively without labeled supervision and instead by leveraging natural execution feedback. On the AppWorld leaderboard, ACE matches the top-ranked production-level agent on the overall average and surpasses it on the harder test-challenge split, despite using a smaller open-source model. These results show that comprehensive, evolving contexts enable scalable, efficient, and self-improving LLM systems with low overhead... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Learned playbooks/contexts from reflection",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-10-06",
+    "external_ids": {
+      "ArXiv": "2510.04618"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "expelllmagentsareexperientiallearners": {
+    "citation_key": "Zhao2023ExpelLlm",
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "authors": [
+      "Andrew Zhao",
+      "Daniel Huang",
+      "Quentin Xu",
+      "Matthieu Lin",
+      "Yong-Jin Liu",
+      "Gao Huang"
+    ],
+    "venue": "arXiv preprint arXiv:2308.10144",
+    "year": 2023,
+    "abstract": "The recent surge in research interest in applying large language models (LLMs) to decision-making tasks has flourished by leveraging the extensive world knowledge embedded in LLMs. While there is a growing demand to tailor LLMs for custom decision-making tasks, finetuning them for specific tasks is resource-intensive and may diminish the model's generalization capabilities. Moreover, state-of-the-art language models like GPT-4 and Claude are primarily accessible through API calls, with their parametric weights remaining proprietary and unavailable to the public. This scenario emphasizes the growing need for new methodologies that allow learning from agent experiences without requiring parametric updates. To address these problems, we introduce the Experiential Learning (ExpeL) agent. Our agent autonomously gathers experiences and extracts knowledge using natural language from a collection of training tasks. At inference, the agent recalls its extracted insights and past experiences to make informed decisions. Our empirical results highlight the robust learning efficacy of the ExpeL agent, indicating a consistent enhancement in its performance as it accumulates experiences. We further explore the emerging capabilities and transfer learning potential of the ExpeL agent through qualitative observations and additional experiments.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Learning insights from training experiences",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-08-20",
+    "external_ids": {
+      "ArXiv": "2308.10144"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "omimorgonlinemendelianinheritanceinmanomimanonlinecatalogofhumangenesandgeneticdisorders": {
+    "citation_key": "Amberger2014OmimorgOnline",
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "authors": [
+      "Joanna S. Amberger",
+      "Carol A. Bocchini",
+      "François Schiettecatte",
+      "Alan F. Scott",
+      "Ada Hamosh"
+    ],
+    "venue": "Nucleic Acids Research",
+    "year": 2014,
+    "abstract": "[Summary from web search, not the published abstract] Describes OMIM.org, MIM-numbered gene and phenotype entries, the Morbid Map, and data access.",
+    "citation_count": 2608,
+    "sections": [],
+    "reason": "Describes OMIM, the expert-curated knowledge base.",
+    "journal": "Nucleic Acids Research",
+    "volume": "43",
+    "pages": "D789-D798",
+    "publication_date": "2014-11-26",
+    "external_ids": {
+      "DOI": "10.1093/nar/gku1205"
+    },
+    "verified_by": "crossref_match_100",
+    "abstract_source": "web_summary"
+  },
+  "clinvarimprovingaccesstovariantinterpretationsandsupportingevidence": {
+    "citation_key": "Landrum2017ClinvarImproving",
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "authors": [
+      "Melissa J Landrum",
+      "Jennifer M Lee",
+      "Mark Benson",
+      "Garth R Brown",
+      "Chen Chao",
+      "Shanmuga Chitipiralla",
+      "Baoshan Gu",
+      "Jennifer Hart",
+      "Douglas Hoffman",
+      "Wonhee Jang",
+      "Karen Karapetyan",
+      "Kenneth Katz",
+      "Chunlei Liu",
+      "Zenith Maddipatla",
+      "Adriana Malheiro",
+      "Kurt McDaniel",
+      "Michael Ovetsky",
+      "George Riley",
+      "George Zhou",
+      "J Bradley Holmes",
+      "Brandi L Kattman",
+      "Donna R Maglott"
+    ],
+    "venue": "Nucleic Acids Research",
+    "year": 2017,
+    "abstract": "[Summary from web search, not the published abstract] ClinVar update on access to variant interpretations and evidence.",
+    "citation_count": 4333,
+    "sections": [],
+    "reason": "ClinVar as a curated resource.",
+    "journal": "Nucleic Acids Research",
+    "volume": "46",
+    "pages": "D1062-D1067",
+    "publication_date": "2017-11-20",
+    "external_ids": {
+      "DOI": "10.1093/nar/gkx1153"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "assessingtheutilityoflargelanguagemodelsforphenotypedrivengeneprioritizationinthediagnosisofraregeneticdisease": {
+    "citation_key": "Kim2024AssessingUtility",
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [
+      "Junyoung Kim",
+      "Kai Wang",
+      "Chunhua Weng",
+      "Cong Liu"
+    ],
+    "venue": "The American Journal of Human Genetics",
+    "year": 2024,
+    "abstract": "[Summary from web search, not the published abstract] Evaluates LLMs for phenotype-driven gene prioritization; GPT-4 weaker than traditional tools.",
+    "citation_count": 61,
+    "sections": [],
+    "reason": "LLM rare-disease gene knowledge.",
+    "journal": "The American Journal of Human Genetics",
+    "volume": "111",
+    "pages": "2190-2202",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1016/j.ajhg.2024.08.010"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "web_summary"
+  },
+  "whatlevelofautomationisgoodenoughabenchmarkoflargelanguagemodelsformetaanalysisdataextraction": {
+    "citation_key": "Li2025WhatLevel",
+    "title": "What Level of Automation is \"Good Enough\"? A Benchmark of Large Language Models for Meta-Analysis Data Extraction",
+    "authors": [
+      "Lingbo Li",
+      "Anuradha Mathrani",
+      "Teo Susnjak"
+    ],
+    "venue": "arXiv preprint arXiv:2507.15152",
+    "year": 2025,
+    "abstract": "Automating data extraction from full-text randomised controlled trials (RCTs) for meta-analysis remains a significant challenge. This study evaluates the practical performance of three LLMs (Gemini-2.0-flash, Grok-3, GPT-4o-mini) across tasks involving statistical results, risk-of-bias assessments, and study-level characteristics in three medical domains: hypertension, diabetes, and orthopaedics. We tested four distinct prompting strategies (basic prompting, self-reflective prompting, model ensemble, and customised prompts) to determine how to improve extraction quality. All models demonstrate high precision but consistently suffer from poor recall by omitting key information. We found that customised prompts were the most effective, boosting recall by up to 15\\%. Based on this analysis, we propose a three-tiered set of guidelines for using LLMs in data extraction, matching data types to appropriate levels of automation based on task complexity and risk. Our study offers practical advice for automating data extraction in real-world meta-analyses, balancing LLM efficiency with expert oversight through targeted, task-specific automation.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "LLM evidence extraction.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-07-20",
+    "external_ids": {
+      "ArXiv": "2507.15152"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "performanceoftwolargelanguagemodelsfordataextractioninevidencesynthesis": {
+    "citation_key": "Konet2024PerformanceTwo",
+    "title": "Performance of two large language models for data extraction in evidence synthesis",
+    "authors": [
+      "Amanda Konet",
+      "Ian Thomas",
+      "Gerald Gartlehner",
+      "Leila Kahwati",
+      "Rainer Hilscher",
+      "Shannon Kugley",
+      "Karen Crotty",
+      "Meera Viswanathan",
+      "Robert Chew"
+    ],
+    "venue": "Research Synthesis Methods",
+    "year": 2024,
+    "abstract": "Accurate data extraction is a key component of evidence synthesis and critical to valid results. The advent of publicly available large language models (LLMs) has generated interest in these tools for evidence synthesis and created uncertainty about the choice of LLM. We compare the performance of two widely available LLMs (Claude 2 and GPT‐4) for extracting pre‐specified data elements from 10 published articles included in a previously completed systematic review. We use prompts and full study PDFs to compare the outputs from the browser versions of Claude 2 and GPT‐4. GPT‐4 required use of a third‐party plugin to upload and parse PDFs. Accuracy was high for Claude 2 (96.3%). The accuracy of GPT‐4 with the plug‐in was lower (68.8%); however, most of the errors were due to the plug‐in. Both LLMs correctly recognized when prespecified data elements were missing from the source PDF and generated correct information for data elements that were not reported explicitly in the articles. A secondary analysis demonstrated that, when provided selected text from the PDFs, Claude 2 and GPT‐4 accurately extracted 98.7% and 100% of the data elements, respectively. Limitations include the narrow scope of the study PDFs used, that prompt development was completed using only Claude 2, and that we cannot guarantee the open‐source articles were not used to train the LLMs. This study highlights the potential for LLMs to revolutionize data extraction but underscores the importance of accurate PD... [Truncated]",
+    "citation_count": 88,
+    "sections": [],
+    "reason": "LLM systematic review extraction.",
+    "journal": "Research Synthesis Methods",
+    "volume": "15",
+    "pages": "818-824",
+    "publication_date": "2024-06-19",
+    "external_ids": {
+      "DOI": "10.1002/jrsm.1732"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "expeditingdataextractionusingalargelanguagemodelllmandscopingreviewprotocolamethodologicalstudywithinacomplexscopingreview": {
+    "citation_key": "Stewartevans2025ExpeditingData",
+    "title": "Expediting data extraction using a large language model (LLM) and scoping review protocol: a methodological study within a complex scoping review",
+    "authors": [
+      "James Stewart-Evans",
+      "Emma Wilson",
+      "Tessa Langley",
+      "Andrew Prayle",
+      "Angela Hands",
+      "Karen Exley",
+      "Jo Leonardi-Bee"
+    ],
+    "venue": "arXiv preprint arXiv:2507.06623",
+    "year": 2025,
+    "abstract": "The data extraction stages of reviews are resource-intensive, and researchers may seek to expediate data extraction using online (large language models) LLMs and review protocols. Claude 3.5 Sonnet was used to trial two approaches that used a review protocol to prompt data extraction from 10 evidence sources included in a case study scoping review. A protocol-based approach was also used to review extracted data. Limited performance evaluation was undertaken which found high accuracy for the two extraction approaches (83.3% and 100%) when extracting simple, well-defined citation details; accuracy was lower (9.6% and 15.8%) when extracting more complex, subjective data items. Considering all data items, both approaches had precision >90% but low recall (<25%) and F1 scores (<40%). The context of a complex scoping review, open response types and methodological approach likely impacted performance due to missed and misattributed data. LLM feedback considered the baseline extraction accurate and suggested minor amendments: four of 15 (26.7%) to citation details and 8 of 38 (21.1%) to key findings data items were considered to potentially add value. However, when repeating the process with a dataset featuring deliberate errors, only 2 of 39 (5%) errors were detected. Review-protocol-based methods used for expediency require more robust performance evaluation across a range of LLMs and review contexts with comparison to conventional prompt engineering approaches. We recommend resea... [Truncated]",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "LLM evidence synthesis.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2025-07-09",
+    "external_ids": {
+      "ArXiv": "2507.06623"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "medgenncbisportaltoinformationonmedicalconditionswithageneticcomponent": {
+    "citation_key": "Louden2020MedgenNcbis",
+    "title": "MedGen: NCBI’s Portal to Information on Medical Conditions with a Genetic Component",
+    "authors": [
+      "Diana Nelson Louden"
+    ],
+    "venue": "Medical Reference Services Quarterly",
+    "year": 2020,
+    "abstract": "[Summary from web search, not the published abstract] Overview of MedGen, NCBI's portal to medical conditions with a genetic component.",
+    "citation_count": 32,
+    "sections": [],
+    "reason": "Primary MedGen description.",
+    "journal": "Medical Reference Services Quarterly",
+    "volume": "39",
+    "pages": "183-191",
+    "publication_date": "2020-04-02",
+    "external_ids": {
+      "DOI": "10.1080/02763869.2020.1726152"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "clinicaldiagnosticsinhumangeneticswithsemanticsimilaritysearchesinontologies": {
+    "citation_key": "Khler2009ClinicalDiagnostics",
+    "title": "Clinical Diagnostics in Human Genetics with Semantic Similarity Searches in Ontologies",
+    "authors": [
+      "Sebastian Köhler",
+      "Marcel H. Schulz",
+      "Peter Krawitz",
+      "Sebastian Bauer",
+      "Sandra Dölken",
+      "Claus E. Ott",
+      "Christine Mundlos",
+      "Denise Horn",
+      "Stefan Mundlos",
+      "Peter N. Robinson"
+    ],
+    "venue": "The American Journal of Human Genetics",
+    "year": 2009,
+    "abstract": "[Summary from web search, not the published abstract] Adapts ontology semantic similarity to match patient phenotypes to HPO-annotated diseases, with p-values.",
+    "citation_count": 527,
+    "sections": [],
+    "reason": "HPO semantic similarity.",
+    "journal": "The American Journal of Human Genetics",
+    "volume": "85",
+    "pages": "457-464",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1016/j.ajhg.2009.09.003"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  },
+  "generativeartificialintelligenceuseinevidencesynthesisasystematicreview": {
+    "citation_key": "Clark2025GenerativeArtificial",
+    "title": "Generative artificial intelligence use in evidence synthesis: A systematic review",
+    "authors": [
+      "Justin Clark",
+      "Belinda Barton",
+      "Loai Albarqouni",
+      "Oyungerel Byambasuren",
+      "Tanisha Jowsey",
+      "Justin Keogh",
+      "Tian Liang",
+      "Christian Moro",
+      "Hayley O’Neill",
+      "Mark Jones"
+    ],
+    "venue": "Research Synthesis Methods",
+    "year": 2025,
+    "abstract": "With the increasing accessibility of tools such as ChatGPT, Copilot, DeepSeek, Dall-E, and Gemini, generative artificial intelligence (GenAI) has been poised as a potential, research timesaving tool, especially for synthesising evidence. Our objective was to determine whether GenAI can assist with evidence synthesis by assessing its performance using its accuracy, error rates, and time savings compared to the traditional expert-driven approach. To systematically review the evidence, we searched five databases on 17 January 2025, synthesised outcomes reporting on the accuracy, error rates, or time taken, and appraised the risk-of-bias using a modified version of QUADAS-2. We identified 3,071 unique records, 19 of which were included in our review. Most studies had a high or unclear risk-of-bias in Domain 1A: review selection, Domain 2A: GenAI conduct, and Domain 1B: applicability of results. When used for (1) searching GenAI missed 68% to 96% (median = 91%) of studies, (2) screening made incorrect inclusion decisions ranging from 0% to 29% (median = 10%); and incorrect exclusion decisions ranging from 1% to 83% (median = 28%), (3) incorrect data extractions ranging from 4% to 31% (median = 14%), (4) incorrect risk-of-bias assessments ranging from 10% to 56% (median = 27%). Our review shows that the current evidence does not support GenAI use in evidence synthesis without human involvement or oversight. However, for most tasks other than searching, GenAI may have a role in assi... [Truncated]",
+    "citation_count": 102,
+    "sections": [],
+    "reason": "Review of LLMs for evidence synthesis.",
+    "journal": "Research Synthesis Methods",
+    "volume": "16",
+    "pages": "601-619",
+    "publication_date": "2025-04-24",
+    "external_ids": {
+      "DOI": "10.1017/rsm.2025.16"
+    },
+    "verified_by": "crossref_match_110",
+    "abstract_source": "index"
+  },
+  "harnessinggenerativeaitoannotatetheseverityofallphenotypicabnormalitieswithinthehumanphenotypeontology": {
+    "citation_key": "Murphy2024HarnessingGenerative",
+    "title": "Harnessing generative AI to annotate the severity of all phenotypic abnormalities within the Human Phenotype Ontology",
+    "authors": [
+      "Kitty B Murphy",
+      "Brian M Schilder",
+      "Nathan G Skene"
+    ],
+    "venue": "openRxiv",
+    "year": 2024,
+    "abstract": "0.1 There are thousands of human phenotypes which are linked to genetic variation. These range from the benign (white eyelashes) to the deadly (respiratory failure). The Human Phenotype Ontology has categorised all human phenotypic variation into a unified framework that defines the relationships between them (e.g. missing arms and missing legs are both abnormalities of the limb). This has made it possible to perform phenome-wide analyses, e.g. to prioritise which make the best candidates for gene therapies. However, there is currently limited metadata describing the clinical characteristics / severity of these phenotypes. With &gt;17500 phenotypic abnormalities across &gt;8600 rare diseases, manual curation of such phenotypic annotations by experts would be exceedingly labour-intensive and time-consuming. Leveraging advances in artificial intelligence, we employed the OpenAI GPT-4 large language model (LLM) to systematically annotate the severity of all phenotypic abnormalities in the HPO. Phenotypic severity was defined using a set of clinical characteristics and their frequency of occurrence. First, we benchmarked the generative LLM clinical characteristic annotations against ground-truth labels within the HPO (e.g. phenotypes in the ‘Cancer’ HPO branch were annotated as causing cancer by GPT-4). True positive recall rates across different clinical characteristics ranged from 89-100% (mean=96%), clearly demonstrating the ability of GPT-4 to automate the curation process wi... [Truncated]",
+    "citation_count": 3,
+    "sections": [],
+    "reason": "LLMs for HPO annotation.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-11",
+    "external_ids": {
+      "DOI": "10.1101/2024.06.10.24308475"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "index"
+  },
+  "paperqaretrievalaugmentedgenerativeagentforscientificresearch": {
+    "citation_key": "Lla2023PaperqaRetrievalaugmented",
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [
+      "Jakub Lála",
+      "Odhran O'Donoghue",
+      "Aleksandar Shtedritski",
+      "Sam Cox",
+      "Samuel G. Rodriques",
+      "Andrew D. White"
+    ],
+    "venue": "arXiv preprint arXiv:2312.07559",
+    "year": 2023,
+    "abstract": "Large Language Models (LLMs) generalize well across language tasks, but suffer from hallucinations and uninterpretability, making it difficult to assess their accuracy without ground-truth. Retrieval-Augmented Generation (RAG) models have been proposed to reduce hallucinations and provide provenance for how an answer was generated. Applying such models to the scientific literature may enable large-scale, systematic processing of scientific knowledge. We present PaperQA, a RAG agent for answering questions over the scientific literature. PaperQA is an agent that performs information retrieval across full-text scientific articles, assesses the relevance of sources and passages, and uses RAG to provide answers. Viewing this agent as a question answering model, we find it exceeds performance of existing LLMs and LLM agents on current science QA benchmarks. To push the field closer to how humans perform research on scientific literature, we also introduce LitQA, a more complex benchmark that requires retrieval and synthesis of information from full-text scientific papers across the literature. Finally, we demonstrate PaperQA's matches expert human researchers on LitQA.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Underlies WikiCrow.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2023-12-08",
+    "external_ids": {
+      "ArXiv": "2312.07559"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "docs2kgunifiedknowledgegraphconstructionfromheterogeneousdocumentsassistedbylargelanguagemodels": {
+    "citation_key": "Sun2024Docs2kgUnified",
+    "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
+    "authors": [
+      "Qiang Sun",
+      "Yuanyi Luo",
+      "Wenxiao Zhang",
+      "Sirui Li",
+      "Jichunyang Li",
+      "Kai Niu",
+      "Xiangrui Kong",
+      "Wei Liu"
+    ],
+    "venue": "arXiv preprint arXiv:2406.02962",
+    "year": 2024,
+    "abstract": "Even for a conservative estimate, 80% of enterprise data reside in unstructured files, stored in data lakes that accommodate heterogeneous formats. Classical search engines can no longer meet information seeking needs, especially when the task is to browse and explore for insight formulation. In other words, there are no obvious search keywords to use. Knowledge graphs, due to their natural visual appeals that reduce the human cognitive load, become the winning candidate for heterogeneous data integration and knowledge representation. In this paper, we introduce Docs2KG, a novel framework designed to extract multimodal information from diverse and heterogeneous unstructured documents, including emails, web pages, PDF files, and Excel files. Dynamically generates a unified knowledge graph that represents the extracted key information, Docs2KG enables efficient querying and exploration of document data lakes. Unlike existing approaches that focus on domain-specific data sources or pre-designed schemas, Docs2KG offers a flexible and extensible solution that can adapt to various document structures and content types. The proposed framework unifies data processing supporting a multitude of downstream tasks with improved domain interpretability. Docs2KG is publicly accessible at https://docs2kg.ai4wa.com, and a demonstration video is available at https://docs2kg.ai4wa.com/Video.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Document processing to structured intermediates.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-05",
+    "external_ids": {
+      "ArXiv": "2406.02962"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "structuredextractionofrealworldmedicalknowledgeusingllmsforsummarizationandsearch": {
+    "citation_key": "Kim2024StructuredExtraction",
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [
+      "Edward Kim",
+      "Manil Shrestha",
+      "Richard Foty",
+      "Tom DeLay",
+      "Vicki Seyfert-Margolis"
+    ],
+    "venue": "arXiv preprint arXiv:2412.15256",
+    "year": 2024,
+    "abstract": "Creation and curation of knowledge graphs can accelerate disease discovery and analysis in real-world data. While disease ontologies aid in biological data annotation, codified categories (SNOMED-CT, ICD10, CPT) may not capture patient condition nuances or rare diseases. Multiple disease definitions across data sources complicate ontology mapping and disease clustering. We propose creating patient knowledge graphs using large language model extraction techniques, allowing data extraction via natural language rather than rigid ontological hierarchies. Our method maps to existing ontologies (MeSH, SNOMED-CT, RxNORM, HPO) to ground extracted entities. Using a large ambulatory care EHR database with 33.6M patients, we demonstrate our method through the patient search for Dravet syndrome, which received ICD10 recognition in October 2020. We describe our construction of patient-specific knowledge graphs and symptom-based patient searches. Using confirmed Dravet syndrome ICD10 codes as ground truth, we employ LLM-based entity extraction to characterize patients in grounded ontologies. We then apply this method to identify Beta-propeller protein-associated neurodegeneration (BPAN) patients, demonstrating real-world discovery where no ground truth exists.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Structured extraction pipeline.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-12-16",
+    "external_ids": {
+      "ArXiv": "2412.15256"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "acomprehensivesurveyofcontaminationdetectionmethodsinlargelanguagemodels": {
+    "citation_key": "Ravaut2024ComprehensiveSurvey",
+    "title": "A Comprehensive Survey of Contamination Detection Methods in Large Language Models",
+    "authors": [
+      "Mathieu Ravaut",
+      "Bosheng Ding",
+      "Fangkai Jiao",
+      "Hailin Chen",
+      "Xingxuan Li",
+      "Ruochen Zhao",
+      "Chengwei Qin",
+      "Caiming Xiong",
+      "Shafiq Joty"
+    ],
+    "venue": "arXiv preprint arXiv:2404.00699",
+    "year": 2024,
+    "abstract": "With the rise of Large Language Models (LLMs) in recent years, abundant new opportunities are emerging, but also new challenges, among which contamination is quickly becoming critical. Business applications and fundraising in Artificial Intelligence (AI) have reached a scale at which a few percentage points gained on popular question-answering benchmarks could translate into dozens of millions of dollars, placing high pressure on model integrity. At the same time, it is becoming harder and harder to keep track of the data that LLMs have seen; if not impossible with closed-source models like GPT-4 and Claude-3 not divulging any information on the training set. As a result, contamination becomes a major issue: LLMs' performance may not be reliable anymore, as the high performance may be at least partly due to their previous exposure to the data. This limitation jeopardizes real capability improvement in the field of NLP, yet, there remains a lack of methods on how to efficiently detect contamination. In this paper, we survey all recent work on contamination detection with LLMs, analyzing their methodologies and use cases to shed light on the appropriate usage of contamination detection methods. Our work calls the NLP research community's attention into systematically taking into account contamination bias in LLM evaluation.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Contamination survey.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-03-31",
+    "external_ids": {
+      "ArXiv": "2404.00699"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "unveilingthespectrumofdatacontaminationinlanguagemodelsasurveyfromdetectiontoremediation": {
+    "citation_key": "Deng2024UnveilingSpectrum",
+    "title": "Unveiling the Spectrum of Data Contamination in Language Models: A Survey from Detection to Remediation",
+    "authors": [
+      "Chunyuan Deng",
+      "Yilun Zhao",
+      "Yuzhao Heng",
+      "Yitong Li",
+      "Jiannan Cao",
+      "Xiangru Tang",
+      "Arman Cohan"
+    ],
+    "venue": "arXiv preprint arXiv:2406.14644",
+    "year": 2024,
+    "abstract": "Data contamination has garnered increased attention in the era of large language models (LLMs) due to the reliance on extensive internet-derived training corpora. The issue of training corpus overlap with evaluation benchmarks--referred to as contamination--has been the focus of significant recent research. This body of work aims to identify contamination, understand its impacts, and explore mitigation strategies from diverse perspectives. However, comprehensive studies that provide a clear pathway from foundational concepts to advanced insights are lacking in this nascent field. Therefore, we present a comprehensive survey in the field of data contamination, laying out the key issues, methodologies, and findings to date, and highlighting areas in need of further research and development. In particular, we begin by examining the effects of data contamination across various stages and forms. We then provide a detailed analysis of current contamination detection methods, categorizing them to highlight their focus, assumptions, strengths, and limitations. We also discuss mitigation strategies, offering a clear guide for future research. This survey serves as a succinct overview of the most recent advancements in data contamination research, providing a straightforward guide for the benefit of future research endeavors.",
+    "citation_count": 0,
+    "sections": [],
+    "reason": "Survey.",
+    "journal": null,
+    "volume": null,
+    "pages": null,
+    "publication_date": "2024-06-20",
+    "external_ids": {
+      "ArXiv": "2406.14644"
+    },
+    "verified_by": "arxiv_id",
+    "abstract_source": "index"
+  },
+  "thestatisticalsigntest": {
+    "citation_key": "Dixon1946StatisticalSign",
+    "title": "The Statistical Sign Test",
+    "authors": [
+      "W. J. Dixon",
+      "A. M. Mood"
+    ],
+    "venue": "Journal of the American Statistical Association",
+    "year": 1946,
+    "abstract": "[Summary from web search, not the published abstract] Presents the sign test for paired observations using signs of differences, with significance tables.",
+    "citation_count": 327,
+    "sections": [],
+    "reason": "Primary source for sign test.",
+    "journal": "Journal of the American Statistical Association",
+    "volume": "41",
+    "pages": "557-566",
+    "publication_date": null,
+    "external_ids": {
+      "DOI": "10.1080/01621459.1946.10501898"
+    },
+    "verified_by": "crossref_doi",
+    "abstract_source": "web_summary"
+  }
+}
