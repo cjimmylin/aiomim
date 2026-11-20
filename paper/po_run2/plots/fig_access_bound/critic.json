@@ -8,5 +8,10 @@
     "round": 2,
     "critic_suggestions": "Values unchanged and correct (re-checked against log Sec. 6.2 and 2.10a); '15' now labelled, 9% and 7% segments unlabelled (too narrow; counts go in the caption). Full-resolution crops: (1) in (c) the tick label 'Recall, then verify' touches its hollow marker at 2.1% (markers are drawn unclipped left of x = 0 and the tick pad was 1.5 pt): raise the y tick pad of (c) to 6 pt; (2) in (a) the gap between 'Abstract' and 'Abstract +' is about 3 pt: tighten the x padding (xlim -0.45..2.45 -> -0.41..2.41) to widen the bar spacing slightly. Legend order in (b) now Stated, Partly stated, Not stated.",
     "changed": true
+  },
+  {
+    "round": 3,
+    "critic_suggestions": "No changes needed. Re-checked every drawn value against the log (Sec. 6.2: 36.1 / 40.9 / 79.8, means over 46 entries, full text before repair; Sec. 2.10a 'The facts, by availability': 1,639 / 4,221 / 379 facts, shares 76/15/9, 26/21/53, 7/16/77 with 9 and 7 unlabelled; Sec. 2.10a 'Summary: mean over entries': 94.4/93.6/94.2/91.0/28.8/23.3 stated, 6.9/6.3/5.5/5.9/2.1/8.2 not stated). Full-resolution crops: tick labels of (c) clear of the hollow markers, (a) tick labels separated, segment labels inside their segments, legends clear of data. Automated audit: no overlapping text, smallest text 7 pt (panel letters 8 pt bold), PNG 5.48 x 2.36 in and PDF 5.48 x 2.36 in (prints 1:1 at the 5.5 in text width), Liberation Sans embedded. Colours: direct reading #0072B2 in (a) and (c), the other strategies per the binding palette, greys only for availability.",
+    "changed": false
   }
 ]

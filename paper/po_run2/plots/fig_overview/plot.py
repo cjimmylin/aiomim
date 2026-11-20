@@ -23,7 +23,10 @@ LH = 0.118    # body line pitch (in)
 W = 5.5
 fig = plt.figure(figsize=(W, 3.3), facecolor="white")
 ax = fig.add_axes([0, 0, 1, 1])
+ax.set_xlim(0, W)
 ax.axis("off")
+_R = fig.canvas.get_renderer()
+ARROW = "→"       # drawn in DejaVu Sans: Liberation Sans' arrow glyph is tiny and sits on the baseline
 
 INK = "#222222"
 GREY = "#777777"
@@ -55,7 +58,20 @@ def box(x0, y0, x1, y1, ec=GREY, fc="white", lw=0.6, ls="-", r=0.035, z=1):
 
 
 def txt(x, y, s, size=FS, weight="normal", color=INK, ha="left", va="center", **kw):
-    ax.text(x, y, s, fontsize=size, fontweight=weight, color=color, ha=ha, va=va, zorder=5, **kw)
+    return ax.text(x, y, s, fontsize=size, fontweight=weight, color=color, ha=ha, va=va, zorder=5, **kw)
+
+
+def seq(x, y, parts, size=FS, weight="normal", color=INK, gap=0.035):
+    """Text pieces left to right on one line; ARROW pieces in DejaVu Sans with a small gap on each side."""
+    for k, p in enumerate(parts):
+        if p == ARROW:
+            x += gap if k else 0.0
+            t = txt(x, y, p, size=size, color=color, family="DejaVu Sans")
+            x += t.get_window_extent(_R).width / fig.dpi + gap
+        else:
+            t = txt(x, y, p, size=size, weight=weight, color=color)
+            x += t.get_window_extent(_R).width / fig.dpi
+    return x
 
 
 def arrow(x0, y0, x1, y1, col=INK, lw=0.7):
@@ -63,8 +79,8 @@ def arrow(x0, y0, x1, y1, col=INK, lw=0.7):
                                  lw=lw, color=col, shrinkA=0, shrinkB=0, zorder=4))
 
 
-def line(xs, ys, col=GREY, lw=0.6, **kw):
-    ax.plot(xs, ys, color=col, lw=lw, solid_capstyle="butt", zorder=2, **kw)
+def line(xs, ys, col=GREY, lw=0.6, z=2, **kw):
+    ax.plot(xs, ys, color=col, lw=lw, solid_capstyle="butt", zorder=z, **kw)
 
 
 def dot(x, y, col):
@@ -76,21 +92,24 @@ BT = -0.165       # top of the content
 
 # column extents (in)
 AX0, AX1 = 0.02, 1.02
-BX0, BX1 = 1.16, 3.04
-CX0, CX1 = 3.18, 5.48
+BX0, BX1 = 1.16, 3.02
+CX0, CX1 = 3.22, 5.48
 
 # ====================================================================== Column C: audit and scoring
 TX = CX0 + 0.07   # text left
-IND = 0.12        # continuation indent
+IND = 0.0         # continuation indent, set from the arrow width below
 txt(CX0, HEAD, "One audit, every draft", size=FH, weight="bold")
-audit = [("paragraph → atomic claims $c$, cited papers $R(c)$", 0),
-         ("→ verdict per cited paper + verbatim quote", 0),
-         ("supported / partly / unsupported / contradicted", IND),
-         ("→ best verdict over $R(c)$", 0),
-         ("→ one repair round for flagged claims", 0)]
+_t = txt(0, 0, ARROW, family="DejaVu Sans")
+IND = _t.get_window_extent(_R).width / fig.dpi + 0.035
+_t.remove()
+audit = [(["paragraph", ARROW, "atomic claims $c$, cited papers $R(c)$"], 0),
+         ([ARROW, "verdict per cited paper + verbatim quote"], 0),
+         (["supported / partly / unsupported / contradicted"], IND),
+         ([ARROW, "best verdict over $R(c)$"], 0),
+         ([ARROW, "one repair round for flagged claims"], 0)]
 a_top = BT
-for k, (s, ind) in enumerate(audit):
-    txt(TX + ind, a_top - 0.075 - k * LH, s)
+for k, (parts, ind) in enumerate(audit):
+    seq(TX + ind, a_top - 0.075 - k * LH, parts)
 a_bot = a_top - (0.075 + (len(audit) - 1) * LH + 0.07)
 box(CX0, a_bot, CX1, a_top, ec=INK)
 
@@ -133,10 +152,10 @@ txt(tx0 + 0.11, f_top - 0.075 - LH, "in the supplied text")
 
 # judging against the draft, primary measure, secondary fields
 y = f_bot - 0.105
-txt(TX, y, "→ each fact in the draft text citing the paper:")
+seq(TX, y, [ARROW, "each fact in the draft text citing the paper:"])
 txt(TX + IND, y - LH, "present / partly / absent / contradicted")
 y2 = y - 2 * LH - 0.03
-txt(TX, y2, "→ OMIM facts conveyed (primary)", weight="bold")
+seq(TX, y2, [ARROW, "OMIM facts conveyed (primary)"], weight="bold")
 txt(TX + IND, y2 - LH, "(present + 0.5 × partly) / facts judged")
 y_rule = y2 - LH - 0.085
 line([RX0, RX1], [y_rule, y_rule], col=GROUP_EC, lw=0.5)
@@ -235,12 +254,12 @@ B_BOTTOM = g_bot
 
 # ====================================================================== content bottom, column A
 CB = min(B_BOTTOM, C_BOTTOM)
-box(CX0, s_bot, CX1, s_top, ec=INK, z=0)    # scoring frame (drawn after the layout is known)
+box(CX0, CB, CX1, s_top, ec=INK, z=0)    # scoring frame (drawn after the layout is known)
 
 txt(AX0, HEAD, "Input (same for all)", size=FH, weight="bold")
 box(AX0, CB, AX1, BT, ec=GREY, fc="none", lw=0.6)
 txt(AX0 + 0.06, BT - 0.085, r"Entry $e=(h,R)$", weight="bold")
-IX0, IX1 = AX0 + 0.05, AX1 - 0.05
+IX0, IX1 = AX0 + 0.04, AX1 - 0.04
 # header h
 h_top = BT - 0.18
 hdr = [(r"Header $h$", "bold"), ("number, title,", "normal"), ("alternative titles", "normal")]
@@ -249,7 +268,7 @@ for k, (s, w) in enumerate(hdr):
 h_bot = h_top - (0.075 + 2 * LH + 0.07)
 box(IX0, h_bot, IX1, h_top, ec=GREY, fc=REF_FC, lw=0.5)
 # cited papers with access-level icons
-p_top = h_bot - 0.10
+p_top = h_bot - 0.12
 txt(IX0 + 0.05, p_top - 0.075, r"Cited papers $R$", weight="bold")
 IW, IHt = 0.12, 0.155
 icon_x = IX0 + 0.08
@@ -263,23 +282,23 @@ for lab, nbody in rows:
         continue
     y0 = yc - IHt / 2
     ax.add_patch(Rectangle((icon_x, y0), IW, IHt, ec=INK, fc="white", lw=0.6, zorder=3))
-    line([icon_x + 0.022, icon_x + IW - 0.022], [y0 + IHt - 0.032] * 2, col=INK, lw=1.2)
+    line([icon_x + 0.022, icon_x + IW - 0.022], [y0 + IHt - 0.032] * 2, col=INK, lw=1.2, z=4)
     for k in range(nbody):
         yy = y0 + IHt - 0.062 - k * 0.022
-        line([icon_x + 0.022, icon_x + IW - 0.022], [yy, yy], col=GREY, lw=0.5)
+        line([icon_x + 0.022, icon_x + IW - 0.022], [yy, yy], col=GREY, lw=0.5, z=4)
     txt(icon_x + IW + 0.07, yc, lab)
-    yc -= 0.215
-acc_y = yc + 0.215 - IHt / 2 - 0.13
+    yc -= 0.235
+acc_y = yc + 0.235 - IHt / 2 - 0.13
 txt(IX0 + 0.05, acc_y, r"access level $a(d)$,")
 txt(IX0 + 0.05, acc_y - LH, "set by open access")
 p_bot = acc_y - LH - 0.075
 box(IX0, p_bot, IX1, p_top, ec=GREY, fc=REF_FC, lw=0.5)
 # padlock: causal gene withheld
-lk_x, lk_y = IX0 + 0.08, p_bot - 0.20
+lk_x, lk_y = IX0 + 0.08, (p_bot + CB) / 2 + 0.01
 ax.add_patch(Rectangle((lk_x, lk_y - 0.045), 0.09, 0.07, ec=SOFT, fc=SOFT, lw=0.6, zorder=3))
 ax.add_patch(Arc((lk_x + 0.045, lk_y + 0.025), 0.058, 0.085, theta1=0, theta2=180, ec=SOFT, lw=1.1, zorder=3))
-line([lk_x + 0.016, lk_x + 0.016], [lk_y + 0.025, lk_y + 0.02], col=SOFT, lw=1.1)
-line([lk_x + 0.074, lk_x + 0.074], [lk_y + 0.025, lk_y + 0.02], col=SOFT, lw=1.1)
+line([lk_x + 0.016, lk_x + 0.016], [lk_y + 0.025, lk_y + 0.02], col=SOFT, lw=1.1, z=4)
+line([lk_x + 0.074, lk_x + 0.074], [lk_y + 0.025, lk_y + 0.02], col=SOFT, lw=1.1, z=4)
 txt(lk_x + 0.15, lk_y + LH / 2 - 0.005, "causal gene", color=SOFT)
 txt(lk_x + 0.15, lk_y - LH / 2 - 0.005, "withheld", color=SOFT)
 A_CONTENT_BOTTOM = lk_y - LH / 2 - 0.06

@@ -83,3 +83,18 @@ All numbers are copied from RUN/raw_materials/experimental_log.md. Section and l
   markers in grey #3B3B3B (filled) / hollow grey, lower-right empty region, no frame.
 - No caption text, titles, n-lists or statistics in the image (the fact counts in (b) row labels are requested by
   the outline). Save PNG (dpi 300) and PDF beside it.
+
+## Final layout (after the critic rounds)
+
+- Canvas 5.5 x 2.36 in, saved with a tight bbox: PNG 1644 x 708 px at 300 dpi = 5.48 x 2.36 in; PDF 5.48 x 2.36 in.
+  Prints 1:1 at \textwidth. Text: 7 pt everywhere, panel letters 8 pt bold (nothing below 7 pt).
+- Panel widths incl. labels 1.60 / 1.60 / 2.02 in (about 1 : 1 : 1.26, not the outline's 1 : 1.1 : 1.4): (a) needs
+  about 1.26 in of plot width so its three horizontal tick labels do not touch at 7 pt; (c) needs 0.8 in of row labels.
+- (a) tick labels "Abstract / only", "Abstract + / second- / hand", "Full text" (line breaks only). Value labels
+  with one decimal and %.
+- (b) segment labels are integers without "%" (the axis label carries the unit) and are drawn only where the text
+  plus 0.015 in each side fits inside the segment: drawn 76, 15, 26, 21, 53, 16, 77; not drawn 9 (full text, not
+  stated, 140 facts) and 7 (title only, stated, 27 facts) -> those counts go in the caption. Legend (2 columns,
+  reading order Stated, Partly stated, Not stated) left-aligned with the row labels at the top of the panel.
+- (c) row label "Memory only / (control)" on two lines to keep the label column narrow; tick pad 6 pt so labels stay
+  clear of hollow markers near x = 0; marker legend (dark grey filled = stated, hollow = not stated) lower right.
