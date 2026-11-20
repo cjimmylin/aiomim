@@ -98,6 +98,10 @@ def configure(generated: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
     chat = s["completion_models"]["default_completion_model"]
     emb = s["embedding_models"]["default_embedding_model"]
     retry_default = chat.get("retry")
+    if isinstance(retry_default, dict) and retry_default.get("type") == "exponential_backoff" \
+            and "max_retries" not in retry_default:
+        # graphrag_llm ExponentialRetry: unset max_retries -> 7 (base delay 2 s, jitter)
+        retry_default = {**retry_default, "max_retries": "(unset: package default 7)"}
 
     for name, model, kind in (("default_completion_model", chat, "chat"), ("default_embedding_model", emb, "embed")):
         prefix = ("completion_models." if kind == "chat" else "embedding_models.") + name
@@ -109,7 +113,8 @@ def configure(generated: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
                "http://127.0.0.1:<port>/v1", "the local adapter (127.0.0.1 only)")
         change(f"{prefix}.api_key", "${GRAPHRAG_API_KEY} (.env: <API_KEY>)", DUMMY_KEY + " (in .env)",
                "dummy key; the adapter needs none and no real key is passed to the package")
-        change(f"{prefix}.call_args", {}, {"timeout": TIMEOUT_S, "max_retries": 0,
+        change(f"{prefix}.call_args", "{} (LiteLLM/OpenAI client defaults: its own timeout and retries)",
+               {"timeout": TIMEOUT_S, "max_retries": 0,
                                            "extra_headers": {TAG_HEADER: "<system>/<mim>/<step>"}},
                "client timeout 1800 s (a call can take minutes); the OpenAI client's own retries off "
                "(GraphRAG's retry and the adapter's retry remain); ledger tag header (bookkeeping only)")
@@ -148,6 +153,10 @@ ENV_CHANGES = [
               "LITELLM_TELEMETRY=False, ANONYMIZED_TELEMETRY=False, DO_NOT_TRACK=1, OTEL_SDK_DISABLED=true, "
               "HF_HUB_OFFLINE=1, TIKTOKEN_CACHE_DIR=data/cache/tiktoken",
      "reason": "telemetry off, nothing reaches an outside service; tiktoken encodings filled once beforehand"},
+    {"setting": "vector_store.vector_size (effective; not set by us)", "default": 3072, "value": 384,
+     "reason": "a consequence of the embedding model, not a change in settings.yaml: the package's own "
+               "validate_config detects the model's 384-dimensional vectors and overrides vector_size (logged as a "
+               "warning)"},
 ]
 
 

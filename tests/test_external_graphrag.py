@@ -115,6 +115,11 @@ def test_configure_changes_only_what_is_allowed():
     assert "${AIOMIM_TAG}/extract_graph" in steps
     assert all({"setting", "default", "value", "reason"} <= set(c) for c in changes)
     assert generated["completion_models"]["default_completion_model"]["model"] == "gpt-4.1"  # not mutated
+    retry = next(c for c in changes if c["setting"] == "completion_models.default_completion_model.retry")
+    assert "7" in str(retry["default"]["max_retries"]) and retry["value"]["max_retries"] == 2
+    settings = {c["setting"] for c in changes}
+    assert {"concurrent_requests", "extract_graph.completion_model_id"} <= settings
+    assert any(c["setting"].startswith("vector_store.vector_size") for c in g.ENV_CHANGES)
 
 
 def test_step_of():
