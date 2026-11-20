@@ -138,6 +138,13 @@ design, results and deviations in [`docs/experiments-round2.md`](docs/experiment
   flagged no unaltered paragraph. It cannot see an added irrelevant citation or an omission, and it caught a dropped
   qualifier 11 times in 30 ([`audit_stress.md`](results/omim100/audit_stress.md)).
 
+**Improving on direct reading.** Of ten approaches reviewed ([`docs/direct-improvements.md`](docs/direct-improvements.md)),
+the three tested on 41 held-out entries with full text all helped a little, within the 3–5 points that reading the
+supplied text better can add: a completeness pass (check each paper for omissions, then revise) conveyed 2.6 more
+points of curator facts with no loss of fidelity at about twice the cost; merging three drafts conveyed 3.1 more but
+partly from outside the papers and with more unsupported claims; a curator checklist in the prompt added 1.6 at no
+cost ([`results/direct_improve/`](results/direct_improve/)). Access to full text remains the larger lever.
+
 A curator reviews a run on a single page: the draft in OMIM's layout, the audit's verdict and evidence for every
 claim, the comparison with OMIM, the evidence graph, and accept / edit / reject for each paragraph. To browse the
 results in this repository:
