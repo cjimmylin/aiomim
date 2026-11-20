@@ -139,3 +139,12 @@ the 20 audited entries. List price per entry is the whole method from scratch, g
   more on entries with full text); none comes near what access to full text would add.
 - Not tested: the checklist and the completeness pass together, and either on entries without full text beyond the
   abstract-only papers inside these entries. Every judgement here is the same model's, as in the rest of the study.
+
+## Extension: checklist and completeness pass together (D4), designed before any run
+
+Asked for after the results above. D4 starts from D1's checklist draft and applies D2's completeness pass unchanged
+(the same check prompt; the revision prompt with the checklist house style the draft was written in). Same 41
+entries, same scoring and stated / not-stated split, audit without repair on the same 20 sampled entries, the same
+completion rules. Comparisons use the entries complete for all five arms. Primary for the extension: D4 minus the
+baseline; secondary: D4 minus D2 and D4 minus D1. The four arms already run are not re-run. Cap: 700 new calls for
+D4, pilot (the three training entries) included. Piloted first; the test entries are run from the owner's session.
