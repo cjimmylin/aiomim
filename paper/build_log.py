@@ -514,7 +514,27 @@ def papers_in_scope() -> dict:
             total[p.get("content_level")] += 1
             scored[p.get("content_level")] += p["pmid"] in about
     outside = {m: n for m, n in ft_by_entry.items() if n and m not in eligible}
-    return {"total": total, "scored": scored, "eligible": len(eligible),
+    # Facts of paragraphs about a full-text paper, by the two rules in use: any of the paragraph's papers read in full
+    # (the hidden-full-text experiment) or the paragraph's least readable paper read in full (every by-access table).
+    any_ft = min_ft = mixed = 0
+    any_entries, min_entries = set(), set()
+    for d in sorted(p for p in (RUNS / "omim100").iterdir() if p.is_dir() and p.name.isdigit()):
+        ev = d / "eval.direct.json"
+        if not ev.exists():
+            continue
+        levels = {p["pmid"]: p.get("content_level") for p in json.loads((d / "papers.json").read_text())}
+        for para in (json.loads(ev.read_text()).get("gold_text_frozen") or {}).get("paragraphs", []):
+            n = para["n_facts"]
+            if para["content_level"] == "fulltext":
+                min_ft += n
+                min_entries.add(d.name)
+            if "fulltext" in {levels.get(m) for m in para["pmids"]}:
+                any_ft += n
+                any_entries.add(d.name)
+                mixed += n if para["content_level"] != "fulltext" else 0
+    return {"any_ft": any_ft, "any_ft_entries": len(any_entries), "min_ft": min_ft, "min_ft_entries": len(min_entries),
+            "mixed": mixed,
+            "total": total, "scored": scored, "eligible": len(eligible),
             "hidden": sum(ft_by_entry[m] for m in eligible), "outside_papers": sum(outside.values()),
             "outside_entries": len(outside)}
 
@@ -852,6 +872,14 @@ an upper bound on error. The entries used are the {sc['eligible']} with a paper 
 paragraph is about; all their full-text papers were hidden ({sc['hidden']} papers). The other {sc['outside_papers']}
 full-text papers (in {sc['outside_entries']} entries) have no in-scope curator paragraph, so hiding them could not
 change the score (computed from the run's files).
+
+Which facts count as about a full-text paper differs between this experiment and the by-access tables. Here every
+in-scope paragraph about a hidden paper is scored: {sc['any_ft']:,} facts in {sc['any_ft_entries']} entries with a
+direct-reading draft. In the by-access tables (sections 2.8, 2.10a, 3) a paragraph about several papers is classed by
+its least readable paper, so a paragraph about a full-text paper and an abstract-only paper counts as abstract only:
+{sc['min_ft']:,} facts in {sc['min_ft_entries']} entries are classed as full text on that rule, and {sc['mixed']} facts
+of this experiment are classed abstract or title only there (computed from direct reading's stored scores; the
+by-access tables are further restricted to the 93 entries every strategy completed).
 
 {entry_means(shj)}
 

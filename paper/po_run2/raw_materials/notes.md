@@ -314,3 +314,29 @@ planted items per class show directions and large effects only. Say so once wher
 - **Wording that held up in the reviews of v1 and should be kept:** the definitions paragraph; the status of each
   analysis; the "suggestive" case-table deficit; released systems out of the introduction; the reuse paragraph; the
   limitations ordered with what each missing check would establish.
+
+## Added after the review of v2 of run 2 (numbers are in the log)
+
+- **Headline scope.** Wherever the abstract, introduction or conclusion says how the designs compare, say in the same
+  sentence that this is for entries with 2–12 references read in one prompt, and that at the main settings no design
+  conveyed more than direct reading. "Either way" may be said only with what it rests on (the ablation's entry set and
+  the case table's settings step).
+- **Abstract figures.** If the abstract gives the completeness pass's gain, say on which entries (the 38 every arm
+  completed) and that it holds on all 41 only when the draft is kept where the revision was stopped (log 15.1).
+- **Hidden-full-text fact set (log 6.2, new paragraph).** Define it where the experiment is introduced: every
+  in-scope paragraph about a hidden paper, 2,120 facts in the 46 compared entries; the by-access tables class a
+  paragraph about several papers by its least readable paper, so 283 of these facts are counted as abstract or title
+  only there. This reconciles the counts; say it once in the main text and once in the appendix table's caption.
+- **Padding (log 14.2).** Report both views: on the 2 entries under the symmetric rule (primary), and on the 6 entries
+  allowing a failure on an added paper (secondary), where direct reading gained about 3 points at the middle level
+  while the others did not, so the others fell behind direct reading there (interaction intervals exclude zero at the
+  middle level, not at the largest; sign tests not significant; 6 entries, indicative only). Do not write that size
+  cost no strategy anything without this.
+- **Released systems, appendix.** Replace "not outperformed by released pipelines" with what was observed on the
+  10 and 4 entries at one setting each, and say that this supports no ranking.
+- **Small corrections.** On the 2026 entries the case table's interval also excludes zero (check the log's table
+  before writing which intervals exclude zero). Table ranges must run upwards ("Tables 36–40"). Define "held out",
+  "stopped", "completion" and "no arm repaired" at first use or use plain words there.
+- **Memorisation.** Abstract-only coverage by creation band moves with the memory-only control's coverage by band
+  (log 2.10, 2.11): report the two side by side as an observation; it is consistent with recall contributing to
+  abstract-only coverage and does not separate recall from reading.

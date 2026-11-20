@@ -672,6 +672,14 @@ paragraph is about; all their full-text papers were hidden (91 papers). The othe
 full-text papers (in 5 entries) have no in-scope curator paragraph, so hiding them could not
 change the score (computed from the run's files).
 
+Which facts count as about a full-text paper differs between this experiment and the by-access tables. Here every
+in-scope paragraph about a hidden paper is scored: 2,120 facts in 46 entries with a
+direct-reading draft. In the by-access tables (sections 2.8, 2.10a, 3) a paragraph about several papers is classed by
+its least readable paper, so a paragraph about a full-text paper and an abstract-only paper counts as abstract only:
+1,837 facts in 44 entries are classed as full text on that rule, and 283 facts
+of this experiment are classed abstract or title only there (computed from direct reading's stored scores; the
+by-access tables are further restricted to the 93 entries every strategy completed).
+
 OMIM facts conveyed on the fixed fact lists: abstract only 36.1% mean over entries (n = 46), 31.2% pooled over facts (2,120 facts); abstract plus second-hand 40.9% mean over entries (n = 46), 36.7% pooled over facts (2,120 facts); full text (main run's direct draft) 79.9% mean over entries (n = 46), 77.4% pooled over facts (2,120 facts); full text before the repair round 79.8% mean over entries (n = 46), 77.3% pooled over facts (2,120 facts).
 
 Source run `omim100`; 49 entries. In each, the papers read in full were hidden and the entry was written by direct reading from their abstracts, with and without second-hand passages from later open-access papers. Counts, not just rates.
