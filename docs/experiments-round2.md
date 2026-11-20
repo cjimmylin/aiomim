@@ -128,3 +128,101 @@ written above; only the sizes change. With these sizes every result is explorato
 | C audit coverage | about 60 items per class; 1,200 calls | about 30 items per class; 600 calls |
 
 About 5,400 new model calls in all.
+
+# Results
+
+Run on 20–21 November 2026 at the reduced sizes. Every number below is in the result files named with it. One model
+family wrote, audited and judged everything, as in the rest of the study, and no person checked any judgement. With 4
+to 10 entries per experiment these results show directions and large effects only.
+
+## A2. Controlled padding — `results/padding/padding.md`
+
+Six entries were run (the pilot showed eight would not fit the reduced cap; 685 calls). Median input 39,450
+characters as cited, about 500,000 at P1 and about 1,190,000 at P2 (27–37 papers; direct reading used three prompts
+and a merge at P2).
+
+| Strategy | P0 | P1 | P2 | P2 − P0 (95% interval) |
+|---|---|---|---|---|
+| Direct reading | 71.3% | 74.9% | 74.5% | +3.2 (−0.7 to +6.8) |
+| Agentic curator | 69.8% | 70.6% | 70.3% | +0.5 (−3.4 to +4.4) |
+| Evidence graph | 73.5% | 73.3% | 74.1% | +0.7 (−1.0 to +2.5) |
+| Case table first | 70.0% | 69.0% | 69.1% | −0.9 (−2.1 to +0.1) |
+
+- No strategy lost more than about a point of its entry's own facts when the input grew thirtyfold with unrelated
+  papers. Direct reading's rise is within run-to-run noise (P0 is an earlier generation; there is no P0 replicate).
+- No padded draft cited an added paper. The agent opened 5 of 63 added papers at P1 and none of 174 at P2; the
+  extract-then-write strategies marked them not relevant. Off-topic padding is easy to ignore, so this tests size, not
+  crowding by relevant papers.
+- Completion fell for the per-paper pipelines as papers were added: at P2 the evidence graph and the case table were
+  each complete on 3 of 6 entries, every loss a safety-filter stop on an extraction call for an added paper. Direct
+  reading and the agent completed all 6 at every level. Under the symmetric rule only 2 entries are complete for every
+  strategy at every level; on those the ranking is the same at every level. The table above allows losses on added
+  papers.
+
+## B. Published systems — `results/external/external.md`
+
+| System | Version | How it was run | Entries completed |
+|---|---|---|---|
+| PaperQA2 | paper-qa 2026.8.12 | document-query pipeline (`Docs.aquery`), six questions; without its agent, which needs function calling the local adapter does not provide | 10 of 10 |
+| GraphRAG | graphrag 3.3.0 | `graphrag init` defaults, standard indexing, local search (and global search), six questions | 4 of 4 attempted; the fifth entry did not fit the 1,000-call cap |
+| STORM | knowledge-storm 1.1.1 | its own runner, all four stages, a local vector store over the entry's papers | 0 of 10 |
+
+**STORM produced no article.** The model's safety filter stopped every chain-of-thought prompt of its research stage
+(30 of 30 requests; its 20 plain prompts were answered). With no research it wrote an outline from memory and then
+failed. Nothing was retried or reworded.
+
+On the 4 entries every system completed (facts conveyed, mean over entries):
+
+| | PaperQA2 | GraphRAG local | GraphRAG global | Direct reading | Agentic curator | Evidence graph | Case table first |
+|---|---|---|---|---|---|---|---|
+| Credited to paragraphs citing the paper | 49.6% | 46.2% | 46.0% | 59.6% | 59.6% | 59.6% | 56.5% |
+| Credited anywhere in the draft | 51.6% | 47.3% | 47.7% | 61.5% | 60.9% | 60.8% | 56.5% |
+| On facts the supplied text states | 73.9% | 65.8% | 68.2% | 88.8% | 88.4% | 92.0% | 86.8% |
+| On facts it does not state | 2.1% | 4.1% | 20.5% | 3.0% | 2.9% | 1.1% | 2.0% |
+| Characters written | 15,445 | 37,932 | 63,752 | 11,127 | 11,651 | 14,232 | 14,256 |
+| Model calls | 57 | 135 | 165 | 2 | 2 | 7 | 7 |
+| List price | $2.17 | $9.29 | $12.14 | $0.36 | $0.39 | $0.80 | $0.88 |
+
+- PaperQA2 on its 10 entries: 47.4% against 61.9% for direct reading, −14.5 points (−21.8 to −7.0), worse on 9 of 10
+  entries (sign test p = 0.02). On facts the text states: 70.4% against 88.8%. The first run, with the shared
+  embedding model cutting each passage at 512 tokens, gave 49.1%; removing the cut changed retrieval and not the
+  result.
+- GraphRAG on its 4 entries: local search −13.4 points from direct reading (−25.3 to −1.5), global search −13.6. Four
+  entries cannot support a test (the sign test cannot go below p = 0.125).
+- The shortfall of both systems is on facts the papers state, not on facts they do not: they convey less of what is
+  there, while writing more text and making 25 to 80 times as many calls. The one exception, global search conveying
+  20.5% of facts the text does not state, comes mostly from one entry and points to memory entering the community
+  reports.
+- Claims judged supported, audit without repair on the 4 common entries: PaperQA2 91.4% (0.8% unsupported or
+  contradicted), GraphRAG local 89.8% (2.5%), against 96.5–98.6% for the four strategies as stored before repair.
+- What this does not show: a ranking of these systems in general. PaperQA2 ran without its agent; each system ran at
+  one setting, with one small local embedding model and a model interface that ignores temperature and length
+  limits; the questions were ours; the strategies' drafts had been through the repair round and the systems' had not;
+  and GraphRAG's entries are the first four of the order, not a sample.
+
+## C. Audit coverage — `results/omim100/audit_stress.md`
+
+Thirty items per class (540 calls). Counts are over items where the truth is known by construction.
+
+| Class | Items | Planted claim flagged | Unaltered paragraph flagged |
+|---|---|---|---|
+| C1 citation swap, other entry | 30 | 30 (100%) | 0 |
+| C2 citation swap, same entry | 26 | 26 (100%) | 0 |
+| C3 conflation | 25 | 25 (100%) | 0 |
+| C4 over-citation | 30 | 0 | 0 |
+| C5 dropped qualifier | 30 | 11 (37%) | 0 |
+| C6 omitted finding | 30 | 0 | 0 |
+
+- The audit catches a wrong citation and a sentence moved between papers' paragraphs, and it never flagged an
+  unaltered paragraph (0 of 113 paragraphs, 0 of 733 claims).
+- It does not see over-citation: the claim's verdict is the best over its cited papers, so an added paper judged
+  unsupporting on 176 of 176 claims never shows. In the existing drafts, 4–7% of (claim, cited paper) pairs in
+  multi-citation paragraphs are of this kind for the paper-reading strategies and 27% for the memory-only control.
+- It rarely sees a claim made broader: a deleted negation was flagged 8 of 8 times, a deleted hedge 2 of 8, and a
+  deleted count, zygosity or "one family" 1 of 14.
+- It does not see omissions. The separate completeness check listed the deleted finding in 16 of 29 cases in full and
+  24 of 29 in full or in part, against 2 of 29 on unaltered text. On real omissions it listed 24 of 60 curator facts
+  that the text states and the draft lacks, while listing about ten omissions per paper, a fifth of which match any
+  curator fact.
+- Limits: the citation swaps are easy cases (the swapped paper is usually about something else); the qualifier rules
+  have 2 to 8 items each; the completeness check and its judge are the same model.
