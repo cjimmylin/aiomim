@@ -39,7 +39,7 @@ groups = [
         ("Irrelevant citation added", 0, 30, "square"),      # Sec. 14.4 C4 over-citation, 0/30
         ("Finding omitted", 0, 30, "square"),                # Sec. 14.4 C6, paragraph flagged 0/30
     ]),
-    ("Unaltered control (re-audited)", [
+    ("Unaltered control", [
         ("Single-value paragraphs", 0, 60, "open"),          # Sec. 11 audit control, 0 of 60
         ("Paragraphs of other classes", 0, 113, "open"),     # Sec. 14.4 Control, 113 paragraphs, 0 flagged
     ]),
@@ -50,8 +50,8 @@ FIG_W = 3.0
 PITCH = 0.132          # inches per text line (about 9.5 pt)
 GAP = 0.45             # extra space before a heading, in lines
 X_HEAD, X_ROW = 0.0, 0.08            # left edges of headings and row labels
-AX_L, AX_R = 1.50, 2.60              # data axes, left and right edge
-X_SLASH = 2.86                       # k/n column aligned on the slash
+AX_L, AX_R = 1.48, 2.52              # data axes, left and right edge
+X_SLASH = 2.76                       # k/n column aligned on the slash
 BOTTOM = 0.36                        # room for ticks and the x-axis label
 
 # y positions in "lines", top line = 0, increasing downward
