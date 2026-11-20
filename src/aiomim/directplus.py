@@ -619,6 +619,21 @@ def project(pilot: str, mims: list[str], source: str = SOURCE_RUN) -> dict[str, 
 
     acc: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
     price: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))   # arm -> stage -> usd per call
+    # Generation as first made (the pilot's draft step): the run's own generation step
+    # replays those replies from the cache. D2's checks scale with the papers.
+    first: dict[tuple[str, str], dict[str, Any]] = {}
+    log_path = run_dir / "progress.log"
+    for line in (log_path.read_text(encoding="utf-8").splitlines() if log_path.exists() else []):
+        row = json.loads(line)
+        if row.get("step") == "draft only":
+            first[(row["mim"], row["arm"])] = row
+    for (mim, arm), row in first.items():
+        n_papers = len(_read(run_dir / mim / "papers.json"))
+        new_calls = row["calls"] - row["cached"]
+        scale = n_papers if arm == "direct_complete" else 1
+        acc[arm]["gen_calls"].append(new_calls / scale)
+        acc[arm]["gen_usd"].append(row["usd"] / scale)
+        acc[arm]["gen_seconds"].append(row["seconds"])
     for mim in entries_of(run_dir):
         d = run_dir / mim
         if not (d / "usage.json").exists():
@@ -631,16 +646,14 @@ def project(pilot: str, mims: list[str], source: str = SOURCE_RUN) -> dict[str, 
             u = usage.get(arm) or {}
             if not all(step in u for step in STEPS):
                 continue
-            gen, aud, sco = (_stage_calls(u[step]) for step in STEPS)
-            for stage_map in (gen, aud, sco):
+            aud, sco = _stage_calls(u["audit"]), _stage_calls(u["score"])
+            for stage_map in (aud, sco):
                 for stage, v in stage_map.items():
                     if v["calls"]:
                         price[arm][stage].append(v["usd"] / v["calls"])
-            for stage, v in gen.items():
-                acc[arm][f"generate/{stage}"].append(v["calls"] / (n_papers if stage == "complete" else 1))
             acc[arm]["audit_ratio"].append(aud.get("verify", {}).get("calls", 0) / max(1, src_audit))
             acc[arm]["mark_ratio"].append(sco.get("judge", {}).get("calls", 0) / max(1, n_marks))
-            acc[arm]["wall"].append(sum(u[step].get("wall_seconds", 0) for step in STEPS))
+            acc[arm]["audit_score_wall"].append(u["audit"].get("wall_seconds", 0) + u["score"].get("wall_seconds", 0))
     mean = lambda xs: statistics.mean(xs) if xs else 0.0  # noqa: E731
 
     per_arm: dict[str, dict[str, float]] = {}
@@ -652,17 +665,20 @@ def project(pilot: str, mims: list[str], source: str = SOURCE_RUN) -> dict[str, 
             n_papers = len(_read(src_root / mim / "papers.json"))
             src_audit = (usage_of(mim).get("audit/verify") or {}).get("calls", 0)
             n_marks = n_marks_of(src_root, mim)
-            for key, xs in acc[arm].items():
-                if key.startswith("generate/"):
-                    calls_by_stage[key] += mean(xs) * (n_papers if key == "generate/complete" else 1)
+            scale = n_papers if arm == "direct_complete" else 1
+            calls_by_stage["generate"] += mean(acc[arm]["gen_calls"]) * scale
+            usd_gen = mean(acc[arm]["gen_usd"]) * scale
             calls_by_stage["audit/verify"] += mean(acc[arm]["audit_ratio"]) * src_audit
             calls_by_stage["score/judge"] += mean(acc[arm]["mark_ratio"]) * n_marks
-        usd = sum(c * mean(price[arm][key.split("/", 1)[1]]) for key, c in calls_by_stage.items())
+            calls_by_stage["usd"] += usd_gen
+        usd = calls_by_stage.pop("usd") + sum(c * mean(price[arm][key.split("/", 1)[1]])
+                                              for key, c in calls_by_stage.items() if "/" in key)
+        wall = mean(acc[arm]["gen_seconds"]) + mean(acc[arm]["audit_score_wall"])
         per_arm[arm] = {"calls": round(sum(calls_by_stage.values()), 1),
                         "calls_by_stage": {k: round(v, 1) for k, v in calls_by_stage.items()},
-                        "usd": round(usd, 2), "hours_one_at_a_time": round(mean(acc[arm]["wall"]) * len(mims) / 3600, 1),
-                        "pilot_wall_seconds_per_entry": round(mean(acc[arm]["wall"])),
-                        "pilot_ratios": {k: round(mean(v), 3) for k, v in acc[arm].items() if not k.startswith("gen")}}
+                        "usd": round(usd, 2), "hours_one_entry_at_a_time": round(wall * len(mims) / 3600, 1),
+                        "pilot_wall_seconds_per_entry": round(wall),
+                        "pilot": {k: round(mean(v), 3) for k, v in acc[arm].items()}}
     ledger = run_dir.parent / LEDGER
     used = _read(ledger)["calls"] if ledger.exists() else 0
     variants_total = round(sum(a["calls"] for a in per_arm.values()))
