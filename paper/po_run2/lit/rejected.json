@@ -1,0 +1,52 @@
+[
+ {
+  "candidate_title": "Claude Opus 5.5 System Card",
+  "task_id": "T159",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "reason": "s2_no_response;crossref_no_match_35;arxiv_no_match_0"
+ },
+ {
+  "candidate_title": "Empowering biological knowledgebases: advances in human-in-the-loop AI-driven literature curation",
+  "task_id": "T003",
+  "section": "Introduction",
+  "reason": "s2_disabled;crossref_error_HTTPError;arxiv_no_match_0"
+ },
+ {
+  "candidate_title": "WikiCrow: Automating Synthesis of Human Scientific Knowledge",
+  "task_id": "T010",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "reason": "s2_disabled;crossref_no_match_69;arxiv_no_match_0"
+ },
+ {
+  "candidate_title": "Gene: a gene-centered information resource at NCBI",
+  "task_id": "T141",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "reason": "no_abstract",
+  "matched_title": "Gene: a gene-centered information resource at NCBI"
+ },
+ {
+  "candidate_title": "HGVS Recommendations for the Description of Sequence Variants: 2016 Update",
+  "task_id": "T175",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "reason": "no_abstract",
+  "matched_title": "HGVS Recommendations for the Description of Sequence Variants: 2016 Update"
+ },
+ {
+  "candidate_title": "An Introduction to the Bootstrap",
+  "task_id": "T177",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "reason": "no_abstract",
+  "matched_title": "An Introduction to the Bootstrap"
+ },
+ {
+  "candidate_title": "LiteLLM",
+  "task_id": "T228",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "reason": "s2_disabled;crossref_no_match_15;arxiv_no_match_0"
+ },
+ {
+  "candidate_title": "Information Retrieval (van Rijsbergen, 1979)",
+  "task_id": "T174",
+  "reason": "removed by orchestrator: verification matched a different work (Multimedia Information Retrieval, doi 10.1007/0-306-47031-4_10)"
+ }
+]

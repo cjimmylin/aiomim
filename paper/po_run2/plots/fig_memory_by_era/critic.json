@@ -1,0 +1,7 @@
+[
+  {
+    "round": 1,
+    "critic_suggestions": "Content: all 24 plotted values match log Sec. 2.11 (facts conveyed memory 14.5/24.1/17.5/12.6/5.7, direct 34.9/53.9/51.2/51.4/53.5; gene F1 memory 88.9/94.7/100.0/89.5/41.2, direct 87.0/100.0/100.0/100.0/100.0) and Sec. 10 (2026 set, 20 compared entries: facts 7.0 vs 52.2, gene F1 30.0 vs 100.0). No caption text, title or statistic in the image. Presentation: at 8 pt the one-line range tick labels are as wide as the category spacing, so neighbours run into each other ('600000–609999610000–615999'). Fix: break each range over two lines ('600000–' / '609999'; '620000' / 'onward'; 'created' / '2026'), keep n on the last line, keep 8 pt. Minor: x tick marks shown in the top panel but removed in the bottom one; use the same in both.",
+    "changed": true
+  }
+]
