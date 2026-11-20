@@ -130,3 +130,11 @@ def test_exact_top_k_batched_gives_the_same_top():
     for batch in (1, 2, 4, 7):
         top, resolved = lt.exact_top_k(bounds, lambda m: true[m], 5, batch=batch)
         assert top == full
+
+
+def test_counts_from_log_reads_resolved_lines_last_wins():
+    lines = ["03:26:51 INFO    resolved 222100: 9 of 142 readable in full (bound 50)",
+             "03:25:36 INFO    sample: 25 eligible after 394 candidates walked",
+             "03:53:27 INFO    resolved 222100: 9 of 142 readable in full (bound 50)",
+             "04:00:00 INFO    resolved 155600: 33 of 119 readable in full (bound 54)"]
+    assert lt.counts_from_log(lines) == {"222100": 9, "155600": 33}

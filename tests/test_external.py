@@ -318,3 +318,43 @@ def test_by_availability():
     out = score.by_availability(frozen, {"a.1": "yes", "a.2": "no", "a.3": "yes"})
     assert out["stated"]["n_facts"] == 2 and out["stated"]["coverage"] == 0.75
     assert out["not_stated"]["coverage"] == 0.0 and out["all"]["n_facts"] == 3
+
+
+def test_ledger_usage_distinct_counts_each_request_once(tmp_path):
+    path = tmp_path / "l.jsonl"
+    fresh = {"endpoint": "/v1/chat/completions", "tag": "s/1", "status": 200, "cached": False, "model_calls": 1,
+             "input_tokens": 100, "output_tokens": 10, "cost_usd": 1.0, "call_seconds": 5, "key": "k1"}
+    resave = {**fresh, "cached": True}                       # the same request re-asked from the cache
+    earlier = {**fresh, "cached": True, "key": "k2"}           # first made by another run, cached here
+    step = {**fresh, "key": "k3", "tag": "s/1/search"}
+    path.write_text("\n".join(json.dumps(r) for r in (fresh, resave, resave, earlier, step)))
+    u = score.ledger_usage("s", "1", [path])
+    assert (u["chat_requests"], u["model_calls"], u["distinct_requests"]) == (5, 2, 3)
+    assert u["full_cost_usd"] == 5.0 and u["distinct_cost_usd"] == 3.0 and u["distinct_input_tokens"] == 300
+    v = score.ledger_usage("s", "1", [path], skip_steps=("search",))
+    assert v["distinct_requests"] == 2 and v["model_calls"] == 1
+
+
+def test_wall_seconds_rules(monkeypatch, tmp_path):
+    monkeypatch.setattr(score, "runs_root", lambda: tmp_path)
+    (tmp_path / "sys").mkdir()
+    (tmp_path / "sys" / "pilot.log").write_text(json.dumps({"mim": "1", "calls": 30, "seconds": 177.2}) + "\n")
+    resaved = {"meta": {"chat_requests_this_run": 30, "cached_requests_this_run": 30, "seconds": 6.9}}
+    assert score.wall_seconds("sys", "1", resaved)["seconds"] == 177.2
+    assert score.wall_seconds("sys", "2", resaved)["seconds"] is None
+    partly = {"meta": {"chat_requests_this_run": 66, "cached_requests_this_run": 52, "seconds": 150.0}}
+    w = score.wall_seconds("sys", "2", partly)
+    assert w["seconds"] == 150.0 and "understates" in w["source"]
+    graph = {"meta": {"seconds": 188.8, "query_run": None,
+                      "index_status": {"attempts": [{"seconds": 247.5}]}}}
+    assert score.wall_seconds("g", "1", graph)["seconds"] == 436.3
+    graph["meta"]["query_run"] = {"seconds": 325.3}
+    assert score.wall_seconds("g", "1", graph)["seconds"] == 572.8
+
+
+def test_pair_gives_interval_at_small_n():
+    import random
+
+    out = score._pair([(0.5, 0.6), (0.4, 0.6), (0.7, 0.6), (0.3, 0.6)], random.Random(7))
+    assert out["n"] == 4 and out["ci95"] is not None and out["ci95"][0] <= out["difference"] <= out["ci95"][1]
+    assert (out["better"], out["worse"]) == (1, 3) and out["ci_unreliable"]

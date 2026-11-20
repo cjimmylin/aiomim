@@ -184,6 +184,19 @@ def reference_share(paragraph_pmids: Iterable[Iterable[str]], cited: Iterable[st
     return len(covered), (_r(len(covered) / len(cited)) if cited else None)
 
 
+_RESOLVED_LINE = re.compile(r"resolved (\d+): (\d+) of (\d+) readable in full")
+
+
+def counts_from_log(lines: Iterable[str]) -> dict[str, int]:
+    """Readable-in-full counts an earlier (interrupted) selection logged, so a restart need not redo them."""
+    out: dict[str, int] = {}
+    for line in lines:
+        m = _RESOLVED_LINE.search(line)
+        if m:
+            out[m.group(1)] = int(m.group(2))
+    return out
+
+
 def _r(x: float | None, nd: int = 4) -> float | None:
     return None if x is None else round(x, nd)
 
@@ -265,12 +278,29 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None, sample_
     sample, walk = draw_sample(exclude, seed, sample_size)
     bounds = pmc_bounds(sample)
     described: dict[str, dict[str, Any]] = {}
+    # Resumable: counts already resolved (persisted, or logged by an interrupted earlier pass) are reused.
+    # Re-resolving costs minutes per entry (Europe PMC full-text requests that time out are not cached).
+    store = root / "runs" / "largeft" / "resolved.json"
+    store.parent.mkdir(parents=True, exist_ok=True)
+    if store.exists():
+        described.update(json.loads(store.read_text()))
+    log_path = root / "runs" / "largeft" / "select.log"
+    from_log = counts_from_log(log_path.read_text().splitlines()) if log_path.exists() else {}
+    import threading
+    lock = threading.Lock()
 
     def resolve(mim: str) -> int:
-        described[mim] = describe_papers(mim)
-        log.info("resolved %s: %d of %d readable in full (bound %d)", mim, described[mim]["n_fulltext"],
+        if mim in described:
+            return described[mim]["n_fulltext"]
+        if mim in from_log:
+            return from_log[mim]
+        d = describe_papers(mim)
+        with lock:
+            described[mim] = d
+            store.write_text(json.dumps(described, indent=1))
+        log.info("resolved %s: %d of %d readable in full (bound %d)", mim, d["n_fulltext"],
                  bounds[mim]["n_refs"], bounds[mim]["n_pmc"])
-        return described[mim]["n_fulltext"]
+        return d["n_fulltext"]
 
     from concurrent.futures import ThreadPoolExecutor
 
@@ -279,6 +309,13 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None, sample_
         top, resolved = exact_top_k({m: b["n_pmc"] for m, b in bounds.items()}, resolve, n_select,
                                     batch=RESOLVE_PARALLEL, mapper=pool.map)
     threshold = threshold_used([resolved[m] for m in top])
+    for mim in top:                      # counts taken from the log carry no character total: describe again
+        if mim not in described:
+            d = describe_papers(mim)
+            if d["n_fulltext"] != resolved[mim]:
+                log.warning("%s: %d readable in full now, %d when first resolved", mim, d["n_fulltext"], resolved[mim])
+            described[mim] = d
+            store.write_text(json.dumps(described, indent=1))
 
     rows = []
     for mim in top:
@@ -292,7 +329,7 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None, sample_
             "title": gold.title,
         })
     shortlist = [{"mim": m, "n_refs": bounds[m]["n_refs"], "n_pmc": bounds[m]["n_pmc"],
-                  "n_fulltext": resolved[m], "source_chars": described[m]["source_chars"],
+                  "n_fulltext": resolved[m], "source_chars": (described.get(m) or {}).get("source_chars"),
                   "selected": m in top}
                  for m in sorted(resolved, key=lambda m: rank_key(m, resolved[m]))]
     pmc_hist: dict[int, int] = {}
@@ -340,8 +377,9 @@ def write_tsv(path: Path, result: dict[str, Any]) -> None:
          f"{result['n_select']} entries reach {result['threshold_required']}." if lowered else
          f"Every selected entry has at least {result['threshold_required']} references readable in full "
          f"(lowest: {min(r['n_fulltext'] for r in result['selected'])})."),
-        "Shortlist (resolved entries, rank order): mim n_refs n_pmc n_fulltext source_chars selected",
-    ] + [f"  {s['mim']} {s['n_refs']} {s['n_pmc']} {s['n_fulltext']} {s['source_chars']} {'yes' if s['selected'] else 'no'}"
+        "Shortlist (resolved entries, rank order): mim n_refs n_pmc n_fulltext source_chars selected "
+        "(source_chars '-': count reused from an interrupted pass's log, characters not recomputed)",
+    ] + [f"  {s['mim']} {s['n_refs']} {s['n_pmc']} {s['n_fulltext']} {'-' if s['source_chars'] is None else s['source_chars']} {'yes' if s['selected'] else 'no'}"
          for s in result["shortlist"]]
     lines = [f"# {h}" for h in head] + ["\t".join(COLUMNS)]
     lines += ["\t".join(str(r[c]) for c in COLUMNS) for r in result["selected"]]

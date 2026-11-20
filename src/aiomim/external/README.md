@@ -209,6 +209,27 @@ separately). Run omim100 is never modified; those scores go to `runs/external/_b
 differences from direct reading (bootstrap interval, better/worse/tied, sign test), uncited share, audit, usage,
 and the table of changed settings. Run `score` again after re-running a system so usage is current.
 
+What `summarize` adds (results/external/external.json and external.md):
+
+- **Side-by-side table** on the entries every system with output completed (the common entries), with all
+  systems and the four comparison strategies, means, paired differences from direct reading and per-entry
+  (a)/(b). Bootstrap intervals are printed at every size (`compare._pair_stats` omits them below 5 entries;
+  `score._pair` fills them in); with 4 or 10 entries they are wide and marked unreliable (n < 20).
+- **Usage counts each distinct request once** (`ledger_usage(...)["distinct_*"]`, keyed on the adapter's
+  cache key): `full_*` counts a cached re-save of an entry again, `fresh_*` misses requests a system needed
+  that an earlier run had already paid (PaperQA2's second run). GraphRAG's cost is its index (the `graphrag`
+  ledger, every step but the searches) plus its search (local: `graphrag/<mim>/local_search`; global: the
+  `graphrag_global` ledger). Comparison strategies' generation cost is `generate/*` of omim100's
+  `usage.json`; their audit-and-repair round (`audit/*`) is given separately.
+- **Wall-clock** (`wall_seconds`): GraphRAG = index attempts + query run (or the per-question seconds in
+  `meta` when no query run was recorded); an output saved entirely from the cache takes the run log's
+  record (`runs/external/<system>/*.log`, JSON lines with `mim`, `calls`, `seconds`), or none. omim100
+  records wall time per entry, not per strategy, so baselines show model seconds only.
+- **Audit** (`audit_figures`): the systems' audit without repair on the common entries next to the stored
+  before-repair audit (`meta.audit_before_repair`) of the comparison strategies on the same entries.
+- **Deviations**: a fixed list (`DEVIATIONS`) plus what the data show (audit scope, the comparison
+  strategies' repair extent, entries where (b) < (a)).
+
 ## Worked example
 
 `sys_echo.py` is a complete (trivial) integration: export, adapter, one request per entry, citation mapping,
