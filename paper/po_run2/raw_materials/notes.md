@@ -220,7 +220,8 @@ planted items per class show directions and large effects only. Say so once wher
   pass conveys 3.1 points more than direct reading (+1.8 to +4.3; 32/7/2) and the completeness pass alone 2.4 (+1.5 to
   +3.4); if a lost entry counts as zero, the two arms as evaluated are below direct reading on the mean (−4.8 and
   −3.5, intervals including zero) although they are better on more entries. Say both, and say that the gain depends
-  on keeping the draft when the revision is stopped. Label the analysis as added after review.
+  on keeping the draft when the revision is stopped. Label the analysis post hoc (decided after the results were
+  seen). Never mention reviews or reviewers in the paper: it is a double-blind first submission.
 - **Scope the strategy claim.** "No other design conveyed more than direct reading" holds at the main comparison's
   settings only. State in the main text, where the settings are introduced (not only in an appendix), that per-paper
   extraction ran at medium effort and synopsis terms were assigned by rule in the main comparison. The supported claim:
@@ -303,3 +304,13 @@ planted items per class show directions and large effects only. Say so once wher
 - **Terms.** Replace project jargon in the main text with plain words or define each once: "like for like" (same
   entries and same repair state), "stopped reply" (the model's safety filter ended the reply), "unrepaired" (before
   the repair round), "completes" (writes a draft with every paper processed).
+
+## Added after the decision on v1 of run 2
+
+- **No mention of reviews.** Words such as "added after review" must not appear anywhere in the paper. Label analyses
+  as pre-specified, post hoc (chosen after results were seen) or exploratory.
+- **Table 1 holds the main comparison only.** The matched ablation goes in its own small table or the appendix, with
+  the main-settings rows of the same 38 entries beside it, so the entry-set difference is visible.
+- **Wording that held up in the reviews of v1 and should be kept:** the definitions paragraph; the status of each
+  analysis; the "suggestive" case-table deficit; released systems out of the introduction; the reuse paragraph; the
+  limitations ordered with what each missing check would establish.
