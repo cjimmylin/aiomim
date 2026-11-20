@@ -642,6 +642,9 @@ def convert_and_save(mim: str, method: str, search: str, query_run: dict[str, An
     failed = [a["key"] for a in answers if a.get("error")]
     empty = [a["key"] for a in answers if not a.get("error") and not (a.get("response") or "").strip()]
     missing = [q["key"] for q in section_questions(corpus.title) if q["key"] not in {a["key"] for a in answers}]
+    if query_run is None and (folder / "output.json").exists():   # a re-conversion keeps the run's record
+        with contextlib.suppress(Exception):
+            query_run = json.loads((folder / "output.json").read_text(encoding="utf-8"))["meta"].get("query_run")
     stopped = None
     if not status.get("ok"):
         stopped = f"indexing did not complete ({method})"
