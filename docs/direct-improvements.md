@@ -49,3 +49,45 @@ ceiling is about 3.5–5 points overall and larger on entries with full text.
 | 10 | Second-hand descriptions from citing papers | unreadable papers | retrieval; tested before (+0.8, not distinguishable from zero) |
 
 Ranking and choice: below, after the evidence review.
+
+## Ranking and choice
+
+From the evidence review (expected effects are estimates, not measurements):
+
+| Rank | Approach | Expected effect on facts conveyed | Decision |
+|---|---|---|---|
+| 1 | Expanded legal access | large (up to about +12–15 points) | not testable here: the copies cannot be fetched under the terms the project keeps to (see above); needs a licence review and either institutional access or a key for a service that locates legal copies; the pipeline already reads text a user supplies for papers they have the right to read |
+| 2 | Curator checklist in the prompt | small (+0.5–2), at no added call | **tested (D1)** |
+| 3 | Completeness pass, then revision | small (+1–2), one call per paper plus one | **tested (D2)** |
+| 4 | Second-hand descriptions | small; already measured (+1.8 on 96 entries, with more unsupported claims) | not repeated |
+| 5 | Sampling ensemble with a merge | small to moderate (+1.5–2.5; oracle ceiling +3.3) | **tested (D3)** |
+| 6 | Per-paper writing, then assembly | none to small; measured as the matched evidence graph (+1.8) | not repeated |
+| 7–10 | Layout and quotes first; more effort; few-shot examples; question-driven filling | none to small | not tested |
+
+The three tested approaches act on different causes of a miss: D1 on what the writer thinks a curator records, D2 on
+attention to each paper, D3 on which facts a single run happens to pick.
+
+## Evaluation design (fixed before any run)
+
+- **Entries.** The 41 entries of the held-out test split (`evalsets/omim100.test.tsv`) that have at least one paper
+  readable in full and a direct-reading draft: reading changes can only matter where text is readable, and on
+  abstract-only papers direct reading already conveys 97% of the facts the text states. Prompts are written and
+  piloted on at most three training-split entries with full text and frozen before the test entries are run.
+- **Arms.** Baseline: direct reading as in the main run, its drafts taken before the repair round (rebuilt from cached
+  replies). D1: direct reading with the curator checklist (same single call; the house style's "salient findings"
+  becomes an explicit list of what a curator records about each paper). D2: the direct-reading draft, then for each
+  paper a completeness check listing what the paper states that the draft's text about it omits (the check measured
+  in the audit stress test), then one revision call that adds what is listed, keeping citations to the paper. D3:
+  three independent direct-reading drafts (the baseline's and two more with fresh samples) and one merge call that
+  keeps every distinct statement from any draft, adds nothing, and cites the union of the drafts' papers.
+- **Same for every arm.** The same model, efforts (writer and revision high, check medium, merge high), mechanical
+  guards, fixed fact lists and judge. No repair round. Claim-level audit without repair on every draft.
+- **Completion.** Entries are compared only where every arm completed. A stopped reply is recorded and never retried;
+  an ensemble with a stopped member counts as stopped, and a completeness pass with a stopped check counts as
+  incomplete.
+- **Primary measure.** Facts conveyed, mean over entries; paired difference of each arm from the baseline with a
+  bootstrap 95% interval over entries, better/worse/tied and an exact sign test, Holm-adjusted across the three arms.
+- **Secondary.** Facts conveyed on facts the supplied text states (all, full-text papers, abstract-only papers);
+  claims judged supported, unsupported and contradicted; characters and claims per entry; variants recovered and
+  variant precision; calls and list price per entry.
+- **Budget.** At most 2,200 new model calls, pilot included.
