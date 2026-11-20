@@ -188,3 +188,16 @@ kept unrevised and the entry's `meta.recommended` records it (in the evaluation 
 draft). Nothing is retried or reworded. The audit and its repair round apply as for every strategy. The study's
 comparisons, `--strategy all` and the paper are unchanged. Checked end to end on one entry with full text (route:
 checklist draft with the completeness pass) and one without (route: direct reading).
+
+### Every entry, stopped entries put back (`results/direct_improve/sensitivity.md`)
+
+Added after the paper's first review of its next version; not in the evaluation design, stored scores only. On all 41
+entries, with the entries the completeness-pass arms lost to a stopped revision (D2 3, D4 4) put back:
+
+- replaced by the draft the revision would have revised (what `recommended` does): D4 +3.1 points over the baseline
+  (+1.8 to +4.3; better/worse/tied 32/7/2), D2 +2.4 (+1.5 to +3.4; 28/4/9);
+- counted as zero: D4 −4.8 (−13.2 to +1.9; 28/11/2), D2 −3.5 (−11.1 to +2.6; 28/7/6). The arms are better on more
+  entries but the zeros pull the mean below the baseline.
+
+So the adopted default's gain depends on keeping the draft when the revision is stopped, which it does. Rebuild with
+`python -m aiomim.directplus sensitivity`.
