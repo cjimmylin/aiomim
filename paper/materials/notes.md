@@ -127,3 +127,54 @@
   paragraphs the audit had passed are caught; say so in those words.
 - **Venue fit.** The paper is an evaluation and benchmark contribution: a controlled comparison of system designs for
   evidence-grounded generation, with measurement lessons that apply to evaluating such systems generally.
+
+## Added after the second round of experiments (log section 14; design and deviations in the round's own document)
+
+Three limitations become findings, each at small scale. Report them as such: 4 to 10 entries per experiment and 30
+planted items per class show directions and large effects only. Say so once where the section starts.
+
+- **Input size (log 14.2, controlled padding).** Within the same entries, papers and fixed fact lists, the input was
+  grown with unrelated full-text papers to about 500,000 and about 1,200,000 characters (three prompts and a merge for
+  direct reading). No strategy lost more than about a point; direct reading across several prompts lost nothing. Say
+  that the added papers were off-topic and were ignored (no draft cited one; the agent opened few or none), so this
+  tests input size, not crowding by relevant papers. Direct reading's rise is within run-to-run noise: do not call it
+  a gain. The per-paper strategies lost added papers to stopped extraction calls; the reported table allows those
+  losses, and under the symmetric completion rule only 2 entries remain. Do not claim that larger inputs do not matter
+  in general.
+- **Large real entries (log 14.1).** On four new entries with 76–148 references and much readable text, the model's
+  safety filter stopped at least one strategy on every entry, so no new entry enters the comparison. This is a finding
+  about completion: one-call strategies lose whole entries, per-paper strategies lose papers. The comparison on large
+  sets of relevant papers remains untested; keep that as a limitation. The scored curator paragraphs cover only 5–10%
+  of these entries' references.
+- **Released systems (log 14.3).** Name them as run: "PaperQA2's document-query pipeline (without its agent)",
+  "GraphRAG with local search" (global search secondary), "STORM". Give versions in the appendix. State in the main
+  text: same papers and same model, reached through a local adapter; each system at one setting with its own code,
+  prompts and defaults, changed only where integration required (table of changed settings in the appendix); our six
+  section questions for the two question-answering systems; one small local embedding model; the model interface
+  ignores temperature and length limits; PaperQA2's agent needs function calling, which the adapter does not provide;
+  GraphRAG covers the first four entries of a seeded order that fitted the call budget; the strategies' drafts had
+  been through the repair round and the systems' had not. Allowed claim: on these entries and settings, the released
+  pipelines conveyed fewer curator-written facts than direct reading, the shortfall is on facts the supplied text
+  states, they wrote more text at several to many times the cost, and fewer of their claims were judged supported;
+  so the study's own implementations are not outperformed by released pipelines of these designs on this task at the
+  settings tested. Do not claim a ranking of these systems in general, that they are poor systems, or anything about
+  their published results. Only PaperQA2's comparison passes a test; GraphRAG's four entries cannot.
+- **STORM.** It could not be run with this model: the model's safety filter stopped every chain-of-thought prompt of
+  its research stage (its plain prompts were answered), so it produced no article. Nothing was reworded or retried.
+  Do not say why the filter stopped them; the cause is not visible. It may be reported as a portability finding:
+  released pipelines depend on the model behind them in ways a model-agnostic description hides.
+- **Audit coverage (log 14.4).** Six classes of planted error, 30 items each, with unaltered controls. Report what is
+  caught (citation swapped to a paper of another entry or of the same entry; a sentence moved between papers'
+  paragraphs; a deleted negation) and what is not (an added irrelevant citation, which the audit cannot see because a
+  claim takes the best verdict over its cited papers; a deleted count, zygosity or "one family", rarely; omissions, by
+  construction). Say that the citation swaps are easy cases (the swapped paper is usually about something else) and
+  that each qualifier rule has 2 to 8 items. Natural over-citation: give the share of (claim, cited paper) pairs in
+  multi-citation paragraphs where the cited paper does not support the claim, with the caveat that entries the
+  repair round changed are excluded. The completeness check recovers part of planted and real omissions and lists
+  many items the curators did not record; it and its judge are the same model. The audit still checks fidelity to the
+  cited text, not correctness.
+- **Limitations after this round.** Keep (i) one model family / no human validation unchanged and first. Rewrite the
+  input-size item: size alone was tested by padding with unrelated text; large sets of relevant papers could not be
+  compared because of stopped replies. Rewrite the audit item: over-citation, broadened claims and omissions are not
+  caught; the stress test is small. Add: released systems were run at one setting each, PaperQA2 without its agent,
+  STORM not at all.
