@@ -15,7 +15,11 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
   well-annotated, molecularly characterised entries.
 - **Papers.** 515 cited papers. Readable in full (open access through PubMed Central or Europe PMC):
   96 (19%); abstract only: 345;
-  title only: 74. Supplementary material was not retrieved.
+  title only: 74. Supplementary material was not retrieved. Papers that at least one in-scope
+  curator paragraph is about (so the primary endpoint can see what a draft says about them; computed from the run's
+  files): 327 of 515 (81 of
+  96 readable in full, 221 of 345 abstract only,
+  25 of 74 title only).
 - **Input to every strategy.** The entry's number, title and alternative titles, and exactly the papers the entry
   cites. The causal gene is withheld.
 - **Reference (gold standard), all from public resources.**
@@ -663,7 +667,10 @@ No repair round was applied to the two new drafts; the full-text draft is the ma
 Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
 kept beside it. Each coverage level below is labelled as pooled over facts or as a mean over entries; the paired
 differences are means over entries. Our full texts exclude supplementary material, so "unsupported by the full text" is
-an upper bound on error.
+an upper bound on error. The entries used are the 49 with a paper read in full that an in-scope curator
+paragraph is about; all their full-text papers were hidden (91 papers). The other 5
+full-text papers (in 5 entries) have no in-scope curator paragraph, so hiding them could not
+change the score (computed from the run's files).
 
 OMIM facts conveyed on the fixed fact lists: abstract only 36.1% mean over entries (n = 46), 31.2% pooled over facts (2,120 facts); abstract plus second-hand 40.9% mean over entries (n = 46), 36.7% pooled over facts (2,120 facts); full text (main run's direct draft) 79.9% mean over entries (n = 46), 77.4% pooled over facts (2,120 facts); full text before the repair round 79.8% mean over entries (n = 46), 77.3% pooled over facts (2,120 facts).
 

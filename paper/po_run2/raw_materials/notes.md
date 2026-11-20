@@ -222,13 +222,20 @@ planted items per class show directions and large effects only. Say so once wher
   −3.5, intervals including zero) although they are better on more entries. Say both, and say that the gain depends
   on keeping the draft when the revision is stopped. Label the analysis as added after review.
 - **Scope the strategy claim.** "No other design conveyed more than direct reading" holds at the main comparison's
-  settings only. With extraction at the writers' effort and the writer choosing synopsis terms (38 entries, log 5),
-  the evidence graph conveyed 1.8 points more than direct reading (+0.4 to +3.3; 24/10) and the case table's deficit
-  shrank to −0.2. State in the main text, where the settings are introduced (not only in an appendix), that per-paper
-  extraction ran at medium effort and synopsis terms were assigned by rule in the main comparison. The supported
-  claim: the designs differ by a few points either way, the order of close designs depends on settings, and every such
-  difference is small against the effect of access to full text. Rewrite the introduction, discussion and conclusion
-  sentences that say the designs did not beat direct reading.
+  settings only. State in the main text, where the settings are introduced (not only in an appendix), that per-paper
+  extraction ran at medium effort and synopsis terms were assigned by rule in the main comparison. The supported claim:
+  the designs differ by a few points either way, which design is ahead depends on the entries compared and, for the
+  case table, on settings, and every such difference is small against the effect of access to full text. (Corrected
+  after the review of v1; see the next item.)
+- **What the ablation shows (log 5; corrected after the review of v1).** The ablation reuses the main run's drafts on
+  38 entries chosen with more full text. On those entries, at the main settings, the evidence graph was already +1.0
+  against direct reading (−0.8 to +2.9) and the case table −2.3; in the main run on all 93 entries they were −0.5 and
+  −1.9. Matching the settings moved the case table by +2.1 (+1.1 to +3.2; 25/8) but the evidence graph by only +0.8
+  (−0.5 to +2.1; 18/12). So the matched evidence graph's +1.8 (+0.4 to +3.3) against direct reading is mostly an
+  entry-set difference, not a settings effect: do not headline it, and do not put it in the abstract or the
+  introduction as a settings result. The clear settings effect is the case table's. Within the main run the evidence
+  graph's sign also depends on the entries (log 5: −1.2 on the ablation's entries with half or more full text, +3.1 on
+  the others).
 - **The case table's deficit.** Its interval excludes zero but its sign test does not reach 0.05, the five
   comparisons with direct reading are not adjusted, and counting missing drafts as zero gives an interval including
   zero (log 2.3a, 2.4). Call it suggestive. The restriction to facts stated in full-text papers (log 2.10a) was added
@@ -260,3 +267,39 @@ planted items per class show directions and large effects only. Say so once wher
   Mention them only as observed; do not invent explanations.
 - **Not done, and not to be promised:** no human validation of any judgement, no judge or writer from a second model
   family, no comparable large-entry results. These remain the first limitations. Say what each would establish.
+
+## Added after the review of v1 of run 2 (numbers are in the log)
+
+- **Length.** The primary endpoint counts facts conveyed and has no length or precision counterpart. The
+  reading-better drafts are longer (log 15, size table); the extract-then-write drafts carry more audited claims (log
+  2). Report draft length beside every coverage gain and say the endpoint rewards recall. The share of claims judged
+  supported is the only precision-side check, and for the reading-better arms it rests on 20 audited entries with no
+  interval: say "did not fall on the 20 audited entries", not "without lowering".
+- **No equivalence claims.** "Not distinguishable" is not "equivalent". Do not write anything in the abstract or
+  introduction that reads as equivalence (e.g. "not distinguishable from reading all papers in one prompt" needs the
+  interval and the entry count next to it, or should be dropped from the abstract).
+- **Forking paths.** List, in one place in the method section, every analysis choice made after results were seen:
+  fixed fact lists replacing per-draft splitting; the symmetric completion rule (adopted after a first analysis had
+  put the evidence graph 2.1 points behind; log 12); the matched ablation; the stated /
+  not-stated restrictions; the widened claim-selection rule for deleted qualifiers; the D4 arm (designed after the
+  other reading-better arms' held-out results were seen, then evaluated on the same held-out entries); the
+  stopped-entry sensitivity (log 15.1). Say which results are pre-specified (the main comparison's primary endpoint
+  on the symmetric set; the hidden-full-text experiment; D1–D3 against the baseline).
+- **"Held-out".** Say what each held-out set was held out from: the 2026 entries from all development; the
+  reading-better test split from the design of the reading-better prompts and from guide learning, but not from the
+  development of the main strategies.
+- **Scope of the reference (log 1.1, added after this review).** 327 of the 515 cited papers have an in-scope curator
+  paragraph (81 of 96 read in full, 221 of 345 abstract only, 25 of 74 title only); what a draft says about the other
+  papers is not scored. Say this where the reference is introduced.
+- **Hidden papers (log 6.2, added after this review).** The experiment used the 49 entries with a full-text paper
+  that an in-scope curator paragraph is about and hid all 91 of their full-text papers; the other 5 full-text papers
+  have no in-scope paragraph, so hiding them could not change the score.
+- **Internal consistency.** The planted-error test has the classes and item counts of the log (14.4): do not call
+  negation a class of its own if it is one of the qualifier-deletion rules. Every "–" in a table needs a footnote
+  saying why (not computed, not applicable, or not in the log).
+- **Released systems.** They carry no claim in the main text; one sentence there pointing to the appendix is enough.
+- **Title.** Say what the task is in words an ML reader understands (writing knowledge-base entries from cited
+  papers, scored on curators' per-paper facts), in at most two lines.
+- **Terms.** Replace project jargon in the main text with plain words or define each once: "like for like" (same
+  entries and same repair state), "stopped reply" (the model's safety filter ended the reply), "unrepaired" (before
+  the repair round), "completes" (writes a draft with every paper processed).

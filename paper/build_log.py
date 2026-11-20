@@ -495,6 +495,30 @@ def ablation_vs_main() -> str:
 
 # --------------------------------------------------------------------------- the log
 
+def papers_in_scope() -> dict:
+    """Cited papers that at least one in-scope curator paragraph is about, by how they were readable (run omim100),
+    and the full-text papers of the entries the hidden-full-text experiment could use."""
+    from collections import Counter
+    total, scored, ft_by_entry, eligible = Counter(), Counter(), {}, set()
+    for d in sorted(p for p in (RUNS / "omim100").iterdir() if p.is_dir() and p.name.isdigit()
+                    and (p / "papers.json").exists()):
+        papers = json.loads((d / "papers.json").read_text())
+        gold = json.loads((d / "gold.json").read_text())
+        about = {m for av in gold.get("allelic_variants", []) for para in av.get("paragraphs", [])
+                 for m in para.get("pmids", [])}
+        full = {p["pmid"] for p in papers if p.get("content_level") == "fulltext"}
+        ft_by_entry[d.name] = len(full)
+        if full & about:
+            eligible.add(d.name)
+        for p in papers:
+            total[p.get("content_level")] += 1
+            scored[p.get("content_level")] += p["pmid"] in about
+    outside = {m: n for m, n in ft_by_entry.items() if n and m not in eligible}
+    return {"total": total, "scored": scored, "eligible": len(eligible),
+            "hidden": sum(ft_by_entry[m] for m in eligible), "outside_papers": sum(outside.values()),
+            "outside_entries": len(outside)}
+
+
 def build() -> str:
     ev = evalset_facts()
     main = report("omim100")
@@ -518,6 +542,7 @@ def build() -> str:
     shj = json.load(open(ROOT / "results" / "omim100_secondhand" / "secondhand_check.json"))
     shc = read(ROOT / "results" / "omim100_secondhand" / "secondhand_check.md")
     lv = ev["levels"]
+    sc = papers_in_scope()
     gj = json.load(open(RUNS / "omim100" / "gaps.direct.frozen.json"))
     gl = gj["by_content_level"]
     gap_contradicted = ("Facts contradicted by the draft (not in the columns above): "
@@ -549,7 +574,11 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
   well-annotated, molecularly characterised entries.
 - **Papers.** {sum(lv.values())} cited papers. Readable in full (open access through PubMed Central or Europe PMC):
   {lv.get('fulltext', 0)} ({100 * lv.get('fulltext', 0) / sum(lv.values()):.0f}%); abstract only: {lv.get('abstract', 0)};
-  title only: {lv.get('title', 0)}. Supplementary material was not retrieved.
+  title only: {lv.get('title', 0)}. Supplementary material was not retrieved. Papers that at least one in-scope
+  curator paragraph is about (so the primary endpoint can see what a draft says about them; computed from the run's
+  files): {sum(sc['scored'].values())} of {sum(sc['total'].values())} ({sc['scored']['fulltext']} of
+  {sc['total']['fulltext']} readable in full, {sc['scored']['abstract']} of {sc['total']['abstract']} abstract only,
+  {sc['scored']['title']} of {sc['total']['title']} title only).
 - **Input to every strategy.** The entry's number, title and alternative titles, and exactly the papers the entry
   cites. The causal gene is withheld.
 - **Reference (gold standard), all from public resources.**
@@ -819,7 +848,10 @@ No repair round was applied to the two new drafts; the full-text draft is the ma
 Coverage is scored against the fixed fact lists (the main measure, first table below); the earlier per-draft scoring is
 kept beside it. Each coverage level below is labelled as pooled over facts or as a mean over entries; the paired
 differences are means over entries. Our full texts exclude supplementary material, so "unsupported by the full text" is
-an upper bound on error.
+an upper bound on error. The entries used are the {sc['eligible']} with a paper read in full that an in-scope curator
+paragraph is about; all their full-text papers were hidden ({sc['hidden']} papers). The other {sc['outside_papers']}
+full-text papers (in {sc['outside_entries']} entries) have no in-scope curator paragraph, so hiding them could not
+change the score (computed from the run's files).
 
 {entry_means(shj)}
 
