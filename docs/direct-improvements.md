@@ -105,3 +105,37 @@ was run:
 - **Audit stops.** A stopped audit call leaves that paper's claims not checkable. It does not affect completion (the
   draft exists); claim shares are computed over checkable claims, and the not-checkable count is reported per arm.
 - **Cap.** 2,200 new calls including the pilot; the runner halts at the cap.
+
+## Results (41 held-out entries with full text; `results/direct_improve/direct_improve.md`)
+
+Run on 20 November 2026: 1,624 new model calls including the pilot ($218 at list price), 7 replies stopped by the
+safety filter (none retried). 38 entries are complete for every arm and compared; the completeness pass lost 3 entries
+(118210, 617232, 621030) to stopped replies in its check or revision step. The baseline, direct reading before repair,
+conveys 60.3% of facts on these entries (higher than the main set's 49.1% because every entry has full text).
+
+| Arm | Facts conveyed | Difference (95% interval); better/worse/tied | Facts the text states, full-text papers | Facts the text does not state | Claims judged supported (20 entries) | Unsupported + contradicted | Variant precision | List price per entry |
+|---|---|---|---|---|---|---|---|---|
+| Direct reading (baseline) | 60.3% | – | 88.5% | 10.5% | 97.0% | 6 + 0 | 87.1% | $1.09 |
+| D1 curator checklist | 61.9% | +1.6 (+0.5 to +2.7); 23/11/4; sign p = 0.058 | 90.5% (+2.0) | 10.2% (−0.3) | 97.3% | 8 + 2 | 87.5% | $1.15 |
+| D2 completeness pass | 62.9% | +2.6 (+1.7 to +3.6); 28/4/6; p < 0.001 | 93.0% (+4.5) | 10.3% (−0.1) | 97.2% | 4 + 0 | 87.1% | $2.10 |
+| D3 three drafts merged | 63.4% | +3.1 (+2.1 to +4.2); 31/3/4; p < 0.001 | 92.1% (+3.7) | 12.0% (+1.5) | 95.8% | 14 + 4 | 83.4% | $2.32 |
+
+Means over entries; differences are paired over the 38 compared entries with bootstrap intervals; sign-test p-values
+are Holm-adjusted across the three arms (D1 0.058, D2 and D3 below 0.001). Claim shares are over checkable claims on
+the 20 audited entries. List price per entry is the whole method from scratch, generation, audit and scoring.
+
+- **The completeness pass is the clearest gain.** It conveys 2.6 more points of curator facts, 4.5 more on facts
+  that full-text papers state, with no change in claims judged supported and no change on facts the text does not
+  state: what it adds comes from the papers. It about doubles the cost, and its extra calls cost 3 of 41 entries to
+  stopped replies.
+- **The merged ensemble gains as much, but not all of it from the papers.** About half of its extra comes on facts
+  the supplied text does not state (+1.5, +0.4 to +2.7), and it has more unsupported and contradicted claims and lower
+  variant precision. Merging three samples brings in content the audit and the papers do not support as well.
+- **The checklist costs nothing and probably helps a little:** +1.6 points with an interval that excludes zero, but
+  the sign test does not reach 0.05 after adjustment.
+- **The gains are on full text.** On abstract-only papers direct reading already conveys 96.9% of the facts the
+  abstract states, and no arm moves that by more than a point.
+- These sizes are of the order the headroom analysis predicted for changes to reading (3.5–5 points on the main set,
+  more on entries with full text); none comes near what access to full text would add.
+- Not tested: the checklist and the completeness pass together, and either on entries without full text beyond the
+  abstract-only papers inside these entries. Every judgement here is the same model's, as in the rest of the study.
