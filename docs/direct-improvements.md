@@ -91,3 +91,17 @@ attention to each paper, D3 on which facts a single run happens to pick.
   claims judged supported, unsupported and contradicted; characters and claims per entry; variants recovered and
   variant precision; calls and list price per entry.
 - **Budget.** At most 2,200 new model calls, pilot included.
+
+## Pilot and changes made before the test run
+
+Piloted on three training entries (300148, 600740, 603552; 162 calls). No prompt changed after the first pilot calls;
+the piloted prompts are frozen for the test run. Three decisions were taken after the pilot and before any test entry
+was run:
+
+- **Audit on a subsample.** The pilot projected about 2,040 calls and $300 for the full design, against a 2,200-call
+  cap and an earlier estimate of about $170, most of it in the claim-level audit. The primary endpoint and the
+  stated-facts split stay on all 41 entries; the claim-level audit (all arms, without repair) is run on 20 of the 41,
+  drawn with `random.Random(20261120)` from the sorted entry numbers.
+- **Audit stops.** A stopped audit call leaves that paper's claims not checkable. It does not affect completion (the
+  draft exists); claim shares are computed over checkable claims, and the not-checkable count is reported per arm.
+- **Cap.** 2,200 new calls including the pilot; the runner halts at the cap.
