@@ -1,0 +1,841 @@
+[
+ {
+  "task_id": "T001",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [],
+    "year": 2018,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Full text vs abstract text-mining; access matters (from verified library)"
+   },
+   {
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "authors": [],
+    "year": 2017,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Curated variant knowledge base (from verified library)"
+   },
+   {
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "authors": [],
+    "year": 2014,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Curated gene-disease catalog (from verified library)"
+   },
+   {
+    "title": "MedGen: NCBI’s Portal to Information on Medical Conditions with a Genetic Component",
+    "authors": [],
+    "year": 2020,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Gene-disease portal (from verified library)"
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLMs in rare disease diagnosis (from verified library)"
+   },
+   {
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Curated rare-disease knowledge via LLM (from verified library)"
+   },
+   {
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLM extraction in rare disease (from verified library)"
+   },
+   {
+    "title": "Harnessing generative AI to annotate the severity of all phenotypic abnormalities within the Human Phenotype Ontology",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLM curation of HPO (from verified library)"
+   },
+   {
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLM-assisted curation (from verified library)"
+   },
+   {
+    "title": "CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2510.11985",
+    "summary": "Benchmark from ClinGen curated evidence testing whether language models can extract and score evidence from papers; models sometimes fail to match ClinGen explanations.",
+    "reason": "Benchmark built from ClinGen curation of papers; scores LMs on extracting and judging evidence."
+   },
+   {
+    "title": "AutoPM3: enhancing variant interpretation via LLM-driven PM3 evidence extraction from scientific literature",
+    "authors": [],
+    "year": 2025,
+    "doi": "10.1093/bioinformatics/btaf382",
+    "arxiv_id": "",
+    "summary": "Automates PM3 evidence extraction with open-source LLMs; built on PM3-Bench of 1,027 variant-publication pairs from ClinGen comments.",
+    "reason": "LLM extraction of ACMG PM3 evidence scored against ClinGen curator comments."
+   },
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of 7,397 expert annotations over 100 FlyBase genes; agents search a 16,898-paper corpus; compares memorization, pipeline, single- and multi-agent harnesses.",
+    "reason": "Named closest neighbour: memorisation, pipeline and agent harnesses against FlyBase curators."
+   }
+  ]
+ },
+ {
+  "task_id": "T006",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of 7,397 expert annotations over 100 FlyBase genes; agents search a 16,898-paper corpus; compares memorization, pipeline, single- and multi-agent harnesses.",
+    "reason": "Named closest neighbour: memorisation, pipeline and agent harnesses against FlyBase curators."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent matches experts on literature tasks and writes cited Wikipedia-style gene summaries judged more accurate than Wikipedia articles.",
+    "reason": "PaperQA2 and WikiCrow gene articles scored against Wikipedia; released pipeline to evaluate."
+   },
+   {
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "GEN-KnowRD generated rare-disease profiles (from verified library)"
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2026,
+    "doi": "10.1016/j.xhgg.2025.100558",
+    "arxiv_id": "",
+    "summary": "Probes LLM recall of curated rare-disease gene and phenotype associations; recall low, genes better than phenotypes.",
+    "reason": "Groza et al.: model memory of rare-disease genes and phenotypes against curated sets."
+   },
+   {
+    "title": "GeneAgent: Self-verification Language Agent for Gene Set Knowledge Discovery using Domain Databases",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Gene knowledge with verification against databases (from verified library)"
+   },
+   {
+    "title": "GeneGPT: Augmenting Large Language Models with Domain Tools for Improved Access to Biomedical Information",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Tool-using LLM for genomics (from verified library)"
+   },
+   {
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLM annotation vs curators (from verified library)"
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Literature agent (from verified library)"
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Cited literature synthesis (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T012",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "AutoPM3: enhancing variant interpretation via LLM-driven PM3 evidence extraction from scientific literature",
+    "authors": [],
+    "year": 2025,
+    "doi": "10.1093/bioinformatics/btaf382",
+    "arxiv_id": "",
+    "summary": "Automates PM3 evidence extraction with open-source LLMs; built on PM3-Bench of 1,027 variant-publication pairs from ClinGen comments.",
+    "reason": "LLM extraction of ACMG PM3 evidence scored against ClinGen curator comments."
+   },
+   {
+    "title": "CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2510.11985",
+    "summary": "Benchmark from ClinGen curated evidence testing whether language models can extract and score evidence from papers; models sometimes fail to match ClinGen explanations.",
+    "reason": "Benchmark built from ClinGen curation of papers; scores LMs on extracting and judging evidence."
+   },
+   {
+    "title": "Large Language Models for Variant-Centric Functional Evidence Mining",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2604.00075",
+    "summary": "Reports LLM classification of functional evidence direction on full papers for ACMG PS3/BS3.",
+    "reason": "LLM mining of functional evidence (PS3/BS3) from full-text papers."
+   },
+   {
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LLM extraction of medical knowledge (from verified library)"
+   },
+   {
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Extraction in rare disease (from verified library)"
+   },
+   {
+    "title": "PubTator central: automated concept annotation for biomedical full text articles",
+    "authors": [],
+    "year": 2019,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Biomedical text mining baseline (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T014",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Controlled LC vs RAG (from verified library)"
+   },
+   {
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LC vs RAG (from verified library)"
+   },
+   {
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "LC vs RAG with fixed models (from verified library)"
+   },
+   {
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Long-context alternatives (from verified library)"
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Builds entity graph and community summaries for global query-focused summarisation; outperforms vector RAG on comprehensiveness and diversity.",
+    "reason": "GraphRAG, a graph intermediate representation vs vector RAG on query-focused summarisation."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent matches experts on literature tasks and writes cited Wikipedia-style gene summaries judged more accurate than Wikipedia articles.",
+    "reason": "PaperQA2 and WikiCrow gene articles scored against Wikipedia; released pipeline to evaluate."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Literature QA (from verified library)"
+   },
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Graph-based memory RAG (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T020",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "STORM generates Wikipedia-like articles via perspective-guided question asking and outline curation; evaluated on FreshWiki.",
+    "reason": "STORM, a released article-generation pipeline to introduce."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Builds entity graph and community summaries for global query-focused summarisation; outperforms vector RAG on comprehensiveness and diversity.",
+    "reason": "GraphRAG, a graph intermediate representation vs vector RAG on query-focused summarisation."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent matches experts on literature tasks and writes cited Wikipedia-style gene summaries judged more accurate than Wikipedia articles.",
+    "reason": "PaperQA2 and WikiCrow gene articles scored against Wikipedia; released pipeline to evaluate."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Cited long-form synthesis (from verified library)"
+   },
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Graph retrieval (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T030",
+  "section": "Related Work: 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Evolving playbook (from verified library)"
+   },
+   {
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Prompt optimisation (from verified library)"
+   },
+   {
+    "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Prompt programs (from verified library)"
+   },
+   {
+    "title": "EvoPrompt: Connecting LLMs with Evolutionary Algorithms Yields Powerful Prompt Optimizers",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Prompt optimisation (from verified library)"
+   },
+   {
+    "title": "Large Language Models as Optimizers",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "OPRO (from verified library)"
+   },
+   {
+    "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Prompt evolution (from verified library)"
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Reflection (from verified library)"
+   },
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Self-refinement (from verified library)"
+   },
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Refinement without external feedback can fail (from verified library)"
+   },
+   {
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Learned rules from experience (from verified library)"
+   },
+   {
+    "title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "MIPRO (from verified library)"
+   },
+   {
+    "title": "Universal Self-Consistency for Large Language Model Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.17311",
+    "summary": "Asks the LLM to select the most consistent of several sampled free-form responses; improves open-ended tasks such as long-context summarization.",
+    "reason": "Sample aggregation for free-form outputs (three-draft merge)."
+   }
+  ]
+ },
+ {
+  "task_id": "T044",
+  "section": "1. Introduction - 1. Introduction",
+  "candidates": [
+   {
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T078",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T087",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "WebGPT: Browser-assisted question-answering with human feedback",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T097",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T102",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T106",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T107",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Benchmark Data Contamination of Large Language Models: A Survey",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T108",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Large Language Models Are Human-Level Prompt Engineers",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T115",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "TextGrad: Automatic \"Differentiation\" via Text",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T127",
+  "section": "2. Related Work - Closing paragraph on evaluating cited text (no heading)",
+  "candidates": [
+   {
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T139",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": [
+   {
+    "title": "MedGen: NCBI’s Portal to Information on Medical Conditions with a Genetic Component",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T142",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": []
+ },
+ {
+  "task_id": "T145",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T157",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "Universal Self-Consistency for Large Language Model Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.17311",
+    "summary": "Asks the LLM to select the most consistent of several sampled free-form responses; improves open-ended tasks such as long-context summarization.",
+    "reason": "Sample aggregation for free-form outputs (three-draft merge)."
+   }
+  ]
+ },
+ {
+  "task_id": "T160",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": []
+ },
+ {
+  "task_id": "T165",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T178",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "The Statistical Sign Test",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T180",
+  "section": "4. Experiments - 4.1 Access to the source bounds agreement",
+  "candidates": [
+   {
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T186",
+  "section": "4. Experiments - 4.2 Strategies under one control",
+  "candidates": [
+   {
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T195",
+  "section": "4. Experiments - 4.2 Strategies under one control",
+  "candidates": [
+   {
+    "title": "The Statistical Sign Test",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T199",
+  "section": "4. Experiments - 4.3 Reading better within what access allows",
+  "candidates": [
+   {
+    "title": "Universal Self-Consistency for Large Language Model Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.17311",
+    "summary": "Asks the LLM to select the most consistent of several sampled free-form responses; improves open-ended tasks such as long-context summarization.",
+    "reason": "Sample aggregation for free-form outputs (three-draft merge)."
+   }
+  ]
+ },
+ {
+  "task_id": "T215",
+  "section": "4. Experiments - 4.5 What the audit can and cannot see",
+  "candidates": [
+   {
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [],
+    "year": null,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Targeted match (from verified library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T221",
+  "section": "Appendix - B. Strategies, model settings and guards",
+  "candidates": []
+ },
+ {
+  "task_id": "T230",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "candidates": []
+ },
+ {
+  "task_id": "T233",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "candidates": [
+   {
+    "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+    "authors": [],
+    "year": 2019,
+    "doi": "",
+    "arxiv_id": "1912.01703",
+    "summary": "Describes PyTorch's imperative design and runtime; NeurIPS 2019.",
+    "reason": "Original PyTorch paper."
+   }
+  ]
+ }
+]

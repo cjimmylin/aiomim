@@ -1,0 +1,880 @@
+[
+ {
+  "task_id": "T004",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2407.16833",
+    "summary": "Benchmarks RAG against long-context prompting on public datasets; long context wins on average when resourced, RAG is cheaper; proposes Self-Route.",
+    "reason": "Systematic comparison of RAG and long-context prompting."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "Builds an entity graph with community summaries to answer corpus-level questions, improving comprehensiveness and diversity over naive RAG.",
+    "reason": "Graph-based retrieval design in the comparison space."
+   },
+   {
+    "title": "Graph Retrieval-Augmented Generation: A Survey",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2408.08921",
+    "summary": "Systematic review of GraphRAG organised as graph-based indexing, graph-guided retrieval and graph-enhanced generation.",
+    "reason": "Survey of graph-based retrieval designs."
+   }
+  ]
+ },
+ {
+  "task_id": "T007",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "GEN-KnowRD: generated rare-disease profiles evaluated against curated reports."
+   },
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark where agents search 16,898 full-text papers to produce GO, expression and synonym annotations scored against 7,397 FlyBase curated annotations across 100 genes.",
+    "reason": "Named neighbour: memorisation, pipeline and agent harnesses against FlyBase curation."
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Probes LLM knowledge of rare-disease-associated genes and phenotypes rather than diagnosis on a few cases.",
+    "reason": "Named neighbour on model memory of rare-disease genes and phenotypes (HGG Advances, 2026)."
+   },
+   {
+    "title": "LitSumm: Large language models for literature summarisation of non-coding RNAs",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.03056",
+    "summary": "LLM-generated summaries of non-coding RNA literature, evaluated for accuracy and compared with curated text.",
+    "reason": "LLM literature summaries scored against curated resources."
+   },
+   {
+    "title": "GeneAgent: Self-verification Language Agent for Gene Set Knowledge Discovery using Domain Databases",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T008",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 matches or exceeds experts on retrieval, summarisation and contradiction detection; WikiCrow writes Wikipedia-style articles.",
+    "reason": "Introduces PaperQA2 and WikiCrow gene articles compared with Wikipedia."
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T022",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [],
+    "year": 2021,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T023",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "A Comprehensive Survey of Contamination Detection Methods in Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "A Survey on Data Contamination for Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Benchmark Data Contamination of Large Language Models: A Survey",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Detecting Pretraining Data from Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Don't Make Your LLM an Evaluation Benchmark Cheater",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Evaluation data contamination in LLMs: how do we measure it and (when) does it matter?",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "LiveBench: A Challenging, Contamination-Limited LLM Benchmark",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Unveiling the Spectrum of Data Contamination in Language Models: A Survey from Detection to Remediation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T025",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "GeneGPT: Augmenting Large Language Models with Domain Tools for Improved Access to Biomedical Information",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Detecting Pretraining Data from Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "A systematic assessment of large language models' knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Comprehensively probes LLM knowledge of rare-disease genes and phenotypes.",
+    "reason": "Probes LLM memory of rare-disease genes and phenotypes."
+   }
+  ]
+ },
+ {
+  "task_id": "T029",
+  "section": "Related Work: 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Universal Self-Consistency for Large Language Model Generation",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.17311",
+    "summary": "Has the LLM select the most consistent of several sampled responses, extending self-consistency to open-ended generation such as long-context summarisation.",
+    "reason": "Self-consistency extended to free-form generation."
+   },
+   {
+    "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "2203.11171",
+    "summary": "Samples diverse reasoning paths and takes the most frequent answer, improving chain-of-thought accuracy without extra training.",
+    "reason": "Primary self-consistency paper."
+   },
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Primary Self-Refine paper."
+   },
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "TextGrad: Automatic \"Differentiation\" via Text",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   },
+   {
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Fits the task (already verified in library)"
+   }
+  ]
+ },
+ {
+  "task_id": "T049",
+  "section": "1. Introduction - 1. Introduction",
+  "candidates": [
+   {
+    "title": "Generative artificial intelligence use in evidence synthesis: A systematic review",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T083",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T091",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T110",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T114",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T119",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T120",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Primary Self-Refine paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T122",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "2203.11171",
+    "summary": "Samples diverse reasoning paths and takes the most frequent answer, improving chain-of-thought accuracy without extra training.",
+    "reason": "Primary self-consistency paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T134",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": [
+   {
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "authors": [],
+    "year": 2014,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T135",
+  "section": "3. Benchmark and Strategies - 3.1 Task, entries and reference",
+  "candidates": [
+   {
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "authors": [],
+    "year": 2017,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T148",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "2210.03629",
+    "summary": "Interleaves reasoning traces and task-specific actions, using a Wikipedia API for QA and fact verification (ICLR 2023).",
+    "reason": "Primary ReAct paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T155",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Primary Self-Refine paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T156",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "2203.11171",
+    "summary": "Samples diverse reasoning paths and takes the most frequent answer, improving chain-of-thought accuracy without extra training.",
+    "reason": "Primary self-consistency paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T171",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "An Information-Theoretic Definition of Similarity",
+    "authors": [
+     "Dekang Lin"
+    ],
+    "year": 1998,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Derives an information-theoretic similarity measure applicable wherever a probabilistic model exists (ICML 1998, pp. 296-304).",
+    "reason": "Primary Lin similarity paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T172",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Using Information Content to Evaluate Semantic Similarity in a Taxonomy",
+    "authors": [
+     "Philip Resnik"
+    ],
+    "year": 1995,
+    "doi": "",
+    "arxiv_id": "cmp-lg/9511007",
+    "summary": "Measures semantic similarity in a taxonomy by the information content of the shared ancestor; r=0.79 with human judgements (IJCAI 1995).",
+    "reason": "Primary Resnik information-content similarity paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T173",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Clinical Diagnostics in Human Genetics with Semantic Similarity Searches in Ontologies",
+    "authors": [],
+    "year": 2009,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T174",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Information Retrieval",
+    "authors": [
+     "C. J. van Rijsbergen"
+    ],
+    "year": 1979,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Textbook introducing the effectiveness measure E = 1 - F used in retrieval evaluation.",
+    "reason": "Book where van Rijsbergen derived the F-measure from his effectiveness measure E (1974, 1979); may not verify."
+   }
+  ]
+ },
+ {
+  "task_id": "T176",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Bootstrap Methods: Another Look at the Jackknife",
+    "authors": [],
+    "year": 1979,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Named citation (library)."
+   }
+  ]
+ },
+ {
+  "task_id": "T196",
+  "section": "4. Experiments - 4.3 Reading better within what access allows",
+  "candidates": [
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "Primary Self-Refine paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T198",
+  "section": "4. Experiments - 4.3 Reading better within what access allows",
+  "candidates": [
+   {
+    "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "2203.11171",
+    "summary": "Samples diverse reasoning paths and takes the most frequent answer, improving chain-of-thought accuracy without extra training.",
+    "reason": "Primary self-consistency paper."
+   }
+  ]
+ },
+ {
+  "task_id": "T207",
+  "section": "4. Experiments - 4.4 Released pipelines and larger inputs (exploratory)",
+  "candidates": [
+   {
+    "title": "C-Pack: Packed Resources For General Chinese Embeddings",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.07597",
+    "summary": "Releases C-MTEB, C-MTP training data and the BGE embedding models in three sizes (SIGIR 2024).",
+    "reason": "Introduces the BGE embedding models (small, base, large)."
+   }
+  ]
+ },
+ {
+  "task_id": "T227",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "candidates": [
+   {
+    "title": "C-Pack: Packed Resources For General Chinese Embeddings",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.07597",
+    "summary": "Releases C-MTEB, C-MTP training data and the BGE embedding models in three sizes (SIGIR 2024).",
+    "reason": "Introduces the BGE embedding models (small, base, large)."
+   }
+  ]
+ },
+ {
+  "task_id": "T229",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "candidates": []
+ }
+]

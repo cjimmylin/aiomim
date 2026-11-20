@@ -1,0 +1,1239 @@
+[
+ {
+  "task_id": "T002",
+  "section": "Introduction",
+  "candidates": [
+   {
+    "title": "The structural and content aspects of abstracts versus bodies of full text journal articles are different",
+    "authors": [],
+    "year": 2010,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "A comprehensive and quantitative comparison of text-mining in 15 million full-text articles versus their corresponding abstracts",
+    "authors": [],
+    "year": 2018,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "PubTator central: automated concept annotation for biomedical full text articles",
+    "authors": [],
+    "year": 2019,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "OMIM.org: Online Mendelian Inheritance in Man (OMIM®), an online catalog of human genes and genetic disorders",
+    "authors": [],
+    "year": 2014,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "ClinVar: improving access to variant interpretations and supporting evidence",
+    "authors": [],
+    "year": 2017,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "MedGen: NCBI’s Portal to Information on Medical Conditions with a Genetic Component",
+    "authors": [],
+    "year": 2020,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles",
+    "authors": [
+     "Heather Piwowar",
+     "Jason Priem",
+     "Vincent Larivière",
+     "Juan Pablo Alperin",
+     "Lisa Matthias",
+     "Bree Norlander",
+     "Ashley Farley",
+     "Jevin West",
+     "Stefanie Haustein"
+    ],
+    "year": 2018,
+    "doi": "10.7717/peerj.4375",
+    "arxiv_id": "",
+    "summary": "Estimates at least 28% of the scholarly literature is OA, with Bronze (free-to-read without explicit license) the most common route.",
+    "reason": "Large-scale OA prevalence analysis incl. distinction of openly licensed vs merely free-to-read."
+   }
+  ]
+ },
+ {
+  "task_id": "T009",
+  "section": "Related Work: 2.1 Language models for literature curation in genetics and biology",
+  "candidates": [
+   {
+    "title": "Reframing AI for Rare Disease Recognition",
+    "authors": [],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Assessing the utility of large language models for phenotype-driven gene prioritization in the diagnosis of rare genetic disease",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Identifying and Extracting Rare Diseases and Their Phenotypes with Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "GeneAgent: Self-verification Language Agent for Gene Set Knowledge Discovery using Domain Databases",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "GeneGPT: Augmenting Large Language Models with Domain Tools for Improved Access to Biomedical Information",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "GeneWhisperer: Enhancing manual genome annotation with large language models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "FlyAOC: Evaluating Agentic Ontology Curation of Drosophila Scientific Knowledge Bases",
+    "authors": [
+     "Xingjian Zhang"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2602.09163",
+    "summary": "Benchmark of 7,397 expert-curated FlyBase annotations over 100 genes with a 16,898-paper corpus; compares memorization, fixed pipeline, single-agent and multi-agent harnesses.",
+    "reason": "Named closest neighbour (FlyAOC)."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+     "Michael D. Skarlinski",
+     "Andrew D. White"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 agent; includes WikiCrow-style cited gene summaries judged against Wikipedia articles by blinded experts.",
+    "reason": "Source for the WikiCrow neighbour (gene articles against Wikipedia)."
+   },
+   {
+    "title": "A systematic assessment of large language models’ knowledge of rare diseases: How much do large language models know about rare disease?",
+    "authors": [
+     "Tudor Groza"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Probes LLM knowledge of rare-disease genes and phenotypes against Orphanet-based curated knowledge (HGG Advances 2026).",
+    "reason": "Named closest neighbour (Groza et al. 2026: model memory of rare-disease genes and phenotypes)."
+   }
+  ]
+ },
+ {
+  "task_id": "T015",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Long Context vs. RAG for LLMs: An Evaluation and Revisits",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "LaRA: Benchmarking Retrieval-Augmented Generation and Long-Context LLMs -- No Silver Bullet for LC or RAG Routing",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+    "authors": [
+     "Darren Edge",
+     "Ha Trinh",
+     "Jonathan Larson"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.16130",
+    "summary": "GraphRAG builds an entity graph and community summaries for corpus-wide query-focused summarization; compared with vector RAG using GPT-4.",
+    "reason": "GraphRAG design and its evaluation on QFS."
+   },
+   {
+    "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+    "authors": [
+     "Zhuowan Li",
+     "Cheng Li",
+     "Mingyang Zhang",
+     "Qiaozhu Mei",
+     "Michael Bendersky"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2407.16833",
+    "summary": "Compares RAG with long-context LLMs on LongBench and InfBench using three models; long context wins on average, RAG cheaper; proposes Self-Route.",
+    "reason": "Controlled RAG vs long-context comparison."
+   },
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [
+     "Yijia Shao",
+     "Yucheng Jiang",
+     "Theodore A. Kanell",
+     "Peter Xu",
+     "Omar Khattab",
+     "Monica S. Lam"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "STORM: pre-writing via perspective-guided question asking and outline curation, evaluated on FreshWiki.",
+    "reason": "Published design named in task."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+     "Michael D. Skarlinski",
+     "Andrew D. White"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 matches or beats experts on three literature tasks; introduces LitQA2.",
+    "reason": "PaperQA2 design."
+   }
+  ]
+ },
+ {
+  "task_id": "T018",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Expediting data extraction using a large language model (LLM) and scoping review protocol: a methodological study within a complex scoping review",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Performance of two large language models for data extraction in evidence synthesis",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Generative artificial intelligence use in evidence synthesis: A systematic review",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "What Level of Automation is \"Good Enough\"? A Benchmark of Large Language Models for Meta-Analysis Data Extraction",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Structured Extraction of Real World Medical Knowledge using LLMs for Summarization and Search",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large language models streamline automated systematic review: A preliminary study",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2502.15702",
+    "summary": "Preliminary study of GPT-4, Claude-3 and Mistral for systematic review screening and extraction; full-text performance lower than abstract.",
+    "reason": "LLM extraction for evidence synthesis."
+   }
+  ]
+ },
+ {
+  "task_id": "T019",
+  "section": "Related Work: 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "PaperQA: Retrieval-Augmented Generative Agent for Scientific Research",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "WebGPT: Browser-assisted question-answering with human feedback",
+    "authors": [],
+    "year": 2021,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "authors": [],
+    "year": 2021,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+    "authors": [
+     "Michael D. Skarlinski",
+     "Andrew D. White"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2409.13740",
+    "summary": "PaperQA2 with LitQA2; cited summaries rated more accurate than Wikipedia.",
+    "reason": "PaperQA2 evaluation."
+   },
+   {
+    "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models",
+    "authors": [
+     "Yijia Shao",
+     "Yucheng Jiang",
+     "Theodore A. Kanell",
+     "Peter Xu",
+     "Omar Khattab",
+     "Monica S. Lam"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2402.14207",
+    "summary": "STORM article generation evaluated on FreshWiki.",
+    "reason": "Cited long-form synthesis from sources."
+   }
+  ]
+ },
+ {
+  "task_id": "T021",
+  "section": "Related Work: 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "LiveBench: A Challenging, Contamination-Limited LLM Benchmark",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Detecting Pretraining Data from Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "A Survey on Data Contamination for Large Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Evaluation data contamination in LLMs: how do we measure it and (when) does it matter?",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+    "authors": [
+     "Shehzaad Dhuliawala",
+     "Mojtaba Komeili",
+     "Jing Xu",
+     "Roberta Raileanu",
+     "Xian Li",
+     "Asli Celikyilmaz",
+     "Jason Weston"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2309.11495",
+    "summary": "CoVe: draft, plan verification questions, answer independently, revise; reduces hallucination on list questions, closed-book QA and long-form generation.",
+    "reason": "Core draft-then-verify method."
+   },
+   {
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "authors": [
+     "Sewon Min",
+     "Kalpesh Krishna",
+     "Xinxi Lyu",
+     "Mike Lewis",
+     "Wen-tau Yih",
+     "Pang Wei Koh",
+     "Mohit Iyyer",
+     "Luke Zettlemoyer",
+     "Hannaneh Hajishirzi"
+    ],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2305.14251",
+    "summary": "Scores long-form generations by the share of atomic facts supported by a knowledge source; measures precision not recall; evaluated on biographies.",
+    "reason": "Biography task evaluation; precision-only."
+   }
+  ]
+ },
+ {
+  "task_id": "T026",
+  "section": "Related Work: 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "EvoPrompt: Connecting LLMs with Evolutionary Algorithms Yields Powerful Prompt Optimizers",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "TextGrad: Automatic \"Differentiation\" via Text",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models as Optimizers",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models Are Human-Level Prompt Engineers",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models",
+    "authors": [],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
+    "authors": [
+     "Lakshya A Agrawal"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "2507.19457",
+    "summary": "Genetic-Pareto prompt optimizer using natural-language reflection; beats GRPO by 6% on average with up to 35x fewer rollouts and MIPROv2 by over 10 points (ICLR 2026).",
+    "reason": "Named method in focus."
+   }
+  ]
+ },
+ {
+  "task_id": "T027",
+  "section": "Related Work: 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Universal Self-Consistency for Large Language Model Generation",
+    "authors": [
+     "Xinyun Chen",
+     "Renat Aksitov",
+     "Uri Alon"
+    ],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "2311.17311",
+    "summary": "Has the LLM choose the most consistent of several sampled responses for free-form tasks incl. long-context summarization and open-ended QA.",
+    "reason": "Aggregating samples for long-form output."
+   }
+  ]
+ },
+ {
+  "task_id": "T028",
+  "section": "Related Work: 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   },
+   {
+    "title": "LLM Evaluators Recognize and Favor Their Own Generations",
+    "authors": [
+     "Arjun Panickssery",
+     "Samuel R. Bowman",
+     "Shi Feng"
+    ],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "2404.13076",
+    "summary": "Self-preference bias in LLM evaluators is linearly correlated with their self-recognition ability.",
+    "reason": "Relevant to judges sharing the writer's model family."
+   },
+   {
+    "title": "Do LLM Evaluators Prefer Themselves for a Reason?",
+    "authors": [
+     "Wei-Lin Chen"
+    ],
+    "year": 2025,
+    "doi": "",
+    "arxiv_id": "2504.03846",
+    "summary": "Separates harmful self-preference bias from legitimate preference; much self-preference in capable models tracks real quality.",
+    "reason": "Self-preference nuance for same-family judges."
+   }
+  ]
+ },
+ {
+  "task_id": "T036",
+  "section": "1. Introduction - 1. Introduction",
+  "candidates": [
+   {
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [],
+    "year": 2020,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T074",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [],
+    "year": 2020,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T077",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T089",
+  "section": "2. Related Work - 2.2 Intermediate representations versus long-context reading",
+  "candidates": [
+   {
+    "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T094",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T095",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Large Language Models are Better Reasoners with Self-Verification",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T096",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T104",
+  "section": "2. Related Work - 2.3 Memory, verification and contamination",
+  "candidates": [
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T112",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T118",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "ExpeL: LLM Agents Are Experiential Learners",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T121",
+  "section": "2. Related Work - 2.4 Improving a fixed reader: prompt optimisation, self-refinement and sampling",
+  "candidates": [
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T125",
+  "section": "2. Related Work - Closing paragraph on evaluating cited text (no heading)",
+  "candidates": [
+   {
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T128",
+  "section": "2. Related Work - Closing paragraph on evaluating cited text (no heading)",
+  "candidates": [
+   {
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T151",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+    "authors": [],
+    "year": 2022,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T159",
+  "section": "3. Benchmark and Strategies - 3.2 Strategies",
+  "candidates": [
+   {
+    "title": "Claude Opus 5.5 System Card",
+    "authors": [
+     "Anthropic"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Anthropic system card for Claude Opus 5.5 (released 2026-09-22); known only from secondary web coverage.",
+    "reason": "Only citable primary document for the model; may not verify."
+   }
+  ]
+ },
+ {
+  "task_id": "T163",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "VERISCORE: Evaluating the factuality of verifiable claims in long-form text generation",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T166",
+  "section": "3. Benchmark and Strategies - 3.3 Audit, scoring and statistics",
+  "candidates": [
+   {
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T181",
+  "section": "4. Experiments - 4.1 Access to the source bounds agreement",
+  "candidates": [
+   {
+    "title": "The structural and content aspects of abstracts versus bodies of full text journal articles are different",
+    "authors": [],
+    "year": 2010,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T184",
+  "section": "4. Experiments - 4.2 Strategies under one control",
+  "candidates": [
+   {
+    "title": "Data Contamination Through the Lens of Time",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T197",
+  "section": "4. Experiments - 4.3 Reading better within what access allows",
+  "candidates": [
+   {
+    "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T211",
+  "section": "4. Experiments - 4.4 Released pipelines and larger inputs (exploratory)",
+  "candidates": [
+   {
+    "title": "In Defense of RAG in the Era of Long-Context Language Models",
+    "authors": [],
+    "year": 2024,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T214",
+  "section": "4. Experiments - 4.5 What the audit can and cannot see",
+  "candidates": [
+   {
+    "title": "Evaluating Verifiability in Generative Search Engines",
+    "authors": [],
+    "year": 2023,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "",
+    "reason": "In verified library; fits task."
+   }
+  ]
+ },
+ {
+  "task_id": "T220",
+  "section": "Reproducibility Statement - Reproducibility Statement",
+  "candidates": [
+   {
+    "title": "Claude Opus 5.5 System Card",
+    "authors": [
+     "Anthropic"
+    ],
+    "year": 2026,
+    "doi": "",
+    "arxiv_id": "",
+    "summary": "Anthropic system card for Claude Opus 5.5 (released 2026-09-22); known only from secondary web coverage.",
+    "reason": "Only citable primary document for the model; may not verify."
+   }
+  ]
+ },
+ {
+  "task_id": "T232",
+  "section": "Appendix - J. Released systems: versions, settings and full results",
+  "candidates": [
+   {
+    "title": "Transformers: State-of-the-Art Natural Language Processing",
+    "authors": [
+     "Thomas Wolf",
+     "Lysandre Debut",
+     "Victor Sanh"
+    ],
+    "year": 2020,
+    "doi": "10.18653/v1/2020.emnlp-demos.6",
+    "arxiv_id": "1910.03771",
+    "summary": "Open-source library with a unified API for Transformer architectures (EMNLP 2020 System Demonstrations).",
+    "reason": "Primary paper of the Transformers library."
+   }
+  ]
+ }
+]
