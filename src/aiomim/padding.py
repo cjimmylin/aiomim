@@ -941,6 +941,33 @@ def _citation_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
 # Markdown (counts, percentages and entry numbers only)
 # --------------------------------------------------------------------------- #
 
+NOTES = [
+    "Deviation (user's request, smaller budget): 8 entries planned instead of 12, P2 at about 1,200,000 characters "
+    "instead of 1,800,000, at most 800 new model calls. The pilot (first 2 entries) cost about 125 new calls per "
+    "entry, projecting about 1,000 for 8, so the entries were reduced in order to 6 (the floor allowed).",
+    "Entries: ablation40 entries complete for every ablation variant (results/ablation40/strategies.json) with at "
+    "least half their papers in full text, in entry-number order; all four strategies completed them in runs/omim100.",
+    "Added papers: full-text papers already fetched for entries of existing runs; excluded: the entry's own papers, "
+    "papers cited by any entry sharing a causal gene with it, papers whose text names one of its genes, papers whose "
+    "citing entry has no gold record (gene unknown), and papers over 180,000 characters (the extraction cap). "
+    "Seeded per entry; P1's additions are a prefix of P2's seeded order; each level stops at the paper that brings "
+    "the total nearest the target.",
+    "Supplied order is shuffled with the entry's seed, but direct reading and the agent's index sort papers by year "
+    "and the extract-then-write strategies read each paper separately, so the order has little effect.",
+    "P0: the runs/omim100 drafts before repair, rebuilt from the model cache with a cache-only backend (0 misses for "
+    "every draft; the cached audit and repair replayed on the rebuild reproduce the stored final drafts exactly). "
+    "Scoring P0 needed new judge calls only where the cited draft text differs from the scored final draft.",
+    "No audit and no repair at any level. Coverage = (present + 0.5 partial) / judged facts of the entry's own "
+    "frozen lists, credited to paragraphs citing the paper (eval_gold_text_frozen, as rescore).",
+    "Completion follows compare.py: a per-paper extraction failure makes a draft incomplete. Every such failure here "
+    "was a safety-filter stop on an added (off-topic) paper, so a secondary analysis allows failures on added papers.",
+    "P1/P2 drafts are fresh generations; P0 drafts were generated earlier. Run-to-run variation of single-entry "
+    "coverage is about 4 points (within-entry SD, results/replicate30), so changes of a few points over 6 entries "
+    "are within noise.",
+    "Wall-clock is per task with at most 4 model calls in flight across all tasks, so it includes waiting for a slot.",
+]
+
+
 LABELS = {"direct": "Direct reading", "agent": "Agentic curator", "kg": "Evidence graph", "cohort": "Case table first"}
 
 
@@ -1063,7 +1090,8 @@ def markdown(r: dict[str, Any]) -> str:
             lines.append(f"| {lv} | {LABELS[s]} | {c['n_entries']} | {int(g['calls'])} ({g['new_calls']}) | "
                          f"${g['full_list_price_usd']:.2f} | {int(sc['calls'])} ({sc['new_calls']}) | "
                          f"{c['wall_seconds_median_per_entry'] if c['wall_seconds_median_per_entry'] is not None else '–'} |")
-    lines += ["", f"New model calls in all: {r['new_calls_total']}.", ""]
+    lines += ["", f"New model calls in all (these entries): {r['new_calls_total']}.", "",
+              "## Decisions and deviations", ""] + [f"- {n}" for n in NOTES] + [""]
     return "\n".join(lines) + "\n"
 
 
