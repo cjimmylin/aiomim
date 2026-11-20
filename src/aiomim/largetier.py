@@ -2,12 +2,12 @@
 
 Two jobs, each a subcommand of `python -m aiomim.largetier`:
 
-select    Draw the 16 new entries by the design's rule and write evalsets/largeft16.tsv.
+select    Draw the new entries (8; the design said 16) by the design's rule and write evalsets/largeft8.tsv.
           Eligible: phenotype entries passing the main set's rules (causal gene recorded, at least
           5 HPO phenotype annotations, at least one OMIM paragraph about a cited paper) with 30-150
-          references, in no existing evaluation set. A seeded random sample of up to 400 of them is
-          drawn; of those, the 16 with the most references readable in full (ties by entry number),
-          requiring at least 5 (lowered to the 16th entry's count if fewer reach 5).
+          references, in no existing evaluation set. A seeded random sample of up to 200 of them (design: 400) is
+          drawn; of those, the 8 (design: 16) with the most references readable in full (ties by entry number),
+          requiring at least 5 (lowered to the last selected entry's count if fewer reach 5).
 
           Counting full texts for hundreds of entries must be cheap, so it is done in two steps
           that together give exactly the ranking the full count would: (1) the PubMed records of
@@ -16,7 +16,7 @@ select    Draw the 16 new entries by the design's rule and write evalsets/largef
           project's full-text sources (Europe PMC open-access JATS, NCBI BioC) serve only PMC
           articles; (2) entries are resolved with the project's own access resolution
           (`evalset.describe_papers`, which retrieves the papers exactly as a run does), in
-          descending order of the bound, until no unresolved entry's bound can reach the 16th
+          descending order of the bound, until no unresolved entry's bound can reach the last
           place (`exact_top_k`).
 
 analyze   The combined analysis of the old large12 entries (runs/large12, scored after the audit's
@@ -50,8 +50,8 @@ BASELINE = "direct"
 # Selection rule (fixed by the design).
 MIN_REFS, MAX_REFS = 30, 150
 MIN_HPO, MIN_PARAGRAPHS = 5, 1
-SAMPLE_SIZE = 400
-N_SELECT = 16
+SAMPLE_SIZE = 200          # design: up to 400; cut to 200 at the coordinator's request (slow lookup)
+N_SELECT = 8               # design: 16; reduced to 8 at the user's request (smaller budget)
 MIN_FULLTEXT = 5
 SELECT_SEED = 2611          # chosen for this experiment; recorded in the evaluation set's header
 
@@ -242,13 +242,14 @@ def pmc_bounds(mims: list[str]) -> dict[str, dict[str, int]]:
                 "n_pmc": sum(1 for p in v if p in records and records[p].pmcid)} for m, v in cited.items()}
 
 
-def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None) -> dict[str, Any]:
+def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None, sample_size: int = SAMPLE_SIZE,
+           n_select: int = N_SELECT) -> dict[str, Any]:
     from .evalset import describe_papers, stratum_of
     from .gold import build_gold
 
     started = time.time()
     exclude = existing_evalset_mims(root)
-    sample, walk = draw_sample(exclude, seed, SAMPLE_SIZE)
+    sample, walk = draw_sample(exclude, seed, sample_size)
     bounds = pmc_bounds(sample)
     described: dict[str, dict[str, Any]] = {}
 
@@ -258,7 +259,7 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None) -> dict
                  bounds[mim]["n_refs"], bounds[mim]["n_pmc"])
         return described[mim]["n_fulltext"]
 
-    top, resolved = exact_top_k({m: b["n_pmc"] for m, b in bounds.items()}, resolve, N_SELECT)
+    top, resolved = exact_top_k({m: b["n_pmc"] for m, b in bounds.items()}, resolve, n_select)
     threshold = threshold_used([resolved[m] for m in top])
 
     rows = []
@@ -282,16 +283,18 @@ def select(root: Path, seed: int = SELECT_SEED, out: Path | None = None) -> dict
     result = {
         "rule": (f"eligible phenotype entries (causal gene recorded, >= {MIN_HPO} HPO phenotype annotations, "
                  f">= {MIN_PARAGRAPHS} OMIM paragraph about a cited paper) with {MIN_REFS}-{MAX_REFS} references, "
-                 f"in no existing evaluation set; seeded random sample of up to {SAMPLE_SIZE}; the {N_SELECT} with "
+                 f"in no existing evaluation set; seeded random sample of up to {sample_size}; the {n_select} with "
                  f"the most references readable in full (ties by entry number), requiring >= {MIN_FULLTEXT}"),
         "seed": seed, "order": "candidates sorted by MIM number, then random.Random(seed).shuffle",
         "excluded_evalset_entries": len(exclude), **walk,
         "pmc_bound_histogram": dict(sorted(pmc_hist.items())),
         "n_resolved": len(resolved), "threshold_required": MIN_FULLTEXT, "threshold_met": threshold,
         "shortlist": shortlist, "selected": rows, "sample": sample,
-        "seconds": round(time.time() - started, 1),
+        "seconds": round(time.time() - started, 1), "n_select": n_select, "sample_size": sample_size,
+        "deviation": ("design: sample of up to 400, 16 entries; run: sample of up to 200 and 8 entries (smaller "
+                      "budget at the user's request)"),
     }
-    out = out or root / "evalsets" / "largeft16.tsv"
+    out = out or root / "evalsets" / f"largeft{n_select}.tsv"
     write_tsv(out, result)
     sel = root / "runs" / "largeft" / "selection.json"
     sel.parent.mkdir(parents=True, exist_ok=True)
@@ -306,16 +309,17 @@ COLUMNS = ["mim", "stratum", "n_refs", "n_hpo", "n_omim_paragraphs", "n_pmc", "n
 def write_tsv(path: Path, result: dict[str, Any]) -> None:
     lowered = result["threshold_met"] < result["threshold_required"]
     head = [
-        "Experiment A1 (docs/experiments-round2.md): 16 new entries for the natural large-entry tier.",
+        f"Experiment A1 (docs/experiments-round2.md): {result['n_select']} new entries for the natural large-entry tier.",
+        f"Deviation from the design: {result['deviation']}.",
         f"Rule: {result['rule']}.",
         f"Seed {result['seed']} ({result['order']}); {result['candidates_in_pool']} candidate phenotype entries "
         f"with a gene link and HPO annotations, not in an existing evaluation set ({result['excluded_evalset_entries']} "
         f"excluded); {result['walked']} walked to find {result['eligible']} eligible (the sample).",
         "Full-text count: PubMed records of every cited paper fetched in batches; papers with a PMC id give an upper "
         "bound (n_pmc); entries resolved with the project's access resolution (evalset.describe_papers) in "
-        f"descending order of the bound until no unresolved bound could reach 16th place ({result['n_resolved']} resolved).",
+        f"descending order of the bound until no unresolved bound could reach the last selected place ({result['n_resolved']} resolved).",
         (f"Requirement of {result['threshold_required']} full texts LOWERED to {result['threshold_met']}: fewer than "
-         f"16 entries reach {result['threshold_required']}." if lowered else
+         f"{result['n_select']} entries reach {result['threshold_required']}." if lowered else
          f"Every selected entry has at least {result['threshold_required']} references readable in full "
          f"(lowest: {min(r['n_fulltext'] for r in result['selected'])})."),
         "Shortlist (resolved entries, rank order): mim n_refs n_pmc n_fulltext source_chars selected",
@@ -647,12 +651,14 @@ def markdown(res: dict[str, Any]) -> str:
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="python -m aiomim.largetier", description=__doc__.split("\n\n")[0])
     sub = parser.add_subparsers(dest="cmd", required=True)
-    s = sub.add_parser("select", help="draw the new entries and write evalsets/largeft16.tsv")
+    s = sub.add_parser("select", help="draw the new entries and write evalsets/largeft8.tsv")
     s.add_argument("--seed", type=int, default=SELECT_SEED)
+    s.add_argument("--sample-size", type=int, default=SAMPLE_SIZE)
+    s.add_argument("-n", type=int, default=N_SELECT)
     a = sub.add_parser("analyze", help="combined analysis -> results/largeft/large_tier.{json,md}")
     a.add_argument("--old-run", default="large12")
     a.add_argument("--new-run", default="largeft")
-    a.add_argument("--new-entries", default="evalsets/largeft16.tsv")
+    a.add_argument("--new-entries", default="evalsets/largeft8.tsv")
     a.add_argument("--old-entries", default="evalsets/large12.tsv")
     a.add_argument("--timing", default="runs/largeft/timing.tsv")
     a.add_argument("--out", default="results/largeft")
@@ -661,7 +667,7 @@ def main(argv: list[str] | None = None) -> None:
     logging.getLogger("urllib3").setLevel(logging.WARNING)
     root = Path.cwd()
     if args.cmd == "select":
-        result = select(root, seed=args.seed)
+        result = select(root, seed=args.seed, sample_size=args.sample_size, n_select=args.n)
         for r in result["selected"]:
             print(f"{r['mim']}\trefs={r['n_refs']}\tpmc={r['n_pmc']}\tfulltext={r['n_fulltext']}\t"
                   f"chars={r['source_chars']}\t{r['title'][:60]}")
