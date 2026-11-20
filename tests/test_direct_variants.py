@@ -315,3 +315,26 @@ def test_ensemble_with_a_stopped_draft_has_no_draft(tmp_path):
 
     with pytest.raises(LLMRefusal):
         direct_ensemble.run(SEED, papers(), StopSalted(), tmp_path)
+
+
+# --------------------------------------------------------------------------- #
+# Runner: the audit subsample
+# --------------------------------------------------------------------------- #
+
+
+def test_audit_sample_is_the_designed_draw_and_is_never_redrawn(tmp_path, monkeypatch):
+    import json
+
+    from aiomim import directplus
+
+    mims = [str(600000 + 7 * i) for i in range(41)]
+    for m in mims:
+        (tmp_path / m).mkdir()
+        (tmp_path / m / "source.json").write_text(json.dumps({"source_run": "x", "mim": m}))
+    monkeypatch.setattr(directplus, "run_dir_of", lambda name: tmp_path)
+    chosen = directplus.draw_audit_sample("t", 20, 20261120)
+    assert chosen == sorted(random.Random(20261120).sample(sorted(mims), 20))
+    assert directplus.audit_sample(tmp_path) == set(chosen)
+    assert directplus.draw_audit_sample("t", 20, 20261120) == chosen          # same draw: kept
+    with pytest.raises(RuntimeError):
+        directplus.draw_audit_sample("t", 20, 1)                               # another draw: refused

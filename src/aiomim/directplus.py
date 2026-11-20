@@ -68,6 +68,9 @@ LEDGER = "direct_improve.ledger.json"
 STEPS = ("generate", "audit", "score")
 VERDICTS = ("supported", "partially_supported", "unsupported", "contradicted", "not_checkable")
 BOOTSTRAP_SEED = 7          # as `compare`
+AUDIT_SAMPLE = "audit_sample.json"
+AUDIT_SEED = 20261120       # docs/direct-improvements.md, "Pilot and changes made before the test run"
+AUDIT_N = 20
 
 _ledger_backend = None
 _ledger_lock = threading.Lock()
@@ -116,6 +119,32 @@ def setup(name: str, mims: list[str], source: str = SOURCE_RUN) -> list[str]:
         (out / "source.json").write_text(json.dumps({"source_run": source, "mim": mim}), encoding="utf-8")
         done.append(mim)
     return done
+
+
+def draw_audit_sample(name: str, n: int = AUDIT_N, seed: int = AUDIT_SEED) -> list[str]:
+    """The entries whose drafts get the claim-level audit (every arm), drawn once and written to the run.
+
+    `random.Random(seed).sample(sorted(mims), n)` over the run's entry numbers as strings.
+    """
+    run_dir = run_dir_of(name)
+    path = run_dir / AUDIT_SAMPLE
+    mims = entries_of(run_dir)
+    chosen = random.Random(seed).sample(sorted(mims), n)
+    record = {"method": f"random.Random({seed}).sample(sorted(entries), {n})", "seed": seed, "n": n,
+              "from_entries": sorted(mims), "entries": sorted(chosen), "drawn_order": chosen}
+    if path.exists():
+        old = _read(path)
+        if old["entries"] != record["entries"]:
+            raise RuntimeError(f"{path} exists with a different sample; not overwritten")
+        return old["entries"]
+    _write(path, record)
+    return record["entries"]
+
+
+def audit_sample(run_dir: Path) -> set[str] | None:
+    """The audited entries, or None when the run audits every entry (no sample drawn, as in the pilot)."""
+    path = run_dir / AUDIT_SAMPLE
+    return set(_read(path)["entries"]) if path.exists() else None
 
 
 def entries_of(run_dir: Path) -> list[str]:
@@ -178,6 +207,8 @@ class Entry:
         self.gold = GoldEntry.model_validate(_read(self.dir / "gold.json"))
         self.records = _read(self.dir / "papers.json")
         self.source_dir = run_dir_of(_read(self.dir / "source.json")["source_run"]) / mim
+        sample = audit_sample(run_dir)
+        self.audited = sample is None or mim in sample
         self._papers: list[Paper] | None = None
 
     @property
@@ -258,12 +289,19 @@ def rebuild_baseline(e: Entry) -> None:
              "before_equals_after": texts(before) == texts(stored)}
     if exact["cache_misses"] or not exact["rebuilt_after_repair_matches_stored"]:
         raise RuntimeError(f"[{e.mim}] the before-repair rebuild is not exact: {exact}")
-    _finish_audit_meta(before)
+    if e.audited:
+        _finish_audit_meta(before)
+        e.save_usage(BASELINE, "audit", audit)
+    else:
+        # Outside the audit subsample no arm is audited; the baseline's cached verdicts are
+        # dropped too, so that no claim figure mixes audited and unaudited entries.
+        for para in before.all_paragraphs():
+            para.checks = []
+        before.meta["audit"] = "not run (entry outside the audit subsample)"
     before.meta["before_repair_rebuild"] = exact
     before.meta["strategy"] = BASELINE
     _save_entry(e, BASELINE, before)
     e.save_usage(BASELINE, "generate", gen)
-    e.save_usage(BASELINE, "audit", audit)
 
 
 def generate_and_audit(e: Entry, arm: str) -> None:
@@ -283,6 +321,10 @@ def generate_and_audit(e: Entry, arm: str) -> None:
         e.save_usage(arm, "generate", _usage(llm, started))
         return
     e.save_usage(arm, "generate", _usage(llm, started))
+    if not e.audited:
+        entry.meta["audit"] = "not run (entry outside the audit subsample)"
+        _save_entry(e, arm, entry)
+        return
     t_audit = time.time()
     llm_a = new_llm("audit")
     read = audit_papers(arm, e.papers, e.dir)
@@ -347,7 +389,7 @@ def score(e: Entry, arm: str) -> None:
         "synopsis": eval_synopsis(entry, gold), "variants": eval_variants(entry, gold, llm),
         "faithfulness": eval_faithfulness(entry),
         "gold_text_frozen": eval_gold_text_frozen(entry, gold, levels, llm, records=records),
-        "retrieval": "oracle",
+        "retrieval": "oracle", "audited": e.audited,
         "scoring": "frozen facts (as rescore); no adaptive gold_text; audit without repair",
     }
     if entry.meta.get("stopped"):
@@ -586,6 +628,324 @@ def markdown(r: dict[str, Any]) -> str:
 
 
 # --------------------------------------------------------------------------- #
+# The evaluation's report (results/direct_improve/)
+# --------------------------------------------------------------------------- #
+
+MEASURES = (  # (key, label, availability restriction, paper level)
+    ("all", "All facts", None, "all"),
+    ("stated", "Facts the supplied text states", ("yes",), "all"),
+    ("stated_fulltext", "… on papers readable in full", ("yes",), "fulltext"),
+    ("stated_abstract", "… on papers readable as abstract only", ("yes",), "abstract"),
+    ("not_stated", "Facts the supplied text does not state", ("no",), "all"),
+)
+CLAIM_KINDS = ("supported", "partially_supported", "unsupported", "contradicted")
+
+
+def completion(run_dir: Path, mims: list[str]) -> dict[str, dict[str, str]]:
+    """arm -> entry -> complete | incomplete | no_draft | not_run (the design's completion rule)."""
+    out: dict[str, dict[str, str]] = {arm: {} for arm in ARMS}
+    for mim in mims:
+        for arm in ARMS:
+            ev, en = run_dir / mim / f"eval.{arm}.json", run_dir / mim / f"entry.{arm}.json"
+            if not ev.exists() or not en.exists():
+                out[arm][mim] = "not_run"
+            elif _read(ev).get("stopped"):
+                out[arm][mim] = "no_draft"
+            elif ((_read(en).get("meta") or {}).get("direct_complete") or {}).get("papers_failed"):
+                out[arm][mim] = "incomplete"
+            else:
+                out[arm][mim] = "complete"
+    return out
+
+
+def entry_measures(run_dir: Path, mim: str, arm: str) -> dict[str, Any]:
+    from .gaps import availability_by_fact, join_marks, restricted_tally
+
+    ev, en = _read(run_dir / mim / f"eval.{arm}.json"), _read(run_dir / mim / f"entry.{arm}.json")
+    frozen = ev.get("gold_text_frozen") or {}
+    avail = availability_by_fact(_read(run_dir / mim / "gold_facts.json"))
+    rows, join = join_marks(frozen, avail)
+    out: dict[str, Any] = {"coverage_main": frozen.get("coverage"), "join": join}
+    for key, _, verdicts, level in MEASURES:
+        cell = restricted_tally(rows, verdicts, level)
+        out[key] = cell["coverage"]
+        out[f"{key}_n"] = cell["n_facts"]
+    f = ev.get("faithfulness") or {}
+    out.update({k: f.get(k, 0) for k in (*CLAIM_KINDS, "not_checkable")})
+    out["claims_checkable"] = f.get("n_claims", 0)
+    out["audited"] = bool(ev.get("audited", True))
+    out["chars"] = _chars(en)
+    v = ev.get("variants") or {}
+    n_gen, n_gold = v.get("n_generated") or 0, v.get("n_gold") or 0
+    out["variant_recall"] = (0.0 if n_gold and not n_gen else v.get("recall")) if n_gold else None
+    out["variant_precision"] = round(v.get("n_matched", 0) / n_gen, 4) if n_gen and n_gold else None
+    out.update(variants_generated=n_gen, variants_gold=n_gold, variants_matched=v.get("n_matched", 0))
+    return out
+
+
+def _usage_row(run_dir: Path, mim: str, arm: str) -> dict[str, Any]:
+    path = run_dir / mim / "usage.json"
+    u = (_read(path).get("arms", {}) if path.exists() else {}).get(arm, {})
+    row: dict[str, Any] = {"calls_new": 0, "usd_new": 0.0, "usd_method": 0.0, "wall_seconds": 0.0, "safety_stops": {}}
+    for step in STEPS:
+        b = u.get(step)
+        if not b:
+            continue
+        row["calls_new"] += b.get("calls", 0) - b.get("cached", 0)
+        row["usd_new"] += b.get("list_price_usd", 0.0)
+        row["usd_method"] += b.get("full_list_price_usd", 0.0)
+        row["wall_seconds"] += b.get("wall_seconds", 0.0)
+        if b.get("safety_stops"):
+            row["safety_stops"][step] = b["safety_stops"]
+        row[f"calls_new_{step}"] = b.get("calls", 0) - b.get("cached", 0)
+    return row
+
+
+def _mean(xs: list[float]) -> float | None:
+    xs = [x for x in xs if x is not None]
+    return round(statistics.mean(xs), 4) if xs else None
+
+
+def final_report(name: str, out_dir: Path | None = None) -> dict[str, Any]:
+    from .compare import _holm, _pair_stats
+
+    run_dir = run_dir_of(name)
+    out_dir = out_dir or Path("results") / "direct_improve"
+    mims = entries_of(run_dir)
+    sample = audit_sample(run_dir)
+    audited = sorted(sample) if sample is not None else mims
+    status = completion(run_dir, mims)
+    common = [m for m in mims if all(status[a][m] == "complete" for a in ARMS)]
+    per: dict[str, dict[str, dict[str, Any]]] = {arm: {} for arm in ARMS}
+    for arm in ARMS:
+        for mim in mims:
+            if status[arm][mim] in ("complete", "incomplete"):
+                per[arm][mim] = {**entry_measures(run_dir, mim, arm), **_usage_row(run_dir, mim, arm)}
+            elif status[arm][mim] == "no_draft":
+                per[arm][mim] = {"no_draft": True, **_usage_row(run_dir, mim, arm)}
+
+    # Facts conveyed: means and paired differences over the entries every arm completed.
+    facts: dict[str, Any] = {}
+    for key, label, _, _ in MEASURES:
+        block: dict[str, Any] = {"label": label, "means": {}, "versus_baseline": {}}
+        for arm in ARMS:
+            vals = [per[arm][m][key] for m in common if per[arm][m].get(key) is not None]
+            block["means"][arm] = {"mean_over_entries": _mean(vals), "n_entries": len(vals),
+                                   "facts_per_entry": _mean([per[arm][m][f"{key}_n"] for m in common])}
+        pvals = {}
+        for arm in VARIANTS:
+            pairs = [(per[arm][m][key], per[BASELINE][m][key]) for m in common
+                     if per[arm][m].get(key) is not None and per[BASELINE][m].get(key) is not None]
+            if not pairs:
+                continue
+            st = _pair_stats(pairs, True, random.Random(BOOTSTRAP_SEED))
+            block["versus_baseline"][arm] = st
+            if st["sign_test_p"] is not None:
+                pvals[arm] = st["sign_test_p"]
+        for arm, p in _holm(pvals).items():
+            block["versus_baseline"][arm]["sign_test_p_holm"] = round(p, 4)
+        facts[key] = block
+
+    # Claims, on the audited entries (every arm with a draft there).
+    claims: dict[str, Any] = {}
+    for arm in ARMS:
+        rows = [per[arm][m] for m in audited if m in per[arm] and not per[arm][m].get("no_draft")]
+        pooled = {k: sum(r.get(k, 0) for r in rows) for k in (*CLAIM_KINDS, "not_checkable", "claims_checkable")}
+        n = pooled["claims_checkable"]
+        claims[arm] = {"n_entries": len(rows), **pooled,
+                       "shares_of_checkable": {k: round(pooled[k] / n, 4) if n else None for k in CLAIM_KINDS},
+                       "entries_with_not_checkable": sorted(m for m in audited if m in per[arm]
+                                                            and per[arm][m].get("not_checkable")),
+                       "checkable_claims_per_entry": _mean([r["claims_checkable"] for r in rows])}
+    claims_common = sorted(set(audited) & set(common))
+
+    # Size, variants, cost.
+    size, variants, cost = {}, {}, {}
+    for arm in ARMS:
+        rows = [per[arm][m] for m in common]
+        size[arm] = {"chars_per_entry": _mean([r["chars"] for r in rows]),
+                     "checkable_claims_per_audited_entry": _mean([per[arm][m]["claims_checkable"]
+                                                                   for m in claims_common])}
+        variants[arm] = {"recall_mean": _mean([r["variant_recall"] for r in rows]),
+                         "n_entries_with_omim_variants": sum(1 for r in rows if r["variant_recall"] is not None),
+                         "precision_mean": _mean([r["variant_precision"] for r in rows]),
+                         "n_entries_for_precision": sum(1 for r in rows if r["variant_precision"] is not None),
+                         "pooled": {k: sum(r[k] for r in rows) for k in ("variants_generated", "variants_matched",
+                                                                         "variants_gold")}}
+        ran = [per[arm][m] for m in mims if m in per[arm]]
+        cost[arm] = {"entries": len(ran), "calls_new_total": sum(r["calls_new"] for r in ran),
+                     "calls_new_per_entry": _mean([r["calls_new"] for r in ran]),
+                     "usd_new_total": round(sum(r["usd_new"] for r in ran), 2),
+                     "usd_new_per_entry": _mean([r["usd_new"] for r in ran]),
+                     "usd_method_per_entry": _mean([r["usd_method"] for r in ran]),
+                     "wall_minutes_per_entry": _mean([r["wall_seconds"] / 60 for r in ran]),
+                     **{f"calls_new_{s}_per_entry": _mean([r.get(f"calls_new_{s}", 0) for r in ran]) for s in STEPS},
+                     "audited_entries": sum(1 for m in mims if m in per[arm] and m in set(audited))}
+
+    # Stops and what each arm did.
+    stops: dict[str, Any] = {}
+    for arm in ARMS:
+        st: dict[str, Any] = {"no_draft": {m: _read(run_dir / m / f"eval.{arm}.json").get("stopped")
+                                           for m in mims if status[arm][m] == "no_draft"},
+                              "safety_stops_by_step": defaultdict(int)}
+        for m in mims:
+            for step, k in (per[arm].get(m, {}).get("safety_stops") or {}).items():
+                st["safety_stops_by_step"][step] += k
+        st["safety_stops_by_step"] = dict(st["safety_stops_by_step"])
+        if arm == "direct_complete":
+            st["checks_failed"] = {m: ((_read(run_dir / m / f"entry.{arm}.json").get("meta") or {})
+                                       .get("direct_complete") or {}).get("failures")
+                                   for m in mims if status[arm][m] == "incomplete"}
+        stops[arm] = st
+    d2 = []
+    for m in mims:
+        if m in per["direct_complete"] and not per["direct_complete"][m].get("no_draft"):
+            meta = (_read(run_dir / m / "entry.direct_complete.json").get("meta") or {}).get("direct_complete") or {}
+            rev = meta.get("revision") or {}
+            d2.append({"mim": m, **{k: meta.get(k) for k in ("papers_checked", "omissions_listed", "omissions_kept")},
+                       "revised": rev.get("called"), "sentences_added": rev.get("sentences_added"),
+                       "added_citing_other_papers_only": rev.get("added_citing_other_papers_only"),
+                       "kept_fields_changed_by_model": [k for k in ("relationships_changed", "synopsis_changed",
+                                                                    "variants_changed", "intro_changed") if rev.get(k)],
+                       "pmids_lost": rev.get("pmids_lost")})
+    d3 = []
+    for m in mims:
+        if m in per["direct_ensemble"] and not per["direct_ensemble"][m].get("no_draft"):
+            meta = (_read(run_dir / m / "entry.direct_ensemble.json").get("meta") or {}).get("direct_ensemble") or {}
+            mg = meta.get("merge") or {}
+            d3.append({"mim": m, **{k: mg.get(k) for k in ("draft_paragraphs", "merged_paragraphs", "multi_source",
+                                                         "rejected_longer", "unknown_ids", "unsourced_dropped",
+                                                         "restored", "unused", "groups_restored", "pmids_lost")},
+                       "kept_approx": {d: (meta.get("retention") or {}).get(d, {}).get("kept_approx") for d in "ABC"},
+                       "sentences": {d: (meta.get("retention") or {}).get(d, {}).get("sentences") for d in "ABC"}})
+    ledger_path = run_dir.parent / LEDGER
+    result = {
+        "run": name, "design": "docs/direct-improvements.md (evaluation design; pilot and changes before the test run)",
+        "entries": mims, "n_entries": len(mims),
+        "audit_subsample": {"entries": audited, "n": len(audited),
+                            **({k: v for k, v in _read(run_dir / AUDIT_SAMPLE).items() if k in ("method", "seed")}
+                               if (run_dir / AUDIT_SAMPLE).exists() else {})},
+        "completion": {arm: {"counts": {k: sum(1 for v in status[arm].values() if v == k)
+                                        for k in ("complete", "incomplete", "no_draft", "not_run")},
+                             "not_complete": {m: v for m, v in status[arm].items() if v != "complete"}}
+                       for arm in ARMS},
+        "compared_entries": common, "n_compared": len(common),
+        "bootstrap": {"seed": BOOTSTRAP_SEED, "resamples": 10_000, "interval": "percentile 95%, over entries"},
+        "facts_conveyed": facts,
+        "claims_audited_entries": claims,
+        "size": size, "variants": variants, "cost": cost, "stops": stops,
+        "d2_completeness_pass": d2, "d3_merge": d3,
+        "ledger": _read(ledger_path) if ledger_path.exists() else None, "cap": CALL_CAP,
+        "per_entry": {arm: {m: {k: v for k, v in r.items() if k not in ("join",)} for m, r in per[arm].items()}
+                      for arm in ARMS},
+    }
+    out_dir.mkdir(parents=True, exist_ok=True)
+    _write(out_dir / "direct_improve.json", result)
+    (out_dir / "direct_improve.md").write_text(report_markdown(result), encoding="utf-8")
+    return result
+
+
+LABELS = {"direct": "Baseline (direct, before repair)", "direct_checklist": "D1 checklist",
+          "direct_complete": "D2 completeness pass", "direct_ensemble": "D3 three-draft merge"}
+
+
+def _p(x) -> str:
+    return "–" if x is None else f"{x:.3f}"
+
+
+def report_markdown(r: dict[str, Any]) -> str:
+    pct = lambda x: "–" if x is None else f"{100 * x:.1f}%"  # noqa: E731
+    pp = lambda x: "–" if x is None else f"{100 * x:+.1f}"  # noqa: E731
+    L = [f"# Improving on direct reading: evaluation (run `{r['run']}`)", "",
+         f"{r['n_entries']} entries with at least one paper readable in full and a direct-reading draft; "
+         f"{r['n_compared']} complete for every arm are compared. No repair round for any arm. Facts conveyed = "
+         "(present + half of partial) / judged frozen facts, mean over entries. Differences are arm minus baseline in "
+         f"percentage points with a 95% percentile bootstrap interval over entries ({r['bootstrap']['resamples']:,} "
+         f"resamples, seed {r['bootstrap']['seed']}), entries better/worse/tied, exact sign test, Holm-adjusted across "
+         "the three arms. Whether the supplied text states a fact is the stored availability judgement (a model "
+         "judgement with verified quotes, not checked by a curator).", "",
+         "## Completion", "", "| Arm | Complete | Incomplete | No draft | Not run | Entries not complete |",
+         "|---|---|---|---|---|---|"]
+    for arm, c in r["completion"].items():
+        k = c["counts"]
+        L.append(f"| {LABELS[arm]} | {k['complete']} | {k['incomplete']} | {k['no_draft']} | {k['not_run']} | "
+                 f"{', '.join(f'{m} ({v})' for m, v in c['not_complete'].items()) or '–'} |")
+    for key, block in r["facts_conveyed"].items():
+        L += ["", f"## {block['label']}", "", "| Arm | Mean over entries | Entries | Facts per entry | Difference | "
+              "95% CI | Better/worse/tied | Sign p | Holm p |", "|---|---|---|---|---|---|---|---|---|"]
+        for arm in ARMS:
+            m = block["means"][arm]
+            v = block["versus_baseline"].get(arm)
+            ci = f"{pp(v['ci95'][0])} to {pp(v['ci95'][1])}" if v and v.get("ci95") else "–"
+            diff = (f"{pp(v['difference'])} | {ci} | "
+                    f"{v['better']}/{v['worse']}/{v['ties']} | {_p(v['sign_test_p'])} | {_p(v.get('sign_test_p_holm'))}"
+                    if v else "– | – | – | – | –")
+            L.append(f"| {LABELS[arm]} | {pct(m['mean_over_entries'])} | {m['n_entries']} | "
+                     f"{m['facts_per_entry'] if m['facts_per_entry'] is None else round(m['facts_per_entry'], 1)} | {diff} |")
+    a = r["audit_subsample"]
+    L += ["", f"## Claims judged by the audit ({a['n']} audited entries)", "",
+          f"Audited entries ({a.get('method', 'all entries')}): {', '.join(a['entries'])}. Shares are over checkable "
+          "claims; a stopped audit call leaves its paper's claims not checkable and does not affect completion.", "",
+          "| Arm | Entries | Checkable claims | Supported | Partly | Unsupported | Contradicted | Not checkable | "
+          "Entries with not-checkable claims |", "|---|---|---|---|---|---|---|---|---|"]
+    for arm, c in r["claims_audited_entries"].items():
+        sh = c["shares_of_checkable"]
+        L.append(f"| {LABELS[arm]} | {c['n_entries']} | {c['claims_checkable']:,} | {c['supported']:,} "
+                 f"({pct(sh['supported'])}) | {c['partially_supported']:,} ({pct(sh['partially_supported'])}) | "
+                 f"{c['unsupported']:,} ({pct(sh['unsupported'])}) | {c['contradicted']:,} ({pct(sh['contradicted'])}) | "
+                 f"{c['not_checkable']:,} | {', '.join(c['entries_with_not_checkable']) or '–'} |")
+    L += ["", "## Size, variants, calls and price", "",
+          "| Arm | Characters per entry | Checkable claims per audited entry | Variant recall (entries) | Variant "
+          "precision (entries) | New calls per entry (generate / audit / score) | List price per entry, new | List "
+          "price per entry, method | Wall minutes per entry |", "|---|---|---|---|---|---|---|---|---|"]
+    for arm in ARMS:
+        s, v, c = r["size"][arm], r["variants"][arm], r["cost"][arm]
+        L.append(f"| {LABELS[arm]} | {s['chars_per_entry']:,.0f} | {s['checkable_claims_per_audited_entry'] or 0:.0f} | "
+                 f"{pct(v['recall_mean'])} ({v['n_entries_with_omim_variants']}) | {pct(v['precision_mean'])} "
+                 f"({v['n_entries_for_precision']}) | {c['calls_new_per_entry'] or 0:.1f} "
+                 f"({c['calls_new_generate_per_entry'] or 0:.1f} / {c['calls_new_audit_per_entry'] or 0:.1f} / "
+                 f"{c['calls_new_score_per_entry'] or 0:.1f}) | ${c['usd_new_per_entry'] or 0:.2f} | "
+                 f"${c['usd_method_per_entry'] or 0:.2f} | {c['wall_minutes_per_entry'] or 0:.1f} |")
+    L += ["", "Characters and variants are over the compared entries; calls and price over every entry the arm ran. "
+          "'New' counts calls made in this run (the baseline's draft and audit come from the cache); 'method' is "
+          "what the arm costs from scratch, including the cached baseline draft that D2 and D3 start from.", "",
+          "## Stops", ""]
+    for arm, st in r["stops"].items():
+        L.append(f"- {LABELS[arm]}: no draft {len(st['no_draft'])}"
+                 + (f" ({', '.join(st['no_draft'])})" if st["no_draft"] else "")
+                 + f"; safety stops by step {st['safety_stops_by_step'] or 'none'}"
+                 + (f"; completeness checks failed: {st['checks_failed']}" if st.get("checks_failed") else ""))
+    d2 = r["d2_completeness_pass"]
+    if d2:
+        L += ["", "## D2: what the completeness pass did", "",
+              f"Entries {len(d2)}; omissions listed {sum(x['omissions_listed'] or 0 for x in d2):,}, kept (quote "
+              f"verified) {sum(x['omissions_kept'] or 0 for x in d2):,}; revision called on "
+              f"{sum(1 for x in d2 if x['revised'])}; sentences added {sum(x['sentences_added'] or 0 for x in d2):,}, "
+              f"of which citing only papers without listed omissions {sum(x['added_citing_other_papers_only'] or 0 for x in d2)}; "
+              f"entries where the model changed a carried-over field: "
+              f"{', '.join(x['mim'] for x in d2 if x['kept_fields_changed_by_model']) or 'none'}; citations lost: "
+              f"{', '.join(x['mim'] for x in d2 if x['pmids_lost']) or 'none'}."]
+    d3 = r["d3_merge"]
+    if d3:
+        tot = lambda k: sum(x[k] or 0 for x in d3)  # noqa: E731
+        L += ["", "## D3: what the merge did", "",
+              f"Entries {len(d3)}; draft paragraphs {tot('draft_paragraphs'):,} merged into {tot('merged_paragraphs'):,} "
+              f"({tot('multi_source'):,} from more than one draft); rejected as longer than their sources "
+              f"{tot('rejected_longer')}; unknown IDs {tot('unknown_ids')}; unsourced paragraphs dropped "
+              f"{tot('unsourced_dropped')}; draft paragraphs left out and put back {tot('restored')}, left out and not "
+              f"put back (their papers cited elsewhere) {tot('unused')}; variant groups restored {tot('groups_restored')}; "
+              f"citations lost: {', '.join(x['mim'] for x in d3 if x['pmids_lost']) or 'none'}. Sentences of each "
+              "draft with at least 85% of their content words in the merged draft (rough): "
+              + "; ".join(f"{d} {sum(x['kept_approx'][d] or 0 for x in d3):,} of {sum(x['sentences'][d] or 0 for x in d3):,}"
+                          for d in "ABC") + "."]
+    lg = r.get("ledger")
+    if lg:
+        L += ["", f"Calls: {lg['calls']:,} new model calls of the {r['cap']:,} cap (pilot included), ${lg['cost_usd']:.2f} "
+                  f"list price; safety stops {lg['safety_stops']}, refusals {lg['refusals']}, errors {lg['errors']}."]
+    return "\n".join(L) + "\n"
+
+
+# --------------------------------------------------------------------------- #
 # Projection to the evaluation entries (no model call)
 # --------------------------------------------------------------------------- #
 
@@ -741,6 +1101,8 @@ def main(argv: list[str] | None = None) -> None:
     s.add_argument("--entries")
     s.add_argument("--entries-file")
     s.add_argument("--source", default=SOURCE_RUN)
+    s.add_argument("--audit-sample", type=int, default=0,
+                   help=f"Audit only this many entries, drawn with random.Random({AUDIT_SEED}) (0: audit all).")
     r = sub.add_parser("run")
     r.add_argument("--run", required=True)
     r.add_argument("--arms", default=",".join(ARMS))
@@ -754,6 +1116,9 @@ def main(argv: list[str] | None = None) -> None:
     d.add_argument("--jobs", type=int, default=1)
     m = sub.add_parser("summarise")
     m.add_argument("--run", required=True)
+    fr = sub.add_parser("report")
+    fr.add_argument("--run", required=True)
+    fr.add_argument("--out", default="results/direct_improve")
     p = sub.add_parser("project")
     p.add_argument("--pilot", required=True)
     p.add_argument("--entries-file", required=True)
@@ -763,6 +1128,8 @@ def main(argv: list[str] | None = None) -> None:
 
     if args.cmd == "setup":
         print(setup(args.run, _mims(args.entries, args.entries_file) or [], args.source))
+        if args.audit_sample:
+            print("audit sample:", draw_audit_sample(args.run, args.audit_sample))
     elif args.cmd == "run":
         arms = tuple(a.strip() for a in args.arms.split(",") if a.strip())
         unknown = set(arms) - set(ARMS)
@@ -787,6 +1154,9 @@ def main(argv: list[str] | None = None) -> None:
         result = summarise(args.run)
         print((run_dir_of(args.run) / "directplus.md").read_text())
         del result
+    elif args.cmd == "report":
+        final_report(args.run, Path(args.out))
+        print((Path(args.out) / "direct_improve.md").read_text())
     elif args.cmd == "project":
         mims = _mims(None, args.entries_file) or []
         src_root = run_dir_of(args.source)
