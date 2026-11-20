@@ -1,3 +1,12 @@
 [
-  {"round": 1, "critic_suggestions": "Content: all 13 values match the log (Sec. 11: 60/60, control 0/60; Sec. 14.4: C1 30/30, C2 26/26, C3 25/25, C4 0/30, C6 paragraph 0/30, C5 rules negation 8/8, hedge 2/8, count 1/4, zygosity 0/8, single family or patient 0/2, control 0/113); dots sit at k/n. No caption text or title in the image. Presentation: the tight bounding box came out 3.08 in wide because the '/113' annotation runs past 3.0 in, so printing at 3.0 in would shrink 7 pt text to about 6.8 pt; move the axes and the k/n column left so the saved image is at most 3.0 in wide. Shorten the control heading 'Unaltered control (re-audited)' to 'Unaltered control' (re-auditing is caption material).", "changed": true}
+ {
+  "round": 1,
+  "critic_suggestions": "Content: all 13 values match the log (Sec. 11: 60/60, control 0/60; Sec. 14.4: C1 30/30, C2 26/26, C3 25/25, C4 0/30, C6 paragraph 0/30, C5 rules negation 8/8, hedge 2/8, count 1/4, zygosity 0/8, single family or patient 0/2, control 0/113); dots sit at k/n. No caption text or title in the image. Presentation: the tight bounding box came out 3.08 in wide because the '/113' annotation runs past 3.0 in, so printing at 3.0 in would shrink 7 pt text to about 6.8 pt; move the axes and the k/n column left so the saved image is at most 3.0 in wide. Shorten the control heading 'Unaltered control (re-audited)' to 'Unaltered control' (re-auditing is caption material).",
+  "changed": true
+ },
+ {
+  "round": 2,
+  "critic_suggestions": "No changes needed. Saved image is 2.98 x 2.52 in (at most 3.0 in, so 7 pt stays 7 pt at 0.55 of a 5.5 in text width); every text element is 7 pt (headings 7 pt bold); no overlaps or clipped text; k/n column aligned on the slash; values re-checked against Sec. 11 and Sec. 14.4; greys only, no strategy colour; PDF fonts embedded (TrueType).",
+  "changed": false
+ }
 ]

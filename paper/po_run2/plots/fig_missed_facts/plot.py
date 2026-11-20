@@ -34,17 +34,17 @@ for i in range(3):
     assert conveyed[i] + not_fully[i] + contradicted[i] == facts[i]
 
 # ---- style: greys from fig_access_bound panel (b) + direct reading's black for its conveyed facts ----
-GREY_STATED, GREY_PARTLY, HATCH_GREY = "#3B3B3B", "#9E9E9E", "#9E9E9E"
+GREY_STATED, GREY_PARTLY, HATCH_GREY = "#3B3B3B", "#9E9E9E", "#8C8C8C"  # as fig_access_bound (b)
 segments = [  # label, counts, face, hatch, text colour
     ("Conveyed in full", conveyed, "#000000", None, "white"),
     ("Missed, stated", stated, GREY_STATED, None, "white"),
     ("Missed, partly stated", partly, GREY_PARTLY, None, "black"),
-    ("Missed, not stated", not_stated, "white", "////", "black"),
+    ("Missed, not stated", not_stated, "white", "\\\\\\\\", "black"),  # hatch as fig_access_bound (b)
 ]
 
 W, H = 5.5, 5.5 * 9 / 16              # printed size in inches
 fig = plt.figure(figsize=(W, H), facecolor="white")
-L, R, B, T = 0.95, 1.0, 0.48, 0.42    # margins in inches: tick labels | share column | x axis | legend
+L, R, B, T = 0.82, 0.80, 0.48, 0.50    # margins in inches: tick labels | share column | x axis | legend
 ax = fig.add_axes([L / W, B / H, (W - L - R) / W, (H - B - T) / H])
 ax_w_in = W - L - R
 
@@ -64,9 +64,12 @@ for label, counts, face, hatch, tcol in segments:
         handles.append(Patch(facecolor=face, edgecolor="none", label=label))
     for y, l, p, c in zip(ypos, left, pct, counts):
         # label a segment with its log count only if the number fits inside at print size (~0.2 in for 3 digits)
-        if p / 100 * ax_w_in >= 0.07 * len(f"{c:,}") + 0.04:
+        if p / 100 * ax_w_in >= 0.065 * len(f"{c:,}") + 0.04:
             box = dict(facecolor="white", edgecolor="none", pad=0.6) if hatch else None
             ax.text(l + p / 2, y, f"{c:,}", ha="center", va="center", color=tcol, fontsize=FS, bbox=box, zorder=4)
+        elif c > 0:  # too narrow to hold its count (Abstract only, stated: 46): count just above the sliver
+            ax.annotate(f"{c:,}", (l + p / 2, y + BH / 2), xytext=(0, 1.5), textcoords="offset points",
+                        ha="center", va="bottom", fontsize=FS, zorder=4)
     left = [l + p for l, p in zip(left, pct)]
 
 ax.set_xlim(0, 100)
@@ -75,21 +78,24 @@ ax.set_yticks(ypos)
 ax.set_yticklabels([f"{lev}\n{n:,} facts" for lev, n in zip(levels, facts)])
 ax.tick_params(axis="y", length=0, pad=4)
 ax.set_xticks([0, 25, 50, 75, 100])
-ax.set_xticklabels(["0%", "25%", "50%", "75%", "100%"])
-ax.set_xlabel("Share of OMIM facts", labelpad=3)
+ax.set_xlabel("% of fixed facts", labelpad=3)  # wording and ticks as fig_access_bound (b)
 ax.spines[["top", "right", "left"]].set_visible(False)
 ax.spines["bottom"].set_bounds(0, 100)
 
 # right-hand column: share of the missed facts that the available text states (log column, copied)
-COLX = 1.0 + 0.5 / ax_w_in            # column centre 0.5 in right of the 100% end
+COLX = 1.0 + 0.42 / ax_w_in           # column centre 0.42 in right of the 100% end
 tr = blended_transform_factory(ax.transAxes, ax.transData)
 ax.text(COLX, 2.5, "Stated, share\nof missed", transform=tr, ha="center", va="bottom", fontsize=FS,
         linespacing=1.1, clip_on=False)
 for y, s in zip(ypos, share_missed_stated):
     ax.text(COLX, y, s, transform=tr, ha="center", va="center", fontsize=FS, clip_on=False)
 
-fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(L / W - 0.01, 1.0), ncol=4, frameon=False,
-           handlelength=1.1, handleheight=1.1, handletextpad=0.4, columnspacing=1.1, borderaxespad=0.2)
+# 2 x 2, read row by row in bar order (matplotlib fills columns, hence the reordering); kept left of the share
+# column so legend and column header never read as one
+handles = [handles[0], handles[2], handles[1], handles[3]]
+fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(L / W - 0.012, 1.0), ncol=2, frameon=False,
+           handlelength=1.1, handleheight=1.0, handletextpad=0.4, columnspacing=1.4, labelspacing=0.3,
+           borderaxespad=0.15)
 
 out = os.environ["PO_OUT"]
 fig.savefig(out, dpi=300, facecolor="white")

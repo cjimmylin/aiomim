@@ -1,0 +1,7 @@
+[
+  {
+    "round": 1,
+    "critic_suggestions": "Content: every drawn count matches log Sec. 3 first table (1,329/245/134/122; 1,420/46/632/2,159; 38/0/53/288; row totals 1,837/4,282/379; share column 49%/2%/0%); contradicted 7/25/0 (line below the second table) not drawn, so bars end at 99.6/99.4/100%. No caption text in the image. Presentation: (1) the one-row legend ran over the share column, so 'Missed, not stated' sat directly on top of 'Stated, share of missed' and read as one block; (2) the Full-text 'not stated' segment (122) and the Abstract-only 'stated' sliver (46) were unlabelled, the sliver looking like a separator; (3) hatch direction/colour and x-axis wording differed from fig_access_bound panel (b), whose availability categories this figure reuses. Fix: 2 x 2 legend kept left of the column, axes widened (margins 0.82/0.80 in) so 122 fits inside, 46 placed just above its sliver, hatch '\\\\\\\\' in #8C8C8C and x label '% of fixed facts' with ticks 0-100 as in panel (b).",
+    "changed": true
+  }
+]

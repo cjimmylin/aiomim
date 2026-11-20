@@ -45,7 +45,7 @@ C5 11).
 Group headings (log wording): C4's and C6's expected outcome is a pass ("the claim takes the best cited
 paper's verdict"; "the audit judges only what is written") -> heading "Not visible to the audit by design".
 The remaining classes are planted errors the audit is meant to flag -> "Errors the audit should catch".
-Controls -> "Unaltered control (re-audited)".
+Controls -> "Unaltered control" (critic round 1 dropped "(re-audited)", which is caption material).
 
 Deviation from outline: the outline lists one control (0/113); the single-value row (Sec. 11) has its own
 control (0/60), which the section text also reports, so it is drawn as a second control row. Outcome-based
@@ -57,7 +57,8 @@ not a sensitivity estimate, controls passed once before, all items in evidence-g
 
 ## Stylist
 
-- Print width 3.0 in (0.55 x 5.5 in text width), designed at 1:1 so pt sizes are final; height ~2.6 in
+- Print width 3.0 in (0.55 x 5.5 in text width), designed at 1:1 so pt sizes are final; saved image 2.98 x 2.52 in
+  after tight crop (figsize 3.0 x 2.59; critic round 1 moved the k/n column left so the crop stays under 3.0 in); height ~2.6 in
   (13 rows + 3 headings need ~9.5 pt line pitch at 7 pt text; the outline's 4:3 would force ~8.5 pt pitch).
 - Font: Liberation Sans (Arial metrics), sans-serif. Every text element 7 pt; headings 7 pt bold.
 - Colours: greys only (no strategy colour; all items are evidence-graph paragraphs, but the figure compares
