@@ -1,0 +1,154 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "summary.schema.json",
+ "title": "Summary of the OpenAI second-model-family study",
+ "type": "object",
+ "required": [
+  "spec_version",
+  "study",
+  "openai_model",
+  "generated_at",
+  "bundle_id",
+  "files",
+  "completion",
+  "agreement",
+  "A1",
+  "B1",
+  "stated_facts",
+  "conveyed_facts",
+  "hidden_fulltext",
+  "usage",
+  "redactions"
+ ],
+ "properties": {
+  "spec_version": {
+   "const": "1.0"
+  },
+  "study": {
+   "const": "openai_second_model"
+  },
+  "openai_model": {
+   "type": "string"
+  },
+  "generated_at": {
+   "type": "string"
+  },
+  "phase": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "bundle_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "files": {
+   "type": "object"
+  },
+  "completion": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "object",
+     "required": [
+      "complete",
+      "incomplete",
+      "stopped",
+      "failed",
+      "unfinished"
+     ],
+     "properties": {
+      "complete": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "incomplete": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "stopped": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "failed": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unfinished": {
+       "type": "integer",
+       "minimum": 0
+      }
+     },
+     "additionalProperties": false
+    }
+   }
+  },
+  "agreement": {
+   "type": "object",
+   "required": [
+    "A1",
+    "A3",
+    "A2",
+    "claude_self_baseline"
+   ]
+  },
+  "A1": {
+   "type": "object",
+   "required": [
+    "entries",
+    "n_entries",
+    "coverage",
+    "versus_direct"
+   ]
+  },
+  "B1": {
+   "type": "object",
+   "required": [
+    "entries",
+    "n_entries",
+    "coverage",
+    "versus_direct",
+    "writer_effect"
+   ]
+  },
+  "stated_facts": {
+   "type": "object",
+   "required": [
+    "entries",
+    "n_entries"
+   ]
+  },
+  "conveyed_facts": {
+   "type": "object",
+   "required": [
+    "n_entries"
+   ]
+  },
+  "hidden_fulltext": {
+   "type": "object",
+   "required": [
+    "A3",
+    "B2"
+   ]
+  },
+  "usage": {
+   "type": "object",
+   "required": [
+    "by_wave",
+    "by_task_kind",
+    "totals"
+   ]
+  },
+  "redactions": {
+   "type": "object",
+   "required": [
+    "drafts",
+    "spans"
+   ]
+  }
+ }
+}

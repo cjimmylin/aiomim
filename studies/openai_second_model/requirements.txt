@@ -1,0 +1,3 @@
+# The kit's extra packages (the project itself: pip install -e . from the repository root).
+openai>=1.66        # Batch API with /v1/responses; any current release
+jsonschema>=4.18    # validate (Draft 2020-12)

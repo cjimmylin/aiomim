@@ -1,0 +1,291 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "draft.schema.json",
+ "title": "A draft written by the OpenAI model, in the project's GeneratedEntry format (aiomim.models)",
+ "description": "Paragraph checks are empty: the OpenAI drafts are not audited. No judge material.",
+ "type": "object",
+ "required": [
+  "mim",
+  "entry_type",
+  "title",
+  "relationships",
+  "intro",
+  "sections",
+  "inheritance",
+  "clinical_synopsis",
+  "allelic_variants",
+  "references",
+  "meta"
+ ],
+ "properties": {
+  "mim": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "prefix": {
+   "type": "string"
+  },
+  "entry_type": {
+   "enum": [
+    "phenotype",
+    "gene"
+   ]
+  },
+  "title": {
+   "type": "string"
+  },
+  "alt_titles": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "symbol": {
+   "type": "string"
+  },
+  "relationships": {
+   "type": "array",
+   "items": {
+    "type": "object"
+   }
+  },
+  "intro": {
+   "anyOf": [
+    {
+     "type": "object",
+     "required": [
+      "text",
+      "pmids"
+     ],
+     "properties": {
+      "id": {
+       "type": "string"
+      },
+      "text": {
+       "type": "string"
+      },
+      "pmids": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "audit_pmids": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "finding_ids": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "checks": {
+       "type": "array",
+       "maxItems": 0
+      },
+      "secondhand_pmids": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     "additionalProperties": false
+    },
+    {
+     "type": "null"
+    }
+   ]
+  },
+  "sections": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "paragraphs"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "heading": {
+      "type": "string"
+     },
+     "paragraphs": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "text",
+        "pmids"
+       ],
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "text": {
+         "type": "string"
+        },
+        "pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "audit_pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "finding_ids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "checks": {
+         "type": "array",
+         "maxItems": 0
+        },
+        "secondhand_pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       },
+       "additionalProperties": false
+      }
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  "inheritance": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "clinical_synopsis": {
+   "type": "array",
+   "items": {
+    "type": "object"
+   }
+  },
+  "allelic_variants": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "paragraphs"
+    ],
+    "properties": {
+     "number": {
+      "type": "integer"
+     },
+     "gene_symbol": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "hgvs": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "phenotype": {
+      "type": "string"
+     },
+     "paragraphs": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "text",
+        "pmids"
+       ],
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "text": {
+         "type": "string"
+        },
+        "pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "audit_pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "finding_ids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "checks": {
+         "type": "array",
+         "maxItems": 0
+        },
+        "secondhand_pmids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       },
+       "additionalProperties": false
+      }
+     }
+    },
+    "additionalProperties": false
+   }
+  },
+  "references": {
+   "type": "array",
+   "items": {
+    "type": "object"
+   }
+  },
+  "meta": {
+   "type": "object",
+   "not": {
+    "anyOf": [
+     {
+      "required": [
+       "audit"
+      ]
+     },
+     {
+      "required": [
+       "gold_text"
+      ]
+     },
+     {
+      "required": [
+       "gold_text_frozen"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "additionalProperties": false
+}

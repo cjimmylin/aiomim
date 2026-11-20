@@ -1,0 +1,234 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "availability.schema.json",
+ "title": "Availability of each fixed fact in the text supplied for its paper, by both judges",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "spec_version",
+  "mim",
+  "openai_model",
+  "status",
+  "counts",
+  "facts"
+ ],
+ "properties": {
+  "spec_version": {
+   "const": "1.0"
+  },
+  "mim": {
+   "type": "string",
+   "pattern": "^[0-9]{6}$"
+  },
+  "openai_model": {
+   "type": "string"
+  },
+  "status": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "frozen",
+    "conveyed"
+   ],
+   "properties": {
+    "frozen": {
+     "enum": [
+      "complete",
+      "incomplete",
+      "stopped",
+      "failed",
+      "pending",
+      "waiting",
+      "error",
+      null
+     ]
+    },
+    "conveyed": {
+     "enum": [
+      "complete",
+      "incomplete",
+      "stopped",
+      "failed",
+      "pending",
+      "waiting",
+      "error",
+      null
+     ]
+    }
+   }
+  },
+  "counts": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "openai",
+    "claude"
+   ],
+   "properties": {
+    "openai": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "yes",
+      "partly",
+      "no",
+      "unjudged"
+     ],
+     "properties": {
+      "yes": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "partly": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "no": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unjudged": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    },
+    "claude": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "yes",
+      "partly",
+      "no",
+      "unjudged"
+     ],
+     "properties": {
+      "yes": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "partly": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "no": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unjudged": {
+       "type": "integer",
+       "minimum": 0
+      }
+     }
+    }
+   }
+  },
+  "facts": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "paragraph",
+     "content_level",
+     "openai",
+     "claude",
+     "claude_direct_mark"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}\\.[0-9]+$"
+     },
+     "paragraph": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{0,12}$"
+     },
+     "content_level": {
+      "enum": [
+       "fulltext",
+       "abstract",
+       "title",
+       "not_retrieved",
+       null
+      ]
+     },
+     "openai": {
+      "enum": [
+       "yes",
+       "partly",
+       "no",
+       "unjudged",
+       null
+      ]
+     },
+     "claude": {
+      "enum": [
+       "yes",
+       "partly",
+       "no",
+       "unjudged",
+       null
+      ]
+     },
+     "claude_direct_mark": {
+      "enum": [
+       "present",
+       "partial",
+       "absent",
+       "contradicted",
+       "unjudged",
+       null
+      ]
+     },
+     "rechecked": {
+      "type": "boolean"
+     },
+     "claude_other": {
+      "enum": [
+       "yes",
+       "partly",
+       "no",
+       "unjudged",
+       "no_other_papers",
+       null
+      ]
+     },
+     "openai_other": {
+      "enum": [
+       "yes",
+       "partly",
+       "no",
+       "unjudged",
+       "no_other_papers",
+       null
+      ]
+     },
+     "claude_class": {
+      "enum": [
+       "stated",
+       "partly_stated",
+       "stated_elsewhere",
+       "partly_elsewhere",
+       "not_in_supplied_text",
+       "unjudged",
+       null
+      ]
+     },
+     "class_with_openai_other": {
+      "enum": [
+       "stated",
+       "partly_stated",
+       "stated_elsewhere",
+       "partly_elsewhere",
+       "not_in_supplied_text",
+       "unjudged",
+       null
+      ]
+     }
+    }
+   }
+  }
+ }
+}

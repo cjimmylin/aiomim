@@ -1,0 +1,279 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "marks.schema.json",
+ "title": "Fixed-fact marks of one draft by the OpenAI judge, with Claude's marks for comparison",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "spec_version",
+  "task",
+  "mim",
+  "strategy",
+  "status",
+  "openai_model",
+  "draft",
+  "claude_marks_of",
+  "claude_source",
+  "counts",
+  "facts"
+ ],
+ "properties": {
+  "spec_version": {
+   "const": "1.0"
+  },
+  "task": {
+   "enum": [
+    "A1",
+    "A3",
+    "B1",
+    "B2"
+   ]
+  },
+  "mim": {
+   "type": "string",
+   "pattern": "^[0-9]{6}$"
+  },
+  "strategy": {
+   "enum": [
+    "direct",
+    "agent",
+    "kg",
+    "cohort",
+    "recall",
+    "closedbook",
+    "fulltext_before_repair",
+    "abstract",
+    "secondhand",
+    "fulltext"
+   ]
+  },
+  "status": {
+   "enum": [
+    "complete",
+    "incomplete",
+    "stopped",
+    "failed",
+    "pending",
+    "waiting",
+    "error",
+    null
+   ]
+  },
+  "writer_status": {
+   "enum": [
+    "complete",
+    "incomplete",
+    "stopped",
+    "failed",
+    "pending",
+    "waiting",
+    "error",
+    null
+   ]
+  },
+  "openai_model": {
+   "type": "string"
+  },
+  "draft": {
+   "enum": [
+    "claude_main_run",
+    "claude_hidden_fulltext",
+    "openai"
+   ]
+  },
+  "claude_marks_of": {
+   "enum": [
+    "same_draft",
+    "claude_draft_same_strategy",
+    "claude_draft_same_arm"
+   ]
+  },
+  "claude_source": {
+   "type": "string",
+   "maxLength": 300
+  },
+  "counts": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "openai",
+    "claude"
+   ],
+   "properties": {
+    "openai": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "additionalProperties": false,
+     "required": [
+      "present",
+      "partial",
+      "absent",
+      "contradicted",
+      "n_judged",
+      "unjudged",
+      "coverage"
+     ],
+     "properties": {
+      "present": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "partial": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "absent": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "contradicted": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "n_judged": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unjudged": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "coverage": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "maximum": 1
+      }
+     }
+    },
+    "claude": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "additionalProperties": false,
+     "required": [
+      "present",
+      "partial",
+      "absent",
+      "contradicted",
+      "n_judged",
+      "unjudged",
+      "coverage"
+     ],
+     "properties": {
+      "present": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "partial": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "absent": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "contradicted": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "n_judged": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "unjudged": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "coverage": {
+       "type": [
+        "number",
+        "null"
+       ],
+       "minimum": 0,
+       "maximum": 1
+      }
+     }
+    }
+   }
+  },
+  "facts": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "paragraph",
+     "content_level",
+     "openai",
+     "claude"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}\\.[0-9]+$"
+     },
+     "paragraph": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{0,12}$"
+     },
+     "content_level": {
+      "enum": [
+       "fulltext",
+       "abstract",
+       "title",
+       "not_retrieved",
+       null
+      ]
+     },
+     "openai": {
+      "enum": [
+       "present",
+       "partial",
+       "absent",
+       "contradicted",
+       "unjudged",
+       null
+      ]
+     },
+     "claude": {
+      "enum": [
+       "present",
+       "partial",
+       "absent",
+       "contradicted",
+       "unjudged",
+       null
+      ]
+     },
+     "claude_j1": {
+      "enum": [
+       "present",
+       "partial",
+       "absent",
+       "contradicted",
+       "unjudged",
+       null
+      ]
+     },
+     "claude_j2": {
+      "enum": [
+       "present",
+       "partial",
+       "absent",
+       "contradicted",
+       "unjudged",
+       null
+      ]
+     }
+    }
+   }
+  }
+ }
+}

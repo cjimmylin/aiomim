@@ -1,0 +1,5 @@
+# Everything that can hold paper text, prompts, replies or OMIM-derived wording stays out of git.
+private/
+*.tar.gz
+*.tar.gz.sha256
+*.jsonl
