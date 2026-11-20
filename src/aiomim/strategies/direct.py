@@ -54,7 +54,9 @@ from ..synthesize import (
     DSynopsisItem,
     _gene_reference,
     _header,
+    direct_prompt,
     draft_to_entry,
+    has_content,
     synthesize_direct,
 )
 
@@ -471,8 +473,30 @@ def draft_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHAR
         "merge": merge_stats,
     }}
     truncated = [pmid for _, t in built for pmid in t]
-    return draft_to_entry(seed, papers, merged, llm, strategy="direct", gene_facts=gene_facts,
-                          meta={"truncated_papers": truncated, **meta})
+    return merged, gene_facts, {"truncated_papers": truncated, **meta}
+
+
+def run_batched(seed: Seed, papers: list[Paper], llm, budget: int = BATCH_CHARS) -> GeneratedEntry:
+    merged, gene_facts, meta = draft_batched(seed, papers, llm, budget)
+    return draft_to_entry(seed, papers, merged, llm, strategy="direct", gene_facts=gene_facts, meta=meta)
+
+
+def draft(seed: Seed, papers: list[Paper], llm, system: str = DIRECT_SYSTEM) -> tuple[DEntry, dict, dict]:
+    """Direct reading's draft before the guards: (draft, nomenclature facts, meta).
+
+    Exactly the writer calls `run` makes (one prompt, or batches above the budget),
+    so with the default `system` the replies of earlier direct-reading runs are
+    read from the cache. For strategies that start from, or vary, direct reading's
+    draft; `meta` holds `truncated_papers` and `direct_batching` as `run` records them.
+    A stopped writer raises `LLMRefusal`, as in `run`.
+    """
+    if needs_batching(papers):
+        return draft_batched(seed, papers, llm, system=system)
+    prompt, truncated, gene_facts = direct_prompt(seed, papers)
+    raw = llm.call("synthesize", system, prompt, DEntry, accept=has_content)
+    return raw, gene_facts, {"truncated_papers": truncated,
+                             "direct_batching": {"used": False, "threshold_chars": DIRECT_TOTAL_CHARS,
+                                                 "source_chars": source_chars(papers)}}
 
 
 def run(seed: Seed, papers: list[Paper], llm, out_dir: Path) -> GeneratedEntry:
