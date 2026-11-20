@@ -740,8 +740,8 @@
    "Anuradha Mathrani",
    "Teo Susnjak"
   ],
-  "venue": "arXiv preprint arXiv:2507.15152",
-  "year": 2025,
+  "venue": "Research Synthesis Methods",
+  "year": 2026,
   "abstract": "Automating data extraction from full-text randomised controlled trials (RCTs) for meta-analysis remains a significant challenge. This study evaluates the practical performance of three LLMs (Gemini-2.0-flash, Grok-3, GPT-4o-mini) across tasks involving statistical results, risk-of-bias assessments, and study-level characteristics in three medical domains: hypertension, diabetes, and orthopaedics. We tested four distinct prompting strategies (basic prompting, self-reflective prompting, model ensemble, and customised prompts) to determine how to improve extraction quality. All models demonstrate high precision but consistently suffer from poor recall by omitting key information. We found that customised prompts were the most effective, boosting recall by up to 15\\%. Based on this analysis, we propose a three-tiered set of guidelines for using LLMs in data extraction, matching data types to appropriate levels of automation based on task complexity and risk. Our study offers practical advice for automating data extraction in real-world meta-analyses, balancing LLM efficiency with expert oversight through targeted, task-specific automation.",
   "sections": [
    "Related Work: 2.2 Intermediate representations versus long-context reading",
@@ -1731,27 +1731,6 @@
    "4. Experiments - 4.3 Reading better within what access allows"
   ]
  },
- "Wang2024GeneagentSelfverification": {
-  "citation_key": "Wang2024GeneagentSelfverification",
-  "title": "GeneAgent: Self-verification Language Agent for Gene Set Knowledge Discovery using Domain Databases",
-  "authors": [
-   "Zhizheng Wang",
-   "Qiao Jin",
-   "Chih-Hsuan Wei",
-   "Shubo Tian",
-   "Po-Ting Lai",
-   "Qingqing Zhu",
-   "Chi-Ping Day",
-   "Christina Ross",
-   "Zhiyong Lu"
-  ],
-  "venue": "arXiv preprint arXiv:2405.16205",
-  "year": 2024,
-  "abstract": "Gene set knowledge discovery is essential for advancing human functional genomics. Recent studies have shown promising performance by harnessing the power of Large Language Models (LLMs) on this task. Nonetheless, their results are subject to several limitations common in LLMs such as hallucinations. In response, we present GeneAgent, a first-of-its-kind language agent featuring self-verification capability. It autonomously interacts with various biological databases and leverages relevant domain knowledge to improve accuracy and reduce hallucination occurrences. Benchmarking on 1,106 gene sets from different sources, GeneAgent consistently outperforms standard GPT-4 by a significant margin. Moreover, a detailed manual review confirms the effectiveness of the self-verification module in minimizing hallucinations and generating more reliable analytical narratives. To demonstrate its practical utility, we apply GeneAgent to seven novel gene sets derived from mouse B2905 melanoma cell lines, with expert evaluations showing that GeneAgent offers novel insights into gene functions and subsequently expedites knowledge discovery.",
-  "sections": [
-   "Related Work: 2.1 Language models for literature curation in genetics and biology"
-  ]
- },
  "Wei2019PubtatorCentral": {
   "citation_key": "Wei2019PubtatorCentral",
   "title": "PubTator central: automated concept annotation for biomedical full text articles",
@@ -1767,39 +1746,6 @@
   "sections": [
    "Introduction",
    "Related Work: 2.1 Language models for literature curation in genetics and biology"
-  ]
- },
- "Wei2026ReframingAi": {
-  "citation_key": "Wei2026ReframingAi",
-  "title": "Reframing AI for Rare Disease Recognition",
-  "authors": [
-   "Wei-Qi Wei",
-   "Chao Yan",
-   "Wu-Chen Su",
-   "Yi Xin",
-   "Monika Grabowska",
-   "Vern Kerchberger",
-   "Victor Borza",
-   "Jinlian Wang",
-   "Liwei Wang",
-   "Rui Li",
-   "Jacob Lynn",
-   "Alyson Dickson",
-   "Cathy Shyr",
-   "QiPing Feng",
-   "C Stein",
-   "Kai Wang",
-   "Peter Embí",
-   "Bradley Malin",
-   "Hongfang Liu"
-  ],
-  "venue": "Springer Science and Business Media LLC",
-  "year": 2026,
-  "abstract": "Abstract Rare diseases affect over 300 million people worldwide, yet patients often endure years-long diagnostic delays that limit timely intervention and trial opportunities. Computational rare disease recognition (RDR) remains constrained by knowledge resources that are often incomplete, heterogeneous, and dependent on extensive multi-disciplinary expert curation that cannot scale. Large language models (LLMs) applied directly for end-to-end diagnosis or disease discrimination face similar knowledge bottlenecks while also raising concerns around cost, reproducibility, and data governance. Here, we introduce GEN-KnowRD, a knowledge-layer-first framework that leverages LLMs to generate schema-guided rare disease profiles, systematically assesses their quality, and constructs a computable knowledge base (PheMAP-RD) for local deployment. GEN-KnowRD integrates this knowledge into lightweight inference pipelines for both general-purpose disease screening and specialized early discrimination from longitudinal electronic health records. In tests using six public benchmarks for general-purpose screening (9,290 patients spanning 798 rare diseases), GEN-KnowRD substantially improved disease ranking versus 1) a state-of-the-art, HPO-centered diagnostic framework (up to 345.8% improvement in top-1 success), 2) advanced end-to-end LLM reasoning (up to 129.1% improvement), and 3) a variant of GEN-KnowRD instantiated with expert-curated knowledge rather than LLM-generated profiles. In two ... [Truncated]",
-  "sections": [
-   "Related Work: 2.1 Language models for literature curation in genetics and biology",
-   "Related Work: 2.3 Memory, verification and contamination",
-   "Introduction"
   ]
  },
  "Weng2022LargeLanguage": {
