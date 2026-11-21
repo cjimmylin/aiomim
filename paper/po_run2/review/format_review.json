@@ -1,0 +1,3 @@
+{"figure_and_tables": {"Figure 1": {"detected_issue": "None", "suggested_fix": "None"}, "Figure 2": {"detected_issue": "None", "suggested_fix": "None"}, "Figure 3": {"detected_issue": "None", "suggested_fix": "None"}, "Figure 4": {"detected_issue": "None", "suggested_fix": "None"}, "Table 1": {"detected_issue": "None", "suggested_fix": "None"}, "Appendix floats": {"detected_issue": "None (0 overfull hboxes at compile)", "suggested_fix": "None"}},
+ "other_issues": [],
+ "main_text_pages": 10, "page_limit": 10}

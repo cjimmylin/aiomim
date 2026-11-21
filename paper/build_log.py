@@ -131,6 +131,34 @@ then verify.
     return "\n".join(out)
 
 
+def itt_coincidence() -> str:
+    """The evidence graph's better/worse/tied counts in the missing-as-zero table are the same on two measures; say
+    that this is a coincidence of the totals, recomputed from the per-entry scores."""
+    from aiomim import compare as c
+    run = RUNS / "omim100"
+    evals = c.load_evals(run)
+    paths = {m[0]: m[2] for m in c.METRICS}
+    folders = sorted(set().union(*[set(v) for v in evals.values()]))
+
+    def sign(key: str, f: str):
+        a = c._get(evals["kg"][f], paths[key]) if f in evals["kg"] else 0.0
+        b = c._get(evals["direct"][f], paths[key]) if f in evals["direct"] else 0.0
+        if a is None or b is None:
+            return None
+        d = a - b
+        return 1 if d > 1e-9 else (-1 if d < -1e-9 else 0)
+
+    pairs = [(sign(c.PRIMARY, f), sign("hpo_exact_f1", f)) for f in folders]
+    pairs = [(x, y) for x, y in pairs if x is not None and y is not None]
+    counts = lambda i: (sum(1 for p in pairs if p[i] > 0), sum(1 for p in pairs if p[i] < 0),  # noqa: E731
+                        sum(1 for p in pairs if p[i] == 0))
+    differ = sum(1 for x, y in pairs if x != y)
+    return (f"Note (recomputed from the per-entry scores): in the table above, the evidence graph's better / worse / tied "
+            f"counts against direct reading are the same on OMIM facts conveyed and on HPO F1 exact "
+            f"({'/'.join(map(str, counts(0)))} and {'/'.join(map(str, counts(1)))}), but the per-entry signs differ on "
+            f"{differ} of {len(pairs)} entries: the equal totals are a coincidence, not a copied row.")
+
+
 def direct_improvements() -> str:
     """Section 15: improving on direct reading (docs/direct-improvements.md), from its result file."""
     path = ROOT / "results/direct_improve/direct_improve.md"
@@ -157,7 +185,15 @@ lowered. Code names: `direct` direct reading; `direct_checklist` D1; `direct_com
     body = []
     for line in read(path).splitlines():
         body.append("##" + line if line.startswith("#") else line)
-    out = head + "\nFrom `results/direct_improve/direct_improve.md`.\n\n" + "\n".join(body).strip() + "\n"
+    design = read(ROOT / "docs/direct-improvements.md")
+    start, stop = design.index("## Where direct reading loses facts"), design.index("## Evaluation design")
+    background = "\n".join("#" + ln if ln.startswith("#") else ln
+                            for ln in design[start:stop].strip().splitlines())
+    out = (head + "\nThe analysis that chose the arms, copied from `docs/direct-improvements.md` (its sections "
+           "\"Where direct reading loses facts\", \"Ten approaches\" and \"Ranking and choice\", headings lowered; "
+           "its figures come from the stored files of the main run, no new model calls; expected effects in the "
+           "ranking are estimates, not measurements).\n\n" + background + "\n\n"
+           + "From `results/direct_improve/direct_improve.md`.\n\n" + "\n".join(body).strip() + "\n")
     sens = ROOT / "results/direct_improve/sensitivity.md"
     if sens.exists():
         lines = read(sens).splitlines()
@@ -712,6 +748,8 @@ paired difference.
 ### 2.4 Sensitivity: all 100 entries, a missing draft counted as zero
 
 {section(main, 'Sensitivity: every entry')}
+
+{itt_coincidence()}
 
 ### 2.5 Pooled counts
 
