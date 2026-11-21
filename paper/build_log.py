@@ -568,7 +568,23 @@ def papers_in_scope() -> dict:
                 any_ft += n
                 any_entries.add(d.name)
                 mixed += n if para["content_level"] != "fulltext" else 0
-    return {"any_ft": any_ft, "any_ft_entries": len(any_entries), "min_ft": min_ft, "min_ft_entries": len(min_entries),
+    sizes = sorted(sum(int(p.get("n_chars") or 0) for p in json.loads((d / "papers.json").read_text()))
+                   for d in (RUNS / "omim100").iterdir() if d.is_dir() and d.name.isdigit()
+                   and (d / "papers.json").exists())
+    import statistics
+    q = statistics.quantiles(sizes, n=4)
+    cut = {}
+    for d in sorted(p for p in (RUNS / "omim100").iterdir() if p.is_dir() and p.name.isdigit()):
+        en = d / "entry.direct.json"
+        if en.exists():
+            meta = json.loads(en.read_text()).get("meta") or {}
+            if meta.get("truncated_papers"):
+                cut[d.name] = len(meta["truncated_papers"])
+            if (meta.get("direct_batching") or {}).get("used"):
+                raise RuntimeError(f"{d.name}: direct reading used batches; the log's sentence says it did not")
+    return {"cut": cut, "size_n": len(sizes), "size_median": statistics.median(sizes), "size_q1": q[0], "size_q3": q[2],
+            "size_min": sizes[0], "size_max": sizes[-1],
+            "any_ft": any_ft, "any_ft_entries": len(any_entries), "min_ft": min_ft, "min_ft_entries": len(min_entries),
             "mixed": mixed,
             "total": total, "scored": scored, "eligible": len(eligible),
             "hidden": sum(ft_by_entry[m] for m in eligible), "outside_papers": sum(outside.values()),
@@ -634,7 +650,13 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
   curator paragraph is about (so the primary endpoint can see what a draft says about them; computed from the run's
   files): {sum(sc['scored'].values())} of {sum(sc['total'].values())} ({sc['scored']['fulltext']} of
   {sc['total']['fulltext']} readable in full, {sc['scored']['abstract']} of {sc['total']['abstract']} abstract only,
-  {sc['scored']['title']} of {sc['total']['title']} title only).
+  {sc['scored']['title']} of {sc['total']['title']} title only). Characters supplied per entry (title, abstract and
+  full text of every cited paper, as in section 14.1; computed from the run's files): median {sc['size_median']:,.0f},
+  quartiles {sc['size_q1']:,.0f} and {sc['size_q3']:,.0f}, range {sc['size_min']:,} to {sc['size_max']:,}
+  ({sc['size_n']} entries). Direct reading wrote every entry from one prompt (no batches); in
+  {len(sc['cut'])} entries one paper was cut to its share of the prompt
+  ({', '.join(f"{m}: {n} paper" for m, n in sc['cut'].items())}; the rule is in section 14.1, "Caps that truncated
+  the input").
 - **Input to every strategy.** The entry's number, title and alternative titles, and exactly the papers the entry
   cites. The causal gene is withheld.
 - **Reference (gold standard), all from public resources.**

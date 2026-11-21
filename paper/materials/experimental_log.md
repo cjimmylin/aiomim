@@ -19,7 +19,13 @@ Intervals are 95% bootstrap intervals over entries (10,000 resamples). "Points" 
   curator paragraph is about (so the primary endpoint can see what a draft says about them; computed from the run's
   files): 327 of 515 (81 of
   96 readable in full, 221 of 345 abstract only,
-  25 of 74 title only).
+  25 of 74 title only). Characters supplied per entry (title, abstract and
+  full text of every cited paper, as in section 14.1; computed from the run's files): median 20,504,
+  quartiles 4,776 and 65,404, range 1,126 to 177,882
+  (100 entries). Direct reading wrote every entry from one prompt (no batches); in
+  2 entries one paper was cut to its share of the prompt
+  (251950: 1 paper, 611521: 1 paper; the rule is in section 14.1, "Caps that truncated
+  the input").
 - **Input to every strategy.** The entry's number, title and alternative titles, and exactly the papers the entry
   cites. The causal gene is withheld.
 - **Reference (gold standard), all from public resources.**
