@@ -62,7 +62,8 @@ From the evidence review (expected effects are estimates, not measurements):
 | 4 | Second-hand descriptions | small; already measured (+1.8 on 96 entries, with more unsupported claims) | not repeated |
 | 5 | Sampling ensemble with a merge | small to moderate (+1.5–2.5; oracle ceiling +3.3) | **tested (D3)** |
 | 6 | Per-paper writing, then assembly | none to small; measured as the matched evidence graph (+1.8) | not repeated |
-| 7–10 | Layout and quotes first; more effort; few-shot examples; question-driven filling | none to small | not tested |
+| 7–10 | Layout and quotes first; more effort; few-shot examples; question-driven filling (an approach from the evidence review's longer list, `docs/direct-improvements-evidence.md` item 10, not in the table of ten above) | none to small | not tested |
+| – | Supplementary material (table item 2; omitted from this ranking when it was first written) | small (+0.5–1.5 in the evidence review) | not tested: the pipeline's full texts exclude supplements |
 
 The three tested approaches act on different causes of a miss: D1 on what the writer thinks a curator records, D2 on
 attention to each paper, D3 on which facts a single run happens to pick.
