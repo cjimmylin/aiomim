@@ -912,7 +912,7 @@ variant-centred, so this is a lower bound on agreement with the entry.
 Twelve entries, 536 papers (29 readable in full, 407 abstracts, 100 titles). Not drawn exactly as the main set: one
 creation-era band has no entry. Only one entry exceeded the single-prompt budget used for direct reading (600,000
 characters); direct reading split it into two batches, one of which was stopped, so that entry has no direct-reading
-draft. OMIM paragraphs exist for a minority of each entry's references (3–19 papers per entry). Intervals on about ten
+draft. OMIM paragraphs exist for a minority of each entry's references (2–19 papers per entry; section 14.1, "refs scored"). Intervals on about ten
 entries are unreliable. This tier tests many papers, not much text.
 
 10 entries, each written in full by every strategy from the same papers and put through the same audit and scoring. Means over entries; ↑ higher is better, ↓ lower is better. The primary endpoint is **OMIM facts conveyed**; the other headline measures are secondary.
@@ -1068,7 +1068,9 @@ The 30 entries were chosen by creation date alone: the newest qualifying entries
 ## 13. Total model usage
 
 All experiments, pilots and re-scoring: 45,291 cached model calls, 338 million input and
-82 million output tokens, about $3,587 at list price.
+82 million output tokens, about $3,587 at list price. Counted from the project's model cache when
+this log was built, so the total includes the runs of sections 14 and 15 and the released systems' calls (their
+adapter uses the same cache); a stopped reply is cached and counted as a call.
 
 ## 14. Second round of experiments (20-21 November 2026)
 

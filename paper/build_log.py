@@ -1011,7 +1011,7 @@ variant-centred, so this is a lower bound on agreement with the entry.
 Twelve entries, 536 papers (29 readable in full, 407 abstracts, 100 titles). Not drawn exactly as the main set: one
 creation-era band has no entry. Only one entry exceeded the single-prompt budget used for direct reading (600,000
 characters); direct reading split it into two batches, one of which was stopped, so that entry has no direct-reading
-draft. OMIM paragraphs exist for a minority of each entry's references (3–19 papers per entry). Intervals on about ten
+draft. OMIM paragraphs exist for a minority of each entry's references (2–19 papers per entry; section 14.1, "refs scored"). Intervals on about ten
 entries are unreliable. This tier tests many papers, not much text.
 
 {first_para(lg)}
@@ -1094,7 +1094,9 @@ on 2, and the evidence graph lost a paper on 7.
 ## 13. Total model usage
 
 All experiments, pilots and re-scoring: {calls:,} cached model calls, {inp / 1e6:.0f} million input and
-{out / 1e6:.0f} million output tokens, about ${cost:,.0f} at list price.
+{out / 1e6:.0f} million output tokens, about ${cost:,.0f} at list price. Counted from the project's model cache when
+this log was built, so the total includes the runs of sections 14 and 15 and the released systems' calls (their
+adapter uses the same cache); a stopped reply is cached and counted as a call.
 """)
     parts.append(second_round())
     parts.append(direct_improvements())
